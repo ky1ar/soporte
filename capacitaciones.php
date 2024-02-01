@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/fav.png">
+    <title>Krear 3D | Capacitaciones</title>
+    <?php require_once 'header.php'; ?>
+</head>
+<body>
+    <div id="ky1-bar">
+        <div class="ky1-wrp bar-enl"> 
+            <a href="https://api.whatsapp.com/send?phone=51934760404" target="_blank" rel="nofollow"><img src="assets/img/wsp.svg" width="16" height="16" alt="ico">934 760 404</a>
+            <a href="https://api.whatsapp.com/send?phone=51982001288" target="_blank" rel="nofollow"><img src="assets/img/wsp.svg" width="16" height="16" alt="ico">982 001 288</a>
+            <a href="mailto:ventas2@krear3d.com" target="_blank" rel="nofollow"><img src="assets/img/eml.svg" width="16" height="16" alt="ico">ventas2@krear3d.com</a>
+            <a href="https://bit.ly/2ZzWUeK" target="_blank" rel="nofollow"><img src="assets/img/map.svg" width="16" height="16" alt="ico">Calle Javier Fernández 262 Miraflores - Lima</a>
+        </div>
+    </div>
+
+    <header id="ky1-hdr">
+        <div class="ky1-wrp">
+            <a href="/"><img class="hdr-lgo" width="150" height="42" src="assets/img/logod.webp" alt="Logo Krear 3D"></a>
+            <ul>
+                <li><a href="#">Consultar</a></li>
+                <li><a href="capacitaciones">Capacitaciones</a></li>
+                <li><a href="#">Conocimiento</a></li>
+                <li><a href="#">Cursos</a></li>
+            </ul>
+            <a class="hdr-lnk" href="https://tiendakrear3d.com/">Tienda<img class="hdr-wsp" width="16" height="16" src="assets/img/tnd.svg" alt="ico"></a>
+            <?php
+            /*<div class="hdr-lft">
+                <a href="admin.php">Administrador</a>
+                <a href="login.php">Login</a>
+            </div>*/
+            ?>
+        </div>
+    </header>
+    <section id="ky1-cap">
+        <div class="ky1-wrp">
+            <div class="cap-cnt">
+                <div class="cap-lft">
+                    <img src="assets/img/cap.svg" alt="ico" width="64" height="64">
+                    <h1>Agenda tu Capacitación Personalizada</h1>
+                    <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
+                    <p>Por favor, ten en cuenta los siguientes puntos al agendar tu capacitación:</p>
+                    <ul>
+                        <li>Selecciona la fecha y el horario disponibles.</li>
+                        <li>Asegúrate de tener tu cámara y micrófono listos.</li>
+                        <li>Conéctate puntualmente, con una tolerancia de 10 minutos.</li>
+                    </ul>
+                </div>
+                <div class="cap-rgt">
+                    <div class="cap-cld">
+                        <div class="cap-hdr">
+                            <button>Hoy</button>
+                            <?php
+                            setlocale(LC_TIME, 'es_ES'); // Establece la configuración regional a español
+
+                            $mes_actual = date('n');
+                            $anio_actual = date('Y');
+                            $dia_hoy = date('j');
+
+                            if (isset($_GET['mes']) && isset($_GET['anio'])) {
+                                $mes_actual = $_GET['mes'];
+                                $anio_actual = $_GET['anio'];
+                            }
+
+                            $mes_siguiente = $mes_actual + 1;
+                            $anio_siguiente = $anio_actual;
+                            if ($mes_siguiente > 12) {
+                                $mes_siguiente = 1;
+                                $anio_siguiente++;
+                            }
+
+                            $mes_anterior = $mes_actual - 1;
+                            $anio_anterior = $anio_actual;
+                            if ($mes_anterior < 1) {
+                                $mes_anterior = 12;
+                                $anio_anterior--;
+                            }
+
+                            $primer_dia = mktime(0, 0, 0, $mes_actual, 1, $anio_actual);
+                            $num_dias = date('t', $primer_dia);
+                            $dia_semana = date('w', $primer_dia);
+
+                            $num_dias_anterior = date('t', mktime(0, 0, 0, $mes_anterior, 1, $anio_anterior));
+                            $primer_dia_siguiente = mktime(0, 0, 0, $mes_siguiente, 1, $anio_siguiente);
+
+                            echo '<span>' . strftime('%B %Y', $primer_dia) . '</span>'; // Utiliza strftime para obtener el nombre del mes en español
+                            echo '<div class="cap-btn">';
+                            echo '<a href="?mes=' . $mes_anterior . '&anio=' . $anio_anterior . '"> < </a> | ';
+                            echo '<a href="?mes=' . $mes_siguiente . '&anio=' . $anio_siguiente . '"> > </a>';
+                            echo '</div>';
+                            ?>
+                        </div>
+                        <ul class="cld-box">
+                            <li>dom</li>
+                            <li>lun</li>
+                            <li>mar</li>
+                            <li>mié</li>
+                            <li>jue</li>
+                            <li>vie</li>
+                            <li>sáb</li>
+                        </ul>
+                        <ul class="cld-box">
+                        <?php
+                        for ($i = $num_dias_anterior - $dia_semana + 1; $i <= $num_dias_anterior; $i++) {
+                            echo '<li></li>';
+                        }
+
+                        for ($dia = 1; $dia <= $num_dias; $dia++) {
+                            if ($dia_semana != 0 && $dia_semana != 6) {
+                                echo '<li><a href="" class="ky1-slc-day ' . ($dia == $dia_hoy ? 'ky1-day' : '') . '">' . $dia . '</a></li>';
+                            } else {
+                                echo '<li><span>' . $dia . '</span></li>';
+                            }
+                            $dia_semana++;
+                            if ($dia_semana == 7) {
+                                $dia_semana = 0;
+                            }
+                        }
+                        ?>
+                        </ul>
+                    </div>
+                    <div class="ky1-slc-hou">
+                        <div class="hou-hdr">
+                            Lunes 15 de enero
+                        </div>
+                        <ul>
+                            <li><a href="">09:30</a></li>
+                            <li><a href="">16:00</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="ftr-top">
+            <div class="ky1-wrp">
+                <div class="ftr-itm">
+                    <img class="ftr-lgo" width="152" height="38" src="assets/img/logo.webp" alt="Krear 3D">
+                    <ul>
+                        <li><p>Calle Javier Fernandez - Miraflores - Lima</p></li>
+                        <li><p>Lu - Sa de 9:00 am a 6:00 pm</p></li>
+                    </ul>
+                </div>
+    
+                <div class="ftr-itm">
+                    <b>ATENCION AL CLIENTE</b>
+                    <ul>
+                        <li><a href="mailto:atencionalcliente@krear3d.com" target="_blank" rel="nofollow noopener">atencionalcliente@krear3d.com</a></li>
+                        <li><p>Lu - Vi de 9:00 am a 6:00 pm</p></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=51981104030" target="_blank" rel="nofollow noopener"><img src="assets/img/wsp.svg" alt="Whatsapp" width="12" height="12">&nbsp;981 104 030</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ftr-bot">
+            <div class="ky1-wrp">
+                <ul>
+                    <li><a href="/terminos/terminos-condiciones-y-garantia/">POLÍTICAS Y CONDICIONES</a></li>
+                    <li><a href="/terminos/politicas-de-garantia-y-soporte-tecnico/">POLÍTICAS DE GARANTÍA</a></li>
+                    <li><a href="/terminos/politicas-de-envios-lima-y-provincias/">POLÍTICAS DE ENVÍOS</a></li>
+                </ul>
+                
+                <span class="ftr-cpy">Fabricaciones Digitales del Perú S.A. | RUC 20556316890<br>Krear 3D © 2023. Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
