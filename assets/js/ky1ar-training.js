@@ -20,7 +20,12 @@ $( document ).ready(function() {
    // var firstDayNum = date.getDay() + 1; 
 
     function loadCalendar(offset) {
-        
+        var today = new Date();
+        var offsetMoth = date.getMonth() + offset;
+        if (offsetMoth < today.getMonth() || offsetMoth > (today.getMonth() + 2)) {
+            return;
+        }
+
         date.setMonth(date.getMonth() + offset);
 
         var formatedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);

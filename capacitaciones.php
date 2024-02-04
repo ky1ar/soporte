@@ -65,7 +65,7 @@ setlocale(LC_TIME, 'es_ES');
                             <button>Hoy</button>
                             <span><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
                             <div class="cap-btn">
-                                <div class="btn" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                                <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                                 <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                             </div>
                         </div>

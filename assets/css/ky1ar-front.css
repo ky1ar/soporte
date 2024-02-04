@@ -70,6 +70,10 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     justify-content: center;
     align-items: center;
 }
+#ky1-cap .cap-rgt .cap-btn .btn.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
 #ky1-cap .cap-rgt .cap-btn .btn img {
     opacity: 0.5;
 }
