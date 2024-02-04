@@ -71,12 +71,28 @@ $( document ).ready(function() {
         });
     }
 
-    $('.ky1-slc-day').on('click', function(e) {
-        e.preventDefault(); 
+    const calendarDiv = $('#calendarDiv');
+    const scheduleSelector = $('#scheduleSelector');
+
+    $('.boxDay').on('click', function() {
         
-        $('.cap-cld').hide();
-        $('.ky1-slc-hou').show();
-        
+        calendarDiv.hide();
+        scheduleSelector.show();
+        var formatedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+
+        $.ajax({
+            url: 'loadSchedule',
+            method: 'POST',
+            data: { 
+                date: formatedDate
+            },
+            success: function(response) {
+                scheduleSelector.html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
         var frm = $(this).closest('form');
         
         var orders = frm.find('.ky1-oid').val();

@@ -55,7 +55,7 @@ setlocale(LC_TIME, 'es_ES');
                     </ul>
                 </div>
                 <div class="cap-rgt">
-                    <div class="cap-cld">
+                    <div class="cap-cld" id="calendarDiv">
                         <?php
                         $today = date('d');
                         $firstDay = date('Y-m-01');
@@ -96,7 +96,7 @@ setlocale(LC_TIME, 'es_ES');
                             ?>
                         </ul>
                     </div>
-                    <div class="ky1-slc-hou">
+                    <div class="ky1-slc-hou" id="scheduleSelector">
                         <div class="hou-hdr">
                             Lunes 15 de enero
                         </div>

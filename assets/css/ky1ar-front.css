@@ -121,6 +121,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     position: relative;
     border-radius: 2rem;
     border: 1px solid var(--tertiary);
+    cursor: pointer;
 }
 #ky1-cap .cap-rgt .cld-box li .boxDay:hover {
     background-color: var(--primaryopacity);
