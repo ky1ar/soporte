@@ -57,11 +57,11 @@ require_once 'db.php';
                         <div class="cap-hdr">
                             <button>Hoy</button>
                             <?php
-                           // echo '<span>' . strftime('%B %Y', $primer_dia) . '</span>'; // Utiliza strftime para obtener el nombre del mes en español
+                           /* echo '<span>' . strftime('%B %Y', $primer_dia) . '</span>'; // Utiliza strftime para obtener el nombre del mes en español
                             echo '<div class="cap-btn">';
                             echo '<a href="?mes=' . $mes_anterior . '&anio=' . $anio_anterior . '"> < </a> | ';
                             echo '<a href="?mes=' . $mes_siguiente . '&anio=' . $anio_siguiente . '"> > </a>';
-                            echo '</div>';
+                            echo '</div>';*/
                             ?>
                         </div>
                         <ul class="cld-box">
