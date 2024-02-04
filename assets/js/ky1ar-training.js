@@ -22,7 +22,7 @@ $( document ).ready(function() {
     calendarNext.click(function(){
         var offsetMonth = date.getMonth() + 1;
         var maxMonth = today.getMonth() + 2;
-        if (offsetMonth > maxMonth) {
+        if (offsetMonth <= maxMonth) {
             loadCalendar(1);
             calendarPrev.removeClass('disabled');
         } else {
