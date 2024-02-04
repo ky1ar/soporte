@@ -84,10 +84,10 @@ require_once 'db.php';
                                 echo '<li></li>';
                             }
                             
-                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('2024-02-01') AND MONTH(calendar_date) = MONTH('2024-02-01')";
+                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$fst_day') AND MONTH(calendar_date) = MONTH('$fst_day')";
                             $result = $conn->query($sql);
                             while ($row = $result->fetch_assoc()): ?>
-                                <li><a href="" class="ky1-slc-day"><?php echo $row['calendar_date'] ?></a></li>
+                                <li><a href="" class="ky1-slc-day"><?php echo date('d', strtotime($row['calendar_date'])) ?></a></li>
                             <?php endwhile;
 
                             /*SET @fecha_hoy = '2024-02-07'; -- Establece la fecha de hoy
