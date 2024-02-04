@@ -64,7 +64,7 @@ setlocale(LC_TIME, 'es_ES');
                         <div class="cap-hdr">
                             <button>Hoy</button>
                             <?php
-                           echo '<span>' . strftime('%B %Y', $firstDay) . '</span>'; 
+                           echo '<span>' . strftime('%B %Y', strtotime($firstDay)) . '</span>'; 
                             echo '<div class="cap-btn">';
                             echo '<a href=""> < </a> | ';
                             echo '<a href=""> > </a>';
