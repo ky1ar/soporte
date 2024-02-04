@@ -1,3 +1,6 @@
+<?php
+require_once 'db.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,38 +57,6 @@
                         <div class="cap-hdr">
                             <button>Hoy</button>
                             <?php
-                            setlocale(LC_TIME, 'es_ES'); // Establece la configuración regional a español
-
-                            $mes_actual = date('n');
-                            $anio_actual = date('Y');
-                            $dia_hoy = date('j');
-
-                            if (isset($_GET['mes']) && isset($_GET['anio'])) {
-                                $mes_actual = $_GET['mes'];
-                                $anio_actual = $_GET['anio'];
-                            }
-
-                            $mes_siguiente = $mes_actual + 1;
-                            $anio_siguiente = $anio_actual;
-                            if ($mes_siguiente > 12) {
-                                $mes_siguiente = 1;
-                                $anio_siguiente++;
-                            }
-
-                            $mes_anterior = $mes_actual - 1;
-                            $anio_anterior = $anio_actual;
-                            if ($mes_anterior < 1) {
-                                $mes_anterior = 12;
-                                $anio_anterior--;
-                            }
-
-                            $primer_dia = mktime(0, 0, 0, $mes_actual, 1, $anio_actual);
-                            $num_dias = date('t', $primer_dia);
-                            $dia_semana = date('w', $primer_dia);
-
-                            $num_dias_anterior = date('t', mktime(0, 0, 0, $mes_anterior, 1, $anio_anterior));
-                            $primer_dia_siguiente = mktime(0, 0, 0, $mes_siguiente, 1, $anio_siguiente);
-
                             echo '<span>' . strftime('%B %Y', $primer_dia) . '</span>'; // Utiliza strftime para obtener el nombre del mes en español
                             echo '<div class="cap-btn">';
                             echo '<a href="?mes=' . $mes_anterior . '&anio=' . $anio_anterior . '"> < </a> | ';
@@ -103,22 +74,36 @@
                             <li>sáb</li>
                         </ul>
                         <ul class="cld-box">
-                        <?php
-                        for ($i = $num_dias_anterior - $dia_semana + 1; $i <= $num_dias_anterior; $i++) {
-                            echo '<li></li>';
-                        }
+                            <?php
+                            date_default_timezone_set('America/Bogota');
 
-                        for ($dia = 1; $dia <= $num_dias; $dia++) {
-                            if ($dia_semana != 0 && $dia_semana != 6) {
-                                echo '<li><a href="" class="ky1-slc-day ' . ($dia == $dia_hoy ? 'ky1-day' : '') . '">' . $dia . '</a></li>';
-                            } else {
-                                echo '<li><span>' . $dia . '</span></li>';
+                            $fst_day = date('Y-m-01');
+                            $num_day = date('N', strtotime($fst_day));
+
+                            for ($i = 0; $i < $num_day; $i++) {
+                                echo '<li></li>';
                             }
-                            $dia_semana++;
-                            if ($dia_semana == 7) {
-                                $dia_semana = 0;
-                            }
-                        }
+                            
+                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR($fst_day) AND MONTH(calendar_date) = MONTH($fst_day)";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_assoc()): ?>
+                                <li><a href="" class="ky1-slc-day"><?php echo $row['calendar_date'] ?></a></li>
+                            <?php endwhile;
+
+                            /*SET @fecha_hoy = '2024-02-07'; -- Establece la fecha de hoy
+
+
+                            for ($dia = 1; $dia <= $days; $dia++) {
+                                if ($n_day != 0 && $n_day != 6) {
+                                    echo '<li><a href="" class="ky1-slc-day ' . ($dia == $tday ? 'ky1-day' : '') . '">' . $dia . '</a></li>';
+                                } else {
+                                    echo '<li><span>' . $dia . '</span></li>';
+                                }
+                                $n_day++;
+                                if ($n_day == 7) {
+                                    $n_day = 0;
+                                }
+                            }*/
                         ?>
                         </ul>
                     </div>
@@ -172,3 +157,41 @@
     </footer>
 </body>
 </html>
+
+<?php/*
+SELECT
+    calendar.t_date,
+    COUNT(DISTINCT COALESCE(cs.id, ds.id)) AS avl,
+    MAX(cs.enabled) AS estado_enabled
+FROM (
+    SELECT DATE('2024-02-01') + INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY AS t_date
+    FROM
+        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a
+        CROSS JOIN 
+        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b
+        CROSS JOIN 
+        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS c
+    WHERE DATE('2024-02-01') + INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY BETWEEN '2024-02-01' AND '2024-02-29'
+) AS calendar
+LEFT JOIN Custom_Schedule AS cs ON calendar.t_date = cs.t_date
+LEFT JOIN Default_Schedule AS ds ON DAYOFWEEK(calendar.t_date) = ds.t_day
+GROUP BY calendar.t_date
+ORDER BY calendar.t_date;
+
+
+SELECT 
+    DAYOFWEEK('2024-02-01') AS day_of_week, 
+    COALESCE(MAX(cs.h_start), ds.h_start) AS h_start, 
+    COALESCE(MAX(cs.h_end), ds.h_end) AS h_end 
+FROM 
+    Default_Schedule AS ds 
+LEFT JOIN 
+    Custom_Schedule AS cs ON cs.t_date = '2024-02-01' AND ds.t_day = DAYOFWEEK('2024-02-01')
+GROUP BY 
+    ds.h_start, ds.h_end;
+
+
+
+SELECT DAYOFWEEK('2024-02-01') AS day_of_week, ds.h_start, ds.h_end FROM Default_Schedule AS ds WHERE ds.t_day = DAYOFWEEK('2024-02-01');
+
+SELECT DAYOFWEEK('2024-02-01') AS day_of_week, COALESCE(MAX(cs.h_start), ds.h_start) AS h_start, COALESCE(MAX(cs.h_end), ds.h_end) AS h_end FROM Default_Schedule AS ds LEFT JOIN Custom_Schedule AS cs ON cs.t_date = '2024-02-01' AND ds.t_day = DAYOFWEEK('2024-02-01') GROUP BY ds.h_start, ds.h_end;
