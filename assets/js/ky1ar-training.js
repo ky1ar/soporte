@@ -52,7 +52,7 @@ $( document ).ready(function() {
         var splitDate = formatedDate.split('-');
         var month = splitDate[1];
         var month = months[parseInt(month, 10) - 1];
-        var firstDayNum = date.getDay() + 1;
+        var firstDayNum = date.getDay();
 
         $.ajax({
             url: 'loadCalendar',
