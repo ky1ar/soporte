@@ -9,13 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         $state = $row['state'];
-        $fecha = new DateTime($date);
-        $dia_semana = $fecha->format('l');
-        $dia_mes = $fecha->format('j');
-        $mes = $fecha->format('F');
-        $año = $fecha->format('Y');
 
-        $a = $dia_semana . ', ' . $dia_mes . ' de ' . $mes . ' del ' . $año;
+        $dias = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+        $meses = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
+        $fecha = new DateTime($date);
+        $diaNombre = $dias[$fecha->format('w')];
+        $diaMes = $fecha->format('j');
+        $mes = $meses[$fecha->format('n') - 1];
+        $año = $fecha->format('Y');
+        $a = $diaNombre . ', ' . $diaMes . ' de ' . $mes . ' del ' . $año;
+
         echo '<div class="hou-hdr">'.$a.'</div>';
 
         echo '<ul>';
