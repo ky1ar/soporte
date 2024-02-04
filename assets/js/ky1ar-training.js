@@ -74,7 +74,7 @@ $( document ).ready(function() {
     const calendarDiv = $('#calendarDiv');
     const scheduleSelector = $('#scheduleSelector');
 
-    $('.boxDay').on('click', function() {
+    $(document).on('click', '.boxDay', function() {
         
         calendarDiv.hide();
         scheduleSelector.show();
