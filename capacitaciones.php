@@ -61,7 +61,7 @@ require_once 'db.php';
                             echo '<div class="cap-btn">';
                             echo '<a href="?mes=' . $mes_anterior . '&anio=' . $anio_anterior . '"> < </a> | ';
                             echo '<a href="?mes=' . $mes_siguiente . '&anio=' . $anio_siguiente . '"> > </a>';
-                            echo '</div>';*/
+                            echo '</div>';*/    
                             ?>
                         </div>
                         <ul class="cld-box">
@@ -84,7 +84,7 @@ require_once 'db.php';
                                 echo '<li></li>';
                             }
                             
-                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR($fst_day) AND MONTH(calendar_date) = MONTH($fst_day)";
+                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('2024-02-01') AND MONTH(calendar_date) = MONTH('2024-02-01')";
                             $result = $conn->query($sql);
                             while ($row = $result->fetch_assoc()): ?>
                                 <li><a href="" class="ky1-slc-day"><?php echo $row['calendar_date'] ?></a></li>
