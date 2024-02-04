@@ -63,7 +63,7 @@ setlocale(LC_TIME, 'es_ES');
                         ?>
                         <div class="cap-hdr">
                             <button>Hoy</button>
-                            <span><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
+                            <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
                             <div class="cap-btn">
                                 <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                                 <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>

@@ -2,29 +2,41 @@ $( document ).ready(function() {
     
     const calendarPrev = $('#calendarPrev');
     const calendarNext = $('#calendarNext');
+    const monthName = $('#monthName');
+
+    var date = new Date();
+    var today = new Date();
+    date.setDate(1);
+    var months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
     calendarPrev.click(function(){
-        loadCalendar(-1);
+        var offsetMonth = date.getMonth() - 1;
+        if (offsetMonth < today.getMonth()) {
+            loadCalendar(-1);
+            calendarNext.removeClass('disabled');
+        } else {
+            $(this).addClass('disabled');
+        }
     });
 
     calendarNext.click(function(){
-        loadCalendar(1);
+        var offsetMonth = date.getMonth() + 1;
+        var maxMonth = today.getMonth() + 2;
+        if (offsetMonth > maxMonth) {
+            loadCalendar(1);
+            calendarPrev.removeClass('disabled');
+        } else {
+            $(this).addClass('disabled');
+        }
     });
 
     /*$('.hdr-mdl').click(function(){
         loadCalendar(0);
     });*/
-    var date = new Date();
-    date.setDate(1);
-    var months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    
    // var firstDayNum = date.getDay() + 1; 
 
     function loadCalendar(offset) {
-        var today = new Date();
-        var offsetMoth = date.getMonth() + offset;
-        if (offsetMoth < today.getMonth() || offsetMoth > (today.getMonth() + 2)) {
-            return;
-        }
 
         date.setMonth(date.getMonth() + offset);
 
@@ -32,7 +44,7 @@ $( document ).ready(function() {
         var splitDate = formatedDate.split('-');
         var month = splitDate[1];
         var month = months[parseInt(month, 10) - 1];
-        
+        monthName.text(month);
         console.log(formatedDate);
         /*$.ajax({
             url: 'reload',
