@@ -90,7 +90,7 @@ setlocale(LC_TIME, 'es_ES');
                                 
                                 echo '<li>';
                                 if ( $dayNum < $today || $state == 0 ) { echo '<span>' . $dayNum . '</span>'; } 
-                                else { echo '<div class="boxDay">' . $dayNum . '</div>'; }
+                                else { echo '<div class="boxDay" data-day="">' . $dayNum . '</div>'; }
                                 echo '</li>';
                             }
                             ?>

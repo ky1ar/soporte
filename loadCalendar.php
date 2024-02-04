@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $state = $row['state'];
         
         echo '<li>';
-        if ( $state == 0 ) { echo '<span>' . $dayNum . '</span>'; } 
-        else { echo '<a href="" class="ky1-slc-day">' . $dayNum . '</a>'; }
+        if ( $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
+        else { echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>'; }
         echo '</li>';
     }
 }

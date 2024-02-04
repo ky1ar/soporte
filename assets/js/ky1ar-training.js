@@ -78,7 +78,11 @@ $( document ).ready(function() {
         
         calendarDiv.hide();
         scheduleSelector.show();
-        var formatedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+
+        var dayNumber = $(this).attr('data-day');
+        var temporal = date;
+        temporal.setDate(dayNumber);
+        var formatedDate = temporal.getFullYear() + '-' + ('0' + (temporal.getMonth() + 1)).slice(-2) + '-' + ('0' + temporal.getDate()).slice(-2);
 
         $.ajax({
             url: 'loadSchedule',
