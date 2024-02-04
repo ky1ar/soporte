@@ -10,7 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     while ($row = $result->fetch_assoc()) {
         $state = $row['state'];
         $fecha = new DateTime($date);
-        echo '<div class="hou-hdr">'.$fecha->format('l').'</div>';
+        $dia_semana = $fecha->format('l');
+        $dia_mes = $fecha->format('j');
+        $mes = $fecha->format('F');
+        $año = $fecha->format('Y');
+
+        $a = $dia_semana . ', ' . $dia_mes . ' de ' . $mes . ' del ' . $año;
+        echo '<div class="hou-hdr">'.$a.'</div>';
 
         echo '<ul>';
         if ($state == 2) {
