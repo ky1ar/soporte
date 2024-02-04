@@ -96,15 +96,7 @@ setlocale(LC_TIME, 'es_ES');
                             ?>
                         </ul>
                     </div>
-                    <div class="ky1-slc-hou" id="scheduleSelector">
-                        <div class="hou-hdr">
-                            Lunes 15 de enero
-                        </div>
-                        <ul>
-                            <li><a href="">09:30</a></li>
-                            <li><a href="">16:00</a></li>
-                        </ul>
-                    </div>
+                    <div class="ky1-slc-hou" id="scheduleSelector"></div>
                 </div>
             </div>
         </div>
