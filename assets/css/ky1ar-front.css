@@ -57,13 +57,22 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     align-items: center;
 }
 #ky1-cap .cap-rgt .cap-btn {
-
+    display: flex;
+    gap: 0.5rem;
 }
 #ky1-cap .cap-rgt .cap-btn .btn {
-    
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    cursor: pointer;
+    opacity: 0.75;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#ky1-cap .cap-rgt .cap-btn .btn img {
-    
+#ky1-cap .cap-rgt .cap-btn .btn + .btn img {
+    transform: rotate(180deg);
 }
 #ky1-cap .cap-rgt .cap-hdr button {
     background-color: #fff;
