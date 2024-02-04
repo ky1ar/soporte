@@ -77,18 +77,26 @@ require_once 'db.php';
                             <?php
                             date_default_timezone_set('America/Bogota');
 
-                            $fst_day = date('Y-m-01');
-                            $num_day = date('N', strtotime($fst_day));
+                            $today = date('d');
+                            $firstDay = date('Y-m-01');
+                            $firstDayNum = date('N', strtotime($firstDay));
 
-                            for ($i = 0; $i < $num_day; $i++) {
-                                echo '<li></li>';
-                            }
+                            for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
                             
-                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$fst_day') AND MONTH(calendar_date) = MONTH('$fst_day')";
+                            $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$firstDay') AND MONTH(calendar_date) = MONTH('$firstDay')";
                             $result = $conn->query($sql);
-                            while ($row = $result->fetch_assoc()): ?>
-                                <li><a href="" class="ky1-slc-day"><?php echo date('d', strtotime($row['calendar_date'])) ?></a></li>
-                            <?php endwhile;
+                            while ($row = $result->fetch_assoc()) {
+                                $dayNum = date('d', strtotime($row['calendar_date']));
+                                $state = $row['state'];
+                                
+                                echo '<li>';
+                                if ( $dayNum < $today || $state == 0 ) {
+                                    echo '<span>' . $dayNum . '</span>';
+                                } else {
+                                    echo '<a href="" class="ky1-slc-day">' . $dayNum . '</a>';
+                                }
+                                echo '</li>';
+                            }
 
                             /*SET @fecha_hoy = '2024-02-07'; -- Establece la fecha de hoy
 
