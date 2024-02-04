@@ -1,5 +1,7 @@
 <?php
 require_once 'db.php';
+date_default_timezone_set('America/Bogota');
+setlocale(LC_TIME, 'es_ES');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -54,14 +56,19 @@ require_once 'db.php';
                 </div>
                 <div class="cap-rgt">
                     <div class="cap-cld">
+                        <?php
+                        $today = date('d');
+                        $firstDay = date('Y-m-01');
+                        $firstDayNum = date('N', strtotime($firstDay));
+                        ?>
                         <div class="cap-hdr">
                             <button>Hoy</button>
                             <?php
-                           /* echo '<span>' . strftime('%B %Y', $primer_dia) . '</span>'; // Utiliza strftime para obtener el nombre del mes en español
+                           echo '<span>' . strftime('%B %Y', $firstDay) . '</span>'; 
                             echo '<div class="cap-btn">';
-                            echo '<a href="?mes=' . $mes_anterior . '&anio=' . $anio_anterior . '"> < </a> | ';
-                            echo '<a href="?mes=' . $mes_siguiente . '&anio=' . $anio_siguiente . '"> > </a>';
-                            echo '</div>';*/    
+                            echo '<a href=""> < </a> | ';
+                            echo '<a href=""> > </a>';
+                            echo '</div>';   
                             ?>
                         </div>
                         <ul class="cld-box">
@@ -75,11 +82,6 @@ require_once 'db.php';
                         </ul>
                         <ul class="cld-box">
                             <?php
-                            date_default_timezone_set('America/Bogota');
-
-                            $today = date('d');
-                            $firstDay = date('Y-m-01');
-                            $firstDayNum = date('N', strtotime($firstDay));
 
                             for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
                             
@@ -97,21 +99,6 @@ require_once 'db.php';
                                 }
                                 echo '</li>';
                             }
-
-                            /*SET @fecha_hoy = '2024-02-07'; -- Establece la fecha de hoy
-
-
-                            for ($dia = 1; $dia <= $days; $dia++) {
-                                if ($n_day != 0 && $n_day != 6) {
-                                    echo '<li><a href="" class="ky1-slc-day ' . ($dia == $tday ? 'ky1-day' : '') . '">' . $dia . '</a></li>';
-                                } else {
-                                    echo '<li><span>' . $dia . '</span></li>';
-                                }
-                                $n_day++;
-                                if ($n_day == 7) {
-                                    $n_day = 0;
-                                }
-                            }*/
                         ?>
                         </ul>
                     </div>
