@@ -1,7 +1,6 @@
 <?php
 require_once 'db.php';
-date_default_timezone_set('America/Bogota');
-setlocale(LC_TIME, 'es_ES');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
 
     $date = $_POST['date'];
@@ -10,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         $state = $row['state'];
-
+        date_default_timezone_set('America/Bogota');
         $formatedDate = date('l, j \de F \del Y', strtotime($date));
         echo '<div class="hou-hdr">'.$formatedDate.'</div>';
 
