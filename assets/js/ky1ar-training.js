@@ -76,8 +76,8 @@ $( document ).ready(function() {
 
     $(document).on('click', '.boxDay', function() {
         
-        calendarDiv.hide();
-        scheduleSelector.show();
+        calendarDiv.fadeOut();
+        scheduleSelector.fadeIn();
 
         var dayNumber = $(this).attr('data-day');
         var temporal = date;

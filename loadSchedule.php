@@ -10,16 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     while ($row = $result->fetch_assoc()) {
         $state = $row['state'];
 
-        $dias = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
-        $meses = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
-        $fecha = new DateTime($date);
-        $diaNombre = $dias[$fecha->format('w')];
-        $diaMes = $fecha->format('j');
-        $mes = $meses[$fecha->format('n') - 1];
-        $año = $fecha->format('Y');
-        $a = $diaNombre . ', ' . $diaMes . ' de ' . $mes . ' del ' . $año;
-
-        echo '<div class="hou-hdr">'.$a.'</div>';
+        $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+        $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
+        $formatedDate = new DateTime($date);
+        $dayName = $days[$formatedDate->format('w')];
+        $dayMonth = $formatedDate->format('j');
+        $month = $months[$formatedDate->format('n') - 1];
+        $year = $formatedDate->format('Y');
+        $formatedDate = $dayName . ', ' . $dayMonth . ' de ' . $month . ' del ' . $year;
+        echo '<div class="hou-hdr">'.$formatedDate.'</div>';
 
         echo '<ul>';
         if ($state == 2) {
