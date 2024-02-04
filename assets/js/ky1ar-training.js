@@ -3,6 +3,7 @@ $( document ).ready(function() {
     const calendarPrev = $('#calendarPrev');
     const calendarNext = $('#calendarNext');
     const calendarToday = $('#calendarToday');
+    const calendarTable = $('#calendarTable');
     const monthName = $('#monthName');
 
     var date = new Date();
@@ -47,27 +48,27 @@ $( document ).ready(function() {
             date.setMonth(date.getMonth() + offset);
         }
        
-
         var formatedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
         var splitDate = formatedDate.split('-');
         var month = splitDate[1];
         var month = months[parseInt(month, 10) - 1];
+        var firstDayNum = date.getDay() + 1;
 
-        monthName.text(month + ' ' + date.getFullYear());
-        console.log(formatedDate);
-        /*$.ajax({
-            url: 'reload',
+        $.ajax({
+            url: 'loadCalendar',
             method: 'POST',
-            data: { fecha: formatedDate },
+            data: { 
+                date: formatedDate,
+                day: firstDayNum 
+            },
             success: function(response) {
-                $('.lst-dat').html(response);
-                $('.hdr-mdl').text(t_date);
-                $('.hdr-mdl').attr('data-day', formatedDate);
+                calendarTable.html(response);
+                monthName.text(month + ' ' + date.getFullYear());
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
-        });*/
+        });
     }
 
     $('.ky1-slc-day').on('click', function(e) {

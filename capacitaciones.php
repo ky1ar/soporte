@@ -78,7 +78,7 @@ setlocale(LC_TIME, 'es_ES');
                             <li>vie</li>
                             <li>sáb</li>
                         </ul>
-                        <ul class="cld-box">
+                        <ul class="cld-box" id="calendarTable">
                             <?php
 
                             for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
