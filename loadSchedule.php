@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     while ($row = $result->fetch_assoc()) {
         $state = $row['state'];
         $fecha = new DateTime($date);
-        echo '<div class="hou-hdr">'.$fecha->format('l, j \de F \del Y').'</div>';
+        echo '<div class="hou-hdr">'.$fecha->format('l').'</div>';
 
         echo '<ul>';
         if ($state == 2) {
