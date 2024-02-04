@@ -25,7 +25,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #ky1-cap .cap-cnt {
     padding: 3rem;
     justify-content: space-around;
-    align-items: center;
     border-radius: 0.75rem;
     box-shadow: 0 0 0.25rem var(--graydark);
     background-color: var(--white);

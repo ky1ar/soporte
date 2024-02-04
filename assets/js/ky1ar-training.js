@@ -76,8 +76,8 @@ $( document ).ready(function() {
 
     $(document).on('click', '.boxDay', function() {
         
-        calendarDiv.fadeOut();
-        scheduleSelector.fadeIn();
+        calendarDiv.slideUp();
+        scheduleSelector.slideDown();
 
         var dayNumber = $(this).attr('data-day');
         var temporal = date;
@@ -97,28 +97,8 @@ $( document ).ready(function() {
                 console.error(xhr.responseText);
             }
         });
-        var frm = $(this).closest('form');
-        
-        var orders = frm.find('.ky1-oid').val();
-        var worker = frm.find('.ky1-wrk').val();
-        var type = frm.find('.ky1-typ').val();
-        var paid = frm.find('.ky1-pid').val();
-        var origin = frm.find('.ky1-ori').val();
-        
-        /*$.ajax({
-            url: 'updOrderData.php',
-            method: 'POST',
-            data: { orders: orders, worker: worker, type: type, paid: paid, origin: origin },
-            success: function(response) {
-                var jsonData = JSON.parse(response);
-                if (jsonData.success) {
-                    window.location.href = 'grid';
-                } 
-            }
-        });*/
     });
 
-    
 });
 
 
