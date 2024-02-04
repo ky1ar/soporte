@@ -1,0 +1,161 @@
+/*
+Theme Name: ky1ar
+Theme URI: https://krear3d.com
+Author: Kenny Muñoz Serafin
+Author URI: https://munoz.pe
+Description: Tema personalizado para Krear 3D
+Version: 0.01
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+#ky1-cap {
+	background-color: var(--gray);
+    background-image: url(whirlpool.png);
+    box-shadow: inset 0 0 0.25rem var(--graydark);
+	padding: 1rem 0;
+}
+#ky1-cap .ky1-wrp {
+	max-width: 75rem;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	gap: 2rem;
+}
+#ky1-cap .cap-cnt {
+    padding: 3rem;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 0.25rem var(--graydark);
+    background-color: var(--white);
+    display: flex;
+}
+#ky1-cap .cap-lft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 45%;
+}
+#ky1-cap .cap-lft h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin: 1rem 0;
+    gap: 0.5rem;
+}
+#ky1-cap .cap-lft p {
+    margin: 0;
+}
+#ky1-cap .cap-rgt {
+    width: 28rem;
+}
+#ky1-cap .cap-rgt .cap-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#ky1-cap .cap-rgt .cap-btn {
+
+}
+#ky1-cap .cap-rgt .cap-btn .btn {
+    
+}
+#ky1-cap .cap-rgt .cap-btn .btn img {
+    
+}
+#ky1-cap .cap-rgt .cap-hdr button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+}
+#ky1-cap .cap-rgt .cap-hdr span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+#ky1-cap .cap-rgt .cap-hdr .cap-btn button {
+    padding: 0.5rem;
+}
+#ky1-cap .cap-rgt .cld-box {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+#ky1-cap .cap-rgt .cld-box li {
+    width: 14.25%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#ky1-cap .cap-rgt .cld-box li a {
+    font-weight: 600;
+    color: var(--black);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 2rem;
+    border: 1px solid var(--tertiary);
+}
+#ky1-cap .cap-rgt .cld-box li a:hover {
+    background-color: var(--primaryopacity);
+}
+#ky1-cap .cap-rgt .cld-box li a.ky1-day::before {
+    content: "";
+    background-color: var(--primary);
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    border-radius: 1rem;
+    bottom: 0.35rem;
+}
+#ky1-cap .cap-rgt .cld-box li span {
+    opacity: 0.5;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ky1-cap .cap-rgt .ky1-slc-hou {
+    display: none;
+}
+#ky1-cap .cap-rgt .hou-hdr {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem; 
+}
+#ky1-cap .cap-rgt .ky1-slc-hou ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 1rem;
+}
+#ky1-cap .cap-rgt .ky1-slc-hou ul li a {
+    font-size: 1rem;
+    padding: 0.75rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 2rem;
+    border: 1px solid var(--tertiary);
+    font-weight: 600;
+    color: var(--black);
+}
+

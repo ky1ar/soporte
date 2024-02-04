@@ -10,7 +10,7 @@ setlocale(LC_TIME, 'es_ES');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav.png">
     <title>Krear 3D | Capacitaciones</title>
-    <?php require_once 'header.php'; ?>
+    <?php require_once 'header_front.php'; ?>
 </head>
 <body>
     <div id="ky1-bar">
@@ -63,13 +63,11 @@ setlocale(LC_TIME, 'es_ES');
                         ?>
                         <div class="cap-hdr">
                             <button>Hoy</button>
-                            <?php
-                           echo '<span>' . strftime('%B %Y', strtotime($firstDay)) . '</span>'; 
-                            echo '<div class="cap-btn">';
-                            echo '<a href=""> < </a> | ';
-                            echo '<a href=""> > </a>';
-                            echo '</div>';   
-                            ?>
+                            <span><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
+                            <div class="cap-btn">
+                                <div class="btn"><img width="16" height="16" src="assets/img/arrow.svg" alt=""></div>
+                                <div class="btn"><img width="16" height="16" src="assets/img/arrow.svg" alt=""></div>
+                            </div>
                         </div>
                         <ul class="cld-box">
                             <li>dom</li>
