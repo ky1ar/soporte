@@ -110,7 +110,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     justify-content: center;
     align-items: center;
 }
-#ky1-cap .cap-rgt .cld-box li a {
+#ky1-cap .cap-rgt .cld-box li .boxDay {
     font-weight: 600;
     color: var(--black);
     width: 3rem;
@@ -122,10 +122,10 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     border-radius: 2rem;
     border: 1px solid var(--tertiary);
 }
-#ky1-cap .cap-rgt .cld-box li a:hover {
+#ky1-cap .cap-rgt .cld-box li .boxDay:hover {
     background-color: var(--primaryopacity);
 }
-#ky1-cap .cap-rgt .cld-box li a.ky1-day::before {
+#ky1-cap .cap-rgt .cld-box li .boxDay.ky1-day::before {
     content: "";
     background-color: var(--primary);
     width: 0.5rem;

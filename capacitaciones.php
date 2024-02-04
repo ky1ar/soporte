@@ -80,7 +80,6 @@ setlocale(LC_TIME, 'es_ES');
                         </ul>
                         <ul class="cld-box" id="calendarTable">
                             <?php
-
                             for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
                             
                             $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$firstDay') AND MONTH(calendar_date) = MONTH('$firstDay')";
@@ -90,14 +89,11 @@ setlocale(LC_TIME, 'es_ES');
                                 $state = $row['state'];
                                 
                                 echo '<li>';
-                                if ( $dayNum < $today || $state == 0 ) {
-                                    echo '<span>' . $dayNum . '</span>';
-                                } else {
-                                    echo '<a href="" class="ky1-slc-day">' . $dayNum . '</a>';
-                                }
+                                if ( $dayNum < $today || $state == 0 ) { echo '<span>' . $dayNum . '</span>'; } 
+                                else { echo '<div class="boxDay">' . $dayNum . '</div>'; }
                                 echo '</li>';
                             }
-                        ?>
+                            ?>
                         </ul>
                     </div>
                     <div class="ky1-slc-hou">
