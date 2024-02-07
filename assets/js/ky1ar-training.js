@@ -73,11 +73,12 @@ $( document ).ready(function() {
 
     const calendarDiv = $('#calendarDiv');
     const scheduleSelector = $('#scheduleSelector');
+    const userForm = $('#userForm');
 
     $(document).on('click', '.boxDay', function() {
         
-        calendarDiv.slideUp();
-        scheduleSelector.slideDown();
+        calendarDiv.hide();
+        scheduleSelector.show();
 
         var dayNumber = $(this).attr('data-day');
         var temporal = date;
@@ -99,6 +100,31 @@ $( document ).ready(function() {
         });
     });
 
+    $(document).on('click', '.boxDay', function() {
+        
+        calendarDiv.hide();
+        scheduleSelector.show();
+
+        var dayNumber = $(this).attr('data-day');
+        var temporal = date;
+        temporal.setDate(dayNumber);
+        var formatedDate = temporal.getFullYear() + '-' + ('0' + (temporal.getMonth() + 1)).slice(-2) + '-' + ('0' + temporal.getDate()).slice(-2);
+
+        $.ajax({
+            url: 'loadSchedule',
+            method: 'POST',
+            data: { 
+                date: formatedDate
+            },
+            success: function(response) {
+                scheduleSelector.html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+    
 });
 
 

@@ -54,10 +54,11 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
 }
 #ky1-cap .cap-rgt .cap-btn {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 #ky1-cap .cap-rgt .cap-btn .btn {
     border: 1px solid #ddd;
@@ -90,6 +91,20 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #ky1-cap .cap-rgt .cap-hdr span {
     font-size: 1rem;
     font-weight: 600;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+#ky1-cap .cap-rgt .cap-hdr span::before {
+    content: "";
+    background-color: var(--primary);
+    width: 0.25rem;
+    height: 0.25rem;
+    position: absolute;
+    border-radius: 1rem;
+    bottom: 0.35rem;
 }
 #ky1-cap .cap-rgt .cap-hdr .cap-btn button {
     padding: 0.5rem;
@@ -101,6 +116,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     flex-wrap: wrap;
     font-size: 1rem;
+}
+#ky1-cap .cap-rgt .cld-box.box-hdr {
+    margin: 1rem 0;
 }
 #ky1-cap .cap-rgt .cld-box li {
     width: 14.25%;
@@ -121,6 +139,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     border-radius: 2rem;
     border: 1px solid var(--tertiary);
     cursor: pointer;
+    font-size: 0.9rem;
 }
 #ky1-cap .cap-rgt .cld-box li .boxDay:hover {
     background-color: var(--primaryopacity);
@@ -141,9 +160,10 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 0.9rem;
 }
 
-#ky1-cap .cap-rgt .ky1-slc-hou {
+#ky1-cap .cap-rgt #scheduleSelector {
     display: none;
 }
 #ky1-cap .cap-rgt .hou-hdr {
@@ -152,7 +172,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     font-weight: 600;
     margin-bottom: 1rem; 
 }
-#ky1-cap .cap-rgt .ky1-slc-hou ul {
+#ky1-cap .cap-rgt #scheduleSelector ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -161,7 +181,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     list-style: none;
     gap: 1rem;
 }
-#ky1-cap .cap-rgt .ky1-slc-hou ul li a {
+#ky1-cap .cap-rgt #scheduleSelector ul li a {
     font-size: 1rem;
     padding: 0.75rem 4rem;
     display: flex;

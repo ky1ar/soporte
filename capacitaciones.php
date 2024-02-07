@@ -62,14 +62,14 @@ setlocale(LC_TIME, 'es_ES');
                         $firstDayNum = date('N', strtotime($firstDay));
                         ?>
                         <div class="cap-hdr">
-                            <button id="calendarToday">Hoy</button>
+                            <!--<button id="calendarToday">Hoy</button>-->
                             <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
                             <div class="cap-btn">
                                 <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                                 <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                             </div>
                         </div>
-                        <ul class="cld-box">
+                        <ul class="cld-box box-hdr">
                             <li>dom</li>
                             <li>lun</li>
                             <li>mar</li>
@@ -96,7 +96,8 @@ setlocale(LC_TIME, 'es_ES');
                             ?>
                         </ul>
                     </div>
-                    <div class="ky1-slc-hou" id="scheduleSelector"></div>
+                    <div id="scheduleSelector"></div>
+                    <div id="userForm"></div>
                 </div>
             </div>
         </div>
@@ -139,40 +140,3 @@ setlocale(LC_TIME, 'es_ES');
 </body>
 </html>
 
-<?php/*
-SELECT
-    calendar.t_date,
-    COUNT(DISTINCT COALESCE(cs.id, ds.id)) AS avl,
-    MAX(cs.enabled) AS estado_enabled
-FROM (
-    SELECT DATE('2024-02-01') + INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY AS t_date
-    FROM
-        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a
-        CROSS JOIN 
-        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b
-        CROSS JOIN 
-        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS c
-    WHERE DATE('2024-02-01') + INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY BETWEEN '2024-02-01' AND '2024-02-29'
-) AS calendar
-LEFT JOIN Custom_Schedule AS cs ON calendar.t_date = cs.t_date
-LEFT JOIN Default_Schedule AS ds ON DAYOFWEEK(calendar.t_date) = ds.t_day
-GROUP BY calendar.t_date
-ORDER BY calendar.t_date;
-
-
-SELECT 
-    DAYOFWEEK('2024-02-01') AS day_of_week, 
-    COALESCE(MAX(cs.h_start), ds.h_start) AS h_start, 
-    COALESCE(MAX(cs.h_end), ds.h_end) AS h_end 
-FROM 
-    Default_Schedule AS ds 
-LEFT JOIN 
-    Custom_Schedule AS cs ON cs.t_date = '2024-02-01' AND ds.t_day = DAYOFWEEK('2024-02-01')
-GROUP BY 
-    ds.h_start, ds.h_end;
-
-
-
-SELECT DAYOFWEEK('2024-02-01') AS day_of_week, ds.h_start, ds.h_end FROM Default_Schedule AS ds WHERE ds.t_day = DAYOFWEEK('2024-02-01');
-
-SELECT DAYOFWEEK('2024-02-01') AS day_of_week, COALESCE(MAX(cs.h_start), ds.h_start) AS h_start, COALESCE(MAX(cs.h_end), ds.h_end) AS h_end FROM Default_Schedule AS ds LEFT JOIN Custom_Schedule AS cs ON cs.t_date = '2024-02-01' AND ds.t_day = DAYOFWEEK('2024-02-01') GROUP BY ds.h_start, ds.h_end;
