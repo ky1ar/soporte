@@ -6,8 +6,13 @@ $( document ).ready(function() {
     const calendarBackDiv = $('#calendarBackDiv');
     const calendarBack = $('#calendarBack');
     //const calendarToday = $('#calendarToday');
+
     const calendarTable = $('#calendarTable');
     const monthName = $('#monthName');
+
+    const calendarSelector = $('#calendarSelector');
+    const scheduleSelector = $('#scheduleSelector');
+    const scheduleForm = $('#scheduleForm');
 
     var date = new Date();
     var today = new Date();
@@ -40,8 +45,8 @@ $( document ).ready(function() {
     calendarBack.click(function(){
         scheduleSelector.hide();
         calendarBackDiv.hide();
-        
-        calendarDiv.show();
+
+        calendarSelector.show();
         calendarNavigation.show();
     });
 
@@ -81,14 +86,10 @@ $( document ).ready(function() {
             }
         });
     }
-
-    const calendarDiv = $('#calendarDiv');
-    const scheduleSelector = $('#scheduleSelector');
-    const userForm = $('#userForm');
     
     $(document).on('click', '.boxDay', function() {
         
-        calendarDiv.hide();
+        calendarSelector.hide();
         scheduleSelector.show();
 
         var dayNumber = $(this).attr('data-day');
@@ -113,18 +114,13 @@ $( document ).ready(function() {
         });
     });
 
-    $(document).on('click', '.boxDay', function() {
+    $(document).on('click', '.boxSchedule', function() {
         
-        calendarDiv.hide();
-        scheduleSelector.show();
+        scheduleSelector.hide();
+        scheduleForm.show();
 
-        var dayNumber = $(this).attr('data-day');
-        var temporal = date;
-        temporal.setDate(dayNumber);
-        var formatedDate = temporal.getFullYear() + '-' + ('0' + (temporal.getMonth() + 1)).slice(-2) + '-' + ('0' + temporal.getDate()).slice(-2);
-
-        $.ajax({
-            url: 'loadSchedule',
+        /*$.ajax({
+            url: 'scheduleForm',
             method: 'POST',
             data: { 
                 date: formatedDate
@@ -135,7 +131,7 @@ $( document ).ready(function() {
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
-        });
+        });*/
     });
     
 });

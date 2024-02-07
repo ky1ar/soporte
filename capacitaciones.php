@@ -72,7 +72,7 @@ setlocale(LC_TIME, 'es_ES');
                         </div>
                     </div>
                     
-                    <div id="calendarDiv">
+                    <div id="calendarSelector">
                         <ul class="cld-box box-hdr">
                             <li>dom</li>
                             <li>lun</li>
@@ -101,7 +101,9 @@ setlocale(LC_TIME, 'es_ES');
                         </ul>
                     </div>
                     <div id="scheduleSelector"></div>
-                    <div id="userForm"></div>
+                    <div id="scheduleForm">
+                        
+                    </div>
                 </div>
             </div>
         </div>
