@@ -138,6 +138,12 @@ setlocale(LC_TIME, 'es_ES');
                                         </div>
                                     </div>
                                 </li>
+                                <li class="frm-25">
+                                    <div class="formRow">
+                                        <label for="">Boleta</label>
+                                        <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg">
+                                    </div>
+                                </li>
                             </ul>      
                         </form>
                     </div>
