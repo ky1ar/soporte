@@ -58,18 +58,19 @@ $( document ).ready(function() {
     
     function loadCalendar(offset) {
 
-        if ( offset == 0) {
+        /*if ( offset == 0) {
             date.setMonth(today.getMonth());
         } else {
             date.setMonth(date.getMonth() + offset);
-        }
-       
+        }*/
+        date.setMonth(date.getMonth() + offset);
+
         var formatedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
         var splitDate = formatedDate.split('-');
         var month = splitDate[1];
         var month = months[parseInt(month, 10) - 1];
         var firstDayNum = date.getDay();
-
+        console.log(firstDayNum);
         $.ajax({
             url: 'loadCalendar',
             method: 'POST',
