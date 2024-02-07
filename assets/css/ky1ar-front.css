@@ -217,6 +217,39 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     color: var(--black);
     cursor: pointer;
 }
-#ky1-cap .cap-rgt #scheduleForm {
+#scheduleForm {
     display: none;
 }
+#scheduleForm ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+#scheduleForm ul .formRow {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+#scheduleForm ul .formRow label {
+    font-weight: 700;
+}
+#scheduleForm ul .formRow input, 
+#scheduleForm ul .formRow select {
+    border: 1px solid var(--graydark);
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+}
+#scheduleForm ul .formRow input:focus,
+#scheduleForm ul .formRow select:focus {
+    outline: 1px solid #bfbfbf;
+}
+
+
+
+
+
