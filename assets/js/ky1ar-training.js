@@ -39,7 +39,10 @@ $( document ).ready(function() {
 
     calendarBack.click(function(){
         scheduleSelector.hide();
+        calendarBackDiv.hide();
+        
         calendarDiv.show();
+        calendarNavigation.show();
     });
 
     /*calendarToday.click(function(){

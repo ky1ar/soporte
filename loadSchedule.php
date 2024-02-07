@@ -11,14 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $state = $row['state'];
 
         $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
-        $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
-        $formatedDate = new DateTime($date);
-        $dayName = $days[$formatedDate->format('w')];
-        $dayMonth = $formatedDate->format('j');
-        $month = $months[$formatedDate->format('n') - 1];
-        $year = $formatedDate->format('Y');
-        $formatedDate = $dayName . ', ' . $dayMonth . ' de ' . $month . ' del ' . $year;
-        echo '<div class="hou-hdr">'.$formatedDate.'</div>';
+        $selectedDate = new DateTime($date);
+
+        $dayName = $days[$selectedDate->format('w')];
+        $dayMonth = $selectedDate->format('j');
+
+        $selectedDate = $dayName . ' ' . $dayMonth;
+        echo '<div class="hou-hdr">fecha: '.$selectedDate.'</div>';
 
         echo '<ul>';
         if ($state == 2) {
