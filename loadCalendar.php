@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     
     $today = new DateTime();
     $todayDay = $today->format('j');
-    $todayMoth = $today->format('n');
+    $todayMonth = $today->format('n');
 
     $selectedDate = new DateTime($date);
     $dayMonth = $selectedDate->format('j');
