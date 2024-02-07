@@ -102,7 +102,44 @@ setlocale(LC_TIME, 'es_ES');
                     </div>
                     <div id="scheduleSelector"></div>
                     <div id="scheduleForm">
-                        
+                        <form action="post">
+                            <ul>
+                                <li class="frm-25">
+                                    <div class="formRow">
+                                        <label for="">Documento</label>
+                                        <input id="dniRUC" type="text" placeholder="DNI / RUC">
+                                    </div>
+                                </li>
+                                <li class="frm-25">
+                                    <div class="formRow">
+                                        <label for="">Cliente</label>
+                                        <input id="client" type="text" placeholder="Nombre del cliente">
+                                    </div>
+                                </li>
+                                <li class="frm-25">
+                                    <div class="formRow">
+                                        <label for="">Email</label>
+                                        <input id="email" type="email" placeholder="Ingresar correo">
+                                    </div>
+                                </li>
+                                <li class="frm-25">
+                                    <div class="formRow">
+                                        <label for="">Celular</label>
+                                        <input id="phone" type="tel" placeholder="Ingresar celular">
+                                    </div>
+                                </li>
+                                <li class="frm-100">
+                                    <div class="formRow">
+                                        <label for="">Producto</label>
+                                        <div class="formMachine">
+                                            <input id="machine" type="text" placeholder="Nombre del equipo">
+                                            <input id="machineId" type="hidden" >
+                                            <div id="ky1-sgs"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>      
+                        </form>
                     </div>
                 </div>
             </div>

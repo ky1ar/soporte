@@ -16,7 +16,7 @@ $( document ).ready(function() {
 
     var currentDate = new Date();
     var today = new Date();
-    currentDate.setDate(1);
+
     var months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
     calendarPrev.click(function(){
@@ -58,11 +58,6 @@ $( document ).ready(function() {
     
     function loadCalendar(offset) {
 
-        /*if ( offset == 0) {
-            currentDate.setMonth(today.getMonth());
-        } else {
-            currentDate.setMonth(currentDate.getMonth() + offset);
-        }*/
         currentDate.setMonth(currentDate.getMonth() + offset);
 
         var formatedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
