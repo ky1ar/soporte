@@ -96,15 +96,18 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     align-items: center;
     gap: 0.5rem;
     position: relative;
+    margin-left: 2rem;
 }
 #ky1-cap .cap-rgt .cap-hdr span::before {
     content: "";
     background-color: var(--primary);
-    width: 0.25rem;
-    height: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
     position: absolute;
-    border-radius: 1rem;
-    bottom: 0.35rem;
+    border-radius: 0 1rem 1rem 0;
 }
 #ky1-cap .cap-rgt .cap-hdr .cap-btn button {
     padding: 0.5rem;
@@ -118,14 +121,15 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     font-size: 1rem;
 }
 #ky1-cap .cap-rgt .cld-box.box-hdr {
-    margin: 1rem 0;
+    padding: 1rem 0;
 }
 #ky1-cap .cap-rgt .cld-box li {
     width: 14.25%;
-    padding: 0.5rem;
+    padding: 0.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
 }
 #ky1-cap .cap-rgt .cld-box li .boxDay {
     font-weight: 600;

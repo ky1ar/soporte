@@ -2,7 +2,7 @@ $( document ).ready(function() {
     
     const calendarPrev = $('#calendarPrev');
     const calendarNext = $('#calendarNext');
-    const calendarToday = $('#calendarToday');
+    //const calendarToday = $('#calendarToday');
     const calendarTable = $('#calendarTable');
     const monthName = $('#monthName');
 
@@ -34,11 +34,11 @@ $( document ).ready(function() {
         }
     });
 
-    calendarToday.click(function(){
+    /*calendarToday.click(function(){
         loadCalendar(0);
         calendarPrev.addClass('disabled');
         calendarNext.removeClass('disabled');
-    });
+    });*/
     
     function loadCalendar(offset) {
 

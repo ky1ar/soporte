@@ -55,20 +55,21 @@ setlocale(LC_TIME, 'es_ES');
                     </ul>
                 </div>
                 <div class="cap-rgt">
-                    <div class="cap-cld" id="calendarDiv">
-                        <?php
-                        $today = date('d');
-                        $firstDay = date('Y-m-01');
-                        $firstDayNum = date('N', strtotime($firstDay));
-                        ?>
-                        <div class="cap-hdr">
-                            <!--<button id="calendarToday">Hoy</button>-->
-                            <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
-                            <div class="cap-btn">
-                                <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
-                                <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
-                            </div>
+                    <?php
+                    $today = date('d');
+                    $firstDay = date('Y-m-01');
+                    $firstDayNum = date('N', strtotime($firstDay));
+                    ?>
+                    <div class="cap-hdr">
+                        <!--<button id="calendarToday">Hoy</button>-->
+                        <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
+                        <div id="monthName" class="cap-btn">
+                            <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                            <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                         </div>
+                    </div>
+                    
+                    <div id="calendarDiv">
                         <ul class="cld-box box-hdr">
                             <li>dom</li>
                             <li>lun</li>
