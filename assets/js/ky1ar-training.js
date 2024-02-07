@@ -37,6 +37,11 @@ $( document ).ready(function() {
         }
     });
 
+    calendarBack.click(function(){
+        scheduleSelector.hide();
+        calendarDiv.show();
+    });
+
     /*calendarToday.click(function(){
         loadCalendar(0);
         calendarPrev.addClass('disabled');
@@ -77,7 +82,7 @@ $( document ).ready(function() {
     const calendarDiv = $('#calendarDiv');
     const scheduleSelector = $('#scheduleSelector');
     const userForm = $('#userForm');
-
+    
     $(document).on('click', '.boxDay', function() {
         
         calendarDiv.hide();
