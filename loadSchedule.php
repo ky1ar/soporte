@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         echo '<p class="hou-msg">A continuación elige un horario disponible</p>';
         echo '<ul>';
         if ($state == 2) {
-            $sql2 = "SELECT cs.id, cs.h_start, cs.h_end FROM Custom_Schedule cs LEFT JOIN Training t ON t.training_date = cs.t_date WHERE t.training_date = '$date' AND t.schedule_id != cs.id";
+            $sql2 = "SELECT cs.id, cs.h_start, cs.h_end FROM Custom_Schedule cs LEFT JOIN Training t ON t.training_date = cs.t_date WHERE cs.t_date = '$date' AND COALESCE(t.schedule_id, -1) != cs.id;";
             $result2 = $conn->query($sql2);
             while ($row2 = $result2->fetch_assoc()) {
                 echo '<li><div class="boxSchedule">'.substr($row2['h_start'], 0, 5).'</div></li>';
