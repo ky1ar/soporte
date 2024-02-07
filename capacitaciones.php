@@ -67,7 +67,7 @@ setlocale(LC_TIME, 'es_ES');
                             <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                             <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                         </div>
-                        <div id="calendarBackDiv" class="cap-btn">
+                        <div id="calendarBackDiv">
                             <div class="btn txt" id="calendarBack">Volver</div>
                         </div>
                     </div>
