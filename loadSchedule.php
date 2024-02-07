@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
 
         $selectedDate = $dayName . ' ' . $dayMonth;
         echo '<div class="hou-hdr">fecha: '.$selectedDate.'</div>';
-
+        echo '<p class="hou-msg">A continuación elige un horario disponible</p>';
         echo '<ul>';
         if ($state == 2) {
             $sql2 = "SELECT cs.id, cs.h_start, cs.h_end FROM Custom_Schedule cs LEFT JOIN Training t ON t.training_date = cs.t_date WHERE t.training_date = '$date' AND t.schedule_id != cs.id";

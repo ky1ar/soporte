@@ -188,6 +188,13 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 1rem; 
+    color: var(--primary);
+    text-transform: capitalize;
+}
+#ky1-cap .cap-rgt .hou-msg {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 3rem;
 }
 #ky1-cap .cap-rgt #scheduleSelector ul {
     display: flex;
