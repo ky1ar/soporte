@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         
+        echo $todayMonth . ' == ' . $monthNumber . ' | '. $todayDay . ' == ' . $dayMonth;
         $dayNum = date('d', strtotime($row['calendar_date']));
         $state = $row['state'];
         
