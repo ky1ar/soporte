@@ -157,11 +157,15 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #ky1-cap .cap-rgt .cld-box li .boxDay:hover {
     background-color: var(--primaryopacity);
 }
+#ky1-cap .cap-rgt .cld-box li.today span {
+    color: var(--primary);
+    opacity: 1;
+}
 #ky1-cap .cap-rgt .cld-box li.today::before {
     content: "";
     background-color: var(--primary);
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.75rem;
+    height: 0.25rem;
     position: absolute;
     border-radius: 1rem;
     bottom: 0.75rem;
