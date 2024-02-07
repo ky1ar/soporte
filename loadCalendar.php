@@ -13,8 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $selectedDate = new DateTime($date);
     $dayMonth = $selectedDate->format('j');
     $monthNumber = $selectedDate->format('n');
-
-    echo $todayMonth . ' == ' . $monthNumber . ' | '. $todayDay . ' == ' . $dayMonth;
+    
     for ($i = 0; $i < $day; $i++) { echo '<li></li>'; }
     
     $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$date') AND MONTH(calendar_date) = MONTH('$date')";
