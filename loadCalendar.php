@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $state = $row['state'];
         
         echo '<li' . (($todayMonth == $monthNumber && $todayDay == $dayNum) ? ' class="today"' : '') . '>';
-        if ($state == 0 || ($todayMonth == $monthNumber && $todayDay >= $dayNum)) {
+        if ($state == 0 || ($todayMonth == $monthNumber && $dayNum <= $todayDay)) {
             echo '<span>'.$dayNum.'</span>';
         } else {
             echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>';

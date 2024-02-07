@@ -92,7 +92,7 @@ setlocale(LC_TIME, 'es_ES');
                                 $dayNum = date('d', strtotime($row['calendar_date']));
                                 $state = $row['state'];
                                 
-                                echo '<li>';
+                                echo '<li' . (($today == $dayNum) ? ' class="today"' : '') . '>';
                                 if ( $dayNum <= $today || $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
                                 else { echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>'; }
                                 echo '</li>';
