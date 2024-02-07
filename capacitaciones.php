@@ -63,9 +63,10 @@ setlocale(LC_TIME, 'es_ES');
                     <div class="cap-hdr">
                         <!--<button id="calendarToday">Hoy</button>-->
                         <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
-                        <div id="monthName" class="cap-btn">
+                        <div class="cap-btn">
                             <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                             <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                            <div class="btn txt" id="calendarBack">Volver</div>
                         </div>
                     </div>
                     
@@ -90,7 +91,7 @@ setlocale(LC_TIME, 'es_ES');
                                 $state = $row['state'];
                                 
                                 echo '<li>';
-                                if ( $dayNum < $today || $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
+                                if ( $dayNum <= $today || $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
                                 else { echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>'; }
                                 echo '</li>';
                             }

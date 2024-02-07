@@ -2,6 +2,7 @@ $( document ).ready(function() {
     
     const calendarPrev = $('#calendarPrev');
     const calendarNext = $('#calendarNext');
+    const calendarBack = $('#calendarBack');
     //const calendarToday = $('#calendarToday');
     const calendarTable = $('#calendarTable');
     const monthName = $('#monthName');
@@ -64,6 +65,9 @@ $( document ).ready(function() {
             success: function(response) {
                 calendarTable.html(response);
                 monthName.text(month + ' ' + date.getFullYear());
+                calendarPrev.hide();
+                calendarNext.hide();
+                calendarBack.show();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
