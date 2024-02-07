@@ -139,6 +139,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    position: relative;
 }
 #ky1-cap .cap-rgt .cld-box li .boxDay {
     font-weight: 600;
@@ -148,7 +149,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     border-radius: 2rem;
     border: 1px solid var(--tertiary);
     cursor: pointer;
@@ -157,14 +157,14 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #ky1-cap .cap-rgt .cld-box li .boxDay:hover {
     background-color: var(--primaryopacity);
 }
-#ky1-cap .cap-rgt .cld-box li .boxDay.ky1-day::before {
+#ky1-cap .cap-rgt .cld-box li.today::before {
     content: "";
     background-color: var(--primary);
     width: 0.5rem;
     height: 0.5rem;
     position: absolute;
     border-radius: 1rem;
-    bottom: 0.35rem;
+    bottom: 0.75rem;
 }
 #ky1-cap .cap-rgt .cld-box li span {
     opacity: 0.5;
