@@ -14,13 +14,13 @@ $( document ).ready(function() {
     const scheduleSelector = $('#scheduleSelector');
     const scheduleForm = $('#scheduleForm');
 
-    var date = new Date();
+    var currentDate = new Date();
     var today = new Date();
-    date.setDate(1);
+    currentDate.setDate(1);
     var months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
     calendarPrev.click(function(){
-        var offsetMonth = date.getMonth() - 1;
+        var offsetMonth = currentDate.getMonth() - 1;
         if (offsetMonth > today.getMonth()) {
             loadCalendar(-1);
             calendarNext.removeClass('disabled');
@@ -31,7 +31,7 @@ $( document ).ready(function() {
     });
 
     calendarNext.click(function(){
-        var offsetMonth = date.getMonth() + 1;
+        var offsetMonth = currentDate.getMonth() + 1;
         var maxMonth = today.getMonth() + 2;
         if (offsetMonth < maxMonth) {
             loadCalendar(1);
@@ -59,17 +59,17 @@ $( document ).ready(function() {
     function loadCalendar(offset) {
 
         /*if ( offset == 0) {
-            date.setMonth(today.getMonth());
+            currentDate.setMonth(today.getMonth());
         } else {
-            date.setMonth(date.getMonth() + offset);
+            currentDate.setMonth(currentDate.getMonth() + offset);
         }*/
-        date.setMonth(date.getMonth() + offset);
+        currentDate.setMonth(currentDate.getMonth() + offset);
 
-        var formatedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+        var formatedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
         var splitDate = formatedDate.split('-');
         var month = splitDate[1];
         var month = months[parseInt(month, 10) - 1];
-        var firstDayNum = date.getDay();
+        var firstDayNum = currentDate.getDay();
         console.log(firstDayNum);
         $.ajax({
             url: 'loadCalendar',
@@ -80,7 +80,7 @@ $( document ).ready(function() {
             },
             success: function(response) {
                 calendarTable.html(response);
-                monthName.text(month + ' ' + date.getFullYear());
+                monthName.text(month + ' ' + currentDate.getFullYear());
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
@@ -94,7 +94,7 @@ $( document ).ready(function() {
         scheduleSelector.show();
 
         var dayNumber = $(this).attr('data-day');
-        var temporal = date;
+        var temporal = currentDate;
         temporal.setDate(dayNumber);
         var formatedDate = temporal.getFullYear() + '-' + ('0' + (temporal.getMonth() + 1)).slice(-2) + '-' + ('0' + temporal.getDate()).slice(-2);
 
@@ -124,7 +124,7 @@ $( document ).ready(function() {
             url: 'scheduleForm',
             method: 'POST',
             data: { 
-                date: formatedDate
+                currentDate: formatedDate
             },
             success: function(response) {
                 scheduleSelector.html(response);
