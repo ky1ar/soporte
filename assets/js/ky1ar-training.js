@@ -45,6 +45,7 @@ $( document ).ready(function() {
     calendarBack.click(function(){
         scheduleSelector.hide();
         calendarBackDiv.hide();
+        scheduleForm.hide();
 
         calendarSelector.show();
         calendarNavigation.show();
