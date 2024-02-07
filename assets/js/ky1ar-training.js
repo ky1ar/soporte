@@ -2,6 +2,8 @@ $( document ).ready(function() {
     
     const calendarPrev = $('#calendarPrev');
     const calendarNext = $('#calendarNext');
+    const calendarNavigation = $('#calendarNavigation');
+    const calendarBackDiv = $('#calendarBackDiv');
     const calendarBack = $('#calendarBack');
     //const calendarToday = $('#calendarToday');
     const calendarTable = $('#calendarTable');
@@ -65,9 +67,6 @@ $( document ).ready(function() {
             success: function(response) {
                 calendarTable.html(response);
                 monthName.text(month + ' ' + date.getFullYear());
-                calendarPrev.hide();
-                calendarNext.hide();
-                calendarBack.show();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
@@ -97,6 +96,8 @@ $( document ).ready(function() {
             },
             success: function(response) {
                 scheduleSelector.html(response);
+                calendarNavigation.hide();
+                calendarBackDiv.show();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);

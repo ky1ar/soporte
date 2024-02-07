@@ -60,7 +60,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     gap: 1rem;
 }
-#ky1-cap .cap-rgt .cap-btn .btn {
+#ky1-cap .cap-rgt .btn {
     border: 1px solid #ddd;
     border-radius: 2rem;
     cursor: pointer;
@@ -70,22 +70,24 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     justify-content: center;
     align-items: center;
 }
-#ky1-cap .cap-rgt .cap-btn .btn.txt {
+#ky1-cap .cap-rgt .btn.txt {
     width: initial;
     padding: 0 0.75rem;
     font-size: 0.8rem;
     font-weight: 600;
-    display: none;
 }
-#ky1-cap .cap-rgt .cap-btn .btn.disabled {
+#ky1-cap .cap-rgt .btn.disabled {
     opacity: 0.5;
     cursor: default;
 }
-#ky1-cap .cap-rgt .cap-btn .btn img {
+#ky1-cap .cap-rgt .btn img {
     opacity: 0.5;
 }
-#ky1-cap .cap-rgt .cap-btn .btn + .btn img {
+#ky1-cap .cap-rgt .btn + .btn img {
     transform: rotate(180deg);
+}
+#calendarBackDiv {
+    display: none;
 }
 #ky1-cap .cap-rgt .cap-hdr button {
     background-color: #fff;
