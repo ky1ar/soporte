@@ -128,23 +128,37 @@ setlocale(LC_TIME, 'es_ES');
                                         <input id="phone" type="tel" placeholder="Ingresar celular">
                                     </div>
                                 </li>
-                                <li class="frm-100">
-                                    <div class="formRow">
-                                        <label for="">Producto</label>
-                                        <div class="formMachine">
-                                            <input id="machine" type="text" placeholder="Nombre del equipo">
-                                            <input id="machineId" type="hidden" >
-                                            <div id="ky1-sgs"></div>
+                                <div class="frm-75">
+                                    <li class="frm-100">
+                                        <div class="formRow">
+                                            <label for="">Producto</label>
+                                            <div class="formMachine">
+                                                <input id="machine" type="text" placeholder="Nombre del equipo">
+                                                <input id="machineId" type="hidden" >
+                                                <div id="ky1-sgs"></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                    <li class="frm-100">
+                                        <div class="formRow">
+                                            <label for="">Boleta</label>
+                                            <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg">
+                                        </div>
+                                    </li>
+                                </div>
+
                                 <li class="frm-25">
                                     <div class="formRow">
-                                        <label for="">Boleta</label>
-                                        <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg">
+                                        <label for="">Imagen</label>
+                                        <img id="ky1-mim" src="assets/img/def.webp" alt="">
                                     </div>
                                 </li>
-                            </ul>      
+                            </ul> 
+                            <div class="frm-btn">
+                                <div id="frm-nop">Cancelar</div>
+                                <input type="hidden" name="changer" value="<?php echo $s_id ?>">
+                                <button type="submit" id="frm-yes" name="submit">Añadir</button>
+                            </div>     
                         </form>
                     </div>
                 </div>
