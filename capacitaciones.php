@@ -108,6 +108,7 @@ setlocale(LC_TIME, 'es_ES');
                                     <div class="formRow">
                                         <label for="">Documento</label>
                                         <input id="dniRUC" type="text" placeholder="DNI / RUC">
+                                        <input id="clientId" type="hidden">
                                     </div>
                                 </li>
                                 <li class="percent70">
@@ -155,7 +156,7 @@ setlocale(LC_TIME, 'es_ES');
                             </ul> 
                             <div class="formButton">
                                 <input type="hidden" name="changer" value="<?php echo $s_id ?>">
-                                <button type="submit" id="scheduleSubmit" name="submit">Añadir</button>
+                                <button type="submit" id="scheduleSubmit" name="submit">Confirmar Reserva</button>
                             </div>     
                         </form>
                     </div>

@@ -131,6 +131,34 @@ $( document ).ready(function() {
         });*/
     });
     
+    const dniRUC = $('#dniRUC');
+    dniRUC.on('blur', function() {
+        const dniRucVal = $(this).val();
+    
+        $.ajax({
+            url: 'loadUser',
+            method: 'POST',
+            data: { dniRucVal: dniRucVal },
+            dataType: 'json',
+            success: function(data) {
+                if (data.ky1ar) {
+                    $('#client').val(data.client);
+                    $('#email').val(data.email);
+                    $('#phone').val(data.phone);
+                    $('#clientId').val(data.clientId);
+                } else {
+                    $('#client').val('');
+                    $('#email').val('');
+                    $('#phone').val('');
+                    $('#clientId').val('');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
 });
 
 
