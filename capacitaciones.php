@@ -153,10 +153,9 @@ setlocale(LC_TIME, 'es_ES');
                                     </div>
                                 </li>
                             </ul> 
-                            <div class="percentbtn">
-                                <div id="percentnop">Cancelar</div>
+                            <div class="formButton">
                                 <input type="hidden" name="changer" value="<?php echo $s_id ?>">
-                                <button type="submit" id="frm-yes" name="submit">Añadir</button>
+                                <button type="submit" id="scheduleSubmit" name="submit">Añadir</button>
                             </div>     
                         </form>
                     </div>

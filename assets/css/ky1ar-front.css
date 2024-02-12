@@ -227,25 +227,25 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     flex-wrap: wrap;
 }
-#add-frm ul li.percent100 {
+#scheduleForm ul li.percent100 {
     width: 100%;
 }
-#add-frm ul li.percent75 {
+#scheduleForm ul li.percent75 {
     width: 75%;
 }
-#add-frm ul li.percent70 {
+#scheduleForm ul li.percent70 {
     width: 70%;
 }
-#add-frm ul li.percent60 {
+#scheduleForm ul li.percent60 {
     width: 60%;
 }
-#add-frm ul li.percent40 {
+#scheduleForm ul li.percent40 {
     width: 40%;
 }
-#add-frm ul li.percent30 {
+#scheduleForm ul li.percent30 {
     width: 30%;
 }
-#add-frm ul li.percent25 {
+#scheduleForm ul li.percent25 {
     width: 25%;
 }
 
@@ -276,8 +276,22 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #scheduleForm ul .formRow select:focus {
     outline: 1px solid #bfbfbf;
 }
-
-
+#scheduleForm .formButton {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+#scheduleForm .formButton #scheduleSubmit {
+    background-color: #ed5d1f;
+    color: #fff;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
 
 
 
