@@ -104,32 +104,32 @@ setlocale(LC_TIME, 'es_ES');
                     <div id="scheduleForm">
                         <form action="post">
                             <ul>
-                                <li class="frm-25">
+                                <li class="percent30">
                                     <div class="formRow">
                                         <label for="">Documento</label>
                                         <input id="dniRUC" type="text" placeholder="DNI / RUC">
                                     </div>
                                 </li>
-                                <li class="frm-25">
+                                <li class="percent70">
                                     <div class="formRow">
                                         <label for="">Cliente</label>
                                         <input id="client" type="text" placeholder="Nombre del cliente">
                                     </div>
                                 </li>
-                                <li class="frm-25">
+                                <li class="percent60">
                                     <div class="formRow">
                                         <label for="">Email</label>
                                         <input id="email" type="email" placeholder="Ingresar correo">
                                     </div>
                                 </li>
-                                <li class="frm-25">
+                                <li class="percent40">
                                     <div class="formRow">
                                         <label for="">Celular</label>
                                         <input id="phone" type="tel" placeholder="Ingresar celular">
                                     </div>
                                 </li>
-                                <div class="frm-75">
-                                    <li class="frm-100">
+                                <div class="percent75">
+                                    <li class="percent100">
                                         <div class="formRow">
                                             <label for="">Producto</label>
                                             <div class="formMachine">
@@ -139,23 +139,22 @@ setlocale(LC_TIME, 'es_ES');
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="frm-100">
+                                    <li class="percent100">
                                         <div class="formRow">
                                             <label for="">Boleta</label>
                                             <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg">
                                         </div>
                                     </li>
                                 </div>
-
-                                <li class="frm-25">
+                                <li class="percent25">
                                     <div class="formRow">
                                         <label for="">Imagen</label>
                                         <img id="ky1-mim" src="assets/img/def.webp" alt="">
                                     </div>
                                 </li>
                             </ul> 
-                            <div class="frm-btn">
-                                <div id="frm-nop">Cancelar</div>
+                            <div class="percentbtn">
+                                <div id="percentnop">Cancelar</div>
                                 <input type="hidden" name="changer" value="<?php echo $s_id ?>">
                                 <button type="submit" id="frm-yes" name="submit">Añadir</button>
                             </div>     
