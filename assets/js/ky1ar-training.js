@@ -66,6 +66,7 @@ $( document ).ready(function() {
     function loadCalendar(offset) {
 
         currentDate.setMonth(currentDate.getMonth() + offset);
+        currentDate.setDate(1);
 
         var formatedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
         var splitDate = formatedDate.split('-');
