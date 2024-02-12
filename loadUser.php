@@ -4,7 +4,7 @@ require_once 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dniRucVal'])) {
     $dniRucVal = $_POST['dniRucVal'];
 
-    $stmt = $conn->prepare("SELECT * FROM Users WHERE dniRucVal = ?");
+    $stmt = $conn->prepare("SELECT * FROM Users WHERE document = ?");
     $stmt->bind_param("s", $dniRucVal);
     $stmt->execute();
     $result = $stmt->get_result();
