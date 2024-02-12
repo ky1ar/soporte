@@ -136,7 +136,7 @@ setlocale(LC_TIME, 'es_ES');
                                             <div class="formMachine">
                                                 <input id="machine" type="text" placeholder="Nombre del equipo">
                                                 <input id="machineId" type="hidden" >
-                                                <div id="ky1-sgs"></div>
+                                                <div id="suggestions"></div>
                                             </div>
                                         </div>
                                     </li>
@@ -150,7 +150,7 @@ setlocale(LC_TIME, 'es_ES');
                                 <li class="percent25">
                                     <div class="formRow">
                                         <label for="">Imagen</label>
-                                        <img id="ky1-mim" src="assets/img/def.webp" alt="">
+                                        <img id="machineImage" src="assets/img/def.webp" alt="">
                                     </div>
                                 </li>
                             </ul> 

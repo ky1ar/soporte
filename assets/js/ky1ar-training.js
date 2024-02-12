@@ -14,6 +14,12 @@ $( document ).ready(function() {
     const scheduleSelector = $('#scheduleSelector');
     const scheduleForm = $('#scheduleForm');
 
+    const dniRUC = $('#dniRUC');
+    const machine = $('#machine');
+    const suggestions = $('#suggestions');
+    const machineImage = $('#machineImage');
+    const machineId = $('#machineId');
+    
     var currentDate = new Date();
     var today = new Date();
 
@@ -131,9 +137,9 @@ $( document ).ready(function() {
         });*/
     });
     
-    const dniRUC = $('#dniRUC');
+    
     dniRUC.on('blur', function() {
-        const dniRucVal = $(this).val();
+        let dniRucVal = $(this).val();
        
         $.ajax({
             url: 'loadUser',
@@ -159,6 +165,32 @@ $( document ).ready(function() {
         });
     });
 
+    machine.keyup(function() {
+        let machineVal = $(this).val();
+        if (machineVal.length >= 2) {
+            $.ajax({
+                url: 'loadMachine',
+                type: 'POST',
+                data: { machineVal: machineVal },
+                success: function(data) {
+                    suggestions.html(data);
+                    $('.suggestionsRow').click(function() {
+                        let sel = $(this).text();
+                        let id = $(this).data('id');
+                        let slug = $(this).data('slug');
+                        machine.val(sel);
+                        suggestions.html('');
+                        machineImage.attr("src","assets/mac/" + slug + ".webp");
+                        machineId.val(id);
+                    });
+                }
+            });
+        } else {
+            suggestions.html('');
+            machineImage.attr("src","assets/img/def.webp");
+            machineId.val('');
+        }
+    });
 });
 
 
