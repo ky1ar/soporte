@@ -230,7 +230,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #scheduleForm ul li.percent100 {
     width: 100%;
 }
-#scheduleForm ul li.percent75 {
+#scheduleForm ul .percent75 {
     width: 75%;
 }
 #scheduleForm ul li.percent70 {
