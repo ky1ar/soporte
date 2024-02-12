@@ -276,6 +276,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #scheduleForm ul .formRow select:focus {
     outline: 1px solid #bfbfbf;
 }
+#scheduleForm ul .formRow .formMachine {
+    position: relative;
+}
 #scheduleForm ul .formRow .formMachine #suggestions {
     position: absolute;
     max-height: 107px;
