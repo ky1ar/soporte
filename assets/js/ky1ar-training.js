@@ -167,6 +167,7 @@ $( document ).ready(function() {
 
     machine.keyup(function() {
         let machineVal = $(this).val();
+        console.log(machineVal);
         if (machineVal.length >= 2) {
             $.ajax({
                 url: 'loadMachine',
