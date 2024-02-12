@@ -134,7 +134,7 @@ $( document ).ready(function() {
     const dniRUC = $('#dniRUC');
     dniRUC.on('blur', function() {
         const dniRucVal = $(this).val();
-    
+        console.log(dniRucVal);
         $.ajax({
             url: 'loadUser',
             method: 'POST',
