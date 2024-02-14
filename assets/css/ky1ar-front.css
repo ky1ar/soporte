@@ -183,7 +183,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #scheduleSelector {
     display: none;
 }
-#scheduleSelector #selectedDate {
+#selectedDate,
+#selectedSchedule {
     text-align: center;
     font-size: 1rem;
     font-weight: 600;
@@ -191,6 +192,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     color: var(--primary);
     text-transform: capitalize;
 }
+#scheduleForm .selectedMessage,
 #scheduleSelector .selectedMessage {
     text-align: center;
     margin: 0;
