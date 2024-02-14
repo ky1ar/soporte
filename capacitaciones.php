@@ -103,6 +103,8 @@ setlocale(LC_TIME, 'es_ES');
                     <div id="scheduleSelector"></div>
                     <div id="scheduleForm">
                         <form action="post">
+                        <div id="selectedSchedule"></div>
+                        <p class="selectedMessage">Completa los campos para reservar tu cita.</p>
                             <ul>
                                 <li class="percent30">
                                     <div class="formRow">

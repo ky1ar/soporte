@@ -2,23 +2,6 @@ $( document ).ready(function() {
     
     const calendarPrev = $('#calendarPrev');
     const calendarNext = $('#calendarNext');
-    const calendarNavigation = $('#calendarNavigation');
-    const calendarBackDiv = $('#calendarBackDiv');
-    const calendarBack = $('#calendarBack');
-    //const calendarToday = $('#calendarToday');
-
-    const calendarTable = $('#calendarTable');
-    const monthName = $('#monthName');
-
-    const calendarSelector = $('#calendarSelector');
-    const scheduleSelector = $('#scheduleSelector');
-    const scheduleForm = $('#scheduleForm');
-
-    const dniRUC = $('#dniRUC');
-    const machine = $('#machine');
-    const suggestions = $('#suggestions');
-    const machineImage = $('#machineImage');
-    const machineId = $('#machineId');
     
     var currentDate = new Date();
     var today = new Date();
@@ -48,6 +31,14 @@ $( document ).ready(function() {
         }
     });
 
+    const calendarNavigation = $('#calendarNavigation');
+    const calendarBackDiv = $('#calendarBackDiv');
+    const calendarBack = $('#calendarBack');
+
+    const calendarSelector = $('#calendarSelector');
+    const scheduleSelector = $('#scheduleSelector');
+    const scheduleForm = $('#scheduleForm');
+
     calendarBack.click(function(){
         scheduleSelector.hide();
         calendarBackDiv.hide();
@@ -57,11 +48,8 @@ $( document ).ready(function() {
         calendarNavigation.show();
     });
 
-    /*calendarToday.click(function(){
-        loadCalendar(0);
-        calendarPrev.addClass('disabled');
-        calendarNext.removeClass('disabled');
-    });*/
+    const calendarTable = $('#calendarTable');
+    const monthName = $('#monthName');
     
     function loadCalendar(offset) {
 
@@ -118,27 +106,19 @@ $( document ).ready(function() {
         });
     });
 
+    const selectedSchedule = $('#selectedSchedule');
+    const selectedDate = $('#selectedDate');
+
     $(document).on('click', '.boxSchedule', function() {
-        
+        let date = selectedDate.data('date');
+        let schedule = $(this).data('schedule');
+        selectedSchedule.text(date + ' a las ' + schedule);
         scheduleSelector.hide();
         scheduleForm.show();
-
-        /*$.ajax({
-            url: 'scheduleForm',
-            method: 'POST',
-            data: { 
-                currentDate: formatedDate
-            },
-            success: function(response) {
-                scheduleSelector.html(response);
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-            }
-        });*/
     });
     
-    
+    const dniRUC = $('#dniRUC');
+
     dniRUC.on('blur', function() {
         let dniRucVal = $(this).val();
        
@@ -165,6 +145,11 @@ $( document ).ready(function() {
             }
         });
     });
+
+    const machine = $('#machine');
+    const suggestions = $('#suggestions');
+    const machineImage = $('#machineImage');
+    const machineId = $('#machineId');
 
     machine.keyup(function() {
         let machineVal = $(this).val();
@@ -193,6 +178,28 @@ $( document ).ready(function() {
             machineId.val('');
         }
     });
+
+    /*$('#msg-yes').on('click', function(e) {
+        e.preventDefault();
+        var notes = $('#msg-cmm').val();
+        var changer = $('#msg-chn').val();
+        var check = $('#msg-chk').prop('checked');
+        
+        $.ajax({
+            url: 'updOrder.php',
+            method: 'POST',
+            data: { now_ord: now_ord, now_stt: now_ulId, notes: notes, changer: changer, check: check },
+            success: function(response) {
+                var jsonData = JSON.parse(response);
+                if (jsonData.success) {
+                    window.location.href = 'grid';
+                } else {
+                    err_msg.text(jsonData.message);
+                }
+            }
+        });
+        
+    });*/
 });
 
 
