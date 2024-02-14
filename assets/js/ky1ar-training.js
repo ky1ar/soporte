@@ -107,9 +107,9 @@ $( document ).ready(function() {
     });
 
     const selectedSchedule = $('#selectedSchedule');
-    const selectedDate = $('#selectedDate');
 
     $(document).on('click', '.boxSchedule', function() {
+        let selectedDate = $('#selectedDate');
         let date = selectedDate.data('date');
         let schedule = $(this).data('schedule');
         selectedSchedule.text(date + ' a las ' + schedule);
