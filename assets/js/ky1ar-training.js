@@ -107,12 +107,15 @@ $( document ).ready(function() {
     });
 
     const selectedSchedule = $('#selectedSchedule');
+    const scheduleId = $('#scheduleId');
 
     $(document).on('click', '.boxSchedule', function() {
         let selectedDate = $('#selectedDate');
         let date = selectedDate.data('date');
+        let id = $(this).data('id');
         let schedule = $(this).data('schedule');
-        selectedSchedule.text(date + ' a las ' + schedule);
+        selectedSchedule.text(date + ' - ' + schedule);
+        scheduleId.val(id);
         scheduleSelector.hide();
         scheduleForm.show();
     });

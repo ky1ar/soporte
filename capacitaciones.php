@@ -157,8 +157,8 @@ setlocale(LC_TIME, 'es_ES');
                                 </li>
                             </ul> 
                             <div class="formButton">
-                                <input type="hidden" name="changer" value="<?php echo $s_id ?>">
-                                <button type="submit" id="scheduleSubmit" name="submit">Confirmar Reserva</button>
+                                <input type="hidden" id="scheduleId">
+                                <button type="submit" id="scheduleSubmit">Confirmar Reserva</button>
                             </div>     
                         </form>
                     </div>

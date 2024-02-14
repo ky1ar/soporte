@@ -192,11 +192,15 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     color: var(--primary);
     text-transform: capitalize;
 }
-#scheduleForm .selectedMessage,
 #scheduleSelector .selectedMessage {
     text-align: center;
     margin: 0;
     padding-bottom: 3rem;
+}
+#scheduleForm .selectedMessage {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1rem;
 }
 #scheduleSelector ul {
     display: flex;
