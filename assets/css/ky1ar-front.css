@@ -322,22 +322,27 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 }
 
 #scheduleForm .formButton {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     display: flex;
+    padding: 0 0.5rem;
     gap: 1rem;
     justify-content: space-between;
+    align-items: center;
 }
 #scheduleForm .formButton .formSubmit {
     font-family: 'DM Sans', sans-serif;
     background-color: #ed5d1f;
     color: #fff;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1.5rem;
     border-radius: 2rem;
-    width: 100%;
     text-align: center;
     cursor: pointer;
     border: none;
 }
-
+#scheduleFormMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
+    font-weight: 700;
+}
 
 
