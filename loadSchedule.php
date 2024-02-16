@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $dayMonth = $selectedDate->format('j');
 
         $selectedDate = $dayName . ' ' . $dayMonth;
-        echo '<div id="selectedDate" data-date="'.$selectedDate.'">'.$selectedDate.'</div>';
+        echo '<div id="selectedData" data-day="'.$selectedDate.'" data-date="'.$date.'">'.$selectedDate.'</div>';
         echo '<p class="selectedMessage">A continuación elige un horario disponible</p>';
         echo '<ul>';
         if ($state == 2) {

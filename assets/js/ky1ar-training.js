@@ -108,14 +108,18 @@ $( document ).ready(function() {
 
     const selectedSchedule = $('#selectedSchedule');
     const scheduleId = $('#scheduleId');
+    const selectedDate = $('#selectedDate');
 
     $(document).on('click', '.boxSchedule', function() {
-        let selectedDate = $('#selectedDate');
-        let date = selectedDate.data('date');
+        let selectedData = $('#selectedData');
+        let day = selectedData.data('day');
+        let date = selectedData.data('date');
         let id = $(this).data('id');
         let schedule = $(this).data('schedule');
-        selectedSchedule.text(date + ' - ' + schedule);
+
+        selectedSchedule.text(day + ' - ' + schedule);
         scheduleId.val(id);
+        selectedDate.val(date);
         scheduleSelector.hide();
         scheduleForm.show();
     });
@@ -182,27 +186,65 @@ $( document ).ready(function() {
         }
     });
 
-    /*$('#msg-yes').on('click', function(e) {
+    const scheduleSubmit = $('#scheduleSubmit');
+
+    scheduleSubmit.submit(function(e) {
         e.preventDefault();
-        var notes = $('#msg-cmm').val();
-        var changer = $('#msg-chn').val();
-        var check = $('#msg-chk').prop('checked');
+
+        let file = $('#archivo')[0].files[0];
+        if (!file) {
+            showMessage("Por favor, seleccione un archivo.");
+            return;
+        }
+        let fileType = file.type;
+
+        if (fileType !== 'application/pdf' && !fileType.startsWith('image/')) {
+            showMessage("Por favor, seleccione un archivo PDF o una imagen (jpg, jpeg, png).");
+            return;
+        }
+
+        let email = $('#email').val();
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showMessage("Por favor, ingrese un correo electrónico válido.");
+            return;
+        }
+
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('now_ord', now_ord);
+        formData.append('now_stt', now_ulId);
+        formData.append('notes', notes);
+        formData.append('changer', changer);
+        formData.append('check', check);
+
+        let formData = $(this).serialize();
         
         $.ajax({
             url: 'updOrder.php',
             method: 'POST',
-            data: { now_ord: now_ord, now_stt: now_ulId, notes: notes, changer: changer, check: check },
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 if (jsonData.success) {
                     window.location.href = 'grid';
                 } else {
-                    err_msg.text(jsonData.message);
+                    showMessage(jsonData.message);
                 }
+            },
+            error: function(xhr, status, error) {
+                // Manejar errores de la solicitud AJAX
             }
+            
         });
+
+        function showMessage(message) {
+            err_msg.text(message);
+        }
         
-    });*/
+    });
 });
 
 

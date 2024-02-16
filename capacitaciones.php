@@ -102,9 +102,10 @@ setlocale(LC_TIME, 'es_ES');
                     </div>
                     <div id="scheduleSelector"></div>
                     <div id="scheduleForm">
-                        <form action="post">
-                        <div id="selectedSchedule"></div>
-                        <p class="selectedMessage">Completa los campos para reservar tu cita.</p>
+                        <form action="post" id="scheduleSubmit">
+                            <div id="selectedSchedule"></div>
+                            <p class="selectedMessage">Completa los campos para reservar tu cita.</p>
+                            <div id="scheduleFormMessage"></div>
                             <ul>
                                 <li class="percent30">
                                     <div class="formRow">
@@ -158,7 +159,8 @@ setlocale(LC_TIME, 'es_ES');
                             </ul> 
                             <div class="formButton">
                                 <input type="hidden" id="scheduleId">
-                                <button type="submit" id="scheduleSubmit">Confirmar Reserva</button>
+                                <input type="hidden" id="selectedDate">
+                                <button type="submit">Confirmar Reserva</button>
                             </div>     
                         </form>
                     </div>
