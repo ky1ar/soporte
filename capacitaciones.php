@@ -146,7 +146,7 @@ setlocale(LC_TIME, 'es_ES');
                                     <li class="percent100">
                                         <div class="formRow">
                                             <label for="">Boleta</label>
-                                            <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg">
+                                            <input type="file" id="invoice" accept=".pdf,.jpg,.jpeg">
                                         </div>
                                     </li>
                                 </div>

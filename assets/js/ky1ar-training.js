@@ -124,7 +124,7 @@ $( document ).ready(function() {
         scheduleForm.show();
     });
     
-    const dniRUC = $('#dniRUC');
+    /*const dniRUC = $('#dniRUC');
 
     dniRUC.on('blur', function() {
         let dniRucVal = $(this).val();
@@ -151,7 +151,7 @@ $( document ).ready(function() {
                 console.error('Error:', error);
             }
         });
-    });
+    });*/
 
     const machine = $('#machine');
     const suggestions = $('#suggestions');
@@ -160,7 +160,7 @@ $( document ).ready(function() {
 
     machine.keyup(function() {
         let machineVal = $(this).val();
-        console.log(machineVal);
+        //console.log(machineVal);
         if (machineVal.length >= 2) {
             $.ajax({
                 url: 'loadMachine',
@@ -189,38 +189,36 @@ $( document ).ready(function() {
     const scheduleSubmit = $('#scheduleSubmit');
     const scheduleFormMessage = $('#scheduleFormMessage');
 
-    scheduleSubmit.submit(function(e) {
-        e.preventDefault();
+    scheduleSubmit.submit(function(event) {
+        event.preventDefault();
+        scheduleFormMessage.slideUp();
 
-        let file = $('#archivo')[0].files[0];
-        if (!file) {
-            message(scheduleFormMessage,"Por favor, seleccione un archivo.");
-            return;
-        }
-        let fileType = file.type;
-        console.log("Tipo de archivo:", fileType);
-        if (fileType !== 'application/pdf' && !fileType.startsWith('image/')) {
-            message(scheduleFormMessage,"Por favor, seleccione un archivo PDF o una imagen (jpg, jpeg, png).");
-            return;
-        }
+        let scheduleId = $('#scheduleId').val();
+        let selectedDate = $('#selectedDate').val();
 
+        var dniRUC = $('#dniRUC').val();
+        var client = $('#client').val();
         let email = $('#email').val();
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            message(scheduleFormMessage,"Por favor, ingrese un correo electrónico válido.");
+        let phone = $('#phone').val();
+        let machine = machineId.val();
+        let invoice = $('#invoice')[0].files[0];
+
+        if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateInvoice(invoice) || !validateMachineId(machine)) {
             return;
         }
 
         let formData = new FormData();
-        formData.append('file', file);
-        formData.append('now_ord', now_ord);
-        formData.append('now_stt', now_ulId);
-        formData.append('notes', notes);
-        formData.append('changer', changer);
-        formData.append('check', check);
+        formData.append('scheduleId', scheduleId);
+        formData.append('selectedDate', selectedDate);
+        formData.append('dniRUC', dniRUC);
+        formData.append('client', client);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('machineId', machine);
+        formData.append('invoice', invoice);
 
         $.ajax({
-            url: 'updOrder.php',
+            url: 'registerSchedule',
             method: 'POST',
             data: formData,
             processData: false,
@@ -234,16 +232,67 @@ $( document ).ready(function() {
                 }
             },
             error: function(xhr, status, error) {
-                // Manejar errores de la solicitud AJAX
+                console.error("Error:", error);
             }
             
         });
-
-        function message(target,message) {
-            target.text(message);
-        }
-        
     });
+
+    function message(target,message) {
+        target.text(message).slideDown();
+    }
+
+    function validateDocument(dniRUC) {
+        if (dniRUC.length !== 7 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
+            message(scheduleFormMessage, "Ingrese un documento válido");
+            return false;
+        }
+        return true;
+    }
+    function validateClient(client) {
+        if (client.trim() === '') {
+            message(scheduleFormMessage, "El campo del nombre no puede estar vacío");
+            return false;
+        }
+        return true;
+    }
+    function validateEmail(email) {
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            message(scheduleFormMessage, "Ingrese un correo electrónico válido");
+            return false;
+        }
+        return true;
+    }
+    function validatePhone(phone) {
+        var telefonoRegex = /^\d{10}$/;
+        if (!telefonoRegex.test(phone)) {
+            message(scheduleFormMessage, "Ingrese un número de teléfono válido");
+            return false;
+        }
+        return true;
+    }
+    function validateMachineId(machineId) {
+        if (machineId.trim() === '') {
+            message(scheduleFormMessage, "Seleccione un equipo");
+            return false;
+        }
+        return true;
+    }
+    function validateInvoice(invoice) {
+        if (!invoice) {
+            message(scheduleFormMessage, "Seleccione un archivo");
+            return false;
+        }
+        let fileType = invoice.type;
+        if (fileType !== 'application/pdf' && !fileType.startsWith('image/')) {
+            message(scheduleFormMessage, "El archivo debe ser PDF o una imagen");
+            return false;
+        }
+        return true;
+    }
+
+   
 });
 
 

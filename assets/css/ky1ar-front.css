@@ -342,7 +342,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 #scheduleFormMessage {
     font-size: 0.8rem;
     color: #ed5d1f;
-    font-weight: 700;
+    font-weight: 600;
+    max-width: 50%;
+    line-height: 0.8rem;
 }
 
 
