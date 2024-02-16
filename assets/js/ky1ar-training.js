@@ -210,7 +210,7 @@ $( document ).ready(function() {
             return;
         }
 
-        var formData = new FormData();
+        let formData = new FormData();
         formData.append('file', file);
         formData.append('now_ord', now_ord);
         formData.append('now_stt', now_ulId);
@@ -218,8 +218,6 @@ $( document ).ready(function() {
         formData.append('changer', changer);
         formData.append('check', check);
 
-        let formData = $(this).serialize();
-        
         $.ajax({
             url: 'updOrder.php',
             method: 'POST',
