@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $invoicePath = $path . $fileName;
     move_uploaded_file($tempFileName, $invoicePath);
 
-
     $sql = "INSERT INTO Training_Client (document, name, phone, email, invoice) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssss", $dniRUC, $client, $phone, $email, $invoicePath);

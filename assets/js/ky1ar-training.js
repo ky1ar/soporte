@@ -243,7 +243,7 @@ $( document ).ready(function() {
     }
 
     function validateDocument(dniRUC) {
-        if (dniRUC.length !== 7 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
+        if (dniRUC.length !== 8 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
             message(scheduleFormMessage, "Ingrese un documento válido");
             return false;
         }
@@ -265,7 +265,7 @@ $( document ).ready(function() {
         return true;
     }
     function validatePhone(phone) {
-        var telefonoRegex = /^\d{10}$/;
+        var telefonoRegex = /^\d+$/;
         if (!telefonoRegex.test(phone)) {
             message(scheduleFormMessage, "Ingrese un número de teléfono válido");
             return false;

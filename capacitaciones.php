@@ -102,7 +102,7 @@ setlocale(LC_TIME, 'es_ES');
                     </div>
                     <div id="scheduleSelector"></div>
                     <div id="scheduleForm">
-                        <form action="post" id="scheduleSubmit">
+                        <form action="post" id="scheduleSubmit" enctype="multipart/form-data">
                             <div id="selectedSchedule"></div>
                             <p class="selectedMessage">Completa los campos para reservar tu cita.</p>
                             
