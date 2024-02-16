@@ -187,26 +187,27 @@ $( document ).ready(function() {
     });
 
     const scheduleSubmit = $('#scheduleSubmit');
+    const scheduleFormMessage = $('#scheduleFormMessage');
 
     scheduleSubmit.submit(function(e) {
         e.preventDefault();
 
         let file = $('#archivo')[0].files[0];
         if (!file) {
-            showMessage("Por favor, seleccione un archivo.");
+            message(scheduleFormMessage,"Por favor, seleccione un archivo.");
             return;
         }
         let fileType = file.type;
 
         if (fileType !== 'application/pdf' && !fileType.startsWith('image/')) {
-            showMessage("Por favor, seleccione un archivo PDF o una imagen (jpg, jpeg, png).");
+            message(scheduleFormMessage,"Por favor, seleccione un archivo PDF o una imagen (jpg, jpeg, png).");
             return;
         }
 
         let email = $('#email').val();
         let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            showMessage("Por favor, ingrese un correo electrónico válido.");
+            message(scheduleFormMessage,"Por favor, ingrese un correo electrónico válido.");
             return;
         }
 
@@ -229,7 +230,7 @@ $( document ).ready(function() {
                 if (jsonData.success) {
                     window.location.href = 'grid';
                 } else {
-                    showMessage(jsonData.message);
+                    message(scheduleFormMessage,jsonData.message);
                 }
             },
             error: function(xhr, status, error) {
@@ -238,8 +239,8 @@ $( document ).ready(function() {
             
         });
 
-        function showMessage(message) {
-            err_msg.text(message);
+        function message(target,message) {
+            target.text(message);
         }
         
     });
