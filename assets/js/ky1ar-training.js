@@ -198,7 +198,7 @@ $( document ).ready(function() {
             return;
         }
         let fileType = file.type;
-
+        console.log("Tipo de archivo:", fileType);
         if (fileType !== 'application/pdf' && !fileType.startsWith('image/')) {
             message(scheduleFormMessage,"Por favor, seleccione un archivo PDF o una imagen (jpg, jpeg, png).");
             return;
