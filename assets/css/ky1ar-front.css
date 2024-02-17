@@ -346,7 +346,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     position: relative;
 }
 #loadingResponse {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
     z-index: 1;
     background-color: #fff;
     position: absolute;
@@ -354,6 +356,10 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     right: 0;
     top: 0;
     bottom: 0;
+}
+#loadingResponse.visible {
+    visibility: visible;
+    opacity: 1;
 }
 #loadingResponse .flex {
     display: flex;
