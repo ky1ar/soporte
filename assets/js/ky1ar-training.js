@@ -129,35 +129,6 @@ $( document ).ready(function() {
         scheduleSelector.hide();
         scheduleForm.show();
     });
-    
-    /*const dniRUC = $('#dniRUC');
-
-    dniRUC.on('blur', function() {
-        let dniRucVal = $(this).val();
-       
-        $.ajax({
-            url: 'loadUser',
-            method: 'POST',
-            data: { dniRucVal: dniRucVal },
-            dataType: 'json',
-            success: function(data) {
-                if (data.ky1ar) {
-                    $('#client').val(data.client);
-                    $('#email').val(data.email);
-                    $('#phone').val(data.phone);
-                    $('#clientId').val(data.clientId);
-                } else {
-                    $('#client').val('');
-                    $('#email').val('');
-                    $('#phone').val('');
-                    $('#clientId').val('');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    });*/
 
     const machine = $('#machine');
     const suggestions = $('#suggestions');
@@ -166,7 +137,6 @@ $( document ).ready(function() {
 
     machine.keyup(function() {
         let machineVal = $(this).val();
-        //console.log(machineVal);
         if (machineVal.length >= 2) {
             $.ajax({
                 url: 'loadMachine',
@@ -199,9 +169,10 @@ $( document ).ready(function() {
         event.preventDefault();
         scheduleFormMessage.slideUp();
 
-        let scheduleId = $('#scheduleId').val();
-        let selectedDate = $('#selectedDate').val();
-
+        let selectedDate = picked.val();
+        let scheduleId = picked.data('id');
+        let count = picked.data('count');
+        
         var dniRUC = $('#dniRUC').val();
         var client = $('#client').val();
         let email = $('#email').val();
@@ -216,6 +187,7 @@ $( document ).ready(function() {
         let formData = new FormData();
         formData.append('scheduleId', scheduleId);
         formData.append('selectedDate', selectedDate);
+        formData.append('count', count);
         formData.append('dniRUC', dniRUC);
         formData.append('client', client);
         formData.append('email', email);
