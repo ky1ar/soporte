@@ -56,8 +56,8 @@ $( document ).ready(function() {
     const loadingResponse = $('#loadingResponse');
 
     function loadCalendar(offset) {
-
-        loadingResponse.addClass('visible');
+        
+        loadingResponse.show();
         if (offset == 0) {
             currentDate.setMonth(today.getMonth());
         } else {
@@ -81,11 +81,11 @@ $( document ).ready(function() {
             success: function(response) {
                 calendarTable.html(response);
                 monthName.text(month + ' ' + currentDate.getFullYear());
-                loadingResponse.removeClass('visible');
+                loadingResponse.hide();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
-                loadingResponse.removeClass('visible');
+                loadingResponse.hide();
             }
         });
     }
@@ -94,7 +94,7 @@ $( document ).ready(function() {
 
     $(document).on('click', '.boxDay', function() {
         
-        loadingResponse.addClass('visible');
+        loadingResponse.show();
         calendarSelector.hide();
         scheduleSelector.show();
 
@@ -112,11 +112,11 @@ $( document ).ready(function() {
                 scheduleSelector.html(jsonData.html);
                 calendarNavigation.hide();
                 calendarBackDiv.show();
-                loadingResponse.removeClass('visible');
+                loadingResponse.hide();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
-                loadingResponse.removeClass('visible');
+                loadingResponse.hide();
             }
         });
     });
