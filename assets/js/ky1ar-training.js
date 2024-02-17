@@ -98,6 +98,7 @@ $( document ).ready(function() {
                 date: formatedDate
             },
             success: function(response) {
+                console.log(response.count);
                 scheduleSelector.html(response['html']);
                 selectedData.attr('data-count', response['count']);
 
