@@ -180,7 +180,7 @@ $( document ).ready(function() {
         let machine = machineId.val();
         let invoice = $('#invoice')[0].files[0];
 
-        if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateInvoice(invoice) || !validateMachineId(machine)) {
+        if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
 

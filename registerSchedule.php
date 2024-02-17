@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($existingCount > 0) {
         $response = array("error" => "Ya existe un registro para este cliente");
         echo json_encode($response);
-        exit;
+        exit();
     }
 
     $conn->begin_transaction();
