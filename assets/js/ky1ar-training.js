@@ -79,7 +79,7 @@ $( document ).ready(function() {
         });
     }
 
-    const selectedData = $('#selectedData');
+    
 
     $(document).on('click', '.boxDay', function() {
         
@@ -100,8 +100,6 @@ $( document ).ready(function() {
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 scheduleSelector.html(jsonData.html);
-                selectedData.attr('data-count', jsonData.count);
-
                 calendarNavigation.hide();
                 calendarBackDiv.show();
             },
@@ -115,7 +113,7 @@ $( document ).ready(function() {
     const picked = $('#picked');
 
     $(document).on('click', '.boxSchedule', function() {
-        
+        const selectedData = $('#selectedData');
         let day = selectedData.data('day');
         let date = selectedData.data('date');
         let count = selectedData.data('count');

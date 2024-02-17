@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
             }
         }   
         $response['html'] .= '</ul>';
-        $response['count'] = $result2->num_rows;
+        $response['html'] .= '<input type="hidden" id="dateAvailable" value="'.$result2->num_rows.'">';
     }
     
     echo json_encode($response);
