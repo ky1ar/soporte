@@ -43,56 +43,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->begin_transaction();
 
     try {
-        // Bloquear la fila en la tabla Calendar para evitar conflictos de concurrencia
-        $stmt = $conn->prepare("SELECT * FROM Calendar WHERE calendar_date = ? FOR UPDATE");
-        $stmt->bind_param("s", $selectedDate);
-        $stmt->execute();
-        $stmt->close();
-
-        // Realizar la verificación para asegurarse de que la fila no haya sido bloqueada por otro cliente
-        $stmt = $conn->prepare("SELECT state FROM Calendar WHERE calendar_date = ?");
-        $stmt->bind_param("s", $selectedDate);
+        
+        $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND schedule_id = ?");
+        $stmt->bind_param("si", $selectedDate, $scheduleId);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        $state = $row['state'];
+        $existingCount = $row['count'];
         $stmt->close();
 
-        if ($state == 1) {
-            // Si el estado es 1, significa que ya está reservado por otro cliente
-            $response['error'] = "Este horario ya ha sido reservado por otro cliente";
+        if ($existingCount > 0) {
+            $response['error'] = "Ya existe una capacitación registrada para esta fecha y horario";
             echo json_encode($response);
             exit();
         }
 
-        // Realizar las inserciones en Training_Client y Training
-        $stmt = $conn->prepare("INSERT INTO Training_Client (document, name, phone, email, invoice) VALUES (?, ?, ?, ?, ?)");
+        $sql = "INSERT INTO Training_Client (document, name, phone, email, invoice) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssss", $dniRUC, $client, $phone, $email, $invoicePath);
         $stmt->execute();
         $newId = $stmt->insert_id;
         $stmt->close();
 
-        $stmt = $conn->prepare("INSERT INTO Training (machine, client, training_date, schedule_id, state) VALUES (?, ?, ?, ?, 0)");
+        $sql = "INSERT INTO Training (machine, client, training_date, schedule_id, state) VALUES (?, ?, ?, ?, 0)";
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("iisi", $machineId, $newId, $selectedDate, $scheduleId);
         $stmt->execute();
         $stmt->close();
 
-        // Actualizar el estado de Calendar a 0 si count es 1
+        $conn->commit();
+
         if ($count == 1) {
-            $stmt = $conn->prepare("UPDATE Calendar SET state = 0 WHERE calendar_date = ?");
+            $sql = "UPDATE Calendar SET state = 0 WHERE calendar_date = ?";
+            $stmt = $conn->prepare($sql);
             $stmt->bind_param("s", $selectedDate);
             $stmt->execute();
             $stmt->close();
         }
-
-        $conn->commit();
-
         $response['success'] = '<div id="successSchedule">Todo Correcto</div>';
         echo json_encode($response);
 
     } catch (Exception $e) {
         
         $conn->rollback();
+        //$response = array("error" => "Error en el registro: " . $e->getMessage());
         $response['error'] = 'Error Interno';
         echo json_encode($response);
     }
