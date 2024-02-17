@@ -78,7 +78,9 @@ $( document ).ready(function() {
             }
         });
     }
-    
+
+    const selectedData = $('#selectedData');
+
     $(document).on('click', '.boxDay', function() {
         
         calendarSelector.hide();
@@ -96,7 +98,9 @@ $( document ).ready(function() {
                 date: formatedDate
             },
             success: function(response) {
-                scheduleSelector.html(response);
+                scheduleSelector.html(response.html);
+                selectedData.attr('data-count', response.count);
+                
                 calendarNavigation.hide();
                 calendarBackDiv.show();
             },
@@ -107,19 +111,21 @@ $( document ).ready(function() {
     });
 
     const selectedSchedule = $('#selectedSchedule');
-    const scheduleId = $('#scheduleId');
-    const selectedDate = $('#selectedDate');
+    const picked = $('#picked');
 
     $(document).on('click', '.boxSchedule', function() {
-        let selectedData = $('#selectedData');
+        
         let day = selectedData.data('day');
         let date = selectedData.data('date');
+        let count = selectedData.data('count');
         let id = $(this).data('id');
         let schedule = $(this).data('schedule');
 
         selectedSchedule.text(day + ' - ' + schedule);
-        scheduleId.val(id);
-        selectedDate.val(date);
+        picked.val(date);
+        picked.attr('data-id', id);
+        picked.attr('data-count', count);
+
         scheduleSelector.hide();
         scheduleForm.show();
     });

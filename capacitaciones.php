@@ -158,8 +158,7 @@ setlocale(LC_TIME, 'es_ES');
                                 </li>
                             </ul> 
                             <div class="formButton">
-                                <input type="hidden" id="scheduleId">
-                                <input type="hidden" id="selectedDate">
+                                <input type="hidden" id="picked">
                                 <div id="scheduleFormMessage"></div>
                                 <button type="submit" class="formSubmit">Confirmar Reserva</button>
                             </div>     
