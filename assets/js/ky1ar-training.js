@@ -46,6 +46,9 @@ $( document ).ready(function() {
 
         calendarSelector.show();
         calendarNavigation.show();
+        loadCalendar(0);
+        calendarPrev.addClass('disabled');
+        calendarNext.removeClass('disabled');
     });
 
     const calendarTable = $('#calendarTable');
@@ -53,7 +56,11 @@ $( document ).ready(function() {
     
     function loadCalendar(offset) {
 
-        currentDate.setMonth(currentDate.getMonth() + offset);
+        if (offset == 0) {
+            currentDate.setMonth(today.getMonth());
+        } else {
+            currentDate.setMonth(currentDate.getMonth() + offset);
+        }
         currentDate.setDate(1);
 
         var formatedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
