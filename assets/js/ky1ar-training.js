@@ -98,9 +98,9 @@ $( document ).ready(function() {
                 date: formatedDate
             },
             success: function(response) {
-                console.log(response);
-                scheduleSelector.html(response['html']);
-                selectedData.attr('data-count', response['count']);
+                var jsonData = JSON.parse(response);
+                scheduleSelector.html(jsonData.html);
+                selectedData.attr('data-count', jsonData.count);
 
                 calendarNavigation.hide();
                 calendarBackDiv.show();
