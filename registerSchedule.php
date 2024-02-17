@@ -50,9 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newId = $stmt->insert_id;
         $stmt->close();
 
-        $sql = "INSERT INTO Training (machine, client, training_date, schedule_id, state) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Training (machine, client, training_date, schedule_id, state) VALUES (?, ?, ?, ?, 0)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iisii", $machineId, $newId, $selectedDate, $scheduleId, 0);
+        $stmt->bind_param("iisi", $machineId, $newId, $selectedDate, $scheduleId);
         $stmt->execute();
         $stmt->close();
 
