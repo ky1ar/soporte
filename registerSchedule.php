@@ -24,6 +24,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $invoicePath = $path . $uniqueFileName;
     move_uploaded_file($tempFileName, $invoicePath);
 
+    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id WHERE tc.document = ? AND t.state NOT IN (0, 1)");
+    $stmt->bind_param("s", $dniRUC);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $existingCount = $row['count'];
+    $stmt->close();
+
+    if ($existingCount > 0) {
+        $response = array("error" => "Ya existe un registro para este cliente");
+        echo json_encode($response);
+        exit;
+    }
+
     $conn->begin_transaction();
 
     try {
@@ -36,9 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newId = $stmt->insert_id;
         $stmt->close();
 
-        $sql = "INSERT INTO Training (machine, client, training_date, schedule_id) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO Training (machine, client, training_date, schedule_id, state) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iisi", $machineId, $newId, $selectedDate, $scheduleId);
+        $stmt->bind_param("iisii", $machineId, $newId, $selectedDate, $scheduleId, 0);
         $stmt->execute();
         $stmt->close();
 
@@ -51,10 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
             $stmt->close();
         }
+        $response = array("success" => "Todo correcto");
+        echo json_encode($response);
+
     } catch (Exception $e) {
         
         $conn->rollback();
-        echo "Error en el registro: " . $e->getMessage();
+        //$response = array("error" => "Error en el registro: " . $e->getMessage());
+        $response = array("error" => "Error Interno");
+        echo json_encode($response);
     }
 }
 ?>

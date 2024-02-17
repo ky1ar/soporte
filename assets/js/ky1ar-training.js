@@ -204,9 +204,9 @@ $( document ).ready(function() {
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 if (jsonData.success) {
-                    window.location.href = 'grid';
+                    message(scheduleFormMessage,jsonData.success);
                 } else {
-                    message(scheduleFormMessage,jsonData.message);
+                    message(scheduleFormMessage,jsonData.error);
                 }
             },
             error: function(xhr, status, error) {
