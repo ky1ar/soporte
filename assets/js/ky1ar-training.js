@@ -164,6 +164,7 @@ $( document ).ready(function() {
 
     const scheduleSubmit = $('#scheduleSubmit');
     const scheduleFormMessage = $('#scheduleFormMessage');
+    const scheduleCalendar = $('#scheduleCalendar');
 
     scheduleSubmit.submit(function(event) {
         event.preventDefault();
@@ -204,7 +205,7 @@ $( document ).ready(function() {
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 if (jsonData.success) {
-                    message(scheduleFormMessage,jsonData.success);
+                    scheduleCalendar.html(jsonData.success)
                 } else {
                     message(scheduleFormMessage,jsonData.error);
                 }

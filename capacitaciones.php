@@ -54,7 +54,7 @@ setlocale(LC_TIME, 'es_ES');
                         <li>Conéctate puntualmente, con una tolerancia de 10 minutos.</li>
                     </ul>
                 </div>
-                <div class="cap-rgt">
+                <div class="cap-rgt" id="scheduleCalendar">
                     <?php
                     $today = date('d');
                     $firstDay = date('Y-m-01');

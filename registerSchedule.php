@@ -3,6 +3,8 @@ require_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $response = array();
+
     $scheduleId = $_POST['scheduleId'];
     $selectedDate = $_POST['selectedDate'];
     $count = $_POST['count'];
@@ -33,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     if ($existingCount > 0) {
-        $response = array("error" => "Ya existe un registro para este cliente");
+        $response['error'] = "Ya existe un registro para este cliente";
         echo json_encode($response);
         exit();
     }
@@ -65,14 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
             $stmt->close();
         }
-        $response = array("success" => "Todo correcto");
+        $response['success'] = '<div id="successSchedule">Todo Correcto</div>';
         echo json_encode($response);
 
     } catch (Exception $e) {
         
         $conn->rollback();
         //$response = array("error" => "Error en el registro: " . $e->getMessage());
-        $response = array("error" => "Error Interno");
+        $response['error'] = 'Error Interno';
         echo json_encode($response);
     }
 }
