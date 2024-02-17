@@ -349,13 +349,20 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: none;
     z-index: 1;
     background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 #loadingResponse .flex {
     display: flex;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
+    height: 100%;
 }
 #loadingResponse img {
+    width: 2rem;
     animation: rotate 2s linear infinite;
 }
 
