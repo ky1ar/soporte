@@ -114,9 +114,10 @@ $( document ).ready(function() {
 
     $(document).on('click', '.boxSchedule', function() {
         const selectedData = $('#selectedData');
+        const dateAvailable = $('#dateAvailable');
         let day = selectedData.data('day');
         let date = selectedData.data('date');
-        let count = selectedData.data('count');
+        let count = dateAvailable.val();
         let id = $(this).data('id');
         let schedule = $(this).data('schedule');
 
