@@ -55,7 +55,7 @@ $( document ).ready(function() {
     const monthName = $('#monthName');
     
     function loadCalendar(offset) {
-
+        loadingResponse.show();
         if (offset == 0) {
             currentDate.setMonth(today.getMonth());
         } else {
@@ -79,9 +79,11 @@ $( document ).ready(function() {
             success: function(response) {
                 calendarTable.html(response);
                 monthName.text(month + ' ' + currentDate.getFullYear());
+                loadingResponse.hide();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
+                loadingResponse.hide();
             }
         });
     }
