@@ -79,10 +79,11 @@ $( document ).ready(function() {
         });
     }
 
-    
+    const loadingResponse = $('#loadingResponse');
 
     $(document).on('click', '.boxDay', function() {
         
+        loadingResponse.show();
         calendarSelector.hide();
         scheduleSelector.show();
 
@@ -94,17 +95,17 @@ $( document ).ready(function() {
         $.ajax({
             url: 'loadSchedule',
             method: 'POST',
-            data: { 
-                date: formatedDate
-            },
+            data: { date: formatedDate },
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 scheduleSelector.html(jsonData.html);
                 calendarNavigation.hide();
                 calendarBackDiv.show();
+                loadingResponse.hide();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
+                loadingResponse.hide();
             }
         });
     });

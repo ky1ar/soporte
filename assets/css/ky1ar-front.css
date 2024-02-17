@@ -346,5 +346,16 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     max-width: 50%;
     line-height: 0.8rem;
 }
+#loadingResponse {
+    display: none;
+}
+#loadingResponse img {
+    animation: rotate 2s linear infinite;
+}
 
 
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

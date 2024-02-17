@@ -55,6 +55,9 @@ setlocale(LC_TIME, 'es_ES');
                     </ul>
                 </div>
                 <div class="cap-rgt" id="scheduleCalendar">
+                    <div id="loadingResponse">
+                        <img src="assets/img/fav.png" alt="Cargando..." />
+                    </div>
                     <?php
                     $today = date('d');
                     $firstDay = date('Y-m-01');
