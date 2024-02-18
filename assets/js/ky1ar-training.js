@@ -123,12 +123,11 @@ $( document ).ready(function() {
         let day = selectedData.data('day');
         let date = selectedData.data('date');
         let count = dateAvailable.val();
-        let id = $(this).data('id');
         let schedule = $(this).data('schedule');
 
         selectedSchedule.text(day + ' - ' + schedule);
         picked.val(date);
-        picked.attr('data-id', id);
+        picked.attr('data-schedule', schedule);
         picked.attr('data-count', count);
 
         scheduleSelector.hide();
