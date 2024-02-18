@@ -91,7 +91,7 @@ $s_role = $_SESSION['user_role'];
                                     $selectedDate = new DateTime($row['training_date']);
                                     $dayName = $days[$selectedDate->format('w')];
                                     $dayMonth = $selectedDate->format('j');
-                                    echo $dayName.' '.$dayMonth.'<span>'.substr($row2['h_start'], 0, 5).'</span>'; 
+                                    echo $dayName.' '.$dayMonth.'<span>'.substr($row['h_start'], 0, 5).'</span>'; 
                                 ?>
                             </td>
                             <td>
