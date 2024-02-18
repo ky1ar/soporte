@@ -2320,11 +2320,11 @@ footer .ftr-cpy {
     text-transform: capitalize;
 }
 #adminSection .pendingTable .rowSchedule span {
-    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     justify-content: center;
+    color: #ed5d1f;
 }
 #adminSection .pendingTable .rowMachine {
     display: flex;
@@ -2361,8 +2361,9 @@ footer .ftr-cpy {
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
-    background-color: #fff;
-    border: 1px solid #d1d1d1;
+    color: #ed5d1f;
+    background-color: #fffdf5;
+    border: 1px solid #ed5d1f;
     gap: 0.5rem;
 }
 #adminSection .pendingTable .selectWorker {
