@@ -62,9 +62,13 @@ $s_role = $_SESSION['user_role'];
         </div>
     </header>
 
-    <section id="rpt-dat">
+    <section id="adminSection">
         <div class="ky1-wrp">
-            
+            <div class="sectionBox">
+                <h3 class="boxTitle">Capacitaciones pendientes
+                    <p>Listado de las solicitudes pendientes de aprobación y seleccion del responsable.</p>
+                </h3>
+            </div>
         </div>
     </section>
 
