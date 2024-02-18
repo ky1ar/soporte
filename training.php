@@ -79,26 +79,27 @@ $s_role = $_SESSION['user_role'];
                         <th></th>
                     </tr>
                     <?php 
-                    $sql = "SELECT * FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id WHERE t.state = 0";
+                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, name, phone, email, invoice, b.name as b_name, m.model as m_model FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0):
-                        while ($row = $result->fetch_assoc()):
-                            setlocale(LC_TIME, 'es_ES');
-                            $date = strtotime($row['dates']);
-                            $date = strftime("%e de %B de %Y", $date);
-                            ?>
+                        while ($row = $result->fetch_assoc()):?>
                         <tr>
-                            <td><?php echo $n ?></td>
-                            <td class="row-odr">
-                                <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
-                                <div class="tbl-odr"><?php echo $row['orders'] ?><span><?php echo $row['model']?></span></div></td>
-                            <td><?php echo $row['wnm'] ?></td>
-                            <td><?php echo $date ?></td>
-                            <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
-                            <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
-                            <td class="row-stt"><?php echo $row['state'] == 9 ? '<span class="stt-fns">Finalizado</span>':'<span>Activo</span>' ?></td>
-                            <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
-
+                            <td>
+                                <?php echo $row['training_date'] ?> <?php echo $row['h_start'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['name'] ?> <?php echo $row['document'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['email'] ?> <?php echo $row['phone'] ?>
+                            
+                            </td>
+                            <td><?php echo $row['invoice'] ?></td>
+                            <td>
+                                <?php echo $row['b_name'] ?> <?php echo $row['m_model'] ?>
+                            </td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <?php
                         endwhile;
