@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $invoicePath = $path . $uniqueFileName;
     move_uploaded_file($tempFileName, $invoicePath);
 
-    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id WHERE tc.document = ? AND t.state IN (0, 1)");
+    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training t WHERE t.document = ? AND t.state IN (0, 1)");
     $stmt->bind_param("s", $dniRUC);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -58,16 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $sql = "INSERT INTO Training_Client (document, name, phone, email, invoice) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Training (machine, document, name, phone, email, invoice, training_date, schedule_id, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssss", $dniRUC, $client, $phone, $email, $invoicePath);
-        $stmt->execute();
-        $newId = $stmt->insert_id;
-        $stmt->close();
-
-        $sql = "INSERT INTO Training (machine, client, training_date, schedule_id, state) VALUES (?, ?, ?, ?, 0)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iisi", $machineId, $newId, $selectedDate, $scheduleId);
+        $stmt->bind_param("issssssi", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $selectedDate, $scheduleId);
         $stmt->execute();
         $stmt->close();
 
