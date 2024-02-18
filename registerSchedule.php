@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         
         $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND training_start = ?");
-        $stmt->bind_param("si", $date, $schedule);
+        $stmt->bind_param("ss", $date, $schedule);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql = "INSERT INTO Training (machine, document, name, phone, email, invoice, training_date, training_start, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("issssssi", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $date, $schedule);
+        $stmt->bind_param("isssssss", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $date, $schedule);
         $stmt->execute();
         $stmt->close();
 
