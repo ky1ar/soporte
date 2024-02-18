@@ -95,7 +95,7 @@ $s_role = $_SESSION['user_role'];
                         ?>
                         <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
                             <tr class="tableHeader">
-                                <th><?php echo $months[$month] ?> <?php echo $year ?></th>
+                                <th><?php echo $months[$month-1] ?> <?php echo $year ?></th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
