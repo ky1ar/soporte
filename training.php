@@ -190,10 +190,9 @@ $s_role = $_SESSION['user_role'];
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
-                                            echo '<p>'.$row['calendar_date'].'</p>';
+                                            echo '<p>'.$row2['h_start'].'</p>';
                                         }
                                     }
-                                     
                                     echo '</div></li>';
                                 }
                                 ?>
