@@ -134,8 +134,8 @@ $s_role = $_SESSION['user_role'];
                             </td>
                             <td>
                                 <div class="actionButtons">
-                                    <div class="button">Aprobar</div>
-                                    <div class="button">Rechazar</div>
+                                    <div class="button aprove">Aprobar</div>
+                                    <div class="button reject">Rechazar</div>
                                 </div>
                             </td>
                         </tr>

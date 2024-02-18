@@ -2365,6 +2365,7 @@ footer .ftr-cpy {
     background-color: #fffdf5;
     border: 1px solid #ed5d1f;
     gap: 0.5rem;
+    font-weight: 600;
 }
 #adminSection .pendingTable .selectWorker {
     padding: 0.25rem 0.75rem;
@@ -2381,11 +2382,18 @@ footer .ftr-cpy {
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
-    background-color: #fff;
-    border: 1px solid #d1d1d1;
     font-weight: 700;
 }
-
+#adminSection .pendingTable .button.aprove {
+    background-color: #f2fff7;
+    color: #0aa139;
+    border: 1px solid #0aa139;
+}
+#adminSection .pendingTable .button.reject {
+    background-color: #fff2f2;
+    color: #f54f4f;
+    border: 1px solid #f54f4f;
+}
 
 
 
