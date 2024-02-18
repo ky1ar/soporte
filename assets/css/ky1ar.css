@@ -2288,7 +2288,7 @@ footer .ftr-cpy {
 }
 /*********************************************************************/
 #adminSection .pendingTable {
-
+    width: 100%;
 }
 #adminSection .pendingTable .tableHeader {
     text-align: left;

@@ -91,20 +91,20 @@ $s_role = $_SESSION['user_role'];
                                     $selectedDate = new DateTime($row['training_date']);
                                     $dayName = $days[$selectedDate->format('w')];
                                     $dayMonth = $selectedDate->format('j');
-                                    echo $dayName.' '.$dayMonth.'<span>'.substr($row['h_start'], 0, 5).'</span>'; 
+                                    echo '<div class="rowFlex">'.$dayName.' '.$dayMonth.'<span>'.substr($row['h_start'], 0, 5).'</span></div>'; 
                                 ?>
                             </td>
                             <td>
-                                <?php echo $row['tc_name'].'<span>'.$row['document'].'</span>'; ?>
+                                <?php echo '<div class="rowFlex">'.$row['tc_name'].'<span>'.$row['document'].'</span></div>'; ?>
                             </td>
                             <td>
-                            <?php echo $row['email'].'<span>'.$row['phone'].'</span>'; ?>                           
+                            <?php echo '<div class="rowFlex">'.$row['email'].'<span>'.$row['phone'].'</span></div>'; ?>                           
                             </td>
                             <td>
                                 <div class="previewInvoice" data-url="<?php echo $row['invoice'] ?>"><img src="assets/img/edt.svg" alt=""></div>
                             </td>
                             <td>
-                                <div class="machineBox">
+                                <div class="rowFlex machineBox">
                                     <img width="48" src="assets/mac/ender-3-v2-neo.webp" alt="">
                                     <span><?php echo $row['b_name'] ?> <?php echo $row['m_model'] ?></span>
                                 </div>
