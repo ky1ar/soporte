@@ -43,6 +43,12 @@ setlocale(LC_TIME, 'es_ES');
             ?>
         </div>
     </header>
+    <section class="frontSlider">
+        <div class="ky1-wrp">
+            <img width="1920" height="630" src="assets/slider/benef.webp">
+        </div>
+    </section>
+
     <section id="ky1-cap">
         <div class="ky1-wrp">
             <div class="cap-cnt">
