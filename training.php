@@ -65,11 +65,11 @@ $s_role = $_SESSION['user_role'];
     <section id="adminSection">
         <div class="ky1-wrp">
             <div class="sectionBox">
-                <h3 class="boxTitle">Capacitaciones pendientes
-                    <p>Listado de las solicitudes pendientes de aprobación y seleccion del responsable.</p>
+                <h3 class="boxTitle">Solicitudes de Capacitaciones
+                    <p>Listado de las capacitaciones pendientes de aprobación y asignación del responsable.</p>
                 </h3>
                 <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
-                    <tr class="row-hdr">
+                    <tr class="tableHeader">
                         <th>Reserva</th>
                         <th>Cliente</th>
                         <th>Contacto</th>

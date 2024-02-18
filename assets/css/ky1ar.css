@@ -2288,5 +2288,19 @@ footer .ftr-cpy {
 }
 /*********************************************************************/
 #adminSection .pendingTable {
-    
+
 }
+#adminSection .pendingTable .tableHeader {
+    text-align: left;
+}
+#adminSection .pendingTable tr:nth-child(even) {
+    background-color: #f0f0f0;
+    border-radius: 1rem;
+}
+#adminSection .pendingTable .tableHeader th {
+    padding: 0.5rem;
+}
+#adminSection .pendingTable td {
+    padding: 0.5rem; 
+}
+
