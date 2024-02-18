@@ -98,8 +98,8 @@ $s_role = $_SESSION['user_role'];
                             <td>
                                 <?php echo $row['b_name'] ?> <?php echo $row['m_model'] ?>
                             </td>
-                            <td></td>
-                            <td></td>
+                            <td>Seleccionar</td>
+                            <td>x</td>
                         </tr>
                         <?php
                         endwhile;
