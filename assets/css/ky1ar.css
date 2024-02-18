@@ -2306,6 +2306,7 @@ footer .ftr-cpy {
 #adminSection .pendingTable .tableHeader th {
     padding: 0.5rem;
     font-size: 0.9rem;
+    text-transform: capitalize;
 }
 #adminSection .pendingTable td {
     padding: 0.5rem; 
@@ -2360,6 +2361,7 @@ footer .ftr-cpy {
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
+    background-color: #fff;
     border: 1px solid #d1d1d1;
     gap: 0.5rem;
 }
