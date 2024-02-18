@@ -181,13 +181,20 @@ $s_role = $_SESSION['user_role'];
                                 $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$firstDay') AND MONTH(calendar_date) = MONTH('$firstDay')";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
-                                    $dayNum = date('d', strtotime($row['calendar_date']));
-                                    $state = $row['state'];
-                                    
+                                    $date = $row['calendar_date'];
+                                    $dayNum = date('d', strtotime($date));
                                     echo '<li' . (($today == $dayNum) ? ' class="today"' : '') . '>';
-                                    if ( $dayNum <= $today || $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
-                                    else { echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>'; }
-                                    echo '</li>';
+                                    echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span><div>';
+
+                                    $sql2 = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 1 AND training_date =  '$date' ORDER BY training_date, h_start;";
+                                    $result2 = $conn->query($sql2);
+                                    if ($result2->num_rows > 0){
+                                        while ($row2 = $result2->fetch_assoc()){
+                                            echo '<p>'.$row['calendar_date'].'</p>';
+                                        }
+                                    }
+                                     
+                                    echo '</div></li>';
                                 }
                                 ?>
                             </ul>
