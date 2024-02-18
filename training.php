@@ -105,7 +105,7 @@ $s_role = $_SESSION['user_role'];
                         <tr>
                             <td>
                                 <div class="rowSchedule"><?php echo $dayName.' '.$dayNumber ?>
-                                    <span><img width="14" height="14" src="assets/img/edt.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
+                                    <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
                                 </div>
                             </td>
                             <td>
@@ -118,7 +118,7 @@ $s_role = $_SESSION['user_role'];
                                 <div class="rowClient">
                                     <?php echo $row['tc_name'] ?>
                                     <span><?php echo $row['document'] ?>
-                                        <div class="preview"><img width="12" height="12" src="assets/img/edt.svg" alt=""> Recibo</div>
+                                        <div class="preview"><img width="12" height="12" src="assets/img/invoice.svg" alt=""> Recibo</div>
                                     </span>
                                 </div>
                             </td>
