@@ -79,7 +79,7 @@ $s_role = $_SESSION['user_role'];
                         <th></th>
                     </tr>
                     <?php 
-                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, name, phone, email, invoice, b.name as b_name, m.model as m_model FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
+                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, phone, email, invoice, b.name as b_name, m.model as m_model FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0):
                         while ($row = $result->fetch_assoc()):?>
@@ -88,7 +88,7 @@ $s_role = $_SESSION['user_role'];
                                 <?php echo $row['training_date'] ?> <?php echo $row['h_start'] ?>
                             </td>
                             <td>
-                                <?php echo $row['name'] ?> <?php echo $row['document'] ?>
+                                <?php echo $row['tc_name'] ?> <?php echo $row['document'] ?>
                             </td>
                             <td>
                                 <?php echo $row['email'] ?> <?php echo $row['phone'] ?>
