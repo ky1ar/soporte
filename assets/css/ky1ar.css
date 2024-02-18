@@ -2372,6 +2372,7 @@ footer .ftr-cpy {
     border: 1px solid #d1d1d1;
     border-radius: 1rem;
     font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
 }
 #adminSection .pendingTable .actionButtons {
     display: flex;
@@ -2383,6 +2384,7 @@ footer .ftr-cpy {
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     font-weight: 700;
+    cursor: pointer;
 }
 #adminSection .pendingTable .button.aprove {
     background-color: #f2fff7;

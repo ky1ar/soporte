@@ -143,6 +143,9 @@ $s_role = $_SESSION['user_role'];
                     </table>
                 <?php endif; ?>
             </div>
+            <div class="sectionBox">
+                <h3 class="boxTitle">Calendario de Capacitaciones</h3>
+                </div>
         </div>
     </section>
 
