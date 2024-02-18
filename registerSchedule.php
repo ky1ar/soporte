@@ -5,8 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $response = array();
 
-    $scheduleId = $_POST['scheduleId'];
-    $selectedDate = $_POST['selectedDate'];
+    $schedule = $_POST['schedule'];
+    $date = $_POST['date'];
     $count = $_POST['count'];
 
     $dniRUC = $_POST['dniRUC'];
@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         
-        $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND schedule_id = ?");
-        $stmt->bind_param("si", $selectedDate, $scheduleId);
+        $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND training_start = ?");
+        $stmt->bind_param("si", $date, $schedule);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
@@ -58,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $sql = "INSERT INTO Training (machine, document, name, phone, email, invoice, training_date, schedule_id, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
+        $sql = "INSERT INTO Training (machine, document, name, phone, email, invoice, training_date, training_start, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("issssssi", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $selectedDate, $scheduleId);
+        $stmt->bind_param("issssssi", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $date, $schedule);
         $stmt->execute();
         $stmt->close();
 
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($count == 1) {
             $sql = "UPDATE Calendar SET state = 0 WHERE calendar_date = ?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $selectedDate);
+            $stmt->bind_param("s", $date);
             $stmt->execute();
             $stmt->close();
         }

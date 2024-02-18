@@ -20,7 +20,7 @@ $s_role = $_SESSION['user_role'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav.png">
     <title>Krear 3D - Soporte Técnico</title>
-    <?php require_once 'header.php'; ?>
+    <?php require_once 'header_back.php'; ?>
 </head>
 <body class="ky1-adm">
     

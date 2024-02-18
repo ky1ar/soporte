@@ -174,8 +174,8 @@ $( document ).ready(function() {
         event.preventDefault();
         scheduleFormMessage.slideUp();
 
-        let selectedDate = picked.val();
-        let scheduleId = picked.data('id');
+        let date = picked.val();
+        let schedule = picked.data('schedule');
         let count = picked.data('count');
         
         var dniRUC = $('#dniRUC').val();
@@ -190,8 +190,8 @@ $( document ).ready(function() {
         }
 
         let formData = new FormData();
-        formData.append('scheduleId', scheduleId);
-        formData.append('selectedDate', selectedDate);
+        formData.append('schedule', schedule);
+        formData.append('date', date);
         formData.append('count', count);
         formData.append('dniRUC', dniRUC);
         formData.append('client', client);
