@@ -79,7 +79,7 @@ $s_role = $_SESSION['user_role'];
                     <?php 
                     $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
 
-                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
+                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0 ORDER BY training_date, h_start;";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0):
                         while ($row = $result->fetch_assoc()):?>
@@ -87,10 +87,11 @@ $s_role = $_SESSION['user_role'];
                             <td>
                                 <?php 
                                 $selectedDate = new DateTime($row['training_date']);
+                                $monthName = $selectedDate->format('F');
                                 $dayName = $days[$selectedDate->format('w')];
                                 $dayMonth = $selectedDate->format('j');
                                 ?>
-                                <div class="rowSchedule"><?php echo $dayName.' '.$dayMonth ?>
+                                <div class="rowSchedule"><?php echo $monthName.' '.$dayName.' '.$dayMonth ?>
                                     <span><img width="14" height="14" src="assets/img/edt.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
                                 </div>
                             </td>
