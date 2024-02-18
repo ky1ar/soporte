@@ -110,10 +110,11 @@ $s_role = $_SESSION['user_role'];
                             </td>
                             <td>
                                 <select class="selectWorker">
+                                    <option value="">Seleccionar</option>
                                     <option value="193">Bryan García</option>
                                     <option value="122">Gabriel Díaz</option>
                                     <option value="2">Juan Huamán</option>
-                                    <option selected="" value="108">Richard Tong</option>
+                                    <option value="108">Richard Tong</option>
                                     <option value="203">Ronny Calderón</option>
                                 </select>
                             </td>
