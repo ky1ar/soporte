@@ -104,7 +104,7 @@ $s_role = $_SESSION['user_role'];
                         <?php endif; ?>
                         <tr>
                             <td>
-                                <div class="rowSchedule"><?php echo $monthName.' '.$dayName.' '.$dayNumber ?>
+                                <div class="rowSchedule"><?php echo $dayName.' '.$dayNumber ?>
                                     <span><img width="14" height="14" src="assets/img/edt.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
                                 </div>
                             </td>
