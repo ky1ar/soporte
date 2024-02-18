@@ -145,7 +145,56 @@ $s_role = $_SESSION['user_role'];
             </div>
             <div class="sectionBox">
                 <h3 class="boxTitle">Calendario de Capacitaciones</h3>
+                <div id="adminCalendar">
+                    <?php
+                    $today = date('d');
+                    $firstDay = date('Y-m-01');
+                    $firstDayNum = date('N', strtotime($firstDay));
+                    ?>
+                    <div class="calendarHeader">
+                        <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
+                        <div id="calendarNavigation">
+                            <div class="button disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                            <div class="button" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                        </div>
+                    </div>
+                    <div id="calendarContainer">
+                        <div id="loadingResponse">
+                            <div class="flex">
+                                <img src="assets/img/fav.png" alt="Cargando..." />
+                            </div>
+                        </div>
+                        <div id="calendarSelector">
+                            <ul class="calendarBox boxHeader">
+                                <li>dom</li>
+                                <li>lun</li>
+                                <li>mar</li>
+                                <li>mié</li>
+                                <li>jue</li>
+                                <li>vie</li>
+                                <li>sáb</li>
+                            </ul>
+                            <ul class="calendarBox" id="calendarTable">
+                                <?php
+                                for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
+                                
+                                $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$firstDay') AND MONTH(calendar_date) = MONTH('$firstDay')";
+                                $result = $conn->query($sql);
+                                while ($row = $result->fetch_assoc()) {
+                                    $dayNum = date('d', strtotime($row['calendar_date']));
+                                    $state = $row['state'];
+                                    
+                                    echo '<li' . (($today == $dayNum) ? ' class="today"' : '') . '>';
+                                    if ( $dayNum <= $today || $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
+                                    else { echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>'; }
+                                    echo '</li>';
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>    
                 </div>
+            </div>
         </div>
     </section>
 

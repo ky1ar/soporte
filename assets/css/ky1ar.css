@@ -2292,7 +2292,7 @@ footer .ftr-cpy {
 /*********************************************************************/
 #adminSection .pendingTable {
     width: 100%;
-    border: 1px solid #d1d1d1;
+    border: 1px solid var(--graydark);
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -2336,7 +2336,7 @@ footer .ftr-cpy {
     border-radius: 3rem;
     padding: 0.5rem;
     background-color: #fff;
-    border: 1px solid #d1d1d1;
+    border: 1px solid var(--graydark);
 }
 #adminSection .pendingTable .rowMachine span {
     font-weight: 500;
@@ -2369,7 +2369,7 @@ footer .ftr-cpy {
 }
 #adminSection .pendingTable .selectWorker {
     padding: 0.25rem 0.75rem;
-    border: 1px solid #d1d1d1;
+    border: 1px solid var(--graydark);
     border-radius: 1rem;
     font-family: 'DM Sans', sans-serif;
     cursor: pointer;
