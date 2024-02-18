@@ -68,6 +68,42 @@ $s_role = $_SESSION['user_role'];
                 <h3 class="boxTitle">Capacitaciones pendientes
                     <p>Listado de las solicitudes pendientes de aprobación y seleccion del responsable.</p>
                 </h3>
+                <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="row-hdr">
+                        <th>Reserva</th>
+                        <th>Cliente</th>
+                        <th>Contacto</th>
+                        <th>Comprobante</th>
+                        <th>Equipo</th>
+                        <th>Responsable</th>
+                        <th></th>
+                    </tr>
+                    <?php 
+                    $sql = "SELECT * FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id WHERE t.state = 0";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0):
+                        while ($row = $result->fetch_assoc()):
+                            setlocale(LC_TIME, 'es_ES');
+                            $date = strtotime($row['dates']);
+                            $date = strftime("%e de %B de %Y", $date);
+                            ?>
+                        <tr>
+                            <td><?php echo $n ?></td>
+                            <td class="row-odr">
+                                <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
+                                <div class="tbl-odr"><?php echo $row['orders'] ?><span><?php echo $row['model']?></span></div></td>
+                            <td><?php echo $row['wnm'] ?></td>
+                            <td><?php echo $date ?></td>
+                            <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
+                            <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
+                            <td class="row-stt"><?php echo $row['state'] == 9 ? '<span class="stt-fns">Finalizado</span>':'<span>Activo</span>' ?></td>
+                            <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
+
+                        </tr>
+                        <?php
+                        endwhile;
+                    endif; ?>
+                </table>
             </div>
         </div>
     </section>

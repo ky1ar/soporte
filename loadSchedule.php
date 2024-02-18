@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $sql = "SELECT * FROM Calendar WHERE calendar_date = '$date'";
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
-        $state = $row['state'];
+        $custom = $row['custom'];
 
         $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
         $selectedDate = new DateTime($date);
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $response['html'] .= '<p class="selectedMessage">A continuación elige un horario disponible</p>';
         $response['html'] .= '<ul>';
 
-        if ($state == 2) {
+        if ($custom == 1) {
             $sql2 = "SELECT cs.id, cs.h_start, cs.h_end FROM Custom_Schedule cs LEFT JOIN Training t ON t.training_date = cs.t_date WHERE cs.t_date = '$date' AND COALESCE(t.schedule_id, -1) != cs.id;";
             $result2 = $conn->query($sql2);
             while ($row2 = $result2->fetch_assoc()) {

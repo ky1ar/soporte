@@ -2257,7 +2257,7 @@ footer .ftr-cpy {
     opacity: 0.75;
     line-height: 1.125rem;
 }
-
+/*********************************************************************/
 #adminSection {
     margin-bottom: 2rem;
 }
@@ -2285,4 +2285,8 @@ footer .ftr-cpy {
     font-weight: 500;
     opacity: 0.75;
     font-size: 0.85rem;
+}
+/*********************************************************************/
+#adminSection .pendingTable {
+    
 }
