@@ -51,7 +51,8 @@ $s_role = $_SESSION['user_role'];
                 </div>
                 
                 <div class="flt-usr flt-act" data-usrf="1"><img src="assets/img/edt.svg" alt="">Dashboard</div>
-                <div class="flt-usr flt-act" data-usrf="2"><img src="assets/img/usr.svg" alt="">Técnicos</span></div>
+                <div class="flt-usr flt-act" data-usrf="2"><img src="assets/img/usr.svg" alt="">Técnicos</div>
+                <a href="training" class="flt-usr"><img src="assets/img/usr.svg" alt="">Capacitaciones</a>
             </div>
             <div class="ky1-rgt">
                 <a href="https://api.whatsapp.com/send?phone=51946887982" target="_blank" rel="nofollow"><img src="assets/img/cnt.svg" alt=""></a>
