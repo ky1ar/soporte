@@ -79,24 +79,35 @@ $s_role = $_SESSION['user_role'];
                         <th></th>
                     </tr>
                     <?php 
+                    $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+
                     $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, phone, email, invoice, b.name as b_name, m.model as m_model FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0):
                         while ($row = $result->fetch_assoc()):?>
                         <tr>
                             <td>
-                                <?php echo $row['training_date'] ?> <?php echo $row['h_start'] ?>
+                                <?php 
+                                    $selectedDate = new DateTime($row['training_date']);
+                                    $dayName = $days[$selectedDate->format('w')];
+                                    $dayMonth = $selectedDate->format('j');
+                                    echo $dayName.' '.$dayMonth.'<span>'.substr($row2['h_start'], 0, 5).'</span>'; 
+                                ?>
                             </td>
                             <td>
-                                <?php echo $row['tc_name'] ?> <?php echo $row['document'] ?>
+                                <?php echo $row['tc_name'].'<span>'.$row['document'].'</span>'; ?>
                             </td>
                             <td>
-                                <?php echo $row['email'] ?> <?php echo $row['phone'] ?>
-                            
+                            <?php echo $row['email'].'<span>'.$row['phone'].'</span>'; ?>                           
                             </td>
-                            <td><?php echo $row['invoice'] ?></td>
                             <td>
-                                <?php echo $row['b_name'] ?> <?php echo $row['m_model'] ?>
+                                <div class="previewInvoice" data-url="<?php echo $row['invoice'] ?>"><img src="assets/img/edt.svg" alt=""></div>
+                            </td>
+                            <td>
+                                <div class="machineBox">
+                                    <img width="48" src="assets/mac/ender-3-v2-neo.webp" alt="">
+                                    <span><?php echo $row['b_name'] ?> <?php echo $row['m_model'] ?></span>
+                                </div>
                             </td>
                             <td>Seleccionar</td>
                             <td>x</td>
