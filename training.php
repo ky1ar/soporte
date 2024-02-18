@@ -68,30 +68,43 @@ $s_role = $_SESSION['user_role'];
                 <h3 class="boxTitle">Solicitudes de Capacitaciones
                     <p>Listado de las capacitaciones pendientes de aprobación y asignación del responsable.</p>
                 </h3>
-                <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
-                    <tr class="tableHeader">
-                        <th>Febrero 2024</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <?php 
-                    $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+                
+                <?php 
+                $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+                $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
+                $startMonth = 0;
+                $startTable = false;
+                $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0 ORDER BY training_date, h_start;";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0):
+                    while ($row = $result->fetch_assoc()):?>
+                        <?php 
+                        $selectedDate = new DateTime($row['training_date']);
+                        $year = $selectedDate->format('Y');
+                        $month = $selectedDate->format('n');
+                        $dayName = $days[$selectedDate->format('w')];
+                        $dayNumber = $selectedDate->format('j');
+                        
+                        if($startMonth != $month && $startTable):?>
+                            </table>
+                        <?php endif;
 
-                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0 ORDER BY training_date, h_start;";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0):
-                        while ($row = $result->fetch_assoc()):?>
+                        if($startMonth != $month):
+                            $startTable = true;
+                            $startMonth = $month;
+                        ?>
+                        <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="tableHeader">
+                                <th><?php echo $months[$month] ?> <?php echo $year ?></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        <?php endif; ?>
                         <tr>
                             <td>
-                                <?php 
-                                $selectedDate = new DateTime($row['training_date']);
-                                $monthName = $selectedDate->format('F');
-                                $dayName = $days[$selectedDate->format('w')];
-                                $dayMonth = $selectedDate->format('j');
-                                ?>
-                                <div class="rowSchedule"><?php echo $monthName.' '.$dayName.' '.$dayMonth ?>
+                                <div class="rowSchedule"><?php echo $monthName.' '.$dayName.' '.$dayNumber ?>
                                     <span><img width="14" height="14" src="assets/img/edt.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
                                 </div>
                             </td>
@@ -126,10 +139,9 @@ $s_role = $_SESSION['user_role'];
                                 </div>
                             </td>
                         </tr>
-                        <?php
-                        endwhile;
-                    endif; ?>
-                </table>
+                    <?php endwhile; ?>
+                    </table>
+                <?php endif; ?>
             </div>
         </div>
     </section>
