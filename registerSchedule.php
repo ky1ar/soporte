@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $invoicePath = $path . $uniqueFileName;
     move_uploaded_file($tempFileName, $invoicePath);
 
-    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training t WHERE t.document = ? AND t.state IN (0, 1)");
+    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE document = ? AND training_state IN (0, 1)");
     $stmt->bind_param("s", $dniRUC);
     $stmt->execute();
     $result = $stmt->get_result();
