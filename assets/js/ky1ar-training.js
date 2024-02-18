@@ -5,7 +5,6 @@ $( document ).ready(function() {
     
     var currentDate = new Date();
     var today = new Date();
-
     var months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
     calendarPrev.click(function(){
@@ -34,7 +33,6 @@ $( document ).ready(function() {
     const calendarNavigation = $('#calendarNavigation');
     const calendarBackDiv = $('#calendarBackDiv');
     const calendarBack = $('#calendarBack');
-
     const calendarSelector = $('#calendarSelector');
     const scheduleSelector = $('#scheduleSelector');
     const scheduleForm = $('#scheduleForm');
@@ -70,14 +68,11 @@ $( document ).ready(function() {
         var month = splitDate[1];
         var month = months[parseInt(month, 10) - 1];
         var firstDayNum = currentDate.getDay();
-        console.log(firstDayNum);
+        //console.log(firstDayNum);
         $.ajax({
             url: 'loadCalendar',
             method: 'POST',
-            data: { 
-                date: formatedDate,
-                day: firstDayNum 
-            },
+            data: { date: formatedDate, day: firstDayNum },
             success: function(response) {
                 calendarTable.html(response);
                 monthName.text(month + ' ' + currentDate.getFullYear());
@@ -89,8 +84,6 @@ $( document ).ready(function() {
             }
         });
     }
-
-    
 
     $(document).on('click', '.boxDay', function() {
         
