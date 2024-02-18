@@ -70,47 +70,59 @@ $s_role = $_SESSION['user_role'];
                 </h3>
                 <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
                     <tr class="tableHeader">
-                        <th>Reserva</th>
-                        <th>Cliente</th>
-                        <th>Contacto</th>
-                        <th>Comprobante</th>
-                        <th>Equipo</th>
-                        <th>Responsable</th>
+                        <th>Febrero 2024</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                         <th></th>
                     </tr>
                     <?php 
                     $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
 
-                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, phone, email, invoice, b.name as b_name, m.model as m_model FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
+                    $sql = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, tc.name as tc_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Training_Client tc ON t.client = tc.id INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.schedule_id = ds.id AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.schedule_id = cs.id AND c.custom = 1 WHERE t.state = 0;";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0):
                         while ($row = $result->fetch_assoc()):?>
                         <tr>
                             <td>
                                 <?php 
-                                    $selectedDate = new DateTime($row['training_date']);
-                                    $dayName = $days[$selectedDate->format('w')];
-                                    $dayMonth = $selectedDate->format('j');
-                                    echo '<div class="rowFlex">'.$dayName.' '.$dayMonth.'<span>'.substr($row['h_start'], 0, 5).'</span></div>'; 
+                                $selectedDate = new DateTime($row['training_date']);
+                                $dayName = $days[$selectedDate->format('w')];
+                                $dayMonth = $selectedDate->format('j');
                                 ?>
-                            </td>
-                            <td>
-                                <?php echo '<div class="rowFlex">'.$row['tc_name'].'<span>'.$row['document'].'</span></div>'; ?>
-                            </td>
-                            <td>
-                            <?php echo '<div class="rowFlex">'.$row['email'].'<span>'.$row['phone'].'</span></div>'; ?>                           
-                            </td>
-                            <td>
-                                <div class="previewInvoice" data-url="<?php echo $row['invoice'] ?>"><img src="assets/img/edt.svg" alt=""></div>
-                            </td>
-                            <td>
-                                <div class="rowFlex machineBox">
-                                    <img width="48" src="assets/mac/ender-3-v2-neo.webp" alt="">
-                                    <span><?php echo $row['b_name'] ?> <?php echo $row['m_model'] ?></span>
+                                <div class="rowSchedule"><?php echo $dayName.' '.$dayMonth ?>
+                                    <span><img width="14" height="14" src="assets/img/edt.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
                                 </div>
                             </td>
-                            <td>Seleccionar</td>
-                            <td>x</td>
+                            <td>
+                                <div class="rowMachine">
+                                    <img width="48" src="assets/mac/<?php echo $row['m_slug'] ?>.webp" alt="">
+                                    <span><?php echo $row['m_model'] ?></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rowClient">
+                                    <?php echo $row['tc_name'] ?>
+                                    <span><?php echo $row['document'] ?>
+                                        <div class="preview"><img width="12" height="12" src="assets/img/edt.svg" alt=""> Recibo</div>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <select class="selectWorker">
+                                    <option value="193">Bryan García</option>
+                                    <option value="122">Gabriel Díaz</option>
+                                    <option value="2">Juan Huamán</option>
+                                    <option selected="" value="108">Richard Tong</option>
+                                    <option value="203">Ronny Calderón</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="actionButtons">
+                                    <div class="button">Aprobar</div>
+                                    <div class="button">Rechazar</div>
+                                </div>
+                            </td>
                         </tr>
                         <?php
                         endwhile;
