@@ -2396,6 +2396,144 @@ footer .ftr-cpy {
     color: #f54f4f;
     border: 1px solid #f54f4f;
 }
+/*********************************************************************/
+#adminCalendar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+#adminCalendar .calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#adminCalendar .calendarHeader span {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    margin-left: 2rem;
+}
+#adminCalendar .calendarHeader span::before {
+    content: "";
+    background-color: var(--primary);
+    width: 1rem;
+    height: 1rem;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    border-radius: 0 1rem 1rem 0;
+}
+#adminCalendar .calendarHeader .button {
+    display: flex;
+    gap: 1rem;
+}
+#adminCalendar .calendarHeader .button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+#adminCalendar .calendarHeader .button img {
+    opacity: 0.5;
+}
+#adminCalendar .calendarHeader .button + .button img {
+    transform: rotate(180deg);
+}
+#calendarContainer {
+    border-radius: 0.5rem;
+    border: 1px solid rgb(238, 238, 238);
+    position: relative;
+}
+#loadingResponse {
+    display: none;
+    z-index: 1;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#loadingResponse .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#loadingResponse img {
+    width: 2rem;
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#calendarSelector {
+    padding: 1rem 0.5rem;
+}
+#calendarSelector .calendarBox {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+#calendarSelector .calendarBox.boxHeader {
+    margin-bottom: 0.75rem;
+}
+#calendarSelector .calendarBox li {
+    width: 14.25%;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+}
+#calendarSelector .calendarBox li .boxDay {
+    font-weight: 600;
+    color: var(--black);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    border: 1px solid var(--tertiary);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+#calendarSelector .calendarBox li .boxDay:hover {
+    background-color: var(--primaryopacity);
+}
+#calendarSelector .calendarBox li.today span {
+    color: var(--primary);
+    opacity: 1;
+}
+#calendarSelector .calendarBox li.today::before {
+    content: "";
+    background-color: var(--primary);
+    width: 0.75rem;
+    height: 0.25rem;
+    position: absolute;
+    border-radius: 1rem;
+    bottom: 0.75rem;
+}
+#calendarSelector .calendarBox li span {
+    opacity: 0.5;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+
 
 
 
