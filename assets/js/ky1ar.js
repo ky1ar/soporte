@@ -330,7 +330,31 @@ $( document ).ready(function() {
       lastScroll = currentScroll;
     });
     
-    
+    const previewInvoice = $("#previewInvoice");
+    const invoiceFile = $("#invoiceFile");
+
+    $(".pendingTable .preview").click(function() {
+        let fileUrl = $(this).data('src');
+        var fileExtension = fileUrl.split('.').pop().toLowerCase();
+
+        if (fileExtension === 'pdf') {
+            invoiceFile.html('<embed src="' + fileUrl + '" type="application/pdf" width="100%" height="500px" />');
+        } else if (fileExtension.match(/(jpg|jpeg|png|gif)$/)) {
+            invoiceFile.html('<img src="' + fileUrl + '" alt="Vista previa de la imagen" style="max-width: 100%; max-height: 500px;">');
+        } else {
+            invoiceFile.html('<p>El archivo no es compatible con la previsualización.</p>');
+        }
+        previewInvoice.show();
+    });
+    $("#previewInvoice .close").click(function() {
+        previewInvoice.hide();
+    });
+
+    $(window).click(function(event) {
+        if (event.target == previewInvoice[0]) {
+            previewInvoice.hide();
+        }
+    });
 });
 
 
