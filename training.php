@@ -214,7 +214,7 @@ $s_role = $_SESSION['user_role'];
                     <label for="">Responsable de la capacitación</label>
                     <div class="flex">
                         <img src="assets/img/worker.svg" alt="">
-                        <select name="worker">
+                        <select id="trainingWorker">
                             <option value="">Seleccionar</option>
                             <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
                             $result = $conn->query($sql);
@@ -229,7 +229,7 @@ $s_role = $_SESSION['user_role'];
                     <label for="">Enlace Google Meet</label>
                     <div class="flex">
                         <img src="assets/img/meet.svg" alt="">
-                        <input type="text" name="meet" placeholder="Ingresa la Url">
+                        <input type="text" id="meet" placeholder="Ingresa la Url">
                     </div>
                 </div>
                 <div class="aproveMessage"></div>
