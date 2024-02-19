@@ -127,15 +127,6 @@ $s_role = $_SESSION['user_role'];
                                     <?php echo $row['email'] ?>
                                     <span><?php echo $row['phone'] ?></span>
                                 </div>
-
-                                <!--<select class="selectWorker">
-                                    <option value="">Seleccionar</option>
-                                    <option value="193">Bryan García</option>
-                                    <option value="122">Gabriel Díaz</option>
-                                    <option value="2">Juan Huamán</option>
-                                    <option value="108">Richard Tong</option>
-                                    <option value="203">Ronny Calderón</option>
-                                </select>-->
                             </td>
                             <td>
                                 <div class="actionButtons">
@@ -214,7 +205,41 @@ $s_role = $_SESSION['user_role'];
             </div>
         </div>
     </section>
-
-   
+    <section id="overlay">
+        <div class="modalBox">
+            <form method="post" id="aproveSubmit">
+                <h2>¿Aprobar capacitación?</h2>
+                <p>Agrega el link de Google Meet y el responsable.<br>Recuerda haber verificado el comprobante.</p>
+                <div class="aproveBox">
+                    <label for="">Responsable de la capacitación</label>
+                    <div class="flex">
+                        <img src="assets/img/worker.svg" alt="">
+                        <select name="worker">
+                            <option value="">Seleccionar</option>
+                            <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_assoc()): ?>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                            <?php endwhile; 
+                            $conn->close();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="aproveBox">
+                    <label for="">Enlace Google Meet</label>
+                    <div class="flex">
+                        <img src="assets/img/meet.svg" alt="">
+                        <input type="text" name="meet" placeholder="Ingresa la Url">
+                    </div>
+                </div>
+                <div class="aproveButtons" data-id="">
+                    <div id="aproveCancel">Cancelar</div>
+                    <button type="submit">Aprobar</button>
+                </div>
+                <img class="modalClose" src="assets/img/x.svg" alt="">
+            </form>
+        </div>
+    </section>
+                    
 </body>
 </html>

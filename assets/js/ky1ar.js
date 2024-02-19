@@ -346,6 +346,7 @@ $( document ).ready(function() {
         }
         previewInvoice.show();
     });
+
     $("#previewInvoice .close").click(function() {
         previewInvoice.hide();
     });
@@ -353,6 +354,25 @@ $( document ).ready(function() {
     $(window).click(function(event) {
         if (event.target == previewInvoice[0]) {
             previewInvoice.hide();
+        }
+    });
+
+    const overlay = $('#overlay');
+
+    $(".actionButtons .aprove").click(function() {
+        overlay.fadeToggle();
+
+        let selected = $(this).closest('.actionButtons');
+        selectedId = selected.data('id');
+    });
+
+    $("#overlay .modalClose").click(function() {
+        overlay.fadeToggle();
+    });
+
+    $(window).click(function(event) {
+        if (event.target == overlay[0]) {
+            overlay.fadeToggle();
         }
     });
 });
