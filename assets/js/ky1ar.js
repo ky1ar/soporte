@@ -360,7 +360,7 @@ $( document ).ready(function() {
     const aproveOverlay = $('#aproveOverlay');
 
     $(".actionButtons .aprove").click(function() {
-        let selectedId = $(this).closest('.actionButtons').data('count');
+        let selectedId = $(this).closest('.actionButtons').data('id');
         aproveOverlay.find('.aproveButtons').attr('data-id', selectedId);
         aproveOverlay.fadeToggle();
     });
