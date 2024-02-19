@@ -2573,7 +2573,7 @@ footer .ftr-cpy {
 }
 
 /*********************************************************************/
-#overlay {
+#aproveOverlay {
     display: none;
     position: fixed;
     background-color: rgb(128 128 128 / 40%);
@@ -2583,7 +2583,7 @@ footer .ftr-cpy {
     right: 0;
     left: 0;
 }
-#overlay .modalBox {
+#aproveOverlay .modalBox {
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
