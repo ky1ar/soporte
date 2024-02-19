@@ -129,7 +129,7 @@ $s_role = $_SESSION['user_role'];
                                 </div>
                             </td>
                             <td>
-                                <div class="actionButtons" data-id="<?php echo $row['m_model'] ?>">
+                                <div class="actionButtons" data-id="<?php echo $row['id'] ?>">
                                     <div class="button aprove">Aprobar</div>
                                     <div class="button reject">Rechazar</div>
                                 </div>
