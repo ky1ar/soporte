@@ -192,8 +192,9 @@ $s_role = $_SESSION['user_role'];
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
                                             echo '<div class="calendarViewRow">';
-                                            echo '<p>'.$row2['t_name'].'</p>';
                                             echo '<p>'.substr($row2['h_start'], 0, 5).'</p>';
+                                            echo '<p>'.$row2['t_name'].'</p>';
+                                            
                                             echo '</div>';
                                         }
                                     }
