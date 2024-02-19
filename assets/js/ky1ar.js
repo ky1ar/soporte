@@ -382,7 +382,7 @@ $( document ).ready(function() {
         event.preventDefault();
         aproveMessage.slideUp();
 
-        let scheduleId = aproveOverlay.find('.aproveButtons').data('scheduleId');
+        let scheduleId = aproveOverlay.find('.aproveButtons').data('id');
         let trainingWorker = $('#trainingWorker').val();
         let meet = $('#meet').val();
 
