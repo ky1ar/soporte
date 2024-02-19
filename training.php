@@ -232,8 +232,9 @@ $s_role = $_SESSION['user_role'];
                         <input type="text" name="meet" placeholder="Ingresa la Url">
                     </div>
                 </div>
+                <div class="aproveMessage"></div>
                 <div class="aproveButtons" data-id="">
-                    <div id="aproveCancel">Cancelar</div>
+                    <div class="modalCancel">Cancelar</div>
                     <button type="submit">Aprobar</button>
                 </div>
                 <img class="modalClose" src="assets/img/x.svg" alt="">

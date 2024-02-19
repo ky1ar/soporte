@@ -357,24 +357,82 @@ $( document ).ready(function() {
         }
     });
 
-    const overlay = $('#overlay');
+    const aproveOverlay = $('#aproveOverlay');
 
     $(".actionButtons .aprove").click(function() {
-        overlay.fadeToggle();
-
-        let selected = $(this).closest('.actionButtons');
-        selectedId = selected.data('id');
+        let selectedId = $(this).closest('.actionButtons').data('count');
+        aproveOverlay.find('.aproveButtons').attr('data-id', selectedId);
+        aproveOverlay.fadeToggle();
     });
 
-    $("#overlay .modalClose").click(function() {
-        overlay.fadeToggle();
+    aproveOverlay.find('.modalClose, .modalCancel').click(function() {
+        aproveOverlay.fadeToggle();
     });
 
     $(window).click(function(event) {
-        if (event.target == overlay[0]) {
-            overlay.fadeToggle();
+        if (event.target == aproveOverlay[0]) {
+            aproveOverlay.fadeToggle();
         }
     });
+
+    const aproveSubmit = $('#aproveSubmit');
+    const aproveMessage = $('#aproveMessage');
+
+    aproveSubmit.submit(function(event) {
+        event.preventDefault();
+        aproveMessage.slideUp();
+
+        let scheduleId = aproveOverlay.find('.aproveButtons').data('scheduleId');
+        let trainingWorker = $('#trainingWorker').val();
+        let meet = $('#meet').val();
+
+        if (!validatetrainingWorker(trainingWorker) || !validateMeet(meet)) {
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append('scheduleId', scheduleId);
+        formData.append('trainingWorker', trainingWorker);
+        formData.append('meet', meet);
+
+        $.ajax({
+            url: 'updateSchedule',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                var jsonData = JSON.parse(response);
+                if (jsonData.success) {
+                    window.location.href = 'training';
+                } else {
+                    message(aproveMessage,jsonData.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+            }
+            
+        });
+    });
+
+    function message(target,message) {
+        target.text(message).slideDown();
+    }
+    function validatetrainingWorker(trainingWorker) {
+        if (trainingWorker.trim() === '') {
+            message(aproveMessage, "Seleccione un responsable");
+            return false;
+        }
+        return true;
+    }
+    function validateMeet(meet) {
+        if (meet.trim() === '') {
+            message(aproveMessage, "Ingrese un link de Google Meet");
+            return false;
+        }
+        return true;
+    }
 });
 
 

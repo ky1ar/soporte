@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $response['success'] = '<div id="successSchedule">Todo Correcto</div>';
         echo json_encode($response);
+        exit();
 
     } catch (Exception $e) {
         
@@ -82,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //$response = array("error" => "Error en el registro: " . $e->getMessage());
         $response['error'] = 'Error Interno';
         echo json_encode($response);
+        exit();
     }
 }
 ?>
