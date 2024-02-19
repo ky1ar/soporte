@@ -232,7 +232,7 @@ $s_role = $_SESSION['user_role'];
                         <input type="text" id="meet" placeholder="Ingresa la Url">
                     </div>
                 </div>
-                <div class="aproveMessage"></div>
+                <div id="aproveMessage"></div>
                 <div class="aproveButtons" data-id="">
                     <div class="modalCancel">Cancelar</div>
                     <button type="submit">Aprobar</button>
