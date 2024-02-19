@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         
-        $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND training_start = ?");
+        $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND training_start = ? AND training_state != 3");
         $stmt->bind_param("ss", $date, $schedule);
         $stmt->execute();
         $result = $stmt->get_result();
