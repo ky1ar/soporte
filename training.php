@@ -250,7 +250,7 @@ $s_role = $_SESSION['user_role'];
                     <label for="">Mensaje en el correo</label>
                     <div class="flex">
                         <img src="assets/img/cnt.svg" alt="">
-                        <input type="textarea" id="rejectText" placeholder="Ingresa el mensaje">
+                        <textarea type="textarea" id="rejectText" placeholder="Ingresa el mensaje">
                     </div>
                 </div>
                 <div id="rejectMessage"></div>

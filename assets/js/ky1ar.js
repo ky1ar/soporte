@@ -460,7 +460,7 @@ $( document ).ready(function() {
         rejectMessage.slideUp();
 
         let scheduleId = rejectOverlay.find('.rejectButtons').data('id');
-        let rejectText = $('#rejectText').val();
+        let rejectText = $('#rejectText').text();
 
         if (!validateRejectText(rejectText)) {
             return;

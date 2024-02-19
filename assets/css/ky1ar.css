@@ -2722,11 +2722,13 @@ footer .ftr-cpy {
     display: flex;
     gap: 0.5rem;
 }
-#rejectSubmit .rejectBox input {
+#rejectSubmit .rejectBox textarea {
     padding: 0.5rem;
     border-radius: 0.25rem;
     width: 100%;
     border: 1px solid var(--graydark);
+    font-family: 'DM Sans', sans-serif;
+    resize: none;
 }
 #rejectSubmit .rejectButtons {
     display: flex;
