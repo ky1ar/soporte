@@ -2576,9 +2576,8 @@ footer .ftr-cpy {
 #overlay {
     display: none;
     position: fixed;
-    background-color: #808080;
-    z-index: 3;
-    opacity: 0.5;
+    background-color: rgb(128 128 128 / 40%);
+    z-index: 1;
     top: 0;
     bottom: 0;
     right: 0;
@@ -2590,10 +2589,8 @@ footer .ftr-cpy {
     transform: translate(-50%, -50%);
     left: 50%;
     background-color: #fff;
-    z-index: 4;
     padding: 2rem 3rem;
     border-radius: 0.5rem;
-    display: none;
 }
 #aproveSubmit {
     display: flex;
