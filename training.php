@@ -184,18 +184,21 @@ $s_role = $_SESSION['user_role'];
                                 while ($row = $result->fetch_assoc()) {
                                     $date = $row['calendar_date'];
                                     $dayNum = date('d', strtotime($date));
-                                    echo '<li' . (($today == $dayNum) ? ' class="today"' : '') . '>';
-                                    echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span><div>';
-
-                                    $sql2 = "SELECT t.id, training_date, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 1 AND training_date =  '$date' ORDER BY training_date, h_start;";
+                                    echo '<li class="admin ' . (($today == $dayNum) ? 'today' : '') . '">';
+                                    echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
+                                    echo '<div class="calendarView">';
+                                    $sql2 = "SELECT t.id, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 1 AND training_date =  '$date' ORDER BY training_date, h_start;";
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
+                                            echo '<div class="calendarViewRow">';
                                             echo '<p>'.$row2['t_name'].'</p>';
                                             echo '<p>'.substr($row2['h_start'], 0, 5).'</p>';
+                                            echo '</div>';
                                         }
                                     }
-                                    echo '</div></li>';
+                                    echo '</div>';
+                                    echo '</li>';
                                 }
                                 ?>
                             </ul>

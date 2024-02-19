@@ -2489,10 +2489,12 @@ footer .ftr-cpy {
     width: 14.25%;
     padding: 0.25rem;
     display: flex;
-    justify-content: center;
     align-items: center;
     font-weight: 600;
     position: relative;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid #eee;
 }
 #calendarSelector .calendarBox li .boxDay {
     font-weight: 600;
@@ -2525,12 +2527,35 @@ footer .ftr-cpy {
 }
 #calendarSelector .calendarBox li span {
     opacity: 0.5;
-    width: 3rem;
-    height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.9rem;
+    height: initial;
+}
+#calendarSelector .calendarBox li .calendarView {
+    display: flex;
+    min-height: 6rem;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+#calendarSelector .calendarBox li .calendarViewRow {
+    gap: 0.5rem;
+    display: flex;
+    background-color: var(--primaryopacity);
+    align-items: center;
+    cursor: pointer;
+}
+#calendarSelector .calendarBox li .calendarViewRow p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+#calendarSelector .calendarBox li .calendarViewRow p+p {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 /*********************************************************************/
 
