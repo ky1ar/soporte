@@ -386,6 +386,7 @@ $( document ).ready(function() {
         let trainingWorker = $('#trainingWorker').val();
         let meet = $('#meet').val();
 
+        console.log(scheduleId,trainingWorker,meet );
         if (!validatetrainingWorker(trainingWorker) || !validateMeet(meet)) {
             return;
         }
