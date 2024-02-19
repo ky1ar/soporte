@@ -205,7 +205,7 @@ $s_role = $_SESSION['user_role'];
             </div>
         </div>
     </section>
-    <section id="overlay">
+    <section id="aproveOverlay">
         <div class="modalBox">
             <form method="post" id="aproveSubmit">
                 <h2>¿Aprobar capacitación?</h2>
