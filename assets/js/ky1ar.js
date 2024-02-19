@@ -492,7 +492,7 @@ $( document ).ready(function() {
     });
     function validateRejectText(rejectText) {
         if (rejectText.trim() === '') {
-            message(aproveMessage, "El mensaje no puede quedar vacío.");
+            message(rejectMessage, "El mensaje no puede quedar vacío.");
             return false;
         }
         return true;
