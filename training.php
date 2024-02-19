@@ -64,87 +64,86 @@ $s_role = $_SESSION['user_role'];
 
     <section id="adminSection">
         <div class="ky1-wrp">
+        <?php 
+        $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+        $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
+        $startMonth = 0;
+        $startTable = false;
+        $sql = "SELECT t.id, training_date, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0):?>
             <div class="sectionBox">
                 <h3 class="boxTitle">Solicitudes de Capacitaciones
                     <p>Listado de las capacitaciones pendientes de aprobación y asignación del responsable.</p>
                 </h3>
-                
-                <?php 
-                $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
-                $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
-                $startMonth = 0;
-                $startTable = false;
-                $sql = "SELECT t.id, training_date, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0):
-                    while ($row = $result->fetch_assoc()):?>
-                        <?php 
-                        $selectedDate = new DateTime($row['training_date']);
-                        $year = $selectedDate->format('Y');
-                        $month = $selectedDate->format('n');
-                        $dayName = $days[$selectedDate->format('w')];
-                        $dayNumber = $selectedDate->format('j');
-                        
-                        if($startMonth != $month && $startTable):?>
-                            </table>
-                        <?php endif;
+                <?php while ($row = $result->fetch_assoc()):?>
+                    <?php 
+                    $selectedDate = new DateTime($row['training_date']);
+                    $year = $selectedDate->format('Y');
+                    $month = $selectedDate->format('n');
+                    $dayName = $days[$selectedDate->format('w')];
+                    $dayNumber = $selectedDate->format('j');
+                    
+                    if($startMonth != $month && $startTable):?>
+                        </table>
+                    <?php endif;
 
-                        if($startMonth != $month):
-                            $startTable = true;
-                            $startMonth = $month;
-                        ?>
-                        <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
-                            <tr class="tableHeader">
-                                <th><?php echo $months[$month-1] ?> <?php echo $year ?></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        <?php endif; ?>
-                        <tr>
-                            <td>
-                                <div class="rowSchedule"><?php echo $dayName.' '.$dayNumber ?>
-                                    <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="rowMachine">
-                                    <img width="48" src="assets/mac/<?php echo $row['m_slug'] ?>.webp" alt="">
-                                    <span><?php echo $row['m_model'] ?></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="rowClient">
-                                    <?php echo $row['t_name'] ?>
-                                    <span><?php echo $row['document'] ?>
-                                        <div class="preview" data-src="<?php echo $row['invoice'] ?>"><img width="12" height="12" src="assets/img/invoice.svg" alt=""> Recibo</div>
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="rowClient">
-                                    <?php echo $row['email'] ?>
-                                    <span><?php echo $row['phone'] ?></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actionButtons" data-id="<?php echo $row['id'] ?>">
-                                    <div class="button aprove">Aprobar</div>
-                                    <div class="button reject">Rechazar</div>
-                                </div>
-                            </td>
+                    if($startMonth != $month):
+                        $startTable = true;
+                        $startMonth = $month;
+                    ?>
+                    <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
+                        <tr class="tableHeader">
+                            <th><?php echo $months[$month-1] ?> <?php echo $year ?></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
-                    <?php endwhile; ?>
-                    </table>
-                    <div id="previewInvoice">
-                        <div class="previewBox">
-                            <span class="close">&times;</span>
-                            <div id="invoiceFile"></div>
-                        </div>
+                    <?php endif; ?>
+                    <tr>
+                        <td>
+                            <div class="rowSchedule"><?php echo $dayName.' '.$dayNumber ?>
+                                <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="rowMachine">
+                                <img width="48" src="assets/mac/<?php echo $row['m_slug'] ?>.webp" alt="">
+                                <span><?php echo $row['m_model'] ?></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="rowClient">
+                                <?php echo $row['t_name'] ?>
+                                <span><?php echo $row['document'] ?>
+                                    <div class="preview" data-src="<?php echo $row['invoice'] ?>"><img width="12" height="12" src="assets/img/invoice.svg" alt=""> Recibo</div>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="rowClient">
+                                <?php echo $row['email'] ?>
+                                <span><?php echo $row['phone'] ?></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="actionButtons" data-id="<?php echo $row['id'] ?>">
+                                <div class="button aprove">Aprobar</div>
+                                <div class="button reject">Rechazar</div>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+                </table>
+                <div id="previewInvoice">
+                    <div class="previewBox">
+                        <span class="close">&times;</span>
+                        <div id="invoiceFile"></div>
                     </div>
-                <?php endif; ?>
+                </div>
             </div>
+            <?php endif; ?>
             <div class="sectionBox">
                 <h3 class="boxTitle">Calendario de Capacitaciones</h3>
                 <div id="adminCalendar">
