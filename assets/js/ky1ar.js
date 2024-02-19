@@ -405,7 +405,7 @@ $( document ).ready(function() {
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 if (jsonData.success) {
-                    message(aproveMessage,jsonData.error);
+                    window.location.href = 'training';
                 } else {
                     message(aproveMessage,jsonData.error);
                 }

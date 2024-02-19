@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $trainingWorker = $_POST['trainingWorker'];
     $meet = $_POST['meet'];
 
-    $sql = "UPDATE Training SET worker = ?, meet = ? WHERE id = ?";
+    $sql = "UPDATE Training SET worker = ?, meet = ?, training_state = 1 WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("isi", $trainingWorker, $meet, $scheduleId);
     $stmt->execute();
