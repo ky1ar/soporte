@@ -241,6 +241,26 @@ $s_role = $_SESSION['user_role'];
             </form>
         </div>
     </section>
-                    
+    <section id="rejectOverlay">
+        <div class="modalBox">
+            <form method="post" id="rejectSubmit">
+                <h2>¿Rechazar capacitación?</h2>
+                <p>Recuerda haber verificado correctamente el comprobante.</p>
+                <div class="rejectBox">
+                    <label for="">Mensaje en el correo</label>
+                    <div class="flex">
+                        <img src="assets/img/cnt.svg" alt="">
+                        <input type="textarea" id="rejectText" placeholder="Ingresa el mensaje">
+                    </div>
+                </div>
+                <div id="rejectMessage"></div>
+                <div class="rejectButtons">
+                    <div class="modalCancel">Cancelar</div>
+                    <button type="submit">Rechazar</button>
+                </div>
+                <img class="modalClose" src="assets/img/x.svg" alt="">
+            </form>
+        </div>
+    </section>                        
 </body>
 </html>

@@ -2673,4 +2673,97 @@ footer .ftr-cpy {
 }
 
 
+/*********************************************************************/
+#rejectOverlay {
+    display: none;
+    position: fixed;
+    background-color: rgb(128 128 128 / 40%);
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+#rejectOverlay .modalBox {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+}
+#rejectSubmit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 1.5rem;
+}
+#rejectSubmit h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+#rejectSubmit p {
+    margin: 0;
+    text-align: center;
+}
+#rejectSubmit .rejectBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#rejectSubmit .rejectBox label {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+#rejectSubmit .rejectBox .flex {
+    display: flex;
+    gap: 0.5rem;
+}
+#rejectSubmit .rejectBox input {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--graydark);
+}
+#rejectSubmit .rejectButtons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+#rejectSubmit .rejectButtons .modalCancel {
+    background-color: #e6e6e6;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#rejectSubmit .rejectButtons button {
+    background-color: #ed5d1f;
+    color: #fff;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#rejectSubmit .modalClose {
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+#rejectMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
+    font-weight: 600;
+    line-height: 0.8rem; 
+}
+
 

@@ -386,7 +386,6 @@ $( document ).ready(function() {
         let trainingWorker = $('#trainingWorker').val();
         let meet = $('#meet').val();
 
-        console.log(validatetrainingWorker(trainingWorker), validateMeet(meet) );
         if (!validatetrainingWorker(trainingWorker) || !validateMeet(meet)) {
             return;
         }
@@ -430,6 +429,70 @@ $( document ).ready(function() {
     function validateMeet(meet) {
         if (meet.trim() === '') {
             message(aproveMessage, "Ingrese un link de Google Meet");
+            return false;
+        }
+        return true;
+    }
+
+    const rejectOverlay = $('#rejectOverlay');
+
+    $(".actionButtons .reject").click(function() {
+        let selectedId = $(this).closest('.actionButtons').data('id');
+        rejectOverlay.find('.rejectButtons').attr('data-id', selectedId);
+        rejectOverlay.fadeToggle();
+    });
+
+    rejectOverlay.find('.modalClose, .modalCancel').click(function() {
+        rejectOverlay.fadeToggle();
+    });
+
+    $(window).click(function(event) {
+        if (event.target == rejectOverlay[0]) {
+            rejectOverlay.fadeToggle();
+        }
+    });
+
+    const rejectSubmit = $('#rejectSubmit');
+    const rejectMessage = $('#rejectMessage');
+
+    rejectSubmit.submit(function(event) {
+        event.preventDefault();
+        rejectMessage.slideUp();
+
+        let scheduleId = rejectOverlay.find('.rejectButtons').data('id');
+        let rejectText = $('#rejectText').val();
+
+        if (!validateRejectText(rejectText)) {
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append('scheduleId', scheduleId);
+        formData.append('rejectText', rejectText);
+
+        $.ajax({
+            url: 'rejectSchedule',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                var jsonData = JSON.parse(response);
+                if (jsonData.success) {
+                    window.location.href = 'training';
+                } else {
+                    message(rejectMessage,jsonData.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+            }
+            
+        });
+    });
+    function validateRejectText(rejectText) {
+        if (rejectText.trim() === '') {
+            message(aproveMessage, "El mensaje no puede quedar vacío.");
             return false;
         }
         return true;
