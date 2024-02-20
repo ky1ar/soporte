@@ -439,6 +439,8 @@ $( document ).ready(function() {
     $(".actionButtons .reject").click(function() {
         let selectedId = $(this).closest('.actionButtons').data('id');
         rejectOverlay.find('.rejectButtons').attr('data-id', selectedId);
+        let date = $(this).closest('.actionButtons').data('date');
+        rejectOverlay.find('.rejectButtons').attr('data-date', date);
         rejectOverlay.fadeToggle();
     });
 
@@ -460,6 +462,7 @@ $( document ).ready(function() {
         rejectMessage.slideUp();
 
         let scheduleId = rejectOverlay.find('.rejectButtons').data('id');
+        let date = rejectOverlay.find('.rejectButtons').data('date');
         let rejectText = $('#rejectText').val();
 
         if (!validateRejectText(rejectText)) {
@@ -468,6 +471,7 @@ $( document ).ready(function() {
 
         let formData = new FormData();
         formData.append('scheduleId', scheduleId);
+        formData.append('date', date);
         formData.append('rejectText', rejectText);
 
         $.ajax({
