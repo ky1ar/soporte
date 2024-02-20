@@ -2447,9 +2447,7 @@ footer .ftr-cpy {
     transform: rotate(180deg);
 }
 #calendarContainer {
-    border-radius: 0.5rem;
-    border: 1px solid rgb(238, 238, 238);
-    position: relative;
+
 }
 #loadingResponse {
     display: none;
@@ -2476,7 +2474,6 @@ footer .ftr-cpy {
     100% { transform: rotate(360deg); }
 }
 #calendarSelector {
-    padding: 1rem 0.5rem;
 }
 #calendarSelector .calendarBox {
     padding: 0;
@@ -2539,7 +2536,7 @@ footer .ftr-cpy {
 }
 #calendarSelector .calendarBox li .calendarView {
     display: flex;
-    min-height: 6rem;
+    min-height: 8rem;
     align-items: center;
     flex-direction: column;
     gap: 0.5rem;
@@ -2567,10 +2564,13 @@ footer .ftr-cpy {
 #calendarSelector .calendarBox li .calendarViewRow h3 {
     margin: 0;
     font-size: 0.8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 #calendarSelector .calendarBox li .calendarViewRow p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.65rem;
 }
 #calendarSelector .calendarBox li .calendarViewRow img {
     width: 8rem;
