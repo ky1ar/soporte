@@ -156,6 +156,10 @@ body.ky1-adm {
     font-weight: 500;
     text-transform: uppercase;
 }
+#ky1-hdr ul a.active {
+    color: var(--white);
+    background-color: var(--secondary);
+}
 #ky1-hdr ul a:hover {
     background-color: var(--graydark);
 }

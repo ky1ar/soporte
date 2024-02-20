@@ -29,8 +29,8 @@ setlocale(LC_TIME, 'es_ES');
         <div class="ky1-wrp">
             <a href="/"><img class="hdr-lgo" width="150" height="42" src="assets/img/logod.webp" alt="Logo Krear 3D"></a>
             <ul>
-                <li><a href="#">Consultar</a></li>
-                <li><a href="capacitaciones">Capacitaciones</a></li>
+                <li><a href="/">Consultar</a></li>
+                <li class="active"><a href="capacitaciones">Capacitaciones</a></li>
                 <li><a href="#">Conocimiento</a></li>
                 <li><a href="#">Cursos</a></li>
             </ul>
@@ -43,13 +43,17 @@ setlocale(LC_TIME, 'es_ES');
             ?>
         </div>
     </header>
-    <section class="frontSlider">
+    <section id="frontSlider">
         <div class="ky1-wrp">
             <img width="1920" height="630" src="assets/slider/benef.webp">
+            <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
         </div>
     </section>
 
     <section id="ky1-cap">
+        <div class="ky1-top">
+            <h2>Agenda Aquí</h2>
+        </div>
         <div class="ky1-wrp">
             <div class="cap-cnt">
                 <div class="cap-lft">

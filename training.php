@@ -197,7 +197,6 @@ $s_role = $_SESSION['user_role'];
                                     INNER JOIN Users w ON t.worker = w.id 
                                     WHERE t.training_state = 1 AND training_date = '$date' 
                                     ORDER BY training_start;";
-
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
