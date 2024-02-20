@@ -45,7 +45,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     width: 100%;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
 }
 #ky1-cap .cap-lft {
     display: flex;
