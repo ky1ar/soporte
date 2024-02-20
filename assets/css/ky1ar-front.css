@@ -81,7 +81,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     gap: 1rem;
 }
 #ky1-cap .cap-rgt .btn {
-    border: 1px solid #ddd;
     border-radius: 2rem;
     cursor: pointer;
     width: 2rem;
@@ -89,19 +88,21 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ed5d1f;
 }
 #ky1-cap .cap-rgt .btn.txt {
     width: initial;
     padding: 0 0.75rem;
     font-size: 0.8rem;
     font-weight: 600;
+    color: #fff;
 }
 #ky1-cap .cap-rgt .btn.disabled {
     opacity: 0.5;
     cursor: default;
 }
 #ky1-cap .cap-rgt .btn img {
-    opacity: 0.5;
+    filter: invert(1);
 }
 #ky1-cap .cap-rgt .btn + .btn img {
     transform: rotate(180deg);
@@ -174,7 +175,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     justify-content: center;
     align-items: center;
     border-radius: 2rem;
-    border: 1px solid var(--tertiary);
+    background-color: var(--primaryopacity);
     cursor: pointer;
     font-size: 0.9rem;
 }
@@ -245,6 +246,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     position: relative;
     border-radius: 2rem;
     border: 1px solid var(--tertiary);
+    background-color: var(--primaryopacity);
     font-weight: 600;
     color: var(--black);
     cursor: pointer;
