@@ -2549,17 +2549,36 @@ footer .ftr-cpy {
     gap: 0.5rem;
     display: flex;
     background-color: var(--primaryopacity);
+    border-radius: 0.5rem;
     align-items: center;
     cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+}
+#calendarSelector .calendarBox li .calendarViewRow h2 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ed5d1f;
+}
+#calendarSelector .calendarBox li .calendarViewRow h3 {
+    margin: 0;
+    font-size: 0.8rem;
 }
 #calendarSelector .calendarBox li .calendarViewRow p {
     margin: 0;
     font-size: 0.9rem;
 }
-#calendarSelector .calendarBox li .calendarViewRow p+p {
-    margin: 0;
-    font-size: 0.8rem;
-    font-weight: 500;
+#calendarSelector .calendarBox li .calendarViewRow img {
+    width: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.05;
 }
 /*********************************************************************/
 

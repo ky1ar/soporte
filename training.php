@@ -201,10 +201,10 @@ $s_role = $_SESSION['user_role'];
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
                                             echo '<div class="calendarViewRow">';
-                                            echo '<p>'.substr($row2['training_start'], 0, 5).'</p>';
-                                            echo '<p>'.$row2['w_name'].'</p>';
+                                            echo '<h2>'.substr($row2['training_start'], 0, 5).'</h2>';
+                                            echo '<div><h3>'.$row2['w_name'].'</h3>';
+                                            echo '<p>'.$row2['m_model'].'</p></div>';
                                             echo '<img width="48" src="assets/mac/'.$row2['m_slug'].'.webp" alt="">';
-                                            echo '<p>'.$row2['m_model'].'</p>';
                                             echo '</div>';
                                         }
                                     }
