@@ -3,6 +3,7 @@ $currentPage = "Citas";
 require_once 'includes/globals.php'; 
 require_once 'includes/header.php'; 
 require_once 'includes/admin.php';
+require_once 'includes/client.php';
 ?>
 </head>
 <body>
