@@ -33,7 +33,7 @@ if(isset($_GET['number'])):
             "2024-12-25",
         ];
 
-        function getPday($date, $tday, $fday) {
+        function getPday($order, $tday, $fday) {
             $ini = new DateTime($date);
             $fin = new DateTime($tday);
             
@@ -52,7 +52,7 @@ if(isset($_GET['number'])):
             }
             return $pday;
         }
-        $pday = getPday($pday, $tday, $fday);
+        $pday = getPday($order['pday'], $tday, $fday);
     }
     $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
 
