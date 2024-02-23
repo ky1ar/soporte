@@ -16,7 +16,7 @@ $( document ).ready(function() {
         var document = $('#document').val();
         
         if (!validateorderNumber(orderNumber) || !validateDocument(document)) {
-            $(this).find('button[type="submit"]').prop('disabled', true);
+            $(this).find('button[type="submit"]').prop('disabled', false);
             return;
         }
 
