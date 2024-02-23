@@ -11,10 +11,12 @@ $( document ).ready(function() {
         event.preventDefault();
         searchOrderMessage.slideUp();
 
+        $(this).find('button[type="submit"]').prop('disabled', true);
         var orderNumber   = $('#orderNumber').val();
         var document = $('#document').val();
         
         if (!validateorderNumber(orderNumber) || !validateDocument(document)) {
+            $(this).find('button[type="submit"]').prop('disabled', true);
             return;
         }
 
@@ -35,6 +37,9 @@ $( document ).ready(function() {
             },
             error: function(xhr, status, error) {
                 console.error("Error:", error);
+            },
+            complete: function() {
+                searchOrder.find('button[type="submit"]').prop('disabled', false);
             }
         });
 
