@@ -30,7 +30,7 @@ setlocale(LC_TIME, 'es_ES');
             <a href="/"><img class="hdr-lgo" width="150" height="42" src="assets/img/logod.webp" alt="Logo Krear 3D"></a>
             <ul>
                 <li><a href="/">Consultar</a></li>
-                <li><a class="active" href="capacitaciones">Capacitaciones</a></li>
+                <li><a href="capacitaciones">Capacitaciones</a></li>
                 <li><a href="#">Conocimiento</a></li>
                 <li><a href="#">Cursos</a></li>
             </ul>
