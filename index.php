@@ -1,5 +1,6 @@
 <?php 
 $currentPage = "Citas"; 
+require_once 'includes/app/db.php';
 require_once 'includes/app/globals.php'; 
 require_once 'includes/common/header.php';
 ?>
