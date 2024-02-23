@@ -1,5 +1,6 @@
 <?php 
-$currentPage = "Citas"; 
+$currentPage = "Capacitaciones"; 
+require_once 'includes/db.php'; 
 require_once 'includes/globals.php'; 
 require_once 'includes/header.php'; 
 require_once 'includes/admin.php';
