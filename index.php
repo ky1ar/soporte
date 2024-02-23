@@ -24,8 +24,6 @@ require_once 'includes/admin.php';
            
         </div>
     </section>
-    <?php 
-    require_once 'includes/footer.php';
-    ?>
+    <?php require_once 'includes/footer.php'; ?>
 </body>
 </html>
