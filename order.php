@@ -33,7 +33,7 @@ if(isset($_GET['number'])):
             "2024-12-25",
         ];
 
-        function getPday($order, $tday, $fday) {
+        function getPday($date, $tday, $fday) {
             $ini = new DateTime($date);
             $fin = new DateTime($tday);
             
