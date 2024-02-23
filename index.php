@@ -10,6 +10,12 @@ require_once 'includes/admin.php';
     require_once 'includes/topBar.php';
     require_once 'includes/navBar.php';  
     ?>
+    <section id="frontSlider">
+        <div class="ky1-wrp">
+            <img width="1920" height="630" src="assets/slider/b1.webp">
+            <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
+        </div>
+    </section>
     <section id="ky1-sdo">
         <div class="ky1-wrp">
             <form id="frm-cli" class="sdo-crd">
