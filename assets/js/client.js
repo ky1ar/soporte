@@ -44,14 +44,14 @@ $( document ).ready(function() {
 
     function validateDocument(document) {
         if (!(document.length === 8 || document.length === 11) || !(/^\d+$/.test(document))) {
-            message(scheduleFormMessage, "Ingrese un documento válido");
+            message(searchOrderMessage, "Ingrese un documento válido");
             return false;
         }
         return true;
     } 
     function validateorderNumber(orderNumber) {
         if (orderNumber.trim() === '' || !(/^\d+$/.test(orderNumber))) {
-            message(scheduleFormMessage, "Ingrese un número de orden válido");
+            message(searchOrderMessage, "Ingrese un número de orden válido");
             return false;
         }
         return true;
