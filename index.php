@@ -1,36 +1,34 @@
 <?php 
 $currentPage = "Citas"; 
-require_once 'includes/globals.php'; 
-require_once 'includes/header.php'; 
-require_once 'includes/admin.php';
-require_once 'includes/client.php';
+require_once 'includes/app/globals.php'; 
+require_once 'includes/common/header.php';
 ?>
 </head>
 <body>
     <?php 
-    require_once 'includes/topBar.php';
-    require_once 'includes/navBar.php';  
+    require_once 'includes/bar/topBar.php';
+    require_once 'includes/bar/navigationBar.php';  
     ?>
     <section id="frontSlider">
-        <div class="ky1-wrp">
+        <div class="wrapper">
             <img width="1920" height="630" src="assets/slider/b1.webp">
             <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
         </div>
     </section>
-    <section id="ky1-sdo">
-        <div class="ky1-wrp">
-            <form id="frm-cli" class="sdo-crd">
+
+    <section id="searchOrderBox">
+        <div class="wrapper">
+            <form id="searchOrder">
                 <img src="assets/img/ord.svg" alt="ico" width="64" height="64">
                 <h1>Consultar Orden de Servicio</h1>
                 <p>Introduce el número de orden y el documento tal cual se muestra en la orden de ingreso proporcionada.</p>
-                <input name="orders" id="ky1-sor" type="text" placeholder="Número de Orden">
-                <input name="document" id="ky1-sdc" type="text" placeholder="Documento ( DNI/RUC )">
-                <div id="errorDiv"></div>
-                <button type="submit" class="lgn-log">Consultar Estado</button>
+                <input id="orderNumber" type="text" placeholder="Número de Orden">
+                <input id="document" type="text" placeholder="Documento ( DNI/RUC )">
+                <div id="searchOrderMessage"></div>
+                <button type="submit">Consultar Estado</button>
             </form>
-           
         </div>
     </section>
-    <?php require_once 'includes/footer.php'; ?>
+    <?php require_once 'includes/common/footer.php'; ?>
 </body>
 </html>
