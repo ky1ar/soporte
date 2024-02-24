@@ -227,10 +227,388 @@ body {
     font-weight: 700;
 }
 /***********************************************************************************/
+#trainingSection {
+	background-color: var(--gray);
+    background-image: url(whirlpool.png);
+    box-shadow: inset 0 0 0.25rem var(--graydark);
+}
+#trainingSection .top {
+	text-align: center;
+}
+#trainingSection .top h2 {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.25rem;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 0 0.25rem var(--graydark);
+}
+#trainingSection .wrapper {
+	max-width: 75rem;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	gap: 2rem;
+}
+#trainingSection .content {
+    padding: 3rem;
+    justify-content: space-around;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 2rem var(--graydarkest);
+    background-color: var(--white);
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+#trainingSection .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+#trainingSection .left h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin: 1rem 0;
+    gap: 0.5rem;
+}
+#trainingSection .left p {
+    margin: 0;
+}
+#trainingSection .right {
+    min-width: 32rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+#trainingSection .right .buttons {
+    display: flex;
+    gap: 1rem;
+}
+#trainingSection .right .button {
+    border-radius: 2rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ed5d1f;
+}
+#trainingSection .right .button.text {
+    width: initial;
+    padding: 0 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+#trainingSection .right .button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+#trainingSection .right .button img {
+    filter: invert(1);
+}
+#trainingSection .right .button + .button img {
+    transform: rotate(180deg);
+}
+#calendarBackDiv {
+    display: none;
+}
+#trainingSection .right .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#trainingSection .right .header button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+}
+#trainingSection .right .header span {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    margin-left: 2rem;
+}
+#trainingSection .right .header span::before {
+    content: "";
+    background-color: var(--primary);
+    width: 1rem;
+    height: 1rem;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    border-radius: 0 1rem 1rem 0;
+}
+#trainingSection .right .header .buttons button {
+    padding: 0.5rem;
+}
 /***********************************************************************************/
+#calendarSelector {
+    padding: 1rem 0.5rem;
+}
+#calendarSelector .box {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+#calendarSelector .box.header {
+    margin-bottom: 0.75rem;
+}
+#calendarSelector .box li {
+    width: 14.25%;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+}
+#calendarSelector .box li .boxDay {
+    font-weight: 600;
+    color: var(--black);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    background-color: var(--primaryopacity);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+#calendarSelector .box li .boxDay:hover {
+    background-color: var(--primaryopacity);
+}
+#calendarSelector .box li.today span {
+    color: var(--primary);
+    opacity: 1;
+}
+#calendarSelector .box li.today::before {
+    content: "";
+    background-color: var(--primary);
+    width: 0.75rem;
+    height: 0.25rem;
+    position: absolute;
+    border-radius: 1rem;
+    bottom: 0.75rem;
+}
+#calendarSelector .box li span {
+    opacity: 0.5;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
 /***********************************************************************************/
+#scheduleSelector {
+    padding: 3rem 0.5rem;
+    display: none;
+}
+#selectedData,
+#selectedSchedule {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    text-transform: capitalize;
+}
+#scheduleSelector .selectedMessage {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 3rem;
+}
+#scheduleForm .selectedMessage {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+#scheduleSelector ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 1rem;
+}
+#scheduleSelector .boxSchedule {
+    font-size: 1rem;
+    padding: 0.75rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 2rem;
+    border: 1px solid var(--tertiary);
+    background-color: var(--primaryopacity);
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+}
 /***********************************************************************************/
+#scheduleForm {
+    display: none;
+    padding: 1.5rem 1rem;
+}
+#scheduleForm ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+#scheduleForm ul li.percent100 {
+    width: 100%;
+}
+#scheduleForm ul .percent75 {
+    width: 75%;
+}
+#scheduleForm ul li.percent70 {
+    width: 70%;
+}
+#scheduleForm ul li.percent60 {
+    width: 60%;
+}
+#scheduleForm ul li.percent40 {
+    width: 40%;
+}
+#scheduleForm ul li.percent30 {
+    width: 30%;
+}
+#scheduleForm ul li.percent25 {
+    width: 25%;
+}
+
+#scheduleForm ul .formRow {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+#scheduleForm ul .formRow label {
+    font-weight: 700;
+}
+#scheduleForm ul .formRow img {
+    padding: 0.5rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 0.25rem;
+    margin-top: 0.25rem;
+}
+#scheduleForm ul .formRow input, 
+#scheduleForm ul .formRow select {
+    border: 1px solid var(--graydark);
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+}
+#scheduleForm ul .formRow input:focus,
+#scheduleForm ul .formRow select:focus {
+    outline: 1px solid #bfbfbf;
+}
+#scheduleForm ul .formRow .formMachine {
+    position: relative;
+}
+#scheduleForm ul .formRow .formMachine #suggestions {
+    position: absolute;
+    max-height: 107px;
+    overflow-y: auto;
+    top: 38px;
+    left: 0px;
+    right: 0px;
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+#scheduleForm ul .formRow .formMachine #suggestions .suggestionsRow {
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    cursor: pointer;
+}
+#scheduleForm ul .formRow .formMachine #suggestions .suggestionsRow:hover {
+    background-color: #f0f0f0;
+}
+
+#scheduleForm .formButton {
+    margin-top: 0.5rem;
+    display: flex;
+    padding: 0 0.5rem;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+#scheduleForm .formButton .formSubmit {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ed5d1f;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+#scheduleFormMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
+    font-weight: 600;
+    max-width: 50%;
+    line-height: 0.8rem;
+}
+#calendarContainer {
+    border-radius: 0.5rem;
+    border: 1px solid rgb(238, 238, 238);
+    position: relative;
+}
 /***********************************************************************************/
+#loadingResponse {
+    display: none;
+    z-index: 1;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#loadingResponse .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#loadingResponse img {
+    width: 2rem;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 /***********************************************************************************/
 /***********************************************************************************/
 /***********************************************************************************/

@@ -1,5 +1,6 @@
 <?php 
 $currentPage = "Capacitaciones"; 
+require_once 'includes/app/db.php';
 require_once 'includes/app/globals.php'; 
 require_once 'includes/common/header.php';
 ?>
@@ -16,13 +17,13 @@ require_once 'includes/common/header.php';
         </div>
     </section>
 
-    <section id="ky1-cap">
-        <div class="ky1-top">
+    <section id="trainingSection">
+        <div class="top">
             <h2>Agenda Aquí</h2>
         </div>
         <div class="wrapper">
-            <div class="cap-cnt">
-                <div class="cap-lft">
+            <div class="content">
+                <div class="left">
                     <img src="assets/img/cap.svg" alt="ico" width="64" height="64">
                     <h1>Agenda tu Capacitación Personalizada</h1>
                     <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
@@ -33,22 +34,21 @@ require_once 'includes/common/header.php';
                         <li>Conéctate puntualmente, con una tolerancia de 10 minutos.</li>
                     </ul>
                 </div>
-                <div class="cap-rgt" id="scheduleCalendar">
-                    
+                <div class="right" id="scheduleCalendar">
                     <?php
                     $today = date('d');
                     $firstDay = date('Y-m-01');
                     $firstDayNum = date('N', strtotime($firstDay));
                     ?>
-                    <div class="cap-hdr">
+                    <div class="header">
                         <!--<button id="calendarToday">Hoy</button>-->
                         <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
-                        <div id="calendarNavigation" class="cap-btn">
-                            <div class="btn disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
-                            <div class="btn" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                        <div id="calendarNavigation" class="buttons">
+                            <div class="button disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
+                            <div class="button" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                         </div>
                         <div id="calendarBackDiv">
-                            <div class="btn txt" id="calendarBack">Volver</div>
+                            <div class="button text" id="calendarBack">Volver</div>
                         </div>
                     </div>
                     <div id="calendarContainer">
@@ -59,7 +59,7 @@ require_once 'includes/common/header.php';
                         </div>
                     
                         <div id="calendarSelector">
-                            <ul class="cld-box box-hdr">
+                            <ul class="box header">
                                 <li>dom</li>
                                 <li>lun</li>
                                 <li>mar</li>
@@ -68,7 +68,7 @@ require_once 'includes/common/header.php';
                                 <li>vie</li>
                                 <li>sáb</li>
                             </ul>
-                            <ul class="cld-box" id="calendarTable">
+                            <ul class="box" id="calendarTable">
                                 <?php
                                 for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
                                 
