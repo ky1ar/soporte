@@ -1,19 +1,16 @@
 <?php 
 $currentPage = "Capacitaciones"; 
-require_once 'includes/db.php'; 
-require_once 'includes/globals.php'; 
-require_once 'includes/header.php'; 
-require_once 'includes/admin.php';
-require_once 'includes/client.php';
+require_once 'includes/app/globals.php'; 
+require_once 'includes/common/header.php';
 ?>
 </head>
 <body>
     <?php 
-    require_once 'includes/topBar.php';
-    require_once 'includes/navBar.php';  
+    require_once 'includes/bar/topBar.php';
+    require_once 'includes/bar/navigationBar.php'; 
     ?>
     <section id="frontSlider">
-        <div class="ky1-wrp">
+        <div class="wrapper">
             <img width="1920" height="630" src="assets/slider/b1.webp">
             <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
         </div>
@@ -23,7 +20,7 @@ require_once 'includes/client.php';
         <div class="ky1-top">
             <h2>Agenda Aquí</h2>
         </div>
-        <div class="ky1-wrp">
+        <div class="wrapper">
             <div class="cap-cnt">
                 <div class="cap-lft">
                     <img src="assets/img/cap.svg" alt="ico" width="64" height="64">
@@ -158,8 +155,7 @@ require_once 'includes/client.php';
             </div>
         </div>
     </section>
-
-    <?php require_once 'includes/footer.php'; ?>
+    <?php require_once 'includes/common/footer.php'; ?>
 </body>
 </html>
 
