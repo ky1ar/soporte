@@ -1,45 +1,68 @@
 <?php
-require_once 'db.php';
+$currentPage = "Seguimiento de Orden"; 
+require_once 'includes/app/db.php';
+require_once 'includes/app/globals.php'; 
+require_once 'includes/common/header.php';
 
 if(isset($_GET['number'])):
-    $o_number = $_GET['number'];
+    $orderNumber = $_GET['number'];
 
-    $sql = "SELECT o.id, o.number as orders, o.dates, DATEDIFF(NOW(), o.dates) as pday, c.name, o.comments, c.email, c.document, c.phone, w.id as wid, w.name as wnm, m.model, b.name as bnm, m.slug, t.name as tnm, r.name as onm, o.state, s.name as snm FROM Orders o INNER JOIN Machine m ON o.machine = m.id INNER JOIN Users c ON o.client = c.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON o.worker = w.id INNER JOIN Type t ON o.type = t.id INNER JOIN Status s ON o.state = s.id INNER JOIN Origin r ON o.origin = r.id WHERE o.number = '$o_number'";
+    $sql = "SELECT o.id, o.number as orders, o.dates,  o.dates as pday, c.name, o.comments, c.email, c.document, c.phone, w.id as wid, w.name as wnm, m.model, b.name as bnm, m.slug, t.name as tnm, r.name as onm, o.state, s.name as snm FROM Orders o INNER JOIN Machine m ON o.machine = m.id INNER JOIN Users c ON o.client = c.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON o.worker = w.id INNER JOIN Type t ON o.type = t.id INNER JOIN Status s ON o.state = s.id INNER JOIN Origin r ON o.origin = r.id WHERE o.number = '$orderNumber'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) { 
         $order = $result->fetch_assoc();
+        $tday = date("Y-m-d");
+        $fday = [
+            "2023-12-25",
+            "2024-01-01",
+            "2024-03-28",
+            "2024-03-29",
+            "2024-05-01",
+            "2024-06-07",
+            "2024-06-29",
+            "2024-07-23",
+            "2024-07-28",
+            "2024-07-29",
+            "2024-08-06",
+            "2024-08-30",
+            "2024-10-08",
+            "2024-11-01",
+            "2024-12-08",
+            "2024-12-09",
+            "2024-12-25",
+        ];
+
+        function getPday($date, $tday, $fday) {
+            $ini = new DateTime($date);
+            $fin = new DateTime($tday);
+            
+            $int = new DateInterval('P1D');
+            $per = new DatePeriod($ini, $int, $fin);
+            
+            $pday = 0;
+            
+            foreach ($per as $day) {
+                $sday = $day->format('N');
+                $sfday = in_array($day->format('Y-m-d'), $fday);
+                
+                if ($sday <= 5 && !$sfday) {
+                    $pday++;
+                }
+            }
+            return $pday;
+        }
+        $pday = getPday($order['pday'], $tday, $fday);
     }
     $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
 
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/img/fav.png">
-    <title>Krear 3D - Soporte Técnico</title>
-    <?php require_once 'header.php'; ?>
 </head>
 <body>
-    <div id="ky1-bar">
-        <div class="ky1-wrp bar-enl"> 
-            <a href="https://api.whatsapp.com/send?phone=51934760404" target="_blank" rel="nofollow"><img src="assets/img/wsp.svg" width="16" height="16" alt="ico">934 760 404</a>
-            <a href="https://api.whatsapp.com/send?phone=51982001288" target="_blank" rel="nofollow"><img src="assets/img/wsp.svg" width="16" height="16" alt="ico">982 001 288</a>
-            <a href="mailto:ventas2@krear3d.com" target="_blank" rel="nofollow"><img src="assets/img/eml.svg" width="16" height="16" alt="ico">ventas2@krear3d.com</a>
-            <a href="https://bit.ly/2ZzWUeK" target="_blank" rel="nofollow"><img src="assets/img/map.svg" width="16" height="16" alt="ico">Calle Javier Fernández 262 Miraflores - Lima</a>
-        </div>
-    </div>
-
-    <header id="ky1-hdr">
-        <div class="ky1-wrp">
-            <a href="/"><img class="hdr-lgo" width="150" height="42" src="assets/img/logod.webp" alt="Logo Krear 3D"></a>
-            <div class="hdr-lft">
-                <a href="/">Volver</a>
-            </div>
-        </div>
-    </header>
+    <?php 
+    require_once 'includes/bar/topBar.php';
+    require_once 'includes/bar/navigationBar.php';  
+    ?>
     <section id="ky1-ord">
         <div class="ky1-wrp">
             <div class="ord-tml">
@@ -79,7 +102,7 @@ if(isset($_GET['number'])):
                             <h2>Orden <b>00</b><?php echo $order['orders'] ?></h2>
                             <h3><img src="assets/img/tec.svg" alt=""><?php echo $order['wnm'] ?></h3>
                         </div>
-                        <span><?php echo $order['pday'] ?> días</span>
+                        <span><?php echo $pday ?> días</span>
                     </div>
                     <div class="itm-crd">
                         <div class="imt-dat">
@@ -99,7 +122,7 @@ if(isset($_GET['number'])):
                     <div class="smy-tme">
                         <h2>Total de días desde el ingreso</h2>
                         <div class="tme-cnt">
-                            <div id="tme-pdy" class="tme-top" data-stt="<?php echo $order['pday'] ?>"><b><?php echo $order['pday'] ?> días</b></div>
+                            <div id="tme-pdy" class="tme-top" data-stt="<?php echo $pday ?>"><b><?php echo $pday ?> días</b></div>
                             <div class="tme-bot"></div>
                             <b>0</b>
                             <b>20</b>
@@ -163,47 +186,13 @@ if(isset($_GET['number'])):
         </div>
     </section>
 
-    <footer>
-        <div class="ftr-top">
-            <div class="ky1-wrp">
-                <div class="ftr-itm">
-                    <img class="ftr-lgo" width="152" height="38" src="assets/img/logo.webp" alt="Krear 3D">
-                    <ul>
-                        <li><p>Calle Javier Fernandez - Miraflores - Lima</p></li>
-                        <li><p>Lu - Sa de 9:00 am a 6:00 pm</p></li>
-                    </ul>
-                </div>
-    
-                <div class="ftr-itm">
-                    <b>ATENCION AL CLIENTE</b>
-                    <ul>
-                        <li><a href="mailto:atencionalcliente@krear3d.com" target="_blank" rel="nofollow noopener">atencionalcliente@krear3d.com</a></li>
-                        <li><p>Lu - Vi de 9:00 am a 6:00 pm</p></li>
-                        <li><a href="https://api.whatsapp.com/send?phone=51981104030" target="_blank" rel="nofollow noopener"><img src="assets/img/wsp.svg" alt="Whatsapp" width="12" height="12">&nbsp;981 104 030</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="ftr-bot">
-            <div class="ky1-wrp">
-                <ul>
-                    <li><a href="/terminos/terminos-condiciones-y-garantia/">POLÍTICAS Y CONDICIONES</a></li>
-                    <li><a href="/terminos/politicas-de-garantia-y-soporte-tecnico/">POLÍTICAS DE GARANTÍA</a></li>
-                    <li><a href="/terminos/politicas-de-envios-lima-y-provincias/">POLÍTICAS DE ENVÍOS</a></li>
-                </ul>
-                
-                <span class="ftr-cpy">Fabricaciones Digitales del Perú S.A. | RUC 20556316890<br>Krear 3D © 2023. Todos los derechos reservados.</span>
-            </div>
-        </div>
-        <script>
-            if (window.history.replaceState) {
-    // Reemplazar la URL actual sin parámetros
-    var cleanURL = window.location.origin + window.location.pathname;
-    window.history.replaceState({}, document.title, cleanURL);
-}
-        </script>
-    </footer>
+    <?php require_once 'includes/common/footer.php'; ?>
+    <script>
+        if (window.history.replaceState) {
+            var cleanURL = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, document.title, cleanURL);
+        }
+    </script>
 </body>
 </html>
 <?php
@@ -211,5 +200,4 @@ else:
     header("Location: index.php");
     exit();
 endif;
-
 ?>

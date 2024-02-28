@@ -156,6 +156,10 @@ body.ky1-adm {
     font-weight: 500;
     text-transform: uppercase;
 }
+#ky1-hdr ul a.active {
+    color: var(--white);
+    background-color: var(--secondary);
+}
 #ky1-hdr ul a:hover {
     background-color: var(--graydark);
 }
@@ -2257,70 +2261,221 @@ footer .ftr-cpy {
     opacity: 0.75;
     line-height: 1.125rem;
 }
-/*********************************** SEGUIMIENT DE ORDEN **********************************/
-#ky1-cap {
-	background-color: var(--gray);
-    background-image: url(whirlpool.png);
-    box-shadow: inset 0 0 0.25rem var(--graydark);
-	padding: 1rem 0;
+/*********************************************************************/
+#adminSection {
+    margin-bottom: 2rem;
 }
-#ky1-cap .ky1-wrp {
-	max-width: 75rem;
-	display: flex;
-    justify-content: center;
-    align-items: center;
-	gap: 2rem;
-}
-#ky1-cap .cap-cnt {
-    padding: 3rem;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 0.75rem;
-    box-shadow: 0 0 0.25rem var(--graydark);
-    background-color: var(--white);
-    display: flex;
-}
-#ky1-cap .cap-lft {
+#adminSection .ky1-wrp {
+    max-width: 75rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    width: 45%;
+    gap: 1rem;
 }
-#ky1-cap .cap-lft h1 {
+#adminSection .sectionBox {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 0.25rem var(--graydark);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#adminSection .boxTitle {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    gap: 0.25rem;
+}
+#adminSection .boxTitle p {
+    margin: 0;
+    font-weight: 500;
+    opacity: 0.75;
+    font-size: 0.85rem;
+}
+/*********************************************************************/
+#adminSection .pendingTable {
+    width: 100%;
+    border: 1px solid var(--graydark);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+#adminSection .pendingTable .tableHeader {
+    text-align: left;
+}
+#adminSection .pendingTable tr:nth-child(odd) {
+    background-color: #f0f0f0;
+    border-radius: 1rem;
+}
+#adminSection .pendingTable .tableHeader th {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+}
+#adminSection .pendingTable td {
+    padding: 0.5rem; 
+    text-align: center;
+}
+#adminSection .pendingTable .rowSchedule {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+#adminSection .pendingTable .rowSchedule span {
     display: flex;
     align-items: center;
-    font-size: 1.75rem;
-    font-weight: 400;
-    margin: 1rem 0;
+    gap: 0.5rem;
+    justify-content: center;
+    color: #ed5d1f;
+}
+#adminSection .pendingTable .rowMachine {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
-#ky1-cap .cap-lft p {
-    margin: 0;
+#adminSection .pendingTable .rowMachine img {
+    width: 3rem;
+    border-radius: 3rem;
+    padding: 0.5rem;
+    background-color: #fff;
+    border: 1px solid var(--graydark);
 }
-#ky1-cap .cap-rgt {
-    width: 28rem;
+#adminSection .pendingTable .rowMachine span {
+    font-weight: 500;
 }
-#ky1-cap .cap-rgt .cap-hdr {
+#adminSection .pendingTable .rowClient {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    gap: 0.25rem;
+    text-align: left;
+}
+#adminSection .pendingTable .rowClient span {
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+#adminSection .pendingTable .rowClient .preview {
+    cursor: pointer;
+    display: flex;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    color: #ed5d1f;
+    background-color: #fffdf5;
+    border: 1px solid #ed5d1f;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+#adminSection .pendingTable .selectWorker {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--graydark);
+    border-radius: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+}
+#adminSection .pendingTable .actionButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+#adminSection .pendingTable .button {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+#adminSection .pendingTable .button.aprove {
+    background-color: #f2fff7;
+    color: #0aa139;
+    border: 1px solid #0aa139;
+}
+#adminSection .pendingTable .button.reject {
+    background-color: #fff2f2;
+    color: #f54f4f;
+    border: 1px solid #f54f4f;
+}
+/*********************************************************************/
+#adminCalendar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+#adminCalendar .calendarHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-#ky1-cap .cap-rgt .cap-hdr button {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-}
-#ky1-cap .cap-rgt .cap-hdr span {
+#adminCalendar .calendarHeader span {
     font-size: 1rem;
     font-weight: 600;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    margin-left: 2rem;
 }
-#ky1-cap .cap-rgt .cap-hdr .cap-btn button {
-    padding: 0.5rem;
+#adminCalendar .calendarHeader span::before {
+    content: "";
+    background-color: var(--primary);
+    width: 1rem;
+    height: 1rem;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    border-radius: 0 1rem 1rem 0;
 }
-#ky1-cap .cap-rgt .cld-box {
+#adminCalendar .calendarHeader .button {
+    display: flex;
+    gap: 1rem;
+}
+#adminCalendar .calendarHeader .button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+#adminCalendar .calendarHeader .button img {
+    opacity: 0.5;
+}
+#adminCalendar .calendarHeader .button + .button img {
+    transform: rotate(180deg);
+}
+#calendarContainer {
+
+}
+#loadingResponse {
+    display: none;
+    z-index: 1;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#loadingResponse .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#loadingResponse img {
+    width: 2rem;
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#calendarSelector {
+}
+#calendarSelector .calendarBox {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -2328,14 +2483,21 @@ footer .ftr-cpy {
     flex-wrap: wrap;
     font-size: 1rem;
 }
-#ky1-cap .cap-rgt .cld-box li {
-    width: 14.25%;
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#calendarSelector .calendarBox.boxHeader {
+    margin-bottom: 0.75rem;
 }
-#ky1-cap .cap-rgt .cld-box li a {
+#calendarSelector .calendarBox li {
+    width: 14.25%;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid #eee;
+}
+#calendarSelector .calendarBox li .boxDay {
     font-weight: 600;
     color: var(--black);
     width: 3rem;
@@ -2343,61 +2505,315 @@ footer .ftr-cpy {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     border-radius: 2rem;
     border: 1px solid var(--tertiary);
+    cursor: pointer;
+    font-size: 0.9rem;
 }
-#ky1-cap .cap-rgt .cld-box li a:hover {
+#calendarSelector .calendarBox li .boxDay:hover {
     background-color: var(--primaryopacity);
 }
-#ky1-cap .cap-rgt .cld-box li a.ky1-day::before {
+#calendarSelector .calendarBox li.today span {
+    color: var(--primary);
+    opacity: 1;
+}
+#calendarSelector .calendarBox li.today::before {
     content: "";
     background-color: var(--primary);
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.75rem;
+    height: 0.25rem;
     position: absolute;
     border-radius: 1rem;
-    bottom: 0.35rem;
+    bottom: 0.75rem;
 }
-#ky1-cap .cap-rgt .cld-box li span {
+#calendarSelector .calendarBox li span {
     opacity: 0.5;
-    width: 3rem;
-    height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 0.9rem;
+    height: initial;
+}
+#calendarSelector .calendarBox li .calendarView {
+    display: flex;
+    min-height: 8rem;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+#calendarSelector .calendarBox li .calendarViewRow {
+    gap: 0.5rem;
+    display: flex;
+    background-color: var(--primaryopacity);
+    border-radius: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+}
+#calendarSelector .calendarBox li .calendarViewRow h2 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ed5d1f;
+}
+#calendarSelector .calendarBox li .calendarViewRow h3 {
+    margin: 0;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#calendarSelector .calendarBox li .calendarViewRow p {
+    margin: 0;
+    font-size: 0.65rem;
+}
+#calendarSelector .calendarBox li .calendarViewRow img {
+    width: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.05;
+}
+/*********************************************************************/
+
+#previewInvoice {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
 }
 
-#ky1-cap .cap-rgt .ky1-slc-hou {
+#previewInvoice .previewBox {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+#previewInvoice .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#previewInvoice .close:hover,
+#previewInvoice .close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/*********************************************************************/
+#aproveOverlay {
     display: none;
+    position: fixed;
+    background-color: rgb(128 128 128 / 40%);
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
-#ky1-cap .cap-rgt .hou-hdr {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem; 
+#aproveOverlay .modalBox {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
 }
-#ky1-cap .cap-rgt .ky1-slc-hou ul {
+#aproveSubmit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    gap: 1rem;
-}
-#ky1-cap .cap-rgt .ky1-slc-hou ul li a {
-    font-size: 1rem;
-    padding: 0.75rem 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    gap: 1.5rem;
+}
+#aproveSubmit h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+#aproveSubmit p {
+    margin: 0;
+    text-align: center;
+}
+#aproveSubmit .aproveBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#aproveSubmit .aproveBox label {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+#aproveSubmit .aproveBox .flex {
+    display: flex;
+    gap: 0.5rem;
+}
+#aproveSubmit .aproveBox select {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--graydark);
+    cursor: pointer;
+}
+#aproveSubmit .aproveBox input {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--graydark);
+}
+#aproveSubmit .aproveButtons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+#aproveSubmit .aproveButtons .modalCancel {
+    background-color: #e6e6e6;
+    padding: 0.5rem 0;
     border-radius: 2rem;
-    border: 1px solid var(--tertiary);
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#aproveSubmit .aproveButtons button {
+    background-color: #ed5d1f;
+    color: #fff;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#aproveSubmit .modalClose {
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+#aproveMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
     font-weight: 600;
-    color: var(--black);
+    line-height: 0.8rem; 
 }
 
+
+/*********************************************************************/
+#rejectOverlay {
+    display: none;
+    position: fixed;
+    background-color: rgb(128 128 128 / 40%);
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+#rejectOverlay .modalBox {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+}
+#rejectSubmit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 1.5rem;
+}
+#rejectSubmit h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+#rejectSubmit p {
+    margin: 0;
+    text-align: center;
+}
+#rejectSubmit .rejectBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#rejectSubmit .rejectBox label {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+#rejectSubmit .rejectBox .flex {
+    display: flex;
+    gap: 0.5rem;
+}
+#rejectSubmit .rejectBox textarea {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--graydark);
+    font-family: 'DM Sans', sans-serif;
+    resize: none;
+}
+#rejectSubmit .rejectButtons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+#rejectSubmit .rejectButtons .modalCancel {
+    background-color: #e6e6e6;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#rejectSubmit .rejectButtons button {
+    background-color: #ed5d1f;
+    color: #fff;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#rejectSubmit .modalClose {
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+#rejectMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
+    font-weight: 600;
+    line-height: 0.8rem; 
+}
 
 

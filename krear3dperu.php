@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav.png">
     <title>Krear 3D - Soporte Técnico</title>
-    <?php require_once 'header.php'; ?>
+    <?php require_once 'header_back.php'; ?>
 </head>
 <body>
     <section id="ky1-lgn">
         <div class="ky1-cnt">
             <div class="lgn-lft">
                 <div class="lgn-flx">
-                    <h1>Bienvenido a nuestro portal de Soporte Técnico</h1>
+                    <h1>Bienvenido nuestro portal de Soporte Técnico</h1>
                     <h3>Accede y podrás</h3>
                     <ul>
                         <li>Comunicarte con nuestros técnicos</li>
