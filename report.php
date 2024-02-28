@@ -20,7 +20,7 @@ $s_role = $_SESSION['user_role'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav.png">
     <title>Krear 3D - Soporte Técnico</title>
-    <?php require_once 'header_back.php'; ?>
+    <?php require_once 'header.php'; ?>
 </head>
 <body class="ky1-adm">
     
@@ -51,8 +51,7 @@ $s_role = $_SESSION['user_role'];
                 </div>
                 
                 <div class="flt-usr flt-act" data-usrf="1"><img src="assets/img/edt.svg" alt="">Dashboard</div>
-                <div class="flt-usr flt-act" data-usrf="2"><img src="assets/img/usr.svg" alt="">Técnicos</div>
-                <a href="training" class="flt-usr"><img src="assets/img/usr.svg" alt="">Capacitaciones</a>
+                <div class="flt-usr flt-act" data-usrf="2"><img src="assets/img/usr.svg" alt="">Técnicos</span></div>
             </div>
             <div class="ky1-rgt">
                 <a href="https://api.whatsapp.com/send?phone=51946887982" target="_blank" rel="nofollow"><img src="assets/img/cnt.svg" alt=""></a>

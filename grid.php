@@ -23,7 +23,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav.png">
     <title>Krear 3D - Soporte Técnico</title>
-    <?php require_once 'header_back.php'; ?>
+    <?php require_once 'header.php'; ?>
 </head>
 <body class="ky1-adm">
     <div id="ky1-bar">

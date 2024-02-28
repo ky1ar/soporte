@@ -330,177 +330,34 @@ $( document ).ready(function() {
       lastScroll = currentScroll;
     });
     
-    const previewInvoice = $("#previewInvoice");
-    const invoiceFile = $("#invoiceFile");
-
-    $(".pendingTable .preview").click(function() {
-        let fileUrl = $(this).data('src');
-        var fileExtension = fileUrl.split('.').pop().toLowerCase();
-
-        if (fileExtension === 'pdf') {
-            invoiceFile.html('<embed src="' + fileUrl + '" type="application/pdf" width="100%" height="500px" />');
-        } else if (fileExtension.match(/(jpg|jpeg|png|gif)$/)) {
-            invoiceFile.html('<img src="' + fileUrl + '" alt="Vista previa de la imagen" style="max-width: 100%; max-height: 500px;">');
-        } else {
-            invoiceFile.html('<p>El archivo no es compatible con la previsualización.</p>');
-        }
-        previewInvoice.show();
-    });
-
-    $("#previewInvoice .close").click(function() {
-        previewInvoice.hide();
-    });
-
-    $(window).click(function(event) {
-        if (event.target == previewInvoice[0]) {
-            previewInvoice.hide();
-        }
-    });
-
-    const aproveOverlay = $('#aproveOverlay');
-
-    $(".actionButtons .aprove").click(function() {
-        let selectedId = $(this).closest('.actionButtons').data('id');
-        aproveOverlay.find('.aproveButtons').attr('data-id', selectedId);
-        aproveOverlay.fadeToggle();
-    });
-
-    aproveOverlay.find('.modalClose, .modalCancel').click(function() {
-        aproveOverlay.fadeToggle();
-    });
-
-    $(window).click(function(event) {
-        if (event.target == aproveOverlay[0]) {
-            aproveOverlay.fadeToggle();
-        }
-    });
-
-    const aproveSubmit = $('#aproveSubmit');
-    const aproveMessage = $('#aproveMessage');
-
-    aproveSubmit.submit(function(event) {
-        event.preventDefault();
-        aproveMessage.slideUp();
-
-        let scheduleId = aproveOverlay.find('.aproveButtons').data('id');
-        let trainingWorker = $('#trainingWorker').val();
-        let meet = $('#meet').val();
-
-        if (!validatetrainingWorker(trainingWorker) || !validateMeet(meet)) {
-            return;
-        }
-
-        let formData = new FormData();
-        formData.append('scheduleId', scheduleId);
-        formData.append('trainingWorker', trainingWorker);
-        formData.append('meet', meet);
-
-        $.ajax({
-            url: 'updateSchedule',
+    $('.ky1-slc-day').on('click', function(e) {
+        e.preventDefault(); 
+        
+        $('.cap-cld').hide();
+        $('.ky1-slc-hou').show();
+        
+        var frm = $(this).closest('form');
+        
+        var orders = frm.find('.ky1-oid').val();
+        var worker = frm.find('.ky1-wrk').val();
+        var type = frm.find('.ky1-typ').val();
+        var paid = frm.find('.ky1-pid').val();
+        var origin = frm.find('.ky1-ori').val();
+        
+        /*$.ajax({
+            url: 'updOrderData.php',
             method: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
+            data: { orders: orders, worker: worker, type: type, paid: paid, origin: origin },
             success: function(response) {
                 var jsonData = JSON.parse(response);
                 if (jsonData.success) {
-                    window.location.href = 'training';
-                } else {
-                    message(aproveMessage,jsonData.error);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Error:", error);
+                    window.location.href = 'grid';
+                } 
             }
-            
-        });
+        });*/
     });
 
-    function message(target,message) {
-        target.text(message).slideDown();
-    }
-    function validatetrainingWorker(trainingWorker) {
-        if (trainingWorker.trim() === '') {
-            message(aproveMessage, "Seleccione un responsable");
-            return false;
-        }
-        return true;
-    }
-    function validateMeet(meet) {
-        if (meet.trim() === '') {
-            message(aproveMessage, "Ingrese un link de Google Meet");
-            return false;
-        }
-        return true;
-    }
-
-    const rejectOverlay = $('#rejectOverlay');
-
-    $(".actionButtons .reject").click(function() {
-        let selectedId = $(this).closest('.actionButtons').data('id');
-        rejectOverlay.find('.rejectButtons').attr('data-id', selectedId);
-        let date = $(this).closest('.actionButtons').data('date');
-        rejectOverlay.find('.rejectButtons').attr('data-date', date);
-        rejectOverlay.fadeToggle();
-    });
-
-    rejectOverlay.find('.modalClose, .modalCancel').click(function() {
-        rejectOverlay.fadeToggle();
-    });
-
-    $(window).click(function(event) {
-        if (event.target == rejectOverlay[0]) {
-            rejectOverlay.fadeToggle();
-        }
-    });
-
-    const rejectSubmit = $('#rejectSubmit');
-    const rejectMessage = $('#rejectMessage');
-
-    rejectSubmit.submit(function(event) {
-        event.preventDefault();
-        rejectMessage.slideUp();
-
-        let scheduleId = rejectOverlay.find('.rejectButtons').data('id');
-        let date = rejectOverlay.find('.rejectButtons').data('date');
-        let rejectText = $('#rejectText').val();
-
-        if (!validateRejectText(rejectText)) {
-            return;
-        }
-
-        let formData = new FormData();
-        formData.append('scheduleId', scheduleId);
-        formData.append('date', date);
-        formData.append('rejectText', rejectText);
-
-        $.ajax({
-            url: 'rejectSchedule',
-            method: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                var jsonData = JSON.parse(response);
-                if (jsonData.success) {
-                    window.location.href = 'training';
-                } else {
-                    message(rejectMessage,jsonData.error);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Error:", error);
-            }
-            
-        });
-    });
-    function validateRejectText(rejectText) {
-        if (rejectText.trim() === '') {
-            message(rejectMessage, "El mensaje no puede quedar vacío.");
-            return false;
-        }
-        return true;
-    }
+    
 });
 
 
