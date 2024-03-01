@@ -218,14 +218,14 @@ $( document ).ready(function() {
         let schedule = picked.data('schedule');
         let count = picked.data('count');
         
-        var dniRUC = $('#dniRUC').val();
-        var client = $('#client').val();
+        let dniRUC = $('#dniRUC').val();
+        let client = $('#client').val();
         let email = $('#email').val();
         let phone = $('#phone').val();
         let machine = machineId.val();
         let invoice = $('#invoice')[0].files[0];
 
-        console.log(validateDocument(dniRUC));
+        console.log(dniRUC, validateDocument(dniRUC));
         if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
