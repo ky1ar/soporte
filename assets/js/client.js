@@ -265,7 +265,7 @@ $( document ).ready(function() {
     /* Validations */
 
     function validateDniRuc(dniRUC) {
-        if (dniRUC.length !== 8 || dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
+        if (dniRUC.length !== 8 || dniRUC.length !== 11) {
             message(scheduleFormMessage, "Ingrese un documento válido");
             return false;
         }
