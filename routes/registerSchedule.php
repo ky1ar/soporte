@@ -73,9 +73,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
             $stmt->close();
         }
-        $response['success'] = '<div id="successSchedule">Todo Correcto</div>';
-        echo json_encode($response);
-        exit();
+
+        $for = $row['email'];
+        $title = $row['description'];
+
+        $emailTemplate = '../includes/template/registerSchedule.php';
+        $htmlContent = file_get_contents($emailTemplate);
+
+        /*$nombre = "Juan";
+        $apellido = "Pérez";
+        $saldo = 100;
+        $edad = 30;
+
+        $htmlContent = sprintf($htmlContent, $nombre, $apellido, $saldo, $edad);
+*/
+        // Cabeceras para el correo electrónico
+        $emailHeader = "MIME-Version: 1.0" . "\r\n";
+        $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $emailHeader .= "From: Krear 3D - Soporte <web@soporte.krear3d.com>\r\n";
+        $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
+
+        // Envío del correo
+        $resultado = mail($for, $title, $$emailBody, $emailHeader);
+        
+        // Verificar si el correo se envió correctamente
+        if ($resultado) {
+            $response['success'] = '<div id="successSchedule">Todo Correcto</div>';
+            echo json_encode($response);
+            exit();     
+        } 
 
     } catch (Exception $e) {
         
