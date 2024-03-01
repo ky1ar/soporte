@@ -225,13 +225,12 @@ $( document ).ready(function() {
         let machine = machineId.val();
         let invoice = $('#invoice')[0].files[0];
 
-        console.log(dniRUC);
+        //console.log(dniRUC);
         if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
 
         let formData = new FormData();
-        
         formData.append('schedule', schedule);
         formData.append('date', date);
         formData.append('count', count);
@@ -265,6 +264,7 @@ $( document ).ready(function() {
 
     /* Validations */
     function validateDocument(dniRUC) {
+        console.log(dniRUC);
         if (dniRUC.length !== 8 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
             message(scheduleFormMessage, "Ingrese un documento válido");
             return false;
