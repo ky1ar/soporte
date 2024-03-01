@@ -77,9 +77,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $title = 'Krear 3D - Solicitud de Capacitación en Revisión';
         $emailTemplate = '../includes/template/registerSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
-        echo gettype($client);
-        $htmlContent = sprintf($htmlContent, $client);
-
+        $placeholders = array('%CLIENT%');
+        $values = array($client);
+        $htmlContent = str_replace($placeholders, $values, $htmlContent);
+        
         // Cabeceras para el correo electrónico
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
