@@ -225,7 +225,7 @@ $( document ).ready(function() {
         let machine = machineId.val();
         let invoice = $('#invoice')[0].files[0];
 
-        console.log(dniRUC, validateDocument(dniRUC));
+        //console.log(dniRUC, validateDocument(dniRUC));
         if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
@@ -264,8 +264,9 @@ $( document ).ready(function() {
 
     /* Validations */
     function validateDocument(dniRUC) {
-        console.log(dniRUC);
-        if (dniRUC.length !== 8 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
+        //console.log(dniRUC);
+        let dniRUCRegex = /^\d+$/;
+        if (dniRUC.length !== 8 && dniRUC.length !== 11 ) {
             message(scheduleFormMessage, "Ingrese un documento válido");
             return false;
         }
