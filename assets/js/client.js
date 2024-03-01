@@ -266,7 +266,7 @@ $( document ).ready(function() {
     function validateDocument(dniRUC) {
         //console.log(dniRUC);
         let dniRUCRegex = /^\d+$/;
-        if (dniRUC.length !== 8 && dniRUC.length !== 11 ) {
+        if (dniRUC.trim() === '' ) {
             message(scheduleFormMessage, "Ingrese un documento válido");
             return false;
         }
