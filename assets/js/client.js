@@ -226,7 +226,7 @@ $( document ).ready(function() {
         let invoice = $('#invoice')[0].files[0];
 
         //console.log(dniRUC, validateDocument(dniRUC));
-        if (!validateClient(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
+        if (!validateDniRuc(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
 
@@ -263,11 +263,17 @@ $( document ).ready(function() {
     });
 
     /* Validations */
-    function validateDocument(dniRUC) {
-        //console.log(dniRUC);
-        let dniRUCRegex = /^\d+$/;
-        if (dniRUC.trim() === '' ) {
+
+    function validateDniRuc(dniRUC) {
+        if (dniRUC.length !== 8 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
             message(scheduleFormMessage, "Ingrese un documento válido");
+            return false;
+        }
+        return true;
+    }
+    function validateClient(client) {
+        if (client.trim() === '') {
+            message(scheduleFormMessage, "El campo del nombre no puede estar vacío");
             return false;
         }
         return true;
