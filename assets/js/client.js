@@ -230,6 +230,7 @@ $( document ).ready(function() {
         }
 
         let formData = new FormData();
+        console.log(formData);
         formData.append('schedule', schedule);
         formData.append('date', date);
         formData.append('count', count);
@@ -263,7 +264,7 @@ $( document ).ready(function() {
 
     /* Validations */
     function validateDocument(dniRUC) {
-        if (dniRUC.length !== 8 && dniRUC.length !== 11) {
+        if (dniRUC.length !== 8 && dniRUC.length !== 11 || !(/^\d+$/.test(dniRUC))) {
             message(scheduleFormMessage, "Ingrese un documento válido");
             return false;
         }
