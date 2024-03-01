@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
     $uniqueFileName = uniqid() . '_' . time() . '.' . $fileExt;
 
-    $path = 'uploads/invoices/';
+    $path = '../uploads/invoices/';
     $invoicePath = $path . $uniqueFileName;
     move_uploaded_file($tempFileName, $invoicePath);
 
