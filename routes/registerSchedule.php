@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $for = $row['email'];
-        $title = $row['description'];
+        $title = 'Krear 3D - Solicitud de Capacitación en Revisión';
 
         $emailTemplate = '../includes/template/registerSchedule.php';
         $htmlContent = file_get_contents($emailTemplate);
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
         // Envío del correo
-        $resultado = mail($for, $title, $$emailBody, $emailHeader);
+        $resultado = mail($email, $title, $htmlContent, $emailHeader);
         
         // Verificar si el correo se envió correctamente
         if ($resultado) {
