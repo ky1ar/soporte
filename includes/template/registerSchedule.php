@@ -29,7 +29,7 @@
                             <tbody>
                             <tr>
                                 <td align='center'>
-                                <img src='https://ky1soporte.krear3d.com/assets/img/{$row['slug']}.png' alt='Logo' width='80' height='80'>
+                                <img src='https://ky1soporte.krear3d.com/assets/img/pendiente.svg' alt='Logo' width='80' height='80'>
                                 </td>
                             </tr>
                             </tbody>
@@ -39,25 +39,8 @@
 
                     <tr>
                         <td align='center'>
-                        <h1 style='font-size: 20px;line-height: 24px;margin: 0;margin-top: 32px;'>Hola {$row['name']},</h1>
-                        <p style='margin-top: 32px;'>Te informamos que el estado de tu equipo se ha actualizado, puedes revisarlo en el siguiente link, el número de Orden registrado es <b>{$row['number']}</b></p>
-                        <table border='0' cellpadding='0' cellspacing='0'>
-                            <tbody>
-                            <tr>
-                                <td align='center' style='padding:16px'>
-                                <table border='0' cellpadding='16' cellspacing='0' style='background-color: #e55b27; border-radius: 30px;'>
-                                    <tbody>
-                                    <tr>
-                                        <td align='center' style='padding:16px 24px;'>
-                                        <a href='http://soporte.krear3d.com' style='color: #ffffff;text-decoration: none;font-weight: 600;'>Consulta el estado de tu Orden</a>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <h1 style='font-size: 20px;line-height: 24px;margin: 0;margin-top: 32px;'>Hola %s,</h1>
+                        <p style='margin-top: 32px;'>Tu solicitud de capacitación está en revisión. Te avisaremos por correo electrónico una vez que esté lista, junto con los detalles de la capacitación.</p>
 
                         <p style='margin: 24px 0; font-weight: 600; font-size: 14px;'>Atento a nuestras redes sociales:</p>
 

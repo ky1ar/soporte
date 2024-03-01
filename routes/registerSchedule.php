@@ -84,9 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $apellido = "Pérez";
         $saldo = 100;
         $edad = 30;
-
-        $htmlContent = sprintf($htmlContent, $nombre, $apellido, $saldo, $edad);
 */
+        $htmlContent = sprintf($htmlContent, $client);
+
         // Cabeceras para el correo electrónico
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
