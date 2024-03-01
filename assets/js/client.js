@@ -226,7 +226,7 @@ $( document ).ready(function() {
         let invoice = $('#invoice')[0].files[0];
 
         //console.log(dniRUC, validateDocument(dniRUC));
-        if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
+        if (!validateClient(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
 
