@@ -225,12 +225,13 @@ $( document ).ready(function() {
         let machine = machineId.val();
         let invoice = $('#invoice')[0].files[0];
 
+        console.log(dniRUC);
         if (!validateDocument(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
 
         let formData = new FormData();
-        console.log(formData);
+        
         formData.append('schedule', schedule);
         formData.append('date', date);
         formData.append('count', count);
