@@ -39,7 +39,8 @@ $( document ).ready(function() {
             data: { document: documentValue },
             dataType: 'json',
             success: function(response) {
-                console.log(response.success);
+                console.log(response.success.name);
+                console.log(response.success[name]);
                 /*if (response.success) {
                     documentId.val(response.id);
                     name.val(response.name);
