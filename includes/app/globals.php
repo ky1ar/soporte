@@ -1,4 +1,4 @@
 <?php
-$GLOBALS['ver'] = "0.010";
+$GLOBALS['ver'] = "0.011";
 date_default_timezone_set('America/Bogota');
 setlocale(LC_TIME, 'es_ES');
