@@ -42,7 +42,7 @@ svg {
     max-width: 100%;
     height: auto;
 }
-/*********************************** START **********************************/
+/***********************************************************************************/
 body {
 	background-color: var(--white);
     margin: 0;
@@ -52,49 +52,28 @@ body {
     position: relative;
     min-width: 22rem;
 }
-body.ky1-adm {
-	background-color: var(--graydark);
-    background-image: url(whirlpool.png);
-}
-.ky1-wrp {
+.wrapper {
 	width: 100%;
     margin: 0 auto;
     max-width: 100rem;
 	padding: 0 1rem;
 }
-/*********************************** TOP BAR **********************************/
-#ky1-bar {
-	background-color: #ed5d1f;    
+/***********************************************************************************/
+#topBar {
+	background-color: var(--primary);   
     line-height: 1rem;
 	padding: 0.5rem 0;
 }
-#ky1-bar .ky1-wrp {
-	row-gap: 0.5rem;
-    column-gap: 1rem;
+#topBar .wrapper {
+    max-width: 120rem;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
 }
-#ky1-bar .bar-txt img {
-    width: 2rem;
-    height: 2rem;
-}
-#ky1-bar .bar-txt span {
-	color: var(--white);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-	flex: 1;
-    text-align: center;
-}
-#ky1-bar .bar-enl {
-	justify-content: center;
-}
-#ky1-bar .bar-enl a {
+#topBar .home {
     color: var(--white);
-	display: flex;
+    display: flex;
 }
-#ky1-bar .bar-enl img {
+#topBar .home img {
     margin-right: 0.5rem;
 }
 /*********************************** TOP BAR **********************************/

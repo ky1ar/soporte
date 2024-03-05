@@ -1,23 +1,28 @@
 <?php 
-$currentPage = "Taller"; 
-require_once 'includes/app/db.php';
-require_once 'includes/app/globals.php'; 
-require_once 'includes/common/header_admin.php';
-
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: krear3dperu");
     exit();
 }
+
 $s_id = $_SESSION['user_id'];
 $s_levels = $_SESSION['user_levels'];
 $s_name = $_SESSION['user_name'];
 $s_nick = $_SESSION['user_nick'];
 $s_role = $_SESSION['user_role'];
+
+$currentPage = "Taller"; 
+require_once 'includes/app/db.php';
+require_once 'includes/app/globals.php'; 
+require_once 'includes/common/header_admin.php';
 $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
 ?>
 </head>
-<body class="ky1-adm">
+<body>
+    <?php 
+    require_once 'includes/bar/topBar_admin.php';
+    require_once 'includes/bar/navigationBar_admin.php'; 
+    ?>
     <div id="ky1-bar">
         <div class="ky1-wrp bar-enl">	 
             <a href="https://api.whatsapp.com/send?phone=51934760404" target="_blank" rel="nofollow"><img src="https://ky1arsupport.tiendakrear3d.com/wp-content/uploads/2023/08/wsp.svg" width="16" height="16" alt="ico">934 760 404</a>
