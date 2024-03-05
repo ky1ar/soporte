@@ -6,10 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
         $document = $_POST['document'];
         $response = [];
 
-        if (!preg_match('/^\d{8}$|^d{11}$/', $document)) {
-            throw new Exception('Documento inválido');
-        }
-
         $sql = "SELECT name, email, phone, id FROM Users WHERE document = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $document);
@@ -25,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
                 'id' => $row['id']
             ];
         } else {
-            throw new Exception('Documento no encontrado');
+            $response['success'] = false;
         }
         echo json_encode($response);
     } catch (Exception $e) {
