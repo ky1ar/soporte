@@ -3,6 +3,24 @@ $( document ).ready(function() {
     const searchOrderMessage = $('#searchOrderMessage');
     const searchOrder = $('#searchOrder');
 
+    const calendarPrev = $('#calendarPrev');
+    const calendarNext = $('#calendarNext');
+    const calendarTable = $('#calendarTable');
+    const monthName = $('#monthName');
+    const loadingResponse = $('#loadingResponse');
+
+    const machine = $('#machine');
+    const suggestions = $('#suggestions');
+    const machineImage = $('#machineImage');
+    const machineId = $('#machineId');
+
+    const selectedSchedule = $('#selectedSchedule');
+    const picked = $('#picked');
+    
+    const scheduleSubmit = $('#scheduleSubmit');
+    const scheduleFormMessage = $('#scheduleFormMessage');
+    const scheduleCalendar = $('#scheduleCalendar');
+
     function message(target,message) {
         target.text(message).slideDown();
     }
@@ -40,8 +58,7 @@ $( document ).ready(function() {
 
     });
     
-    const calendarPrev = $('#calendarPrev');
-    const calendarNext = $('#calendarNext');
+    
     
     var currentDate = new Date();
     var today = new Date();
@@ -89,18 +106,11 @@ $( document ).ready(function() {
         calendarNext.removeClass('disabled');
     });
 
-    const calendarTable = $('#calendarTable');
-    const monthName = $('#monthName');
-    const loadingResponse = $('#loadingResponse');
+    
 
     function loadCalendar(offset) {
-        
         loadingResponse.show();
-        if (offset == 0) {
-            currentDate.setMonth(today.getMonth());
-        } else {
-            currentDate.setMonth(currentDate.getMonth() + offset);
-        }
+        currentDate.setMonth( offset === 0 ? today.getMonth() : currentDate.getMonth() + offset );
         currentDate.setDate(1);
 
         var formatedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
@@ -154,8 +164,7 @@ $( document ).ready(function() {
         });
     });
 
-    const selectedSchedule = $('#selectedSchedule');
-    const picked = $('#picked');
+    
 
     $(document).on('click', '.boxSchedule', function() {
         const selectedData = $('#selectedData');
@@ -174,10 +183,7 @@ $( document ).ready(function() {
         scheduleForm.show();
     });
 
-    const machine = $('#machine');
-    const suggestions = $('#suggestions');
-    const machineImage = $('#machineImage');
-    const machineId = $('#machineId');
+    
 
     machine.keyup(function() {
         let machineVal = $(this).val();
@@ -206,9 +212,6 @@ $( document ).ready(function() {
         }
     });
 
-    const scheduleSubmit = $('#scheduleSubmit');
-    const scheduleFormMessage = $('#scheduleFormMessage');
-    const scheduleCalendar = $('#scheduleCalendar');
 
     scheduleSubmit.submit(function(event) {
         event.preventDefault();
@@ -225,7 +228,6 @@ $( document ).ready(function() {
         let machine = machineId.val();
         let invoice = $('#invoice')[0].files[0];
 
-        //console.log(dniRUC, validateDniRuc(dniRUC));
         if (!validateDniRuc(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
             return;
         }
@@ -263,7 +265,6 @@ $( document ).ready(function() {
     });
 
     /* Validations */
-
     function validateDniRuc(dniRUC) {
         if (dniRUC.trim() === '') {
             message(scheduleFormMessage, "Ingrese un documento válido");
