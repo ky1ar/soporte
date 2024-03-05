@@ -24,15 +24,28 @@ require_once 'includes/common/header.php';
         <div class="wrapper">
             <div class="content">
                 <div class="left">
-                    <img src="assets/img/cap.svg" alt="ico" width="64" height="64">
-                    <h1>Agenda tu Capacitación Personalizada</h1>
-                    <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
-                    <p>Por favor, ten en cuenta los siguientes puntos al agendar tu capacitación:</p>
-                    <ul>
-                        <li>Selecciona la fecha y el horario disponibles.</li>
-                        <li>Asegúrate de tener tu cámara y micrófono listos.</li>
-                        <li>Conéctate puntualmente, con una tolerancia de 10 minutos.</li>
-                    </ul>
+                    <span class="title">Toma en cuenta los siguientes puntos al reservar tu capacitación:</span>
+                    <div class="step">
+                        <span><i>1</i></span>
+                        <div>
+                            <h3>Agenda tu cita</h3>
+                            <p>Elige la fecha y hora que mejor te convenga.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span><i>2</i></span>
+                        <div>
+                            <h3>Preparación previa</h3>
+                            <p>Asegúrate de tener tu cámara y micrófono preparados.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span><i>3</i></span>
+                        <div>
+                            <h3>Llega a tiempo</h3>
+                            <p>Conéctate a tiempo, tienes un margen de 10 minutos.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="right" id="scheduleCalendar">
                     <?php

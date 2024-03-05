@@ -92,7 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Verificar si el correo se envió correctamente
         if ($resultado) {
-            $response['success'] = '<div id="successSchedule">Todo Correcto</div>';
+            $response['success'] = '
+                <div id="successSchedule">
+                    <div class="dot"></div>
+                    <img src="assets/img/inbox.svg" alt="ico" width="92" height="92">
+                    <h2>Reserva en revisión</h2>
+                    <p>Su reserva está en verificación. Pronto recibirá un correo con el enlace de la reunión y los detalles del responsable. ¡Gracias!</p>
+                </div>';
             echo json_encode($response);
             exit();     
         } 

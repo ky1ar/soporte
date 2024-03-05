@@ -268,20 +268,45 @@ body {
 #trainingSection .left {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     flex: 1;
 }
-#trainingSection .left h1 {
-    display: flex;
-    align-items: center;
-    font-size: 1.75rem;
-    font-weight: 400;
-    margin: 1rem 0;
-    gap: 0.5rem;
+#trainingSection .left .title {
+    margin: 0.5rem 0;
+    padding-bottom: 1rem;
 }
-#trainingSection .left p {
+#trainingSection .left .step {
+    flex-direction: row;
+    gap: 1.5rem;
+    display: flex;
+}
+#trainingSection .left .step span {
+    background-color: #ffe8db;
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    border-radius: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#trainingSection .left .step span i {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #f15921;
+    font-style: normal;
+}
+#trainingSection .left .step h3 {
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    font-size: 1rem;
+}
+#trainingSection .left .step p {
     margin: 0;
 }
+/***********************************************************************************/
 #trainingSection .right {
     min-width: 32rem;
     display: flex;
@@ -610,6 +635,32 @@ body {
     100% { transform: rotate(360deg); }
 }
 /***********************************************************************************/
+#successSchedule {
+    border-radius: 0.5rem;
+    border: 1px solid rgb(238, 238, 238);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+#successSchedule .dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background-color: #ed5d1f;
+}
+#successSchedule h2 {
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+}
+#successSchedule p{
+    margin: 0;
+}
 /***********************************************************************************/
 /***********************************************************************************/
 /***********************************************************************************/
