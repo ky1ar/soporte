@@ -26,21 +26,21 @@ require_once 'includes/common/header.php';
                 <div class="left">
                     <span class="title">Toma en cuenta los siguientes puntos al reservar tu capacitación:</span>
                     <div class="step">
-                        <span><i>1</i></span>
+                        <span><i><img width="16" height="16" src="assets/img/register.svg" alt=""></i></span>
                         <div>
                             <h3>Agenda tu cita</h3>
                             <p>Elige la fecha y hora que mejor te convenga.</p>
                         </div>
                     </div>
                     <div class="step">
-                        <span><i>2</i></span>
+                        <span><i><img width="16" height="16" src="assets/img/pc.svg" alt=""></i></span>
                         <div>
                             <h3>Preparación previa</h3>
                             <p>Asegúrate de tener tu cámara y micrófono preparados.</p>
                         </div>
                     </div>
                     <div class="step">
-                        <span><i>3</i></span>
+                        <span><i><img width="16" height="16" src="assets/img/time.svg" alt=""></i></span>
                         <div>
                             <h3>Llega a tiempo</h3>
                             <p>Conéctate a tiempo, tienes un margen de 10 minutos.</p>

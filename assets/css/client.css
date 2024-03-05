@@ -268,12 +268,11 @@ body {
 #trainingSection .left {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 3rem;
     flex: 1;
 }
 #trainingSection .left .title {
     margin: 0.5rem 0;
-    padding-bottom: 1rem;
 }
 #trainingSection .left .step {
     flex-direction: row;
