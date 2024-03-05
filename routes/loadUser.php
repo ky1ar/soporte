@@ -7,13 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
         $response = [];
 
         if (!preg_match('/^\d{8}$|^d{11}$/', $document)) {
-            throw new InvalidArgumentException('Invalid document format. Only digits are allowed.');
+            throw new InvalidArgumentException('Documento inválido');
         }
 
         $sql = "SELECT name, email, phone, id FROM Users WHERE document = :document";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':document', $document, PDO::PARAM_STR);
-        $stmt->execute()
+        $stmt->execute();
 
         if ($stmt->rowCount() === 1) {
             $row = $stmt->fetch(PDO::ASSOC);
