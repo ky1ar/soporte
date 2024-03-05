@@ -38,8 +38,11 @@ $( document ).ready(function() {
             method: 'POST',
             data: { document: documentValue },
             dataType: 'json',
-            success: function(data) {
-                if (data.ky1ar) {
+            success: function(response) {
+                console.log(response);
+                var jsonData = JSON.parse(response);
+                console.log(jsonData);
+                /*if (data.ky1ar) {
                     documentId.val(data.id);
                     name.val(data.name);
                     email.val(data.email);
@@ -50,7 +53,7 @@ $( document ).ready(function() {
                     name.val('');
                     email.val('');
                     phone.val('');
-                }
+                }*/
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
