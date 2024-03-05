@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 /****************************************************	100rem	1600px	 ***************************************************/ 
 @media only screen and (max-width: 100rem) {
-    body {
+    /*body {
         font-size: 0.7rem;
     }
     .wrapper {
@@ -20,7 +20,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     }
     #topBar {
         line-height: 0.75rem;
-    }
+    }*/
 }
 /****************************************************	75rem	1200px	 ***************************************************/ 
 @media only screen and (max-width: 75rem) {
