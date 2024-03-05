@@ -39,15 +39,12 @@ $( document ).ready(function() {
             data: { document: documentValue },
             dataType: 'json',
             success: function(response) {
-                console.log(response);
-                var jsonData = JSON.parse(response);
-                console.log(jsonData);
-                /*if (data.ky1ar) {
-                    documentId.val(data.id);
-                    name.val(data.name);
-                    email.val(data.email);
-                    phone.val(data.phone);
-                    
+                console.log(response.success);
+                /*if (response.success) {
+                    documentId.val(response.id);
+                    name.val(response.name);
+                    email.val(response.email);
+                    phone.val(response.phone);
                 } else {
                     documentId.val('');
                     name.val('');
