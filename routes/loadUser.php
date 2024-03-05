@@ -31,7 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
         $response['error'] = $e->getMessage();
         echo json_encode($response, JSON_THROW_ON_ERROR);
     } finally {
-        $stmt->close();
+        if (isset($stmt)) {
+            $stmt->close();
+        }
         $conn = null;
     }  
 } else {
