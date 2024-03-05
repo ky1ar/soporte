@@ -35,7 +35,6 @@ $( document ).ready(function() {
 
     document.on('blur', function() {
         const documentValue = $(this).val();
-        addOrderMessage.slideUp();
 
         $.ajax({
             url: 'routes/loadUser',
@@ -50,7 +49,6 @@ $( document ).ready(function() {
                     email.val(userData.email);
                     phone.val(userData.phone);
                 } else {
-                    message(addOrderMessage,response.error);
                     documentId.val('');
                     name.val('');
                     email.val('');
