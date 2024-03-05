@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
         $response = [];
 
         if (!preg_match('/^\d{8}$|^d{11}$/', $document)) {
-            throw new InvalidArgumentException('Documento inválido');
+            throw new Exception('Documento inválido');
         }
 
-       $sql = "SELECT name, email, phone, id FROM Users WHERE document = ?";
+        $sql = "SELECT name, email, phone, id FROM Users WHERE document = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $document);
         $stmt->execute();
@@ -25,12 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
                 'id' => $row['id']
             ];
         } else {
-            $response['error'] = 'Document not found';
+            throw new Exception('Documento no encontrado');
         }
-        echo json_encode($response, JSON_THROW_ON_ERROR);
+        echo json_encode($response);
     } catch (Exception $e) {
+
         $response['error'] = $e->getMessage();
-        echo json_encode($response, JSON_THROW_ON_ERROR);
+        echo json_encode($response);
+
     } finally {
         if (isset($stmt)) {
             $stmt->close();
@@ -39,5 +41,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
     }  
 } else {
     $response['error'] = 'Error Interno';
-    echo json_encode($response, JSON_THROW_ON_ERROR);
+    echo json_encode($response);
 }
