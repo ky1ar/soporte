@@ -14,6 +14,9 @@ $( document ).ready(function() {
     const email = $('#email');
     const phone = $('#phone');
     
+    function message(target,message) {
+        target.text(message).slideDown();
+    }
     
     addOrder.on('click', function() {
         addOrderOverlay.fadeToggle();
@@ -32,26 +35,27 @@ $( document ).ready(function() {
 
     document.on('blur', function() {
         const documentValue = $(this).val();
-    
+        addOrderMessage.slideUp();
+
         $.ajax({
             url: 'routes/loadUser',
             method: 'POST',
             data: { document: documentValue },
             dataType: 'json',
             success: function(response) {
-                console.log(response.success.name);
-                console.log(response.success[name]);
-                /*if (response.success) {
-                    documentId.val(response.id);
-                    name.val(response.name);
-                    email.val(response.email);
-                    phone.val(response.phone);
+                if (response.success) {
+                    const userData = response.success;
+                    documentId.val(userData.id);
+                    name.val(userData.name);
+                    email.val(userData.email);
+                    phone.val(userData.phone);
                 } else {
+                    message(addOrderMessage,response.error);
                     documentId.val('');
                     name.val('');
                     email.val('');
                     phone.val('');
-                }*/
+                }
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
