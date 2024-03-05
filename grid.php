@@ -1,6 +1,10 @@
-<?php
+<?php 
+$currentPage = "Taller"; 
+require_once 'includes/app/db.php';
+require_once 'includes/app/globals.php'; 
+require_once 'includes/common/header.php';
 
-require_once 'db.php';
+//require_once 'db.php';
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
