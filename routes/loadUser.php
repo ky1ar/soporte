@@ -10,13 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['document'])) {
             throw new InvalidArgumentException('Documento inválido');
         }
 
-        $sql = "SELECT name, email, phone, id FROM Users WHERE document = ?";
+       $sql = "SELECT name, email, phone, id FROM Users WHERE document = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam('s', $document);
+        $stmt->bind_param("s", $document);
         $stmt->execute();
+        $result = $stmt->get_result();
 
-        if ($stmt->rowCount() === 1) {
-            $row = $stmt->fetch(PDO::ASSOC);
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
             $response['success'] = [
                 'name' => $row['name'], 
                 'email' => $row['email'], 
