@@ -65,7 +65,7 @@ body {
 	padding: 0.5rem 0;
 }
 #topBar .wrapper {
-    max-width: 120rem;
+    max-width: 117rem;
     display: flex;
     justify-content: space-between;
 }
@@ -144,6 +144,7 @@ body {
 	display: flex;
     justify-content: space-between;
 	align-items: center;
+    max-width: 120rem;
 }
 #navigationBar .logo {
 	width: 8rem;
