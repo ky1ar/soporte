@@ -2,6 +2,114 @@
 
 $( document ).ready(function() {
     
+    const addOrder = $('#addOrder');
+    const addOrderOverlay = $('#addOrderOverlay');
+    const addOrderSubmit = $('#addOrderSubmit');
+    const addOrderMessage = $('#addOrderMessage');
+
+    const number = $('#number');
+    const document = $('#document');
+    const documentId = $('#documentId');
+    const name = $('#name');
+    const email = $('#email');
+    const phone = $('#phone');
+    
+    
+    addOrder.on('click', function() {
+        addOrderOverlay.fadeToggle();
+        number.focus();
+    });
+    
+    addOrderOverlay.find('.modalClose, .modalCancel').click(function() {
+        addOrderOverlay.fadeToggle();
+    });
+
+    $(window).click(function(event) {
+        if (event.target == addOrderOverlay[0]) {
+            addOrderOverlay.fadeToggle();
+        }
+    });
+
+    document.on('blur', function() {
+        const documentValue = $(this).val();
+    
+        $.ajax({
+            url: 'routes/loadUser',
+            method: 'POST',
+            data: { document: documentValue },
+            dataType: 'json',
+            success: function(data) {
+                if (data.ky1ar) {
+                    documentId.val(data.id);
+                    name.val(data.name);
+                    email.val(data.email);
+                    phone.val(data.phone);
+                    
+                } else {
+                    documentId.val('');
+                    name.val('');
+                    email.val('');
+                    phone.val('');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+    addOrderSubmit.submit(function(event) {
+        event.preventDefault();
+        addOrderMessage.slideUp();
+
+        let date = picked.val();
+        let schedule = picked.data('schedule');
+        let count = picked.data('count');
+        
+        let dniRUC = $('#dniRUC').val();
+        let client = $('#client').val();
+        let email = $('#email').val();
+        let phone = $('#phone').val();
+        let machine = machineId.val();
+        let invoice = $('#invoice')[0].files[0];
+
+        if (!validateDniRuc(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append('schedule', schedule);
+        formData.append('date', date);
+        formData.append('count', count);
+        formData.append('dniRUC', dniRUC);
+        formData.append('client', client);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('machineId', machine);
+        formData.append('invoice', invoice);
+
+        $.ajax({
+            url: 'routes/registerSchedule',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                var jsonData = JSON.parse(response);
+                if (jsonData.success) {
+                    scheduleCalendar.html(jsonData.success)
+                } else {
+                    message(scheduleFormMessage,jsonData.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+            }
+            
+        });
+    });
+
+
     var parents = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
     var parents_n = ['Recepción', 'Ingreso', 'Revisión', 'Diagnóstico','Repuesto', 'Reparación', 'Pruebas', 'Listo para Recojo', 'Entrega']; 
     
@@ -127,21 +235,15 @@ $( document ).ready(function() {
 
     });
 
-    $('.flt-usr').on('click', function() {
+    $('.workerButton').on('click', function() {
 
         var usr_dat = $(this).data('usrf');
-        $(this).toggleClass('flt-act');
+        $(this).toggleClass('active');
         $('[data-usr="' + usr_dat + '"]').fadeToggle();
         
     });
    
-
-    $('#ky1-add').on('click', function() {
-        rpt_over.fadeToggle();
-        add_form.fadeToggle();
-        $('#ky1-ords').focus();
-        $('.ky1-blr').toggleClass('blr-act');
-    });
+    
 
     $('#frm-cls').on('click', function() {
         rpt_over.fadeToggle();
@@ -149,32 +251,7 @@ $( document ).ready(function() {
         $('.ky1-blr').toggleClass('blr-act');
     });
 
-    $('#ky1-doc').on('blur', function() {
-        const document = $(this).val();
     
-        $.ajax({
-            url: 'srcUser.php',
-            method: 'POST',
-            data: { document: document },
-            dataType: 'json',
-            success: function(data) {
-                if (data.ky1ar) {
-                    $('#ky1-nme').val(data.name);
-                    $('#ky1-eml').val(data.email);
-                    $('#ky1-phn').val(data.phone);
-                    $('#ky1-cid').val(data.id);
-                } else {
-                    $('#ky1-nme').val('');
-                    $('#ky1-eml').val('');
-                    $('#ky1-phn').val('');
-                    $('#ky1-cid').val('');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    });
 
     $('#ky1-mch').keyup(function() {
         var machine = $(this).val();
@@ -259,19 +336,20 @@ $( document ).ready(function() {
         }
     });
     
-     $('#ky1-src').on('input', function() {
+    const locateOrder = $('#locateOrder');
 
+    locateOrder.on('input', function() {
         const text = $(this).val().toLowerCase(); 
         $('#lst-tml ul li:has(.ky1-sor)').each(function() {
             const headingText = $(this).find('.ky1-sor').text().toLowerCase();
             if (headingText.includes(text)) {
-              $(this).removeClass('ky1-fcs');
+                $(this).removeClass('ky1-fcs');
             } else {
-              $(this).addClass('ky1-fcs');
+                $(this).addClass('ky1-fcs');
             }
-          });
+        });
 
-      });
+    });
 
     var tme_pday =  $('.tme-top');
 

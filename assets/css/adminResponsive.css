@@ -15,7 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     body {
         font-size: 0.7rem;
     }
-    .ky1-wrp {
+    .wrapper {
         padding: 0 0.5rem;
     }
     #ky1-bar {
@@ -30,7 +30,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     #ky1-hdr-adm {
         padding: 0.5rem;
     }
-    #ky1-hdr-adm .ky1-wrp {
+    #ky1-hdr-adm .wrapper {
         padding: 0.75rem;
     }
     #ky1-hdr-adm .ky1-lft {
@@ -225,7 +225,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
         font-size: 0.6rem;
         display: none;
     }
-    .ky1-wrp {
+    .wrapper {
         padding: 0;
     }
     #ky1-ord .ord-smy .smy-lft {
@@ -298,7 +298,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
     footer .ftr-top {
         padding: 2rem 0;
     }
-    footer .ky1-wrp {
+    footer .wrapper {
             justify-content: center;
         text-align: center;
     }

@@ -23,30 +23,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php'; 
     ?>
-    <header id="ky1-hdr-adm">
-        <div class="ky1-wrp">
-            <div class="ky1-lft">
-                <div id="hdr-usr">
-                    <img class="hdr-prf" src="assets/img/profile.webp" width="40" height="40" alt="Perfil">
-                    <div class="ky1-txt">
-                        <span><?php echo $s_name ?></span>
-                        <p><?php echo $s_role ?></p>
-                    </div>
-                    <div id="hdr-ext">
-                        <div class="ext-cnt">
-                            <img class="hdr-prf" src="assets/img/profile.webp" width="80" height="80" alt="Perfil">
-                            <span><?php echo $s_name ?></span>
-                            <a href="proLogout">Cerrar Sesión</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <?php
-                //if( $s_levels == 3 || $s_levels == 4 ):
-                    /*$sql = "SELECT w.id, w.name, w.nick, SUM(CASE WHEN o.state = 9 THEN 1 ELSE 0 END) AS total FROM Users w LEFT JOIN Orders o ON w.id = o.worker WHERE w.levels = 2 OR w.levels = 3 GROUP BY w.id ORDER BY total DESC, w.name";*/
-
+    <section id="grid">
+        <div class="wrapper">
+            <div class="header">
+                <div class="left">
+                    <?php
                     $sql = "SELECT w.id, w.name, w.nick, SUM(CASE WHEN o.state = 9 AND MONTH(o.dates) = MONTH(CURRENT_DATE()) THEN 1 ELSE 0 END) AS total FROM Users w LEFT JOIN Orders o ON w.id = o.worker WHERE (w.levels = 2 OR w.levels = 3) GROUP BY w.id ORDER BY total DESC, w.name";
-
                     $result = $conn->query($sql);
                     $p = 1;
                     while ($row = $result->fetch_assoc()):
@@ -60,106 +42,68 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             default:
                                 $ico = 'usr';
                         } ?>
-                        <div class="flt-usr flt-act" data-usrf="<?php echo $row['id'] ?>"><img src="assets/img/<?php echo $row['total'] != 0 ? $ico : 'usr' ?>.svg" alt=""><?php echo $row['nick'] ?><span><?php echo $row['total'] ?></span></div>
+                        <div class="workerButton active" data-usrf="<?php echo $row['id'] ?>"><img src="assets/img/<?php echo $row['total'] != 0 ? $ico : 'usr' ?>.svg" alt=""><?php echo $row['nick'] ?><span><?php echo $row['total'] ?></span></div>
                     <?php $p++;
                     endwhile; 
-               // endif;?>
-            </div>
-            <div class="ky1-rgt">
-            <input id="ky1-src" type="text" placeholder="Localizar Orden">
-                <?php if( $s_levels == 3 || $s_levels == 4 ):?>
-                    <div id="ky1-add" href="#"><img src="assets/img/pls.svg" alt="">Añadir Orden</div>
-                <?php endif;?>
-                <a href="https://api.whatsapp.com/send?phone=51946887982" target="_blank" rel="nofollow"><img src="assets/img/cnt.svg" alt=""></a>
-                <?php if( $s_levels == 3 || $s_levels == 4 ):?>
-                    <a href="report"><img src="assets/img/mnu.svg" alt=""></a>
-                <?php endif;?>
-            </div>
-        </div>
-    </header>
-
-    <section id="ky1-rpt">
-        <div class="ky1-wrp">
-            <div id="rpt-ovr"></div>
-            <div id="rpt-msg">
-                <form class="msg-cnt" method="post">
-                    <h2>¿Actualizar estado?</h2>
-                    <p>Deseas actualizar el estado de la orden <b id="msg-ord"></b></p>
-                    <div id="msg-img">
-                        <img src="assets/img/thr.svg" alt="">
-                        <img src="assets/img/r.svg" alt="">
-                        <img src="assets/img/thr.svg" alt="">
-                    </div>
-                    <div class="msg-eml">
-                        Enviar correo de actualización
-                        <label class="eml-swt">
-                            <input id="msg-chk" type="checkbox" name="check">
-                            <span class="eml-sld"></span>
-                        </label>
-                    </div>
-                    <div class="msg-cmm">
-                        <label for="">Añadir notas</label>
-                        <input id="msg-cmm" type="text" name="notes" placeholder="Opcional">
-                    </div>
-                    <div class="msg-btn">
-                        <div id="msg-nop">Cancelar</div>
-                        <input id="msg-chn" type="hidden" name="changer" value="<?php echo $s_id ?>">
-                        <button type="submit" id="msg-yes" name="submit">Actualizar</button>
-                    </div>
-                    <img id="msg-cls" src="assets/img/x.svg" alt="">
-                </form>
+                    ?>
+                </div>
+                <div class="right">
+                    <input id="locateOrder" type="text" placeholder="Localizar Orden">
+                    <?php if( $s_levels == 3 || $s_levels == 4 ):?>
+                        <div id="addOrder" href="#"><img src="assets/img/pls.svg" alt="">Añadir Orden</div>
+                    <?php endif;?>
+                </div>
             </div>
 
-            <div id="add-frm">
-                <div class="frm-cnt">
-                    <h2>Añadir Orden de Servicio</h2>
-                    <form id="ky1-frm-ord" action="addOrder.php" method="post">
-                        <div id="ky1-frm-msj"></div>
+            <div id="addOrderOverlay">
+                <div class="modalBox">
+                    <form id="addOrderSubmit" method="post">
+                        <h2>Añadir Orden de Servicio</h2>
                         <ul>
-                            <li class="frm-25">
-                                <div class="frm-row">
+                            <li class="percent25">
+                                <div class="formRow">
                                     <label for="">Orden</label>
-                                    <div class="frm-flx">
+                                    <div class="formFlex">
                                         <b>00</b>
-                                        <input id="ky1-ords" type="text" name="order" placeholder="Número">
+                                        <input id="number" type="text" placeholder="Número">
                                     </div>
                                 </div>
                             </li>
-                            <li class="frm-25">
-                                <div class="frm-row">
+                            <li class="percent25">
+                                <div class="formRow">
                                     <label for="">Documento</label>
-                                    <input id="ky1-doc" type="text" name="document" placeholder="DNI / RUC">
-                                    <input id="ky1-cid" type="hidden" name="clientID">
+                                    <input id="document" type="text" placeholder="DNI / RUC">
+                                    <input id="documentId" type="hidden">
                                 </div>
                             </li>
-                            <li class="frm-50">
-                                <div class="frm-row">
+                            <li class="percent50">
+                                <div class="formRow">
                                     <label for="">Cliente</label>
-                                    <input id="ky1-nme" type="text" name="client" placeholder="Nombre del cliente">
+                                    <input id="name" type="text" placeholder="Nombre del cliente">
                                 </div>
                             </li>
-                            <li class="frm-100">
-                                <div class="frm-row">
+                            <li class="percent100">
+                                <div class="formRow">
                                     <label for="">Comentarios</label>
                                     <input id="ky1-cmm" type="text" name="comments" placeholder="Opcional">
                                 </div>
                             </li>
-                            <li class="frm-60">
-                                <div class="frm-row">
+                            <li class="percent60">
+                                <div class="formRow">
                                     <label for="">Correo</label>
-                                    <input id="ky1-eml" type="email" name="email" placeholder="Ingresar correo">
+                                    <input id="email" type="email" placeholder="Ingresar correo">
                                 </div>
                             </li>
-                            <li class="frm-40">
-                                <div class="frm-row">
+                            <li class="percent40">
+                                <div class="formRow">
                                     <label for="">Celular</label>
-                                    <input id="ky1-phn" type="tel" name="phone" placeholder="Ingresar celular">
+                                    <input id="phone" type="tel" placeholder="Ingresar celular">
                                 </div>
                             </li>
 
-                            <div class="frm-75">
-                                <li class="frm-100">
-                                    <div class="frm-row">
+                            <div class="percent75">
+                                <li class="percent100">
+                                    <div class="formRow">
                                         <label for="">Producto</label>
                                         <div class="frm-mch">
                                             <input id="ky1-mch" type="text" name="machine" placeholder="Nombre del equipo">
@@ -168,22 +112,22 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                         </div>
                                     </div>
                                 </li>
-                                <li class="frm-100">
-                                    <div class="frm-row">
+                                <li class="percent100">
+                                    <div class="formRow">
                                         <label for="">Fecha de Ingreso</label>
                                         <input id="ky1-dte" type="date" name="date" value="" min="2023-01-01" max="">
                                     </div>
                                 </li>
                             </div>
 
-                            <li class="frm-25">
-                                <div class="frm-row">
+                            <li class="percent25">
+                                <div class="formRow">
                                     <label for="">Imagen</label>
                                     <img id="ky1-mim" src="assets/img/def.webp" alt="">
                                 </div>
                             </li>
-                            <li class="frm-30">
-                                <div class="frm-row">
+                            <li class="percent30">
+                                <div class="formRow">
                                     <label for="">Técnico</label>
                                     <select name="worker">
                                         <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
@@ -194,8 +138,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     </select>
                                 </div>
                             </li>
-                            <li class="frm-30">
-                                <div class="frm-row">
+                            <li class="percent30">
+                                <div class="formRow">
                                     <label for="">Tipo</label>
                                     <select name="type">
                                         <?php $sql = "SELECT id, name FROM Type ORDER BY name";
@@ -206,8 +150,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     </select>
                                 </div>
                             </li>
-                            <li class="frm-30">
-                                <div class="frm-row">
+                            <li class="percent30">
+                                <div class="formRow">
                                     <label for="">Origen</label>
                                     <select name="origin">
                                     <?php $sql = "SELECT id, name FROM Origin ORDER BY name";
@@ -219,15 +163,18 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 </div>
                             </li>
                         </ul>
+                        <div id="addOrderMessage"></div>
                         <div class="frm-btn">
-                            <div id="frm-nop">Cancelar</div>
+                            <div id="modalCancel">Cancelar</div>
                             <input type="hidden" name="changer" value="<?php echo $s_id ?>">
-                            <button type="submit" id="frm-yes" name="submit">Añadir</button>
+                            <button type="submit">Añadir</button>
                         </div>
                     </form>
-                    <img id="frm-cls" src="assets/img/x.svg" alt="">
+                    <img id="modalClose" src="assets/img/x.svg" alt="">
                 </div>
             </div>
+            <div id="rpt-ovr"></div>
+            
 
             <ul id="add-tml">
                 <?php
@@ -504,7 +451,34 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <?php endif;
             endfor; ?>
             </div>
-            
+            <div id="rpt-msg">
+                <form class="msg-cnt" method="post">
+                    <h2>¿Actualizar estado?</h2>
+                    <p>Deseas actualizar el estado de la orden <b id="msg-ord"></b></p>
+                    <div id="msg-img">
+                        <img src="assets/img/thr.svg" alt="">
+                        <img src="assets/img/r.svg" alt="">
+                        <img src="assets/img/thr.svg" alt="">
+                    </div>
+                    <div class="msg-eml">
+                        Enviar correo de actualización
+                        <label class="eml-swt">
+                            <input id="msg-chk" type="checkbox" name="check">
+                            <span class="eml-sld"></span>
+                        </label>
+                    </div>
+                    <div class="msg-cmm">
+                        <label for="">Añadir notas</label>
+                        <input id="msg-cmm" type="text" name="notes" placeholder="Opcional">
+                    </div>
+                    <div class="msg-btn">
+                        <div id="msg-nop">Cancelar</div>
+                        <input id="msg-chn" type="hidden" name="changer" value="<?php echo $s_id ?>">
+                        <button type="submit" id="msg-yes" name="submit">Actualizar</button>
+                    </div>
+                    <img id="msg-cls" src="assets/img/x.svg" alt="">
+                </form>
+            </div>
         </div>
     </section>
 
