@@ -149,7 +149,48 @@ $s_role = $_SESSION['user_role'];
                     <div id="itm-tml">
 
                 <ul class="itm-ul" >
-                    <?php $sql = "SELECT o.id, o.number as orders, o.dates, o.paid, o.dates as pday, c.name, o.comments, c.email, c.document, c.phone, w.id as wid, w.name as wnm, m.model, b.name as bnm, m.slug, t.id as tid, r.id as rid, t.name as tnm, r.name as onm, s.name as snm FROM Orders o INNER JOIN Machine m ON o.machine = m.id INNER JOIN Users c ON o.client = c.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON o.worker = w.id INNER JOIN Type t ON o.type = t.id INNER JOIN Status s ON o.state = s.id INNER JOIN Origin r ON o.origin = r.id ORDER BY pday ASC;";
+                    <?php 
+                    $tday = date("Y-m-d");
+                    $fday = [
+                        "2023-12-25",
+                        "2024-01-01",
+                        "2024-03-28",
+                        "2024-03-29",
+                        "2024-05-01",
+                        "2024-06-07",
+                        "2024-06-29",
+                        "2024-07-23",
+                        "2024-07-28",
+                        "2024-07-29",
+                        "2024-08-06",
+                        "2024-08-30",
+                        "2024-10-08",
+                        "2024-11-01",
+                        "2024-12-08",
+                        "2024-12-09",
+                        "2024-12-25",
+                    ];
+    
+                    function getPday($date, $tday, $fday) {
+                        $ini = new DateTime($date);
+                        $fin = new DateTime($tday);
+                        
+                        $int = new DateInterval('P1D');
+                        $per = new DatePeriod($ini, $int, $fin);
+                        
+                        $pday = 0;
+                        
+                        foreach ($per as $day) {
+                            $sday = $day->format('N');
+                            $sfday = in_array($day->format('Y-m-d'), $fday);
+                            
+                            if ($sday <= 5 && !$sfday) {
+                                $pday++;
+                            }
+                        }
+                        return $pday;
+                    }
+                    $sql = "SELECT o.id, o.number as orders, o.dates, o.paid, o.dates as pday, c.name, o.comments, c.email, c.document, c.phone, w.id as wid, w.name as wnm, m.model, b.name as bnm, m.slug, t.id as tid, r.id as rid, t.name as tnm, r.name as onm, s.name as snm FROM Orders o INNER JOIN Machine m ON o.machine = m.id INNER JOIN Users c ON o.client = c.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON o.worker = w.id INNER JOIN Type t ON o.type = t.id INNER JOIN Status s ON o.state = s.id INNER JOIN Origin r ON o.origin = r.id ORDER BY pday ASC;";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0):
