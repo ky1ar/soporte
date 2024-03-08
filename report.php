@@ -129,7 +129,7 @@ $s_role = $_SESSION['user_role'];
                                 $date = strtotime($row['dates']);
                                 $date = strftime("%e de %B de %Y", $date);
                                 ?>
-                            <tr>
+                            <tr data-id="<?php echo $row['orders'] ?>">
                                 <td><?php echo $n ?></td>
                                 <td class="row-odr">
                                     <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
@@ -345,6 +345,7 @@ $s_role = $_SESSION['user_role'];
                     ?>
                 </ul>
             </div>
+            <div id="rpt-ovr"></div>
         </div>
     </section>
 

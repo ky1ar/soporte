@@ -118,6 +118,18 @@ $( document ).ready(function() {
         now_open.fadeToggle();
     });
 
+    $('.tbl-tec').on('click', function() {
+
+        rpt_over.fadeToggle();
+        $('.ky1-blr').toggleClass('blr-act');
+
+        const now_li = $(this).closest('tr');
+        const now_liId = now_li.data('id');
+        
+        const now_open = itm_time.find('li[data-id="' + (now_liId) + '"]');
+
+        now_open.fadeToggle();
+    });
     
     $('.itm-cls').on('click', function() {
         
