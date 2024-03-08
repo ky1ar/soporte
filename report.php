@@ -146,7 +146,9 @@ $s_role = $_SESSION['user_role'];
                         endif; ?>
                     </table>
                 </div>
-                <div id="itm-tml">
+                
+            </div>
+            <div id="itm-tml">
 
                 <ul class="itm-ul" >
                     <?php 
@@ -342,7 +344,6 @@ $s_role = $_SESSION['user_role'];
                     endif;
                     ?>
                 </ul>
-            </div>
             </div>
         </div>
     </section>
