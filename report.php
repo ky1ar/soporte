@@ -148,7 +148,9 @@ $s_role = $_SESSION['user_role'];
 
                     <div id="itm-tml">
 
-                <ul class="itm-ul" >
+                
+            </div>
+            <ul class="itm-ul" >
                     <?php 
                     $tday = date("Y-m-d");
                     $fday = [
@@ -342,8 +344,6 @@ $s_role = $_SESSION['user_role'];
                     endif;
                     ?>
                 </ul>
-            </div>
-
                 </div>
             </div>
         </div>
