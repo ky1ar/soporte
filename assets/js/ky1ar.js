@@ -126,7 +126,7 @@ $( document ).ready(function() {
         const now_li = $(this).closest('tr');
         const now_liId = now_li.data('id');
         
-        const now_open = itm_time.find('li[data-id="' + (now_liId) + '"]');
+        now_open = itm_time.find('li[data-id="' + (now_liId) + '"]');
 
         now_open.fadeToggle();
     });
