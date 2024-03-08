@@ -145,12 +145,9 @@ $s_role = $_SESSION['user_role'];
                             endwhile;
                         endif; ?>
                     </table>
+                </div>
+                <div id="itm-tml">
 
-                    <div id="itm-tml">
-
-                
-            </div>
-            <div id="lst-tml">
                 <ul class="itm-ul" >
                     <?php 
                     $tday = date("Y-m-d");
@@ -345,8 +342,7 @@ $s_role = $_SESSION['user_role'];
                     endif;
                     ?>
                 </ul>
-                </div>
-                </div>
+            </div>
             </div>
         </div>
     </section>
