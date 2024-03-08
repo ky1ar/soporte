@@ -118,7 +118,9 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <th>Tipo</th>
                             <th>Origen</th>
                             <th>Estado</th>
+                            <?php if( $s_levels == 4 ):?>
                             <th>Ver</th>
+                            <?php endif;?> 
                         </tr>
                         <?php 
                         $sql = "SELECT o.id, o.number as orders, o.dates, DATEDIFF(NOW(), o.dates) as pday, c.name, o.comments, c.email, c.document, c.phone, w.id as wid, w.name as wnm, m.model, b.name as bnm, m.slug, t.name as tnm, r.name as onm, o.state FROM Orders o INNER JOIN Machine m ON o.machine = m.id INNER JOIN Users c ON o.client = c.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON o.worker = w.id INNER JOIN Type t ON o.type = t.id INNER JOIN Origin r ON o.origin = r.id ORDER BY pday ASC;";
@@ -140,7 +142,9 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
                                 <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
                                 <td class="row-stt"><?php echo $row['state'] == 9 ? '<span class="stt-fns">Finalizado</span>':'<span>Activo</span>' ?></td>
+                                <?php if( $s_levels == 4 ):?>
                                 <td class="row-act"><img class="tbl-tec" style="cursor:pointer;" src="assets/img/dot.svg" alt=""></td>
+                                <?php endif;?>   
                             </tr>
                             <?php $n++;
                             endwhile;
