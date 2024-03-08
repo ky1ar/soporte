@@ -140,7 +140,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
                                 <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
                                 <td class="row-stt"><?php echo $row['state'] == 9 ? '<span class="stt-fns">Finalizado</span>':'<span>Activo</span>' ?></td>
-                                <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
+                                <td class="row-act"><img class="tbl-tec" style="cursor:pointer;" src="assets/img/dot.svg" alt=""></td>
                             </tr>
                             <?php $n++;
                             endwhile;
@@ -211,30 +211,9 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                     <h2>Orden <b>00</b><?php echo $row['orders'] ?></h2>
                                                     <div class="itm-wrk">
                                                         <img src="assets/img/tec.svg" alt="">
-                                                        <?php if( $s_levels == 3 || $s_levels == 4 ):?>
-                                                        <select name="worker" class="ky1-wrk">
-                                                            <?php
-                                                            $sqlU = "SELECT w.id, w.name FROM Users w WHERE w.levels = 2 OR w.levels = 3 ORDER BY w.name ";
-                                                            $resultU = $conn->query($sqlU);
-                                                            $p = 1;
-                                                            while ($rowU = $resultU->fetch_assoc()): ?>
-                                                                <option <?php echo $row['wid'] == $rowU['id'] ? 'selected':'' ?> value="<?php echo $rowU['id'] ?>"><?php echo $rowU['name'] ?></option>
-                                                            <?php $p++;
-                                                            endwhile;?>
-                                                        </select> 
-                                                        <?php else: ?>
-                                                            <h3><?php echo $row['wnm'] ?></h3>
-                                                        <?php endif; ?>
+                                                        <h3><?php echo $row['wnm'] ?></h3>
                                                     </div>
                                                 </div>
-                                                <?php if( $s_levels == 3 || $s_levels == 4 ): ?>
-                                                    <div class="itm-box">
-                                                        <input type="hidden" class="ky1-oid" name="orders" value="<?php echo $row['id'] ?>">
-                                                        <button type="submit" class="edt-yes" name="submit"><img src="assets/img/sav.svg" alt=""></button>
-                                                        <button class="itm-btn"><img src="assets/img/edt.svg" alt=""></button>
-                                                        <button class="itm-btn"><img src="assets/img/edt.svg" alt=""></button>
-                                                    </div>
-                                                <?php endif; ?>
                                             </div>
                                             <span><?php echo $pday ?> días</span>
                                         </div>
@@ -249,41 +228,14 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                     <p><?php echo $row['comments'] ?></p>
                                                 </div>
                                                 <div class="itm-otr">
-                                                <?php if( $s_levels == 3 || $s_levels == 4 ):?>
-                                                    <select name="type" class="ky1-typ">
-                                                        <?php
-                                                        $sqlU = "SELECT t.id, t.name FROM Type t ORDER BY t.name ";
-                                                        $resultU = $conn->query($sqlU);
-                                                        $p = 1;
-                                                        while ($rowU = $resultU->fetch_assoc()): ?>
-                                                            <option <?php echo $row['tid'] == $rowU['id'] ? 'selected':'' ?> value="<?php echo $rowU['id'] ?>"><?php echo $rowU['name'] ?></option>
-                                                        <?php $p++;
-                                                        endwhile;?>
-                                                    </select> 
-                                                    <select name="origin" class="ky1-ori">
-                                                        <?php
-                                                        $sqlW = "SELECT o.id, o.name FROM Origin o ORDER BY o.name ";
-                                                        $resultW = $conn->query($sqlW);
-                                                        $p = 1;
-                                                        while ($rowU = $resultW->fetch_assoc()): ?>
-                                                            <option <?php echo $row['rid'] == $rowU['id'] ? 'selected':'' ?> value="<?php echo $rowU['id'] ?>"><?php echo $rowU['name'] ?></option>
-                                                        <?php $p++;
-                                                        endwhile;?>
-                                                    </select> 
-                                                    <?php else: ?>
-                                                        <h5><?php echo $row['tnm'] ?></h5>
-                                                        <h5><?php echo $row['onm'] ?></h5>
-                                                    <?php endif; ?>
-                                                    
-                                                    <select name="type" class="ky1-pid">
-                                                        <option <?php echo $row['paid'] == 0 ? 'selected':'' ?> value="0">No pagado</option>
-                                                        <option <?php echo $row['paid'] == 1 ? 'selected':'' ?> value="1">Pagado</option>
-                                                    </select> 
+                                                    <h5><?php echo $row['tnm'] ?></h5>
+                                                    <h5><?php echo $row['onm'] ?></h5>
+                                                    <h5><?php echo $row['paid'] == 0 ? 'No pagado':'Pagado' ?></h5>
                                                 </div>
                                             </div>
                                             <img class="itm-img" src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
                                         </div>
-                                        <span class="smy-stt">Estado actual de la orden:<b>En <?php echo $row['snm'] ?></b></span>
+                                        <span class="smy-stt">Estado de la orden:<b>En <?php echo $row['snm'] ?></b></span>
                                         <div class="smy-tme">
                                             <h2>Total de días desde el ingreso</h2>
                                             <div class="tme-cnt">
