@@ -118,7 +118,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <th>Tipo</th>
                             <th>Origen</th>
                             <th>Estado</th>
-                            <?php if( $s_levels == 4 ):?>
+                            <?php if( $s_levels == 3 || $s_levels == 4 ):?>
                             <th>Ver</th>
                             <?php endif;?> 
                         </tr>
@@ -142,7 +142,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
                                 <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
                                 <td class="row-stt"><?php echo $row['state'] == 9 ? '<span class="stt-fns">Finalizado</span>':'<span>Activo</span>' ?></td>
-                                <?php if( $s_levels == 4 ):?>
+                                <?php if( $s_levels == 3 || $s_levels == 4 ):?>
                                 <td class="row-act"><img class="tbl-tec" style="cursor:pointer;" src="assets/img/dot.svg" alt=""></td>
                                 <?php endif;?>   
                             </tr>
