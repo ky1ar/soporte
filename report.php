@@ -12,6 +12,7 @@ $s_name = $_SESSION['user_name'];
 $s_nick = $_SESSION['user_nick'];
 $s_role = $_SESSION['user_role'];
 
+$stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,8 +199,9 @@ $s_role = $_SESSION['user_role'];
                     if ($result->num_rows > 0):
                         while ($row = $result->fetch_assoc()): 
                             $pday = getPday($row['pday'], $tday, $fday);
+                            $color = $pday < 8 ? 'one' : ($pday < 14 ? 'two' : 'thr');
                             ?>
-                            <li class="itm-li" data-id="<?php echo $row['orders'] ?>">
+                            <li class="itm-li stt-<?php echo $color ?>" data-id="<?php echo $row['orders'] ?>">
                                 <img class="itm-cls" src="assets/img/x.svg" alt="">
                                 <div class="itm-smy">
                                     <form class="smy-lft" method="post">
