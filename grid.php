@@ -185,8 +185,6 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     if ($row['id'] != 9):?>
                         <li>
                             <img src="assets/img/<?php echo $stt_img[$row['id']-1] ?>.svg" alt="">
-                            <div class="tml-lne"></div>
-                            <div class="tml-dot"><?php echo $row['id'] ?></div>
                             <div class="tml-ttl"><?php echo $row['name'] ?></div>
                         </li>
                     <?php endif;
