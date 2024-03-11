@@ -1,22 +1,11 @@
-<?php 
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: krear3dperu");
-    exit();
-}
-
-$s_id = $_SESSION['user_id'];
-$s_levels = $_SESSION['user_levels'];
-$s_name = $_SESSION['user_name'];
-$s_nick = $_SESSION['user_nick'];
-$s_role = $_SESSION['user_role'];
-
-$currentPage = "Taller"; 
-require_once 'includes/app/db.php';
-require_once 'includes/app/globals.php'; 
-require_once 'includes/common/header_admin.php';
-$stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/fav.png">
+    <title>Krear 3D - Soporte Técnico</title>
+    <?php require_once 'header_back.php'; ?>
 </head>
 <body>
     <section id="ky1-lgn">
