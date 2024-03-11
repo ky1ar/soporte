@@ -1,18 +1,7 @@
-<?php 
-session_start();
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: krear3dperu");
-//     exit();
-// }
-// $s_id = $_SESSION['user_id'];
-// $s_levels = $_SESSION['user_levels'];
-// $s_name = $_SESSION['user_name'];
-// $s_nick = $_SESSION['user_nick'];
-// $s_role = $_SESSION['user_role'];
-
-$currentPage = "Taller"; 
+<?php
+$currentPage = "Taller";
 require_once 'includes/app/db.php';
-require_once 'includes/app/globals.php'; 
+require_once 'includes/app/globals.php';
 require_once 'includes/common/header_admin.php';
 ?>
 </head>

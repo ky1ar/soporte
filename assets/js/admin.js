@@ -6,6 +6,9 @@ $( document ).ready(function() {
     const addOrderOverlay = $('#addOrderOverlay');
     const addOrderSubmit = $('#addOrderSubmit');
     const addOrderMessage = $('#addOrderMessage');
+    const modalCancel = $('#modalCancel');
+    const modalClose = $('#modalClose');
+    const rptOverlay = $('#rpt-ovr');
 
     const number = $('#number');
     const document = $('#document');
@@ -20,17 +23,22 @@ $( document ).ready(function() {
     
     addOrder.on('click', function() {
         addOrderOverlay.fadeToggle();
+        rptOverlay.css({
+            'display': 'block',
+            'background-color': 'rgba(0, 0, 0, 0.7)',
+            'position': 'fixed',
+            'top': '0',
+            'left': '0',
+            'width': '100%',
+            'height': '100%',
+            'z-index': '3'
+        });
         number.focus();
     });
     
-    addOrderOverlay.find('.modalClose, .modalCancel').click(function() {
+    modalClose.add(modalCancel).click(function() {
         addOrderOverlay.fadeToggle();
-    });
-
-    $(window).click(function(event) {
-        if (event.target == addOrderOverlay[0]) {
-            addOrderOverlay.fadeToggle();
-        }
+        rptOverlay.hide();
     });
 
     document.on('blur', function() {
@@ -64,19 +72,22 @@ $( document ).ready(function() {
     addOrderSubmit.submit(function(event) {
         event.preventDefault();
         addOrderMessage.slideUp();
+        const picked = $('#picked');
+        const machineId = $('#ky1-mid');
+        const invoiceInput = $('#invoice');
 
-        let date = picked.val();
-        let schedule = picked.data('schedule');
-        let count = picked.data('count');
-        
-        let dniRUC = $('#dniRUC').val();
-        let client = $('#client').val();
-        let email = $('#email').val();
-        let phone = $('#phone').val();
-        let machine = machineId.val();
-        let invoice = $('#invoice')[0].files[0];
+        const date = picked.val();
+        const data = picked.data();
+        const schedule = data && data.schedule;
+        const count = data && data.count;
+        const dniRUC = $('#dniRUC').val();
+        const client = $('#client').val();
+        const email = $('#email').val();
+        const phone = $('#phone').val();
+        const machine = machineId.val();
+        const invoice = invoiceInput.prop('files') && invoiceInput.prop('files')[0];
 
-        if (!validateDniRuc(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice) ) {
+        if (!validateDniRuc(dniRUC) || !validateClient(client) || !validateEmail(email) || !validatePhone(phone) || !validateMachineId(machine) || !validateInvoice(invoice)) {
             return;
         }
 
@@ -110,6 +121,26 @@ $( document ).ready(function() {
             }
             
         });
+
+        // let orderNumber = number.val();
+        // $.ajax({
+        //     url: 'srcOrders.php',
+        //     method: 'POST',
+        //     data: { orders: orderNumber },
+        //     success: function(response) {
+        //         var jsonData = JSON.parse(response);
+        //         if (jsonData.response === 'existe') {
+        //             // Mostrar mensaje de error si la orden ya existe
+        //             message(addOrderMessage, 'Ya existe una orden con ese número.');
+        //         } else {
+        //             // Continuar con el envío del formulario si la orden no existe
+        //             // Resto del código para enviar el formulario...
+        //         }
+        //     },
+        //     error: function(xhr, status, error) {
+        //         console.error("Error:", error);
+        //     }
+        // });
     });
 
 
