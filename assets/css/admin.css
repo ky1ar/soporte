@@ -910,7 +910,7 @@ body {
 #ky1-lgn {
     background-color: #101717;
     padding: 4rem 0;
-    background-image: url(/assets/img/bg.webp);
+    background-image: url("../img/bg.webp");
     height: 100vh;
     position: relative;
 }
