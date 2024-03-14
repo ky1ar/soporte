@@ -138,10 +138,18 @@ $(document).ready(function () {
 
     let order = $("#number").val().trim();
     let document = $("#document").val().trim();
+    let documentId = $("#documentId").val().trim();
     let client = $("#name").val().trim();
+    let comments = $("#ky1-cmm").val().trim();
     let email = $("#email").val().trim();
+    let changer = $("#changer").val().trim();
     let phone = $("#phone").val().trim();
     let machine = $("#ky1-mch").val().trim();
+    let machineID = $("#ky1-mid").val().trim();
+    let date = $("#ky1-dte").val().trim();
+    let worker = $("select[name='worker']").val().trim();
+    let type = $("select[name='type']").val().trim();
+    let origin = $("select[name='origin']").val().trim();
 
     if (
       !validateOrder(order) ||
@@ -154,34 +162,63 @@ $(document).ready(function () {
       return;
     }
 
-    // Aquí puedes enviar los datos del formulario a través de AJAX
+    $.ajax({
+      url: "addOrder",
+      method: "POST",
+      data: {
+        order: order,
+        document: document,
+        clientID: documentId,
+        client: client,
+        comments: comments,
+        email: email,
+        changer: changer,
+        phone: phone,
+        machine: machine,
+        machineID: machineID,
+        date: date,
+        worker: worker,
+        type: type,
+        origin: origin,
+      },
+      success: function (response) {
+        if (response) {
+          var jsonData = JSON.parse(response);
+          if (jsonData.success) {
+            window.location.href = "grid";
+          }
+        } else {
+          console.error("La respuesta del servidor está vacía");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error en la solicitud AJAX:", error);
+      },
+    });
   });
 
   function validateOrder(order) {
     if (order === "") {
-        displayErrorMessage("El campo 'Orden' es obligatorio.");
-        return false;
+      displayErrorMessage("El campo 'Orden' es obligatorio.");
+      return false;
     }
-
-    // Realizar una solicitud AJAX para verificar si el número de orden ya existe
     $.ajax({
-        url: 'srcOrders.php',
-        method: 'POST',
-        data: { orders: order },
-        dataType: 'json',
-        success: function(response) {
-            if (response.response === 'existe') {
-                displayErrorMessage("El número de orden ya existe.");
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error("Error al verificar el número de orden:", error);
+      url: "srcOrders.php",
+      method: "POST",
+      data: { orders: order },
+      dataType: "json",
+      success: function (response) {
+        if (response.response === "existe") {
+          displayErrorMessage("El número de orden ya existe.");
         }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error al verificar el número de orden:", error);
+      },
     });
 
     return true;
-}
-
+  }
 
   function validateDocument(document) {
     // Validación de documento (DNI/RUC)

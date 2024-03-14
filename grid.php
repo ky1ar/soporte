@@ -81,6 +81,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <div class="formRow">
                                     <label for="">Cliente</label>
                                     <input id="name" type="text" placeholder="Nombre del cliente">
+                                    <input type="hidden" id="changer" name="changer" value="<?php echo $s_id; ?>">
+
                                 </div>
                             </li>
                             <li class="percent100">
