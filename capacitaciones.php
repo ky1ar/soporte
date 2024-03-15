@@ -101,7 +101,7 @@ require_once 'includes/common/header.php';
                         </div>
                         <div id="scheduleSelector"></div>
                         <div id="scheduleForm">
-                            <form action="post" id="scheduleSubmit" enctype="multipart/form-data">
+                            <form method="post" id="scheduleSubmit" enctype="multipart/form-data">
                                 <div id="selectedSchedule"></div>
                                 <p class="selectedMessage">Completa los campos para reservar tu cita.</p>
                                 

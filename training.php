@@ -23,7 +23,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php'; 
     ?>
-    <section id="adminSection">
+    <section id="adminSection" style="display: flex; justify-content: center; align-items: center">
         <div class="ky1-wrp">
         <?php 
         $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
@@ -33,7 +33,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
         $sql = "SELECT t.id, training_date, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0):?>
-            <div class="sectionBox">
+            <div class="sectionBox" >
                 <h3 class="boxTitle">Solicitudes de Capacitaciones
                     <p>Listado de las capacitaciones pendientes de aprobación y asignación del responsable.</p>
                 </h3>

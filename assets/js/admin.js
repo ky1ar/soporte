@@ -735,10 +735,6 @@ $(document).ready(function () {
     let date = rejectOverlay.find(".rejectButtons").data("date");
     let rejectText = $("#rejectText").val();
 
-    if (!validateRejectText(rejectText)) {
-      return;
-    }
-
     let formData = new FormData();
     formData.append("scheduleId", scheduleId);
     formData.append("date", date);
@@ -763,11 +759,5 @@ $(document).ready(function () {
       },
     });
   });
-  function validateRejectText(rejectText) {
-    if (rejectText.trim() === "") {
-      message(rejectMessage, "El mensaje no puede quedar vacío.");
-      return false;
-    }
-    return true;
-  }
+  
 });
