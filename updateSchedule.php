@@ -36,6 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
+        echo "La actualización se realizó correctamente. $affected_rows";
+
         $title = 'Krear 3D - Confirmación de Capacitación';
         $emailTemplate = './includes/template/approvedSchedule.php';
         $htmlContent = file_get_contents($emailTemplate);
@@ -55,9 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode($response);
         }
     } else {
+        echo "No se pudo realizar la actualización correctamente.";
         $response['error'] = 'Error Interno';
         echo json_encode($response);
     }
+
     $stmt->close();
     exit();
 }
