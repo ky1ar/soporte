@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $result->fetch_assoc();
     $existingCount = $row['count'];
     $stmt->close();
-
+    
     if ($existingCount > 0) {
         $response['error'] = "Ya existe una capacitación registrada para este número de documento";
         echo json_encode($response);
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->begin_transaction();
 
     try {
-        
+
         $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE training_date = ? AND training_start = ? AND training_state != 3");
         $stmt->bind_param("ss", $date, $schedule);
         $stmt->execute();
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $placeholders = array('%CLIENT%');
         $values = array($client);
         $htmlContent = str_replace($placeholders, $values, $htmlContent);
-        
+
         // Cabeceras para el correo electrónico
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -89,22 +89,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Envío del correo
         $resultado = mail($email, $title, $htmlContent, $emailHeader);
-        
+
         // Verificar si el correo se envió correctamente
         if ($resultado) {
             $response['success'] = '
-                <div id="successSchedule">
-                    <div class="dot"></div>
-                    <img src="assets/img/inbox.svg" alt="ico" width="92" height="92">
-                    <h2>Reserva en revisión</h2>
-                    <p>Su reserva está en verificación. Pronto recibirá un correo con el enlace de la reunión y los detalles del responsable. ¡Gracias!</p>
-                </div>';
+            <div id="successSchedule">
+                <div class="dot"></div>
+                <img src="assets/img/inbox.svg" alt="ico" width="92" height="92">
+                <h2>Reserva en revisión</h2>
+                <p>Su reserva está en verificación. Pronto recibirá un correo con el enlace de la reunión y los detalles del responsable. ¡Gracias!</p>
+            </div>';
             echo json_encode($response);
-            exit();     
-        } 
-
+            exit();
+        }
     } catch (Exception $e) {
-        
+
         $conn->rollback();
         //$response = array("error" => "Error en el registro: " . $e->getMessage());
         $response['error'] = 'Error Interno';
@@ -112,4 +111,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
-?>

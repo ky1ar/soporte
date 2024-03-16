@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/img/fav.png">
-    <title>Krear 3D - Soporte Técnico</title>
-    <?php require_once 'header_back.php'; ?>
+<?php
+$currentPage = "Taller";
+require_once 'includes/app/db.php';
+require_once 'includes/app/globals.php';
+require_once 'includes/common/header_admin.php';
+?>
 </head>
+
 <body>
     <section id="ky1-lgn">
         <div class="ky1-cnt">
             <div class="lgn-lft">
                 <div class="lgn-flx">
-                    <h1>Bienvenido nuestro portal de Soporte Técnico</h1>
+                    <h1>Bienvenido nuestro portal de Soporte Técnicos</h1>
                     <h3>Accede y podrás</h3>
                     <ul>
                         <li>Comunicarte con nuestros técnicos</li>
@@ -31,8 +30,9 @@
                 <button type="submit" class="lgn-log">Ingresar</button>
                 <!--<a class="lgn-rgt" href="/">Regístrate</a>-->
             </form>
-            
+
         </div>
     </section>
 </body>
+
 </html>
