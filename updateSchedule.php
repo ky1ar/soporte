@@ -1,5 +1,7 @@
 <?php
 require_once 'db.php';
+date_default_timezone_set('America/Bogota');
+setlocale(LC_TIME, 'es_ES');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
