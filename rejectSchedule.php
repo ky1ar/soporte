@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date = $_POST['date'];
 
 
-        $sql_email = "SELECT email FROM training WHERE id = ?";
+        $sql_email = "SELECT email FROM Training WHERE id = ?";
         $stmt_email = $conn->prepare($sql_email);
         $stmt_email->bind_param("i", $scheduleId);
         $stmt_email->execute();
