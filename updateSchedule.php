@@ -63,12 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_date_and_time->fetch();
     $stmt_date_and_time->close();
 
-
-    $nombre_dia = date('l', strtotime($training_date));
-    $nombre_mes = date('F', strtotime($training_date));
-    $hora_minutos = date('H:i', strtotime($training_start));
-
-
     $sql = "UPDATE Training SET worker = ?, meet = ?, training_state = 1 WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("isi", $trainingWorker, $meet, $scheduleId);
