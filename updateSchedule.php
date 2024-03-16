@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_email_and_name->fetch();
     $stmt_email_and_name->close();
 
-
     $sql_name = "SELECT name FROM Users WHERE id = ?";
     $stmt_name = $conn->prepare($sql_name);
     $stmt_name->bind_param("i", $trainingWorker);
@@ -43,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailTemplate = './includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
         $placeholders = array('%CLIENT%','%MEET%','%WORKER%');
-        $values = array($client,$meet,$worker_name);
+        $values = array($name,$meet,$worker_name);
         $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
