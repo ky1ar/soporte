@@ -1,7 +1,5 @@
 <?php
 require_once 'db.php';
-date_default_timezone_set('America/Bogota');
-setlocale(LC_TIME, 'es_ES');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -71,13 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $response['error'] = 'Error al enviar el correo electrónico';
         }
-        echo json_encode($response);
     } else {
-        echo "No se pudo realizar la actualización correctamente.";
         $response['error'] = 'Error Interno';
-        echo json_encode($response);
     }
-
     $stmt->close();
+    header('Content-Type: application/json');
+    echo json_encode($response);
     exit();
 }
