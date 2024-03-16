@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("isi", $trainingWorker, $meet, $scheduleId);
     $stmt->execute();
 
-    echo "La actualización se realizó correctamente. $affected_rows";
+    echo "La actualización se realizó correctamente. $stmt->affected_rows";
     if ($stmt->affected_rows > 0) {
         $title = 'Krear 3D - Confirmación de Capacitación';
         $emailTemplate = './includes/template/approvedSchedule.php';
