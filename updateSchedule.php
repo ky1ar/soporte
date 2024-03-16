@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_name->fetch();
     $stmt_name->close();
 
-    $sql_date_and_time = "SELECT training_date, training_start FROM training WHERE id = ?";
+    $sql_date_and_time = "SELECT training_date, training_start FROM Training WHERE id = ?";
     $stmt_date_and_time = $conn->prepare($sql_date_and_time);
     $stmt_date_and_time->bind_param("i", $scheduleId);
     $stmt_date_and_time->execute();

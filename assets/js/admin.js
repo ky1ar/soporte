@@ -688,9 +688,6 @@ $(document).ready(function () {
     });
   });
 
-  function message(target, message) {
-    target.text(message).slideDown();
-  }
   function validatetrainingWorker(trainingWorker) {
     if (trainingWorker.trim() === "") {
       message(aproveMessage, "Seleccione un responsable");
