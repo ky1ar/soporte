@@ -68,11 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($resultado) {
             $response['success'] = true;
-            echo json_encode($response);
         } else {
             $response['error'] = 'Error al enviar el correo electrónico';
-            echo json_encode($response);
         }
+        echo json_encode($response);
     } else {
         echo "No se pudo realizar la actualización correctamente.";
         $response['error'] = 'Error Interno';
