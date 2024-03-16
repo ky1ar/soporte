@@ -38,9 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "La actualización se realizó correctamente. $stmt->affected_rows";
     if ($stmt->affected_rows > 0) {
+        
         $title = 'Krear 3D - Confirmación de Capacitación';
-        $emailTemplate = './includes/template/approvedSchedule.php';
+        $emailTemplate = './includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
+        $placeholders = array('%CLIENT%','%MEET%','%WORKER%');
+        $values = array($client,$meet,$worker_name);
+        $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";

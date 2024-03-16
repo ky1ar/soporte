@@ -673,7 +673,9 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        console.log(response);
+        const jsonData = JSON.parse(response);
+        console.log(jsonData);
         if (jsonData.success) {
           window.location.href = "training";
         } else {

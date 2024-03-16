@@ -85,15 +85,9 @@
                           <p style="margin-top: 32px; width: 400px">
                             Tu solicitud de capacitación ha sido aprobada.
                             <br />
-                            Enlace de acceso:
-                            <?php if (isset($meet)) : ?>
-                              <?= $meet ?>
-                            <?php endif; ?>
+                            Enlace de acceso: <a href="%MEET%">Enlace capacitación</a>
                             <br>
-                            A cargo de:
-                            <?php if (isset($worker_name)) : ?>
-                              <?= $worker_name ?>
-                            <?php endif; ?>
+                            A cargo de: %WORKER%
                           </p>
 
                           <p style="
