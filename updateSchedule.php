@@ -29,13 +29,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_name->fetch();
     $stmt_name->close();
 
-    $sql_date_and_time = "SELECT training_date, training_start FROM training WHERE id = ?";
+    $sql_date_and_time = "SELECT 
+                        CASE DAYNAME(training_date)
+                            WHEN 'Monday' THEN 'Lunes'
+                            WHEN 'Tuesday' THEN 'Martes'
+                            WHEN 'Wednesday' THEN 'Miércoles'
+                            WHEN 'Thursday' THEN 'Jueves'
+                            WHEN 'Friday' THEN 'Viernes'
+                            WHEN 'Saturday' THEN 'Sábado'
+                            WHEN 'Sunday' THEN 'Domingo'
+                        END AS nombre_dia,
+                        CASE MONTHNAME(training_date)
+                            WHEN 'January' THEN 'Enero'
+                            WHEN 'February' THEN 'Febrero'
+                            WHEN 'March' THEN 'Marzo'
+                            WHEN 'April' THEN 'Abril'
+                            WHEN 'May' THEN 'Mayo'
+                            WHEN 'June' THEN 'Junio'
+                            WHEN 'July' THEN 'Julio'
+                            WHEN 'August' THEN 'Agosto'
+                            WHEN 'September' THEN 'Septiembre'
+                            WHEN 'October' THEN 'Octubre'
+                            WHEN 'November' THEN 'Noviembre'
+                            WHEN 'December' THEN 'Diciembre'
+                        END AS nombre_mes,
+                        DATE_FORMAT(training_start, '%H:%i') AS hora_minutos
+                    FROM training
+                    WHERE id = ?";
     $stmt_date_and_time = $conn->prepare($sql_date_and_time);
     $stmt_date_and_time->bind_param("i", $scheduleId);
     $stmt_date_and_time->execute();
-    $stmt_date_and_time->bind_result($training_date, $training_start);
+    $stmt_date_and_time->bind_result($nombre_dia, $nombre_mes, $hora_minutos);
     $stmt_date_and_time->fetch();
     $stmt_date_and_time->close();
+
 
     $nombre_dia = date('l', strtotime($training_date));
     $nombre_mes = date('F', strtotime($training_date));
