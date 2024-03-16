@@ -9,10 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $trainingWorker = $_POST['trainingWorker'];
     $meet = $_POST['meet'];
 
-    echo "scheduleId: " . $scheduleId . "<br>";
-    echo "trainingWorker: " . $trainingWorker . "<br>";
-    echo "meet: " . $meet . "<br>";
-
     $sql_email_and_name = "SELECT email, name FROM Training WHERE id = ?";
     $stmt_email_and_name = $conn->prepare($sql_email_and_name);
     $stmt_email_and_name->bind_param("i", $scheduleId);
@@ -46,8 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("isi", $trainingWorker, $meet, $scheduleId);
     $stmt->execute();
-
-    echo "La actualización se realizó correctamente. $stmt->affected_rows";
+    
     if ($stmt->affected_rows > 0) {
 
         $title = 'Krear 3D - Confirmación de Capacitación';
