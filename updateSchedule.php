@@ -13,13 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "trainingWorker: " . $trainingWorker . "<br>";
     echo "meet: " . $meet . "<br>";
 
-    $sql_email = "SELECT email FROM Training WHERE id = ?";
-    $stmt_email = $conn->prepare($sql_email);
-    $stmt_email->bind_param("i", $scheduleId);
-    $stmt_email->execute();
-    $stmt_email->bind_result($approved_email);
-    $stmt_email->fetch();
-    $stmt_email->close();
+    $sql_email_and_name = "SELECT email, name FROM Training WHERE id = ?";
+    $stmt_email_and_name = $conn->prepare($sql_email_and_name);
+    $stmt_email_and_name->bind_param("i", $scheduleId);
+    $stmt_email_and_name->execute();
+    $stmt_email_and_name->bind_result($approved_email, $name);
+    $stmt_email_and_name->fetch();
+    $stmt_email_and_name->close();
+
 
     $sql_name = "SELECT name FROM Users WHERE id = ?";
     $stmt_name = $conn->prepare($sql_name);
