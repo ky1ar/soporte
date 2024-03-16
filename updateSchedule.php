@@ -29,6 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_name->fetch();
     $stmt_name->close();
 
+    $sql_date_and_time = "SELECT training_date, training_start FROM training WHERE id = ?";
+    $stmt_date_and_time = $conn->prepare($sql_date_and_time);
+    $stmt_date_and_time->bind_param("i", $scheduleId);
+    $stmt_date_and_time->execute();
+    $stmt_date_and_time->bind_result($training_date, $training_start);
+    $stmt_date_and_time->fetch();
+    $stmt_date_and_time->close();
+
+    $nombre_dia = date('l', strtotime($training_date));
+    $nombre_mes = date('F', strtotime($training_date));
+    $hora_minutos = date('H:i', strtotime($training_start));
+
 
     $sql = "UPDATE Training SET worker = ?, meet = ?, training_state = 1 WHERE id = ?";
     $stmt = $conn->prepare($sql);
@@ -37,12 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "La actualización se realizó correctamente. $stmt->affected_rows";
     if ($stmt->affected_rows > 0) {
-        
+
         $title = 'Krear 3D - Confirmación de Capacitación';
         $emailTemplate = './includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
-        $placeholders = array('%CLIENT%','%MEET%','%WORKER%');
-        $values = array($name,$meet,$worker_name);
+        $placeholders = array('%CLIENT%', '%MEET%', '%WORKER%', '%DIA%', '%MES%', '%HORA%');
+        $values = array($name, $meet, $worker_name, $nombre_dia, $nombre_mes, $hora_minutos);
         $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
