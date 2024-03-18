@@ -2940,7 +2940,7 @@ footer .ftr-cpy {
     gap: 1rem;
     width: 100%;
 }
-#viewSubmit .viewButtons .modalCancel {
+#viewSubmit .viewButtons #cancelTraining {
     background-color: #e6e6e6;
     padding: 0.5rem 0;
     border-radius: 2rem;
@@ -2949,7 +2949,7 @@ footer .ftr-cpy {
     flex: 1;
     border: none;
 }
-#viewSubmit .viewButtons button {
+#viewSubmit .viewButtons #finishTraining {
     background-color: #ed5d1f;
     color: #fff;
     padding: 0.5rem 0;

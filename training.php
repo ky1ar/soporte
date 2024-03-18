@@ -253,7 +253,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <label for="">Enlace Google Meet</label>
                     <div class="flex">
                         <img src="assets/img/meet.svg" alt="">
-                        <a href="https://meet.google.com/ete-xcsr-uzv?authuser=0">https://meet.google.com/ete-xcsr-uzv?authuser=0</a>
+                        <a target="_blank" href="https://meet.google.com/ete-xcsr-uzv?authuser=0">https://meet.google.com/ete-xcsr-uzv?authuser=0</a>
                     </div>
                 </div>
                 <div id="viewMessage"></div>
