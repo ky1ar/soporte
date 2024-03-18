@@ -687,11 +687,11 @@ $(document).ready(function () {
       },
     });
   });
-
+  
   const viewOverlay = $("#viewOverlay");
   $(".calendarView .calendarViewRow").click(function () {
-    //let selectedId = $(this).closest(".actionButtons").data("id");
-    //viewOverlay.find(".viewButtons").attr("data-id", selectedId);
+    let selectedId = $(this).data("id");
+    viewOverlay.find(".viewButtons").attr("data-id", selectedId);
     viewOverlay.fadeToggle();
   });
 
@@ -703,6 +703,66 @@ $(document).ready(function () {
     if (event.target == viewOverlay[0]) {
       viewOverlay.fadeToggle();
     }
+  });
+
+  const finishTraining = $("#finishTraining");
+  const cancelTraining = $("#cancelTraining");
+  //const viewTraining = $("#viewTraining");
+
+  finishTraining.click(function () {
+    viewMessage.slideUp();
+    let trainingId = viewOverlay.find(".viewButtons").data("id");
+    let formData = new FormData();
+    formData.append("trainingId", trainingId);
+
+    $.ajax({
+      url: "finishTraining",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        console.log(response);
+        const jsonData = JSON.parse(response);
+        console.log(jsonData);
+        if (jsonData.success) {
+          window.location.href = "training";
+        } else {
+          message(viewMessage, jsonData.error);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
+  });
+
+  cancelTraining.click(function () {
+    viewMessage.slideUp();
+    let trainingId = viewOverlay.find(".viewButtons").data("id");
+    let formData = new FormData();
+    formData.append("trainingId", trainingId);
+
+    $.ajax({
+      url: "cancelTraining",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        console.log(response);
+        const jsonData = JSON.parse(response);
+        console.log(jsonData);
+        if (jsonData.success) {
+          window.location.href = "training";
+        } else {
+          message(viewMessage, jsonData.error);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
   });
 
   function validatetrainingWorker(trainingWorker) {

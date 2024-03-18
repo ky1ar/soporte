@@ -161,7 +161,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
-                                            echo '<div class="calendarViewRow">';
+                                            echo '<div class="calendarViewRow" data-id="'.$row2['id'].'">';
                                             echo '<h2>'.substr($row2['training_start'], 0, 5).'</h2>';
                                             echo '<div><h3>'.$row2['w_name'].'</h3>';
                                             echo '<p>'.$row2['m_model'].'</p></div>';
@@ -239,7 +239,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     </section>
     <section id="viewOverlay">
         <div class="modalBox">
-            <form method="post" id="viewSubmit">
+            <div id="viewTraining">
                 <h2>Lunes 15 de marzo a las 09:30</h2>
                 <p>Agrega el link de Google Meet y el responsable.<br>Recuerda haber verificado el comprobante.</p>
                 <div class="viewBox">
@@ -262,7 +262,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <div id="finishTraining">Completada</div>
                 </div>
                 <img class="modalClose" src="assets/img/x.svg" alt="">
-            </form>
+            </div>
         </div>
     </section>                     
 </body>

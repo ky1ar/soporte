@@ -2893,54 +2893,50 @@ footer .ftr-cpy {
     padding: 2rem 3rem;
     border-radius: 0.5rem;
 }
-#viewSubmit {
+#viewTraining {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     gap: 1.5rem;
 }
-#viewSubmit h2 {
+#viewTraining h2 {
     margin: 0;
     font-size: 1.5rem;
 }
-#viewSubmit p {
+#viewTraining p {
     margin: 0;
     text-align: center;
 }
-#viewSubmit .viewBox {
+#viewTraining .viewBox {
     display: flex;
     width: 100%;
     justify-content: space-between;
     flex-direction: column;
 }
-#viewSubmit .viewBox label {
+#viewTraining .viewBox label {
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
-#viewSubmit .viewBox .flex {
+#viewTraining .viewBox .flex {
     display: flex;
     gap: 0.5rem;
 }
-#viewSubmit .viewBox select {
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    width: 100%;
-    border: 1px solid var(--graydark);
-    cursor: pointer;
+#viewTraining .viewBox a {
+    color: var(--primary);
 }
-#viewSubmit .viewBox input {
+#viewTraining .viewBox input {
     padding: 0.5rem;
     border-radius: 0.25rem;
     width: 100%;
     border: 1px solid var(--graydark);
 }
-#viewSubmit .viewButtons {
+#viewTraining .viewButtons {
     display: flex;
     gap: 1rem;
     width: 100%;
 }
-#viewSubmit .viewButtons #cancelTraining {
+#viewTraining .viewButtons #cancelTraining {
     background-color: #e6e6e6;
     padding: 0.5rem 0;
     border-radius: 2rem;
@@ -2949,7 +2945,7 @@ footer .ftr-cpy {
     flex: 1;
     border: none;
 }
-#viewSubmit .viewButtons #finishTraining {
+#viewTraining .viewButtons #finishTraining {
     background-color: #ed5d1f;
     color: #fff;
     padding: 0.5rem 0;
@@ -2959,7 +2955,7 @@ footer .ftr-cpy {
     flex: 1;
     border: none;
 }
-#viewSubmit .modalClose {
+#viewTraining .modalClose {
     position: absolute;
     top: -2rem;
     right: -3rem;
