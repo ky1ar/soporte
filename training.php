@@ -239,7 +239,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     </section>
     <section id="viewOverlay">
         <div class="modalBox">
-            <form method="post">
+            <form method="post" id="viewSubmit">
                 <h2>Lunes 15 de marzo a las 09:30</h2>
                 <p>Agrega el link de Google Meet y el responsable.<br>Recuerda haber verificado el comprobante.</p>
                 <div class="viewBox">
