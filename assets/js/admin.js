@@ -688,6 +688,23 @@ $(document).ready(function () {
     });
   });
 
+  const viewOverlay = $("#viewOverlay");
+  $(".calendarView .calendarViewRow").click(function () {
+    //let selectedId = $(this).closest(".actionButtons").data("id");
+    //viewOverlay.find(".viewButtons").attr("data-id", selectedId);
+    viewOverlay.fadeToggle();
+  });
+
+  viewOverlay.find(".modalClose, .modalCancel").click(function () {
+    viewOverlay.fadeToggle();
+  });
+
+  $(window).click(function (event) {
+    if (event.target == viewOverlay[0]) {
+      viewOverlay.fadeToggle();
+    }
+  });
+
   function validatetrainingWorker(trainingWorker) {
     if (trainingWorker.trim() === "") {
       message(aproveMessage, "Seleccione un responsable");

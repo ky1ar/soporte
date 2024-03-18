@@ -236,7 +236,35 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <img class="modalClose" src="assets/img/x.svg" alt="">
             </form>
         </div>
-    </section>                        
+    </section>
+    <section id="viewOverlay">
+        <div class="modalBox">
+            <form method="post">
+                <h2>Lunes 15 de marzo a las 09:30</h2>
+                <p>Agrega el link de Google Meet y el responsable.<br>Recuerda haber verificado el comprobante.</p>
+                <div class="viewBox">
+                    <label for="">Responsable de la capacitación</label>
+                    <div class="flex">
+                        <img src="assets/img/worker.svg" alt="">
+                        <span>Bryan García</span>
+                    </div>
+                </div>
+                <div class="viewBox">
+                    <label for="">Enlace Google Meet</label>
+                    <div class="flex">
+                        <img src="assets/img/meet.svg" alt="">
+                        <a href="https://meet.google.com/ete-xcsr-uzv?authuser=0">https://meet.google.com/ete-xcsr-uzv?authuser=0</a>
+                    </div>
+                </div>
+                <div id="viewMessage"></div>
+                <div class="viewButtons" data-id="">
+                    <div id="cancelTraining">Eliminar</div>
+                    <div id="finishTraining">Completada</div>
+                </div>
+                <img class="modalClose" src="assets/img/x.svg" alt="">
+            </form>
+        </div>
+    </section>                     
 </body>
 </html>
 
