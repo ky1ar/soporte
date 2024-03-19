@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_email = $conn->prepare($sql_email);
         $stmt_email->bind_param("i", $scheduleId);
         $stmt_email->execute();
-        $stmt_email->bind_result($email,, $name);
+        $stmt_email->bind_result($email, $name);
         $stmt_email->fetch();
         $stmt_email->close();
 
