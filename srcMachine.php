@@ -5,12 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['machine'])) {
     $searchTerm = $_POST['machine'];
 
     // Consulta SQL actualizada para buscar por modelo, marca o slug
-    $sql = "SELECT m.id AS machine_id, m.slug, CONCAT(b.name, ' ', m.model) AS marca_modelo
-            FROM Machine m
-            INNER JOIN brand b ON m.brand = b.id
-            WHERE m.model LIKE '%$searchTerm%'
-            OR b.name LIKE '%$searchTerm%'
-            OR m.slug LIKE '%$searchTerm%'";
+    $sql = "SELECT m.id, m.slug, CONCAT(b.name, ' ', m.model) AS fullName FROM Machine m JOIN Brand b ON m.brand = b.id WHERE CONCAT(b.name, ' ', m.model) LIKE '%$machineVal%'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

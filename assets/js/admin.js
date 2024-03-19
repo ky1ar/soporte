@@ -690,6 +690,7 @@ $(document).ready(function () {
   
   const viewOverlay = $("#viewOverlay");
   $(".calendarView .calendarViewRow").click(function () {
+    
     const buttons = viewOverlay.find(".viewButtons");
     if ($(this).hasClass("finish")){
       buttons.hide();
