@@ -82,14 +82,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($resultado) {
             $response['success'] = true;
+            echo json_encode($response);
+            exit();
         } else {
             $response['error'] = 'Error al enviar el correo electrónico';
+            echo json_encode($response);
+            exit();
         }
     } else {
         $response['error'] = 'Error Interno';
+        echo json_encode($response);
+        exit();
     }
     $stmt->close();
     header('Content-Type: application/json');
-    echo json_encode($response);
-    exit();
 }
