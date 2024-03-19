@@ -144,7 +144,7 @@ require_once 'includes/common/header.php';
                                         </li>
                                         <li class="percent100">
                                             <div class="formRow">
-                                                <label for="">Boleta</label>
+                                                <label for="">Comprobante de Pago</label>
                                                 <input type="file" id="invoice" accept=".pdf,.jpg,.jpeg">
                                             </div>
                                         </li>
