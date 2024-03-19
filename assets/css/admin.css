@@ -2552,7 +2552,7 @@ footer .ftr-cpy {
 }
 #calendarSelector .calendarBox li {
     width: 14.25%;
-    padding: 0.25rem;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     font-weight: 600;
@@ -2605,12 +2605,13 @@ footer .ftr-cpy {
     flex-direction: column;
     gap: 0.5rem;
     justify-content: center;
+    width: 100%;
 }
 #calendarSelector .calendarBox li .calendarViewRow {
     gap: 0.5rem;
     display: flex;
     background-color: var(--primaryopacity);
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     align-items: center;
     cursor: pointer;
     width: 100%;
