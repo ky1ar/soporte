@@ -99,7 +99,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 </table>
                 <div id="previewInvoice">
                     <div class="previewBox">
-                        <span class="close">&times;</span>
+                        <img class="close" src="assets/img/x.svg" alt="">
                         <div id="invoiceFile"></div>
                     </div>
                 </div>

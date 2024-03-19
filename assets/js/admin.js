@@ -539,27 +539,23 @@ $(document).ready(function () {
           fileUrl +
           '" type="application/pdf" width="100%" height="500px" />'
       );
-    } else if (fileExtension.match(/(jpg|jpeg|png|gif)$/)) {
+    } else {
       invoiceFile.html(
         '<img src="' +
           fileUrl +
           '" alt="Vista previa de la imagen" style="max-width: 100%; max-height: 500px;">'
       );
-    } else {
-      invoiceFile.html(
-        "<p>El archivo no es compatible con la previsualización.</p>"
-      );
-    }
-    previewInvoice.show();
+    } 
+    previewInvoice.fadeToggle();
   });
 
   $("#previewInvoice .close").click(function () {
-    previewInvoice.hide();
+    previewInvoice.fadeToggle();
   });
 
   $(window).click(function (event) {
     if (event.target == previewInvoice[0]) {
-      previewInvoice.hide();
+      previewInvoice.fadeToggle();
     }
   });
 
