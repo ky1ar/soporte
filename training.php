@@ -161,7 +161,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
-                                            echo '<div class="calendarViewRow '.(($row2['training_state'] == 2) ? 'finish' : '').'" data-id="'.$row2['id'].'">';
+                                            echo '<div class="calendarViewRow '.(($row2['training_state'] == 2) ? 'finish' : '').'" data-id="'.$row2['id'].'" data-date="'.$date.'" data-start="'.$row2['training_start'].'">';
                                             echo '<h2>'.substr($row2['training_start'], 0, 5).'</h2>';
                                             echo '<div><h3>'.$row2['w_name'].'</h3>';
                                             echo '<p>'.$row2['m_model'].'</p></div>';

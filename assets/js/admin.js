@@ -695,6 +695,16 @@ $(document).ready(function () {
       buttons.hide();
     } else {
       const selectedId = $(this).data("id");
+      const date = $(this).data("date");
+      const start = $(this).data("start");
+      const now = new Date();
+      const startDate = new Date(date + ' ' + start);
+      startDate.setMinutes(startDate.getMinutes() + 90);
+      if (now > startDate) {
+        cancelTraining.hide();
+      } else {
+        cancelTraining.show();
+      }
       buttons.show();
       buttons.attr("data-id", selectedId);
     }
