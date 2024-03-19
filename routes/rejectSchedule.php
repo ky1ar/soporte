@@ -12,11 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date = $_POST['date'];
 
 
-        $sql_email = "SELECT email FROM Training WHERE id = ?";
+        $sql_email = "SELECT email, name FROM Training WHERE id = ?";
         $stmt_email = $conn->prepare($sql_email);
         $stmt_email->bind_param("i", $scheduleId);
         $stmt_email->execute();
-        $stmt_email->bind_result($rejected_email);
+        $stmt_email->bind_result($email,, $name);
         $stmt_email->fetch();
         $stmt_email->close();
 
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailHeader .= "From: Krear 3D<web@soporte.krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
-        $resultado = mail($rejected_email, $title, $htmlContent, $emailHeader);
+        $resultado = mail($email, $title, $htmlContent, $emailHeader);
 
         if ($resultado) {
             $response['success'] = true;
