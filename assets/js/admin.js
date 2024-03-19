@@ -690,12 +690,37 @@ $(document).ready(function () {
   
   const viewOverlay = $("#viewOverlay");
   $(".calendarView .calendarViewRow").click(function () {
-    
+    const trainingId = $(this).data("id");
+    let formData = new FormData();
+    formData.append("trainingId", trainingId);
+
+    $.ajax({
+      url: "routes/getTraining",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        if (response.success) {
+          const data = response.success;
+          viewOverlay.find(".title").text(data.dayName + " " + data.day + " de " + data.month + " a las " + data.schedule);
+          viewOverlay.find(".name").text(data.name);
+          viewOverlay.find(".model").text(data.model);
+          viewOverlay.find(".image").attr("src", "assets/mac/" + data.slug + ".webp");
+          viewOverlay.find(".worker").text(data.worker);
+          viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
+
     const buttons = viewOverlay.find(".viewButtons");
     if ($(this).hasClass("finish")){
       buttons.hide();
     } else {
-      const selectedId = $(this).data("id");
+      
       const date = $(this).data("date");
       const start = $(this).data("start");
       const now = new Date();
@@ -709,7 +734,7 @@ $(document).ready(function () {
         cancelTraining.show();
       }
       buttons.show();
-      buttons.attr("data-id", selectedId);
+      buttons.attr("data-id", trainingId);
     }
     
     viewOverlay.fadeToggle();
