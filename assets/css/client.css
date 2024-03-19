@@ -58,6 +58,12 @@ body {
     max-width: 100rem;
 	padding: 0 1rem;
 }
+.ky1-wrp {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100rem;
+    padding: 0 1rem;
+}
 /***********************************************************************************/
 #topBar {
 	background-color: var(--primary);   
