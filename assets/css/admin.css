@@ -2950,7 +2950,9 @@ footer .ftr-cpy {
     width: 100%;
 }
 #viewTraining .viewButtons #cancelTraining {
-    background-color: #e6e6e6;
+    background-color: #ff2e2e;
+    color: #fff;
+    font-weight: 600;
     padding: 0.5rem 0;
     border-radius: 2rem;
     text-align: center;
