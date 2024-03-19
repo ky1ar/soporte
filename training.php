@@ -156,7 +156,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     INNER JOIN Machine m ON t.machine = m.id 
                                     INNER JOIN Brand b ON m.brand = b.id 
                                     INNER JOIN Users w ON t.worker = w.id 
-                                    WHERE (t.training_state = 1 OR t.training_state = 4) AND training_date = '$date' 
+                                    WHERE (t.training_state = 1 OR t.training_state = 2) AND training_date = '$date' 
                                     ORDER BY training_start;";
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
