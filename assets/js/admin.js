@@ -736,7 +736,7 @@ $(document).ready(function () {
       },
     });
   });
-
+  const viewMessage = $("#viewMessage");
   cancelTraining.click(function () {
     viewMessage.slideUp();
     let trainingId = viewOverlay.find(".viewButtons").data("id");
