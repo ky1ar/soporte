@@ -543,7 +543,7 @@ $(document).ready(function () {
       invoiceFile.html(
         '<img src="' +
           fileUrl +
-          '" alt="Vista previa de la imagen" style="width: 800px; height: 100%;">'
+          '" alt="Vista previa de la imagen" style="width: 800px; height: 800px;">'
       );
     } 
     previewInvoice.fadeToggle();
