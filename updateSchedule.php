@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             WHEN 'December' THEN 'Diciembre'
                         END AS nombre_mes,
                         DATE_FORMAT(training_start, '%H:%i') AS hora_minutos
-                    FROM training
+                    FROM Training
                     WHERE id = ?";
     $stmt_date_and_time = $conn->prepare($sql_date_and_time);
     $stmt_date_and_time->bind_param("i", $scheduleId);
