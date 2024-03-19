@@ -701,7 +701,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response.success);
+        console.log(response["success"]);
         if (response.success) {
           
           const data = response.success;
