@@ -703,9 +703,9 @@ $(document).ready(function () {
       success: function (response) {
         const jsonData = JSON.parse(response);
         console.log(jsonData);
-        if (response.success) {
+        if (jsonData.success) {
           
-          const data = response.success;
+          const data = jsonData.success;
           viewOverlay.find(".title").text(data.dayName + " " + data.day + " de " + data.month + " a las " + data.schedule);
           viewOverlay.find(".name").text(data.name);
           viewOverlay.find(".model").text(data.model);
