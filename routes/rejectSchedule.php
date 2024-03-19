@@ -48,13 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //     throw new Exception("No se pudo actualizar el calendario");
         // }
         // Envío de correo electrónico
-        $title = 'Krear 3D - Eliminación de Capacitación';
-        $emailTemplate = './includes/template/rejectedSchedule.php';
+        $title = 'Eliminación de Capacitación';
+        $emailTemplate = '../includes/template/rejectedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
+        $placeholders = array('%CLIENT%');
+        $values = array($name);
+        $htmlContent = str_replace($placeholders, $values, $htmlContent);
+
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $emailHeader .= "From: Krear 3D - Soporte <web@soporte.krear3d.com>\r\n";
+        $emailHeader .= "From: Krear 3D<web@soporte.krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
         $resultado = mail($rejected_email, $title, $htmlContent, $emailHeader);

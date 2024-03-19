@@ -667,7 +667,7 @@ $(document).ready(function () {
     formData.append("meet", meet);
 
     $.ajax({
-      url: "updateSchedule",
+      url: "routes/updateSchedule",
       method: "POST",
       data: formData,
       processData: false,
@@ -836,7 +836,7 @@ $(document).ready(function () {
     formData.append("rejectText", rejectText);
 
     $.ajax({
-      url: "rejectSchedule",
+      url: "routes/rejectSchedule",
       method: "POST",
       data: formData,
       processData: false,

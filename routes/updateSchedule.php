@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->affected_rows > 0) {
 
-        $title = 'Krear 3D - Confirmación de Capacitación';
-        $emailTemplate = './includes/template/approvedSchedule.html';
+        $title = 'Confirmación de Capacitación';
+        $emailTemplate = '../includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
         $placeholders = array('%CLIENT%', '%MEET%', '%WORKER%', '%DIA%', '%MES%', '%HORA%');
         $values = array($name, $meet, $worker_name, $nombre_dia, $nombre_mes, $hora_minutos);
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $emailHeader .= "From: Krear 3D - Soporte <web@soporte.krear3d.com>\r\n";
+        $emailHeader .= "From: Krear 3D<web@soporte.krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
         $resultado = mail($approved_email, $title, $htmlContent, $emailHeader);
