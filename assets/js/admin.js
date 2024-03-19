@@ -187,6 +187,7 @@ $(document).ready(function () {
 
   function validatePhone(phone) {
     // Validación de número de teléfono con o sin prefijo
+    phone = phone.trim();
     var telefonoRegex = /^(\+\d+)?\d+$/;
     if (!telefonoRegex.test(phone)) {
       displayErrorMessage(

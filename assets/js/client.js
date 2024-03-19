@@ -314,6 +314,7 @@ $(document).ready(function () {
     return true;
   }
   function validatePhone(phone) {
+    phone = phone.trim();
     var telefonoRegex = /^(\+\d+)?\d+$/;
     if (!telefonoRegex.test(phone)) {
       message(scheduleFormMessage, "Ingrese un número de teléfono válido");
