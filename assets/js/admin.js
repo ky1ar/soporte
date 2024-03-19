@@ -701,7 +701,8 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response["success"]);
+        const jsonData = JSON.parse(response);
+        console.log(jsonData);
         if (response.success) {
           
           const data = response.success;
