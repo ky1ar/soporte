@@ -1798,6 +1798,8 @@ body {
 }
 #add-tml.ky1-fxd li {
     background-color: var(--gray);
+    box-shadow: none;
+    border: 1px solid var(--graydark);
 }
 #add-tml li {
     flex: 1;
