@@ -690,8 +690,15 @@ $(document).ready(function () {
   
   const viewOverlay = $("#viewOverlay");
   $(".calendarView .calendarViewRow").click(function () {
-    let selectedId = $(this).data("id");
-    viewOverlay.find(".viewButtons").attr("data-id", selectedId);
+    const buttons = viewOverlay.find(".viewButtons");
+    if ($(this).hasClass("finish")){
+      buttons.hide();
+    } else {
+      let selectedId = $(this).data("id");
+      buttons.hide();
+      buttons.attr("data-id", selectedId);
+    }
+    
     viewOverlay.fadeToggle();
   });
 
