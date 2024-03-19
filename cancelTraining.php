@@ -1,7 +1,7 @@
 <?php
-require_once 'db.php';
+require_once '../includes/app/db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trainingId'])) {
     $response = array();
 
     try {
@@ -9,53 +9,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $trainingId = $_POST['trainingId'];
 
-        $sql_date = "SELECT training_date FROM Training WHERE id = ?";
-        $stmt_email = $conn->prepare($sql_date);
-        $stmt_email->bind_param("i", $trainingId);
-        $stmt_email->execute();
-        $stmt_email->bind_result($training_date);
-        $stmt_email->fetch();
-        $stmt_email->close();
+        $sql_training = "SELECT training_date, email, name FROM Training WHERE id = ?";
+        $stmt_training = $conn->prepare($sql_training);
+        $stmt_training->bind_param("i", $trainingId);
+        $stmt_training->execute();
+        $stmt_training->bind_result($training_date, $email, $name);
+        $stmt_training->fetch();
+        $stmt_training->close();
 
-
-        $sql = "UPDATE Training SET training_state = 4 WHERE id = ?";
-        $stmt = $conn->prepare($sql);
-        if (!$stmt) {
+        $sql_update = "UPDATE Training SET training_state = 4 WHERE id = ?";
+        $stmt_update = $conn->prepare($sql_update);
+        if (!$stmt_update) {
             throw new Exception("Error en la preparación de la consulta para actualizar la capacitación");
         }
-        $stmt->bind_param("i", $trainingId);
-        $stmt->execute();
+        $stmt_update->bind_param("i", $trainingId);
+        $stmt_update->execute();
 
-        $result = $stmt->affected_rows;
-        $stmt->close();
+        $result = $stmt_update->affected_rows;
+        $stmt_update->close();
+
         if ($result <= 0) {
             throw new Exception("No se pudo actualizar el registro");
         }
 
-        $sql = "UPDATE Calendar SET state = 1 WHERE calendar_date = ?";
-        $stmt = $conn->prepare($sql);
-        if (!$stmt) {
+        $sql_calendar = "UPDATE Calendar SET state = 1 WHERE calendar_date = ?";
+        $stmt_calendar = $conn->prepare($sql_calendar);
+        if (!$stmt_calendar) {
             throw new Exception("Error en la preparación de la consulta para actualizar el calendario");
         }
-        $stmt->bind_param("s", $training_date);
-        $stmt->execute();
+        $stmt_calendar->bind_param("s", $training_date);
+        $stmt_calendar->execute();
 
-        $result = $stmt->affected_rows;
-        $stmt->close();
-        // if ($result <= 0) {
-        //     throw new Exception("No se pudo actualizar el calendario");
-        // }
-        // Envío de correo electrónico
-        $title = 'Krear 3D - Eliminación de Capacitación';
-        $emailTemplate = './includes/template/rejectedSchedule.php';
+        $result = $stmt_calendar->affected_rows;
+        $stmt_calendar->close();
+        if ($result <= 0) {
+            throw new Exception("No se pudo actualizar el calendario");
+        }
+        
+        $title = 'Eliminación de Capacitación';
+        $emailTemplate = './includes/template/cancelTraining.html';
         $htmlContent = file_get_contents($emailTemplate);
+        $placeholders = array('%CLIENT%',);
+        $values = array($name);
+        $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $emailHeader .= "From: Krear 3D - Soporte <web@soporte.krear3d.com>\r\n";
+        $emailHeader .= "From: Krear 3D<web@soporte.krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
-        $resultado = mail($rejected_email, $title, $htmlContent, $emailHeader);
+        $resultado = mail($email, $title, $htmlContent, $emailHeader);
 
         if ($resultado) {
             $response['success'] = true;
