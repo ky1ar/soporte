@@ -694,8 +694,8 @@ $(document).ready(function () {
     if ($(this).hasClass("finish")){
       buttons.hide();
     } else {
-      let selectedId = $(this).data("id");
-      buttons.hide();
+      const selectedId = $(this).data("id");
+      buttons.show();
       buttons.attr("data-id", selectedId);
     }
     
