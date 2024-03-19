@@ -149,19 +149,19 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
                                     echo '<div class="calendarView">';
                                     $sql2 = 
-                                   "SELECT t.id, w.name as w_name, m.model as m_model, m.slug as m_slug, 
+                                   "SELECT t.id, t.training_state, w.name as w_name, m.model as m_model, m.slug as m_slug, 
                                     t.document as c_document, t.name as c_name, t.phone as c_phone, t.email as c_email, invoice, t.training_start
                                     FROM Training t 
                                     INNER JOIN Calendar c ON t.training_date = c.calendar_date 
                                     INNER JOIN Machine m ON t.machine = m.id 
                                     INNER JOIN Brand b ON m.brand = b.id 
                                     INNER JOIN Users w ON t.worker = w.id 
-                                    WHERE t.training_state = 1 AND training_date = '$date' 
+                                    WHERE (t.training_state = 1 OR t.training_state = 4) AND training_date = '$date' 
                                     ORDER BY training_start;";
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){
-                                            echo '<div class="calendarViewRow" data-id="'.$row2['id'].'">';
+                                            echo '<div class="calendarViewRow '.(($row2['training_state'] == 4) ? 'finish' : '').'" data-id="'.$row2['id'].'">';
                                             echo '<h2>'.substr($row2['training_start'], 0, 5).'</h2>';
                                             echo '<div><h3>'.$row2['w_name'].'</h3>';
                                             echo '<p>'.$row2['m_model'].'</p></div>';
