@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
         }
 
-        $title = 'Krear 3D - Solicitud de Capacitación en Revisión';
+        $title = 'Solicitud de Capacitación en Revisión';
         $emailTemplate = '../includes/template/registerSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
         $placeholders = array('%CLIENT%');
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Cabeceras para el correo electrónico
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $emailHeader .= "From: Krear 3D - Soporte <web@soporte.krear3d.com>\r\n";
+        $emailHeader .= "From: Krear 3D<web@soporte.krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
         // Envío del correo
