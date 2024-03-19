@@ -713,6 +713,7 @@ $(document).ready(function () {
           viewOverlay.find(".image").attr("src", "assets/mac/" + data.slug + ".webp");
           viewOverlay.find(".worker").text(data.worker);
           viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
+          viewOverlay.fadeToggle();
         }
       },
       error: function (xhr, status, error) {
@@ -740,8 +741,6 @@ $(document).ready(function () {
       buttons.show();
       buttons.attr("data-id", trainingId);
     }
-    
-    viewOverlay.fadeToggle();
   });
 
   viewOverlay.find(".modalClose, .modalCancel").click(function () {
