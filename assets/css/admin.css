@@ -2614,6 +2614,7 @@ footer .ftr-cpy {
     overflow: hidden;
     text-align: right;
 }
+
 #calendarSelector .calendarBox li .calendarViewRow h2 {
     margin: 0;
     font-size: 0.9rem;
@@ -2637,6 +2638,12 @@ footer .ftr-cpy {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.05;
+}
+#calendarSelector .calendarBox li .calendarViewRow.finish {
+    background-color: var(--gray);
+}
+#calendarSelector .calendarBox li .calendarViewRow.finish h2 {
+    color: var(--black);
 }
 /*********************************************************************/
 
