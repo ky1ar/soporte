@@ -537,7 +537,7 @@ $(document).ready(function () {
       invoiceFile.html(
         '<embed src="' +
           fileUrl +
-          '" type="application/pdf" height="100%" width="800px" />'
+          '" type="application/pdf" height="800px" width="800px" />'
       );
     } else {
       invoiceFile.html(
