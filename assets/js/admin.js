@@ -537,13 +537,13 @@ $(document).ready(function () {
       invoiceFile.html(
         '<embed src="' +
           fileUrl +
-          '" type="application/pdf" width="100%" height="500px" />'
+          '" type="application/pdf" height="100%" width="800px" />'
       );
     } else {
       invoiceFile.html(
         '<img src="' +
           fileUrl +
-          '" alt="Vista previa de la imagen" style="max-width: 100%; max-height: 500px;">'
+          '" alt="Vista previa de la imagen" style="width: 800px; height: 100%;">'
       );
     } 
     previewInvoice.fadeToggle();
