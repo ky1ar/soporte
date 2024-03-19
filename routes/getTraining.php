@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
                 'day' => $day, 
                 'dayName' => $dayName, 
                 'month' => $months[$month-1], 
-                'schedule' => $row['training_start'], 
+                'schedule' => substr($row['training_start'], 0, 5), 
                 'name' => $row['t_name'], 
                 'phone' => $row['phone'], 
                 'model' => $row['m_model'], 
