@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         $stmt_training = $conn->prepare($sql_training);
         $stmt_training->bind_param("i", $trainingId);
         $stmt_training->execute();
-        $result = $stmt->get_result();
+        $result = $stmt_training->get_result();
 
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
