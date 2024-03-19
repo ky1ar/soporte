@@ -702,7 +702,9 @@ $(document).ready(function () {
       startDate.setMinutes(startDate.getMinutes() + 90);
       if (now > startDate) {
         cancelTraining.hide();
+        finishTraining.show();
       } else {
+        finishTraining.hide();
         cancelTraining.show();
       }
       buttons.show();
