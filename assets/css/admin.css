@@ -1971,7 +1971,10 @@ body {
 }
 /*********************************** FOOTER **********************************/
 #rpt-dat {
-    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--gray);
+    background-image: url(whirlpool.png);
+    box-shadow: inset 0 0 0.25rem var(--graydark);
 }
 #rpt-dat .ky1-wrp {
     max-width: 75rem;
@@ -2321,7 +2324,10 @@ footer .ftr-cpy {
 }
 /*********************************************************************/
 #adminSection {
-    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--gray);
+    background-image: url(whirlpool.png);
+    box-shadow: inset 0 0 0.25rem var(--graydark);
 }
 #adminSection .ky1-wrp {
     max-width: 75rem;

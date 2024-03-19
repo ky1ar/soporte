@@ -24,7 +24,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     require_once 'includes/bar/navigationBar_admin.php'; 
     ?>
     <section id="rpt-dat">
-        <div class="ky1-wrp">
+        <div class="wrapper">
             <div class="dat-pad">
                 <ul class="dat-one">
                     <li class="lft-a">

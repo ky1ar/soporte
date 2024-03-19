@@ -23,8 +23,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php'; 
     ?>
-    <section id="adminSection" style="display: flex; justify-content: center; align-items: center">
-        <div class="ky1-wrp">
+    <section id="adminSection">
+        <div class="wrapper">
         <?php 
         $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
         $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
