@@ -246,6 +246,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <div class="viewBox">
                         <label for="">Cliente</label>
                         <span class="name"></span>
+                        <span class="phone"></span>
                     </div>
                     <div class="viewBox">
                         <label for="">Equipo</label>
