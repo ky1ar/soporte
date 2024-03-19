@@ -744,7 +744,7 @@ $(document).ready(function () {
     formData.append("trainingId", trainingId);
 
     $.ajax({
-      url: "cancelTraining",
+      url: "routes/cancelTraining",
       method: "POST",
       data: formData,
       processData: false,
