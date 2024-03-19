@@ -701,8 +701,9 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
+        console.log(response);
         if (response.success) {
-          console.log(response.success);
+          
           const data = response.success;
           viewOverlay.find(".title").text(data.dayName + " " + data.day + " de " + data.month + " a las " + data.schedule);
           viewOverlay.find(".name").text(data.name);
