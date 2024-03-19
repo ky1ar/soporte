@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trainingId'])) {
         if ($result <= 0) {
             throw new Exception("No se pudo actualizar el registro");
         }
-        echo $training_date;
         $sql_calendar = "UPDATE Calendar SET state = 1 WHERE calendar_date = ?";
         $stmt_calendar = $conn->prepare($sql_calendar);
         if (!$stmt_calendar) {
@@ -42,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trainingId'])) {
 
         $result = $stmt_calendar->affected_rows;
         $stmt_calendar->close();
-        if ($result <= 0) {
+        /*if ($result <= 0) {
             throw new Exception("No se pudo actualizar el calendario");
-        }
+        }*/
         
         $title = 'Eliminación de Capacitación';
         $emailTemplate = './includes/template/cancelTraining.html';
