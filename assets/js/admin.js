@@ -67,71 +67,6 @@ $(document).ready(function () {
     });
   });
 
-  // addOrderSubmit.submit(function (event) {
-  //   event.preventDefault();
-  //   addOrderMessage.slideUp();
-
-  //   var number = $("#number").val();
-  //   var document = $("#document").val();
-  //   var documentId = $("#documentId").val();
-  //   var name = $("#name").val();
-  //   var comments = $("#ky1-cmm").val();
-  //   var email = $("#email").val();
-  //   var phone = $("#phone").val();
-  //   var machine = $("#ky1-mch").val();
-  //   var machineID = $("#ky1-mid").val();
-  //   var date = $("#ky1-dte").val();
-
-  //   var formData = new FormData();
-  //   formData.append("order", number);
-  //   formData.append("document", document);
-  //   formData.append("clientID", documentId);
-  //   formData.append("client", name);
-  //   formData.append("comments", comments);
-  //   formData.append("email", email);
-  //   formData.append("phone", phone);
-  //   formData.append("machine", machine);
-  //   formData.append("machineID", machineID);
-  //   formData.append("date", date);
-
-  //   $.ajax({
-  //     url: "addOrder.php",
-  //     method: "POST",
-  //     data: formData,
-  //     processData: false,
-  //     contentType: false,
-  //     success: function (response) {
-  //       if (response.trim() !== "") {
-  //         // Verificar si la respuesta no está vacía
-  //         var jsonData = JSON.parse(response);
-  //         console.error(jsonData);
-
-  //       } else {
-  //         console.error("La respuesta del servidor está vacía");
-  //       }
-  //     },
-  //   });
-
-  //   // let orderNumber = $("#number").val();
-  //   // $.ajax({
-  //   //   url: "srcOrders.php",
-  //   //   method: "POST",
-  //   //   data: { orders: orderNumber },
-  //   //   success: function (response) {
-  //   //     var jsonData = JSON.parse(response);
-  //   //     if (jsonData.response === "existe") {
-  //   //       // Mostrar mensaje de error si la orden ya existe
-  //   //       message(addOrderMessage, "Ya existe una orden con ese número.");
-  //   //     } else {
-  //   //       // Continuar con el envío del formulario si la orden no existe
-  //   //       // Resto del código para enviar el formulario...
-  //   //     }
-  //   //   },
-  //   //   error: function (xhr, status, error) {
-  //   //     console.error("Error:", error);
-  //   //   },
-  //   // });
-  // });
   $("#addOrderSubmit").submit(function (event) {
     event.preventDefault();
     $("#addOrderMessage").slideUp();
@@ -673,9 +608,9 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response);
+        //console.log(response);
         const jsonData = JSON.parse(response);
-        console.log(jsonData);
+        //console.log(jsonData);
         if (jsonData.success) {
           window.location.href = "training";
         } else {
@@ -702,7 +637,7 @@ $(document).ready(function () {
       contentType: false,
       success: function (response) {
         const jsonData = JSON.parse(response);
-        console.log(jsonData);
+        //console.log(jsonData);
         if (jsonData.success) {
           
           const data = jsonData.success;
@@ -770,9 +705,9 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response);
+        //console.log(response);
         const jsonData = JSON.parse(response);
-        console.log(jsonData);
+        //console.log(jsonData);
         if (jsonData.success) {
           window.location.href = "training";
         } else {
@@ -798,9 +733,9 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response);
+        //console.log(response);
         const jsonData = JSON.parse(response);
-        console.log(jsonData);
+        //console.log(jsonData);
         if (jsonData.success) {
           window.location.href = "training";
         } else {
