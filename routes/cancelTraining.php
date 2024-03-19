@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trainingId'])) {
         }*/
         
         $title = 'Eliminación de Capacitación';
-        $emailTemplate = './includes/template/cancelTraining.html';
+        $emailTemplate = '../includes/template/cancelTraining.html';
         $htmlContent = file_get_contents($emailTemplate);
         $placeholders = array('%CLIENT%',);
         $values = array($name);
