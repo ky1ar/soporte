@@ -334,6 +334,12 @@ $(document).ready(function () {
       message(scheduleFormMessage, "Seleccione un archivo");
       return false;
     }
+    const maxSizeInBytes = 10 * 1024 * 1024; // 10 MB
+    if (invoice.size > maxSizeInBytes) {
+        message(scheduleFormMessage, "El tamaño del archivo es demasiado grande");
+        return false;
+    }
+    
     let fileType = invoice.type;
     if (fileType !== "application/pdf" && !fileType.startsWith("image/")) {
       message(scheduleFormMessage, "El archivo debe ser PDF o una imagen");
