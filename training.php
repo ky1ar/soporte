@@ -119,9 +119,6 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <div class="button disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                             <div class="button" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                         </div>
-                        <div id="calendarBackDiv">
-                            <div class="button text" id="calendarBack">Volver</div>
-                        </div>
                     </div>
 
                     <div id="calendarContainer">
@@ -152,7 +149,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     echo '<li class="admin ' . (($today == $dayNum) ? 'today' : '') . '">';
                                     echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
                                     echo '<div class="calendarView">';
-                                    
+
                                     $sql2 = 
                                    "SELECT t.id, t.training_state, w.name as w_name, m.model as m_model, m.slug as m_slug, 
                                     t.document as c_document, t.name as c_name, t.phone as c_phone, t.email as c_email, invoice, t.training_start
