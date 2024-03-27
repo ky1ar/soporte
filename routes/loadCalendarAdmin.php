@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $dayMonth = $selectedDate->format('j');
     $monthNumber = $selectedDate->format('n');
 
-    for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
+    for ($i = 0; $i < $day; $i++) { echo '<li></li>'; }
                                 
     $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$date') AND MONTH(calendar_date) = MONTH('$date')";
     $result = $conn->query($sql);

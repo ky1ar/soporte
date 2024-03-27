@@ -2512,7 +2512,7 @@ footer .ftr-cpy {
     transform: rotate(180deg);
 }
 #calendarContainer {
-
+    position: relative;
 }
 #loadingResponse {
     display: none;
