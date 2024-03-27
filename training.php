@@ -115,11 +115,15 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     ?>
                     <div class="calendarHeader">
                         <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
-                        <div id="calendarNavigation">
+                        <div id="calendarNavigation" class="buttons">
                             <div class="button disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                             <div class="button" id="calendarNext"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>
                         </div>
+                        <div id="calendarBackDiv">
+                            <div class="button text" id="calendarBack">Volver</div>
+                        </div>
                     </div>
+
                     <div id="calendarContainer">
                         <div id="loadingResponse">
                             <div class="flex">
@@ -148,6 +152,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     echo '<li class="admin ' . (($today == $dayNum) ? 'today' : '') . '">';
                                     echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
                                     echo '<div class="calendarView">';
+                                    
                                     $sql2 = 
                                    "SELECT t.id, t.training_state, w.name as w_name, m.model as m_model, m.slug as m_slug, 
                                     t.document as c_document, t.name as c_name, t.phone as c_phone, t.email as c_email, invoice, t.training_start
@@ -158,6 +163,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     INNER JOIN Users w ON t.worker = w.id 
                                     WHERE (t.training_state = 1 OR t.training_state = 2) AND training_date = '$date' 
                                     ORDER BY training_start;";
+
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0){
                                         while ($row2 = $result2->fetch_assoc()){

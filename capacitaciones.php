@@ -54,7 +54,6 @@ require_once 'includes/common/header.php';
                     $firstDayNum = date('N', strtotime($firstDay));
                     ?>
                     <div class="header">
-                        <!--<button id="calendarToday">Hoy</button>-->
                         <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
                         <div id="calendarNavigation" class="buttons">
                             <div class="button disabled" id="calendarPrev"><img width="12" height="12" src="assets/img/arrow.svg" alt=""></div>

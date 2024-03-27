@@ -815,5 +815,83 @@ $(document).ready(function () {
       },
     });
   });
+
+  var currentDate = new Date();
+  var today = new Date();
+  var months = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
+  ];
+
+  const calendarPrev = $("#calendarPrev");
+  const calendarNext = $("#calendarNext");
+  const loadingResponse = $("#loadingResponse");
+
+  calendarPrev.click(function () {
+    var offsetMonth = currentDate.getMonth() - 1;
+    if (offsetMonth > today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+    } else if (offsetMonth == today.getMonth()) {
+      loadCalendar(-1);
+      $(this).addClass("disabled");
+    }
+  });
+
+  calendarNext.click(function () {
+    var offsetMonth = currentDate.getMonth() + 1;
+    var maxMonth = today.getMonth() + 2;
+    if (offsetMonth < maxMonth) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+    } else if (offsetMonth == maxMonth) {
+      loadCalendar(1);
+      $(this).addClass("disabled");
+    }
+  });
+
+  function loadCalendar(offset) {
+    loadingResponse.show();
+    currentDate.setMonth(
+      offset === 0 ? today.getMonth() : currentDate.getMonth() + offset
+    );
+    currentDate.setDate(1);
+
+    var formatedDate =
+      currentDate.getFullYear() +
+      "-" +
+      ("0" + (currentDate.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + currentDate.getDate()).slice(-2);
+    var splitDate = formatedDate.split("-");
+    var month = splitDate[1];
+    var month = months[parseInt(month, 10) - 1];
+    var firstDayNum = currentDate.getDay();
+    //console.log(firstDayNum);
+    $.ajax({
+      url: "routes/loadCalendarAdmin",
+      method: "POST",
+      data: { date: formatedDate, day: firstDayNum },
+      success: function (response) {
+        calendarTable.html(response);
+        monthName.text(month + " " + currentDate.getFullYear());
+        loadingResponse.hide();
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+        loadingResponse.hide();
+      },
+    });
+  }
   
 });
