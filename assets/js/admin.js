@@ -836,6 +836,7 @@ $(document).ready(function () {
   const calendarPrev = $("#calendarPrev");
   const calendarNext = $("#calendarNext");
   const loadingResponse = $("#loadingResponse");
+  const calendarTable = $("#calendarTable");
 
   calendarPrev.click(function () {
     var offsetMonth = currentDate.getMonth() - 1;
