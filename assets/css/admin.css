@@ -2497,16 +2497,33 @@ footer .ftr-cpy {
     position: absolute;
     border-radius: 0 1rem 1rem 0;
 }
-#adminCalendar .calendarHeader .button {
+#adminCalendar .calendarHeader .buttons {
     display: flex;
     gap: 1rem;
+}
+#adminCalendar .calendarHeader .button {
+    border-radius: 2rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ed5d1f;
+}
+#adminCalendar .calendarHeader .button.text {
+    width: initial;
+    padding: 0 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
 }
 #adminCalendar .calendarHeader .button.disabled {
     opacity: 0.5;
     cursor: default;
 }
 #adminCalendar .calendarHeader .button img {
-    opacity: 0.5;
+    filter: invert(1);
 }
 #adminCalendar .calendarHeader .button + .button img {
     transform: rotate(180deg);
