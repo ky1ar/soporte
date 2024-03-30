@@ -895,5 +895,30 @@ $(document).ready(function () {
       },
     });
   }
+
+  $("#upd_worker").on("click", function (e) {
+    var id_worker = $(".id_worker").val();
+    var pre = $(".pre").val();
+
+    var datos = new FormData();
+    datos.append("id_worker", id_worker);
+    datos.append("pre", pre);
+
+    $.ajax({
+      url: "routes/updTraining",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success: function (response) {
+        // var jsonData = JSON.parse(response);
+        if (response.success == true) {
+          window.location.href = "training";
+        }
+      },
+    });
+  });
   
 });

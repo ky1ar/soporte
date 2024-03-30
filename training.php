@@ -263,7 +263,16 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <label for="">Responsable de la capacitación</label>
                     <div class="flex">
                         <img src="assets/img/worker.svg" alt="">
-                        <span class="worker"></span>
+                        <select class="id_worker">
+                            <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_assoc()) : ?>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                            <?php endwhile;
+                            ?>
+                        </select>
+                        <input type="hidden" id="pre" class="pre">
+                        <button type="submit" id="upd_worker"><img src="assets/img/sav.svg" alt=""></button>
                     </div>
                 </div>
                 <div class="viewBox">

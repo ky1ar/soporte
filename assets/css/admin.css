@@ -2565,9 +2565,6 @@ footer .ftr-cpy {
     flex-wrap: wrap;
     font-size: 1rem;
 }
-#calendarSelector .calendarBox.boxHeader {
-    margin-bottom: 0.75rem;
-}
 #calendarSelector .calendarBox li {
     width: 14.25%;
     padding: 0.5rem;
