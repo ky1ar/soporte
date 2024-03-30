@@ -622,7 +622,7 @@ $(document).ready(function () {
   
   const viewOverlay = $("#viewOverlay");
 
-  $(document).on("click", ".calendarViewRow ", function () {
+  $(document).on("click", ".calendarView .calendarViewRow", function () {
     
   //$(".calendarViewRow").click(function () {
 
