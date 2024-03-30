@@ -698,7 +698,7 @@ $(document).ready(function () {
   //const viewTraining = $("#viewTraining");
 
   finishTraining.click(function () {
-    viewMessage.slideUp();
+    //viewMessage.slideUp();
     let trainingId = viewOverlay.find(".viewButtons").data("id");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
@@ -716,7 +716,7 @@ $(document).ready(function () {
         if (jsonData.success) {
           window.location.href = "training";
         } else {
-          message(viewMessage, jsonData.error);
+          //message(viewMessage, jsonData.error);
         }
       },
       error: function (xhr, status, error) {
@@ -725,8 +725,9 @@ $(document).ready(function () {
     });
   });
   const viewMessage = $("#viewMessage");
+  
   cancelTraining.click(function () {
-    viewMessage.slideUp();
+    //viewMessage.slideUp();
     let trainingId = viewOverlay.find(".viewButtons").data("id");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
@@ -744,7 +745,7 @@ $(document).ready(function () {
         if (jsonData.success) {
           window.location.href = "training";
         } else {
-          message(viewMessage, jsonData.error);
+          //message(viewMessage, jsonData.error);
         }
       },
       error: function (xhr, status, error) {

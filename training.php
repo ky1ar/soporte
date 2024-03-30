@@ -283,7 +283,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         <a class="meet" target="_blank" href=""></a>
                     </div>
                 </div>
-                <div id="viewMessage"></div>
+                <!--<div id="viewMessage"></div>-->
                 <div class="viewButtons" data-id="">
                     <div id="cancelTraining">Eliminar Capacitación</div>
                     <div id="finishTraining">Finalizar Capacitación</div>
