@@ -638,12 +638,15 @@ $(document).ready(function () {
         if (jsonData.success) {
           
           const data = jsonData.success;
-          viewOverlay.find(".title").text(data.dayName + " " + data.day + " de " + data.month + " a las " + data.schedule);
           viewOverlay.find(".name").text(data.name);
           viewOverlay.find(".phone").text(data.phone);
           viewOverlay.find(".model").text(data.model);
-          viewOverlay.find(".image").attr("src", "assets/mac/" + data.slug + ".webp");
-          viewOverlay.find(".worker").text(data.worker);
+          viewOverlay
+            .find(".image")
+            .attr("src", "assets/mac/" + data.slug + ".webp");
+          // viewOverlay.find(".worker").text(data.worker);
+          viewOverlay.find(".id_worker").val(data.id_worker);
+          viewOverlay.find(".pre").val(trainingId);
           viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
           viewOverlay.fadeToggle();
         }
