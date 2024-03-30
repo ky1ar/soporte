@@ -199,7 +199,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             while ($row = $result->fetch_assoc()): ?>
                                 <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
                             <?php endwhile; 
-                            $conn->close();?>
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -269,6 +269,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             while ($row = $result->fetch_assoc()) : ?>
                                 <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
                             <?php endwhile;
+                            $conn->close(); 
                             ?>
                         </select>
                         <input type="hidden" id="pre" class="pre">
