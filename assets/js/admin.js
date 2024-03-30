@@ -624,7 +624,7 @@ $(document).ready(function () {
 
   //$(document).on("click", ".calendarView .calendarViewRow", function () {
     
-  $(".calendarView .calendarViewRow").click(function () {
+  $(".calendarViewRow").click(function () {
 
     const trainingId = $(this).data("id");
     let formData = new FormData();
@@ -642,6 +642,7 @@ $(document).ready(function () {
         if (jsonData.success) {
           
           const data = jsonData.success;
+          viewOverlay.find(".title").text(data.dayName + " " + data.day + " de " + data.month + " a las " + data.schedule);
           viewOverlay.find(".name").text(data.name);
           viewOverlay.find(".phone").text(data.phone);
           viewOverlay.find(".model").text(data.model);
