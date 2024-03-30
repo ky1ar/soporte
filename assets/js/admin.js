@@ -668,16 +668,16 @@ $(document).ready(function () {
       
       const date = $(this).data("date");
       const start = $(this).data("start");
-      const now = new Date();
+      //const now = new Date();
       const startDate = new Date(date + ' ' + start);
       startDate.setMinutes(startDate.getMinutes() + 90);
-      if (now > startDate) {
-        cancelTraining.hide();
-        finishTraining.show();
-      } else {
+      //if (now > startDate) {
+        //cancelTraining.hide();
+        //finishTraining.show();
+      /*} else {
         finishTraining.hide();
         cancelTraining.show();
-      }
+      }*/
       buttons.show();
       buttons.attr("data-id", trainingId);
     }
