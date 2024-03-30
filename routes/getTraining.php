@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
         $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
 
-        $sql_training = "SELECT training_date, training_start, t.name as t_name, t.phone, m.model as m_model, m.slug as m_slug, w.name as w_name, meet FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON t.worker = w.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.id = ?";
+        $sql_training = "SELECT worker, training_date, training_start, t.name as t_name, t.phone, m.model as m_model, m.slug as m_slug, w.name as w_name, meet FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id INNER JOIN Users w ON t.worker = w.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.id = ?";
         $stmt_training = $conn->prepare($sql_training);
         $stmt_training->bind_param("i", $trainingId);
         $stmt_training->execute();
@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
                 'model' => $row['m_model'],
                 'slug' => $row['m_slug'],
                 'worker' => $row['w_name'],
+                'id_worker' => $row['worker'],
                 'meet' => $meet_url
             ];
         } else {
