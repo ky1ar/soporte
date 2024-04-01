@@ -11,7 +11,7 @@ $s_name = $_SESSION['user_name'];
 $s_nick = $_SESSION['user_nick'];
 $s_role = $_SESSION['user_role'];
 
-$currentPage = "H. de Equipos"; 
+$currentPage = "H. de Capacitaciones"; 
 require_once 'includes/app/db.php';
 require_once 'includes/app/globals.php'; 
 require_once 'includes/common/header_admin.php';
