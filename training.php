@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: krear3dperu");
@@ -11,100 +11,118 @@ $s_name = $_SESSION['user_name'];
 $s_nick = $_SESSION['user_nick'];
 $s_role = $_SESSION['user_role'];
 
-$currentPage = "Capacitaciones"; 
+$currentPage = "Capacitaciones";
 require_once 'includes/app/db.php';
-require_once 'includes/app/globals.php'; 
+require_once 'includes/app/globals.php';
 require_once 'includes/common/header_admin.php';
-$stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin']; 
+$stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 ?>
 </head>
+
 <body class="ky1-adm">
-    <?php 
+    <?php
     require_once 'includes/bar/topBar_admin.php';
-    require_once 'includes/bar/navigationBar_admin.php'; 
+    require_once 'includes/bar/navigationBar_admin.php';
     ?>
     <section id="adminSection">
         <div class="wrapper">
-        <?php 
-        $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
-        $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
-        $startMonth = 0;
-        $startTable = false;
-        $sql = "SELECT t.id, training_date, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0):?>
-            <div class="sectionBox" >
-                <h3 class="boxTitle">Solicitudes de Capacitaciones
-                    <p>Listado de las capacitaciones pendientes de aprobación y asignación del responsable.</p>
-                </h3>
-                <?php while ($row = $result->fetch_assoc()):?>
-                    <?php 
-                    $selectedDate = new DateTime($row['training_date']);
-                    $year = $selectedDate->format('Y');
-                    $month = $selectedDate->format('n');
-                    $dayName = $days[$selectedDate->format('w')];
-                    $dayNumber = $selectedDate->format('j');
-                    
-                    if($startMonth != $month && $startTable):?>
-                        </table>
-                    <?php endif;
+            <?php
+            $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+            $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
+            $startMonth = 0;
+            $startTable = false;
+            if ($s_levels == 4) {
+                $sql = "SELECT t.id, training_date, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) :
+            ?>
+                    <div class="sectionBox">
+                        <h3 class="boxTitle">Solicitudes de Capacitaciones
+                            <p>Listado de las capacitaciones pendientes de aprobación y asignación del responsable.</p>
+                        </h3>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                            <?php
+                            $selectedDate = new DateTime($row['training_date']);
+                            $year = $selectedDate->format('Y');
+                            $month = $selectedDate->format('n');
+                            $dayName = $days[$selectedDate->format('w')];
+                            $dayNumber = $selectedDate->format('j');
 
-                    if($startMonth != $month):
-                        $startTable = true;
-                        $startMonth = $month;
-                    ?>
-                    <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
-                        <tr class="tableHeader">
-                            <th><?php echo $months[$month-1] ?> <?php echo $year ?></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    <?php endif; ?>
-                    <tr>
-                        <td>
-                            <div class="rowSchedule"><?php echo $dayName.' '.$dayNumber ?>
-                                <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="rowMachine">
-                                <img width="48" src="assets/mac/<?php echo $row['m_slug'] ?>.webp" alt="">
-                                <span><?php echo $row['m_model'] ?></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="rowClient">
-                                <?php echo $row['t_name'] ?>
-                                <span><?php echo $row['document'] ?>
-                                    <div class="preview" data-src="<?php echo $row['invoice'] ?>"><img width="12" height="12" src="assets/img/invoice.svg" alt=""> Recibo</div>
-                                </span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="rowClient">
-                                <?php echo $row['email'] ?>
-                                <span><?php echo $row['phone'] ?></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="actionButtons" data-id="<?php echo $row['id'] ?>" data-date="<?php echo $row['training_date'] ?>">
-                                <div class="button aprove">Aprobar</div>
-                                <div class="button reject">Rechazar</div>
-                            </div>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-                </table>
-                <div id="previewInvoice">
-                    <div class="previewBox">
-                        <img class="close" src="assets/img/x.svg" alt="">
-                        <div id="invoiceFile"></div>
+                            if ($startMonth != $month && $startTable) : ?>
+                                </table>
+                            <?php endif;
+
+                            if ($startMonth != $month) :
+                                $startTable = true;
+                                $startMonth = $month;
+                            ?>
+                                <table class="pendingTable" border="0" cellspacing="0" cellpadding="0">
+                                    <tr class="tableHeader">
+                                        <th><?php echo $months[$month - 1] ?> <?php echo $year ?></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                <?php endif; ?>
+                                <tr>
+                                    <td>
+                                        <div class="rowSchedule"><?php echo $dayName . ' ' . $dayNumber ?>
+                                            <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $sql_machine_info = "SELECT model, document, COUNT(*) AS cantidad FROM Training t INNER JOIN Machine m ON t.machine = m.id WHERE t.document = ? AND m.slug = ?";
+                                        $stmt_machine_info = $conn->prepare($sql_machine_info);
+                                        $stmt_machine_info->bind_param("ss", $row['document'], $row['m_slug']);
+                                        $stmt_machine_info->execute();
+                                        $machine_info_result = $stmt_machine_info->get_result();
+                                        $machine_info_row = $machine_info_result->fetch_assoc();
+                                        ?>
+                                        <div class="rowMachine">
+                                            <img width="48" src="assets/mac/<?php echo $row['m_slug'] ?>.webp" alt="">
+                                            <span><?php echo $row['m_model'] ?> (<?php echo $machine_info_row['cantidad'] ?>)</span>
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="rowClient">
+                                            <?php echo $row['t_name'] ?>
+                                            <span><?php echo $row['document'] ?>
+                                                <div class="preview" data-src="<?php echo $row['invoice'] ?>"><img width="12" height="12" src="assets/img/invoice.svg" alt=""> Recibo</div>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="rowClient">
+                                            <?php echo $row['email'] ?>
+                                            <a href="https://api.whatsapp.com/send?phone=<?php echo $row['phone']; ?>" target="_blank" rel="nofollow" style="color: black; font-weight: bold;">
+                                                +<?php echo substr($row['phone'], 0, 2); ?> <?php echo substr($row['phone'], 2); ?>
+                                                <img src="assets/img/wsp2.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="actionButtons" data-id="<?php echo $row['id'] ?>" data-date="<?php echo $row['training_date'] ?>">
+                                            <div class="button aprove">Aprobar</div>
+                                            <div class="button reject">Rechazar</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                                </table>
+                                <div id="previewInvoice">
+                                    <div class="previewBox">
+                                        <img class="close" src="assets/img/x.svg" alt="">
+                                        <div id="invoiceFile"></div>
+                                    </div>
+                                </div>
                     </div>
-                </div>
-            </div>
-            <?php endif; ?>
+            <?php
+                endif;
+            }
+            ?>
             <div class="sectionBox">
                 <h3 class="boxTitle">Calendario de Capacitaciones</h3>
                 <div id="adminCalendar">
@@ -139,19 +157,21 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             </ul>
                             <ul class="calendarBox" id="calendarTable">
                                 <?php
-                                for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
-                                
+                                for ($i = 0; $i < $firstDayNum; $i++) {
+                                    echo '<li></li>';
+                                }
+
                                 $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$firstDay') AND MONTH(calendar_date) = MONTH('$firstDay')";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
                                     $date = $row['calendar_date'];
                                     $dayNum = date('d', strtotime($date));
                                     echo '<li class="admin ' . (($today == $dayNum) ? 'today' : '') . '">';
-                                    echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
+                                    echo '<span data-day="' . $dayNum . '">' . $dayNum . '</span>';
                                     echo '<div class="calendarView">';
 
-                                    $sql2 = 
-                                   "SELECT t.id, t.training_state, w.name as w_name, m.model as m_model, m.slug as m_slug, 
+                                    $sql2 =
+                                        "SELECT t.id, t.training_state, w.name as w_name, m.model as m_model, m.slug as m_slug, 
                                     t.document as c_document, t.name as c_name, t.phone as c_phone, t.email as c_email, invoice, t.training_start
                                     FROM Training t 
                                     INNER JOIN Calendar c ON t.training_date = c.calendar_date 
@@ -162,13 +182,13 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     ORDER BY training_start;";
 
                                     $result2 = $conn->query($sql2);
-                                    if ($result2->num_rows > 0){
-                                        while ($row2 = $result2->fetch_assoc()){
-                                            echo '<div class="calendarViewRow '.(($row2['training_state'] == 2) ? 'finish' : '').'" data-id="'.$row2['id'].'" data-date="'.$date.'" data-start="'.$row2['training_start'].'">';
-                                            echo '<h2>'.substr($row2['training_start'], 0, 5).'</h2>';
-                                            echo '<div><h3>'.$row2['w_name'].'</h3>';
-                                            echo '<p>'.$row2['m_model'].'</p></div>';
-                                            echo '<img width="48" src="assets/mac/'.$row2['m_slug'].'.webp" alt="">';
+                                    if ($result2->num_rows > 0) {
+                                        while ($row2 = $result2->fetch_assoc()) {
+                                            echo '<div class="calendarViewRow ' . (($row2['training_state'] == 2) ? 'finish' : '') . '" data-id="' . $row2['id'] . '" data-date="' . $date . '" data-start="' . $row2['training_start'] . '">';
+                                            echo '<h2>' . substr($row2['training_start'], 0, 5) . '</h2>';
+                                            echo '<div><h3>' . $row2['w_name'] . '</h3>';
+                                            echo '<p>' . $row2['m_model'] . '</p></div>';
+                                            echo '<img width="48" src="assets/mac/' . $row2['m_slug'] . '.webp" alt="">';
                                             echo '</div>';
                                         }
                                     }
@@ -178,7 +198,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 ?>
                             </ul>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
@@ -196,9 +216,9 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <option value="">Seleccionar</option>
                             <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
                             $result = $conn->query($sql);
-                            while ($row = $result->fetch_assoc()): ?>
+                            while ($row = $result->fetch_assoc()) : ?>
                                 <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
-                            <?php endwhile; 
+                            <?php endwhile;
                             ?>
                         </select>
                     </div>
@@ -249,7 +269,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <div class="viewBox">
                         <label for="">Cliente</label>
                         <span class="name"></span>
-                        <span class="phone"></span>
+                        <span>+<span class="phone"></span></span>
                     </div>
                     <div class="viewBox">
                         <label for="">Equipo</label>
@@ -263,13 +283,14 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <label for="">Responsable de la capacitación</label>
                     <div class="flex">
                         <img src="assets/img/worker.svg" alt="">
+                        <span class="worker"></span>
                         <select class="id_worker">
                             <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
                             $result = $conn->query($sql);
                             while ($row = $result->fetch_assoc()) : ?>
                                 <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
                             <?php endwhile;
-                            $conn->close(); 
+                            $conn->close();
                             ?>
                         </select>
                         <input type="hidden" id="pre" class="pre">
@@ -291,11 +312,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <img class="modalClose" src="assets/img/x.svg" alt="">
             </div>
         </div>
-    </section>                     
+    </section>
 </body>
+
 </html>
 
-<?php 
+<?php
 /*/$sql2 = 
 "SELECT t.id, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug,
  CASE 
@@ -311,4 +333,4 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
  LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 
  WHERE t.training_state = 1 AND training_date =  '$date' 
  ORDER BY training_date, h_start;"*/
- ?>
+?>

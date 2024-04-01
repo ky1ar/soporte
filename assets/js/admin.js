@@ -186,13 +186,8 @@ $(document).ready(function () {
   }
 
   function validatePhone(phone) {
-    // Validación de número de teléfono con o sin prefijo
-    phone = phone.trim();
-    var telefonoRegex = /^(\+\d+)?\d+$/;
-    if (!telefonoRegex.test(phone)) {
-      displayErrorMessage(
-        "Ingrese un número de teléfono válido. (Ejemplo: +51912345678 o 912345678)"
-      );
+    if (phone === "") {
+      displayErrorMessage("Ingrese un número de teléfono");
       return false;
     }
     return true;
@@ -546,7 +541,7 @@ $(document).ready(function () {
           fileUrl +
           '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
       );
-    } 
+    }
     previewInvoice.fadeToggle();
   });
 
@@ -619,13 +614,12 @@ $(document).ready(function () {
       },
     });
   });
-  
+
   const viewOverlay = $("#viewOverlay");
 
   //$(document).on("click", ".calendarView .calendarViewRow", function () {
-    
-  $(".calendarViewRow").click(function () {
 
+  $(".calendarViewRow").click(function () {
     const trainingId = $(this).data("id");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
@@ -640,16 +634,35 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         //console.log(jsonData);
         if (jsonData.success) {
-          
           const data = jsonData.success;
-          viewOverlay.find(".title").text(data.dayName + " " + data.day + " de " + data.month + " a las " + data.schedule);
+          viewOverlay
+            .find(".title")
+            .text(
+              data.dayName +
+                " " +
+                data.day +
+                " de " +
+                data.month +
+                " a las " +
+                data.schedule
+            );
+          if (data.t_state == 2) {
+            viewOverlay.find(".worker").show();
+            viewOverlay.find(".id_worker").hide();
+            viewOverlay.find("#upd_worker").hide();
+          } else {
+            viewOverlay.find(".worker").hide();
+            viewOverlay.find(".id_worker").show();
+            viewOverlay.find("#upd_worker").show();
+          }
+          // console.log(data);
           viewOverlay.find(".name").text(data.name);
           viewOverlay.find(".phone").text(data.phone);
           viewOverlay.find(".model").text(data.model);
           viewOverlay
             .find(".image")
             .attr("src", "assets/mac/" + data.slug + ".webp");
-          // viewOverlay.find(".worker").text(data.worker);
+          viewOverlay.find(".worker").text(data.worker);
           viewOverlay.find(".id_worker").val(data.id_worker);
           viewOverlay.find(".pre").val(trainingId);
           viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
@@ -662,18 +675,17 @@ $(document).ready(function () {
     });
 
     const buttons = viewOverlay.find(".viewButtons");
-    if ($(this).hasClass("finish")){
+    if ($(this).hasClass("finish")) {
       buttons.hide();
     } else {
-      
       const date = $(this).data("date");
       const start = $(this).data("start");
       //const now = new Date();
-      const startDate = new Date(date + ' ' + start);
+      const startDate = new Date(date + " " + start);
       startDate.setMinutes(startDate.getMinutes() + 90);
       //if (now > startDate) {
-        //cancelTraining.hide();
-        //finishTraining.show();
+      //cancelTraining.hide();
+      //finishTraining.show();
       /*} else {
         finishTraining.hide();
         cancelTraining.show();
@@ -725,7 +737,7 @@ $(document).ready(function () {
     });
   });
   const viewMessage = $("#viewMessage");
-  
+
   cancelTraining.click(function () {
     //viewMessage.slideUp();
     let trainingId = viewOverlay.find(".viewButtons").data("id");
@@ -929,5 +941,4 @@ $(document).ready(function () {
       },
     });
   });
-  
 });

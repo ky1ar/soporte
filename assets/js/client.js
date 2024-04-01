@@ -314,14 +314,13 @@ $(document).ready(function () {
     return true;
   }
   function validatePhone(phone) {
-    phone = phone.trim();
-    var telefonoRegex = /^(\+\d+)?\d+$/;
-    if (!telefonoRegex.test(phone)) {
-      message(scheduleFormMessage, "Ingrese un número de teléfono válido");
+    if (phone === "") {
+      message(scheduleFormMessage, "Ingrese un número de teléfono");
       return false;
     }
     return true;
   }
+
   function validateMachineId(machineId) {
     if (machineId.trim() === "") {
       message(scheduleFormMessage, "Seleccione un equipo");
@@ -336,10 +335,10 @@ $(document).ready(function () {
     }
     const maxSizeInBytes = 10 * 1024 * 1024; // 10 MB
     if (invoice.size > maxSizeInBytes) {
-        message(scheduleFormMessage, "El tamaño del archivo es demasiado grande");
-        return false;
+      message(scheduleFormMessage, "El tamaño del archivo es demasiado grande");
+      return false;
     }
-    
+
     let fileType = invoice.type;
     if (fileType !== "application/pdf" && !fileType.startsWith("image/")) {
       message(scheduleFormMessage, "El archivo debe ser PDF o una imagen");

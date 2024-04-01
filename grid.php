@@ -349,7 +349,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                         <h3><?php echo $row['document'] ?></h3>
                                                         <div class="itm-lnk">
                                                             <p><?php echo $row['email'] ?></p>
-                                                            <a class="itm-wsp" href="https://api.whatsapp.com/send?phone=51<?php echo $row['phone'] ?>" target="_blank" rel="nofollow"><?php echo implode(' ', str_split($row['phone'], 3)) ?><img src="assets/img/wsp2.svg" alt=""></a>
+                                                            <a class="itm-wsp" href="https://api.whatsapp.com/send?phone=<?php echo $row['phone'] ?>" target="_blank" rel="nofollow">+<?php echo substr($row['phone'], 0, 2) . ' ' . substr($row['phone'], 2); ?>
+                                                                <img src="assets/img/wsp2.svg" alt=""></a>
                                                             <p><?php echo $row['comments'] ?></p>
                                                         </div>
                                                         <div class="itm-otr">

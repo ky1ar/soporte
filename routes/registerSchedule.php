@@ -19,6 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fileName = $invoice['name'];
     $tempFileName = $invoice['tmp_name'];
 
+    $phone = str_replace(' ', '', $phone);
+
+    if (strpos($phone, '+') === 0) {
+        $phone = substr($phone, 1);
+    }
+    if (strpos($phone, '51') !== 0 && preg_match('/^9\d{8}$/', $phone)) {
+        $phone = '51' . $phone;
+    }
+
     $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
     $uniqueFileName = uniqid() . '_' . time() . '.' . $fileExt;
 
@@ -33,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $result->fetch_assoc();
     $existingCount = $row['count'];
     $stmt->close();
-    
+
     if ($existingCount > 0) {
         $response['error'] = "Ya existe una capacitación registrada para este número de documento";
         echo json_encode($response);

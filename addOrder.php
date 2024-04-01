@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['order'])) {
     $type       = $_POST['type'];
     $origin     = $_POST['origin'];
 
-    $phone = trim($phone);
+    $phone = str_replace(' ', '', $phone);
 
     if (strpos($phone, '+') === 0) {
         $phone = substr($phone, 1);
