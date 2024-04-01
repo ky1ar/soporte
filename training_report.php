@@ -81,7 +81,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     <?php echo $row['brand_name']?><span><?php echo $row['machine_model']?></span>
                                     </div>
                                 </td>
-                                <td><?php echo $row['worker_name'] ? $row['worker_name']:'' ?></td>
+                                <td><?php echo $row['worker_name'] ? $row['worker_name']:'No aplica' ?></td>
                                 <td><?php echo $row['client_name'] ?></td>
                                 <td><?php echo $date ?></td>
                                 <td><?php echo substr($row['training_start'], 0, -3) ?></td>
