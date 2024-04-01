@@ -861,16 +861,15 @@ $(document).ready(function () {
   const calendarTable = $("#calendarTable");
 
   calendarPrev.click(function () {
-    var offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
+    let offsetMonth = currentDate.getMonth() - 1;
+    if (calendarNext.hasClass("admin")) {
       loadCalendar(-1);
-      if (!calendarNext.hasClass("admin")) {
+    } else {
+      if (offsetMonth > today.getMonth()) {
+        loadCalendar(-1);
         calendarNext.removeClass("disabled");
-      }
-      
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      if (!calendarNext.hasClass("admin")) {
+      } else if (offsetMonth == today.getMonth()) {
+        loadCalendar(-1);
         $(this).addClass("disabled");
       }
     }
@@ -879,14 +878,13 @@ $(document).ready(function () {
   calendarNext.click(function () {
     var offsetMonth = currentDate.getMonth() + 1;
     var maxMonth = today.getMonth() + 2;
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      if (!calendarNext.hasClass("admin")) {
+    if (calendarNext.hasClass("admin")) {
+      loadCalendar(-1);
+    } else {
+      if (offsetMonth < maxMonth) {
+        loadCalendar(1);
         calendarPrev.removeClass("disabled");
-      }
-      
-    } else if (offsetMonth == maxMonth) {
-      loadCalendar(1);if (!calendarNext.hasClass("admin")) {
+      } else if (offsetMonth == maxMonth) {
         $(this).addClass("disabled");
       }
     }
