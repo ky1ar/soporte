@@ -618,61 +618,63 @@ $(document).ready(function () {
 	const viewOverlay = $("#viewOverlay");
 
 	//$(document).on("click", ".calendarView .calendarViewRow", function () {
-	$(document).on("click", ".calendarViewRow", function () {
+		$(document).ready(function() {
+			$(document).on("click", ".calendarViewRow", function () {
 
-	//$(".calendarViewRow").click(function () {
-		const trainingId = $(this).data("id");
-		let formData = new FormData();
-		formData.append("trainingId", trainingId);
+		//$(".calendarViewRow").click(function () {
+			const trainingId = $(this).data("id");
+			let formData = new FormData();
+			formData.append("trainingId", trainingId);
 
-		$.ajax({
-			url: "routes/getTraining",
-			method: "POST",
-			data: formData,
-			processData: false,
-			contentType: false,
-			success: function (response) {
-				const jsonData = JSON.parse(response);
-				//console.log(jsonData);
-				if (jsonData.success) {
-					const data = jsonData.success;
-					viewOverlay
-						.find(".title")
-						.text(
-							data.dayName +
-								" " +
-								data.day +
-								" de " +
-								data.month +
-								" a las " +
-								data.schedule
-						);
-					if (data.t_state == 2) {
-						viewOverlay.find(".worker").show();
-						viewOverlay.find(".id_worker").hide();
-						viewOverlay.find("#upd_worker").hide();
-					} else {
-						viewOverlay.find(".worker").hide();
-						viewOverlay.find(".id_worker").show();
-						viewOverlay.find("#upd_worker").show();
+			$.ajax({
+				url: "routes/getTraining",
+				method: "POST",
+				data: formData,
+				processData: false,
+				contentType: false,
+				success: function (response) {
+					const jsonData = JSON.parse(response);
+					//console.log(jsonData);
+					if (jsonData.success) {
+						const data = jsonData.success;
+						viewOverlay
+							.find(".title")
+							.text(
+								data.dayName +
+									" " +
+									data.day +
+									" de " +
+									data.month +
+									" a las " +
+									data.schedule
+							);
+						if (data.t_state == 2) {
+							viewOverlay.find(".worker").show();
+							viewOverlay.find(".id_worker").hide();
+							viewOverlay.find("#upd_worker").hide();
+						} else {
+							viewOverlay.find(".worker").hide();
+							viewOverlay.find(".id_worker").show();
+							viewOverlay.find("#upd_worker").show();
+						}
+						// console.log(data);
+						viewOverlay.find(".name").text(data.name);
+						viewOverlay.find(".phone").text(data.phone);
+						viewOverlay.find(".model").text(data.model);
+						viewOverlay
+							.find(".image")
+							.attr("src", "assets/mac/" + data.slug + ".webp");
+						viewOverlay.find(".worker").text(data.worker);
+						viewOverlay.find(".id_worker").val(data.id_worker);
+						viewOverlay.find(".pre").val(trainingId);
+						viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
+						viewOverlay.fadeToggle();
 					}
-					// console.log(data);
-					viewOverlay.find(".name").text(data.name);
-					viewOverlay.find(".phone").text(data.phone);
-					viewOverlay.find(".model").text(data.model);
-					viewOverlay
-						.find(".image")
-						.attr("src", "assets/mac/" + data.slug + ".webp");
-					viewOverlay.find(".worker").text(data.worker);
-					viewOverlay.find(".id_worker").val(data.id_worker);
-					viewOverlay.find(".pre").val(trainingId);
-					viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
-					viewOverlay.fadeToggle();
-				}
-			},
-			error: function (xhr, status, error) {
-				console.error("Error:", error);
-			},
+				},
+				error: function (xhr, status, error) {
+					console.error("Error:", error);
+				},
+			});
 		});
 
 		const buttons = viewOverlay.find(".viewButtons");
