@@ -2522,10 +2522,6 @@ footer .ftr-cpy {
     opacity: 0.5;
     cursor: default;
 }
-#adminCalendar .calendarHeader .button.admin {
-    opacity: 1 !important;
-    cursor: pointer !important;
-}
 #adminCalendar .calendarHeader .button img {
     filter: invert(1);
 }
