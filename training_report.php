@@ -48,6 +48,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         $sql = "SELECT
                         t.id as training_id,
                         m.slug as machine_slug,
+                        b.name as brand_name,
                         m.model as machine_model,
                         w.name as worker_name,
                         t.name as client_name,
@@ -56,6 +57,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         s.name as state_name
                         FROM Training t
                         INNER JOIN Machine m ON t.machine = m.id
+                        INNER JOIN Brand d ON m.brand = b.id
                         INNER JOIN Users w ON t.worker = w.id
                         INNER JOIN State s ON t.training_state = s.id
                         ORDER BY t.id DESC";
@@ -75,7 +77,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     class="tbl-img"
                                     src="assets/mac/<?php echo $row['machine_slug'] ?>.webp" alt="">
                                     <div class="tbl-odr">
-                                        <span><?php echo $row['machine_model']?></span>
+                                    <?php echo $row['brand_name']?><span><?php echo $row['machine_model']?></span>
                                     </div>
                                 </td>
                                 <td><?php echo $row['worker_name'] ?></td>
