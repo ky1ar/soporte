@@ -54,7 +54,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         t.name as client_name,
                         training_date,
                         training_start,
-                        s.name as state_name
+                        s.name as state_name,
                         s.id as state_id
                         FROM Training t
                         INNER JOIN Machine m ON t.machine = m.id
