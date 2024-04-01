@@ -53,10 +53,11 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         t.name as client_name,
                         training_date,
                         training_start,
-                        training_state
+                        s.name as state_name
                         FROM Training t
                         INNER JOIN Machine m ON t.machine = m.id
                         INNER JOIN Users w ON t.worker = w.id
+                        INNER JOIN State s ON t.training_state = s.id
                         ORDER BY t.id DESC";
 
                         $result = $conn->query($sql);
@@ -81,7 +82,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td><?php echo $row['client_name'] ?></td>
                                 <td><?php echo $date ?></td>
                                 <td><?php echo $row['training_start'] ?></td>
-                                <td><?php echo $row['training_state'] ?></td>
+                                <td><?php echo $row['state_name'] ?></td>
                                 <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
                             </tr>
                             <?php
