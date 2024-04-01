@@ -55,6 +55,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         training_date,
                         training_start,
                         s.name as state_name
+                        s.id as state_id
                         FROM Training t
                         INNER JOIN Machine m ON t.machine = m.id
                         INNER JOIN Brand b ON m.brand = b.id
@@ -84,7 +85,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td><?php echo $row['client_name'] ?></td>
                                 <td><?php echo $date ?></td>
                                 <td><?php echo substr($row['training_start'], 0, -3) ?></td>
-                                <td><?php echo $row['state_name'] ?></td>
+                                <td><span class="st<?php echo $row['state_id'] ?>"><?php echo $row['state_name'] ?></span></td>
                                 <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
                             </tr>
                             <?php
