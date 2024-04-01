@@ -864,10 +864,15 @@ $(document).ready(function () {
     var offsetMonth = currentDate.getMonth() - 1;
     if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
-      calendarNext.removeClass("disabled");
+      if (!calendarNext.hasClass("admin")) {
+        calendarNext.removeClass("disabled");
+      }
+      
     } else if (offsetMonth == today.getMonth()) {
       loadCalendar(-1);
-      $(this).addClass("disabled");
+      if (!calendarNext.hasClass("admin")) {
+        $(this).addClass("disabled");
+      }
     }
   });
 
@@ -876,10 +881,14 @@ $(document).ready(function () {
     var maxMonth = today.getMonth() + 2;
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
-      calendarPrev.removeClass("disabled");
+      if (!calendarNext.hasClass("admin")) {
+        calendarPrev.removeClass("disabled");
+      }
+      
     } else if (offsetMonth == maxMonth) {
-      loadCalendar(1);
-      $(this).addClass("disabled");
+      loadCalendar(1);if (!calendarNext.hasClass("admin")) {
+        $(this).addClass("disabled");
+      }
     }
   });
 
