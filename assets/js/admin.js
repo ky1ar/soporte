@@ -618,10 +618,10 @@ $(document).ready(function () {
 	const viewOverlay = $("#viewOverlay");
 
 	//$(document).on("click", ".calendarView .calendarViewRow", function () {
-		$(document).ready(function() {
-			$(document).on("click", ".calendarViewRow", function () {
+	$(document).ready(function() {
+		$(document).on("click", ".calendarViewRow", function () {
 
-		//$(".calendarViewRow").click(function () {
+			//$(".calendarViewRow").click(function () {
 			const trainingId = $(this).data("id");
 			let formData = new FormData();
 			formData.append("trainingId", trainingId);
@@ -675,29 +675,29 @@ $(document).ready(function () {
 					console.error("Error:", error);
 				},
 			});
+
+			const buttons = viewOverlay.find(".viewButtons");
+			if ($(this).hasClass("finish")) {
+				buttons.hide();
+			} else {
+				const date = $(this).data("date");
+				const start = $(this).data("start");
+				//const now = new Date();
+				const startDate = new Date(date + " " + start);
+				startDate.setMinutes(startDate.getMinutes() + 90);
+				//if (now > startDate) {
+				//cancelTraining.hide();
+				//finishTraining.show();
+				/*} else {
+					finishTraining.hide();
+					cancelTraining.show();
+				}*/
+				buttons.show();
+				buttons.attr("data-id", trainingId);
+			}
 		});
-
-		const buttons = viewOverlay.find(".viewButtons");
-		if ($(this).hasClass("finish")) {
-			buttons.hide();
-		} else {
-			const date = $(this).data("date");
-			const start = $(this).data("start");
-			//const now = new Date();
-			const startDate = new Date(date + " " + start);
-			startDate.setMinutes(startDate.getMinutes() + 90);
-			//if (now > startDate) {
-			//cancelTraining.hide();
-			//finishTraining.show();
-			/*} else {
-				finishTraining.hide();
-				cancelTraining.show();
-			}*/
-			buttons.show();
-			buttons.attr("data-id", trainingId);
-		}
 	});
-
+	
 	viewOverlay.find(".modalClose, .modalCancel").click(function () {
 		viewOverlay.fadeToggle();
 	});
