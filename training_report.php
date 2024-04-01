@@ -85,7 +85,11 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td><?php echo $row['client_name'] ?></td>
                                 <td><?php echo $date ?></td>
                                 <td><?php echo substr($row['training_start'], 0, -3) ?></td>
-                                <td><span class="st<?php echo $row['state_id'] ?>"><?php echo $row['state_name'] ?></span></td>
+                                <td class="row-tst">
+                                    <span class="st<?php echo $row['state_id'] ?>">
+                                        <?php echo $row['state_name'] ?>
+                                    </span>
+                                </td>
                                 <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
                             </tr>
                             <?php

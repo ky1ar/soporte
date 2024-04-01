@@ -2230,6 +2230,37 @@ body {
     font-weight: 500;
     font-size: 0.75rem;
 }
+#rpt-dat .dat-two .rpt-tbl .row-tst span {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 700;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st0 {
+    background-color: #fffade;
+    color: #f2b606;
+    border: 1px solid #f2b606;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st1 {
+    background-color: #fff4e6;
+    color: #e58102;
+    border: 1px solid #e58102;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st2 {
+    background-color: #f2fff7;
+    color: #0aa139;
+    border: 1px solid #0aa139;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st3 {
+    background-color: #ffe6eb;
+    color: #e50233;
+    border: 1px solid #e50233;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st4 {
+    background-color: #cccccc;
+    color: #5e5e5e;
+    border: 1px solid #5e5e5e;
+}
 /*********************************** FOOTER **********************************/
 footer {
 	color: var(--white);
