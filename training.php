@@ -32,7 +32,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             $startMonth = 0;
             $startTable = false;
             if ($s_levels == 3 || $s_levels == 4) {
-                $sql = "SELECT t.id, training_date, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
+                $sql = "SELECT t.id, training_date, training_start, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) :
             ?>
@@ -68,12 +68,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <tr>
                                     <td>
                                         <div class="rowSchedule"><?php echo $dayName . ' ' . $dayNumber ?>
-                                            <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['h_start'], 0, 5) ?></span>
+                                            <span><img width="14" height="14" src="assets/img/clock.svg" alt=""><?php echo substr($row['training_start'], 0, 5) ?></span>
                                         </div>
                                     </td>
                                     <td>
                                         <?php
-                                        $sql_machine_info = "SELECT model, document, COUNT(*) AS cantidad FROM Training t INNER JOIN Machine m ON t.machine = m.id WHERE t.document = ? AND m.slug = ?";
+                                        $sql_machine_info = "SELECT model, document, COUNT(*) AS cantidad FROM Training t INNER JOIN Machine m ON t.machine = m.id WHERE t.document = ? AND m.slug = ? AND t.training_state = 2";
                                         $stmt_machine_info = $conn->prepare($sql_machine_info);
                                         $stmt_machine_info->bind_param("ss", $row['document'], $row['m_slug']);
                                         $stmt_machine_info->execute();
