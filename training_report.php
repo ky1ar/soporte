@@ -59,7 +59,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         FROM Training t
                         INNER JOIN Machine m ON t.machine = m.id
                         INNER JOIN Brand b ON m.brand = b.id
-                        INNER JOIN Users w ON t.worker = w.id
+                        LEFT JOIN Users w ON t.worker = w.id
                         INNER JOIN State s ON t.training_state = s.id
                         ORDER BY t.id DESC";
 
@@ -81,7 +81,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     <?php echo $row['brand_name']?><span><?php echo $row['machine_model']?></span>
                                     </div>
                                 </td>
-                                <td><?php echo $row['worker_name'] ?></td>
+                                <td><?php echo $row['worker_name'] ? $row['worker_name']:'' ?></td>
                                 <td><?php echo $row['client_name'] ?></td>
                                 <td><?php echo $date ?></td>
                                 <td><?php echo substr($row['training_start'], 0, -3) ?></td>
