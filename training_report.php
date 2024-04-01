@@ -83,7 +83,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <td><?php echo $row['worker_name'] ?></td>
                                 <td><?php echo $row['client_name'] ?></td>
                                 <td><?php echo $date ?></td>
-                                <td><?php echo $row['training_start'] ?></td>
+                                <td><?php echo substr($row['training_start'], 0, -3) ?></td>
                                 <td><?php echo $row['state_name'] ?></td>
                                 <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
                             </tr>
