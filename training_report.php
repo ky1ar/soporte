@@ -35,7 +35,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     </div>
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
                         <tr class="row-hdr">
-                            <th>Solicitud</th>
+                            <th>#</th>
                             <th>Equipo</th>
                             <th>Técnico</th>
                             <th>Cliente</th>
