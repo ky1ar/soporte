@@ -618,8 +618,9 @@ $(document).ready(function () {
 	const viewOverlay = $("#viewOverlay");
 
 	//$(document).on("click", ".calendarView .calendarViewRow", function () {
+	$(document).on("click", ".calendarViewRow", function () {
 
-	$(".calendarViewRow").click(function () {
+	//$(".calendarViewRow").click(function () {
 		const trainingId = $(this).data("id");
 		let formData = new FormData();
 		formData.append("trainingId", trainingId);
