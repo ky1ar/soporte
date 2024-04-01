@@ -619,7 +619,7 @@ $(document).ready(function () {
 
 	//$(document).on("click", ".calendarView .calendarViewRow", function () {
 
-	$(".calendarViewRow").click(function () {
+	calendarTable.on("click", ".calendarViewRow", function () {
 		const trainingId = $(this).data("id");
 		let formData = new FormData();
 		formData.append("trainingId", trainingId);
