@@ -648,7 +648,7 @@ $(document).ready(function () {
 								data.schedule
 						);
 					
-					let x = ("#upd_worker").data("level");
+					let x = $("#upd_worker").data("level");
 					console.log("nivel de usuraio",x);
 					if (data.t_state == 2) {
 						viewOverlay.find(".worker").show();
