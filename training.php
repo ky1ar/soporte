@@ -134,10 +134,10 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <div class="calendarHeader">
                         <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
                         <div id="calendarNavigation" class="buttons">
-                            <div class="button disabled <?php echo $s_levels == 4 ? 'admin':'' ?>" id="calendarPrev">
+                            <div class="button <?php echo $s_levels == 4 ? 'admin':'disabled' ?>" id="calendarPrev">
                                 <img width="12" height="12" src="assets/img/arrow.svg" alt="">
                             </div>
-                            <div class="button" id="calendarNext">
+                            <div class="button <?php echo $s_levels == 4 ? 'admin':'' ?>" id="calendarNext">
                                 <img width="12" height="12" src="assets/img/arrow.svg" alt="">
                             </div>
                         </div>
