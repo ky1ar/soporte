@@ -57,7 +57,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         s.name as state_name
                         FROM Training t
                         INNER JOIN Machine m ON t.machine = m.id
-                        INNER JOIN Brand d ON m.brand = b.id
+                        INNER JOIN Brand b ON m.brand = b.id
                         INNER JOIN Users w ON t.worker = w.id
                         INNER JOIN State s ON t.training_state = s.id
                         ORDER BY t.id DESC";
