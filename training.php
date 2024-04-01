@@ -298,7 +298,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             ?>
                         </select>
                         <input type="hidden" id="pre" class="pre">
-                        <button type="submit" id="upd_worker"><img src="assets/img/sav.svg" alt=""></button>
+                        <button type="submit" id="upd_worker" data-level="<?php echo $s_levels ?>"><img src="assets/img/sav.svg" alt=""></button>
                     </div>
                 </div>
                 <div class="viewBox">
