@@ -618,6 +618,7 @@ $(document).ready(function () {
 	const viewOverlay = $("#viewOverlay");
 
 	//$(document).on("click", ".calendarView .calendarViewRow", function () {
+	const calendarTable = $("#calendarTable");
 
 	calendarTable.on("click", ".calendarViewRow", function () {
 		const trainingId = $(this).data("id");
@@ -858,7 +859,6 @@ $(document).ready(function () {
 	const calendarNext = $("#calendarNext");
 	const loadingResponse = $("#loadingResponse");
 	const monthName = $("#monthName");
-	const calendarTable = $("#calendarTable");
 
 	calendarPrev.click(function () {
 		if($(this).hasClass("admin")){
