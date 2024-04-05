@@ -1,13 +1,14 @@
-<?php 
-$currentPage = "Citas"; 
-require_once 'includes/app/globals.php'; 
+<?php
+$currentPage = "Citas";
+require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
 </head>
+
 <body>
-    <?php 
+    <?php
     require_once 'includes/bar/topBar.php';
-    require_once 'includes/bar/navigationBar.php';  
+    require_once 'includes/bar/navigationBar.php';
     ?>
     <section id="frontSlider">
         <div class="wrapper">
@@ -18,6 +19,7 @@ require_once 'includes/common/header.php';
 
     <section id="searchOrderBox">
         <div class="wrapper">
+            <div class="guide"><img src="assets/img/guia-pre.png" alt=""></div>
             <form id="searchOrder">
                 <img src="assets/img/ord.svg" alt="ico" width="64" height="64">
                 <h1>Consultar Orden de Servicio</h1>
@@ -31,4 +33,5 @@ require_once 'includes/common/header.php';
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
+
 </html>

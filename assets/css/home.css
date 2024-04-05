@@ -1,12 +1,14 @@
-.s1 {
+section.s1 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+    padding: 0 20px;
 }
 .section-item {
     text-align: center;
     width: 450px;
+    height: 160px;
     margin-right: 40px;
     background-color: #E8E8E8;
     padding: 20px;
@@ -45,3 +47,141 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
+section.body-s1 {
+    margin-top: 50px;
+    background-color: #E8E8E8;
+    height: 600px;
+}
+.title-qs{
+    text-align: center;
+    margin-top: 40px;
+}
+.faq {
+    width: 45%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-bottom: 30px;
+
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.question-text{
+    font-weight: bold;
+}
+
+.collapsible {
+    background-color: #ed5d1f;
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-left: 20px;
+}
+.collapsible img{
+    width: 14px;
+    height: 13px;
+    filter: invert(100%);
+}
+
+.content {
+    display: none;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content p{
+    margin-top: 0;
+}
+
+@media (min-width: 651px) and (max-width: 1024px) {
+    .section-item{
+        width: 360px;
+        padding: 10px 0px;
+        height: 160px;
+    }
+    .faq {
+        width: 80%;
+    }
+
+    .collapsible {
+        background-color: #ed5d1f;
+        padding: 3px 5px;
+    }    
+    .collapsible img{
+        width: 14px;
+        height: 12px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 650px) {
+    section.s1 {
+        flex-direction: column;
+    }
+
+    .section-item {
+        width: 90%;
+        padding: 10px 0;
+        height: 140px;
+        margin-right: 0;
+    }
+    .section-item:nth-child(1) {
+        margin-bottom: 40px;
+    }
+
+    .faq {
+        width: 85%;
+    }
+
+    .collapsible {
+        background-color: #ed5d1f;
+        padding: 3px 5px;
+    }    
+
+    .collapsible img {
+        width: 18px;
+        height: 10px;
+    }
+}
+
+
+@media (max-width:399px) {
+    section.s1 {
+        flex-direction: column;
+    }
+    .section-item{
+        width: 90%;
+        padding: 10px 0px;
+        height: 160px;
+        margin-right: 0;
+    }
+    .section-item:nth-child(1) {
+        margin-bottom: 40px;
+    }
+    .faq {
+        width: 85%;
+    }
+    .collapsible {
+        background-color: #ed5d1f;
+        padding: 3px 5px;
+    }    
+
+    .collapsible img{
+        width: 18px;
+        height: 10px;
+    }
+
+    section.body-s1{
+        height: 640px;
+    }
+}
+
