@@ -151,6 +151,14 @@ body {
 #frontSlider img {
   border-radius: 1rem;
 }
+@media (max-width: 750px){
+  #frontSlider .imaSop {
+    content: url('../slider/slider_soporte_movil.webp');
+  }
+  #frontSlider .imaCap {
+    content: url('../slider/slider_capa_movil.webp');
+  }
+}
 #frontSlider p {
   font-size: 1rem;
   margin: 0;
