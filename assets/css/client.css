@@ -1115,7 +1115,7 @@ footer .copyright {
 #ky1-ord .ord-tml .tml-itm.tml-act span {
   font-weight: 700;
 }
-.steps {
+.stepsx {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1123,7 +1123,7 @@ footer .copyright {
   margin: 30px 0px;
 }
 
-.step {
+.stepx {
   text-align: center;
   flex: 1;
 }
@@ -1145,16 +1145,16 @@ footer .copyright {
   height: 120px;
   margin: 0 20px;
 }
-.steps h2 {
+.stepsx h2 {
   margin: 0;
 }
 
-.steps p {
-  padding: 0px 85px;
+.stepsx p {
+  padding: 0px 60px;
   margin: 0;
 }
 @media (min-width: 751px) and (max-width: 1200px) {
-  .steps p {
+  .stepsx p {
     padding: 0px 40px;
   }
 }
@@ -1162,11 +1162,11 @@ footer .copyright {
   .separator {
     display: none;
   }
-  .steps {
+  .stepsx {
     flex-direction: column;
     gap: 40px 0;
   }
-  .steps p {
+  .stepsx p {
     padding: 0px 10%;
   }
 }

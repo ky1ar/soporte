@@ -167,20 +167,20 @@ require_once 'includes/common/header.php';
             </div>
         </div>
     </section>
-    <section class="steps">
-        <div class="step">
+    <section class="stepsx">
+        <div class="stepx">
             <div class="circle">1</div>
             <h2>SELECCIONA</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt ducimus debitis molestiae rerum consectetur aliquid ad dolores.</p>
         </div>
         <div class="separator"></div>
-        <div class="step">
+        <div class="stepx">
             <div class="circle">2</div>
             <h2>COMPLETA</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt ducimus debitis molestiae rerum consectetur aliquid ad dolores.</p>
         </div>
         <div class="separator"></div>
-        <div class="step">
+        <div class="stepx">
             <div class="circle">3</div>
             <h2>CONFIRMA</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt ducimus debitis molestiae rerum consectetur aliquid ad dolores.</p>
