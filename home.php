@@ -19,7 +19,7 @@ require_once 'includes/common/header.php';
     ?>
     <section id="">
         <div class="">
-            <img style="width: 100%;" height="630" src="assets/slider/banner-home.png">
+            <img style="width: 100%;" height="630" src="assets/slider/banner-home.webp">
         </div>
     </section>
 
