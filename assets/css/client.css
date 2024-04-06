@@ -714,6 +714,21 @@ footer .wrapper {
   gap: 1rem;
   padding: 0 3rem;
 }
+footer .top .wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px 80px;
+}
+footer .top .wrapper .item:first-child {
+  margin-right: auto;
+}
+
+@media (max-width:850px){
+  footer .top .wrapper {
+    justify-content: flex-start;
+    gap: 40px 30px;
+  }
+}
 footer .item b {
   text-transform: uppercase;
   padding-bottom: 1rem;
@@ -768,6 +783,22 @@ footer .copyright {
   opacity: 0.75;
   line-height: 1.125rem;
 }
+footer .item ul.social-icons {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+footer .item ul.social-icons li {
+  margin-right: 10px;
+}
+footer .item ul.social-icons li a{
+  opacity: 1;
+}
+footer .item ul.social-icons li img {
+  filter: invert(1);
+}
+
 /*********************************** FOOTER **********************************/
 #ky1-ord {
   background-color: var(--gray);
