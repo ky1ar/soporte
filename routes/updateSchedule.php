@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_name->fetch();
     $stmt_name->close();
 
-    $sql_date_and_time = "SELECT 
+    $sql_date_and_time = "SELECT
+                        DAY(training_date) AS numero_dia,
                         CASE DAYNAME(training_date)
                             WHEN 'Monday' THEN 'Lunes'
                             WHEN 'Tuesday' THEN 'Martes'
@@ -55,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_date_and_time = $conn->prepare($sql_date_and_time);
     $stmt_date_and_time->bind_param("i", $scheduleId);
     $stmt_date_and_time->execute();
-    $stmt_date_and_time->bind_result($nombre_dia, $nombre_mes, $hora_minutos);
+    $stmt_date_and_time->bind_result($numero_dia, $nombre_dia, $nombre_mes, $hora_minutos);
     $stmt_date_and_time->fetch();
     $stmt_date_and_time->close();
 
@@ -69,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $title = 'Confirmación de Capacitación';
         $emailTemplate = '../includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
-        $placeholders = array('%CLIENT%', '%MEET%', '%WORKER%', '%DIA%', '%MES%', '%HORA%');
-        $values = array($name, $meet, $worker_name, $nombre_dia, $nombre_mes, $hora_minutos);
+        $placeholders = array('%CLIENT%', '%MEET%', '%WORKER%', '%DIA%','%DIA_N%', '%MES%', '%HORA%');
+        $values = array($name, $meet, $worker_name, $nombre_dia, $numero_dia, $nombre_mes, $hora_minutos);
         $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";

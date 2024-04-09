@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $existingCount = $row['count'];
     $stmt->close();
 
-    if ($existingCount > 0) {
+    if ($existingCount > 0 && $dniRUC != '99999999') {
         $response['error'] = "Ya existe una capacitación registrada para este número de documento";
         echo json_encode($response);
         exit();
