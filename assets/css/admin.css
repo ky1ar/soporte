@@ -2606,6 +2606,7 @@ footer .ftr-cpy {
     flex-direction: column;
     justify-content: start;
     border: 1px solid #eee;
+    gap: 0.25rem;
 }
 #calendarSelector .calendarBox li .boxDay {
     font-weight: 600;
