@@ -2951,6 +2951,7 @@ footer .ftr-cpy {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
 }
 #viewTraining .header {
     display: flex;
