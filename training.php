@@ -212,7 +212,6 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                     </h2>
                                                     <p><?= $row2['w_name']?></p>
                                                 </div>
-                                                <img width="48" src="assets/mac/<?= $row2['m_slug']?>.webp" alt="">
                                             </div>
                                         <?php endwhile;
                                     }
