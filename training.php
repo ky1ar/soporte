@@ -330,7 +330,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     <img class="image" src="" alt="">
                 </div>
                 <div class="viewButtons" data-id="">
-                    <div id="cancelTraining">Eliminar Capacitación</div>
+                    <div id="cancelTraining">Cancelar Capacitación</div>
                     <div id="finishTraining">Finalizar Capacitación</div>
                 </div>
                 <img class="modalClose" src="assets/img/x.svg" alt="">
