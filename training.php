@@ -183,7 +183,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     "SELECT t.id,
                                         t.training_state,
                                         w.image as w_image,
-                                        w.name as w_name,
+                                        w.nick as w_nick,
                                         m.model as m_model,
                                         m.slug as m_slug,
                                         t.training_start
@@ -210,7 +210,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                     <h2 style="background-color: #<?= $row2['w_image']?>;">
                                                         <?= substr($row2['training_start'], 0, 5)?>
                                                     </h2>
-                                                    <p><?= $row2['w_name']?></p>
+                                                    <p><?= $row2['w_nick']?></p>
                                                 </div>
                                             </div>
                                         <?php endwhile;
