@@ -30,7 +30,7 @@ function updatePaginationButtons(currentPage) {
   if (currentPage > 1) {
     var prevButton = document.createElement("button");
     var img = document.createElement("img");
-    img.src = "../soporte/assets/img/left.png";
+    img.src = "../assets/img/left.png";
     img.alt = "Siguiente";
     prevButton.appendChild(img);
     prevButton.addEventListener("click", function () {
@@ -55,7 +55,7 @@ function updatePaginationButtons(currentPage) {
   if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
-    img.src = "../soporte/assets/img/right.png";
+    img.src = "../assets/img/right.png";
     img.alt = "Siguiente";
     nextButton.appendChild(img);
     nextButton.addEventListener("click", function () {
