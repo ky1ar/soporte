@@ -2652,6 +2652,7 @@ footer .ftr-cpy {
     gap: 0.5rem;
     justify-content: center;
     width: 100%;
+    height: 100%;
 }
 #calendarSelector .calendarBox li .calendarViewRow {
     gap: 0.25rem;
