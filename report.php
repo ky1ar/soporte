@@ -11,13 +11,14 @@ $s_name = $_SESSION['user_name'];
 $s_nick = $_SESSION['user_nick'];
 $s_role = $_SESSION['user_role'];
 
-$currentPage = "H. de Equipos"; 
+$currentPage = "H. de Equipos";
 require_once 'includes/app/db.php';
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header_admin.php';
 $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 ?>
 </head>
+
 <body class="ky1-adm">
     <?php
     require_once 'includes/bar/topBar_admin.php';
@@ -28,7 +29,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             <div class="dat-pad">
                 <div class="dat-two">
                     <div class="two-hdr">
-                        <h3>Historial de Ordenes<p>Listado de equipos ingresados al área de Soporte Técnico</p></h3>
+                        <h3>Historial de Ordenes<p>Listado de equipos ingresados al área de Soporte Técnico</p>
+                        </h3>
                         <a href="#"><img src="assets/img/pls.svg" alt="" style="width: 1rem;">Añadir Orden</a>
                     </div>
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
@@ -70,46 +72,47 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         ORDER BY pday ASC;";
                         $result = $conn->query($sql);
                         $n = 1;
-                        if ($result->num_rows > 0):
-                            while ($row = $result->fetch_assoc()):
+                        if ($result->num_rows > 0) :
+                            while ($row = $result->fetch_assoc()) :
                                 setlocale(LC_TIME, 'es_ES');
                                 $date = strtotime($row['dates']);
                                 $date = strftime("%e de %B de %Y", $date);
-                                ?>
-                            <tr>
-                                <td><?php echo $n ?></td>
-                                <td class="row-odr">
-                                    <img
-                                    width="48"
-                                    class="tbl-img"
-                                    src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
-                                    <div class="tbl-odr">
-                                        <?php echo $row['orders'] ?><span><?php echo $row['model']?></span>
-                                    </div>
-                                </td>
-                                <td><?php echo $row['wnm'] ?></td>
-                                <td><?php echo $date ?></td>
-                                <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
-                                <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
-                                <td class="row-stt">
-                                    <?php
-                                    if ($row['state'] == 9) {
-                                        echo '<span class="stt-fns">Finalizado</span>';
-                                    } else {
-                                        echo '<span>Activo</span>';
-                                    }
-                                    ?>
-                                </td>
-                                <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
+                        ?>
+                                <tr>
+                                    <td><?php echo $n ?></td>
+                                    <td class="row-odr">
+                                        <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
+                                        <div class="tbl-odr">
+                                            <?php echo $row['orders'] ?><span><?php echo $row['model'] ?></span>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $row['wnm'] ?></td>
+                                    <td><?php echo $date ?></td>
+                                    <td class="row-spn"><span><?php echo $row['tnm'] ?></span></td>
+                                    <td class="row-spn"><span><?php echo $row['onm'] ?></span></td>
+                                    <td class="row-stt">
+                                        <?php
+                                        if ($row['state'] == 9) {
+                                            echo '<span class="stt-fns">Finalizado</span>';
+                                        } else {
+                                            echo '<span>Activo</span>';
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
 
-                            </tr>
-                            <?php $n++;
+                                </tr>
+                        <?php $n++;
                             endwhile;
                         endif; ?>
                     </table>
+                    <span id="totalRows" data-total="<?php echo $result->num_rows; ?>"></span>
+                    <div class="pagination" id="pagination"></div>
                 </div>
             </div>
         </div>
     </section>
+    <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
 </body>
+
 </html>

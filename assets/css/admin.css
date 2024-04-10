@@ -3204,3 +3204,32 @@ footer .ftr-cpy {
     cursor: pointer;
     padding: 1rem;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
+    border: 0;
+}
+
+.pagination button.active {
+    background-color: #e75a18;
+    color: white;
+}
+
+.pagination button:not(.active) {
+    background-color: #213337;
+    color: white;
+}
+.pagination button img{
+    filter: invert(1);
+    padding: 5px;
+}

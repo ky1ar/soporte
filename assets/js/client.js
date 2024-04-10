@@ -284,13 +284,31 @@ $(document).ready(function () {
   });
 
   /* Validations */
+  // function validateDniRuc(dniRUC) {
+  //   if (dniRUC.trim() === "") {
+  //     message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+  //     return false;
+  //   }
+  
+  //   if (dniRUC !== "KREAR*3D" && (dniRUC.length !== 8 && dniRUC.length !== 11)) {
+  //     message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+  //     return false;
+  //   }
+  
+  //   return true;
+  // }
+
   function validateDniRuc(dniRUC) {
-    if (dniRUC.trim() === "") {
-      message(scheduleFormMessage, "Ingrese un documento válido");
-      return false;
+    const regex = /^(KREAR\*3D|[0-9]{8}|[0-9]{11})$/;
+
+    if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
+        message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+        return false;
     }
+
     return true;
-  }
+}
+
   function validateClient(client) {
     if (client.trim() === "") {
       message(scheduleFormMessage, "El campo del nombre no puede estar vacío");

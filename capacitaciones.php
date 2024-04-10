@@ -24,7 +24,7 @@ require_once 'includes/common/header.php';
         <div class="wrapper">
             <div class="content">
                 <div class="left">
-                    <span class="title">Toma en cuenta los siguientes puntos al reservar tu capacitación:</span>
+                    <span class="title">Toma en cuenta los siguientes puntos al reservar tu capacitacióna:</span>
                     <div class="step">
                         <span><img width="22" height="22" src="assets/img/register.svg" alt=""></span>
                         <div>
