@@ -25,27 +25,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
         echo '<div class="calendarView">';
         
-        $sql2 = 
-        "SELECT t.id, t.training_state, w.name as w_name, m.model as m_model, m.slug as m_slug, 
-        t.document as c_document, t.name as c_name, t.phone as c_phone, t.email as c_email, invoice, t.training_start
-        FROM Training t 
-        INNER JOIN Calendar c ON t.training_date = c.calendar_date 
-        INNER JOIN Machine m ON t.machine = m.id 
-        INNER JOIN Brand b ON m.brand = b.id 
-        INNER JOIN Users w ON t.worker = w.id 
-        WHERE (t.training_state = 1 OR t.training_state = 2) AND training_date = '$date' 
+        $sql2 =
+        "SELECT t.id,
+            t.training_state,
+            w.image as w_image,
+            w.nick as w_nick,
+            m.model as m_model,
+            m.slug as m_slug,
+            t.training_start
+        FROM Training t
+        INNER JOIN Machine m ON t.machine = m.id
+        INNER JOIN Brand b ON m.brand = b.id
+        INNER JOIN Users w ON t.worker = w.id
+        WHERE (t.training_state = 1 OR t.training_state = 2) AND training_date = '$date'
         ORDER BY training_start;";
 
         $result2 = $conn->query($sql2);
         if ($result2->num_rows > 0){
-            while ($row2 = $result2->fetch_assoc()){
-                echo '<div class="calendarViewRow '.(($row2['training_state'] == 2) ? 'finish' : '').'" data-id="'.$row2['id'].'" data-date="'.$date.'" data-start="'.$row2['training_start'].'">';
-                echo '<h2>'.substr($row2['training_start'], 0, 5).'</h2>';
-                echo '<div><h3>'.$row2['w_name'].'</h3>';
-                echo '<p>'.$row2['m_model'].'</p></div>';
-                echo '<img width="48" src="assets/mac/'.$row2['m_slug'].'.webp" alt="">';
-                echo '</div>';
-            }
+            while ($row2 = $result2->fetch_assoc()):?>
+                <div class="calendarViewRow
+                    <?= $row2['training_state'] == 2 ? 'finish' : ''?>"
+                    data-id="<?= $row2['id']?>"
+                    data-date="<?= $date?>"
+                    data-start="<?= $row2['training_start']?>"
+                    style=
+                        "border-left: 3px solid #<?= $row2['w_image']?>;
+                        background-color: #<?= $row2['w_image']?>47;"
+                >
+                    <h3><?= $row2['m_model']?></h3>
+                    <div class="flex">
+                        <h2 style="background-color: #<?= $row2['w_image']?>;">
+                            <?= substr($row2['training_start'], 0, 5)?>
+                        </h2>
+                        <p><?= $row2['w_nick']?></p>
+                    </div>
+                </div>
+            <?php endwhile;
         }
         echo '</div>';
         echo '</li>';

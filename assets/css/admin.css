@@ -2606,6 +2606,7 @@ footer .ftr-cpy {
     flex-direction: column;
     justify-content: start;
     border: 1px solid #eee;
+    gap: 0.25rem;
 }
 #calendarSelector .calendarBox li .boxDay {
     font-weight: 600;
@@ -2652,45 +2653,39 @@ footer .ftr-cpy {
     gap: 0.5rem;
     justify-content: center;
     width: 100%;
+    height: 100%;
 }
 #calendarSelector .calendarBox li .calendarViewRow {
-    gap: 0.5rem;
+    gap: 0.25rem;
     display: flex;
-    background-color: var(--primaryopacity);
     border-radius: 0.25rem;
-    align-items: center;
     cursor: pointer;
     width: 100%;
-    justify-content: space-between;
     padding: 0.5rem;
-    position: relative;
-    overflow: hidden;
-    text-align: right;
-}
-
-#calendarSelector .calendarBox li .calendarViewRow h2 {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #ed5d1f;
+    flex-direction: column;
 }
 #calendarSelector .calendarBox li .calendarViewRow h3 {
     margin: 0;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+#calendarSelector .calendarBox li .calendarViewRow .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#calendarSelector .calendarBox li .calendarViewRow h2 {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    padding: 0.125rem 0.5rem;
 }
 #calendarSelector .calendarBox li .calendarViewRow p {
     margin: 0;
-    font-size: 0.65rem;
-}
-#calendarSelector .calendarBox li .calendarViewRow img {
-    width: 8rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.05;
+    font-size: 0.75rem;
+    text-align: right;
+    opacity: 0.75;
 }
 #calendarSelector .calendarBox li .calendarViewRow.finish {
     background-color: var(--gray);
