@@ -664,7 +664,7 @@ $(document).ready(function () {
           viewOverlay.find(".name").text(data.name);
           viewOverlay.find(".document").text(data.document);
           viewOverlay.find(".email").text(data.email);
-          viewOverlay.find(".phone").text("#" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
+          viewOverlay.find(".phone").text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
           viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
           viewOverlay
             .find(".image")
