@@ -319,9 +319,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <p class="email"></p>
                             <div class="flex">
                                 <img src="assets/img/wsp2.svg" alt="">
-                                <a class="phone" href="" target="_blank" rel="nofollow">
+                                <a class="phone" href="" target="_blank" rel="nofollow"></a>
                             </div>
-                            </a>
                             <div class="flex">
                                 <img src="assets/img/meet.svg" alt="">
                                 <a class="meet" href="" target="_blank" rel="nofollow"></a>
