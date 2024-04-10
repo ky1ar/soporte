@@ -637,18 +637,13 @@ $(document).ready(function () {
         //console.log(jsonData);
         if (jsonData.success) {
           const data = jsonData.success;
-          viewOverlay
-            .find(".title")
-            .text(
-              data.dayName +
-                " " +
-                data.day +
-                " de " +
-                data.month +
-                " a las " +
-                data.schedule
-            );
-
+          viewOverlay.find(".date").text(
+            data.dayName +
+            " " +
+            data.day +
+            " de " +
+            data.month
+          );
           if (level == 3 || level == 4) {
             if (data.t_state == 2) {
               viewOverlay.find(".worker").show();
@@ -664,18 +659,19 @@ $(document).ready(function () {
             viewOverlay.find(".id_worker").hide();
             viewOverlay.find("#upd_worker").hide();
           }
-
-          // console.log(data);
-          viewOverlay.find(".name").text(data.name);
-          viewOverlay.find(".phone").text(data.phone);
+          viewOverlay.find(".schedule").text(data.schedule);
           viewOverlay.find(".model").text(data.model);
+          viewOverlay.find(".name").text(data.name);
+          viewOverlay.find(".document").text(data.document);
+          viewOverlay.find(".email").text(data.email);
+          viewOverlay.find(".phone").text(data.phone);
+          viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
           viewOverlay
             .find(".image")
             .attr("src", "assets/mac/" + data.slug + ".webp");
           viewOverlay.find(".worker").text(data.worker);
           viewOverlay.find(".id_worker").val(data.id_worker);
           viewOverlay.find(".pre").val(trainingId);
-          viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
           viewOverlay.fadeToggle();
         }
       },

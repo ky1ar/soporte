@@ -2946,49 +2946,109 @@ footer .ftr-cpy {
     padding: 2rem 3rem;
     border-radius: 0.5rem;
 }
+/*********************************************************************/
 #viewTraining {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    gap: 1.5rem;
+    gap: 0.5rem;
 }
-#viewTraining h2 {
-    text-transform: capitalize;
+#viewTraining .header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2rem;
+}
+#viewTraining .header .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#viewTraining .header .date {
     margin: 0;
     font-size: 1.5rem;
 }
-#viewTraining .rowMachine {
-    width: 100%;
+#viewTraining .header .content {
     display: flex;
-}
-
-#viewTraining p {
-    margin: 0;
-    text-align: center;
-}
-#viewTraining .viewBox {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-direction: column;
-}
-#viewTraining .viewBox label {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-#viewTraining .viewBox .flex {
-    display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
-#viewTraining .viewBox a {
-    color: var(--primary);
+#viewTraining .header .content select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 1rem;
+    font-family: 'DM Sans', sans-serif;
 }
-#viewTraining .viewBox input {
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    width: 100%;
-    border: 1px solid var(--graydark);
+#viewTraining .header .content button {
+    border: 1px solid #e6e6e6;
+    background-color: var(--gray);
+    display: flex;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 4rem;
+    justify-content: center;
+    cursor: pointer;
+}
+#viewTraining .header .schedule {
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    background-color: #000000;
+    color: #ffffff;
+}
+#viewTraining .card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    justify-content: space-between;
+    padding-right: 1rem;
+    width: 40rem;
+}
+#viewTraining .card .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+#viewTraining .card h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+#viewTraining .card h3 {
+    margin: 0;
+    opacity: 0.75;
+}
+#viewTraining .card .link {
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+#viewTraining .card .link p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+#viewTraining .card .link .phone {
+    color: #000;
+    font-weight: 700;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+#viewTraining .card .link .flex {
+    display: flex;
+    gap: 0.5rem;
+}#viewTraining .card .link .meet {
+    color: var(--primary);
+    font-weight: 600;
+}
+#viewTraining .card .image {
+    width: 10rem;
 }
 #viewTraining .viewButtons {
     display: flex;

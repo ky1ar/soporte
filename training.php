@@ -283,51 +283,51 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             </form>
         </div>
     </section>
+
     <section id="viewOverlay">
         <div class="modalBox">
             <div id="viewTraining">
-                <h2 class="title"></h2>
-                <p>Detalles de la capacitación:</p>
-                <div class="rowMachine">
-                    <div class="viewBox">
-                        <label for="">Cliente</label>
-                        <span class="name"></span>
-                        <span>+<span class="phone"></span></span>
-                    </div>
-                    <div class="viewBox">
-                        <label for="">Equipo</label>
-                        <div class="rowMachine">
-                            <img class="image" width="32" src="" alt="">
-                            <span class="model"></span>
+                <div class="header">
+                    <div class="left">
+                        <h2 class="date"></h2>
+                        <div class="content">
+                            <img src="assets/img/worker.svg" alt="">
+                            <span class="worker"></span>
+                            <select class="id_worker">
+                                <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
+                                $result = $conn->query($sql);
+                                while ($row = $result->fetch_assoc()):?>
+                                    <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                                <?php endwhile;
+                                $conn->close();
+                                ?>
+                            </select>
+                            <input type="hidden" id="pre" class="pre">
+                            <button type="submit" id="upd_worker" data-level="<?php echo $s_levels ?>">
+                                <img src="assets/img/sav.svg" alt="">
+                            </button>
                         </div>
                     </div>
+                    <span class="schedule"></span>
                 </div>
-                <div class="viewBox">
-                    <label for="">Responsable de la capacitación</label>
-                    <div class="flex">
-                        <img src="assets/img/worker.svg" alt="">
-                        <span class="worker"></span>
-                        <select class="id_worker">
-                            <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
-                            $result = $conn->query($sql);
-                            while ($row = $result->fetch_assoc()) : ?>
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
-                            <?php endwhile;
-                            $conn->close();
-                            ?>
-                        </select>
-                        <input type="hidden" id="pre" class="pre">
-                        <button type="submit" id="upd_worker" data-level="<?php echo $s_levels ?>"><img src="assets/img/sav.svg" alt=""></button>
+                <div class="card">
+                    <div class="left">
+                        <h2 class="model"></h2>
+                        <h3 class="name"></h3>
+                        <h3 class="document"></h3>
+                        <div class="link">
+                            <p class="email"></p>
+                            <a class="phone" href="" target="_blank" rel="nofollow">
+                                <img src="assets/img/wsp2.svg" alt="">
+                            </a>
+                            <div class="flex">
+                                <img src="assets/img/meet.svg" alt="">
+                                <a class="meet" href="" target="_blank" rel="nofollow"></a>
+                            </div>
+                        </div>
                     </div>
+                    <img class="image" src="" alt="">
                 </div>
-                <div class="viewBox">
-                    <label for="">Enlace Google Meet</label>
-                    <div class="flex">
-                        <img src="assets/img/meet.svg" alt="">
-                        <a class="meet" target="_blank" href=""></a>
-                    </div>
-                </div>
-                <!--<div id="viewMessage"></div>-->
                 <div class="viewButtons" data-id="">
                     <div id="cancelTraining">Eliminar Capacitación</div>
                     <div id="finishTraining">Finalizar Capacitación</div>
@@ -339,21 +339,3 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 </body>
 
 </html>
-
-<?php
-/*/$sql2 = 
-"SELECT t.id, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug,
- CASE 
-     WHEN c.custom = 0 THEN ds.h_start 
-     WHEN c.custom = 1 THEN cs.h_start 
-     END AS h_start 
- FROM Training t 
- INNER JOIN Calendar c ON t.training_date = c.calendar_date 
- INNER JOIN Machine m ON t.machine = m.id 
- INNER JOIN Brand b ON m.brand = b.id 
- INNER JOIN Users u ON t.worker = u.id 
- LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 
- LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 
- WHERE t.training_state = 1 AND training_date =  '$date' 
- ORDER BY training_date, h_start;"*/
-?>
