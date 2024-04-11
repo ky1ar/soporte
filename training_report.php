@@ -96,9 +96,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             endwhile;
                         endif; ?>
                     </table>
+                    <span id="totalRows" data-total="<?php echo $result->num_rows; ?>"></span>
+                    <div class="pagination" id="pagination"></div>
                 </div>
             </div>
         </div>
     </section>
+    <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
 </body>
 </html>
