@@ -28,8 +28,8 @@ $(document).ready(function () {
     event.preventDefault();
     searchOrderMessage.slideUp();
 
-    var orderNumber = $("#orderNumber").val();
-    var document = $("#document").val();
+    let orderNumber = $("#orderNumber").val();
+    let document = $("#document").val();
 
     if (!validateorderNumber(orderNumber) || !validateDocument(document)) {
       return;
@@ -43,7 +43,7 @@ $(document).ready(function () {
         document: document,
       },
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "order?number=" + orderNumber;
         } else {
@@ -56,9 +56,9 @@ $(document).ready(function () {
     });
   });
 
-  var currentDate = new Date();
-  var today = new Date();
-  var months = [
+  let currentDate = new Date();
+  let today = new Date();
+  let months = [
     "enero",
     "febrero",
     "marzo",
@@ -74,7 +74,7 @@ $(document).ready(function () {
   ];
 
   calendarPrev.click(function () {
-    var offsetMonth = currentDate.getMonth() - 1;
+    let offsetMonth = currentDate.getMonth() - 1;
     if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
@@ -85,8 +85,8 @@ $(document).ready(function () {
   });
 
   calendarNext.click(function () {
-    var offsetMonth = currentDate.getMonth() + 1;
-    var maxMonth = today.getMonth() + 2;
+    let offsetMonth = currentDate.getMonth() + 1;
+    let maxMonth = today.getMonth() + 2;
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
@@ -122,17 +122,16 @@ $(document).ready(function () {
     );
     currentDate.setDate(1);
 
-    var formatedDate =
+    let formatedDate =
       currentDate.getFullYear() +
       "-" +
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-    var splitDate = formatedDate.split("-");
-    var month = splitDate[1];
-    var month = months[parseInt(month, 10) - 1];
-    var firstDayNum = currentDate.getDay();
-    //console.log(firstDayNum);
+    let splitDate = formatedDate.split("-");
+    let month = splitDate[1];
+    month = months[parseInt(month, 10) - 1];
+    let firstDayNum = currentDate.getDay();
     $.ajax({
       url: "routes/loadCalendar",
       method: "POST",
@@ -154,10 +153,10 @@ $(document).ready(function () {
     calendarSelector.hide();
     scheduleSelector.show();
 
-    var dayNumber = $(this).attr("data-day");
-    var temporal = currentDate;
+    let dayNumber = $(this).attr("data-day");
+    let temporal = currentDate;
     temporal.setDate(dayNumber);
-    var formatedDate =
+    let formatedDate =
       temporal.getFullYear() +
       "-" +
       ("0" + (temporal.getMonth() + 1)).slice(-2) +
@@ -169,7 +168,7 @@ $(document).ready(function () {
       method: "POST",
       data: { date: formatedDate },
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         scheduleSelector.html(jsonData.html);
         calendarNavigation.hide();
         calendarBackDiv.show();
@@ -270,7 +269,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         if (jsonData.success) {
           scheduleCalendar.html(jsonData.success);
         } else {
@@ -283,23 +282,8 @@ $(document).ready(function () {
     });
   });
 
-  /* Validations */
-  // function validateDniRuc(dniRUC) {
-  //   if (dniRUC.trim() === "") {
-  //     message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
-  //     return false;
-  //   }
-  
-  //   if (dniRUC !== "KREAR*3D" && (dniRUC.length !== 8 && dniRUC.length !== 11)) {
-  //     message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
-  //     return false;
-  //   }
-  
-  //   return true;
-  // }
-
   function validateDniRuc(dniRUC) {
-    const regex = /^(KREAR\*3D|[0-9]{8}|[0-9]{11})$/;
+    const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
 
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
         message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
@@ -309,13 +293,6 @@ $(document).ready(function () {
     return true;
 }
 
-  function validateClient(client) {
-    if (client.trim() === "") {
-      message(scheduleFormMessage, "El campo del nombre no puede estar vacío");
-      return false;
-    }
-    return true;
-  }
   function validateClient(client) {
     if (client.trim() === "") {
       message(scheduleFormMessage, "El campo del nombre no puede estar vacío");
@@ -380,5 +357,15 @@ $(document).ready(function () {
       return false;
     }
     return true;
+  }
+  let tme_pday = $(".tme-top");
+
+  if (tme_pday) {
+    tme_pday.each(function () {
+      let dat_pday = $(this).data("stt");
+      let dat_prc = dat_pday * 5;
+      if (dat_prc > 100) dat_prc = 100;
+      $(this).css("left", dat_prc + "%");
+    });
   }
 });

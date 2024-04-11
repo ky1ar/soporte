@@ -11,7 +11,6 @@ $(document).ready(function () {
   const document = $("#document");
   const documentId = $("#documentId");
   const name = $("#name");
-  const comments = $("#ky1-cmm");
   const email = $("#email");
   const phone = $("#phone");
 
@@ -67,9 +66,9 @@ $(document).ready(function () {
     });
   });
 
-  $("#addOrderSubmit").submit(function (event) {
+  addOrderSubmit.submit(function (event) {
     event.preventDefault();
-    $("#addOrderMessage").slideUp();
+    addOrderMessage.slideUp();
 
     let order = $("#number").val().trim();
     let document = $("#document").val().trim();
@@ -118,7 +117,7 @@ $(document).ready(function () {
       },
       success: function (response) {
         if (response) {
-          var jsonData = JSON.parse(response);
+          let jsonData = JSON.parse(response);
           if (jsonData.success) {
             window.location.href = "grid";
           }
@@ -202,12 +201,12 @@ $(document).ready(function () {
   }
 
   function displayErrorMessage(message) {
-    $("#addOrderMessage")
+    addOrderMessage
       .html('<div class="error">' + message + "</div>")
       .slideDown();
   }
-  var parents = ["one", "two", "thr", "for", "fiv", "six", "sev", "eig", "nin"];
-  var parents_n = [
+  let parents = ["one", "two", "thr", "for", "fiv", "six", "sev", "eig", "nin"];
+  let parents_n = [
     "Recepción",
     "Ingreso",
     "Revisión",
@@ -219,42 +218,35 @@ $(document).ready(function () {
     "Entrega",
   ];
 
-  var now_ul;
-  var now_ulId;
+  let now_ul;
+  let now_ulId;
 
-  var now_li;
-  var now_liId;
-  var now_open;
-  var now_ord;
-  var new_ul;
-  var new_full;
+  let now_li;
+  let now_liId;
+  let now_open;
+  let now_ord;
+  let img;
 
-  var img;
+  let rpt_over = $("#rpt-ovr");
+  let rpt_mesg = $("#rpt-msg");
 
-  var rpt_over = $("#rpt-ovr");
-  var rpt_mesg = $("#rpt-msg");
+  let add_form = $("#add-frm");
 
-  var add_form = $("#add-frm");
+  let msg_ordn = $("#msg-ord");
+  let msg_imag = $("#msg-img");
 
-  var msg_ordn = $("#msg-ord");
-  var msg_imag = $("#msg-img");
+  let itm_time = $("#itm-tml");
+  let err_msg = $("#errorDiv");
 
-  var lst_time = $("#lst-tml");
-  var itm_time = $("#itm-tml");
-
-  var add_msg = $("#ky1-frm-msj");
-
-  var err_msg = $("#errorDiv");
-
-  var img_path =
+  let img_path =
     '<div class="img-flx"><img width="48" height="48" src="assets/img/';
 
-  var today = new Date();
-  var year = today.getFullYear();
-  var month = String(today.getMonth() + 1).padStart(2, "0");
-  var day = String(today.getDate()).padStart(2, "0");
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = String(today.getMonth() + 1).padStart(2, "0");
+  let day = String(today.getDate()).padStart(2, "0");
 
-  var fechaActual = year + "-" + month + "-" + day;
+  let fechaActual = year + "-" + month + "-" + day;
 
   $("#ky1-dte").val(fechaActual);
   $("#ky1-dte").val(fechaActual);
@@ -291,9 +283,9 @@ $(document).ready(function () {
 
   $("#msg-yes").on("click", function (e) {
     e.preventDefault();
-    var notes = $("#msg-cmm").val();
-    var changer = $("#msg-chn").val();
-    var check = $("#msg-chk").prop("checked");
+    let notes = $("#msg-cmm").val();
+    let changer = $("#msg-chn").val();
+    let check = $("#msg-chk").prop("checked");
 
     $.ajax({
       url: "updOrder.php",
@@ -306,7 +298,7 @@ $(document).ready(function () {
         check: check,
       },
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "grid";
         } else {
@@ -352,7 +344,7 @@ $(document).ready(function () {
   });
 
   $(".workerButton").on("click", function () {
-    var usr_dat = $(this).data("usrf");
+    let usr_dat = $(this).data("usrf");
     $(this).toggleClass("active");
     $('[data-usr="' + usr_dat + '"]').fadeToggle();
   });
@@ -364,7 +356,7 @@ $(document).ready(function () {
   });
 
   $("#ky1-mch").keyup(function () {
-    var machine = $(this).val();
+    let machine = $(this).val();
     if (machine.length >= 2) {
       $.ajax({
         type: "POST",
@@ -373,9 +365,9 @@ $(document).ready(function () {
         success: function (data) {
           $("#ky1-sgs").html(data);
           $(".frm-sgs").click(function () {
-            var sel = $(this).text();
-            var id = $(this).data("id");
-            var slug = $(this).data("slug");
+            let sel = $(this).text();
+            let id = $(this).data("id");
+            let slug = $(this).data("slug");
             $("#ky1-mch").val(sel);
             $("#ky1-sgs").html("");
             $("#ky1-mim").attr("src", "assets/mac/" + slug + ".webp");
@@ -398,7 +390,7 @@ $(document).ready(function () {
 
   $("#frm-log").submit(function (e) {
     e.preventDefault();
-    var formData = $(this).serialize();
+    let formData = $(this).serialize();
     err_msg.slideUp();
 
     $.ajax({
@@ -406,7 +398,7 @@ $(document).ready(function () {
       url: "proLogin.php",
       data: formData,
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "grid";
         } else {
@@ -418,8 +410,8 @@ $(document).ready(function () {
 
   $("#frm-cli").submit(function (e) {
     e.preventDefault();
-    var orders = $("#ky1-sor").val();
-    var document = $("#ky1-sdc").val();
+    let orders = $("#ky1-sor").val();
+    let document = $("#ky1-sdc").val();
     err_msg.slideUp();
 
     if (orders.trim() !== "" && document.trim() !== "") {
@@ -431,7 +423,7 @@ $(document).ready(function () {
           document: document,
         },
         success: function (response) {
-          var jsonData = JSON.parse(response);
+          let jsonData = JSON.parse(response);
           if (jsonData.success) {
             window.location.href = "order?number=" + orders;
           } else {
@@ -459,12 +451,12 @@ $(document).ready(function () {
     });
   });
 
-  var tme_pday = $(".tme-top");
+  let tme_pday = $(".tme-top");
 
   if (tme_pday) {
     tme_pday.each(function () {
-      var dat_pday = $(this).data("stt");
-      var dat_prc = dat_pday * 5;
+      let dat_pday = $(this).data("stt");
+      let dat_prc = dat_pday * 5;
       if (dat_prc > 100) dat_prc = 100;
       $(this).css("left", dat_prc + "%");
     });
@@ -473,13 +465,13 @@ $(document).ready(function () {
   $(".edt-yes").on("click", function (e) {
     e.preventDefault();
 
-    var frm = $(this).closest("form");
+    let frm = $(this).closest("form");
 
-    var orders = frm.find(".ky1-oid").val();
-    var worker = frm.find(".ky1-wrk").val();
-    var type = frm.find(".ky1-typ").val();
-    var paid = frm.find(".ky1-pid").val();
-    var origin = frm.find(".ky1-ori").val();
+    let orders = frm.find(".ky1-oid").val();
+    let worker = frm.find(".ky1-wrk").val();
+    let type = frm.find(".ky1-typ").val();
+    let paid = frm.find(".ky1-pid").val();
+    let origin = frm.find(".ky1-ori").val();
 
     $.ajax({
       url: "updOrderData.php",
@@ -492,7 +484,7 @@ $(document).ready(function () {
         origin: origin,
       },
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "grid";
         }
@@ -500,23 +492,20 @@ $(document).ready(function () {
     });
   });
 
-  var header = $("#add-tml");
-  var headerHeight = header.height();
-  var lastScroll = 0;
+  let header = $("#add-tml");
+  let headerHeight = header.height();
+  let lastScroll = 0;
 
   $(window).scroll(function () {
-    var currentScroll = $(this).scrollTop();
+    let currentScroll = $(this).scrollTop();
 
     if (currentScroll > lastScroll) {
       // Scroll hacia abajo
       if (currentScroll > headerHeight) {
         header.addClass("ky1-fxd");
       }
-    } else {
-      // Scroll hacia arriba
-      if (currentScroll <= headerHeight) {
+    } else if (currentScroll <= headerHeight) {
         header.removeClass("ky1-fxd");
-      }
     }
 
     lastScroll = currentScroll;
@@ -527,7 +516,7 @@ $(document).ready(function () {
 
   $(".pendingTable .preview").click(function () {
     let fileUrl = $(this).data("src");
-    var fileExtension = fileUrl.split(".").pop().toLowerCase();
+    let fileExtension = fileUrl.split(".").pop().toLowerCase();
 
     if (fileExtension === "pdf") {
       invoiceFile.html(
@@ -600,9 +589,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        //console.log(response);
-        const jsonData = JSON.parse(response);
-        //console.log(jsonData);
+        const jsonData = JSON.par
         if (jsonData.success) {
           window.location.href = "training";
         } else {
@@ -634,7 +621,6 @@ $(document).ready(function () {
       contentType: false,
       success: function (response) {
         const jsonData = JSON.parse(response);
-        //console.log(jsonData);
         if (jsonData.success) {
           const data = jsonData.success;
           viewOverlay.find(".date").text(
@@ -686,16 +672,8 @@ $(document).ready(function () {
     } else {
       const date = $(this).data("date");
       const start = $(this).data("start");
-      //const now = new Date();
       const startDate = new Date(date + " " + start);
       startDate.setMinutes(startDate.getMinutes() + 90);
-      //if (now > startDate) {
-      //cancelTraining.hide();
-      //finishTraining.show();
-      /*} else {
-				finishTraining.hide();
-				cancelTraining.show();
-			}*/
       buttons.show();
       buttons.attr("data-id", trainingId);
     }
@@ -713,10 +691,8 @@ $(document).ready(function () {
 
   const finishTraining = $("#finishTraining");
   const cancelTraining = $("#cancelTraining");
-  //const viewTraining = $("#viewTraining");
 
   finishTraining.click(function () {
-    //viewMessage.slideUp();
     let trainingId = viewOverlay.find(".viewButtons").data("id");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
@@ -728,13 +704,9 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        //console.log(response);
         const jsonData = JSON.parse(response);
-        //console.log(jsonData);
         if (jsonData.success) {
           window.location.href = "training";
-        } else {
-          //message(viewMessage, jsonData.error);
         }
       },
       error: function (xhr, status, error) {
@@ -742,10 +714,8 @@ $(document).ready(function () {
       },
     });
   });
-  const viewMessage = $("#viewMessage");
 
   cancelTraining.click(function () {
-    //viewMessage.slideUp();
     let trainingId = viewOverlay.find(".viewButtons").data("id");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
@@ -757,14 +727,10 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        //console.log(response);
         const jsonData = JSON.parse(response);
-        //console.log(jsonData);
         if (jsonData.success) {
           window.location.href = "training";
-        } else {
-          //message(viewMessage, jsonData.error);
-        }
+        } 
       },
       error: function (xhr, status, error) {
         console.error("Error:", error);
@@ -830,7 +796,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        var jsonData = JSON.parse(response);
+        let jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "training";
         } else {
@@ -843,9 +809,8 @@ $(document).ready(function () {
     });
   });
 
-  var currentDate = new Date();
-  var today = new Date();
-  var months = [
+  let currentDate = new Date();
+  let months = [
     "enero",
     "febrero",
     "marzo",
@@ -903,17 +868,16 @@ $(document).ready(function () {
     );
     currentDate.setDate(1);
 
-    var formatedDate =
+    let formatedDate =
       currentDate.getFullYear() +
       "-" +
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-    var splitDate = formatedDate.split("-");
-    var month = splitDate[1];
-    var month = months[parseInt(month, 10) - 1];
-    var firstDayNum = currentDate.getDay();
-    //console.log(firstDayNum);
+    let splitDate = formatedDate.split("-");
+    let month = splitDate[1];
+    month = months[parseInt(month, 10) - 1];
+    let firstDayNum = currentDate.getDay();
     $.ajax({
       url: "routes/loadCalendarAdmin",
       method: "POST",
@@ -931,10 +895,10 @@ $(document).ready(function () {
   }
 
   $("#upd_worker").on("click", function (e) {
-    var id_worker = $(".id_worker").val();
-    var pre = $(".pre").val();
+    let id_worker = $(".id_worker").val();
+    let pre = $(".pre").val();
 
-    var datos = new FormData();
+    let datos = new FormData();
     datos.append("id_worker", id_worker);
     datos.append("pre", pre);
 
@@ -947,8 +911,7 @@ $(document).ready(function () {
       processData: false,
       dataType: "json",
       success: function (response) {
-        // var jsonData = JSON.parse(response);
-        if (response.success == true) {
+        if (response.success ) {
           window.location.href = "training";
         }
       },
