@@ -2237,14 +2237,14 @@ body {
     font-weight: 700;
 }
 #rpt-dat .dat-two .rpt-tbl .row-tst .st0 {
-    background-color: #fffade;
-    color: #f2b606;
-    border: 1px solid #f2b606;
-}
-#rpt-dat .dat-two .rpt-tbl .row-tst .st1 {
     background-color: #fff4e6;
     color: #e58102;
     border: 1px solid #e58102;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st1 {
+    background-color: #e6f1ff;
+    color: #0289e5;
+    border: 1px solid #0289e5;
 }
 #rpt-dat .dat-two .rpt-tbl .row-tst .st2 {
     background-color: #f2fff7;
@@ -2252,14 +2252,14 @@ body {
     border: 1px solid #0aa139;
 }
 #rpt-dat .dat-two .rpt-tbl .row-tst .st3 {
-    background-color: #ffe6eb;
-    color: #e50233;
-    border: 1px solid #e50233;
-}
-#rpt-dat .dat-two .rpt-tbl .row-tst .st4 {
     background-color: #cccccc;
     color: #5e5e5e;
     border: 1px solid #5e5e5e;
+}
+#rpt-dat .dat-two .rpt-tbl .row-tst .st4 {
+    background-color: #ffe6eb;
+    color: #e50233;
+    border: 1px solid #e50233;
 }
 /*********************************** FOOTER **********************************/
 footer {
@@ -2997,7 +2997,7 @@ footer .ftr-cpy {
     font-size: 1.125rem;
     font-weight: 700;
     border-radius: 2rem;
-    background-color: #000000;
+    background-color: #242d34;
     color: #ffffff;
 }
 #viewTraining .card {
@@ -3057,7 +3057,7 @@ footer .ftr-cpy {
     width: 100%;
 }
 #viewTraining .viewButtons #cancelTraining {
-    background-color: #ff2e2e;
+    background-color: #1f2d35;
     color: #fff;
     font-weight: 600;
     padding: 0.5rem 0;
@@ -3070,6 +3070,7 @@ footer .ftr-cpy {
 #viewTraining .viewButtons #finishTraining {
     background-color: #ed5d1f;
     color: #fff;
+    font-weight: 600;
     padding: 0.5rem 0;
     border-radius: 2rem;
     text-align: center;
