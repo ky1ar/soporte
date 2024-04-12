@@ -19,7 +19,7 @@ require_once 'includes/common/header.php';
 
     <section id="searchOrderBox">
         <div class="wrapper">
-            <div class="guide"><img src="assets/img/guia-pre.png" alt=""></div>
+            <div class="guide"><img src="assets/img/guia-pre.webp" alt=""></div>
             <form id="searchOrder">
                 <img src="assets/img/ord.svg" alt="ico" width="64" height="64">
                 <h1>Consultar Orden de Servicio</h1>
