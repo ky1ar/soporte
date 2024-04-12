@@ -462,6 +462,19 @@ $(document).ready(function () {
     });
   }
 
+  $('.tbl-tec').on('click', function() {
+
+    rpt_over.fadeToggle();
+    $('.ky1-blr').toggleClass('blr-act');
+
+    const now_li = $(this).closest('tr');
+    const now_liId = now_li.data('id');
+    
+    now_open = itm_time.find('li[data-id="' + (now_liId) + '"]');
+
+    now_open.fadeToggle();
+});
+
   $(".edt-yes").on("click", function (e) {
     e.preventDefault();
 
