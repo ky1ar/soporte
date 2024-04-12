@@ -78,7 +78,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 $date = strtotime($row['dates']);
                                 $date = strftime("%e de %B de %Y", $date);
                         ?>
-                                <tr>
+                                <tr data-id="<?php echo $row['orders'] ?>">
                                     <td><?php echo $n ?></td>
                                     <td class="row-odr">
                                         <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['slug'] ?>.webp" alt="">
