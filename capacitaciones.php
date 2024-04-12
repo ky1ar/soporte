@@ -167,7 +167,7 @@ require_once 'includes/common/header.php';
             </div>
         </div>
     </section>
-    <section class="stepsx">
+    <!--<section class="stepsx">
         <div class="stepx">
             <div class="circle">1</div>
             <h2>SELECCIONA</h2>
@@ -185,7 +185,7 @@ require_once 'includes/common/header.php';
             <h2>CONFIRMA</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt ducimus debitis molestiae rerum consectetur aliquid ad dolores.</p>
         </div>
-    </section>
+    </section>-->
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
 </html>
