@@ -234,7 +234,7 @@ body {
   background-color: var(--gray);
   background-image: url(whirlpool.png);
   box-shadow: inset 0 0 0.25rem var(--graydark);
-  padding: 4rem 0;
+  padding: 1rem 0;
 }
 #searchOrderBox .guide img {
   width: 100%;
