@@ -5,7 +5,7 @@
 </head>
 <body>
     <h2>Registro de Usuario</h2>
-    <form action="register_process.php" method="post">
+    <form action="routes/register_process.php" method="post">
         <label for="levels">Nivel:</label>
         <input type="text" id="levels" name="levels"><br><br>
         <label for="document">Documento:</label>

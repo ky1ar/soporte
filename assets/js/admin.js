@@ -97,7 +97,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-      url: "addOrder",
+      url: "routes/addOrder",
       method: "POST",
       data: {
         order: order,
@@ -137,7 +137,7 @@ $(document).ready(function () {
       return false;
     }
     $.ajax({
-      url: "srcOrders.php",
+      url: "routes/srcOrders",
       method: "POST",
       data: { orders: order },
       dataType: "json",
@@ -288,7 +288,7 @@ $(document).ready(function () {
     let check = $("#msg-chk").prop("checked");
 
     $.ajax({
-      url: "updOrder.php",
+      url: "routes/updOrder",
       method: "POST",
       data: {
         now_ord: now_ord,
@@ -360,7 +360,7 @@ $(document).ready(function () {
     if (machine.length >= 2) {
       $.ajax({
         type: "POST",
-        url: "srcMachine.php",
+        url: 'routes/srcMachine',
         data: { machine: machine },
         success: function (data) {
           $("#ky1-sgs").html(data);
@@ -395,7 +395,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "proLogin.php",
+      url: "routes/proLogin",
       data: formData,
       success: function (response) {
         let jsonData = JSON.parse(response);
@@ -406,35 +406,6 @@ $(document).ready(function () {
         }
       },
     });
-  });
-
-  $("#frm-cli").submit(function (e) {
-    e.preventDefault();
-    let orders = $("#ky1-sor").val();
-    let document = $("#ky1-sdc").val();
-    err_msg.slideUp();
-
-    if (orders.trim() !== "" && document.trim() !== "") {
-      $.ajax({
-        type: "POST",
-        url: "proClient",
-        data: {
-          orders: orders,
-          document: document,
-        },
-        success: function (response) {
-          let jsonData = JSON.parse(response);
-          if (jsonData.success) {
-            window.location.href = "order?number=" + orders;
-          } else {
-            err_msg.text(jsonData.message).slideDown();
-          }
-        },
-      });
-    } else {
-      // Mostrar un mensaje de error si los campos están vacíos
-      err_msg.text("Por favor, completa ambos campos").slideDown();
-    }
   });
 
   const locateOrder = $("#locateOrder");
@@ -487,7 +458,7 @@ $(document).ready(function () {
     let origin = frm.find(".ky1-ori").val();
 
     $.ajax({
-      url: "updOrderData.php",
+      url: "routes/updOrderData",
       method: "POST",
       data: {
         orders: orders,
