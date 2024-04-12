@@ -1,6 +1,6 @@
 <header id="navigationBar">
     <div class="wrapper">
-        <a href="/"><img class="logo" width="150" height="42" src="assets/img/logod.webp" alt="Logo Krear 3D"></a>
+        <a href="/"><img class="logo" width="150" height="42" src="assets/img/logo.svg" alt="Logo Krear 3D"></a>
         <ul>
             <li><a <?php if($currentPage == 'Equipos') echo 'class="active"'; ?> href="/grid">Equipos</a></li>
             <li><a <?php if($currentPage == 'Capacitaciones') echo 'class="active"'; ?> href="training">Capacitaciones</a></li>
