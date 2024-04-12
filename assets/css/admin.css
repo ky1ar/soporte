@@ -44,7 +44,7 @@ svg {
 }
 /***********************************************************************************/
 body {
-	background-color: var(--white);
+	background-color: var(--gray);
     margin: 0;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.85rem;
