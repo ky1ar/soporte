@@ -906,99 +906,93 @@ body {
     padding: 1rem;
 }
 /*********************************** LOGIN **********************************/
-#ky1-lgn {
-    background-color: #101717;
-    padding: 4rem 0;
-    background-image: url("../img/bg.webp");
+#login {
     height: 100vh;
     position: relative;
+    background-color: var(--gray);
+    background-image: url(whirlpool.png);
+    box-shadow: inset 0 0 0.25rem var(--graydark);
 }
-#ky1-lgn .ky1-cnt {
+#login .modal {
     position: absolute;
     left: 50%;
     display: flex;
     transform: translateX(-50%) translateY(-50%);
     top: 50%;
-    border-radius: 1rem;
-    background-color: #eee;
+    flex-direction: row-reverse;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 2rem var(--graydarkest);
+    overflow: hidden;
+    align-items: center;
+    background-color: #fff;
 }
-#ky1-lgn .lgn-lft {
+#login .left {
     padding: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30rem;
-}
-#ky1-lgn .lgn-lft .lgn-flx {
-    display: flex;
-    flex-direction: column;
-}
-
-#ky1-lgn .lgn-lft h1 {
-	margin: 0;
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-}
-#ky1-lgn .lgn-lft h3 {
-	font-size: 1rem;
-    font-weight: 300;
-}
-#ky1-lgn .lgn-lft ul {
-	padding: 0 1rem;
-}
-#ky1-lgn .lgn-rgt {
-    padding: 5rem 4rem;
     height: 100%;
-    align-items: center;
     border-radius: 0 1rem 1rem 0;
-    background-color: var(--white);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
+    width: 26rem;
 }
-#ky1-lgn .lgn-rgt img {
-    width: 11rem;
-    margin-bottom: 1.5rem;
+#login .left img {
+    width: 8rem;
 }
-#ky1-lgn .lgn-rgt p {
-    font-size: 0.9rem;
+#login .left h1 {
+    font-size: 1.25rem;
     margin: 0;
-    margin-bottom: 1.5rem;
 }
-#ky1-lgn .lgn-rgt input {
-    border: 1px solid var(--graydark);
-    padding: 1rem;
-    border-radius: 0.25rem;
+#login .left p {
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 0.75;
+}
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#loginForm label {
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+#loginForm input {
     outline: none;
-    width: 18rem;
-    font-size: 0.9rem;
-}
-#ky1-lgn .lgn-rgt a {
-    color: #000000;
+    border: 1px solid var(--graydark);
+    background-color: var(--gray);
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
     width: 100%;
-    text-align: right;
+    font-family: "DM Sans", sans-serif;
 }
-#ky1-lgn .lgn-rgt button {
+#loginForm button {
     width: 100%;
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem;
     background-color: var(--primary);
     border-radius: 2rem;
     color: var(--white);
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
 }
-#ky1-lgn .lgn-rgt #errorDiv {
+#loginForm #errorDiv {
     color: #ed5d1f;
     font-weight: 700;
 }
-#ky1-lgn .lgn-rgt button.lgn-rgt {
-    margin-top: 0.5rem;
-    background-color: var(--secondary);
+#login .right {
+    padding: 4rem;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26rem;
 }
+
+
 /*********************************** LOGIN **********************************/
 #itm-tml .itm-ul {
     padding: 0;
