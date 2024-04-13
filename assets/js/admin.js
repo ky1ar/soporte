@@ -388,7 +388,7 @@ $(document).ready(function () {
     $(".ky1-blr").toggleClass("blr-act");
   });
 
-  $("#frm-log").submit(function (e) {
+  $("#loginForm").submit(function (e) {
     e.preventDefault();
     let formData = $(this).serialize();
     err_msg.slideUp();
