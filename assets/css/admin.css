@@ -919,7 +919,6 @@ body {
     display: flex;
     transform: translateX(-50%) translateY(-50%);
     top: 50%;
-    flex-direction: row-reverse;
     border-radius: 0.5rem;
     box-shadow: 0 8px 2rem var(--graydarkest);
     overflow: hidden;
