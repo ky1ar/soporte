@@ -28,7 +28,7 @@ require_once 'includes/common/header.php';
                     <div class="step">
                         <span><img width="22" height="22" src="assets/img/register.svg" alt=""></span>
                         <div>
-                            <h3>Agenda tu cita</h3>
+                            <h3>Agenda tu capacitación</h3>
                             <p>Elige la fecha y hora que mejor te convenga.</p>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ require_once 'includes/common/header.php';
                         <div id="scheduleForm">
                             <form method="post" id="scheduleSubmit" enctype="multipart/form-data">
                                 <div id="selectedSchedule"></div>
-                                <p class="selectedMessage">Completa los campos para reservar tu cita.</p>
+                                <p class="selectedMessage">Completa los campos para tu reserva.</p>
                                 
                                 <ul>
                                     <li class="percent30">
