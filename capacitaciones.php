@@ -24,7 +24,7 @@ require_once 'includes/common/header.php';
         <div class="wrapper">
             <div class="content">
                 <div class="left">
-                    <span class="title">Toma en cuenta los siguientes puntos al reservar tu capacitacióna:</span>
+                    <span class="title">Toma en cuenta los siguientes puntos al reservar tu capacitación:</span>
                     <div class="step">
                         <span><img width="22" height="22" src="assets/img/register.svg" alt=""></span>
                         <div>
@@ -35,8 +35,8 @@ require_once 'includes/common/header.php';
                     <div class="step">
                         <span><img width="22" height="22" src="assets/img/pc.svg" alt=""></span>
                         <div>
-                            <h3>Preparación previa</h3>
-                            <p>Asegúrate de tener tu cámara y micrófono preparados.</p>
+                            <h3>Prepárate</h3>
+                            <p>Asegúrate de tener tu cámara y micrófono listos.</p>
                         </div>
                     </div>
                     <div class="step">
