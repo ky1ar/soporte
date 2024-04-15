@@ -24,17 +24,11 @@ function showPage(pageNumber) {
 function updatePaginationButtons(currentPage) {
   var pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
-  var startPage = 1;
+  var startPage = currentPage > 3 ? currentPage - 2 : 1;
   var endPage = Math.min(startPage + 4, totalPages);
 
-  if (totalPages > 5 && currentPage > 3) {
-    startPage = currentPage - 2;
-    endPage = Math.min(currentPage + 2, totalPages);
-  }
-
-  if (totalPages > 5 && currentPage === totalPages) {
-    startPage = currentPage - 4;
-    endPage = currentPage;
+  if (endPage === totalPages) {
+    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 5 botones siempre
   }
 
   if (currentPage > 1) {
