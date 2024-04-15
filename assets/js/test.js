@@ -27,11 +27,15 @@ function updatePaginationButtons(currentPage) {
   var startPage = currentPage > 3 ? currentPage - 2 : 1;
   var endPage = Math.min(startPage + 4, totalPages);
 
+  if (endPage === totalPages) {
+    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 5 botones siempre
+  }
+
   if (currentPage > 1) {
     var prevButton = document.createElement("button");
     var img = document.createElement("img");
     img.src = "../assets/img/left.png";
-    img.alt = "Siguiente";
+    img.alt = "Anterior";
     prevButton.appendChild(img);
     prevButton.addEventListener("click", function () {
       showPage(currentPage - 1);
@@ -64,5 +68,6 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
+
 
 showPage(1);
