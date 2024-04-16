@@ -2681,10 +2681,11 @@ footer .ftr-cpy {
     opacity: 0.75;
 }
 #calendarSelector .calendarBox li .calendarViewRow.finish {
-    background-color: var(--gray);
+    background-color: var(--gray) !important;
+    border-left: 3px solid #d9d9d9 !important;
 }
 #calendarSelector .calendarBox li .calendarViewRow.finish h2 {
-    color: var(--black);
+    background-color: #d9d9d9 !important;
 }
 /*********************************************************************/
 
