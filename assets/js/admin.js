@@ -573,7 +573,7 @@ $(document).ready(function () {
 
   const $rejectTraining = $("#rejectTraining");
 
-  $rejectTraining.submit(function (event) {
+  $rejectTraining.click(function (event) {
     event.preventDefault();
     actionMessage.slideUp();
 
