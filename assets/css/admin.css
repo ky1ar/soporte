@@ -3058,6 +3058,10 @@ footer .ftr-cpy {
     gap: 0.25rem;
     align-items: start;
 }
+#viewTraining .card .title {
+    display: flex;
+    gap: 0.5rem;
+}
 #viewTraining .card h2 {
     margin: 0;
     font-size: 1.25rem;

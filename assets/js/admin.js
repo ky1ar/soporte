@@ -640,6 +640,7 @@ $(document).ready(function () {
     const $upd_worker  = $("#upd_worker");
     const $schedule    = $("#viewTraining .schedule");
     const $model       = $("#viewTraining .model");
+    const $count       = $("#viewTraining .count");
     const $name        = $("#viewTraining .name");
     const $invoice     = $("#viewTraining .invoice");
     const $document    = $("#viewTraining .document");
@@ -699,6 +700,7 @@ $(document).ready(function () {
 
           $schedule.text(data.schedule);
           $model.text(data.model);
+          $count.text(data.count);
           $name.text(data.name);
           $invoice.attr("data-src", data.invoice);
           $document.text(data.document);
