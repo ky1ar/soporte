@@ -502,7 +502,7 @@ $(document).ready(function () {
   viewInvoice.click(function () {
     let fileUrl = $(this).data("src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
-
+    console.log(fileUrl);
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
