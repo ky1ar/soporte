@@ -163,6 +163,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         <div class="editableMeet">
                             <img src="assets/img/meet.svg" alt="">
                             <input class="upd_meet" id="meetLink" type="text" placeholder="Ingrese el link de Google Meet">
+                            <div id="actionMessage"></div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +189,6 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                     </div>
                     <img class="image" src="" alt="">
                 </div>
-                <div id="actionMessage"></div>
                 <div class="actionButtons" data-id="" data-date="">
                     <div id="rejectTraining">Rechazar Solicitud</div>
                     <div id="aproveTraining">Aprobar Solicitud</div>

@@ -3035,6 +3035,13 @@ footer .ftr-cpy {
     width: 18rem;
     font-family: "DM Sans", sans-serif;
 }
+#actionMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
+    font-weight: 600;
+    padding: 0.5rem;
+    text-align: center;
+}
 #viewTraining .content button {
     border: none;
     background-color: var(--gray);

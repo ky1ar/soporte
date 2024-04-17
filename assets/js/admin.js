@@ -772,33 +772,12 @@ $(document).ready(function () {
   }
   function validateMeet(meet) {
     if (meet.trim() === "") {
-      message(actionMessage, "Ingrese un link de Google Meet");
+      message(actionMessage, "Δ Ingrese un link de Google Meet Δ");
       return false;
     }
     return true;
   }
 
-  /*const rejectOverlay = $("#rejectOverlay");
-
-  $(".actionButtons .reject").click(function () {
-    let selectedId = $(this).closest(".actionButtons").data("id");
-    rejectOverlay.find(".rejectButtons").attr("data-id", selectedId);
-    let date = $(this).closest(".actionButtons").data("date");
-    rejectOverlay.find(".rejectButtons").attr("data-date", date);
-    rejectOverlay.fadeToggle();
-  });
-
-  rejectOverlay.find(".modalClose, .modalCancel").click(function () {
-    rejectOverlay.fadeToggle();
-  });
-
-  $(window).click(function (event) {
-    if (event.target == rejectOverlay[0]) {
-      rejectOverlay.fadeToggle();
-    }
-  });*/
-
-  
 
   let currentDate = new Date();
   let months = [
