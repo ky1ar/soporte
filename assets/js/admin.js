@@ -498,9 +498,9 @@ $(document).ready(function () {
   const previewInvoice = $("#previewInvoice");
   const invoiceFile = $("#invoiceFile");
   const viewOverlay = $("#viewOverlay");
+  const viewInvoice = $("#viewInvoice");
 
-  viewOverlay.on("click", ".invoice", function () {
-    console.log($(this).data("src"));
+  viewInvoice.click(function () {
     let fileUrl = $(this).data("src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
     if (fileExtension === "pdf") {
@@ -610,32 +610,32 @@ $(document).ready(function () {
   const $viewButtons    = $("#viewTraining .viewButtons");
 
   calendarTable.on("click", ".calendarViewRow", function () {
-    const trainingId = $(this).data("id");
+    let trainingId = $(this).data("id");
     let level = $("#upd_worker").data("level");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
 
-    const $date        = $("#viewTraining .date");
-    const $worker      = $("#viewTraining .worker");
-    const $id_worker   = $("#viewTraining .id_worker");
-    const $upd_worker  = $("#upd_worker");
-    const $schedule    = $("#viewTraining .schedule");
-    const $model       = $("#viewTraining .model");
-    const $count       = $("#viewTraining .count");
-    const $name        = $("#viewTraining .name");
-    const $invoice     = $("#viewTraining .invoice");
-    const $document    = $("#viewTraining .document");
-    const $email       = $("#viewTraining .email");
-    const $phone       = $("#viewTraining .phone");
-    const $meet        = $("#viewTraining .meet");
-    const $upd_meet    = $("#viewTraining .upd_meet");
-    const $image       = $("#viewTraining .image");
-    const $pre         = $("#viewTraining .pre");
+    let $date        = $("#viewTraining .date");
+    let $worker      = $("#viewTraining .worker");
+    let $id_worker   = $("#viewTraining .id_worker");
+    let $upd_worker  = $("#upd_worker");
+    let $schedule    = $("#viewTraining .schedule");
+    let $model       = $("#viewTraining .model");
+    let $count       = $("#viewTraining .count");
+    let $name        = $("#viewTraining .name");
+    let $invoice     = $("#viewTraining .invoice");
+    let $document    = $("#viewTraining .document");
+    let $email       = $("#viewTraining .email");
+    let $phone       = $("#viewTraining .phone");
+    let $meet        = $("#viewTraining .meet");
+    let $upd_meet    = $("#viewTraining .upd_meet");
+    let $image       = $("#viewTraining .image");
+    let $pre         = $("#viewTraining .pre");
 
-    const $staticWorker   = $("#viewTraining .staticWorker");
-    const $editableWorker = $("#viewTraining .editableWorker");
-    const $staticMeet   = $("#viewTraining .staticMeet");
-    const $editableMeet = $("#viewTraining .editableMeet");
+    let $staticWorker   = $("#viewTraining .staticWorker");
+    let $editableWorker = $("#viewTraining .editableWorker");
+    let $staticMeet   = $("#viewTraining .staticMeet");
+    let $editableMeet = $("#viewTraining .editableMeet");
 
     $.ajax({
       url: "routes/getTraining",
