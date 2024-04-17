@@ -500,9 +500,9 @@ $(document).ready(function () {
   const viewOverlay = $("#viewOverlay");
 
   viewOverlay.on("click", ".invoice", function () {
+    console.log($(this).data("src"));
     let fileUrl = $(this).data("src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
-    console.log(fileUrl);
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
