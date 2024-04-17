@@ -666,7 +666,7 @@ $(document).ready(function () {
           $pre.val(trainingId);
 
           viewOverlay.fadeToggle();
-          $invoice.attr("data-src", '');
+          $invoice.attr("data-src", data.invoice);
 
           console.log($invoice.data('src'));
         }
