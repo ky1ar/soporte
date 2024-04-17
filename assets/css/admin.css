@@ -3028,7 +3028,6 @@ footer .ftr-cpy {
 #viewTraining .content .editableMeet input {
     outline: none;
     border: 1px solid var(--graydark);
-    background-color: var(--gray);
     padding: 0.5rem;
     margin-top: 0.25rem;
     border-radius: 0.25rem;
