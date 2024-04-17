@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->begin_transaction();
 
         $scheduleId = $_POST['scheduleId'];
-        $rejectText = $_POST['rejectText'];
+        //$rejectText = $_POST['rejectText'];
         $date = $_POST['date'];
 
 
@@ -20,12 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_email->fetch();
         $stmt_email->close();
 
-        $sql = "UPDATE Training SET details = ?, training_state = 3 WHERE id = ?";
+        $sql = "UPDATE Training SET training_state = 3 WHERE id = ?";
         $stmt = $conn->prepare($sql);
         if (!$stmt) {
             throw new Exception("Error en la preparación de la consulta para actualizar la capacitación");
         }
-        $stmt->bind_param("si", $rejectText, $scheduleId);
+        $stmt->bind_param("i", $scheduleId);
         $stmt->execute();
 
         $result = $stmt->affected_rows;

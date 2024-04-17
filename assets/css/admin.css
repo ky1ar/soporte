@@ -2599,7 +2599,7 @@ footer .ftr-cpy {
     flex-direction: column;
     justify-content: start;
     border: 1px solid #eee;
-    gap: 0.25rem;
+    gap: 0.5rem;
 }
 #calendarSelector .calendarBox li .boxDay {
     font-weight: 600;
@@ -2618,25 +2618,36 @@ footer .ftr-cpy {
     background-color: var(--primaryopacity);
 }
 #calendarSelector .calendarBox li.today span {
-    color: var(--primary);
+    color: #e56119;
     opacity: 1;
 }
 #calendarSelector .calendarBox li.today::before {
     content: "";
-    background-color: var(--primary);
-    width: 0.75rem;
-    height: 0.25rem;
     position: absolute;
-    border-radius: 1rem;
-    bottom: 0.75rem;
+    width: 0;
+    height: 0;
+    border-top: 1.5rem solid #e56119;
+    border-left: 1.5rem solid transparent;
+    right: 0;
+    top: 0;
+}
+#calendarSelector .calendarBox li.today::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 1.5rem solid #e56119;
+    border-right: 1.5rem solid transparent;
+    left: 0;
+    bottom: 0;
 }
 #calendarSelector .calendarBox li span {
     opacity: 0.5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 0.9rem;
     height: initial;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
 }
 #calendarSelector .calendarBox li .calendarView {
     display: flex;
@@ -2656,6 +2667,7 @@ footer .ftr-cpy {
     width: 100%;
     padding: 0.5rem;
     flex-direction: column;
+    background-color: #ee9f7e47;
 }
 #calendarSelector .calendarBox li .calendarViewRow h3 {
     margin: 0;
@@ -2673,6 +2685,7 @@ footer .ftr-cpy {
     font-weight: 600;
     border-radius: 1rem;
     padding: 0.125rem 0.5rem;
+    background-color: #ee9f7e;
 }
 #calendarSelector .calendarBox li .calendarViewRow p {
     margin: 0;
@@ -2682,11 +2695,24 @@ footer .ftr-cpy {
 }
 #calendarSelector .calendarBox li .calendarViewRow.finish {
     background-color: var(--gray) !important;
-    border-left: 3px solid #d9d9d9 !important;
 }
 #calendarSelector .calendarBox li .calendarViewRow.finish h2 {
     background-color: #d9d9d9 !important;
 }
+#calendarSelector .calendarBox li .calendarViewRow.pending {
+    animation: blink-1 2s infinite both;
+}
+@keyframes blink-1 {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0.125;
+    }
+  }
 /*********************************************************************/
 
 #previewInvoice {
@@ -2949,42 +2975,19 @@ footer .ftr-cpy {
 }
 #viewTraining .header {
     display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 2rem;
-}
-#viewTraining .header .left {
-    display: flex;
-    flex-direction: column;
     gap: 0.5rem;
+    flex-direction: column;
 }
-#viewTraining .header .date {
+#viewTraining .block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#viewTraining .block .date {
     margin: 0;
     font-size: 1.5rem;
 }
-#viewTraining .header .content {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-#viewTraining .header .content select {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #d1d1d1;
-    border-radius: 1rem;
-    font-family: 'DM Sans', sans-serif;
-}
-#viewTraining .header .content button {
-    border: 1px solid #e6e6e6;
-    background-color: var(--gray);
-    display: flex;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 4rem;
-    justify-content: center;
-    cursor: pointer;
-}
-#viewTraining .header .schedule {
+#viewTraining .block .schedule {
     margin: 0;
     padding: 0.5rem 1.5rem;
     text-align: center;
@@ -2993,6 +2996,58 @@ footer .ftr-cpy {
     border-radius: 2rem;
     background-color: #242d34;
     color: #ffffff;
+}
+#viewTraining .content {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+#viewTraining .content .editableWorker,
+#viewTraining .content .editableMeet,
+#viewTraining .content .staticWorker,
+#viewTraining .content .staticMeet {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+#viewTraining .content .staticMeet a {
+    color: var(--primary);
+    font-weight: 500;
+    transition: opacity 0.25s ease-in-out;
+}
+#viewTraining .content .staticMeet a:hover {
+    opacity: 0.75;
+}
+#viewTraining .content .editableWorker select {
+    padding: 0 0.75rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    height: 2rem;
+}
+#viewTraining .content .editableMeet input {
+    outline: none;
+    border: 1px solid var(--graydark);
+    background-color: var(--gray);
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    width: 18rem;
+    font-family: "DM Sans", sans-serif;
+}
+#actionMessage {
+    font-size: 0.8rem;
+    color: #ed5d1f;
+    font-weight: 600;
+    padding: 0.5rem;
+    text-align: center;
+}
+#viewTraining .content button {
+    border: none;
+    background-color: var(--gray);
+    padding: 0.5rem 1.25rem;
+    border-radius: 4rem;
+    cursor: pointer;
 }
 #viewTraining .card {
     display: flex;
@@ -3008,6 +3063,11 @@ footer .ftr-cpy {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    align-items: start;
+}
+#viewTraining .card .title {
+    display: flex;
+    gap: 0.5rem;
 }
 #viewTraining .card h2 {
     margin: 0;
@@ -3016,6 +3076,7 @@ footer .ftr-cpy {
 #viewTraining .card h3 {
     margin: 0;
     opacity: 0.75;
+    text-transform: capitalize;
 }
 #viewTraining .card .link {
     display: flex;
@@ -3027,6 +3088,18 @@ footer .ftr-cpy {
     margin: 0;
     font-size: 0.9rem;
     opacity: 0.75;
+}
+#viewTraining .card .invoice {
+    cursor: pointer;
+    display: flex;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    color: #ed5d1f;
+    background-color: #fffdf5;
+    border: 1px solid #ed5d1f;
+    gap: 0.5rem;
+    font-weight: 600;
 }
 #viewTraining .card .link .phone {
     color: #000;
@@ -3071,6 +3144,40 @@ footer .ftr-cpy {
     cursor: pointer;
     flex: 1;
     border: none;
+}
+
+#viewTraining .actionButtons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+#viewTraining .actionButtons #rejectTraining {
+    font-size: 0.75rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #fff2f2;
+    color: #f54f4f;
+    border: 1px solid #f54f4f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0.5rem 0;
+}
+#viewTraining .actionButtons #aproveTraining {
+    font-size: 0.75rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #f2fff7;
+    color: #0aa139;
+    border: 1px solid #0aa139;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0.5rem 0;
 }
 #viewTraining .modalClose {
     position: absolute;
@@ -3284,3 +3391,5 @@ footer .ftr-cpy {
     filter: invert(1);
     padding: 5px;
 }
+
+/******************/

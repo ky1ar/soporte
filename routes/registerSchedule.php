@@ -71,7 +71,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $sql = "INSERT INTO Training (machine, document, name, phone, email, invoice, training_date, training_start, training_state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
+        $sqlgetWorker = "SELECT id, name FROM Users WHERE (levels = 2 OR levels = 3) ORDER BY levels DESC LIMIT 1";
+        $getWorker = $conn->prepare($sqlgetWorker);
+        $getWorker->execute();
+        $getWorkerResult = $getWorker->get_result();
+        $getWorkerRow = $getWorkerResult->fetch_assoc();
+        $worker = $getWorkerRow['id'];
+
+        $sql = "INSERT INTO Training (machine, worker, document, name, phone, email, invoice, training_date, training_start, training_state) VALUES (?, $worker, ?, ?, ?, ?, ?, ?, ?, 0)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("isssssss", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $date, $schedule);
         $stmt->execute();
