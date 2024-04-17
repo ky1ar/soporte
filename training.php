@@ -78,8 +78,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 while ($row = $result->fetch_assoc()) {
                                     $date = $row['calendar_date'];
                                     $dayNum = date('d', strtotime($date));
-                                    echo '<li class="admin ' . (($today == $dayNum) ? 'today' : '') . '">';
-                                    echo '<span data-day="' . $dayNum . '">' . $dayNum . '</span>';
+                                    echo '<li'.(($today == $dayNum) ? ' class="today"' : '').'>';
+                                    echo '<span class="calendarAdd" data-day="' . $dayNum . '">' . $dayNum . '</span>';
                                     echo '<div class="calendarView">';
 
                                     $sql2 =
