@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         $trainingId = $_POST['trainingId'];
         $response = [];
 
-        $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+        $days = array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
         $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
 
         $sql_training =
