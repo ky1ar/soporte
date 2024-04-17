@@ -652,8 +652,7 @@ $(document).ready(function () {
           $model.text(data.model);
           $count.text("(" + data.count + ")");
           $name.text(data.name);
-          invoice_data = data.invoice;
-          console.log(invoice_data);
+          
 
           $document.text(data.document);
           $email.text(data.email);
@@ -666,6 +665,8 @@ $(document).ready(function () {
           $pre.val(trainingId);
 
           viewOverlay.fadeToggle();
+          invoice_data = data.invoice;
+          console.log(invoice_data);
           $invoice.attr("data-src", invoice_data);
 
           console.log($invoice.data('src'));
