@@ -653,9 +653,8 @@ $(document).ready(function () {
           $count.text("(" + data.count + ")");
           $name.text(data.name);
           invoice_data = data.invoice;
-          console.log(data.invoice);
+          console.log(invoice_data);
 
-          $invoice.attr("data-src", data.invoice);
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
