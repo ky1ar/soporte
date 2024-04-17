@@ -127,64 +127,6 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             </div>
         </div>
     </section>
-    <section id="aproveOverlay">
-        <div class="modalBox">
-            <form method="post" id="aproveSubmit">
-                <h2>¿Aprobar capacitación?</h2>
-                <p>Agrega el link de Google Meet y el responsable.<br>Recuerda haber verificado el comprobante.</p>
-                <div class="aproveBox">
-                    <label for="">Responsable de la capacitación</label>
-                    <div class="flex">
-                        <img src="assets/img/worker.svg" alt="">
-                        <select id="trainingWorker">
-                            <option value="">Seleccionar</option>
-                            <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
-                            $result = $conn->query($sql);
-                            while ($row = $result->fetch_assoc()) : ?>
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
-                            <?php endwhile;
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="aproveBox">
-                    <label for="">Enlace Google Meet</label>
-                    <div class="flex">
-                        <img src="assets/img/meet.svg" alt="">
-                        <input type="text" id="meet" placeholder="Ingresa la Url">
-                    </div>
-                </div>
-                <div id="aproveMessage"></div>
-                <div class="aproveButtons" data-id="">
-                    <div class="modalCancel">Cancelar</div>
-                    <button type="submit">Aprobar</button>
-                </div>
-                <img class="modalClose" src="assets/img/x.svg" alt="">
-            </form>
-        </div>
-    </section>
-    <section id="rejectOverlay">
-        <div class="modalBox">
-            <form method="post" id="rejectSubmit">
-                <h2>¿Rechazar capacitación?</h2>
-                <p>Recuerda haber verificado correctamente el comprobante.</p>
-                <div class="rejectBox">
-                    <label for="">Mensaje en el correo</label>
-                    <div class="flex">
-                        <img src="assets/img/cnt.svg" alt="">
-                        <textarea id="rejectText" placeholder="Ingresa el mensaje"></textarea>
-                    </div>
-                </div>
-                <div id="rejectMessage"></div>
-                <div class="rejectButtons">
-                    <div class="modalCancel">Cancelar</div>
-                    <button type="submit">Rechazar</button>
-                </div>
-                <img class="modalClose" src="assets/img/x.svg" alt="">
-            </form>
-        </div>
-    </section>
-
     <section id="viewOverlay">
         <div class="modalBox">
             <div id="viewTraining">

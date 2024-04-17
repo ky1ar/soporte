@@ -528,25 +528,7 @@ $(document).ready(function () {
       previewInvoice.fadeToggle();
     }
   });
-/*
-  const aproveOverlay = $("#aproveOverlay");
 
-  $(".actionButtons .aprove").click(function () {
-    let selectedId = $(this).closest(".actionButtons").data("id");
-    aproveOverlay.find(".aproveButtons").attr("data-id", selectedId);
-    aproveOverlay.fadeToggle();
-  });
-
-  aproveOverlay.find(".modalClose, .modalCancel").click(function () {
-    aproveOverlay.fadeToggle();
-  });
-
-  $(window).click(function (event) {
-    if (event.target == aproveOverlay[0]) {
-      aproveOverlay.fadeToggle();
-    }
-  });
-*/
   const $aproveTraining = $("#aproveTraining");
   const actionMessage = $("#actionMessage");
   const $trainingWorker = $("#trainingWorker");
