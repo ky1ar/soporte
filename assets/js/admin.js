@@ -497,12 +497,12 @@ $(document).ready(function () {
 
   const previewInvoice = $("#previewInvoice");
   const invoiceFile = $("#invoiceFile");
+  const viewOverlay = $("#viewOverlay");
   const viewInvoice = $("#viewInvoice");
 
   viewInvoice.click(function () {
-    let fileUrl = $(this).data("src");
+    let fileUrl = $(this).attr('data-src');
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
-
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
@@ -604,14 +604,13 @@ $(document).ready(function () {
     });
   });
 
-  const viewOverlay = $("#viewOverlay");
   const calendarTable = $("#calendarTable");
 
   const $actionButtons  = $("#viewTraining .actionButtons");
   const $viewButtons    = $("#viewTraining .viewButtons");
 
   calendarTable.on("click", ".calendarViewRow", function () {
-    const trainingId = $(this).data("id");
+    let trainingId = $(this).data("id");
     let level = $("#upd_worker").data("level");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
