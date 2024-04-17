@@ -499,7 +499,7 @@ $(document).ready(function () {
   const invoiceFile = $("#invoiceFile");
   const viewOverlay = $("#viewOverlay");
 
-  viewOverlay.on("click", "#viewInvoice", function () {
+  viewOverlay.on("click", ".invoice", function () {
     let fileUrl = $(this).data("src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
     console.log(fileUrl);

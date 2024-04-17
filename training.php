@@ -175,7 +175,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         </div>
                         <h3 class="name"></h3>
                         <h3 class="document"></h3>
-                        <div class="invoice" id="viewInvoice" data-src="">
+                        <div class="invoice" data-src="">
                             <img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante
                         </div>
                         <div class="link">
