@@ -207,68 +207,72 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             </div>
         </div>
     </section>
-    <section id="calendarContainer">
-        <div id="loadingResponse">
-            <div class="flex">
-                <img src="assets/img/fav.png" alt="Cargando..." />
-            </div>
-        </div>
-        <div id="scheduleSelector"></div>
-        <div id="scheduleForm">
-            <form method="post" id="scheduleSubmit" enctype="multipart/form-data">
-                <div id="selectedSchedule"></div>
-                <p class="selectedMessage">Completa los campos de la reserva.</p>
-                <ul>
-                    <li class="percent30">
-                        <div class="formRow">
-                            <label for="">Documento</label>
-                            <input id="dniRUC" type="text" placeholder="DNI / RUC">
-                            <input id="clientId" type="hidden">
-                        </div>
-                    </li>
-                    <li class="percent70">
-                        <div class="formRow">
-                            <label for="">Cliente</label>
-                            <input id="client" type="text" placeholder="Nombre del cliente">
-                        </div>
-                    </li>
-                    <li class="percent60">
-                        <div class="formRow">
-                            <label for="">Email</label>
-                            <input id="email" type="email" placeholder="Ingresar correo">
-                        </div>
-                    </li>
-                    <li class="percent40">
-                        <div class="formRow">
-                            <label for="">Celular</label>
-                            <input id="phone" type="tel" placeholder="Ingresar celular">
-                        </div>
-                    </li>
-                    <div class="percent75">
-                        <li class="percent100">
-                            <div class="formRow">
-                                <label for="">Producto</label>
-                                <div class="formMachine">
-                                    <input id="machine" type="text" placeholder="Nombre del equipo">
-                                    <input id="machineId" type="hidden" >
-                                    <div id="suggestions"></div>
-                                </div>
-                            </div>
-                        </li>
+    <section id="AddOverlay">
+        <div class="modalBox">
+            <div id="addTraining">
+                <div id="loadingResponse">
+                    <div class="flex">
+                        <img src="assets/img/fav.png" alt="Cargando..." />
                     </div>
-                    <li class="percent25">
-                        <div class="formRow">
-                            <label for="">Imagen</label>
-                            <img id="machineImage" src="assets/img/def.webp" alt="">
-                        </div>
-                    </li>
-                </ul> 
-                <div class="formButton">
-                    <input type="hidden" id="picked">
-                    <div id="scheduleFormMessage"></div>
-                    <button type="submit" class="formSubmit">Reservar Capacitación</button>
-                </div>     
-            </form>
+                </div>
+                <div id="scheduleSelector"></div>
+                <div id="scheduleForm">
+                    <form method="post" id="scheduleSubmit" enctype="multipart/form-data">
+                        <div id="selectedSchedule"></div>
+                        <p class="selectedMessage">Completa los campos de la reserva.</p>
+                        <ul>
+                            <li class="percent30">
+                                <div class="formRow">
+                                    <label for="">Documento</label>
+                                    <input id="dniRUC" type="text" placeholder="DNI / RUC">
+                                    <input id="clientId" type="hidden">
+                                </div>
+                            </li>
+                            <li class="percent70">
+                                <div class="formRow">
+                                    <label for="">Cliente</label>
+                                    <input id="client" type="text" placeholder="Nombre del cliente">
+                                </div>
+                            </li>
+                            <li class="percent60">
+                                <div class="formRow">
+                                    <label for="">Email</label>
+                                    <input id="email" type="email" placeholder="Ingresar correo">
+                                </div>
+                            </li>
+                            <li class="percent40">
+                                <div class="formRow">
+                                    <label for="">Celular</label>
+                                    <input id="phone" type="tel" placeholder="Ingresar celular">
+                                </div>
+                            </li>
+                            <div class="percent75">
+                                <li class="percent100">
+                                    <div class="formRow">
+                                        <label for="">Producto</label>
+                                        <div class="formMachine">
+                                            <input id="machine" type="text" placeholder="Nombre del equipo">
+                                            <input id="machineId" type="hidden" >
+                                            <div id="suggestions"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                            <li class="percent25">
+                                <div class="formRow">
+                                    <label for="">Imagen</label>
+                                    <img id="machineImage" src="assets/img/def.webp" alt="">
+                                </div>
+                            </li>
+                        </ul> 
+                        <div class="formButton">
+                            <input type="hidden" id="picked">
+                            <div id="scheduleFormMessage"></div>
+                            <button type="submit" class="formSubmit">Reservar Capacitación</button>
+                        </div>     
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 </body>
