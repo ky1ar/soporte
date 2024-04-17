@@ -697,7 +697,7 @@ $(document).ready(function () {
           $pre.val(trainingId);
 
           viewOverlay.fadeToggle();
-          console.log($invoice.data('src'));
+          console.log($invoice.attr("data-src"));
         }
       },
       error: function (xhr, status, error) {
