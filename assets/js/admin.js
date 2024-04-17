@@ -685,7 +685,7 @@ $(document).ready(function () {
           $name.text(data.name);
           console.log(data.invoice);
 
-          $invoice.html('<img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante').attr("data-src", data.invoice);
+          viewInvoice.attr("data-src", data.invoice);
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
