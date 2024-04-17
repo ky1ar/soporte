@@ -484,6 +484,7 @@ $(document).ready(function () {
     let currentScroll = $(this).scrollTop();
 
     if (currentScroll > lastScroll) {
+      // Scroll hacia abajo
       if (currentScroll > headerHeight) {
         header.addClass("ky1-fxd");
       }
@@ -492,6 +493,40 @@ $(document).ready(function () {
     }
 
     lastScroll = currentScroll;
+  });
+
+  const previewInvoice = $("#previewInvoice");
+  const invoiceFile = $("#invoiceFile");
+  const viewOverlay = $("#viewOverlay");
+  const viewInvoice = $("#viewInvoice");
+
+  viewInvoice.click(function () {
+    let fileUrl = $(this).attr('data-src');
+    let fileExtension = fileUrl.split(".").pop().toLowerCase();
+    if (fileExtension === "pdf") {
+      invoiceFile.html(
+        '<embed src="' +
+          fileUrl +
+          '" type="application/pdf" height="800px" width="800px" />'
+      );
+    } else {
+      invoiceFile.html(
+        '<img src="' +
+          fileUrl +
+          '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
+      );
+    }
+    previewInvoice.fadeToggle();
+  });
+
+  $("#previewInvoice .close").click(function () {
+    previewInvoice.fadeToggle();
+  });
+
+  $(window).click(function (event) {
+    if (event.target == previewInvoice[0]) {
+      previewInvoice.fadeToggle();
+    }
   });
 
   const $aproveTraining = $("#aproveTraining");
@@ -570,7 +605,6 @@ $(document).ready(function () {
   });
 
   const calendarTable = $("#calendarTable");
-  const viewOverlay = $("#viewOverlay");
 
   const $actionButtons  = $("#viewTraining .actionButtons");
   const $viewButtons    = $("#viewTraining .viewButtons");
@@ -581,9 +615,6 @@ $(document).ready(function () {
     let formData = new FormData();
     formData.append("trainingId", trainingId);
 
-    const previewInvoice = $("#previewInvoice");
-    const invoiceFile = $("#invoiceFile");
-    
     const $date        = $("#viewTraining .date");
     const $worker      = $("#viewTraining .worker");
     const $id_worker   = $("#viewTraining .id_worker");
@@ -652,8 +683,9 @@ $(document).ready(function () {
           $model.text(data.model);
           $count.text("(" + data.count + ")");
           $name.text(data.name);
-          
+          console.log(data.invoice);
 
+          $invoice.attr("data-src", data.invoice);
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
@@ -665,10 +697,6 @@ $(document).ready(function () {
           $pre.val(trainingId);
 
           viewOverlay.fadeToggle();
-          invoice_data = data.invoice;
-          console.log(invoice_data);
-          $invoice.attr("data-src", invoice_data);
-
           console.log($invoice.data('src'));
         }
       },
@@ -676,36 +704,6 @@ $(document).ready(function () {
         console.error("Error:", error);
       },
     });
-
-    $invoice.click(function () {
-      let fileUrl = $invoice.data("src");
-      let fileExtension = fileUrl.split(".").pop().toLowerCase();
-      if (fileExtension === "pdf") {
-        invoiceFile.html(
-          '<embed src="' +
-            fileUrl +
-            '" type="application/pdf" height="800px" width="800px" />'
-        );
-      } else {
-        invoiceFile.html(
-          '<img src="' +
-            fileUrl +
-            '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
-        );
-      }
-      previewInvoice.fadeToggle();
-    });
-  
-    $("#previewInvoice .close").click(function () {
-      previewInvoice.fadeToggle();
-    });
-  
-    $(window).click(function (event) {
-      if (event.target == previewInvoice[0]) {
-        previewInvoice.fadeToggle();
-      }
-    });
-
   });
 
   viewOverlay.find(".modalClose, .modalCancel").click(function () {
