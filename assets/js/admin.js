@@ -688,7 +688,7 @@ $(document).ready(function () {
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
           $meet.text(data.meet).attr("href", data.meet);
-          $upd_meet.val(data.meet);
+          $upd_meet.val(data.meet).focus();
           $image.attr("src", "assets/mac/" + data.slug + ".webp");
           $worker.text(data.worker);
           $id_worker.val(data.id_worker);
