@@ -682,7 +682,7 @@ $(document).ready(function () {
 
           $schedule.text(data.schedule);
           $model.text(data.model);
-          $count.text(data.count);
+          $count.text("(" + data.count + ")");
           $name.text(data.name);
           $invoice.attr("data-src", data.invoice);
           $document.text(data.document);
