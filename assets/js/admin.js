@@ -570,6 +570,7 @@ $(document).ready(function () {
   });
 
   const calendarTable = $("#calendarTable");
+  const viewOverlay = $("#viewOverlay");
 
   const $actionButtons  = $("#viewTraining .actionButtons");
   const $viewButtons    = $("#viewTraining .viewButtons");
@@ -582,8 +583,6 @@ $(document).ready(function () {
 
     const previewInvoice = $("#previewInvoice");
     const invoiceFile = $("#invoiceFile");
-    const viewOverlay = $("#viewOverlay");
-    const viewInvoice = $("#viewInvoice");
     
     const $date        = $("#viewTraining .date");
     const $worker      = $("#viewTraining .worker");
