@@ -32,7 +32,31 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             $startMonth = 0;
             $startTable = false;
             if ($s_levels == 3 || $s_levels == 4) {
-                $sql = "SELECT t.id, training_date, training_start, t.phone, t.email, CASE WHEN c.custom = 0 THEN ds.h_start WHEN c.custom = 1 THEN cs.h_start END AS h_start, document, t.name as t_name, invoice, m.model as m_model, m.slug as m_slug FROM Training t INNER JOIN Calendar c ON t.training_date = c.calendar_date INNER JOIN Machine m ON t.machine = m.id INNER JOIN Brand b ON m.brand = b.id LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0 LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1 WHERE t.training_state = 0 ORDER BY training_date, h_start;";
+                $sql = 
+                "SELECT
+                    t.id,
+                    training_date,
+                    training_start,
+                    t.phone,
+                    t.email,
+                    CASE
+                        WHEN c.custom = 0 THEN ds.h_start
+                        WHEN c.custom = 1 THEN cs.h_start 
+                        END AS h_start,
+                    document,
+                    t.name as t_name,
+                    invoice,
+                    m.model as m_model,
+                    m.slug as m_slug
+                FROM Training t
+                INNER JOIN Calendar c ON t.training_date = c.calendar_date
+                INNER JOIN Machine m ON t.machine = m.id
+                INNER JOIN Brand b ON m.brand = b.id
+                LEFT JOIN Default_Schedule ds ON t.training_start = ds.h_start AND c.custom = 0
+                LEFT JOIN Custom_Schedule cs ON t.training_start = cs.h_start AND c.custom = 1
+                WHERE t.training_state = 0
+                ORDER BY training_date, h_start;";
+                
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) :
             ?>
@@ -73,7 +97,17 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     </td>
                                     <td>
                                         <?php
-                                        $sql_machine_info = "SELECT model, document, COUNT(*) AS cantidad FROM Training t INNER JOIN Machine m ON t.machine = m.id WHERE t.document = ? AND m.slug = ? AND t.training_state = 2";
+                                        $sql_machine_info = 
+                                        "SELECT 
+                                            model,
+                                            document,
+                                            COUNT(*) AS cantidad
+                                        FROM Training t 
+                                        INNER JOIN Machine m ON t.machine = m.id
+                                        WHERE t.document = ?
+                                        AND m.slug = ?
+                                        AND t.training_state = 2";
+
                                         $stmt_machine_info = $conn->prepare($sql_machine_info);
                                         $stmt_machine_info->bind_param("ss", $row['document'], $row['m_slug']);
                                         $stmt_machine_info->execute();
@@ -112,12 +146,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 </tr>
                             <?php endwhile; ?>
                                 </table>
-                                <div id="previewInvoice">
-                                    <div class="previewBox">
-                                        <img class="close" src="assets/img/x.svg" alt="">
-                                        <div id="invoiceFile"></div>
-                                    </div>
-                                </div>
+                               
                     </div>
             <?php
                 endif;
@@ -182,35 +211,33 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     $sql2 =
                                     "SELECT t.id,
                                         t.training_state,
+                                        t.training_start,
                                         w.image as w_image,
                                         w.nick as w_nick,
                                         m.model as m_model,
-                                        m.slug as m_slug,
-                                        t.training_start
+                                        m.slug as m_slug
                                     FROM Training t
                                     INNER JOIN Machine m ON t.machine = m.id
                                     INNER JOIN Brand b ON m.brand = b.id
-                                    INNER JOIN Users w ON t.worker = w.id
-                                    WHERE (t.training_state = 1 OR t.training_state = 2) AND training_date = '$date'
+                                    LEFT JOIN Users w ON t.worker = w.id
+                                    WHERE (t.training_state = 0 OR t.training_state = 1 OR t.training_state = 2) AND training_date = '$date'
                                     ORDER BY training_start;";
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0) {
                                         while ($row2 = $result2->fetch_assoc()):?>
                                             <div class="calendarViewRow
+                                                <?= $row2['training_state'] == 0 ? 'pending' : ''?>
                                                 <?= $row2['training_state'] == 2 ? 'finish' : ''?>"
                                                 data-id="<?= $row2['id']?>"
                                                 data-date="<?= $date?>"
                                                 data-start="<?= $row2['training_start']?>"
-                                                style=
-                                                    "border-left: 3px solid #<?= $row2['w_image']?>;
-                                                    background-color: #<?= $row2['w_image']?>47;"
-                                            >
+                                                style="background-color: #<?= $row2['w_image']?>47;">
                                                 <h3><?= $row2['m_model']?></h3>
                                                 <div class="flex">
                                                     <h2 style="background-color: #<?= $row2['w_image']?>;">
                                                         <?= substr($row2['training_start'], 0, 5)?>
                                                     </h2>
-                                                    <p><?= $row2['w_nick']?></p>
+                                                    <p><?php// $row2['w_nick']?></p>
                                                 </div>
                                             </div>
                                         <?php endwhile;
@@ -288,12 +315,18 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
         <div class="modalBox">
             <div id="viewTraining">
                 <div class="header">
-                    <div class="left">
+                    <div class="block">
                         <h2 class="date"></h2>
-                        <div class="content">
+                        <span class="schedule"></span>
+                    </div>
+                    <div class="content">
+                        <div class="staticWorker">
                             <img src="assets/img/worker.svg" alt="">
                             <span class="worker"></span>
-                            <select class="id_worker">
+                        </div>
+                        <div class="editableWorker">
+                            <img src="assets/img/worker.svg" alt="">
+                            <select class="id_worker" id="trainingWorker">
                                 <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()):?>
@@ -307,33 +340,51 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 <img src="assets/img/sav.svg" alt="">
                             </button>
                         </div>
+                        <div class="staticMeet">
+                            <img src="assets/img/meet.svg" alt="">
+                            <a class="meet" href="" target="_blank"></a>
+                        </div>
+                        <div class="editableMeet">
+                            <img src="assets/img/meet.svg" alt="">
+                            <input class="upd_meet" id="meetLink" type="text" placeholder="Ingrese el link de Google Meet">
+                        </div>
                     </div>
-                    <span class="schedule"></span>
                 </div>
                 <div class="card">
                     <div class="left">
                         <h2 class="model"></h2>
                         <h3 class="name"></h3>
                         <h3 class="document"></h3>
+                        <div class="invoice" id="viewInvoice" data-src="">
+                            <img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante
+                        </div>
                         <div class="link">
                             <p class="email"></p>
                             <div class="flex">
                                 <img src="assets/img/wsp2.svg" alt="">
                                 <a class="phone" href="" target="_blank" rel="nofollow"></a>
                             </div>
-                            <div class="flex">
-                                <img src="assets/img/meet.svg" alt="">
-                                <a class="meet" href="" target="_blank" rel="nofollow"></a>
-                            </div>
+                            
                         </div>
                     </div>
                     <img class="image" src="" alt="">
+                </div>
+                <div id="actionMessage"></div>
+                <div class="actionButtons" data-id="" data-date="">
+                    <div id="rejectTraining">Rechazar Solicitud</div>
+                    <div id="aproveTraining">Aprobar Solicitud</div>
                 </div>
                 <div class="viewButtons" data-id="">
                     <div id="cancelTraining">Cancelar Capacitación</div>
                     <div id="finishTraining">Finalizar Capacitación</div>
                 </div>
                 <img class="modalClose" src="assets/img/x.svg" alt="">
+            </div>
+        </div>
+        <div id="previewInvoice">
+            <div class="previewBox">
+                <img class="close" src="assets/img/x.svg" alt="">
+                <div id="invoiceFile"></div>
             </div>
         </div>
     </section>
