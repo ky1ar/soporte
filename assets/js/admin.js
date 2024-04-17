@@ -615,27 +615,27 @@ $(document).ready(function () {
     let formData = new FormData();
     formData.append("trainingId", trainingId);
 
-    let $date        = $("#viewTraining .date");
-    let $worker      = $("#viewTraining .worker");
-    let $id_worker   = $("#viewTraining .id_worker");
-    let $upd_worker  = $("#upd_worker");
-    let $schedule    = $("#viewTraining .schedule");
-    let $model       = $("#viewTraining .model");
-    let $count       = $("#viewTraining .count");
-    let $name        = $("#viewTraining .name");
-    let $invoice     = $("#viewTraining .invoice");
-    let $document    = $("#viewTraining .document");
-    let $email       = $("#viewTraining .email");
-    let $phone       = $("#viewTraining .phone");
-    let $meet        = $("#viewTraining .meet");
-    let $upd_meet    = $("#viewTraining .upd_meet");
-    let $image       = $("#viewTraining .image");
-    let $pre         = $("#viewTraining .pre");
+    const $date        = $("#viewTraining .date");
+    const $worker      = $("#viewTraining .worker");
+    const $id_worker   = $("#viewTraining .id_worker");
+    const $upd_worker  = $("#upd_worker");
+    const $schedule    = $("#viewTraining .schedule");
+    const $model       = $("#viewTraining .model");
+    const $count       = $("#viewTraining .count");
+    const $name        = $("#viewTraining .name");
+    const $invoice     = $("#viewTraining .invoice");
+    const $document    = $("#viewTraining .document");
+    const $email       = $("#viewTraining .email");
+    const $phone       = $("#viewTraining .phone");
+    const $meet        = $("#viewTraining .meet");
+    const $upd_meet    = $("#viewTraining .upd_meet");
+    const $image       = $("#viewTraining .image");
+    const $pre         = $("#viewTraining .pre");
 
-    let $staticWorker   = $("#viewTraining .staticWorker");
-    let $editableWorker = $("#viewTraining .editableWorker");
-    let $staticMeet   = $("#viewTraining .staticMeet");
-    let $editableMeet = $("#viewTraining .editableMeet");
+    const $staticWorker   = $("#viewTraining .staticWorker");
+    const $editableWorker = $("#viewTraining .editableWorker");
+    const $staticMeet   = $("#viewTraining .staticMeet");
+    const $editableMeet = $("#viewTraining .editableMeet");
 
     $.ajax({
       url: "routes/getTraining",
@@ -684,8 +684,7 @@ $(document).ready(function () {
           $count.text("(" + data.count + ")");
           $name.text(data.name);
           console.log(data.invoice);
-
-          $invoice.attr("data-src", data.invoice);
+          viewOverlay.find(".invoice").attr("data-src", data.invoice);
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
