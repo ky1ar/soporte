@@ -683,6 +683,8 @@ $(document).ready(function () {
           $model.text(data.model);
           $count.text("(" + data.count + ")");
           $name.text(data.name);
+          console.log(data.invoice);
+
           $invoice.attr("data-src", data.invoice);
           $document.text(data.document);
           $email.text(data.email);
