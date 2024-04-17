@@ -497,6 +497,7 @@ $(document).ready(function () {
 
   const previewInvoice = $("#previewInvoice");
   const invoiceFile = $("#invoiceFile");
+  const viewOverlay = $("#viewOverlay");
 
   viewOverlay.on("click", "#viewInvoice", function () {
     let fileUrl = $(this).data("src");
@@ -603,7 +604,6 @@ $(document).ready(function () {
     });
   });
 
-  const viewOverlay = $("#viewOverlay");
   const calendarTable = $("#calendarTable");
 
   const $actionButtons  = $("#viewTraining .actionButtons");
