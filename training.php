@@ -207,7 +207,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             </div>
         </div>
     </section>
-    <section id="AddOverlay">
+    <!--<section id="AddOverlay">
         <div class="modalBox">
             <div id="addTraining">
                 <div id="loadingResponse">
@@ -274,7 +274,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 </body>
 
 </html>
