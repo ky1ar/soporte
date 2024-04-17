@@ -664,6 +664,7 @@ $(document).ready(function () {
               $actionButtons.show();
               $actionButtons.attr("data-id", trainingId);
               $actionButtons.attr("data-date", data.date);
+              $meetLink.focus();
             } else if(data.t_state == 1) {
               $staticMeet.show();
               $editableWorker.show();
