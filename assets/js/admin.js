@@ -183,6 +183,13 @@ $(document).ready(function () {
     }
     return true;
   }
+  function validateMeetAdmin(meet) {
+    if (meet.trim() === "") {
+      displayErrorMessage("Δ Ingrese un link de Google Meet Δ");
+      return false;
+    }
+    return true;
+  }
 
   function validatePhone(phone) {
     if (phone === "") {
@@ -790,7 +797,7 @@ $(document).ready(function () {
     }
     return true;
   }
-
+  
 
   let currentDate = new Date();
   let months = [
@@ -1036,7 +1043,7 @@ $(document).ready(function () {
       !validateEmail(email) ||
       !validatePhone(phone) ||
       !validateMachineId(machine) ||
-      !validateMeet(meet)
+      !validateMeetAdmin(meet)
     ) {
       return;
     }
