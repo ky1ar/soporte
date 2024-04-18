@@ -906,7 +906,6 @@ $(document).ready(function () {
   const scheduleForm = $("#scheduleForm");
 
   calendarTable.on("click", ".calendarAdd", function () {
-    
     let dayNumber = $(this).attr("data-day");
     let temporal = currentDate;
     temporal.setDate(dayNumber);
@@ -924,6 +923,7 @@ $(document).ready(function () {
         let jsonData = JSON.parse(response);
         scheduleSelector.html(jsonData.html);
         scheduleSelector.show();
+        scheduleForm.hide();
 
         $("#topBar").addClass('blur');
         $("#navigationBar").addClass('blur');
@@ -961,7 +961,7 @@ $(document).ready(function () {
   const scheduleSubmit = $("#scheduleSubmit");
   const scheduleFormMessage = $("#scheduleFormMessage");
   const scheduleCalendar = $("#scheduleCalendar");
-  
+
   $addTraining.on("click", ".boxSchedule", function () {
     const selectedData = $("#selectedData");
     const dateAvailable = $("#dateAvailable");
@@ -969,8 +969,6 @@ $(document).ready(function () {
     let date = selectedData.data("date");
     let count = dateAvailable.val();
     let schedule = $(this).data("schedule");
-    console.log(schedule);
-
 
     selectedSchedule.text(day + " - " + schedule);
     picked.val(date);
