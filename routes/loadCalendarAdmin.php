@@ -15,14 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $monthNumber = $selectedDate->format('n');
 
     for ($i = 0; $i < $day; $i++) { echo '<li></li>'; }
-                                
+    $todayDate = new DateTime();
+    $todayDate->setTime(0, 0, 0);                        
     $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$date') AND MONTH(calendar_date) = MONTH('$date')";
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         $date = $row['calendar_date'];
+        $checkDate = new DateTime($date);
+
         $dayNum = date('d', strtotime($date));
         echo '<li' . (($todayMonth == $monthNumber && $todayDay == $dayNum) ? ' class="today"' : '') . '>';
-        echo '<span class="calendarAdd" data-day="'.$dayNum.'">'.$dayNum.'</span>';
+        echo '<span'.($checkDate >= $todayDate ? ' class="calendarAdd"':'').' data-day="'.$dayNum.'">'.$dayNum.'</span>';
         echo '<div class="calendarView">';
         
         $sql2 =

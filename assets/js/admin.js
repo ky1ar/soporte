@@ -904,6 +904,7 @@ $(document).ready(function () {
   const AddOverlay = $("#AddOverlay");
   const scheduleSelector = $("#scheduleSelector");
   const scheduleForm = $("#scheduleForm");
+
   calendarTable.on("click", ".calendarAdd", function () {
     
     let dayNumber = $(this).attr("data-day");
@@ -953,4 +954,21 @@ $(document).ready(function () {
     }
   });
 
+  $(document).on("click", ".boxSchedule", function () {
+    const selectedData = $("#selectedData");
+    const dateAvailable = $("#dateAvailable");
+    let day = selectedData.data("day");
+    let date = selectedData.data("date");
+    let count = dateAvailable.val();
+    let schedule = $(this).data("schedule");
+
+    selectedSchedule.text(day + " - " + schedule);
+    picked.val(date);
+    picked.attr("data-schedule", schedule);
+    picked.attr("data-count", count);
+
+    scheduleSelector.hide();
+    scheduleForm.show();
+  });
+  
 });
