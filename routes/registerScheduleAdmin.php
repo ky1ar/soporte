@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $machineId = $_POST['machineId'];
+    $meet = $_POST['meet'];
 
-    $meet = $_FILES['meet'];
     $phone = str_replace(' ', '', $phone);
 
     if (strpos($phone, '+') === 0) {
