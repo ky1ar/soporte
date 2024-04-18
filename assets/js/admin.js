@@ -1055,11 +1055,11 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        let jsonData = JSON.parse(response);
+        const jsonData = JSON.parse(response);
         if (jsonData.success) {
-          scheduleCalendar.html(jsonData.success);
+          window.location.href = "training";
         } else {
-          message(scheduleFormMessage, jsonData.error);
+          message(actionMessage, jsonData.error);
         }
       },
       error: function (xhr, status, error) {

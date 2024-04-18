@@ -34,16 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $worker = $getWorkerRow['id'];
 
     $newDate = new DateTime($date);
-    $day = $newDate->format('d');
+    $numero_dia = $newDate->format('d');
     $meses = array(
         "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
         "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
     );
-    $month = $meses[intval($newDate->format('m')) - 1];
-    $year = $newDate->format('Y');
-    
-    $stmt_date_and_time->bind_result($numero_dia, $nombre_dia, $nombre_mes, $hora_minutos);
-  
+    $nombre_mes = $meses[intval($newDate->format('m')) - 1];
+    $dias = array(
+        "Domingo", "Lunes", "mMartes", "Miércoles", "Jueves", "Viernes", "Sábado"
+    );
+    $nombre_dia = $dias[intval($fecha->format('w'))];
+
 
     $conn->begin_transaction();
 
@@ -94,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailTemplate = '../includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
         $placeholders = array('%CLIENT%', '%MEET%', '%WORKER%', '%DIA%','%DIA_N%', '%MES%', '%HORA%');
-        $values = array($client, $meet, $worker_name, $nombre_dia, $numero_dia, $nombre_mes, $hora_minutos);
+        $values = array($client, $meet, $worker_name, $nombre_dia, $numero_dia, $nombre_mes, $schedule);
         $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
