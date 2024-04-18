@@ -961,6 +961,8 @@ $(document).ready(function () {
     let date = selectedData.data("date");
     let count = dateAvailable.val();
     let schedule = $(this).data("schedule");
+    console.log(schedule);
+
 
     selectedSchedule.text(day + " - " + schedule);
     picked.val(date);
@@ -970,5 +972,5 @@ $(document).ready(function () {
     scheduleSelector.hide();
     scheduleForm.show();
   });
-  
+
 });
