@@ -183,13 +183,6 @@ $(document).ready(function () {
     }
     return true;
   }
-  function validateMeetAdmin(meet) {
-    if (meet.trim() === "") {
-      displayErrorMessage("Δ Ingrese un link de Google Meet Δ");
-      return false;
-    }
-    return true;
-  }
 
   function validatePhone(phone) {
     if (phone === "") {
@@ -1039,11 +1032,11 @@ $(document).ready(function () {
 
     if (
       !validateDniRuc(dniRUC) ||
-      !validateClient(client) ||
-      !validateEmail(email) ||
-      !validatePhone(phone) ||
+      !validateClientAdmin(client) ||
+      !validateEmailAdmin(email) ||
+      !validatePhoneAdmin(phone) ||
       !validateMachineId(machine) ||
-      !validateMachineId(meet)
+      !validateMeetAdmin(meet)
     ) {
       return;
     }
@@ -1088,8 +1081,35 @@ $(document).ready(function () {
 
     return true;
   }
-
-
+  function validateClientAdmin(client) {
+    if (client.trim() === "") {
+      message(scheduleFormMessage, "El campo del nombre no puede estar vacío");
+      return false;
+    }
+    return true;
+  }
+  function validateEmailAdmin(email) {
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      message(scheduleFormMessage, "Ingrese un correo electrónico válido");
+      return false;
+    }
+    return true;
+  }
+  function validatePhoneAdmin(phone) {
+    if (phone === "") {
+      message(scheduleFormMessage, "Ingrese un número de teléfono");
+      return false;
+    }
+    return true;
+  }
+  function validateMeetAdmin(meet) {
+    if (meet.trim() === "") {
+      message(scheduleFormMessage, "Δ Ingrese un link de Google Meet Δ");
+      return false;
+    }
+    return true;
+  }
   function validateMachineId(machineId) {
     if (machineId.trim() === "") {
       message(scheduleFormMessage, "Seleccione un equipo");
@@ -1097,23 +1117,6 @@ $(document).ready(function () {
     }
     return true;
   }
-  function validateInvoice(invoice) {
-    if (!invoice) {
-      message(scheduleFormMessage, "Seleccione un archivo");
-      return false;
-    }
-    const maxSizeInBytes = 10 * 1024 * 1024; // 10 MB
-    if (invoice.size > maxSizeInBytes) {
-      message(scheduleFormMessage, "El tamaño del archivo es demasiado grande");
-      return false;
-    }
 
-    let fileType = invoice.type;
-    if (fileType !== "application/pdf" && !fileType.startsWith("image/")) {
-      message(scheduleFormMessage, "El archivo debe ser PDF o una imagen");
-      return false;
-    }
-    return true;
-  }
 
 });
