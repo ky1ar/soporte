@@ -90,6 +90,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                     "SELECT t.id,
                                         t.training_state,
                                         t.training_start,
+                                        t.admin,
                                         w.image as w_image,
                                         w.nick as w_nick,
                                         m.model as m_model,
