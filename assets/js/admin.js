@@ -955,10 +955,9 @@ $(document).ready(function () {
   });
 
   const $addTraining = $("#addTraining");
+  const selectedSchedule = $("#selectedSchedule");
 
-  
   $addTraining.on("click", ".boxSchedule", function () {
-    
     const selectedData = $("#selectedData");
     const dateAvailable = $("#dateAvailable");
     let day = selectedData.data("day");
