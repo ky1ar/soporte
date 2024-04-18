@@ -955,6 +955,11 @@ $(document).ready(function () {
   });
 
   const $addTraining = $("#addTraining");
+  const machine = $("#machine");
+  const suggestions = $("#suggestions");
+  const machineImage = $("#machineImage");
+  const machineId = $("#machineId");
+
   const selectedSchedule = $("#selectedSchedule");
   const picked = $("#picked");
 
@@ -977,6 +982,33 @@ $(document).ready(function () {
 
     scheduleSelector.hide();
     scheduleForm.show();
+  });
+
+  machine.keyup(function () {
+    let machineVal = $(this).val();
+    if (machineVal.length >= 2) {
+      $.ajax({
+        url: "routes/loadMachine",
+        type: "POST",
+        data: { machineVal: machineVal },
+        success: function (data) {
+          suggestions.html(data);
+          $(".suggestionsRow").click(function () {
+            let sel = $(this).text();
+            let id = $(this).data("id");
+            let slug = $(this).data("slug");
+            machine.val(sel);
+            suggestions.html("");
+            machineImage.attr("src", "assets/mac/" + slug + ".webp");
+            machineId.val(id);
+          });
+        },
+      });
+    } else {
+      suggestions.html("");
+      machineImage.attr("src", "assets/img/def.webp");
+      machineId.val("");
+    }
   });
 
   scheduleSubmit.submit(function (event) {
