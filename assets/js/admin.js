@@ -1047,7 +1047,7 @@ $(document).ready(function () {
     formData.append("phone", phone);
     formData.append("machineId", machine);
     formData.append("meet", meet);
-
+    console.log('paso 0');
     $.ajax({
       url: "routes/registerScheduleAdmin",
       method: "POST",
@@ -1058,6 +1058,7 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "training";
+          console.log('paso 1');
         } else {
           message(actionMessage, jsonData.error);
         }
