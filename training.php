@@ -266,8 +266,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 </li>
                                 <li class="percent100">
                                     <div class="formRow">
-                                        <label for="">Comprobante de Pago</label>
-                                        <input type="file" id="invoice" accept=".pdf,.jpg,.jpeg">
+                                        <label for="">Link de Google Meet</label>
+                                        <input id="meet" type="text" placeholder="Ingrese el link">
                                     </div>
                                 </li>
                             </div>
@@ -282,7 +282,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <input type="hidden" id="picked">
                             <div id="scheduleFormMessage"></div>
                             <button type="submit" class="formSubmit">Reservar Capacitación</button>
-                        </div>     
+                        </div>
                     </form>
                 </div>
                 <img class="modalClose" src="assets/img/x.svg" alt="">

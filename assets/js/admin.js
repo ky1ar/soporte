@@ -1024,16 +1024,15 @@ $(document).ready(function () {
     let email = $("#email").val();
     let phone = $("#phone").val();
     let machine = machineId.val();
-    let invoice = $("#invoice")[0].files[0];
+    let meet = $("#meet").val();
 
-    console.log(invoice);
     if (
       !validateDniRuc(dniRUC) ||
       !validateClient(client) ||
       !validateEmail(email) ||
       !validatePhone(phone) ||
       !validateMachineId(machine) ||
-      !validateInvoice(invoice)
+      !validateMeet(meet)
     ) {
       return;
     }
@@ -1047,10 +1046,10 @@ $(document).ready(function () {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("machineId", machine);
-    formData.append("invoice", invoice);
+    formData.append("meet", meet);
 
-    /*$.ajax({
-      url: "routes/registerSchedule",
+    $.ajax({
+      url: "routes/registerScheduleAdmin",
       method: "POST",
       data: formData,
       processData: false,
@@ -1066,7 +1065,7 @@ $(document).ready(function () {
       error: function (xhr, status, error) {
         console.error("Error:", error);
       },
-    });*/
+    });
   });
 
   function validateDniRuc(dniRUC) {
