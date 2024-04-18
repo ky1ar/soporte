@@ -78,6 +78,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
                                     $date = $row['calendar_date'];
+                                    $detail = $row['detail'];
                                     $checkDate = new DateTime($date);
 
                                     $dayNum = date('d', strtotime($date));
@@ -118,6 +119,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                 </div>
                                             </div>
                                         <?php endwhile;
+                                    } else {
+                                        echo $detail ? '<div>'.$detail.'</div>':'';
                                     }
                                     echo '</div>';
                                     echo '</li>';
