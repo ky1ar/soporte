@@ -16,11 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
 
     for ($i = 0; $i < $day; $i++) { echo '<li></li>'; }
     $todayDate = new DateTime();
-    $todayDate->setTime(0, 0, 0);                        
+    $todayDate->setTime(0, 0, 0);
     $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$date') AND MONTH(calendar_date) = MONTH('$date')";
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         $date = $row['calendar_date'];
+        $detail = $row['detail'];
         $checkDate = new DateTime($date);
 
         $dayNum = date('d', strtotime($date));
@@ -62,6 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                     </div>
                 </div>
             <?php endwhile;
+        } else {
+            echo $detail ? '<div>'.$detail.'</div>':'';
         }
         echo '</div>';
         echo '</li>';
