@@ -264,6 +264,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                         </div>
                                     </div>
                                 </li>
+                                <li class="percent100">
+                                    <div class="formRow">
+                                        <label for="">Comprobante de Pago</label>
+                                        <input type="file" id="invoice" accept=".pdf,.jpg,.jpeg">
+                                    </div>
+                                </li>
                             </div>
                             <li class="percent25">
                                 <div class="formRow">

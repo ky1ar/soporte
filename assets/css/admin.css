@@ -3449,7 +3449,7 @@ footer .ftr-cpy {
 }
 
 #scheduleSelector {
-    padding: 3rem;
+    padding: 2rem;
     display: none;
 }
 #selectedData, 
@@ -3507,7 +3507,7 @@ footer .ftr-cpy {
 /***********************************************************************************/
 #scheduleForm {
     display: none;
-    padding: 1.5rem 1rem;
+    width: 32rem;
   }
   #scheduleForm ul {
     padding: 0;
