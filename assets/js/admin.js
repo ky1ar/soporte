@@ -979,4 +979,99 @@ $(document).ready(function () {
     scheduleForm.show();
   });
 
+  scheduleSubmit.submit(function (event) {
+    event.preventDefault();
+    scheduleFormMessage.slideUp();
+
+    let date = picked.val();
+    let schedule = picked.data("schedule");
+    let count = picked.data("count");
+
+    let dniRUC = $("#dniRUC").val();
+    let client = $("#client").val();
+    let email = $("#email").val();
+    let phone = $("#phone").val();
+    let machine = machineId.val();
+    let invoice = $("#invoice")[0].files[0];
+
+    if (
+      !validateDniRuc(dniRUC) ||
+      !validateClient(client) ||
+      !validateEmail(email) ||
+      !validatePhone(phone) ||
+      !validateMachineId(machine) ||
+      !validateInvoice(invoice)
+    ) {
+      return;
+    }
+
+    let formData = new FormData();
+    formData.append("schedule", schedule);
+    formData.append("date", date);
+    formData.append("count", count);
+    formData.append("dniRUC", dniRUC);
+    formData.append("client", client);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("machineId", machine);
+    formData.append("invoice", invoice);
+
+    $.ajax({
+      url: "routes/registerSchedule",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        let jsonData = JSON.parse(response);
+        if (jsonData.success) {
+          scheduleCalendar.html(jsonData.success);
+        } else {
+          message(scheduleFormMessage, jsonData.error);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
+  });
+
+  function validateDniRuc(dniRUC) {
+    const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
+
+    if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
+        message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+        return false;
+    }
+
+    return true;
+  }
+
+
+  function validateMachineId(machineId) {
+    if (machineId.trim() === "") {
+      message(scheduleFormMessage, "Seleccione un equipo");
+      return false;
+    }
+    return true;
+  }
+  function validateInvoice(invoice) {
+    if (!invoice) {
+      message(scheduleFormMessage, "Seleccione un archivo");
+      return false;
+    }
+    const maxSizeInBytes = 10 * 1024 * 1024; // 10 MB
+    if (invoice.size > maxSizeInBytes) {
+      message(scheduleFormMessage, "El tamaño del archivo es demasiado grande");
+      return false;
+    }
+
+    let fileType = invoice.type;
+    if (fileType !== "application/pdf" && !fileType.startsWith("image/")) {
+      message(scheduleFormMessage, "El archivo debe ser PDF o una imagen");
+      return false;
+    }
+    return true;
+  }
+
 });
