@@ -3462,6 +3462,11 @@ footer .ftr-cpy {
     margin: 0;
     padding-bottom: 3rem;
 }
+#scheduleForm .selectedMessage {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1rem;
+}
 #scheduleSelector ul {
     display: flex;
     flex-direction: column;
