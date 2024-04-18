@@ -497,11 +497,12 @@ $(document).ready(function () {
 
   const previewInvoice = $("#previewInvoice");
   const invoiceFile = $("#invoiceFile");
+  const viewOverlay = $("#viewOverlay");
+  const viewInvoice = $("#viewInvoice");
 
-  $(".pendingTable .preview").click(function () {
-    let fileUrl = $(this).data("src");
+  viewInvoice.click(function () {
+    let fileUrl = $(this).attr('data-src');
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
-
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
@@ -528,43 +529,27 @@ $(document).ready(function () {
     }
   });
 
-  const aproveOverlay = $("#aproveOverlay");
+  const $aproveTraining = $("#aproveTraining");
+  const actionMessage = $("#actionMessage");
+  const $trainingWorker = $("#trainingWorker");
+  const $meetLink = $("#meetLink");
 
-  $(".actionButtons .aprove").click(function () {
-    let selectedId = $(this).closest(".actionButtons").data("id");
-    aproveOverlay.find(".aproveButtons").attr("data-id", selectedId);
-    aproveOverlay.fadeToggle();
-  });
-
-  aproveOverlay.find(".modalClose, .modalCancel").click(function () {
-    aproveOverlay.fadeToggle();
-  });
-
-  $(window).click(function (event) {
-    if (event.target == aproveOverlay[0]) {
-      aproveOverlay.fadeToggle();
-    }
-  });
-
-  const aproveSubmit = $("#aproveSubmit");
-  const aproveMessage = $("#aproveMessage");
-
-  aproveSubmit.submit(function (event) {
+  $aproveTraining.click(function (event) {
     event.preventDefault();
-    aproveMessage.slideUp();
+    actionMessage.slideUp();
 
-    let scheduleId = aproveOverlay.find(".aproveButtons").data("id");
-    let trainingWorker = $("#trainingWorker").val();
-    let meet = $("#meet").val();
+    let scheduleId = $actionButtons.data("id");
+    let trainingWorker = $trainingWorker.val();
+    let meetLink = $meetLink.val();
 
-    if (!validatetrainingWorker(trainingWorker) || !validateMeet(meet)) {
+    if (!validatetrainingWorker(trainingWorker) || !validateMeet(meetLink)) {
       return;
     }
 
     let formData = new FormData();
     formData.append("scheduleId", scheduleId);
     formData.append("trainingWorker", trainingWorker);
-    formData.append("meet", meet);
+    formData.append("meet", meetLink);
 
     $.ajax({
       url: "routes/updateSchedule",
@@ -577,7 +562,7 @@ $(document).ready(function () {
         if (jsonData.success) {
           window.location.href = "training";
         } else {
-          message(aproveMessage, jsonData.error);
+          message(actionMessage, jsonData.error);
         }
       },
       error: function (xhr, status, error) {
@@ -586,16 +571,71 @@ $(document).ready(function () {
     });
   });
 
-  const viewOverlay = $("#viewOverlay");
+  const $rejectTraining = $("#rejectTraining");
 
-  //$(document).on("click", ".calendarView .calendarViewRow", function () {
+  $rejectTraining.click(function (event) {
+    event.preventDefault();
+    actionMessage.slideUp();
+
+    let scheduleId = $actionButtons.data("id");
+    let date = $actionButtons.data("date");
+
+    let formData = new FormData();
+    formData.append("scheduleId", scheduleId);
+    formData.append("date", date);
+
+    $.ajax({
+      url: "routes/rejectSchedule",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        let jsonData = JSON.parse(response);
+        if (jsonData.success) {
+          window.location.href = "training";
+        } else {
+          message(actionMessage, jsonData.error);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
+  });
+
   const calendarTable = $("#calendarTable");
 
+  const $actionButtons  = $("#viewTraining .actionButtons");
+  const $viewButtons    = $("#viewTraining .viewButtons");
+
   calendarTable.on("click", ".calendarViewRow", function () {
-    const trainingId = $(this).data("id");
+    let trainingId = $(this).data("id");
     let level = $("#upd_worker").data("level");
     let formData = new FormData();
     formData.append("trainingId", trainingId);
+
+    const $date        = $("#viewTraining .date");
+    const $worker      = $("#viewTraining .worker");
+    const $id_worker   = $("#viewTraining .id_worker");
+    const $upd_worker  = $("#upd_worker");
+    const $schedule    = $("#viewTraining .schedule");
+    const $model       = $("#viewTraining .model");
+    const $count       = $("#viewTraining .count");
+    const $name        = $("#viewTraining .name");
+    const $invoice     = $("#viewTraining .invoice");
+    const $document    = $("#viewTraining .document");
+    const $email       = $("#viewTraining .email");
+    const $phone       = $("#viewTraining .phone");
+    const $meet        = $("#viewTraining .meet");
+    const $upd_meet    = $("#viewTraining .upd_meet");
+    const $image       = $("#viewTraining .image");
+    const $pre         = $("#viewTraining .pre");
+
+    const $staticWorker   = $("#viewTraining .staticWorker");
+    const $editableWorker = $("#viewTraining .editableWorker");
+    const $staticMeet   = $("#viewTraining .staticMeet");
+    const $editableMeet = $("#viewTraining .editableMeet");
 
     $.ajax({
       url: "routes/getTraining",
@@ -607,41 +647,53 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         if (jsonData.success) {
           const data = jsonData.success;
-          viewOverlay.find(".date").text(
-            data.dayName +
-            " " +
-            data.day +
-            " de " +
-            data.month
-          );
-          if (level == 3 || level == 4) {
-            if (data.t_state == 2) {
-              viewOverlay.find(".worker").show();
-              viewOverlay.find(".id_worker").hide();
-              viewOverlay.find("#upd_worker").hide();
+          $date.text(data.dayName+" "+data.day+" de "+data.month);
+
+          $staticWorker.hide();
+          $staticMeet.hide();
+          $editableWorker.hide();
+          $editableMeet.hide();
+          $actionButtons.hide();
+          $viewButtons.hide();
+          $upd_worker.hide();
+
+          if (level >= 3) {
+            if (data.t_state == 0) {
+              $editableWorker.show();
+              $editableMeet.show();
+              $actionButtons.show();
+              $actionButtons.attr("data-id", trainingId);
+              $actionButtons.attr("data-date", data.date);
+            } else if(data.t_state == 1) {
+              $staticMeet.show();
+              $editableWorker.show();
+              $viewButtons.show();
+              $upd_worker.show();
+              $viewButtons.attr("data-id", trainingId);
             } else {
-              viewOverlay.find(".worker").hide();
-              viewOverlay.find(".id_worker").show();
-              viewOverlay.find("#upd_worker").show();
+              $staticWorker.show();
+              $staticMeet.show();
             }
           } else {
-            viewOverlay.find(".worker").show();
-            viewOverlay.find(".id_worker").hide();
-            viewOverlay.find("#upd_worker").hide();
+            $staticWorker.show();
+            $staticMeet.show();
           }
-          viewOverlay.find(".schedule").text(data.schedule);
-          viewOverlay.find(".model").text(data.model);
-          viewOverlay.find(".name").text(data.name);
-          viewOverlay.find(".document").text(data.document);
-          viewOverlay.find(".email").text(data.email);
-          viewOverlay.find(".phone").text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
-          viewOverlay.find(".meet").text(data.meet).attr("href", data.meet);
-          viewOverlay
-            .find(".image")
-            .attr("src", "assets/mac/" + data.slug + ".webp");
-          viewOverlay.find(".worker").text(data.worker);
-          viewOverlay.find(".id_worker").val(data.id_worker);
-          viewOverlay.find(".pre").val(trainingId);
+
+          $schedule.text(data.schedule);
+          $model.text(data.model);
+          $count.text("(" + data.count + ")");
+          $name.text(data.name);
+          $invoice.attr("data-src", data.invoice);
+          $document.text(data.document);
+          $email.text(data.email);
+          $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
+          $meet.text(data.meet).attr("href", data.meet);
+          $upd_meet.val(data.meet).focus();
+          $image.attr("src", "assets/mac/" + data.slug + ".webp");
+          $worker.text(data.worker);
+          $id_worker.val(data.id_worker);
+          $pre.val(trainingId);
+
           viewOverlay.fadeToggle();
         }
       },
@@ -649,18 +701,6 @@ $(document).ready(function () {
         console.error("Error:", error);
       },
     });
-
-    const buttons = viewOverlay.find(".viewButtons");
-    if ($(this).hasClass("finish")) {
-      buttons.hide();
-    } else {
-      const date = $(this).data("date");
-      const start = $(this).data("start");
-      const startDate = new Date(date + " " + start);
-      startDate.setMinutes(startDate.getMinutes() + 90);
-      buttons.show();
-      buttons.attr("data-id", trainingId);
-    }
   });
 
   viewOverlay.find(".modalClose, .modalCancel").click(function () {
@@ -724,74 +764,19 @@ $(document).ready(function () {
 
   function validatetrainingWorker(trainingWorker) {
     if (trainingWorker.trim() === "") {
-      message(aproveMessage, "Seleccione un responsable");
+      message(actionMessage, "Seleccione un responsable");
       return false;
     }
     return true;
   }
   function validateMeet(meet) {
     if (meet.trim() === "") {
-      message(aproveMessage, "Ingrese un link de Google Meet");
+      message(actionMessage, "Δ Ingrese un link de Google Meet Δ");
       return false;
     }
     return true;
   }
 
-  const rejectOverlay = $("#rejectOverlay");
-
-  $(".actionButtons .reject").click(function () {
-    let selectedId = $(this).closest(".actionButtons").data("id");
-    rejectOverlay.find(".rejectButtons").attr("data-id", selectedId);
-    let date = $(this).closest(".actionButtons").data("date");
-    rejectOverlay.find(".rejectButtons").attr("data-date", date);
-    rejectOverlay.fadeToggle();
-  });
-
-  rejectOverlay.find(".modalClose, .modalCancel").click(function () {
-    rejectOverlay.fadeToggle();
-  });
-
-  $(window).click(function (event) {
-    if (event.target == rejectOverlay[0]) {
-      rejectOverlay.fadeToggle();
-    }
-  });
-
-  const rejectSubmit = $("#rejectSubmit");
-  const rejectMessage = $("#rejectMessage");
-
-  rejectSubmit.submit(function (event) {
-    event.preventDefault();
-    rejectMessage.slideUp();
-
-    let scheduleId = rejectOverlay.find(".rejectButtons").data("id");
-    let date = rejectOverlay.find(".rejectButtons").data("date");
-    let rejectText = $("#rejectText").val();
-
-    let formData = new FormData();
-    formData.append("scheduleId", scheduleId);
-    formData.append("date", date);
-    formData.append("rejectText", rejectText);
-
-    $.ajax({
-      url: "routes/rejectSchedule",
-      method: "POST",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (response) {
-        let jsonData = JSON.parse(response);
-        if (jsonData.success) {
-          window.location.href = "training";
-        } else {
-          message(rejectMessage, jsonData.error);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error("Error:", error);
-      },
-    });
-  });
 
   let currentDate = new Date();
   let months = [

@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         $trainingId = $_POST['trainingId'];
         $response = [];
 
-        $days = array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado");
+        $days = array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
         $months = array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",  "noviembre", "diciembre");
 
         $sql_training =
@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         t.document as c_document,
         t.email as c_email,
         t.meet as t_meet,
+        t.invoice as t_invoice,
         m.model as m_model,
         m.slug as m_slug,
         w.name as w_name
@@ -36,17 +37,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
 
+            $sqlTrainingCount = 
+            "SELECT 
+                model,
+                document,
+                COUNT(*) AS t_count
+            FROM Training t 
+            INNER JOIN Machine m ON t.machine = m.id
+            WHERE t.document = ?
+            AND m.slug = ?
+            AND t.training_state = 2";
+
+            $trainingCount = $conn->prepare($sqlTrainingCount);
+            $trainingCount->bind_param("ss", $row['c_document'], $row['m_slug']);
+            $trainingCount->execute();
+            $trainingCountResult = $trainingCount->get_result();
+            $trainingCountRow = $trainingCountResult->fetch_assoc();
+
             $selectedDate = new DateTime($row['t_date']);
             $month = $selectedDate->format('n');
             $dayName = $days[$selectedDate->format('w')];
             $day = $selectedDate->format('j');
 
-            $meet_url = $row['t_meet'];
-            if (!preg_match("~^(?:f|ht)tps?://~i", $meet_url)) {
-                $meet_url = 'https://' . $meet_url;
-            }
             $response['success'] = [
                 'day' => $day,
+                'count' => $trainingCountRow['t_count'],
+                'date' => $row['t_date'],
                 'dayName' => $dayName,
                 'month' => $months[$month - 1],
                 'schedule' => substr($row['t_start'], 0, 5),
@@ -59,7 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
                 'worker' => $row['w_name'],
                 'id_worker' => $row['t_worker'],
                 't_state' => $row['t_state'],
-                'meet' => $meet_url
+                'meet' => $row['t_meet'],
+                'invoice' => $row['t_invoice']
             ];
         } else {
             $response['success'] = false;
