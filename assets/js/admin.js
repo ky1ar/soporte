@@ -1035,7 +1035,7 @@ $(document).ready(function () {
     let phone = $("#phone").val();
     let machine = machineId.val();
     let meet = $("#meet").val();
-    console.log('paso 2');
+    console.log('paso 2' + meet + ' test ');
 
     if (
       !validateDniRuc(dniRUC) ||
