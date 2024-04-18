@@ -956,7 +956,12 @@ $(document).ready(function () {
 
   const $addTraining = $("#addTraining");
   const selectedSchedule = $("#selectedSchedule");
+  const picked = $("#picked");
 
+  const scheduleSubmit = $("#scheduleSubmit");
+  const scheduleFormMessage = $("#scheduleFormMessage");
+  const scheduleCalendar = $("#scheduleCalendar");
+  
   $addTraining.on("click", ".boxSchedule", function () {
     const selectedData = $("#selectedData");
     const dateAvailable = $("#dateAvailable");
