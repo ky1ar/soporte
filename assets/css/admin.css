@@ -2653,12 +2653,18 @@ footer .ftr-cpy {
 #calendarSelector .calendarBox li span {
     opacity: 0.5;
     font-size: 0.9rem;
-    height: initial;
-    width: 100%;
-    text-align: center;
 }
 #calendarSelector .calendarBox li .calendarAdd {
     cursor: pointer;
+    padding: 0 1.5rem;
+    position: relative;
+    border-radius: 1rem;
+    transition: all 0.25s ease-in-out;
+}
+#calendarSelector .calendarBox li .calendarAdd:hover {
+    opacity: 1;
+    background-color: #e56119;
+    color: #fff;
 }
 #calendarSelector .calendarBox li .calendarView {
     display: flex;
