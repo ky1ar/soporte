@@ -120,7 +120,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                             </div>
                                         <?php endwhile;
                                     } else {
-                                        echo $detail ? '<div>'.$detail.'</div>':'';
+                                        echo $detail ? '<div class="dayDetail">'.$detail.'</div>':'';
                                     }
                                     echo '</div>';
                                     echo '</li>';

@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                 </div>
             <?php endwhile;
         } else {
-            echo $detail ? '<div>'.$detail.'</div>':'';
+            echo $detail ? '<div class="dayDetail">'.$detail.'</div>':'';
         }
         echo '</div>';
         echo '</li>';
