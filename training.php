@@ -67,7 +67,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 for ($i = 0; $i < $firstDayNum; $i++) {
                                     echo '<li></li>';
                                 }
-
+                                $todayDate = new DateTime();
+                                $todayDate->setTime(0, 0, 0);
                                 $sql =
                                 "SELECT *
                                 FROM Calendar
@@ -77,9 +78,11 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
                                     $date = $row['calendar_date'];
+                                    $checkDate = new DateTime($date);
+
                                     $dayNum = date('d', strtotime($date));
                                     echo '<li'.(($today == $dayNum) ? ' class="today"' : '').'>';
-                                    echo '<span class="calendarAdd" data-day="' . $dayNum . '">' . $dayNum . '</span>';
+                                    echo '<span'.($checkDate >= $todayDate ? ' class="calendarAdd"':'').' data-day="'.$dayNum.'">'.$dayNum.'</span>';
                                     echo '<div class="calendarView">';
 
                                     $sql2 =
@@ -200,17 +203,18 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <img class="modalClose" src="assets/img/x.svg" alt="">
             </div>
         </div>
-        <div id="previewInvoice">
-            <div class="previewBox">
-                <img class="close" src="assets/img/x.svg" alt="">
-                <div id="invoiceFile"></div>
-            </div>
+    </section>
+
+    <section id="previewInvoice">
+        <div class="previewBox">
+            <img class="close" src="assets/img/x.svg" alt="">
+            <div id="invoiceFile"></div>
         </div>
     </section>
-    <!--<section id="AddOverlay">
+    <section id="AddOverlay">
         <div class="modalBox">
             <div id="addTraining">
-                <div id="loadingResponse">
+                <div id="addLoadingResponse">
                     <div class="flex">
                         <img src="assets/img/fav.png" alt="Cargando..." />
                     </div>
@@ -272,9 +276,10 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         </div>     
                     </form>
                 </div>
+                <img class="modalClose" src="assets/img/x.svg" alt="">
             </div>
         </div>
-    </section>-->
+    </section>
 </body>
 
 </html>

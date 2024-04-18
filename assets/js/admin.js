@@ -517,15 +517,20 @@ $(document).ready(function () {
       );
     }
     previewInvoice.fadeToggle();
+    $("#viewOverlay").addClass('blur');
   });
 
   $("#previewInvoice .close").click(function () {
     previewInvoice.fadeToggle();
+    $("#viewOverlay").removeClass('blur');
+
   });
 
   $(window).click(function (event) {
     if (event.target == previewInvoice[0]) {
       previewInvoice.fadeToggle();
+    $("#viewOverlay").removeClass('blur');
+
     }
   });
 
@@ -634,9 +639,9 @@ $(document).ready(function () {
 
     const $staticWorker   = $("#viewTraining .staticWorker");
     const $editableWorker = $("#viewTraining .editableWorker");
-    const $staticMeet   = $("#viewTraining .staticMeet");
-    const $editableMeet = $("#viewTraining .editableMeet");
-
+    const $staticMeet     = $("#viewTraining .staticMeet");
+    const $editableMeet   = $("#viewTraining .editableMeet");
+    
     $.ajax({
       url: "routes/getTraining",
       method: "POST",
@@ -694,6 +699,9 @@ $(document).ready(function () {
           $id_worker.val(data.id_worker);
           $pre.val(trainingId);
 
+          $("#topBar").addClass('blur');
+          $("#navigationBar").addClass('blur');
+          $("#adminSection").addClass('blur');
           viewOverlay.fadeToggle();
         }
       },
@@ -703,13 +711,19 @@ $(document).ready(function () {
     });
   });
 
-  viewOverlay.find(".modalClose, .modalCancel").click(function () {
+  viewOverlay.find(".modalClose").click(function () {
     viewOverlay.fadeToggle();
+    $("#topBar").removeClass('blur');
+    $("#navigationBar").removeClass('blur');
+    $("#adminSection").removeClass('blur');
   });
 
   $(window).click(function (event) {
     if (event.target == viewOverlay[0]) {
       viewOverlay.fadeToggle();
+      $("#topBar").removeClass('blur');
+      $("#navigationBar").removeClass('blur');
+      $("#adminSection").removeClass('blur');
     }
   });
 
@@ -886,4 +900,57 @@ $(document).ready(function () {
       },
     });
   });
+
+  const AddOverlay = $("#AddOverlay");
+  const scheduleSelector = $("#scheduleSelector");
+  const scheduleForm = $("#scheduleForm");
+  calendarTable.on("click", ".calendarAdd", function () {
+    
+    let dayNumber = $(this).attr("data-day");
+    let temporal = currentDate;
+    temporal.setDate(dayNumber);
+    let formatedDate =
+      temporal.getFullYear() +
+      "-" +
+      ("0" + (temporal.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + temporal.getDate()).slice(-2);
+    $.ajax({
+      url: "routes/loadSchedule",
+      method: "POST",
+      data: { date: formatedDate },
+      success: function (response) {
+        let jsonData = JSON.parse(response);
+        scheduleSelector.html(jsonData.html);
+        scheduleSelector.show();
+
+        $("#topBar").addClass('blur');
+        $("#navigationBar").addClass('blur');
+        $("#adminSection").addClass('blur');
+        AddOverlay.fadeToggle();
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+      },
+    });
+
+    
+  });
+
+  AddOverlay.find(".modalClose").click(function () {
+    AddOverlay.fadeToggle();
+    $("#topBar").removeClass('blur');
+    $("#navigationBar").removeClass('blur');
+    $("#adminSection").removeClass('blur');
+  });
+
+  $(window).click(function (event) {
+    if (event.target == AddOverlay[0]) {
+      AddOverlay.fadeToggle();
+      $("#topBar").removeClass('blur');
+      $("#navigationBar").removeClass('blur');
+      $("#adminSection").removeClass('blur');
+    }
+  });
+
 });

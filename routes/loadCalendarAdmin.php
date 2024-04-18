@@ -21,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     while ($row = $result->fetch_assoc()) {
         $date = $row['calendar_date'];
         $dayNum = date('d', strtotime($date));
-        echo '<li class="admin ' . (($todayMonth == $monthNumber && $todayDay == $dayNum) ? 'today' : '') . '">';
-        echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
+        echo '<li' . (($todayMonth == $monthNumber && $todayDay == $dayNum) ? ' class="today"' : '') . '>';
+        echo '<span class="calendarAdd" data-day="'.$dayNum.'">'.$dayNum.'</span>';
         echo '<div class="calendarView">';
         
         $sql2 =
