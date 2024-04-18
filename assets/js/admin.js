@@ -1026,6 +1026,7 @@ $(document).ready(function () {
     let machine = machineId.val();
     let invoice = $("#invoice")[0].files[0];
 
+    console.log(invoice);
     if (
       !validateDniRuc(dniRUC) ||
       !validateClient(client) ||
@@ -1048,7 +1049,7 @@ $(document).ready(function () {
     formData.append("machineId", machine);
     formData.append("invoice", invoice);
 
-    $.ajax({
+    /*$.ajax({
       url: "routes/registerSchedule",
       method: "POST",
       data: formData,
@@ -1065,7 +1066,7 @@ $(document).ready(function () {
       error: function (xhr, status, error) {
         console.error("Error:", error);
       },
-    });
+    });*/
   });
 
   function validateDniRuc(dniRUC) {
