@@ -1042,11 +1042,11 @@ $(document).ready(function () {
       !validateClient(client) ||
       !validateEmail(email) ||
       !validatePhone(phone) ||
-      !validateMachineId(machine)
+      !validateMachineId(machine) ||
+      !validateMachineId(meet)
     ) {
       return;
     }
-    console.log('paso 3');
 
     let formData = new FormData();
     formData.append("schedule", schedule);
@@ -1058,7 +1058,6 @@ $(document).ready(function () {
     formData.append("phone", phone);
     formData.append("machineId", machine);
     formData.append("meet", meet);
-    console.log('paso 4');
     $.ajax({
       url: "routes/registerScheduleAdmin",
       method: "POST",
@@ -1069,7 +1068,6 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "training";
-          console.log('paso 5');
         } else {
           message(actionMessage, jsonData.error);
         }

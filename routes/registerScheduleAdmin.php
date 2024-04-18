@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dias = array(
         "Domingo", "Lunes", "mMartes", "Miércoles", "Jueves", "Viernes", "Sábado"
     );
-    $nombre_dia = $dias[intval($fecha->format('w'))];
+    $nombre_dia = $dias[intval($newDate->format('w'))];
 
 
     $conn->begin_transaction();
