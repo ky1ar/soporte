@@ -34,9 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $worker = $getWorkerRow['id'];
 
     $newDate = new DateTime($date);
-    $day = $fecha->format('d');
-    $month = $fecha->format('F');
-    $year = $fecha->format('Y');
+    $day = $newDate->format('d');
+    $meses = array(
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    );
+    $month = $meses[intval($newDate->format('m')) - 1];
+    $year = $newDate->format('Y');
+    
     $stmt_date_and_time->bind_result($numero_dia, $nombre_dia, $nombre_mes, $hora_minutos);
   
 

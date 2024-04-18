@@ -294,8 +294,13 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 
 $newDate = new DateTime('2024-04-18');
 $day = $newDate->format('d');
-$month = $newDate->format('F');
+$meses = array(
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+);
+$month = $meses[intval($newDate->format('m')) - 1];
 $year = $newDate->format('Y');
+
 echo "El día es: " . $day . "<br>";
 echo "El mes es: " . $month . "<br>";
 echo "El año es: " . $year . "<br>";
