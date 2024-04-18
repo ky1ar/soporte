@@ -110,6 +110,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                 data-date="<?= $date?>"
                                                 data-start="<?= $row2['training_start']?>"
                                                 style="background-color: #<?= $row2['w_image']?>47;">
+                                                <?php echo $row2['admin'] ? "<i style='background-color: #".$row2['w_image']."'></i>":''; ?>
                                                 <h3><?= $row2['m_model']?></h3>
                                                 <div class="flex">
                                                     <h2 style="background-color: #<?= $row2['w_image']?>;">
