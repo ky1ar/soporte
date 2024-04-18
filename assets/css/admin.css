@@ -3448,7 +3448,8 @@ footer .ftr-cpy {
     padding: 3rem;
     display: none;
 }
-#selectedData {
+#selectedData, 
+#selectedSchedule {
     text-align: center;
     font-size: 1.125rem;
     font-weight: 600;
