@@ -1042,8 +1042,7 @@ $(document).ready(function () {
       !validateClient(client) ||
       !validateEmail(email) ||
       !validatePhone(phone) ||
-      !validateMachineId(machine) ||
-      !validateMeetAdmin(meet)
+      !validateMachineId(machine)
     ) {
       return;
     }
