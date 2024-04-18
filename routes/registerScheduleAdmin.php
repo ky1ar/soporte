@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailHeader .= "From: Krear 3D<soporte@krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
-        $resultado = mail($approved_email, $title, $htmlContent, $emailHeader);
+        $resultado = mail($email, $title, $htmlContent, $emailHeader);
 
         if ($resultado) {
             $response['success'] = true;
