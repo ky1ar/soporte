@@ -15,10 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     $machineId = $_POST['machineId'];
 
-    $invoice = $_FILES['invoice'];
-    $fileName = $invoice['name'];
-    $tempFileName = $invoice['tmp_name'];
-
+    $meet = $_FILES['meet'];
     $phone = str_replace(' ', '', $phone);
 
     if (strpos($phone, '+') === 0) {
@@ -27,35 +24,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strpos($phone, '51') !== 0 && preg_match('/^9\d{8}$/', $phone)) {
         $phone = '51' . $phone;
     }
+    
+    $sqlgetWorker = "SELECT id, name FROM Users WHERE (levels = 2 OR levels = 3) ORDER BY levels DESC LIMIT 1";
+    $getWorker = $conn->prepare($sqlgetWorker);
+    $getWorker->execute();
+    $getWorkerResult = $getWorker->get_result();
+    $getWorkerRow = $getWorkerResult->fetch_assoc();
+    $worker_name = $getWorkerRow['name'];
+    $worker = $getWorkerRow['id'];
 
-    $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
-    $uniqueFileName = uniqid() . '_' . time() . '.' . $fileExt;
-
-    $path = '../uploads/invoices/';
-    $invoicePath = $path . $uniqueFileName;
-    move_uploaded_file($tempFileName, $invoicePath);
-
-    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Training WHERE document = ? AND training_state IN (0, 1)");
-    $stmt->bind_param("s", $dniRUC);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-    $existingCount = $row['count'];
-    $stmt->close();
-
-    if ($existingCount > 0 && $dniRUC != 'KREAR*3D') {
-        $response['error'] = "Ya existe una capacitación registrada para este número de documento";
-        echo json_encode($response);
-        exit();
-    }
+    $newDate = new DateTime($date);
+    $day = $fecha->format('d');
+    $month = $fecha->format('F');
+    $year = $fecha->format('Y');
+    $stmt_date_and_time->bind_result($numero_dia, $nombre_dia, $nombre_mes, $hora_minutos);
+  
 
     $conn->begin_transaction();
 
     try {
 
         $stmt = $conn->prepare("SELECT COUNT(*) as count
-        FROM Training 
-        WHERE training_date = ? 
+        FROM Training
+        WHERE training_date = ?
         AND training_start = ?
         AND (training_state != 3 AND training_state != 4)");
         $stmt->bind_param("ss", $date, $schedule);
@@ -78,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $getWorkerRow = $getWorkerResult->fetch_assoc();
         $worker = $getWorkerRow['id'];
 
-        $sql = "INSERT INTO Training (machine, worker, document, name, phone, email, invoice, training_date, training_start, training_state) VALUES (?, $worker, ?, ?, ?, ?, ?, ?, ?, 0)";
+        $sql = "INSERT INTO Training (machine, worker, document, name, phone, email, training_date, training_start, training_state, meet) VALUES (?, $worker, ?, ?, ?, ?, ?, ?, 1, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("isssssss", $machineId, $dniRUC, $client, $phone, $email, $invoicePath, $date, $schedule);
+        $stmt->bind_param("isssssss", $machineId, $dniRUC, $client, $phone, $email, $date, $schedule, $meet);
         $stmt->execute();
         $stmt->close();
 
@@ -94,31 +85,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
         }
 
-        $title = 'Solicitud de Capacitación en Revisión';
-        $emailTemplate = '../includes/template/registerSchedule.html';
+        $title = 'Capacitación Agendada';
+        $emailTemplate = '../includes/template/approvedSchedule.html';
         $htmlContent = file_get_contents($emailTemplate);
-        $placeholders = array('%CLIENT%');
-        $values = array($client);
+        $placeholders = array('%CLIENT%', '%MEET%', '%WORKER%', '%DIA%','%DIA_N%', '%MES%', '%HORA%');
+        $values = array($client, $meet, $worker_name, $nombre_dia, $numero_dia, $nombre_mes, $hora_minutos);
         $htmlContent = str_replace($placeholders, $values, $htmlContent);
 
-        // Cabeceras para el correo electrónico
         $emailHeader = "MIME-Version: 1.0" . "\r\n";
         $emailHeader .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $emailHeader .= "From: Krear 3D<web@soporte.krear3d.com>\r\n";
+        $emailHeader .= "From: Krear 3D<soporte@krear3d.com>\r\n";
         $emailHeader .= "Reply-To: soporte@krear3d.com\r\n";
 
-        // Envío del correo
-        $resultado = mail($email, $title, $htmlContent, $emailHeader);
+        $resultado = mail($approved_email, $title, $htmlContent, $emailHeader);
 
-        // Verificar si el correo se envió correctamente
         if ($resultado) {
-            $response['success'] = '
-            <div id="successSchedule">
-                <div class="dot"></div>
-                <img src="assets/img/inbox.svg" alt="ico" width="92" height="92">
-                <h2>Reserva en revisión</h2>
-                <p>Su reserva está en verificación. Pronto recibirá un correo con el enlace de la reunión y los detalles del responsable. ¡Gracias!</p>
-            </div>';
+            $response['success'] = true;
+            echo json_encode($response);
+            exit();
+        } else {
+            $response['error'] = 'Error al enviar el correo electrónico';
             echo json_encode($response);
             exit();
         }

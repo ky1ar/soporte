@@ -290,5 +290,14 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
         </div>
     </section>
 </body>
+<?php
 
+$newDate = new DateTime($date);
+$day = $fecha->format('d');
+$month = $fecha->format('F');
+$year = $fecha->format('Y');
+echo "El día es: " . $day . "<br>";
+echo "El mes es: " . $month . "<br>";
+echo "El año es: " . $year . "<br>";
+    ?>
 </html>
