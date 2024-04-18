@@ -1012,12 +1012,15 @@ $(document).ready(function () {
   });
 
   scheduleSubmit.submit(function (event) {
+    console.log('paso 0');
+
     event.preventDefault();
     scheduleFormMessage.slideUp();
 
     let date = picked.val();
     let schedule = picked.data("schedule");
     let count = picked.data("count");
+    console.log('paso 1');
 
     let dniRUC = $("#dniRUC").val();
     let client = $("#client").val();
@@ -1025,6 +1028,7 @@ $(document).ready(function () {
     let phone = $("#phone").val();
     let machine = machineId.val();
     let meet = $("#meet").val();
+    console.log('paso 2');
 
     if (
       !validateDniRuc(dniRUC) ||
@@ -1036,6 +1040,7 @@ $(document).ready(function () {
     ) {
       return;
     }
+    console.log('paso 3');
 
     let formData = new FormData();
     formData.append("schedule", schedule);
@@ -1047,7 +1052,7 @@ $(document).ready(function () {
     formData.append("phone", phone);
     formData.append("machineId", machine);
     formData.append("meet", meet);
-    console.log('paso 0');
+    console.log('paso 4');
     $.ajax({
       url: "routes/registerScheduleAdmin",
       method: "POST",
@@ -1058,7 +1063,7 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "training";
-          console.log('paso 1');
+          console.log('paso 5');
         } else {
           message(actionMessage, jsonData.error);
         }
