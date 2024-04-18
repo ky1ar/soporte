@@ -688,8 +688,12 @@ $(document).ready(function () {
           $model.text(data.model);
           $count.text("(" + data.count + ")");
           $name.text(data.name);
-          console.log(data.invoice);
-          $invoice.attr("data-src", data.invoice);
+          if(data.invoice) {
+            $invoice.show();
+            $invoice.attr("data-src", data.invoice);
+          } else {
+            $invoice.hide();
+          }
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
