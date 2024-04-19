@@ -145,7 +145,7 @@ require_once 'includes/common/header.php';
     </section>
     <section class="sec-lcd">
         <div class="et">
-            <p>TECNOLOGÍA FDM</p>
+            <p>TECNOLOGÍA LCD</p>
         </div>
         <div class="swiffy-slider slider-item-show4 slider-item-nogap slider-nav-round slider-nav-animation">
             <ul class="slider-container">
