@@ -56,7 +56,7 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(button);
   }
 
-  if (currentPage <= totalPages - 5) {
+  if (currentPage <= totalPages - 4) {
     var ellipsisButton = document.createElement("button");
     ellipsisButton.textContent = "...";
     ellipsisButton.disabled = true;
