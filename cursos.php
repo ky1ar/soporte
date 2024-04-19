@@ -49,7 +49,7 @@ require_once 'includes/common/header.php';
                 </div>
                 <div class="cd cur-r">
                     <h2>Título</h2>
-                    <p>Texto del párrafo.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
             <div class="curd">
@@ -58,18 +58,18 @@ require_once 'includes/common/header.php';
                 </div>
                 <div class="cd cur-r">
                     <h2>Título</h2>
-                    <p>Texto del párrafo.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
-        </div>
-        <div class="curd">
-            <div class="cd cur-l">
-                <img src="assets/img/curso.jpg" alt="Imagen">
             </div>
-            <div class="cd cur-r">
-                <h2>Título</h2>
-                <p>Texto del párrafo.</p>
+            <div class="curd">
+                <div class="cd cur-l">
+                    <img src="assets/img/curso.jpg" alt="Imagen">
+                </div>
+                <div class="cd cur-r">
+                    <h2>Título</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
+                </div>
             </div>
-        </div>
         </div>
         <div class="cur2-p">
             <div class="curd">
@@ -78,7 +78,7 @@ require_once 'includes/common/header.php';
                 </div>
                 <div class="cd cur-r">
                     <h2>Título</h2>
-                    <p>Texto del párrafo.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
             <div class="curd">
@@ -87,7 +87,7 @@ require_once 'includes/common/header.php';
                 </div>
                 <div class="cd cur-r">
                     <h2>Título</h2>
-                    <p>Texto del párrafo.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
             <div class="curd">
@@ -96,7 +96,7 @@ require_once 'includes/common/header.php';
                 </div>
                 <div class="cd cur-r">
                     <h2>Título</h2>
-                    <p>Texto del párrafo.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
         </div>
