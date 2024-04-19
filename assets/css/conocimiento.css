@@ -133,8 +133,11 @@ section.cur2{
 
 .cur2-p {
   flex: 1;
-  
 }
+.cur2-p:nth-child(2) {
+  margin-left: 70px;
+}
+
 
 .curd {
   display: flex;
