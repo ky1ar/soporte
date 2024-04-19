@@ -57,7 +57,7 @@ function updatePaginationButtons(currentPage) {
   }
 
   // Insertar el botón con el número total de páginas después del cuarto botón y antes del quinto
-  if (currentPage <= totalPages && currentPage < 4) {
+  if (currentPage === 1 && totalPages > 5) {
     var ellipsisButton = document.createElement("button");
     ellipsisButton.textContent = "...";
     ellipsisButton.disabled = true;
