@@ -64,9 +64,10 @@ function updatePaginationButtons(currentPage) {
       lastPageButton.addEventListener("click", function () {
         showPage(totalPages);
       });
-      pagination.insertBefore(lastPageButton, pagination.lastChild);
+      pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); // Aquí se ajusta la inserción
     }
   }
+  
 
   if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
