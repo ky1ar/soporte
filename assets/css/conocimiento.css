@@ -92,3 +92,7 @@
 
 
 /* estilos de la vista cursos.php */
+section.cur{
+  height: 300px;
+  background-color: red;
+}

@@ -23,6 +23,9 @@ require_once 'includes/common/header.php';
             <img style="width: 100%;" height="630" src="assets/slider/banner-cursos.webp">
         </div>
     </section>
+    <section class="cur">
+        
+    </section>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
 
