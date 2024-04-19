@@ -41,6 +41,14 @@ require_once 'includes/common/header.php';
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis venia</p>
         </div>
     </section>
+    <section class="cur2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
 
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
