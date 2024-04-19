@@ -57,15 +57,15 @@ function updatePaginationButtons(currentPage) {
   }
 
   if (currentPage < totalPages) {
-    // Si el último botón actual no es la última página, agregar un botón adicional para la última página
-    if (endPage < totalPages) {
-      var lastPageButton = document.createElement("button");
-      lastPageButton.textContent = totalPages;
-      lastPageButton.addEventListener("click", function () {
-        showPage(totalPages);
-      });
-      pagination.insertBefore(lastPageButton, pagination.lastChild);
-    }
+    // // Si el último botón actual no es la última página, agregar un botón adicional para la última página
+    // if (endPage < totalPages) {
+    //   var lastPageButton = document.createElement("button");
+    //   lastPageButton.textContent = totalPages;
+    //   lastPageButton.addEventListener("click", function () {
+    //     showPage(totalPages);
+    //   });
+    //   pagination.insertBefore(lastPageButton, pagination.lastChild);
+    // }
 
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
