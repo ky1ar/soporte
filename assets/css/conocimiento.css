@@ -97,10 +97,12 @@ section.cur{
   background-color: rgb(197, 197, 197);
   display: flex; 
   justify-content: space-between;
+  margin: 0px 30px;
 }
 
 .cur-box {
-  width: 23%; /* Ancho de cada div */
+  width: 200px;
+  height: 100px;
   background-color: #fff;
   padding: 20px; 
   text-align: center; 
