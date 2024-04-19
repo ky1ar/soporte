@@ -43,18 +43,7 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(prevButton);
   }
 
-  for (var i = startPage; i <= endPage; i++) {
-    var button = document.createElement("button");
-    button.textContent = i;
-    button.addEventListener("click", function () {
-      showPage(parseInt(this.textContent));
-    });
-
-    if (i === currentPage) {
-      button.classList.add("active");
-    }
-    pagination.appendChild(button);
-  }
+  
 
   if (currentPage < totalPages) {
     // Si el último botón actual no es la última página, agregar un botón adicional para la última página
@@ -68,6 +57,18 @@ function updatePaginationButtons(currentPage) {
     }
   }
 
+  for (var i = startPage; i <= endPage; i++) {
+    var button = document.createElement("button");
+    button.textContent = i;
+    button.addEventListener("click", function () {
+      showPage(parseInt(this.textContent));
+    });
+
+    if (i === currentPage) {
+      button.classList.add("active");
+    }
+    pagination.appendChild(button);
+  }
   if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
