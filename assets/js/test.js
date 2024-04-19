@@ -32,13 +32,13 @@ function updatePaginationButtons(currentPage) {
   } else {
     if (currentPage <= 4) {
       startPage = 1;
-      endPage = 6;
+      endPage = 5;
     } else if (currentPage + 3 >= totalPages) {
       startPage = totalPages - 5;
       endPage = totalPages;
     } else {
       startPage = currentPage - 2;
-      endPage = currentPage + 3;
+      endPage = currentPage + 2;
     }
   }
 
@@ -84,13 +84,6 @@ function updatePaginationButtons(currentPage) {
   }
 
   if (endPage < totalPages) {
-    if (endPage < totalPages - 1) {
-      var ellipsisButton = document.createElement("button");
-      ellipsisButton.textContent = "...";
-      ellipsisButton.disabled = true;
-      pagination.appendChild(ellipsisButton);
-    }
-
     var lastPageButton = document.createElement("button");
     lastPageButton.textContent = totalPages;
     lastPageButton.addEventListener("click", function () {
