@@ -89,7 +89,7 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section>
-        <div class="swiffy-slider">
+        <div class="swiffy-slider slider-item-show4 slider-nav-autoplay" data-slider-nav-autoplay-interval="2500">
             <ul class="slider-container">
                 <li><img src="https://source.unsplash.com/49b9l_29ceA/1600x900" style="max-width: 100%;height: auto;"></li>
                 <li><img src="https://source.unsplash.com/nKAglN6HBH8/1600x900" style="max-width: 100%;height: auto;"></li>
