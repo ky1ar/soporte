@@ -57,14 +57,13 @@ function updatePaginationButtons(currentPage) {
   }
 
   // Insertar el botón con el número total de páginas después del cuarto botón y antes del quinto
-  if (currentPage <= totalPages && currentPage > 3) {
-    var maxPageButton = document.createElement("button");
-    maxPageButton.textContent = totalPages;
-    maxPageButton.addEventListener("click", function () {
-      showPage(totalPages);
-    });
-    pagination.insertBefore(maxPageButton, pagination.childNodes[4]); // Insertar antes del quinto botón
-  }
+  if (currentPage <= totalPages && currentPage < 4) {
+    var ellipsisButton = document.createElement("button");
+    ellipsisButton.textContent = "...";
+    ellipsisButton.disabled = true;
+    pagination.insertBefore(ellipsisButton, pagination.childNodes[4]); // Insertar antes del quinto botón
+}
+
 
   if (currentPage < totalPages) {
     if (endPage < totalPages) {
