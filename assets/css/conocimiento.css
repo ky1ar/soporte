@@ -98,13 +98,19 @@ section.cur{
   display: flex; 
   justify-content: space-between;
   align-items: center;
-  padding: 0px 30px;
+  padding: 0px 70px;
 }
 
 .cur-box {
-  width: 220px;
+  width: 370px;
   height: 100px;
   background-color: #fff;
-  padding: 20px; 
-  text-align: center; 
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;   
+}
+
+.cur-box h2{
+  color: #ed5d1f;
+  font-size: 30px;
 }
