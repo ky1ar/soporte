@@ -67,6 +67,7 @@ function updatePaginationButtons(currentPage) {
       pagination.insertBefore(lastPageButton, pagination.lastChild);
     }
 
+    // Mover el botón de "Siguiente" al principio del bucle
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
     img.src = "../assets/img/right.png";
@@ -75,7 +76,10 @@ function updatePaginationButtons(currentPage) {
     nextButton.addEventListener("click", function () {
       showPage(currentPage + 1);
     });
-    pagination.appendChild(nextButton);
+    pagination.insertBefore(nextButton, pagination.lastChild);
+
+    // Eliminar el botón de "Siguiente" al final del bucle
+    // pagination.appendChild(nextButton);
   }
 }
 showPage(1);
