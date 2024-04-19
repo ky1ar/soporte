@@ -52,7 +52,7 @@ require_once 'includes/common/header.php';
                     <p>Texto del párrafo.</p>
                 </div>
             </div>
-            <<div class="curd">
+            <div class="curd">
                 <div class="cd cur-l">
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
