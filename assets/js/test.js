@@ -29,6 +29,13 @@ function updatePaginationButtons(currentPage) {
 
   if (endPage === totalPages) {
     startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 4 botones siempre
+    if (startPage > 1) {
+      var ellipsisButton = document.createElement("button");
+      ellipsisButton.textContent = "...";
+      ellipsisButton.disabled = true;
+      pagination.appendChild(ellipsisButton);
+  }
+}
   }
 
   if (currentPage > 1) {
