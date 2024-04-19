@@ -127,3 +127,28 @@ section.cur2{
   height: 500px;
   color: white;
 }
+
+
+.cur2-p {
+  flex: 1;
+  display: flex;
+}
+
+.left-stack,
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-stack > div,
+.right-column > div {
+  display: flex;
+  align-items: center;
+}
+
+.left-stack img,
+.right-column img {
+  max-width: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
+  margin-right: 10px;
+}

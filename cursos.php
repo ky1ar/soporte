@@ -42,13 +42,62 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section class="cur2">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="cur2-p">
+            <div class="left-stack">
+                <div>
+                    <img src="imagen1.jpg" alt="Imagen 1">
+                </div>
+                <div>
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                </div>
+                <div>
+                    <img src="imagen3.jpg" alt="Imagen 3">
+                </div>
+            </div>
+            <div class="right-column">
+                <div>
+                    <h2>Título 1</h2>
+                    <p>Contenido del primer div.</p>
+                </div>
+                <div>
+                    <h2>Título 2</h2>
+                    <p>Contenido del segundo div.</p>
+                </div>
+                <div>
+                    <h2>Título 3</h2>
+                    <p>Contenido del tercer div.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cur2-p">
+            <div class="left-stack">
+                <div>
+                    <img src="imagen1.jpg" alt="Imagen 1">
+                </div>
+                <div>
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                </div>
+                <div>
+                    <img src="imagen3.jpg" alt="Imagen 3">
+                </div>
+            </div>
+            <div class="right-column">
+                <div>
+                    <h2>Título 1</h2>
+                    <p>Contenido del primer div.</p>
+                </div>
+                <div>
+                    <h2>Título 2</h2>
+                    <p>Contenido del segundo div.</p>
+                </div>
+                <div>
+                    <h2>Título 3</h2>
+                    <p>Contenido del tercer div.</p>
+                </div>
+            </div>
+        </div>
     </section>
+
 
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
