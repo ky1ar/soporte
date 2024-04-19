@@ -24,11 +24,22 @@ function showPage(pageNumber) {
 function updatePaginationButtons(currentPage) {
   var pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
-  var startPage = currentPage > 2 ? currentPage - 1 : 1;
-  var endPage = Math.min(startPage + 3, totalPages);
+  var startPage, endPage;
 
-  if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 4, 1);
+  if (totalPages <= 7) {
+    startPage = 1;
+    endPage = totalPages;
+  } else {
+    if (currentPage <= 4) {
+      startPage = 1;
+      endPage = 6;
+    } else if (currentPage + 3 >= totalPages) {
+      startPage = totalPages - 5;
+      endPage = totalPages;
+    } else {
+      startPage = currentPage - 2;
+      endPage = currentPage + 3;
+    }
   }
 
   if (currentPage > 1) {
@@ -41,6 +52,22 @@ function updatePaginationButtons(currentPage) {
       showPage(currentPage - 1);
     });
     pagination.appendChild(prevButton);
+  }
+
+  if (startPage > 1) {
+    var firstPageButton = document.createElement("button");
+    firstPageButton.textContent = 1;
+    firstPageButton.addEventListener("click", function () {
+      showPage(1);
+    });
+    pagination.appendChild(firstPageButton);
+
+    if (startPage > 2) {
+      var ellipsisButton = document.createElement("button");
+      ellipsisButton.textContent = "...";
+      ellipsisButton.disabled = true;
+      pagination.appendChild(ellipsisButton);
+    }
   }
 
   for (var i = startPage; i <= endPage; i++) {
@@ -56,17 +83,21 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(button);
   }
 
-  if (currentPage < totalPages) {
-    if (endPage < totalPages) {
-      var lastPageButton = document.createElement("button");
-      lastPageButton.textContent = totalPages;
-      lastPageButton.addEventListener("click", function () {
-        showPage(totalPages);
-      });
-      pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); 
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      var ellipsisButton = document.createElement("button");
+      ellipsisButton.textContent = "...";
+      ellipsisButton.disabled = true;
+      pagination.appendChild(ellipsisButton);
     }
+
+    var lastPageButton = document.createElement("button");
+    lastPageButton.textContent = totalPages;
+    lastPageButton.addEventListener("click", function () {
+      showPage(totalPages);
+    });
+    pagination.appendChild(lastPageButton);
   }
-  
 
   if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
@@ -80,4 +111,5 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
+
 showPage(1);
