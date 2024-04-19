@@ -56,6 +56,16 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(button);
   }
 
+  // Insertar el botón con el número total de páginas después del cuarto botón y antes del quinto
+  if (currentPage <= totalPages && currentPage > 3) {
+    var maxPageButton = document.createElement("button");
+    maxPageButton.textContent = totalPages;
+    maxPageButton.addEventListener("click", function () {
+      showPage(totalPages);
+    });
+    pagination.insertBefore(maxPageButton, pagination.childNodes[4]); // Insertar antes del quinto botón
+  }
+
   if (currentPage < totalPages) {
     if (endPage < totalPages) {
       var lastPageButton = document.createElement("button");
@@ -80,4 +90,5 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
+
 showPage(1);
