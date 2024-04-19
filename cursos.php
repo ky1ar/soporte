@@ -44,21 +44,61 @@ require_once 'includes/common/header.php';
     <section class="cur2">
         <div class="cur2-p">
             <div class="curd">
-                <div class="cd">
+                <div class="cd cur-l">
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
-                <div class="cd">
+                <div class="cd cur-r">
                     <h2>Título</h2>
                     <p>Texto del párrafo.</p>
                 </div>
             </div>
-            <div></div>
-            <div></div>
+            <<div class="curd">
+                <div class="cd cur-l">
+                    <img src="assets/img/curso.jpg" alt="Imagen">
+                </div>
+                <div class="cd cur-r">
+                    <h2>Título</h2>
+                    <p>Texto del párrafo.</p>
+                </div>
+        </div>
+        <div class="curd">
+            <div class="cd cur-l">
+                <img src="assets/img/curso.jpg" alt="Imagen">
+            </div>
+            <div class="cd cur-r">
+                <h2>Título</h2>
+                <p>Texto del párrafo.</p>
+            </div>
+        </div>
         </div>
         <div class="cur2-p">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="curd">
+                <div class="cd cur-l">
+                    <img src="assets/img/curso.jpg" alt="Imagen">
+                </div>
+                <div class="cd cur-r">
+                    <h2>Título</h2>
+                    <p>Texto del párrafo.</p>
+                </div>
+            </div>
+            <div class="curd">
+                <div class="cd cur-l">
+                    <img src="assets/img/curso.jpg" alt="Imagen">
+                </div>
+                <div class="cd cur-r">
+                    <h2>Título</h2>
+                    <p>Texto del párrafo.</p>
+                </div>
+            </div>
+            <div class="curd">
+                <div class="cd cur-l">
+                    <img src="assets/img/curso.jpg" alt="Imagen">
+                </div>
+                <div class="cd cur-r">
+                    <h2>Título</h2>
+                    <p>Texto del párrafo.</p>
+                </div>
+            </div>
         </div>
     </section>
 
