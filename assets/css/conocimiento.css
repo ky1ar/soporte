@@ -126,12 +126,10 @@ section.cur{
 section.cur2{
   height: 500px;
   color: white;
+  display: flex;
 }
 
-.cur2-p{
-  width: 50%;
+.cur2-p {
+  flex: 1; /* Hacer que cada .cur2-p ocupe la misma cantidad de espacio */
+  background-color: blue; /* Solo para visualización */
 }
-.cur2-p:nth-child(2){
-  background-color: red;
-}
-
