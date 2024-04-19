@@ -88,4 +88,14 @@ function updatePaginationButtons(currentPage) {
 
 showPage(1);
 
-showPage(1);
+// Obtener la tabla de datos y la sección de paginación
+var dataTable = document.getElementById("data-table");
+var paginationSection = document.getElementById("pagination-section");
+
+// Agregar controladores de eventos de clic a los botones de paginación
+paginationSection.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        // Desplazar la ventana hacia la parte superior de la tabla de datos
+        dataTable.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+});
