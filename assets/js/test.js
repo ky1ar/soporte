@@ -28,7 +28,7 @@ function updatePaginationButtons(currentPage) {
   var endPage = Math.min(startPage + 3, totalPages);
 
   if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 3, 1); // Ensure there are always 4 buttons
+    startPage = Math.max(totalPages - 3, 1); // Asegurarse de que haya 4 botones siempre
   }
 
   if (currentPage > 1) {
@@ -53,24 +53,11 @@ function updatePaginationButtons(currentPage) {
     if (i === currentPage) {
       button.classList.add("active");
     }
-    
-    if (i === 4) {
-      var nextButton = document.createElement("button");
-      var img = document.createElement("img");
-      img.src = "../assets/img/right.png";
-      img.alt = "Siguiente";
-      nextButton.appendChild(img);
-      nextButton.addEventListener("click", function () {
-        showPage(currentPage + 1);
-      });
-      pagination.appendChild(nextButton);
-    }
-
     pagination.appendChild(button);
   }
 
   if (currentPage < totalPages) {
-    // If the last button is not the last page, add an additional button for the last page
+    // Si el último botón actual no es la última página, agregar un botón adicional para la última página
     if (endPage < totalPages) {
       var lastPageButton = document.createElement("button");
       lastPageButton.textContent = totalPages;
@@ -79,6 +66,18 @@ function updatePaginationButtons(currentPage) {
       });
       pagination.insertBefore(lastPageButton, pagination.lastChild);
     }
+  }
+
+  if (currentPage < totalPages) {
+    var nextButton = document.createElement("button");
+    var img = document.createElement("img");
+    img.src = "../assets/img/right.png";
+    img.alt = "Siguiente";
+    nextButton.appendChild(img);
+    nextButton.addEventListener("click", function () {
+      showPage(currentPage + 1);
+    });
+    pagination.appendChild(nextButton);
   }
 }
 showPage(1);
