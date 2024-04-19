@@ -140,6 +140,10 @@ section.cur2{
   align-items: center;
   margin-bottom: 20px;
 }
+.curd:last-child {
+  margin-bottom: 0px;
+}
+
 .curd img{
   width: 380px;
   height: 200px;
