@@ -29,7 +29,7 @@ require_once 'includes/common/header.php';
         </div> 
         <div class="swiffy-slider slider-item-show4 slider-item-nogap slider-item-nosnap">
             <ul class="slider-container">
-                <li>
+            
                     <div class="card">
                         <div class="card-image">
                             <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
@@ -46,7 +46,7 @@ require_once 'includes/common/header.php';
                             <button class="card-button">Leer más</button>
                         </div>
                     </div>
-                </li>
+                
                 <li>
                     <div class="card">
                         <div class="card-image">
