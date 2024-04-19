@@ -99,3 +99,14 @@ paginationSection.addEventListener("click", function(event) {
         dataTable.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 });
+
+var dataTable = document.getElementById("data-table2");
+var paginationSection = document.getElementById("pagination");
+
+// Agregar controladores de eventos de clic a los botones de paginación
+paginationSection.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        // Desplazar la ventana hacia la parte superior de la tabla de datos
+        dataTable.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+});

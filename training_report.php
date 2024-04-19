@@ -33,7 +33,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                         </h3>
                         <a href="#"><img src="assets/img/pls.svg" alt="" style="width: 1rem;">Añadir Orden</a>
                     </div>
-                    <table aria-describedby="Training Report" class="rpt-tbl" border="0" id="data-table>
+                    <table aria-describedby="Training Report" class="rpt-tbl" border="0" id="data-table2>
                         <tr class="row-hdr">
                             <th>#</th>
                             <th>Equipo</th>
