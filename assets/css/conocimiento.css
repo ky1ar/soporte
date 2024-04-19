@@ -93,7 +93,7 @@
 
 /* estilos de la vista cursos.php */
 section.cur{
-  height: 300px;
+  height: 200px;
   background-color: rgb(197, 197, 197);
   display: flex; 
   justify-content: space-between;
