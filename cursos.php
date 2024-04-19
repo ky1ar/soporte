@@ -26,19 +26,19 @@ require_once 'includes/common/header.php';
     <section class="cur">
         <div class="cur-box">
             <h2>100% ONLINE</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis veniam esse nobis sapiente facilis consectetur iure ratione delectus.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis venia</p>
         </div>
         <div class="cur-box">
             <h2>TIEMPO</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis veniam esse nobis sapiente facilis consectetur iure ratione delectus.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis venia</p>
         </div>
         <div class="cur-box">
             <h2>METODOLOGÍA</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis veniam esse nobis sapiente facilis consectetur iure ratione delectus.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis venia</p>
         </div>
         <div class="cur-box">
             <h2>GRATUITO</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis veniam esse nobis sapiente facilis consectetur iure ratione delectus.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui beatae sit molestiae, magni, quis deserunt saepe vero non, ipsum ad debitis venia</p>
         </div>
     </section>
 
