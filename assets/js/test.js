@@ -2,7 +2,7 @@ var totalRows = parseInt(
   document.getElementById("totalRows").getAttribute("data-total")
 );
 var totalPages = Math.ceil(totalRows / 20);
-var currentPage = 1; // Página actual, inicialmente la primera
+var currentPage = 1;
 
 function showPage(pageNumber) {
   currentPage = pageNumber;
@@ -28,16 +28,7 @@ function updatePaginationButtons(currentPage) {
   var endPage = Math.min(startPage + 3, totalPages);
 
   if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 5, 1); // Asegurarse de que haya 6 botones siempre
-  }
-
-  if (startPage > 1) {
-    var ellipsisButton = document.createElement("button");
-    ellipsisButton.textContent = "...";
-    ellipsisButton.addEventListener("click", function () {
-      showPage(startPage - 1); // Mostrar la página anterior al primer elemento de la paginación actual
-    });
-    pagination.appendChild(ellipsisButton);
+    startPage = Math.max(totalPages - 4, 1);
   }
 
   if (currentPage > 1) {
@@ -66,19 +57,18 @@ function updatePaginationButtons(currentPage) {
   }
 
   if (currentPage < totalPages) {
-    // Si el último botón actual no es la última página, agregar un botón adicional para la última página
     if (endPage < totalPages) {
       var lastPageButton = document.createElement("button");
       lastPageButton.textContent = totalPages;
       lastPageButton.addEventListener("click", function () {
         showPage(totalPages);
       });
-      pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); // Aquí se ajusta la inserción
+      pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); 
     }
   }
+  
 
-  if (currentPage < totalPages && currentPage <= totalPages - 5) {
-    // Si hay más de cinco páginas restantes después de la página actual, agregamos un botón de siguiente
+  if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
     img.src = "../assets/img/right.png";
@@ -90,5 +80,4 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
-
 showPage(1);
