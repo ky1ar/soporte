@@ -18,8 +18,10 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <section>
-
+    <section id="">
+        <div class="">
+            <img style="width: 100%;" height="630" src="assets/slider/banner_basec.webp">
+        </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
