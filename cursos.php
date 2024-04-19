@@ -48,7 +48,7 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
                 <div class="cd cur-r">
-                    <h2>Título</h2>
+                    <h2>CURSO 01 - INTRODUCCIÓN</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
@@ -57,7 +57,7 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
                 <div class="cd cur-r">
-                    <h2>Título</h2>
+                    <h2>CURSO 02 - TECNOLOGÍAS</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
@@ -66,7 +66,7 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
                 <div class="cd cur-r">
-                    <h2>Título</h2>
+                    <h2>CURSO 03 - DISEÑO</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
@@ -77,7 +77,7 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
                 <div class="cd cur-r">
-                    <h2>Título</h2>
+                    <h2>CURSO 04 - APLICACIONES</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
@@ -86,7 +86,7 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
                 <div class="cd cur-r">
-                    <h2>Título</h2>
+                    <h2>CURSO 05 - PARAMETROS</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
@@ -95,7 +95,7 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
                 <div class="cd cur-r">
-                    <h2>Título</h2>
+                    <h2>CURSO 06 - LIMPIEZA</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tenetur laborum inventore fugiat ad dolorem doloremque cum ea maiores obcaecati iure, ullam sunt quia, laudantium dolores itaque saepe repellat facere!</p>
                 </div>
             </div>
