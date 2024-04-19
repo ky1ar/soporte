@@ -3017,6 +3017,22 @@ footer .ftr-cpy {
     margin: 0;
     font-size: 1.5rem;
 }
+#viewTraining .block .box {
+    position: relative;
+}
+#viewTraining .block .admin {
+    position: absolute;
+    background-color: #ee9f7e47;
+    font-size: 0.55rem;
+    color: #1f2d35;
+    padding: 0.35rem 0.75rem;
+    border-radius: 1rem;
+    right: 0;
+    left: 0;
+    bottom: -2.5rem;
+    text-align: center;
+    font-weight: 600;
+}
 #viewTraining .block .schedule {
     margin: 0;
     padding: 0.5rem 1.5rem;
@@ -3557,6 +3573,9 @@ footer .ftr-cpy {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
+  }
+  #scheduleForm ul .formRow .link {
+    color: var(--primary);
   }
   #scheduleForm ul .formRow label {
     font-weight: 700;

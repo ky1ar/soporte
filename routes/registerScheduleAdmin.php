@@ -5,16 +5,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $response = array();
 
-    $schedule = $_POST['schedule'];
-    $date = $_POST['date'];
-    $count = $_POST['count'];
-
-    $dniRUC = $_POST['dniRUC'];
-    $client = $_POST['client'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $machineId = $_POST['machineId'];
-    $meet = $_POST['meet'];
+    $schedule   = $_POST['schedule'];
+    $date       = $_POST['date'];
+    $count      = $_POST['count'];
+    $dniRUC     = $_POST['dniRUC'];
+    $client     = $_POST['client'];
+    $email      = $_POST['email'];
+    $phone      = $_POST['phone'];
+    $machineId  = $_POST['machineId'];
+    $meet       = $_POST['meet'];
 
     $phone = str_replace(' ', '', $phone);
 
@@ -45,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
     $nombre_dia = $dias[intval($newDate->format('w'))];
 
-
     $conn->begin_transaction();
 
     try {
@@ -75,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $getWorkerRow = $getWorkerResult->fetch_assoc();
         $worker = $getWorkerRow['id'];
 
-        $sql = "INSERT INTO Training (machine, worker, document, name, phone, email, training_date, training_start, training_state, meet) VALUES (?, $worker, ?, ?, ?, ?, ?, ?, 1, ?)";
+        $sql = "INSERT INTO Training (machine, worker, document, name, phone, email, training_date, training_start, training_state, meet, admin) VALUES (?, $worker, ?, ?, ?, ?, ?, ?, 1, ?, 1)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("isssssss", $machineId, $dniRUC, $client, $phone, $email, $date, $schedule, $meet);
         $stmt->execute();

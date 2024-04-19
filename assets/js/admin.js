@@ -629,6 +629,7 @@ $(document).ready(function () {
     const $count       = $("#viewTraining .count");
     const $name        = $("#viewTraining .name");
     const $invoice     = $("#viewTraining .invoice");
+    const $admin      = $("#viewTraining .admin");
     const $document    = $("#viewTraining .document");
     const $email       = $("#viewTraining .email");
     const $phone       = $("#viewTraining .phone");
@@ -688,11 +689,13 @@ $(document).ready(function () {
           $model.text(data.model);
           $count.text("(" + data.count + ")");
           $name.text(data.name);
-          if(data.invoice) {
-            $invoice.show();
-            $invoice.attr("data-src", data.invoice);
-          } else {
+          if(data.admin) {
             $invoice.hide();
+            $admin.show();
+          } else {
+            $invoice.show();
+            $admin.hide();
+            $invoice.attr("data-src", data.invoice);
           }
           $document.text(data.document);
           $email.text(data.email);

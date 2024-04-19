@@ -141,7 +141,10 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <div class="header">
                     <div class="block">
                         <h2 class="date"></h2>
-                        <span class="schedule"></span>
+                        <div class="box">
+                            <span class="schedule"></span>
+                            <div class="admin">Administrador</div>
+                        </div>
                     </div>
                     <div class="content">
                         <div class="staticWorker">
@@ -169,7 +172,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <a class="meet" href="" target="_blank"></a>
                         </div>
                         <div class="editableMeet">
-                            <img src="assets/img/meet.svg" alt="">
+                            <a href="https://meet.google.com/" target="_blank"><img src="assets/img/meet.svg" alt=""></a>
                             <input class="upd_meet" id="meetLink" type="text" placeholder="Ingrese el link de Google Meet">
                             <div id="actionMessage"></div>
                         </div>
@@ -268,7 +271,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 </li>
                                 <li class="percent100">
                                     <div class="formRow">
-                                        <label for="">Link de Google Meet</label>
+                                        <label for=""><a class="link" href="https://meet.google.com/" target="_blank">Google Meet</a></label>
                                         <input id="meet" type="text" placeholder="Ingrese el link">
                                     </div>
                                 </li>
