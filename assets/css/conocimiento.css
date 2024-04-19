@@ -103,7 +103,7 @@ section.cur{
 
 .cur-box {
   width: 370px;
-  height: 150px;
+  height: 120px;
   background-color: #fff;
   padding: 20px;
   text-align: center;
@@ -112,10 +112,11 @@ section.cur{
 
 .cur-box h2{
   color: #ed5d1f;
-  font-size: 30px;
+  font-size: 28px;
   margin: 0px;
 }
 
 .cur-box p{
   margin: 0px;
+  font-size: 10px;
 }
