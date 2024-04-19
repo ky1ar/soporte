@@ -28,7 +28,7 @@ function updatePaginationButtons(currentPage) {
   var endPage = Math.min(startPage + 3, totalPages);
 
   if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 3, 1); // Asegurarse de que haya 4 botones siempre
+    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 4 botones siempre
   }
 
   if (currentPage > 1) {
