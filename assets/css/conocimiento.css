@@ -154,11 +154,13 @@ section.cur2{
 .curd h2{
   color: #ed5d1f;
   font-size: 28px;
+  margin-bottom: 0px;
 }
 .curd p{
   color:black;
   font-size: 14px;
   text-align: justify;
+  margin-top: 0px;
 }
 
 .cd {
