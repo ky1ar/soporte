@@ -64,19 +64,9 @@ function updatePaginationButtons(currentPage) {
       lastPageButton.addEventListener("click", function () {
         showPage(totalPages);
       });
-      if (endPage < totalPages - 1) {
-        // Si hay espacio para mostrar cinco botones de paginación
-        var fifthButton = document.createElement("button");
-        fifthButton.textContent = endPage + 1;
-        fifthButton.addEventListener("click", function () {
-          showPage(endPage + 1);
-        });
-        pagination.insertBefore(fifthButton, pagination.lastChild);
-      }
-      pagination.insertBefore(lastPageButton, pagination.lastChild);
+      pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); // Aquí se ajusta la inserción
     }
   }
-  
   
 
   if (currentPage < totalPages) {
