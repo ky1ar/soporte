@@ -27,7 +27,7 @@ require_once 'includes/common/header.php';
         <div class="et">
             <p>TECNOLOGÍA FDM</p>
         </div>
-        <div class="swiffy-slider slider-item-show4 slider-nav-autoplay" data-slider-nav-autoplay-interval="2500">
+        <div class="swiffy-slider slider-item-show4 slider-nav-autoplay">
             <ul class="slider-container">
                 <li>
                     <div class="card">

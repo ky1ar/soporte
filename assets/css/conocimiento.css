@@ -1,62 +1,24 @@
-section.sec-fdm{
-    height: 600px;
-    background-color: rgb(235, 235, 235);
-}
-.et{
-    margin-top: 0px;
-    padding: 10px 0;
-    margin: auto;
-    background-color: #ed5d1f;
-    text-align: center;
-    width: 300px;
-    /* height: 50px; */
-    border-radius: 0px 0px 10px 10px;
-}
+  section.sec-fdm{
+      height: 600px;
+      background-color: rgb(235, 235, 235);
+  }
+  .et{
+      margin-top: 0px;
+      padding: 10px 0;
+      margin: auto;
+      background-color: #ed5d1f;
+      text-align: center;
+      width: 300px;
+      /* height: 50px; */
+      border-radius: 0px 0px 10px 10px;
+  }
 
-.et p{
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-    margin: 0;
-}
-
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
+  .et p{
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
   }
-  
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-    
-  }
-  
-  .carousel-item {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-  
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .prev {
-    left: 0;
-  }
-  
-  .next {
-    right: 0;
-  }
-  
-
   .card {
     background-color: white;
     margin-top: 40px;
