@@ -127,12 +127,13 @@ section.cur2{
   height: 700px;
   color: white;
   display: flex;
+  align-items: center; 
 }
 
 .cur2-p {
   flex: 1;
   background-color: blue;
-  align-items: center; 
+  
 }
 
 .curd {
