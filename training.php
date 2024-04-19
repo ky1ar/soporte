@@ -67,7 +67,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 for ($i = 0; $i < $firstDayNum; $i++) {
                                     echo '<li></li>';
                                 }
-
+                                $todayDate = new DateTime();
+                                $todayDate->setTime(0, 0, 0);
                                 $sql =
                                 "SELECT *
                                 FROM Calendar
@@ -77,15 +78,19 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
                                     $date = $row['calendar_date'];
+                                    $detail = $row['detail'];
+                                    $checkDate = new DateTime($date);
+
                                     $dayNum = date('d', strtotime($date));
                                     echo '<li'.(($today == $dayNum) ? ' class="today"' : '').'>';
-                                    echo '<span class="calendarAdd" data-day="' . $dayNum . '">' . $dayNum . '</span>';
+                                    echo '<span'.($checkDate >= $todayDate ? ' class="calendarAdd"':'').' data-day="'.$dayNum.'">'.$dayNum.'</span>';
                                     echo '<div class="calendarView">';
 
                                     $sql2 =
                                     "SELECT t.id,
                                         t.training_state,
                                         t.training_start,
+                                        t.admin,
                                         w.image as w_image,
                                         w.nick as w_nick,
                                         m.model as m_model,
@@ -106,6 +111,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                 data-date="<?= $date?>"
                                                 data-start="<?= $row2['training_start']?>"
                                                 style="background-color: #<?= $row2['w_image']?>47;">
+                                                <?php echo $row2['admin'] ? "<i style='background-color: #".$row2['w_image']."'></i>":''; ?>
                                                 <h3><?= $row2['m_model']?></h3>
                                                 <div class="flex">
                                                     <h2 style="background-color: #<?= $row2['w_image']?>;">
@@ -115,6 +121,8 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                 </div>
                                             </div>
                                         <?php endwhile;
+                                    } else {
+                                        echo $detail ? '<div class="dayDetail">'.$detail.'</div>':'';
                                     }
                                     echo '</div>';
                                     echo '</li>';
@@ -133,7 +141,10 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <div class="header">
                     <div class="block">
                         <h2 class="date"></h2>
-                        <span class="schedule"></span>
+                        <div class="box">
+                            <span class="schedule"></span>
+                            <div class="admin">Administrador</div>
+                        </div>
                     </div>
                     <div class="content">
                         <div class="staticWorker">
@@ -161,7 +172,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <a class="meet" href="" target="_blank"></a>
                         </div>
                         <div class="editableMeet">
-                            <img src="assets/img/meet.svg" alt="">
+                            <a href="https://meet.google.com/" target="_blank"><img src="assets/img/meet.svg" alt=""></a>
                             <input class="upd_meet" id="meetLink" type="text" placeholder="Ingrese el link de Google Meet">
                             <div id="actionMessage"></div>
                         </div>
@@ -200,17 +211,18 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                 <img class="modalClose" src="assets/img/x.svg" alt="">
             </div>
         </div>
-        <div id="previewInvoice">
-            <div class="previewBox">
-                <img class="close" src="assets/img/x.svg" alt="">
-                <div id="invoiceFile"></div>
-            </div>
+    </section>
+
+    <section id="previewInvoice">
+        <div class="previewBox">
+            <img class="close" src="assets/img/x.svg" alt="">
+            <div id="invoiceFile"></div>
         </div>
     </section>
-    <!--<section id="AddOverlay">
+    <section id="AddOverlay">
         <div class="modalBox">
             <div id="addTraining">
-                <div id="loadingResponse">
+                <div id="addLoadingResponse">
                     <div class="flex">
                         <img src="assets/img/fav.png" alt="Cargando..." />
                     </div>
@@ -257,6 +269,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                         </div>
                                     </div>
                                 </li>
+                                <li class="percent100">
+                                    <div class="formRow">
+                                        <label for=""><a class="link" href="https://meet.google.com/" target="_blank">Google Meet</a></label>
+                                        <input id="meet" type="text" placeholder="Ingrese el link">
+                                    </div>
+                                </li>
                             </div>
                             <li class="percent25">
                                 <div class="formRow">
@@ -269,12 +287,12 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                             <input type="hidden" id="picked">
                             <div id="scheduleFormMessage"></div>
                             <button type="submit" class="formSubmit">Reservar Capacitación</button>
-                        </div>     
+                        </div>
                     </form>
                 </div>
+                <img class="modalClose" src="assets/img/x.svg" alt="">
             </div>
         </div>
-    </section>-->
+    </section>
 </body>
-
 </html>

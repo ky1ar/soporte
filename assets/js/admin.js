@@ -517,15 +517,20 @@ $(document).ready(function () {
       );
     }
     previewInvoice.fadeToggle();
+    $("#viewOverlay").addClass('blur');
   });
 
   $("#previewInvoice .close").click(function () {
     previewInvoice.fadeToggle();
+    $("#viewOverlay").removeClass('blur');
+
   });
 
   $(window).click(function (event) {
     if (event.target == previewInvoice[0]) {
       previewInvoice.fadeToggle();
+    $("#viewOverlay").removeClass('blur');
+
     }
   });
 
@@ -624,6 +629,7 @@ $(document).ready(function () {
     const $count       = $("#viewTraining .count");
     const $name        = $("#viewTraining .name");
     const $invoice     = $("#viewTraining .invoice");
+    const $admin      = $("#viewTraining .admin");
     const $document    = $("#viewTraining .document");
     const $email       = $("#viewTraining .email");
     const $phone       = $("#viewTraining .phone");
@@ -634,9 +640,9 @@ $(document).ready(function () {
 
     const $staticWorker   = $("#viewTraining .staticWorker");
     const $editableWorker = $("#viewTraining .editableWorker");
-    const $staticMeet   = $("#viewTraining .staticMeet");
-    const $editableMeet = $("#viewTraining .editableMeet");
-
+    const $staticMeet     = $("#viewTraining .staticMeet");
+    const $editableMeet   = $("#viewTraining .editableMeet");
+    
     $.ajax({
       url: "routes/getTraining",
       method: "POST",
@@ -683,7 +689,14 @@ $(document).ready(function () {
           $model.text(data.model);
           $count.text("(" + data.count + ")");
           $name.text(data.name);
-          $invoice.attr("data-src", data.invoice);
+          if(data.admin) {
+            $invoice.hide();
+            $admin.show();
+          } else {
+            $invoice.show();
+            $admin.hide();
+            $invoice.attr("data-src", data.invoice);
+          }
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
@@ -694,6 +707,9 @@ $(document).ready(function () {
           $id_worker.val(data.id_worker);
           $pre.val(trainingId);
 
+          $("#topBar").addClass('blur');
+          $("#navigationBar").addClass('blur');
+          $("#adminSection").addClass('blur');
           viewOverlay.fadeToggle();
         }
       },
@@ -703,13 +719,19 @@ $(document).ready(function () {
     });
   });
 
-  viewOverlay.find(".modalClose, .modalCancel").click(function () {
+  viewOverlay.find(".modalClose").click(function () {
     viewOverlay.fadeToggle();
+    $("#topBar").removeClass('blur');
+    $("#navigationBar").removeClass('blur');
+    $("#adminSection").removeClass('blur');
   });
 
   $(window).click(function (event) {
     if (event.target == viewOverlay[0]) {
       viewOverlay.fadeToggle();
+      $("#topBar").removeClass('blur');
+      $("#navigationBar").removeClass('blur');
+      $("#adminSection").removeClass('blur');
     }
   });
 
@@ -776,7 +798,7 @@ $(document).ready(function () {
     }
     return true;
   }
-
+  
 
   let currentDate = new Date();
   let months = [
@@ -886,4 +908,223 @@ $(document).ready(function () {
       },
     });
   });
+
+  const AddOverlay = $("#AddOverlay");
+  const scheduleSelector = $("#scheduleSelector");
+  const scheduleForm = $("#scheduleForm");
+
+  calendarTable.on("click", ".calendarAdd", function () {
+    let dayNumber = $(this).attr("data-day");
+    let temporal = currentDate;
+    temporal.setDate(dayNumber);
+    let formatedDate =
+      temporal.getFullYear() +
+      "-" +
+      ("0" + (temporal.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + temporal.getDate()).slice(-2);
+    $.ajax({
+      url: "routes/loadSchedule",
+      method: "POST",
+      data: { date: formatedDate },
+      success: function (response) {
+        let jsonData = JSON.parse(response);
+        scheduleSelector.html(jsonData.html);
+        scheduleSelector.show();
+        scheduleForm.hide();
+
+        $("#topBar").addClass('blur');
+        $("#navigationBar").addClass('blur');
+        $("#adminSection").addClass('blur');
+        AddOverlay.fadeToggle();
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+      },
+    });
+
+    
+  });
+
+  AddOverlay.find(".modalClose").click(function () {
+    AddOverlay.fadeToggle();
+    $("#topBar").removeClass('blur');
+    $("#navigationBar").removeClass('blur');
+    $("#adminSection").removeClass('blur');
+  });
+
+  $(window).click(function (event) {
+    if (event.target == AddOverlay[0]) {
+      AddOverlay.fadeToggle();
+      $("#topBar").removeClass('blur');
+      $("#navigationBar").removeClass('blur');
+      $("#adminSection").removeClass('blur');
+    }
+  });
+
+  const $addTraining = $("#addTraining");
+  const machine = $("#machine");
+  const suggestions = $("#suggestions");
+  const machineImage = $("#machineImage");
+  const machineId = $("#machineId");
+
+  const selectedSchedule = $("#selectedSchedule");
+  const picked = $("#picked");
+
+  const scheduleSubmit = $("#scheduleSubmit");
+  const scheduleFormMessage = $("#scheduleFormMessage");
+  const scheduleCalendar = $("#scheduleCalendar");
+
+  $addTraining.on("click", ".boxSchedule", function () {
+    const selectedData = $("#selectedData");
+    const dateAvailable = $("#dateAvailable");
+    let day = selectedData.data("day");
+    let date = selectedData.data("date");
+    let count = dateAvailable.val();
+    let schedule = $(this).data("schedule");
+
+    selectedSchedule.text(day + " - " + schedule);
+    picked.val(date);
+    picked.attr("data-schedule", schedule);
+    picked.attr("data-count", count);
+
+    scheduleSelector.hide();
+    scheduleForm.show();
+  });
+
+  machine.keyup(function () {
+    let machineVal = $(this).val();
+    if (machineVal.length >= 2) {
+      $.ajax({
+        url: "routes/loadMachine",
+        type: "POST",
+        data: { machineVal: machineVal },
+        success: function (data) {
+          suggestions.html(data);
+          $(".suggestionsRow").click(function () {
+            let sel = $(this).text();
+            let id = $(this).data("id");
+            let slug = $(this).data("slug");
+            machine.val(sel);
+            suggestions.html("");
+            machineImage.attr("src", "assets/mac/" + slug + ".webp");
+            machineId.val(id);
+          });
+        },
+      });
+    } else {
+      suggestions.html("");
+      machineImage.attr("src", "assets/img/def.webp");
+      machineId.val("");
+    }
+  });
+
+  scheduleSubmit.submit(function (event) {
+    console.log('paso 0');
+
+    event.preventDefault();
+    scheduleFormMessage.slideUp();
+
+    let date = picked.val();
+    let schedule = picked.data("schedule");
+    let count = picked.data("count");
+    console.log('paso 1');
+
+    let dniRUC = $("#dniRUC").val();
+    let client = $("#client").val();
+    let email = $("#email").val();
+    let phone = $("#phone").val();
+    let machine = machineId.val();
+    let meet = $("#meet").val();
+    console.log('paso 2' + meet + ' test ');
+
+    if (
+      !validateDniRuc(dniRUC) ||
+      !validateClientAdmin(client) ||
+      !validateEmailAdmin(email) ||
+      !validatePhoneAdmin(phone) ||
+      !validateMachineId(machine) ||
+      !validateMeetAdmin(meet)
+    ) {
+      return;
+    }
+
+    let formData = new FormData();
+    formData.append("schedule", schedule);
+    formData.append("date", date);
+    formData.append("count", count);
+    formData.append("dniRUC", dniRUC);
+    formData.append("client", client);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("machineId", machine);
+    formData.append("meet", meet);
+    $.ajax({
+      url: "routes/registerScheduleAdmin",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        const jsonData = JSON.parse(response);
+        if (jsonData.success) {
+          window.location.href = "training";
+        } else {
+          message(actionMessage, jsonData.error);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
+  });
+
+  function validateDniRuc(dniRUC) {
+    const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
+
+    if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
+        message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+        return false;
+    }
+
+    return true;
+  }
+  function validateClientAdmin(client) {
+    if (client.trim() === "") {
+      message(scheduleFormMessage, "El campo del nombre no puede estar vacío");
+      return false;
+    }
+    return true;
+  }
+  function validateEmailAdmin(email) {
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      message(scheduleFormMessage, "Ingrese un correo electrónico válido");
+      return false;
+    }
+    return true;
+  }
+  function validatePhoneAdmin(phone) {
+    if (phone === "") {
+      message(scheduleFormMessage, "Ingrese un número de teléfono");
+      return false;
+    }
+    return true;
+  }
+  function validateMeetAdmin(meet) {
+    if (meet.trim() === "") {
+      message(scheduleFormMessage, "Δ Ingrese un link de Google Meet Δ");
+      return false;
+    }
+    return true;
+  }
+  function validateMachineId(machineId) {
+    if (machineId.trim() === "") {
+      message(scheduleFormMessage, "Seleccione un equipo");
+      return false;
+    }
+    return true;
+  }
+
+
 });

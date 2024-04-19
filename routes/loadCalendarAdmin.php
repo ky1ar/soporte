@@ -15,14 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $monthNumber = $selectedDate->format('n');
 
     for ($i = 0; $i < $day; $i++) { echo '<li></li>'; }
-                                
+    $todayDate = new DateTime();
+    $todayDate->setTime(0, 0, 0);
     $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$date') AND MONTH(calendar_date) = MONTH('$date')";
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         $date = $row['calendar_date'];
+        $detail = $row['detail'];
+        $checkDate = new DateTime($date);
+
         $dayNum = date('d', strtotime($date));
-        echo '<li class="admin ' . (($todayMonth == $monthNumber && $todayDay == $dayNum) ? 'today' : '') . '">';
-        echo '<span data-day="'.$dayNum.'">'.$dayNum.'</span>';
+        echo '<li' . (($todayMonth == $monthNumber && $todayDay == $dayNum) ? ' class="today"' : '') . '>';
+        echo '<span'.($checkDate >= $todayDate ? ' class="calendarAdd"':'').' data-day="'.$dayNum.'">'.$dayNum.'</span>';
         echo '<div class="calendarView">';
         
         $sql2 =
@@ -59,6 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                     </div>
                 </div>
             <?php endwhile;
+        } else {
+            echo $detail ? '<div class="dayDetail">'.$detail.'</div>':'';
         }
         echo '</div>';
         echo '</li>';
