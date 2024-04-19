@@ -130,6 +130,23 @@ section.cur2{
 }
 
 .cur2-p {
-  flex: 1; /* Hacer que cada .cur2-p ocupe la misma cantidad de espacio */
-  background-color: blue; /* Solo para visualización */
+  flex: 1;
+  background-color: blue;
+}
+
+.curd {
+  display: flex;
+  align-items: center;
+}
+
+.cd {
+  width: 50%;
+}
+
+.cur-l {
+  text-align: right;
+}
+
+.cur-r {
+  text-align: left;
 }
