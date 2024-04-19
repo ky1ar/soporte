@@ -26,8 +26,8 @@ require_once 'includes/common/header.php';
     <section class="sec-fdm">
         <div class="et">
             <p>TECNOLOGÍA FDM</p>
-        </div>
-        <div class="swiffy-slider slider-item-show4">
+        </div> 
+        <div class="swiffy-slider slider-item-show4 slider-item-nogap">
             <ul class="slider-container">
                 <li>
                     <div class="card">
