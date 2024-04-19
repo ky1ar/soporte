@@ -56,11 +56,11 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(button);
   }
 
-  if (currentPage === 1 && totalPages > 10) {
+  if (currentPage <= totalPages - 5) {
     var ellipsisButton = document.createElement("button");
     ellipsisButton.textContent = "...";
     ellipsisButton.disabled = true;
-    pagination.insertBefore(ellipsisButton, pagination.childNodes[4]);
+    pagination.appendChild(ellipsisButton);
   }
 
   if (currentPage < totalPages) {
@@ -70,7 +70,7 @@ function updatePaginationButtons(currentPage) {
       lastPageButton.addEventListener("click", function () {
         showPage(totalPages);
       });
-      pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling);
+      pagination.appendChild(lastPageButton);
     }
   }
 
@@ -86,5 +86,7 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
+
+showPage(1);
 
 showPage(1);
