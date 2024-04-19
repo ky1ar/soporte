@@ -2,6 +2,10 @@
       height: 700px;
       background-color: rgb(235, 235, 235);
   }
+  section.sec-lcd{
+    height: 700px;
+    background-color: #ffffff;
+}
   .et{
       margin-top: 0px;
       padding: 10px 0;
