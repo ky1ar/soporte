@@ -32,7 +32,7 @@ require_once 'includes/common/header.php';
             <h2>Título 2</h2>
             <p>Contenido del segundo div.</p>
         </div>
-        <div class="box">
+        <div class="cur-box">
             <h2>Título 3</h2>
             <p>Contenido del tercer div.</p>
         </div>
