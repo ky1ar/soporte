@@ -24,13 +24,11 @@ function showPage(pageNumber) {
 function updatePaginationButtons(currentPage) {
   var pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
-  var startPage = currentPage > 3 ? currentPage - 2 : 1;
-  var endPage = Math.min(startPage + 4, totalPages);
+  var startPage = currentPage > 2 ? currentPage - 1 : 1;
+  var endPage = Math.min(startPage + 3, totalPages);
 
   if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 5 botones siempre
-  } else if (endPage - startPage < 4) {
-    startPage = Math.max(endPage - 4, 1);
+    startPage = Math.max(totalPages - 3, 1); // Asegurarse de que haya 4 botones siempre
   }
 
   if (currentPage > 1) {
@@ -78,14 +76,6 @@ function updatePaginationButtons(currentPage) {
       showPage(currentPage + 1);
     });
     pagination.appendChild(nextButton);
-  } else {
-    // Si currentPage es la última página, agregar un botón adicional para la última página
-    var lastPageButton = document.createElement("button");
-    lastPageButton.textContent = totalPages;
-    lastPageButton.addEventListener("click", function () {
-      showPage(totalPages);
-    });
-    pagination.appendChild(lastPageButton);
   }
 }
 showPage(1);
