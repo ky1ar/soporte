@@ -28,14 +28,15 @@ function updatePaginationButtons(currentPage) {
   var endPage = Math.min(startPage + 3, totalPages);
 
   if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 4 botones siempre
+    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 5 botones siempre
     if (startPage > 1) {
       var ellipsisButton = document.createElement("button");
       ellipsisButton.textContent = "...";
-      ellipsisButton.disabled = true;
+      ellipsisButton.addEventListener("click", function () {
+        showPage(endPage + 1); // Mostrar la página siguiente al último elemento de la paginación actual
+      });
       pagination.appendChild(ellipsisButton);
-  }
-}
+    }
   }
 
   if (currentPage > 1) {
@@ -74,7 +75,6 @@ function updatePaginationButtons(currentPage) {
       pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); // Aquí se ajusta la inserción
     }
   }
-  
 
   if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
@@ -88,4 +88,5 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
+
 showPage(1);
