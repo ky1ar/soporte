@@ -127,7 +127,8 @@ section.cur2{
   height: 720px;
   color: white;
   display: flex;
-  align-items: center; 
+  align-items: center;
+  margin: 0px 50px; 
 }
 
 .cur2-p {
