@@ -78,7 +78,7 @@
     background-color: #cf3e00;
   }
   
-
-  .slide-visible{
-    width: 280px !important;
-  }
+  .slider-container {
+    display: flex;
+    justify-content: center;
+}
