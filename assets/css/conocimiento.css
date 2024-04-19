@@ -98,7 +98,7 @@ section.cur{
   display: flex; 
   justify-content: space-between;
   align-items: center;
-  padding: 0px 70px;
+  padding: 0px 150px;
 }
 
 .cur-box {
