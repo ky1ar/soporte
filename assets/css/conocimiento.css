@@ -149,6 +149,10 @@ section.cur2{
   color: #ed5d1f;
   font-size: 28px;
 }
+.curd p{
+  color:black;
+  font-size: 14px;
+}
 
 .cd {
   flex:1;
