@@ -152,7 +152,7 @@ section.cur2{
 }
 
 .cd {
-  width: 50%;
+  flex:1;
 }
 
 .cur-l {
