@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
     ?>
     <section id="">
         <div class="">
-            <img style="width: 100%;" height="630" src="assets/slider/banner_basec.webp">
+            <img style="width: 100%;" height="630" src="assets/slider/banner-cursos.webp">
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
