@@ -27,6 +27,8 @@
     width: 280px;
     border-radius: 2px;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .card-image img {
@@ -77,8 +79,4 @@
   .card-button:hover {
     background-color: #cf3e00;
   }
-  
-  .slider-container {
-    display: flex;
-    justify-content: center;
-}
+
