@@ -141,6 +141,10 @@ section.cur2{
   align-items: center;
   margin-bottom: 20px;
 }
+
+.curd:hover{
+  background-color: #666;
+}
 .curd:last-child {
   margin-bottom: 0px;
 }
