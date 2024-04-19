@@ -27,14 +27,29 @@ function updatePaginationButtons(currentPage) {
   var startPage = currentPage > 2 ? currentPage - 1 : 1;
   var endPage = Math.min(startPage + 3, totalPages);
 
-  if (currentPage > 5) {
-    // Si estamos más allá del quinto elemento, agregamos el botón de elipsis
+  if (endPage === totalPages) {
+    startPage = Math.max(totalPages - 5, 1); // Asegurarse de que haya 6 botones siempre
+  }
+
+  if (startPage > 1) {
     var ellipsisButton = document.createElement("button");
     ellipsisButton.textContent = "...";
     ellipsisButton.addEventListener("click", function () {
-      showPage(currentPage - 4); // Mostrar la página anterior al quinto elemento
+      showPage(startPage - 1); // Mostrar la página anterior al primer elemento de la paginación actual
     });
     pagination.appendChild(ellipsisButton);
+  }
+
+  if (currentPage > 1) {
+    var prevButton = document.createElement("button");
+    var img = document.createElement("img");
+    img.src = "../assets/img/left.png";
+    img.alt = "Anterior";
+    prevButton.appendChild(img);
+    prevButton.addEventListener("click", function () {
+      showPage(currentPage - 1);
+    });
+    pagination.appendChild(prevButton);
   }
 
   for (var i = startPage; i <= endPage; i++) {
