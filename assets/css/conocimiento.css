@@ -138,6 +138,7 @@ section.cur2{
 .curd {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 .curd img{
   width: 380px;
