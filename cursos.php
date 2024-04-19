@@ -44,10 +44,10 @@ require_once 'includes/common/header.php';
     <section class="cur2">
         <div class="cur2-p">
             <div class="curd">
-                <div class="cd cur-l">
+                <div class="cd">
                     <img src="assets/img/curso.jpg" alt="Imagen">
                 </div>
-                <div class="cd cur-r">
+                <div class="cd">
                     <h2>Título</h2>
                     <p>Texto del párrafo.</p>
                 </div>
