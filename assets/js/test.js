@@ -90,7 +90,7 @@ showPage(1);
 
 // Obtener la tabla de datos y la sección de paginación
 var dataTable = document.getElementById("data-table");
-var paginationSection = document.getElementById("pagination");
+var paginationSections = document.getElementsByClassName("pagination");
 
 // Agregar controladores de eventos de clic a los botones de paginación
 paginationSection.addEventListener("click", function(event) {
