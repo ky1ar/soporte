@@ -27,20 +27,14 @@ function updatePaginationButtons(currentPage) {
   var startPage = currentPage > 2 ? currentPage - 1 : 1;
   var endPage = Math.min(startPage + 3, totalPages);
 
-  if (endPage === totalPages) {
-    startPage = Math.max(totalPages - 4, 1); // Asegurarse de que haya 4 botones siempre
-  }
-
-  if (currentPage > 1) {
-    var prevButton = document.createElement("button");
-    var img = document.createElement("img");
-    img.src = "../assets/img/left.png";
-    img.alt = "Anterior";
-    prevButton.appendChild(img);
-    prevButton.addEventListener("click", function () {
-      showPage(currentPage - 1);
+  if (currentPage > 5) {
+    // Si estamos más allá del quinto elemento, agregamos el botón de elipsis
+    var ellipsisButton = document.createElement("button");
+    ellipsisButton.textContent = "...";
+    ellipsisButton.addEventListener("click", function () {
+      showPage(currentPage - 4); // Mostrar la página anterior al quinto elemento
     });
-    pagination.appendChild(prevButton);
+    pagination.appendChild(ellipsisButton);
   }
 
   for (var i = startPage; i <= endPage; i++) {
@@ -67,9 +61,9 @@ function updatePaginationButtons(currentPage) {
       pagination.insertBefore(lastPageButton, pagination.lastChild.nextSibling); // Aquí se ajusta la inserción
     }
   }
-  
 
-  if (currentPage < totalPages) {
+  if (currentPage < totalPages && currentPage <= totalPages - 5) {
+    // Si hay más de cinco páginas restantes después de la página actual, agregamos un botón de siguiente
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
     img.src = "../assets/img/right.png";
@@ -81,4 +75,5 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(nextButton);
   }
 }
+
 showPage(1);
