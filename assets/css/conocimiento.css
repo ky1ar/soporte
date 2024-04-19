@@ -124,7 +124,7 @@ section.cur{
 }
 
 section.cur2{
-  height: 700px;
+  height: 720px;
   color: white;
   display: flex;
   align-items: center; 
@@ -145,8 +145,8 @@ section.cur2{
 }
 
 .curd img{
-  width: 380px;
-  height: 200px;
+  width: 360px;
+  height: 180px;
   border-radius: 10px;
 }
 
