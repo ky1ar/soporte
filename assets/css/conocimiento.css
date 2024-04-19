@@ -115,3 +115,7 @@ section.cur{
   font-size: 30px;
   margin: 0px;
 }
+
+.cur-box p{
+  margin: 0px;
+}
