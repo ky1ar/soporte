@@ -88,15 +88,16 @@ function updatePaginationButtons(currentPage) {
 
 showPage(1);
 
+
 var dataTable = document.getElementById("data-table");
-var paginationSections = document.getElementsByClassName("pagination");
+var paginationSection = document.getElementById("pagination");
 paginationSection.addEventListener("click", function(event) {
     if (event.target.tagName === "BUTTON") {
         dataTable.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 });
 
-
+var paginationSections = document.getElementsByClassName("pagination");
 for (var i = 0; i < paginationSections.length; i++) {
     var paginationSection = paginationSections[i];
     paginationSection.addEventListener("click", function(event) {
