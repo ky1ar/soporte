@@ -101,7 +101,7 @@ require_once 'includes/common/header.php';
                         </div>
                     </div>
                 </li>
-                
+
                 <li>
                     <div class="card">
                         <div class="card-image">
@@ -156,17 +156,23 @@ require_once 'includes/common/header.php';
                         </div>
                     </div>
                 </li>
-                
+
             </ul>
 
             <button type="button" class="slider-nav"></button>
             <button type="button" class="slider-nav slider-nav-next"></button>
 
-            <div class="slider-indicators">
-                <button class="active"></button>
-                <button></button>
-                <button></button>
-            </div>
+            <ul class="slider-indicators">
+                <li class=""></li>
+                <li class=""></li>
+                <li class=""></li>
+                <li class="active"></li>
+                <li class=""></li>
+                <li class=""></li>
+                <li class=""></li>
+                <li class=""></li>
+                <li class=""></li>
+            </ul>
         </div>
     </section>
 
