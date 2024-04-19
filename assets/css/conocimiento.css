@@ -132,13 +132,12 @@ section.cur2{
 
 .cur2-p {
   flex: 1;
-  
+  gap: 20px;
 }
 
 .curd {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 .curd img{
   width: 380px;
