@@ -100,13 +100,18 @@ paginationSection.addEventListener("click", function(event) {
     }
 });
 
-var dataTable = document.getElementById("data-table2");
-var paginationSection = document.getElementById("pagination");
+// Obtener la sección de paginación por su clase
+var paginationSections = document.getElementsByClassName("pagination");
 
-// Agregar controladores de eventos de clic a los botones de paginación
-paginationSection.addEventListener("click", function(event) {
-    if (event.target.tagName === "BUTTON") {
-        // Desplazar la ventana hacia la parte superior de la tabla de datos
-        dataTable.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-});
+// Iterar sobre todas las secciones de paginación (puede haber más de una)
+for (var i = 0; i < paginationSections.length; i++) {
+    var paginationSection = paginationSections[i];
+    
+    // Agregar controladores de eventos de clic a los botones de paginación dentro de cada sección
+    paginationSection.addEventListener("click", function(event) {
+        if (event.target.tagName === "BUTTON") {
+            // Desplazar la ventana hacia la parte superior de la tabla de datos
+            document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    });
+}
