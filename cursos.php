@@ -24,8 +24,24 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section class="cur">
-        
+        <div class="cur-box">
+            <h2>Título 1</h2>
+            <p>Contenido del primer div.</p>
+        </div>
+        <div class="cur-box">
+            <h2>Título 2</h2>
+            <p>Contenido del segundo div.</p>
+        </div>
+        <div class="box">
+            <h2>Título 3</h2>
+            <p>Contenido del tercer div.</p>
+        </div>
+        <div class="cur-box">
+            <h2>Título 4</h2>
+            <p>Contenido del cuarto div.</p>
+        </div>
     </section>
+
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
 
