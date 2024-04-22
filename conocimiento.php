@@ -16,7 +16,7 @@ require_once 'includes/common/header.php';
 <body>
     <?php
     require_once 'includes/bar/topBar.php';
-    require_once 'includes/bar/navigationBar.php';
+    // require_once 'includes/bar/navigationBar.php';
     ?>
     <section id="">
         <div class="">
