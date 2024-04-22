@@ -31,7 +31,7 @@ function adjustSlider() {
   var screenWidth = window.innerWidth;
   var sliders = document.querySelectorAll('.swiffy-slider');
   sliders.forEach(function (slider) {
-      if (screenWidth < 1000) { // Cambiado a 1000 en lugar de 1650
+      if (screenWidth < 1660) { // Cambiado a 1000 en lugar de 1650
           slider.classList.remove('show4');
           slider.classList.add('show3');
       } else {
