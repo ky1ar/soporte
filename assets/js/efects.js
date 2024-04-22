@@ -31,12 +31,10 @@ function adjustSlider() {
   var screenWidth = window.innerWidth;
   var sliders = document.querySelectorAll('.swiffy-slider');
   sliders.forEach(function (slider) {
-      if (screenWidth < 1660) { // Cambiado a 1000 en lugar de 1650
-          slider.classList.remove('swiffy-slider slider-item-show4');
-          slider.classList.add('swiffy-slider slider-item-show3');
+      if (screenWidth < 1660) {
+          slider.classList.replace('slider-item-show4', 'slider-item-show3');
       } else {
-          slider.classList.remove('swiffy-slider slider-item-show3');
-          slider.classList.add('swiffy-slider slider-item-show4');
+          slider.classList.replace('slider-item-show3', 'slider-item-show4');
       }
   });
 }
