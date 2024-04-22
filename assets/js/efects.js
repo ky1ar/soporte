@@ -33,7 +33,7 @@ function adjustSlider() {
   sliders.forEach(function (slider) {
       if (screenWidth < 1650) {
           slider.classList.replace('slider-item-show4', 'slider-item-show3');
-      }else if (screenWidth < 1350) {
+      }if (screenWidth < 1350) {
         slider.classList.replace('slider-item-show3', 'slider-item-show2');
       }else {
           slider.classList.replace('slider-item-show3', 'slider-item-show4');
