@@ -1,7 +1,9 @@
 <?php
 $pages = [
     ['Consultas', ''],
-    ['Capacitaciones', 'capacitaciones']
+    ['Capacitaciones', 'capacitaciones'],
+    ['Conocimiento', 'conocimiento'],
+    ['Cursos', 'cursos']
 ];
 
 ?>

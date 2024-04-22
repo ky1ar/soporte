@@ -1,5 +1,5 @@
 <?php
-$currentPage = "Test2";
+$currentPage = "Cursos";
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
