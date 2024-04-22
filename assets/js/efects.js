@@ -32,11 +32,11 @@ function adjustSlider() {
   var sliders = document.querySelectorAll('.swiffy-slider');
   sliders.forEach(function (slider) {
       if (screenWidth < 1660) { // Cambiado a 1000 en lugar de 1650
-          slider.classList.remove('show4');
-          slider.classList.add('show3');
+          slider.classList.remove('swiffy-slider slider-item-show4');
+          slider.classList.add('swiffy-slider slider-item-show3');
       } else {
-          slider.classList.remove('show3');
-          slider.classList.add('show4');
+          slider.classList.remove('swiffy-slider slider-item-show3');
+          slider.classList.add('swiffy-slider slider-item-show4');
       }
   });
 }
