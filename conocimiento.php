@@ -147,7 +147,7 @@ require_once 'includes/common/header.php';
         <div class="et">
             <p>TECNOLOGÍA LCD</p>
         </div>
-        <div class="swiffy-slider slider-item-show3 slider-item-nogap slider-nav-round slider-nav-animation">
+        <div class="swiffy-slider slider-item-show4 slider-item-nogap slider-nav-round slider-nav-animation">
             <ul class="slider-container">
                 <li>
                     <div class="card">
