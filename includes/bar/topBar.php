@@ -1,4 +1,4 @@
-<div id="topBar" style="padding-top: calc(env(safe-area-inset-top) + 20px); ">
+<div id="topBar">
     <div class="wrapper"> 
         <a href="https://api.whatsapp.com/send?phone=51934760404" target="_blank" rel="nofollow">
             <img src="assets/img/wsp.svg" width="16" height="16" alt="ico">934 760 404
