@@ -17,9 +17,9 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <section id="">
-        <div class="">
-            <img style="width: 100%;" height="630" src="assets/slider/banner-home.webp">
+    <section>
+        <div class="home-banner">
+            <img src="assets/slider/banner-home.webp">
         </div>
     </section>
     <section class="s1">
