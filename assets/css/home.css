@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-body{
-    font-family: "Montserrat", sans-serif;
-}
 .home-banner{
     display: flex;
     justify-content: center;
@@ -28,6 +25,7 @@ section.s1 {
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
+    font-family: "Montserrat", sans-serif;
 }
 
 .section-item:last-child {
