@@ -101,6 +101,7 @@ section.body-s1 {
 
 .content ol{
     margin-top: 0;
+    padding-left: 10px;
 }
 
 @media (min-width: 651px) and (max-width: 1024px) {
