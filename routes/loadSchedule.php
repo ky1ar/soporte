@@ -29,7 +29,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                 $response['html'] .= '<li><div class="boxSchedule" data-schedule="'.substr($row2['h_start'], 0, 5).'">'.substr($row2['h_start'], 0, 5).'</div></li>';
             }
         } else {
-            $sql2 = "SELECT ds.id, ds.h_start, ds.h_end, MIN(t.training_state) AS training_state FROM Default_Schedule ds LEFT JOIN Training t ON ds.h_start = t.training_start AND t.training_date = '$date' GROUP BY ds.id, ds.h_start, ds.h_end HAVING MIN(t.training_state) != 0 AND MIN(t.training_state) != 1 OR MIN(t.training_state) IS NULL ORDER BY ds.h_start;";
+            $sql2 = 
+            "SELECT 
+                ds.id,
+                ds.h_start,
+                ds.h_end,
+                MIN(t.training_state) AS training_state
+            FROM Default_Schedule ds
+            LEFT JOIN Training t ON ds.h_start = t.training_start
+            AND t.training_date = '$date'
+            GROUP BY ds.id, ds.h_start, ds.h_end
+            HAVING MIN(t.training_state) != 0 
+                AND MIN(t.training_state) != 1
+                AND MIN(t.training_state) != 2
+                OR MIN(t.training_state) IS NULL ORDER BY ds.h_start;";
 
             $result2 = $conn->query($sql2);
 

@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         t.training_date as t_date,
         t.training_start as t_start,
         t.name as c_name,
+        t.admin as t_admin,
         t.phone as c_phone,
         t.document as c_document,
         t.email as c_email,
@@ -62,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
             $response['success'] = [
                 'day' => $day,
                 'count' => $trainingCountRow['t_count'],
+                'admin' => $row['t_admin'],
                 'date' => $row['t_date'],
                 'dayName' => $dayName,
                 'month' => $months[$month - 1],

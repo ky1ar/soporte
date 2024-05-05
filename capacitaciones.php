@@ -159,7 +159,7 @@ require_once 'includes/common/header.php';
                                     <input type="hidden" id="picked">
                                     <div id="scheduleFormMessage"></div>
                                     <button type="submit" class="formSubmit">Confirmar Reserva</button>
-                                </div>     
+                                </div>
                             </form>
                         </div>
                     </div>    
