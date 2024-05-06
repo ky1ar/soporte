@@ -96,7 +96,7 @@ body {
 }
 #userMenuExtented {
     position: absolute;
-    z-index: 3;
+    z-index: 1;
     top: 0rem;
     left: -1rem;
     right: -0.5rem;
