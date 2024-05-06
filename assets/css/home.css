@@ -119,6 +119,12 @@ section.body-s1 {
     padding-left: 10px;
 }
 
+@media (max-width: 1600px){
+    .home-banner img{
+        padding: 0 1rem;
+    }
+}
+
 @media (min-width: 651px) and (max-width: 1024px) {
     .section-item{
         width: 360px;
