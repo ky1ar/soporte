@@ -5,6 +5,7 @@
     align-items: center;
     background-color: red;
     max-width: 104rem;
+    margin: auto;
 }
 .home-banner img{
     height: 260px;
