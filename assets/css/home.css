@@ -3,11 +3,10 @@
     display: flex;
     justify-content: center;
 }
-.home-banner img{
+/* .home-banner img{
     max-width: 100rem;
     height: 260px;
-    /* padding: 0 1rem; */
-}
+} */
 section.s1 {
     display: flex;
     justify-content: center;
