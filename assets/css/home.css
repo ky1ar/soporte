@@ -38,6 +38,8 @@ section.s1 {
 
 .section-item h1 {
     margin-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .section-item p {
