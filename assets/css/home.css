@@ -140,7 +140,7 @@ section.body-s1 {
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.home-contact .card-info:not(:last-child){
+.home-contact .card-info{
     height: 300px;
     width: 200px;
     background-color: rgb(179, 179, 179);
@@ -149,6 +149,9 @@ section.body-s1 {
     justify-content: center;
     flex-direction: column;
     margin-right: 40px;
+}
+.home-contact .card-info:last-child{
+    margin-right: 0px;
 }
 .home-contact .card-info h1{
     font-weight: 700;
