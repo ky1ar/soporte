@@ -166,7 +166,7 @@ section.body-s1 {
     margin: 30px;
     width: 80px;
     height: 80px;
-    filter: grayscale(100%);
+    filter: grayscale(100%) invert(42%) sepia(4%) saturate(1) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 .home-contact .card-info:last-child img {
     width: 70px;
