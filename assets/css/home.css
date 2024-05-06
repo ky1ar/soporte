@@ -2,6 +2,7 @@
 .home-banner{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: red;
     max-width: 104rem;
 }
