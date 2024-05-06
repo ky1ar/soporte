@@ -182,11 +182,15 @@ section.body-s1 {
         padding: 0 1rem;
     }
 }
-/* @media only screen and (max-width: 992px) {
-    .home-contact .card-info{
-        flex-direction: row;
+@media only screen and (max-width: 992px) {
+    .home-contact {
+        flex-direction: column;
     }
-} */
+    .home-contact .card-info{
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+}
 
 @media (min-width: 651px) and (max-width: 1024px) {
     .section-item{
