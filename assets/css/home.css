@@ -4,7 +4,7 @@
     justify-content: center;
 }
 .home-banner img{
-    width: 1920px;
+    max-width: 100rem;
     height: 290px;
 }
 section.s1 {
