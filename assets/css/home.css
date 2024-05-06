@@ -163,6 +163,10 @@ section.body-s1 {
     width: 80px;
     height: 80px;
 }
+.home-contact .card-info img:last-child{
+    width: 70px;
+    height: 70px;
+}
 
 @media (max-width: 1600px){
     .home-banner img{
