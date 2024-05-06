@@ -2,8 +2,8 @@
 $pages = [
     ['Consultas', ''],
     ['Capacitaciones', 'capacitaciones'],
-    ['Conocimiento', 'conocimiento'],
-    ['Cursos', 'cursos']
+    // ['Conocimiento', 'conocimiento'],
+    // ['Cursos', 'cursos']
 ];
 
 ?>
