@@ -121,6 +121,7 @@ section.body-s1 {
 
 .content ol li a{
     font-weight: bold;
+    color: black;
 }
 
 @media (max-width: 1600px){
