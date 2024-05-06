@@ -72,7 +72,11 @@ require_once 'includes/common/header.php';
                 <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
             </div>
             <div class="content">
-                <p>Si no realizas una buena instalación o armado, puedes malograr tu equipo debido a una mala conexión, voltaje incorrecto, rotura de componentes, etc. Recuerda que en Perú es 220V la alimentación común. En caso de no manipularlo correctamente, produciendo daños, rayaduras, derrames de líquidos, etc. Ten cuidado con los equipos de resinas. Los componentes que se desgastan debido a la cantidad de horas que usas tu equipo, como boquillas, plataformas, pantallas, etc.</p>
+                <p>Si no realizas una buena instalación o armado, puedes malograr tu equipo debido a una mala conexión, voltaje incorrecto, rotura de componentes, etc. 
+                <br><br>
+                Recuerda que en Perú es 220V la alimentación común. 
+                <br><br>
+                En caso de no manipularlo correctamente, produciendo daños, rayaduras, derrames de líquidos, etc. Ten cuidado con los equipos de resinas. Los componentes que se desgastan debido a la cantidad de horas que usas tu equipo, como boquillas, plataformas, pantallas, etc.</p>
             </div>
         </div>
 
