@@ -166,6 +166,7 @@ section.body-s1 {
 .home-contact .card-info img:last-child{
     width: 70px;
     height: 70px;
+    background-color: red;
 }
 
 @media (max-width: 1600px){
