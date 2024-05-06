@@ -146,8 +146,8 @@ body {
 	padding: 1rem 0.5rem;
     filter: blur(0);
     transition: all 0.25s ease-in-out;
-    z-index: 1;
-    position: relative;
+    /* z-index: 1;
+    position: relative; */
 }
 #navigationBar .wrapper {
 	display: flex;
@@ -211,8 +211,8 @@ body {
 /***********************************************************************************/
 #grid {
     background-color: var(--gray);
-    position: relative;
-    z-index: -1;
+    /* position: relative;
+    z-index: -1; */
 }
 #grid .wrapper {
     max-width: 120rem;
