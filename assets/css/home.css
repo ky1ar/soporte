@@ -137,6 +137,8 @@ section.body-s1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 .home-contact .card-info{
     height: 300px;
