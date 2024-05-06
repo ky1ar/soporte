@@ -102,7 +102,7 @@ require_once 'includes/common/header.php';
         </div>
         <div class="card-info">
             <h1>WhatsApp</h1>
-            <img src="assets/img/home-whatsapp.png" alt="">
+            <img src="assets/img/social.png" alt="">
             <p>+51 970 539 751</p>
         </div>
         <div class="card-info">
