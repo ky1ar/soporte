@@ -211,8 +211,6 @@ body {
 /***********************************************************************************/
 #grid {
     background-color: var(--gray);
-    z-index: 1;
-    position: relative;
 }
 #grid .wrapper {
     max-width: 120rem;
