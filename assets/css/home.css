@@ -2,11 +2,12 @@
 .home-banner{
     display: flex;
     justify-content: center;
-}
-.home-banner img{
     max-width: 100rem;
-    height: 290px;
 }
+/* .home-banner img{
+    
+    height: 290px;
+} */
 section.s1 {
     display: flex;
     justify-content: center;
