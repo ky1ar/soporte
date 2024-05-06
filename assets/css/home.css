@@ -3,9 +3,9 @@
     display: flex;
     justify-content: center;
     background-color: red;
+    max-width: 104rem;
 }
 .home-banner img{
-    max-width: 104rem;
     height: 260px;
     background-color: goldenrod;
 }
