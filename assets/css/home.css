@@ -119,6 +119,10 @@ section.body-s1 {
     padding-left: 10px;
 }
 
+.content ol li a{
+    font-weight: bold;
+}
+
 @media (max-width: 1600px){
     .home-banner img{
         padding: 0 1rem;

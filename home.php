@@ -25,12 +25,12 @@ require_once 'includes/common/header.php';
     <section class="s1">
         <div class="section-item">
             <h1>GARANTIA EXTENDIDA</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quos modi, similique dolorem esse tenetur numquam vitae repellendus sapiente eveniet quidem expedita libero laboriosam. Est placeat quibusdam soluta quis maiores.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quos modi, similique dolorem esse tenetur numquam vitae repellendus sapiente eveniet</p>
             <button>COTIZAR</button>
         </div>
         <div class="section-item">
             <h1>ENTRENAMIENTO CERTIFICADO</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sequi sed iure recusandae sunt voluptatibus sit officia possimus veniam molestias impedit numquam doloribus ratione qui fugit, magni aperiam! Unde, laudantium!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sequi sed iure recusandae sunt voluptatibus sit officia possimus veniam molestias impedit</p>
             <button>COTIZAR</button>
         </div>
     </section>
@@ -45,7 +45,7 @@ require_once 'includes/common/header.php';
             </div>
             <div class="content">
                 <ol>
-                    <li>Si tu equipo presenta fallas o problemas de configuración, debes comunicarte con nosotros por mensaje al WhatsApp <a href="https://wa.me/51970539751">+51 970 539 751</a>detallando los inconvenientes. No olvides indicar: marca, modelo, número de serie y comprobante de pago.</li>
+                    <li>Si tu equipo presenta fallas o problemas de configuración, debes comunicarte con nosotros por mensaje al WhatsApp <a href="https://wa.me/51970539751" target="_blank">+51 970 539 751</a>detallando los inconvenientes. No olvides indicar: marca, modelo, número de serie y comprobante de pago.</li>
                     <li>Te daremos toda la asistencia necesaria para solucionar el problema de forma virtual y, de ser necesario, te pediremos que internes tu equipo en nuestro centro de soporte técnico oficial ubicado en Calle Tutumo 116, Surco.</li>
                     <li>Al ingresar tu equipo, registraremos todos los datos como marca, modelo, número de serie, accesorios y podrás indicar el problema que encontraste. Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo en tiempo real y conocer en qué etapa se encuentra: <a href="https://soporte.krear3d.com/">https://soporte.krear3d.com/</a></li>
                     <li>Si la falla es de fábrica, no te preocupes que estarás cubierto por la garantía y no tendrás que pagar nada. En caso de que se trate de un servicio de reparación o mantenimiento, te daremos todos los costos antes de iniciar.</li>
