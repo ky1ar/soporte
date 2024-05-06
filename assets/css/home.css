@@ -2,10 +2,12 @@
 .home-banner{
     display: flex;
     justify-content: center;
+    background-color: red;
 }
 .home-banner img{
     max-width: 104rem;
     height: 260px;
+    background-color: goldenrod;
 }
 section.s1 {
     display: flex;
