@@ -96,14 +96,14 @@ body {
 }
 #userMenuExtented {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     top: 0rem;
     left: -1rem;
     right: -0.5rem;
     padding-top: 2rem;
     transition: all 0.25s ease-in-out;
-    visibility: hidden;
-    opacity: 0;
+    /* visibility: hidden;
+    opacity: 0; */
 }
 #userMenuExtented .content {
     background-color: var(--white);
@@ -137,7 +137,6 @@ body {
 }
 #userMenu:hover #userMenuExtented,
 #userMenuExtented:hover {
-    z-index: 2;
     visibility: visible;
     opacity: 1;
 }
