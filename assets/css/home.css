@@ -68,6 +68,7 @@ section.body-s1 {
     background-color: #E8E8E8;
     max-height: 750px;
     height: auto;
+    padding-bottom: 50px;
 }
 .title-qs{
     text-align: center;
