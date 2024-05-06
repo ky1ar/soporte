@@ -171,6 +171,10 @@ section.body-s1 {
     width: 70px;
     height: 70px;
 }
+.home-contact .card-info p{
+    color: #767776;
+}
+
 
 @media (max-width: 1600px){
     .home-banner img{
