@@ -159,6 +159,7 @@ section.body-s1 {
     color: #052027;     
 }
 .home-contact .card-info img{
+    margin: 30px;
     width: 80px;
     height: 80px;
 }
