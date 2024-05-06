@@ -163,7 +163,7 @@ section.body-s1 {
     width: 80px;
     height: 80px;
 }
-.home-contact .card-info img:last-child{
+.home-contact .card-info:last-child img {
     width: 70px;
     height: 70px;
     background-color: red;
