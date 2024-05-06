@@ -16,14 +16,14 @@ section.s1 {
     align-items: center;
     margin-top: 40px;
     padding: 0 20px;
-    color: #052027;
+    color: #0f2027;
 }
 .section-item {
     text-align: center;
     width: 450px;
     height: 160px;
     margin-right: 40px;
-    background-color: #E8E8E8;
+    background-color: #f0f0f0;
     padding: 20px;
     border: none;
     border-radius: 20px;
@@ -75,6 +75,7 @@ section.body-s1 {
 .title-qs{
     text-align: center;
     margin-top: 40px;
+    color: #0f2027;
 }
 .faq {
     width: 45%;
@@ -94,7 +95,7 @@ section.body-s1 {
 }
 
 .question-text{
-    color: #545455;
+    color: #0f2027;
 }
 
 .collapsible {
@@ -118,6 +119,7 @@ section.body-s1 {
     padding-right: 10px;
     padding-bottom: 10px;
     text-align: justify;
+    color: red;
 }
 
 .content ol{
