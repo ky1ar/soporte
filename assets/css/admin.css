@@ -137,6 +137,7 @@ body {
 }
 #userMenu:hover #userMenuExtented,
 #userMenuExtented:hover {
+    z-index: 2;
     visibility: visible;
     opacity: 1;
 }
