@@ -211,7 +211,7 @@ body {
 /***********************************************************************************/
 #grid {
     background-color: var(--gray);
-    z-index: -1;
+    z-index: 1;
     position: relative;
 }
 #grid .wrapper {
