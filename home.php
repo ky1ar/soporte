@@ -86,7 +86,9 @@ require_once 'includes/common/header.php';
                 <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
             </div>
             <div class="content">
-                <p>Revisa los manuales de usuario, tutoriales, guía de inicio y las instrucciones provistas con el producto, porque los equipos son dispositivos electrónicos sofisticados. Debido a la alta precisión mecánica y piezas electrónicas, debes realizar un mantenimiento preventivo cada 3 meses para prevenir cualquier problema.</p>
+                <p>Revisa los manuales de usuario, tutoriales, guía de inicio y las instrucciones provistas con el producto, porque los equipos son dispositivos electrónicos sofisticados.
+                <br><br>
+                Debido a la alta precisión mecánica y piezas electrónicas, debes realizar un mantenimiento preventivo cada 3 meses para prevenir cualquier problema.</p>
             </div>
         </div>
     </section>
