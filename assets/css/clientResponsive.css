@@ -203,7 +203,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 }
 /****************************************************	62rem	992px	 ***************************************************/ 
 @media only screen and (max-width: 62rem) {
-	
+	.menu-webs {
+        justify-content: center;
+      }
 }
 /****************************************************	48rem	768px	 ***************************************************/ 
 @media only screen and (max-width: 48rem) {
