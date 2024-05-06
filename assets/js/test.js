@@ -2,7 +2,7 @@ var totalRows = parseInt(
   document.getElementById("totalRows").getAttribute("data-total")
 );
 var totalPages = Math.ceil(totalRows / 20);
-var currentPage = 1; // Página actual, inicialmente la primera
+var currentPage = 1;
 
 function showPage(pageNumber) {
   currentPage = pageNumber;
@@ -24,14 +24,18 @@ function showPage(pageNumber) {
 function updatePaginationButtons(currentPage) {
   var pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
-  var startPage = currentPage > 3 ? currentPage - 2 : 1;
-  var endPage = Math.min(startPage + 4, totalPages);
+  var startPage = currentPage > 2 ? currentPage - 1 : 1;
+  var endPage = Math.min(startPage + 3, totalPages);
+
+  if (endPage === totalPages) {
+    startPage = Math.max(totalPages - 4, 1);
+  }
 
   if (currentPage > 1) {
     var prevButton = document.createElement("button");
     var img = document.createElement("img");
     img.src = "../assets/img/left.png";
-    img.alt = "Siguiente";
+    img.alt = "Anterior";
     prevButton.appendChild(img);
     prevButton.addEventListener("click", function () {
       showPage(currentPage - 1);
@@ -52,6 +56,23 @@ function updatePaginationButtons(currentPage) {
     pagination.appendChild(button);
   }
 
+  if (currentPage <= totalPages - 4) {
+    var ellipsisButton = document.createElement("button");
+    ellipsisButton.textContent = "...";
+    pagination.appendChild(ellipsisButton);
+  }
+
+  if (currentPage < totalPages) {
+    if (endPage < totalPages) {
+      var lastPageButton = document.createElement("button");
+      lastPageButton.textContent = totalPages;
+      lastPageButton.addEventListener("click", function () {
+        showPage(totalPages);
+      });
+      pagination.appendChild(lastPageButton);
+    }
+  }
+
   if (currentPage < totalPages) {
     var nextButton = document.createElement("button");
     var img = document.createElement("img");
@@ -66,3 +87,22 @@ function updatePaginationButtons(currentPage) {
 }
 
 showPage(1);
+
+
+var dataTable = document.getElementById("data-table");
+var paginationSection = document.getElementById("pagination");
+paginationSection.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        dataTable.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+});
+
+var paginationSections = document.getElementsByClassName("pagination");
+for (var i = 0; i < paginationSections.length; i++) {
+    var paginationSection = paginationSections[i];
+    paginationSection.addEventListener("click", function(event) {
+        if (event.target.tagName === "BUTTON") {
+            document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    });
+}

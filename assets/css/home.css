@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.home-banner{
+    display: flex;
+    justify-content: center;
+}
+.home-banner img{
+    width: 95%;
+    height: 290px;
+}
 section.s1 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
     padding: 0 20px;
+    color: #052027;
 }
 .section-item {
     text-align: center;
@@ -16,6 +26,7 @@ section.s1 {
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
+    font-family: "Montserrat", sans-serif;
 }
 
 .section-item:last-child {
@@ -49,6 +60,7 @@ section.s1 {
 }
 
 section.body-s1 {
+    color: #052027;
     margin-top: 50px;
     background-color: #E8E8E8;
     height: 600px;
@@ -99,8 +111,9 @@ section.body-s1 {
     text-align: justify;
 }
 
-.content p{
+.content ol{
     margin-top: 0;
+    padding-left: 10px;
 }
 
 @media (min-width: 651px) and (max-width: 1024px) {

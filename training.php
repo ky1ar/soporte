@@ -27,7 +27,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
     <section id="adminSection">
         <div class="wrapper">
             <div class="sectionBox">
-                <h3 class="boxTitle">Calendario de Capacitaciones</h3>
+                <h3 class="boxTitle">Calendario de Capacitacioness</h3>
                 <div id="adminCalendar">
                     <?php
                     $today = date('d');

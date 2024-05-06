@@ -1,5 +1,5 @@
 <?php
-$currentPage = "Test";
+$currentPage = "Conocimiento";
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
@@ -16,7 +16,7 @@ require_once 'includes/common/header.php';
 <body>
     <?php
     require_once 'includes/bar/topBar.php';
-    require_once 'includes/bar/navigationBar.php';
+    // require_once 'includes/bar/navigationBar.php';
     ?>
     <section id="">
         <div class="">
@@ -27,9 +27,9 @@ require_once 'includes/common/header.php';
         <div class="et">
             <p>TECNOLOGÍA FDM</p>
         </div>
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="carousel-item">
+        <div class="swiffy-slider slider-item-show4 slider-item-nogap slider-nav-round slider-nav-animation">
+            <ul class="slider-container">
+                <li>
                     <div class="card">
                         <div class="card-image">
                             <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
@@ -46,8 +46,8 @@ require_once 'includes/common/header.php';
                             <button class="card-button">Leer más</button>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
+                </li>
+                <li>
                     <div class="card">
                         <div class="card-image">
                             <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
@@ -64,8 +64,8 @@ require_once 'includes/common/header.php';
                             <button class="card-button">Leer más</button>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
+                </li>
+                <li>
                     <div class="card">
                         <div class="card-image">
                             <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
@@ -82,13 +82,187 @@ require_once 'includes/common/header.php';
                             <button class="card-button">Leer más</button>
                         </div>
                     </div>
-                </div>
-            </div>
-            <button class="prev" onclick="prevSlide()">Anterior</button>
-            <button class="next" onclick="nextSlide()">Siguiente</button>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <button type="button" class="slider-nav"></button>
+            <button type="button" class="slider-nav slider-nav-next"></button>
         </div>
     </section>
+    <section class="sec-lcd">
+        <div class="et">
+            <p>TECNOLOGÍA LCD</p>
+        </div>
+        <div class="swiffy-slider slider-item-show4 slider-item-nogap slider-nav-round slider-nav-animation">
+            <ul class="slider-container">
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/img/test.jpg" alt="Imagen de ejemplo">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-text">
+                                <img class="icon-search" src="assets/img/search_y1.png" alt="">
+                                <p class="small-text">26 mayo 2024</p>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, autem nesciunt rerum error dolor, libero earum expedita nihil illo tempo</p>
+                                <p class="truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad aspernatur dolor natus, alias animi vitae quisquam illum. Suscipit id aliquid at molestiae, ipsa placeat rem maxime, hic quod explicabo deserunt.</p>
+                            </div>
+                            <button class="card-button">Leer más</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
+            <button type="button" class="slider-nav"></button>
+            <button type="button" class="slider-nav slider-nav-next"></button>
+        </div>
+    </section>
     <?php require_once 'includes/common/footer.php'; ?>
 
     <script src="./assets/js/efects.js"></script>

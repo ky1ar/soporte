@@ -13,7 +13,7 @@ require_once 'includes/common/header.php';
     <section id="frontSlider">
         <div class="wrapper">
             <img class="imaCap" width="1920" height="630" src="assets/img/capa.webp">
-            <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p>
+            <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
     </section>
 
