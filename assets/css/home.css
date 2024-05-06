@@ -6,7 +6,7 @@
 .home-banner img{
     max-width: 100rem;
     height: 260px;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
 }
 section.s1 {
     display: flex;
