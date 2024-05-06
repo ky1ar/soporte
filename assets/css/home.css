@@ -148,7 +148,7 @@ section.body-s1 {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-right: 40px;
+    margin-right: 60px;
 }
 .home-contact .card-info:last-child{
     margin-right: 0px;
