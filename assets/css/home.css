@@ -8,6 +8,7 @@
     margin: auto;
 }
 .home-banner img{
+    max-width: 100%;
     height: 260px;
     background-color: goldenrod;
 }
