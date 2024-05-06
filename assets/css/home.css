@@ -128,7 +128,10 @@ section.body-s1 {
     font-weight: bold;
     color: black;
 }
-
+.collapsible img {
+    width: 14px;
+    height: 12px; 
+}
 @media (max-width: 1600px){
     .home-banner img{
         padding: 0 1rem;
@@ -149,10 +152,6 @@ section.body-s1 {
         background-color: #ed5d1f;
         padding: 3px 5px;
     }    
-    .collapsible img{
-        width: 14px;
-        height: 12px;
-    }
 }
 
 @media (min-width: 400px) and (max-width: 650px) {
@@ -178,11 +177,6 @@ section.body-s1 {
         background-color: #ed5d1f;
         padding: 3px 5px;
     }    
-
-    .collapsible img {
-        width: 18px;
-        height: 10px;
-    }
 }
 
 
