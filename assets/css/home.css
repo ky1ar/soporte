@@ -144,6 +144,7 @@ section.body-s1 {
     background-color: gray;
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
 }
 .home-contact .card-info h1{
     font-weight: 700;
