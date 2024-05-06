@@ -61,7 +61,7 @@ require_once 'includes/common/header.php';
             </div>
             <div class="content">
                 <p>En promedio las fallas de los equipos se solucionan en una semana, ya que contamos con un amplio stock de repuestos e insumos de todas las marcas que representamos. De ser un caso más complejo, la primera etapa clave que es el diagnóstico que puede demorar hasta 10 días y posteriormente la etapa final de la reparación otros 10 días hábiles.<br><br>
-                Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo a tiempo real, conocer qué técnico se está encargando, en qué etapa se encuentra: <a href="https://soporte.krear3d.com/">https://soporte.krear3d.com/</a>
+                    Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo a tiempo real, conocer qué técnico se está encargando, en qué etapa se encuentra: <a href="https://soporte.krear3d.com/">https://soporte.krear3d.com/</a>
                 </p>
             </div>
         </div>
@@ -72,11 +72,12 @@ require_once 'includes/common/header.php';
                 <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
             </div>
             <div class="content">
-                <p>Si no realizas una buena instalación o armado, puedes malograr tu equipo debido a una mala conexión, voltaje incorrecto, rotura de componentes, etc. 
-                <br><br>
-                Recuerda que en Perú es 220V la alimentación común. 
-                <br><br>
-                En caso de no manipularlo correctamente, produciendo daños, rayaduras, derrames de líquidos, etc. Ten cuidado con los equipos de resinas. Los componentes que se desgastan debido a la cantidad de horas que usas tu equipo, como boquillas, plataformas, pantallas, etc.</p>
+                <p>Si no realizas una buena instalación o armado, puedes malograr tu equipo debido a una mala conexión, voltaje incorrecto, rotura de componentes, etc.
+                    <br><br>
+                    Recuerda que en Perú es 220V la alimentación común.
+                    <br><br>
+                    En caso de no manipularlo correctamente, produciendo daños, rayaduras, derrames de líquidos, etc. Ten cuidado con los equipos de resinas. Los componentes que se desgastan debido a la cantidad de horas que usas tu equipo, como boquillas, plataformas, pantallas, etc.
+                </p>
             </div>
         </div>
 
@@ -87,9 +88,27 @@ require_once 'includes/common/header.php';
             </div>
             <div class="content">
                 <p>Revisa los manuales de usuario, tutoriales, guía de inicio y las instrucciones provistas con el producto, porque los equipos son dispositivos electrónicos sofisticados.
-                <br><br>
-                Debido a la alta precisión mecánica y piezas electrónicas, debes realizar un mantenimiento preventivo cada 3 meses para prevenir cualquier problema.</p>
+                    <br><br>
+                    Debido a la alta precisión mecánica y piezas electrónicas, debes realizar un mantenimiento preventivo cada 3 meses para prevenir cualquier problema.
+                </p>
             </div>
+        </div>
+    </section>
+    <section class="home-contact">
+        <div class="card-info">
+            <h1>Email</h1>
+            <img src="assets/img/home-email.png" alt="">
+            <p>soporte@krear3d.com</p>
+        </div>
+        <div class="card-info">
+            <h1>WhatsApp</h1>
+            <img src="assets/img/home-whatsapp.png" alt="">
+            <p>+51 970 539 751</p>
+        </div>
+        <div class="card-info">
+            <h1>Encuéntranos</h1>
+            <img src="assets/img/home-ubi.png" alt="">
+            <p>Calle Taturno 116, Surco</p>
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>

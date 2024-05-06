@@ -132,6 +132,29 @@ section.body-s1 {
     width: 14px;
     height: 12px; 
 }
+.home-contact{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-contact .card-info{
+    height: 200px;
+    width: 100px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+}
+.home-contact .card-info h1{
+    font-weight: 700;
+    font-size: 20px;
+    color: #052027;     
+}
+.home-contact .card-info img{
+    width: 20px;
+    height: 20px;
+}
+
 @media (max-width: 1600px){
     .home-banner img{
         padding: 0 1rem;
