@@ -160,7 +160,7 @@ section.body-s1 {
 .home-contact .card-info h1{
     font-weight: 700;
     font-size: 20px;
-    color: #052027;     
+    color: #545455;     
 }
 .home-contact .card-info img{
     margin: 30px;
@@ -170,6 +170,7 @@ section.body-s1 {
 .home-contact .card-info:last-child img {
     width: 70px;
     height: 70px;
+}
 
 @media (max-width: 1600px){
     .home-banner img{
