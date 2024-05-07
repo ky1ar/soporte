@@ -30,6 +30,9 @@ section.s1 {
     box-sizing: border-box;
     position: relative;
     font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .section-item:last-child {
