@@ -1,5 +1,5 @@
 <?php
-$currentPage = "Test";
+$currentPage = "Home";
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
@@ -25,7 +25,7 @@ require_once 'includes/common/header.php';
     <section class="s1">
         <div class="section-item">
             <p>Verifica el estado de tu equipo ingresado a soporte técnico a tiempo real.</p>
-            <button>CONSULTAS</button>
+            <a href="/consultas"><button>CONSULTAS</button></a>
         </div>
         <div class="section-item">
             <p>Ahorra tiempo y agenda tu mismo la capacitación en el horario que tengas disponible.</p>
