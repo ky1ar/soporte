@@ -201,7 +201,7 @@ color: #B08A7A;
   opacity: 0.9;
 }
 #navigationBar ul {
-  margin: 0;
+  margin: auto;
   display: flex;
   list-style: none;
   gap: 1rem;
