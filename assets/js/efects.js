@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
 function adjustSlider() {
   var screenWidth = window.innerWidth;
   var sliders = document.querySelectorAll('.swiffy-slider');

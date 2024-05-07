@@ -171,7 +171,8 @@ section.body-s1 {
 .home-contact .card-info{
     height: 280px;
     width: 220px;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
+    background-image: url(whirlpool.png);
     display: flex;
     align-items: center;
     justify-content: center;
