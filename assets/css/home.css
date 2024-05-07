@@ -124,7 +124,7 @@ section.body-s1 {
     transition: max-height 0.3s ease-out;
 }
 .content.active {
-    max-height: auto;
+    max-height: 600px;
 }
 .content ol{
     margin-top: 0;
