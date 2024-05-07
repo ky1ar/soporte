@@ -129,9 +129,15 @@ color: #B08A7A;
   justify-content: space-between;
   align-items: center;
 }
+#navigationBar ul {
+  padding-right: 8rem;
+}
 @media (min-width: 551px) {
   #navigationBar .wrapper .link-te{
     display: none;
+  }
+  #navigationBar ul {
+    padding-right: 0;
   }
 }
 
@@ -160,9 +166,6 @@ color: #B08A7A;
   }
   #navigationBar .wrapper .link{
     display: none;
-  }
-  #navigationBar ul{
-    padding: 0;
   }
 }
 @media (max-width: 420px) {
@@ -208,7 +211,6 @@ color: #B08A7A;
   display: flex;
   list-style: none;
   gap: 1rem;
-  padding-right: 8rem;
 }
 #navigationBar ul a {
   color: var(--black);
