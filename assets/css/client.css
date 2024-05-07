@@ -161,6 +161,9 @@ color: #B08A7A;
   #navigationBar .wrapper .link{
     display: none;
   }
+  #navigationBar ul{
+    padding: 0;
+  }
 }
 @media (max-width: 420px) {
   #navigationBar .wrapper {
@@ -205,7 +208,7 @@ color: #B08A7A;
   display: flex;
   list-style: none;
   gap: 1rem;
-  padding: 0;
+  padding-right: 8rem;
 }
 #navigationBar ul a {
   color: var(--black);
