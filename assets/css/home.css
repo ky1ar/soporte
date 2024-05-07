@@ -150,13 +150,6 @@ section.body-s1 {
     margin-right: 10px;
     text-align: center;
 }
-ul li {
-    text-indent: 1.5em; /* Cambia este valor según el nivel de sangría que desees */
-}
-
-ul li:first-child {
-    text-indent: 0; /* Elimina la sangría para el primer elemento de la lista */
-}
 
 .content ul li a {
     font-weight: bold;
