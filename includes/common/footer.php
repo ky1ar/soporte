@@ -45,7 +45,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="item">
+            <!-- <div class="item">
                 <b>ATENCION AL CLIENTE / SOPORTE</b>
                 <ul>
                     <li>
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 
