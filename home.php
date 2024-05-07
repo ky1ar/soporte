@@ -33,6 +33,21 @@ require_once 'includes/common/header.php';
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sequi sed iure recusandae sunt voluptatibus sit officia possimus veniam molestias impedit</p>
             <button>COTIZAR</button>
         </div>
+        <div class="section-item">
+            <h1>ENTRENAMIENTO CERTIFICADO</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sequi sed iure recusandae sunt voluptatibus sit officia possimus veniam molestias impedit</p>
+            <button>COTIZAR</button>
+        </div>
+        <div class="section-item">
+            <h1>ENTRENAMIENTO CERTIFICADO</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sequi sed iure recusandae sunt voluptatibus sit officia possimus veniam molestias impedit</p>
+            <button>COTIZAR</button>
+        </div>
+        <div class="section-item">
+            <h1>ENTRENAMIENTO CERTIFICADO</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sequi sed iure recusandae sunt voluptatibus sit officia possimus veniam molestias impedit</p>
+            <button>COTIZAR</button>
+        </div>
     </section>
 
     <section class="body-s1">
@@ -110,7 +125,7 @@ require_once 'includes/common/header.php';
             <div class="card-info">
                 <h1>Encuéntranos</h1>
                 <img src="assets/img/home-ubi.png" alt="">
-                <p>Calle Taturno 116, Surco</p>
+                <p>Calle Tutumo 116, Surco</p>
             </div>
         </div>
     </section>
