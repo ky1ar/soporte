@@ -239,6 +239,14 @@ section.body-s1 {
         padding-left: 10;
         padding-right: 10;
     }
+    .faq {
+        width: 80%;
+    }
+
+    .collapsible {
+        background-color: #ed5d1f;
+        padding: 3px 5px;
+    }  
 
 }
 @media only screen and (max-width: 992px) {
@@ -257,35 +265,7 @@ section.body-s1 {
     }
 }
 
-@media (min-width: 651px) and (max-width: 1024px) {
-    .section-item{
-        width: 360px;
-        padding: 10px 0px;
-        height: 160px;
-    }
-    .faq {
-        width: 80%;
-    }
-
-    .collapsible {
-        background-color: #ed5d1f;
-        padding: 3px 5px;
-    }    
-}
-
-@media (min-width: 400px) and (max-width: 650px) {
-    
-/* 
-    .section-item {
-        width: 90%;
-        padding: 10px 0;
-        height: 140px;
-        margin-right: 0;
-    }
-    .section-item:nth-child(1) {
-        margin-bottom: 40px;
-    } */
-
+@media only screen and (max-width: 768px) {
     .faq {
         width: 85%;
     }
@@ -297,7 +277,7 @@ section.body-s1 {
 }
 
 
-@media (max-width:399px) {
+@media only screen and (max-width: 416px) {
     section.s1 {
         flex-direction: column;
     }
