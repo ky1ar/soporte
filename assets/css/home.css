@@ -20,11 +20,11 @@ section.s1 {
 }
 .section-item {
     text-align: center;
-    width: 250px;
-    height: 140px;
+    width: 230px;
+    height: 120px;
     margin: 20px;
     background-color: #f0f0f0;
-    padding: 20px;
+    padding: 10px;
     border: none;
     border-radius: 20px;
     box-sizing: border-box;
@@ -49,7 +49,6 @@ section.s1 {
     padding-left: 20px;
     padding-right: 20px;
     line-height: 1;
-    margin-top: 5px; 
 }
 
 .section-item button {
@@ -57,7 +56,7 @@ section.s1 {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 8px 40px;
+    padding: 8px 30px;
     background-color: #ed5d1f;
     color: #fff;
     border: none;
