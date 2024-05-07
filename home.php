@@ -29,7 +29,7 @@ require_once 'includes/common/header.php';
         </div>
         <div class="section-item">
             <p>Ahorra tiempo y agenda tu mismo la capacitación en el horario que tengas disponible.</p>
-            <button>CAPACITACIONES</button>
+           <a href="/capacitaciones"><button>CAPACITACIONES</button></a> 
         </div>
         <div class="section-item">
             <p>Encuentra todo el contenido para que te vuelvas un experto.</p>
