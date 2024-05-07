@@ -215,6 +215,13 @@ section.body-s1 {
     section.s1 {
         flex-direction: column;
     }
+    .section-item {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+    .section-item button {
+        padding: 8px 40px;
+    }
 }
 @media only screen and (max-width: 992px) {
     .home-contact .container-cards{
@@ -244,7 +251,7 @@ section.body-s1 {
 
 @media (min-width: 400px) and (max-width: 650px) {
     
-
+/* 
     .section-item {
         width: 90%;
         padding: 10px 0;
@@ -253,7 +260,7 @@ section.body-s1 {
     }
     .section-item:nth-child(1) {
         margin-bottom: 40px;
-    }
+    } */
 
     .faq {
         width: 85%;
