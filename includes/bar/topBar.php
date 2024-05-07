@@ -10,7 +10,7 @@
 </div>
 <div id="topBar">
     <div class="wrapper"> 
-        <a href="https://api.whatsapp.com/send?phone=51934760404" target="_blank" rel="nofollow">
+        <a href="https://api.whatsapp.com/send?phone=51970539751" target="_blank" rel="nofollow">
             <img src="assets/img/wsp.svg" width="16" height="16" alt="ico">970 539 751
         </a>
         <a href="mailto:soporte@krear3d.com" target="_blank" rel="nofollow">
