@@ -127,6 +127,7 @@ section.body-s1 {
 .content ul{
     margin-top: 0;
     list-style: none;
+    padding-left: 0;
 }
 .content ul li span{
     background-color: red;
