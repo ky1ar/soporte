@@ -275,6 +275,9 @@ section.body-s1 {
         background-color: #ed5d1f;
         padding: 3px 5px;
     }    
+    .section-item {
+        width: 90%;
+    }
 }
 
 
