@@ -211,6 +211,11 @@ section.body-s1 {
         padding: 8px 20px;
     }
 }
+@media only screen and (max-width: 1200px) {
+    section.s1 {
+        flex-direction: column;
+    }
+}
 @media only screen and (max-width: 992px) {
     .home-contact .container-cards{
         flex-direction: column;
@@ -238,9 +243,7 @@ section.body-s1 {
 }
 
 @media (min-width: 400px) and (max-width: 650px) {
-    section.s1 {
-        flex-direction: column;
-    }
+    
 
     .section-item {
         width: 90%;
