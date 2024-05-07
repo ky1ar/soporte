@@ -44,7 +44,7 @@ section.s1 {
 }
 
 .section-item p {
-    margin-top: 0px;
+    margin: 0px;
     font-size: 12px;
     font-weight: 500;
     padding-left: 20px;
