@@ -65,7 +65,7 @@ section.s1 {
     border-radius: 20px;
     cursor: pointer;
 }
-.section-item button hover{
+.section-item button:hover{
     box-shadow: 0px 2px 5px 5px rgb(197, 197, 197);
 }
 section.body-s1 {
