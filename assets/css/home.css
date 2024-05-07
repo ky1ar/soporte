@@ -123,6 +123,7 @@ section.body-s1 {
 .content.active {
     max-height: 600px;
     transition: max-height 1s ease-in-out;
+    animation-duration: 3s;
 }
 .content ol{
     margin-top: 0;
