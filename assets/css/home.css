@@ -127,11 +127,17 @@ section.body-s1 {
     margin-top: 0;
     list-style: none;
     padding-left: 0;
+    counter-reset: listItem; /* Reinicia el contador en cada lista */
+}
+
+.content ul li {
+    position: relative; /* Para permitir que el ::before esté posicionado correctamente */
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
 }
 
 .content ul li::before {
     content: counter(listItem);
-    counter-increment: listItem;
+    counter-increment: listItem; /* Incrementa el contador en cada elemento de la lista */
     background-color: #007bff;
     color: white;
     font-weight: bold;
@@ -142,11 +148,10 @@ section.body-s1 {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    text-align: center;   
+    text-align: center;
 }
 
-.content ul li a,
-.content p a {
+.content ul li a {
     font-weight: bold;
     color: black;
 }
