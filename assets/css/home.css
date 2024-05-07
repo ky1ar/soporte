@@ -207,6 +207,9 @@ section.body-s1 {
         padding-left: 0;
         padding-right: 0;
     }
+    .section-item button {
+        padding: 8px 20px;
+    }
 }
 @media only screen and (max-width: 992px) {
     .home-contact .container-cards{
