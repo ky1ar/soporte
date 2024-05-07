@@ -110,21 +110,20 @@ section.body-s1 {
     height: 13px;
     filter: invert(100%);
 }
-
 .content {
     padding-left: 10px;
     padding-right: 10px;
     text-align: justify;
     color: #0f2027;
-    height: 0;
     overflow: hidden;
-    transition: height 0.7s ease-in-out; 
+    transition: max-height 0.7s ease-in-out;
+    max-height: 0;
 }
 
 .content.active {
-    height: 230px; 
-    transition: height 0.7s ease-in-out; 
+    max-height: 230px;
 }
+
 
 .content ol{
     margin-top: 0;
