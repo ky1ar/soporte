@@ -122,6 +122,7 @@ section.body-s1 {
 
 .content.active {
     max-height: auto;
+    transition: max-height 0.7s ease-in-out;
 }
 
 
