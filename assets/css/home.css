@@ -229,6 +229,9 @@ section.body-s1 {
     section.s1 {
         flex-wrap: wrap;
     }
+    .section-item {
+        margin-bottom: 30px;
+    }
 
 }
 @media only screen and (max-width: 992px) {
