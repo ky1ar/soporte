@@ -1,14 +1,29 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//   const buttons = document.querySelectorAll(".collapsible");
+
+//   buttons.forEach(function (button) {
+//       button.addEventListener("click", function () {
+//           const content = this.parentElement.nextElementSibling;
+//           content.classList.toggle("active"); // toggle() agrega o quita la clase "active"
+//       });
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".collapsible");
 
   buttons.forEach(function (button) {
       button.addEventListener("click", function () {
-          const content = this.parentElement.nextElementSibling;
-          content.classList.toggle("active"); // toggle() agrega o quita la clase "active"
+          const content = this.nextElementSibling;
+          content.classList.toggle("active");
+          if (content.classList.contains("active")) {
+              content.style.height = content.scrollHeight + "px";
+          } else {
+              content.style.height = "0";
+          }
       });
   });
 });
-
 
 
 

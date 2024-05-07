@@ -116,14 +116,15 @@ section.body-s1 {
     padding-right: 10px;
     text-align: justify;
     color: #0f2027;
-    height: 0; 
+    height: auto; /* Cambiado a 'auto' */
     overflow: hidden;
-    transition: max-height 1s ease-in-out; 
+    transition: height 1s ease-in-out; /* Mantenido el efecto de transición */
+    max-height: 600px; /* Establece una altura máxima para la transición */
 }
 
 .content.active {
-    max-height: auto;
-    transition: height 1s ease-in-out; 
+    height: auto; /* Cambiado a 'auto' */
+    transition: height 1s ease-in-out; /* Mantenido el efecto de transición */
 }
 
 .content ol{
