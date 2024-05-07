@@ -2,20 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".collapsible");
 
   buttons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const content = this.parentElement.nextElementSibling;
-      const isActive = this.classList.contains("active");
+      button.addEventListener("click", function () {
+          const content = this.parentElement.nextElementSibling;
+          const isActive = this.classList.contains("active");
 
-      // Si el botón está activo, cerrar el contenido
-      if (isActive) {
-        content.style.display = "none";
-        this.classList.remove("active");
-      } else {
-        // Si el botón no está activo, abrir el contenido
-        content.style.display = "block";
-        this.classList.add("active");
-      }
-    });
+          // Si el botón está activo, cerrar el contenido
+          if (isActive) {
+              content.classList.remove("active"); // Quita la clase "active" del contenido
+          } else {
+              // Si el botón no está activo, abrir el contenido
+              content.classList.add("active"); // Agrega la clase "active" al contenido
+          }
+      });
   });
 });
 
