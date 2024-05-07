@@ -155,7 +155,7 @@ section.body-s1 {
     color: black;
 }
 
-.content p img{
+.content .icon-inf{
     width: 20px;
     height: 20px;
     vertical-align: middle;
