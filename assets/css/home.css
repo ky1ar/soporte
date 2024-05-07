@@ -232,6 +232,9 @@ section.body-s1 {
     .section-item {
         margin-bottom: 30px;
     }
+    .section-item p {
+        margin-bottom: 0;
+    }
 
 }
 @media only screen and (max-width: 992px) {
