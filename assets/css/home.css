@@ -127,6 +127,7 @@ section.body-s1 {
 .content ul{
     margin-top: 0;
     padding-left: 10px;
+    list-style: none;
 }
 
 .content ul li a,
