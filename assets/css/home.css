@@ -123,12 +123,12 @@ section.body-s1 {
     transition: height 0.7s ease-in-out;
     height: 0;
 }
-
-.content ul{
+.content ul {
     margin-top: 0;
     list-style: none;
     padding-left: 0;
 }
+
 .content ul li::before {
     content: counter(listItem);
     counter-increment: listItem;
@@ -144,8 +144,9 @@ section.body-s1 {
     margin-right: 10px;
     text-align: center;   
 }
+
 .content ul li a,
-.content p a{
+.content p a {
     font-weight: bold;
     color: black;
 }
