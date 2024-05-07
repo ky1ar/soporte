@@ -1350,7 +1350,7 @@ footer .item ul.social-icons li img {
     padding: 0px 10%;
   }
 }
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   #navigationBar ul {
     padding-right: 0;
   }
