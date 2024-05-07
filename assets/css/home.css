@@ -5,7 +5,6 @@
     align-items: center;
     max-width: 98rem;
     margin: auto;
-    padding: 0 1rem;
 }
 .home-banner img{
     width: 100%;
@@ -262,11 +261,13 @@ section.body-s1 {
         margin-right: 0px;
         margin-bottom: 30px;
     }
+    .home-banner{
+        padding: 0 1rem;
+    }
     .home-banner img{
         content: url('../../assets/img/home_movil.png');
         border-radius: 1rem;
         height: 160px;
-        padding: 0;
     }
 }
 
