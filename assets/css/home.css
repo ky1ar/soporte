@@ -121,7 +121,7 @@ section.body-s1 {
 }
 
 .content.active {
-    max-height: 230px;
+    max-height: auto;
 }
 
 
