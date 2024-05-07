@@ -119,12 +119,12 @@ section.body-s1 {
     max-height: 0;
     overflow: hidden;
     transition: max-height 1s ease-in-out;
-    transition-delay: 0s;
+    /* transition-delay: 0s; */
 }
 .content.active {
     max-height: 600px;
-    transition: max-height 0.5s ease-in-out;
-    transition-delay: 0s;
+    transition: max-height 0.1s ease-in-out;
+    /* transition-delay: 0s; */
 }
 .content ol{
     margin-top: 0;
