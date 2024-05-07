@@ -6,13 +6,29 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = this.parentElement.nextElementSibling;
       const isActive = this.classList.contains("active");
 
-      // Si el botón está activo, cerrar el contenido
-      if (isActive) {
-        content.style.display = "none";
-        this.classList.remove("active");
-      } else {
-        // Si el botón no está activo, abrir el contenido
-        content.style.display = "block";
+      // Cerrar todos los contenidos que no están activos
+      const allContents = document.querySelectorAll(".content:not(.active)");
+      allContents.forEach(function (content) {
+        content.style.height = "0";
+        content.style.transition = "height 0.5s";
+        setTimeout(function () {
+          content.style.display = "none";
+        }, 500);
+      });
+
+      // Remover la clase "active" de todos los botones que no están activos
+      const allButtons = document.querySelectorAll(".collapsible:not(.active)");
+      allButtons.forEach(function (button) {
+        button.classList.remove("active");
+      });
+
+      // Si el botón no está activo, abrir el contenido
+      if (!isActive) {
+        content.style.height = content.offsetHeight + "px";
+        content.style.transition = "height 0.5s";
+        setTimeout(function () {
+          content.style.display = "block";
+        }, 500);
         this.classList.add("active");
       }
     });
