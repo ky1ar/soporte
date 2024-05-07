@@ -228,7 +228,6 @@ section.body-s1 {
 @media (max-width: 1600px){
     .home-banner img{
         padding: 0 1rem;
-        border-radius: 1rem;
     }
     .section-item p {
         padding-left: 0;
@@ -267,7 +266,7 @@ section.body-s1 {
     }
     .home-banner img{
         content: url('../../assets/img/home_movil.png');
-        border-radius: 1rem;
+        border-radius: 1rem !important;
         height: 160px;
     }
 }
