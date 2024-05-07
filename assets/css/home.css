@@ -152,6 +152,13 @@ section.body-s1 {
 .home-contact h1{
     color: #0f2027;
 }
+.home-contact .container-cards{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .home-contact .card-info{
     height: 280px;
     width: 220px;

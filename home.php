@@ -96,7 +96,7 @@ require_once 'includes/common/header.php';
     </section>
     <section class="home-contact">
         <h1>CONTÁCTANOS</h1>
-        <div>
+        <div class="container-cards">
             <div class="card-info">
                 <h1>Email</h1>
                 <img src="assets/img/home-email.png" alt="">
