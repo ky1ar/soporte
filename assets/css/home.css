@@ -212,9 +212,6 @@ section.body-s1 {
     }
 }
 @media only screen and (max-width: 1200px) {
-    /* section.s1 {
-        flex-wrap: wrap;
-    } */
     .section-item {
         margin-bottom: 30px;
     }
@@ -233,9 +230,6 @@ section.body-s1 {
 
 }
 @media only screen and (max-width: 992px) {
-    /* .section-item {
-        width: 50%;
-    } */
     .home-contact .container-cards{
         flex-direction: column;
     }
@@ -254,22 +248,10 @@ section.body-s1 {
         background-color: #ed5d1f;
         padding: 3px 5px;
     }    
-    .section-item {
-        width: 90%;
-    }
 }
 
 
 @media only screen and (max-width: 416px) {
-    /* section.s1 {
-        flex-direction: column;
-    }
-    .section-item{
-        width: 90%;
-        padding: 10px 0px;
-        height: 160px;
-        margin-right: 0;
-    } */
     .section-item:nth-child(1) {
         margin-bottom: 40px;
     }
