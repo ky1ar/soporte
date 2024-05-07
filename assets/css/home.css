@@ -151,6 +151,7 @@ section.body-s1 {
 }
 .home-contact h1{
     color: #0f2027;
+    margin-bottom: 20px;
 }
 .home-contact .container-cards{
     display: flex;
