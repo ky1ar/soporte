@@ -15,7 +15,8 @@ section.s1 {
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    padding: 0 60px;
+    /* padding: 0 60px; */
+    flex-wrap: wrap;
     color: #0f2027;
 }
 .section-item {
@@ -215,9 +216,9 @@ section.body-s1 {
     }
 }
 @media only screen and (max-width: 1200px) {
-    section.s1 {
+    /* section.s1 {
         flex-wrap: wrap;
-    }
+    } */
     .section-item {
         margin-bottom: 30px;
     }
