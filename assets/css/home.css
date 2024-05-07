@@ -139,7 +139,7 @@ section.body-s1 {
     content: counter(listItem);
     counter-increment: listItem;
     background-color: #f0f0f0;
-    color: white;
+    color: black;
     font-weight: bold;
     width: 25px;
     height: 25px;
