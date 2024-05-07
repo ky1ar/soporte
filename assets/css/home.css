@@ -154,6 +154,12 @@ section.body-s1 {
     font-weight: bold;
     color: black;
 }
+
+.content p img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
 .collapsible img {
     width: 14px;
     height: 12px; 
