@@ -6,26 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = this.parentElement.nextElementSibling;
       const isActive = this.classList.contains("active");
 
-      // Cerrar todos los contenidos
-      const allContents = document.querySelectorAll(".content");
-      allContents.forEach(function (content) {
+      // Si el botón está activo, cerrar el contenido
+      if (isActive) {
         content.style.display = "none";
-      });
-
-      // Remover la clase "active" de todos los botones
-      const allButtons = document.querySelectorAll(".collapsible");
-      allButtons.forEach(function (button) {
-        button.classList.remove("active");
-      });
-
-      // Si el botón no está activo, abrir el contenido
-      if (!isActive) {
+        this.classList.remove("active");
+      } else {
+        // Si el botón no está activo, abrir el contenido
         content.style.display = "block";
         this.classList.add("active");
       }
     });
   });
 });
+
+
 
 function adjustSlider() {
   var screenWidth = window.innerWidth;
