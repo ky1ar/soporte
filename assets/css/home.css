@@ -258,7 +258,6 @@ section.body-s1 {
     } */
     .section-item {
         width: 50%;
-        margin-right: 0;
     }
     .home-contact .container-cards{
         flex-direction: column;
