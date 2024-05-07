@@ -36,10 +36,6 @@ section.s1 {
     justify-content: center;
 }
 
-.section-item:last-child {
-    margin-right: 0;
-}
-
 .section-item h1 {
     margin: 0;
     padding-left: 15px;
