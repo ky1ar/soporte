@@ -253,6 +253,9 @@ section.body-s1 {
     section.s1 {
         flex-direction: column;
     }
+    .section-item button {
+        padding: 8px 40px;
+    }
     .section-item {
         width: 50%;
         margin-right: 0;
