@@ -8,10 +8,10 @@
                 <b>HORARIO DE ATENCIÓN TIENDA</b>
                 <ul>
                     <li>
-                        <p>Calle Javier Fernandez - Miraflores - Lima</p>
+                        <p>Calle Tutumo 116 - Surco</p>
                     </li>
                     <li>
-                        <p>Lu - Sa de 9:00 am a 6:00 pm</p>
+                        <p>Lunes a Viernes: 9:00am - 1:00pm y 2:00pm - 6:00 pm <br>Sábados: 9:00am - 1:00pm</p>
                     </li>
                 </ul>
             </div>
