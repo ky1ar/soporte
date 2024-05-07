@@ -220,6 +220,9 @@ section.body-s1 {
         margin-bottom: 30px;
         margin-right: 0;
     }
+    .section-item p {
+        margin-bottom: 0;
+    }
     .section-item button {
         padding: 8px 40px;
     }
