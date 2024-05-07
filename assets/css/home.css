@@ -246,7 +246,18 @@ section.body-s1 {
     .collapsible {
         background-color: #ed5d1f;
         padding: 3px 5px;
+    }
+    .section-item {
+        width: 200px;
+        height: 120px;
+        margin: 10px;
     }    
+    .section-item h1 {
+        font-size: 12px;
+    }
+    .section-item p{
+        font-size: 10px;
+    }
 }
 
 
