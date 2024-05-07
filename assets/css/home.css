@@ -23,8 +23,7 @@ section.s1 {
     text-align: center;
     width: 250px;
     height: 140px;
-    margin-right: 40px;
-    margin-bottom: 20px;
+    margin: 20px;
     background-color: #f0f0f0;
     padding: 20px;
     border: none;
