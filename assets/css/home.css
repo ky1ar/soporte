@@ -226,8 +226,18 @@ section.body-s1 {
     .section-item button {
         padding: 8px 40px;
     } */
+    section.s1 {
+        flex-wrap: wrap;
+    }
+
 }
 @media only screen and (max-width: 992px) {
+    section.s1 {
+        flex-direction: column;
+    }
+    .section-item {
+        width: 50%;
+    }
     .home-contact .container-cards{
         flex-direction: column;
     }
