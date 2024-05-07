@@ -5,7 +5,7 @@
                 <img class="logo" width="152" height="38" src="assets/img/logo.webp" alt="Krear 3D">
             </div>
             <div class="item">
-                <b>HORARIO DE ATENCIÓN TIENDA</b>
+                <b>HORARIO DE ATENCIÓN</b>
                 <ul>
                     <li>
                         <p>Calle Tutumo 116 - Surco</p>
