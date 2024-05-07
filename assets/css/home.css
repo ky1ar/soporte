@@ -118,11 +118,11 @@ section.body-s1 {
     color: #0f2027;
     height: 0; /* Cambia esto */
     overflow: hidden;
-    transition: height 1s ease-in-out; /* Cambia la propiedad de transición */
+    transition: max-width 1s ease-in-out; /* Cambia la propiedad de transición */
 }
 
 .content.active {
-    height: 400px; /* Cambia esto */
+    max-width: auto; /* Cambia esto */
     transition: height 1s ease-in-out; /* Cambia la propiedad de transición */
 }
 
