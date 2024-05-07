@@ -158,7 +158,8 @@ section.body-s1 {
 .content .icon-inf{
     width: 20px;
     height: 20px;
-    vertical-align: middle;
+    margin-right: 5px;
+    /* vertical-align: middle; */
 }
 .collapsible img {
     width: 14px;
