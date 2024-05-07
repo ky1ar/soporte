@@ -121,7 +121,7 @@ section.body-s1 {
 }
 
 .content.active {
-    max-height: auto;
+    max-height: 600px;
     transition: max-height 0.7s ease-in-out;
 }
 
