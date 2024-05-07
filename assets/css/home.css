@@ -206,10 +206,6 @@ section.body-s1 {
     .home-banner img{
         padding: 0 1rem;
     }
-    .section-item p {
-        padding-left: 0;
-        padding-right: 0;
-    }
     .section-item button {
         padding: 8px 20px;
     }
