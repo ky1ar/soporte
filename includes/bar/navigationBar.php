@@ -19,9 +19,5 @@ $pages = [
                 </li>
             <?php endforeach;?>
         </ul>
-        <a class="link" href="https://tiendakrear3d.com/">
-            Tienda
-            <img class="hdr-wsp" width="16" height="16" src="assets/img/tnd.svg" alt="ico">
-        </a>
     </div>
 </header>
