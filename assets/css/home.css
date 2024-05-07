@@ -116,13 +116,12 @@ section.body-s1 {
     text-align: justify;
     color: #0f2027;
     overflow: hidden;
-    transition: max-height 0.7s ease-in-out;
+    transition: max-height 1s ease-in-out;
     max-height: 0;
 }
 
 .content.active {
     max-height: 600px;
-    transition: max-height 0.7s ease-in-out;
 }
 
 
