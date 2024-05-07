@@ -218,6 +218,7 @@ section.body-s1 {
     .section-item {
         width: 50%;
         margin-bottom: 30px;
+        margin-right: 0;
     }
     .section-item button {
         padding: 8px 40px;
