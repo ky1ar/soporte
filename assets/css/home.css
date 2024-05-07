@@ -123,7 +123,7 @@ section.body-s1 {
     overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
-.expandable.active {
+.content.active {
     max-height: auto;
 }
 .content ol{
