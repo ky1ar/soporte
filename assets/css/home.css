@@ -266,6 +266,7 @@ section.body-s1 {
     }
     .home-banner img{
         content: url('../../assets/img/home_movil.png');
+        border-radius: 1rem;
         height: 160px;
     }
 }
