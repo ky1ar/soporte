@@ -253,6 +253,9 @@ section.body-s1 {
         background-color: #ed5d1f;
         padding: 3px 5px;
     }  
+    .home-banner img{
+        content: url('../../assets/img/home_movil.png');
+    }
 
 }
 @media only screen and (max-width: 992px) {
@@ -286,9 +289,7 @@ section.body-s1 {
     .section-item p{
         font-size: 10px;
     }
-    .home-banner img {
-        content: url('../../assets/img/home_movil.png');
-    }
+    
 }
 
 @media only screen and (max-width: 576px) {
