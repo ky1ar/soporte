@@ -255,6 +255,7 @@ section.body-s1 {
     }  
     .home-banner img{
         content: url('../../assets/img/home_movil.png');
+        height: 160px;
     }
 
 }
