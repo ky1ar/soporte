@@ -265,8 +265,12 @@ section.body-s1 {
     .section-item {
         width: 150px;
         height: 120px;
-        margin: 10px;
+        margin: 12px;
     }  
+    .section-item button {
+        padding: 8px 10px;
+        font-size: 10px; 
+    }
 }
 @media only screen and (max-width: 416px) {
     .faq {
