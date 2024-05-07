@@ -202,7 +202,7 @@ section.body-s1 {
     }
 }
 @media only screen and (max-width: 992px) {
-    .home-contact {
+    .home-contact .container-cards{
         flex-direction: column;
     }
     .home-contact .card-info{
