@@ -148,6 +148,10 @@ section.body-s1 {
     padding-top: 40px;
     padding-bottom: 40px;
 }
+.home-contact h1{
+    display: block;
+    text-align: center;
+}
 .home-contact .card-info{
     height: 280px;
     width: 220px;
