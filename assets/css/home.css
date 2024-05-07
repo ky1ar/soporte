@@ -129,10 +129,20 @@ section.body-s1 {
     list-style: none;
     padding-left: 0;
 }
-.content ul li span{
-    background-color: red;
-    border-radius: 50px;
+.content ul li::before {
+    content: counter(listItem);
+    counter-increment: listItem;
+    background-color: #007bff;
     color: white;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    text-align: center;
 }
 .content ul li a,
 .content p a{

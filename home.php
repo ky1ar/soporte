@@ -60,10 +60,10 @@ require_once 'includes/common/header.php';
             </div>
             <div class="content">
                 <ul>
-                    <li><span>1</span>Si tu equipo presenta fallas o problemas de configuración, debes comunicarte con nosotros por mensaje al WhatsApp <a href="https://wa.me/51970539751" target="_blank">+51 970 539 751</a> detallando los inconvenientes. No olvides indicar: marca, modelo, número de serie y comprobante de pago.</li><br>
-                    <li><span>2</span>Te daremos toda la asistencia necesaria para solucionar el problema de forma virtual y, de ser necesario, te pediremos que internes tu equipo en nuestro centro de soporte técnico oficial ubicado en <b>Calle Tutumo 116, Surco</b>.</li><br>
-                    <li><span>3</span>Al ingresar tu equipo, registraremos todos los datos como marca, modelo, número de serie, accesorios y podrás indicar el problema que encontraste. Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo en tiempo real y conocer en qué etapa se encuentra: <a href="https://soporte.krear3d.com/" target="_blank">https://soporte.krear3d.com/</a></li><br>
-                    <li><span>4</span>Si la falla es de fábrica, no te preocupes que estarás cubierto por la garantía y no tendrás que pagar nada. En caso de que se trate de un servicio de reparación o mantenimiento, te daremos todos los costos antes de iniciar.</li>
+                    <li>Si tu equipo presenta fallas o problemas de configuración, debes comunicarte con nosotros por mensaje al WhatsApp <a href="https://wa.me/51970539751" target="_blank">+51 970 539 751</a> detallando los inconvenientes. No olvides indicar: marca, modelo, número de serie y comprobante de pago.</li><br>
+                    <li>Te daremos toda la asistencia necesaria para solucionar el problema de forma virtual y, de ser necesario, te pediremos que internes tu equipo en nuestro centro de soporte técnico oficial ubicado en <b>Calle Tutumo 116, Surco</b>.</li><br>
+                    <li>Al ingresar tu equipo, registraremos todos los datos como marca, modelo, número de serie, accesorios y podrás indicar el problema que encontraste. Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo en tiempo real y conocer en qué etapa se encuentra: <a href="https://soporte.krear3d.com/" target="_blank">https://soporte.krear3d.com/</a></li><br>
+                    <li>Si la falla es de fábrica, no te preocupes que estarás cubierto por la garantía y no tendrás que pagar nada. En caso de que se trate de un servicio de reparación o mantenimiento, te daremos todos los costos antes de iniciar.</li>
                 </ul>
             </div>
 
