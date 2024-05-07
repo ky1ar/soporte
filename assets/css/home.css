@@ -127,18 +127,18 @@ section.body-s1 {
     margin-top: 0;
     list-style: none;
     padding-left: 0;
-    counter-reset: listItem; /* Reinicia el contador en cada lista */
+    counter-reset: listItem;
 }
 
 .content ul li {
-    position: relative; /* Para permitir que el ::before esté posicionado correctamente */
-    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    position: relative;
+    margin-bottom: 10px; 
 }
 
 .content ul li::before {
     content: counter(listItem);
-    counter-increment: listItem; /* Incrementa el contador en cada elemento de la lista */
-    background-color: #007bff;
+    counter-increment: listItem;
+    background-color: #f0f0f0;
     color: white;
     font-weight: bold;
     width: 25px;
