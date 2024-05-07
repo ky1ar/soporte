@@ -19,7 +19,7 @@ require_once 'includes/common/header.php';
     ?>
     <section>
         <div class="home-banner">
-            <img src="assets/slider/banner-home.webp">
+            <img src="assets/img/home_pc.webp">
         </div>
     </section>
     <section class="s1">
