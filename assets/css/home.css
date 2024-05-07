@@ -118,12 +118,12 @@ section.body-s1 {
     color: #0f2027;
     height: 0;
     overflow: hidden;
-    transition: height 1s ease-in-out; 
+    transition: height 0.7s ease-in-out; 
 }
 
 .content.active {
     height: 200px; 
-    transition: height 1s ease-in-out; 
+    transition: height 0.7s ease-in-out; 
 }
 
 .content ol{
