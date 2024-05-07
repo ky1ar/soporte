@@ -143,15 +143,14 @@ section.body-s1 {
 .home-contact{
     background-color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
 }
 .home-contact h1{
-    display: block;
-    text-align: center;
-    width: 100%;
+    color: #0f2027;
 }
 .home-contact .card-info{
     height: 280px;
