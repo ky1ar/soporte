@@ -118,7 +118,7 @@ section.body-s1 {
     color: #0f2027;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 1 ease-in-out;
 }
 .content.active {
     max-height: 600px;
