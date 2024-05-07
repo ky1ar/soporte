@@ -24,29 +24,24 @@ require_once 'includes/common/header.php';
     </section>
     <section class="s1">
         <div class="section-item">
-            <h1>CONSULTAS</h1>
             <p>Verifica el estado de tu equipo ingresado a soporte técnico a tiempo real.</p>
-            <button>INGRESAR</button>
+            <button>CONSULTAS</button>
         </div>
         <div class="section-item">
-            <h1>CAPACITACIONES</h1>
             <p>Ahorra tiempo y agenda tu mismo la capacitación en el horario que tengas disponible.</p>
-            <button>INGRESAR</button>
+            <button>CAPACITACIONES</button>
         </div>
         <div class="section-item">
-            <h1>WIKI</h1>
             <p>Encuentra todo el contenido para que te vuelvas un experto.</p>
-            <button>INGRESAR</button>
+            <button>WIKI</button>
         </div>
         <div class="section-item">
-            <h1>STLs</h1>
             <p>Descarga de forma gratuita todos los diseños de nuestras redes</p>
-            <button>INGRESAR</button>
+            <button>STLs</button>
         </div>
         <div class="section-item">
-            <h1>SLICERS</h1>
             <p>Accede a los programas más avanzados para tus equipos</p>
-            <button>INGRESAR</button>
+            <button>SLICERS</button>
         </div>
     </section>
 
