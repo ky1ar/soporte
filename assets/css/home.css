@@ -263,9 +263,9 @@ section.body-s1 {
 
 @media only screen and (max-width: 576px) {
     .section-item {
-        width: 150px;
+        width: 160px;
         height: 120px;
-        margin: 12px;
+        margin: 18px;
     }  
     .section-item button {
         padding: 8px 10px;
