@@ -262,9 +262,6 @@ section.body-s1 {
 
 
 @media only screen and (max-width: 416px) {
-    .section-item:nth-child(1) {
-        margin-bottom: 40px;
-    }
     .faq {
         width: 85%;
     }
