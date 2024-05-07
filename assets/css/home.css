@@ -151,6 +151,7 @@ section.body-s1 {
 .home-contact h1{
     display: block;
     text-align: center;
+    width: 100%;
 }
 .home-contact .card-info{
     height: 280px;
