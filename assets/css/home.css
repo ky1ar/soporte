@@ -126,10 +126,13 @@ section.body-s1 {
 
 .content ul{
     margin-top: 0;
-    padding-left: 10px;
     list-style: none;
 }
-
+.content ul li span{
+    background-color: red;
+    border-radius: 50px;
+    color: white;
+}
 .content ul li a,
 .content p a{
     font-weight: bold;
