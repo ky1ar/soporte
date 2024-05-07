@@ -1,14 +1,32 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//   const buttons = document.querySelectorAll(".collapsible");
+
+//   buttons.forEach(function (button) {
+//       button.addEventListener("click", function () {
+//           const content = this.parentElement.nextElementSibling;
+//           content.classList.toggle("active"); // toggle() agrega o quita la clase "active"
+//       });
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".collapsible");
+    const buttons = document.querySelectorAll(".collapsible");
 
-  buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-          const content = this.parentElement.nextElementSibling;
-          content.classList.toggle("active"); // toggle() agrega o quita la clase "active"
-      });
-  });
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const content = this.parentElement.nextElementSibling;
+            content.classList.toggle("active");
+
+            // Calcular la altura del contenido y aplicarla dinámicamente
+            if (content.classList.contains("active")) {
+                const contentHeight = content.scrollHeight;
+                content.style.height = contentHeight + "px";
+            } else {
+                content.style.height = "0";
+            }
+        });
+    });
 });
-
 
 function adjustSlider() {
   var screenWidth = window.innerWidth;
