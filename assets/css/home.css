@@ -37,7 +37,7 @@ section.s1 {
 }
 
 .section-item h1 {
-    margin-bottom: 13px;
+    margin: 0;
     padding-left: 15px;
     padding-right: 15px;
     font-size: 16px;
