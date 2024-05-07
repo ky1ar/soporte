@@ -7,9 +7,9 @@
             <div class="item">
                 <b>HORARIO DE ATENCIÓN</b>
                 <ul>
-                    <li>
+                    <!-- <li>
                         <p>Calle Tutumo 116 - Surco</p>
-                    </li>
+                    </li> -->
                     <li>
                         <p>Lunes a Viernes: 9:00am - 1:00pm y 2:00pm - 6:00 pm <br>Sábados: 9:00am - 1:00pm</p>
                     </li>
