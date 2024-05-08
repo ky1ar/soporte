@@ -269,7 +269,7 @@ section.body-s1 {
     }
     
     .home-banner img{
-        content: url('../../assets/img/home_movil.png');
+        content: url('../../assets/img/home-movil.webp');
         /* border-radius: 1rem; */
     }
 }
