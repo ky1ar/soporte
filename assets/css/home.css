@@ -258,7 +258,7 @@ section.body-s1 {
     }
     .home-banner img{
         content: url('../../assets/img/home-movil.webp');
-        height: 230px;
+        height: 270px;
     }  
     
 
@@ -272,9 +272,9 @@ section.body-s1 {
         margin-bottom: 30px;
     }
     
-    /* .home-banner img{
-        content: url('../../assets/img/home-movil.webp');
-    } */
+    .home-banner img{
+        height: 250px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
