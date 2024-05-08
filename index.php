@@ -1,5 +1,5 @@
 <?php
-$currentPage = "Home";
+$currentPage = "Soporte";
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
