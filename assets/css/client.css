@@ -1353,5 +1353,6 @@ footer .item ul.social-icons li img {
 @media (max-width: 576px) {
   #navigationBar ul {
     padding-right: 0;
+    padding-left: 0;
   }
 }
