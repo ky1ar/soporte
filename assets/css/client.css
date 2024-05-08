@@ -12,7 +12,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&display=swap");
 
 :root {
-  --primary: #ed5d1f;
+  /* --primary: #ed5d1f; */
+  --primary:  #ed6b22;
   --primaryopacity: #ffeee4;
 
   --secondary: #182d36;
