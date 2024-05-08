@@ -236,6 +236,9 @@ section.body-s1 {
     .home-banner{
         padding: 0 1rem;
     }
+    .home-banner img{
+        height: 240px;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .section-item {
