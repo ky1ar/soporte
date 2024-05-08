@@ -252,6 +252,9 @@ section.body-s1 {
     .collapsible {
         background-color: #ed5d1f;
         padding: 3px 5px;
+    }
+    .home-banner img{
+        height: 230px;
     }  
     
 
@@ -267,8 +270,7 @@ section.body-s1 {
     
     .home-banner img{
         content: url('../../assets/img/home_movil.png');
-        border-radius: 1rem;
-        height: 160px;
+        /* border-radius: 1rem; */
     }
 }
 
