@@ -5,13 +5,13 @@
                 <img class="logo" width="152" height="38" src="assets/img/logo.webp" alt="Krear 3D">
             </div>
             <div class="item">
-                <b>HORARIO DE ATENCIÓN TIENDA</b>
+                <b>HORARIO DE ATENCIÓN</b>
                 <ul>
+                    <!-- <li>
+                        <p>Calle Tutumo 116 - Surco</p>
+                    </li> -->
                     <li>
-                        <p>Calle Javier Fernandez - Miraflores - Lima</p>
-                    </li>
-                    <li>
-                        <p>Lu - Sa de 9:00 am a 6:00 pm</p>
+                        <p>Lunes a Viernes: 9:00am - 1:00pm y 2:00pm - 6:00 pm <br>Sábados: 9:00am - 1:00pm</p>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="item">
+            <!-- <div class="item">
                 <b>ATENCION AL CLIENTE / SOPORTE</b>
                 <ul>
                     <li>
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 
