@@ -46,7 +46,7 @@ require_once 'includes/common/header.php';
     </section>
 
     <section class="body-s1">
-        <img style="width: 100%;" height="630" src="assets/img/banner-marcas.webp">
+        <img style="width: 100%;" height="630" src="assets/img/banner2-marcas.webp">
         <h1 class="title-qs">PREGUNTAS FRECUENTES</h1>
         <div class="faq">
             <div class="question">
