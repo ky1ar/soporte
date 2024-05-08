@@ -300,7 +300,7 @@ section.body-s1 {
 
 @media only screen and (max-width: 576px) {
     .section-item {
-        margin: 18px;
+        margin: 15px;
     }  
     .section-item button {
         padding: 8px 10px;
