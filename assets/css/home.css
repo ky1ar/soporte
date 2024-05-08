@@ -308,6 +308,9 @@ section.body-s1 {
         padding: 8px 10px;
         font-size: 10px; 
     }
+    .home-banner img{
+        height: 180px;
+    }
 }
 @media only screen and (max-width: 416px) {
     .faq {
