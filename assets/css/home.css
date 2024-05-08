@@ -300,6 +300,7 @@ section.body-s1 {
 
 @media only screen and (max-width: 576px) {
     .section-item {
+        width: 40%;
         height: 120px;
         margin: 18px;
     }  
@@ -323,9 +324,6 @@ section.body-s1 {
     .collapsible img{
         width: 12px;
         height: 10px;
-    }
-    .section-item {
-        width: 160px;
     }
 }
 
