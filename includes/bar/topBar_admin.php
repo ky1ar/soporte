@@ -1,6 +1,6 @@
 <div id="topBar">
     <div class="wrapper">
-        <a href="/grid" class="home"><img src="assets/img/logo_v3.png" width="16" height="16" alt="ico">Krear 3D</a>
+        <a href="/grid" class="home"><img src="assets/img/logo" width="16" height="16" alt="ico">Krear 3D</a>
         <div id="userMenu">
             <span>Hola, Kenny Muñoz</span>
             <img alt="" class="image" src="assets/img/profile.webp" width="16" height="16">
