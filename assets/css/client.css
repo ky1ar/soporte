@@ -95,7 +95,7 @@ text-decoration: none;
 color: #ed5d1f;
 font-size: 12px;
 font-weight: bold !important;
-font-family: "Montserrat", sans-serif !important;
+font-family: "Montserrat", sans-serif;
 }
 .menu-webs a:hover{
 color: #B08A7A;	
