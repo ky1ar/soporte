@@ -72,7 +72,7 @@ require_once 'includes/common/header.php';
             </div>
             <div class="content">
                 <p>En promedio las fallas de los equipos se solucionan en una semana, ya que contamos con un amplio stock de repuestos e insumos de todas las marcas que representamos. De ser un caso más complejo, la primera etapa clave que es el diagnóstico que puede demorar hasta 10 días y posteriormente la etapa final de la reparación otros 10 días hábiles.<br><br>
-                    <img class="icon-inf" src="assets/img/info_icon.png">Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo a tiempo real, conocer qué técnico se está encargando, en qué etapa se encuentra: <a href="https://soporte.krear3d.com/">https://soporte.krear3d.com/</a>
+                    <img class="icon-inf" src="assets/img/info_icon.png">Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo a tiempo real, conocer qué técnico se está encargando, en qué etapa se encuentra: <a href="https://soporte.krear3d.com/consultas">https://soporte.krear3d.com/consultas</a>
                 </p>
             </div>
         </div>
