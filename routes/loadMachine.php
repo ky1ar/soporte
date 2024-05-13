@@ -4,7 +4,7 @@ require_once '../includes/app/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['machineVal'])) {
     $machineVal = $_POST['machineVal'];
 
-    $sql = "SELECT m.id, m.slug, CONCAT(b.name, ' ', m.model) AS fullName FROM Machine m JOIN Brand b ON m.brand = b.id WHERE CONCAT(b.name, ' ', m.model) LIKE '%$machineVal%'";
+    $sql = "SELECT m.id, m.slug, CONCAT(b.name, ' ', m.model) AS fullName FROM Machine m JOIN Brand b ON m.brand = b.id WHERE CONCAT(b.name, ' ', m.model) LIKE '%$machineVal%' AND b.id != 41";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
