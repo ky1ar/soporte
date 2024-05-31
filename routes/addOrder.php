@@ -28,12 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['order'])) {
         $phone = '51' . $phone;
     }
 
+    $stmt = $conn->prepare("SELECT id FROM Orders WHERE number = ?");
+    $stmt->bind_param("s", $order);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
+    if ($result->num_rows > 0) {
+        echo json_encode(array("success" => false, "message" => "El número de orden ya existe."));
+        exit();
+    }
     if ($clientID == '') {
-
         $sql = "INSERT INTO Users (levels, document, name, nick, role, image, phone, email, pass) VALUES (1, '$document', '$client', '', '', '', '$phone', '$email', 'password')";
         if ($conn->query($sql) === TRUE) {
-
             $stmt = $conn->prepare("SELECT id FROM Users WHERE document = ?");
             $stmt->bind_param("s", $document);
             $stmt->execute();
@@ -42,11 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['order'])) {
             $clientID = $row['id'];
         }
     }
-    //echo $dateF;
+
     $sql = "INSERT INTO Orders (number, machine, client, worker, type, origin, state, comments, dates) VALUES ('$order', $machineID, $clientID, $worker, $type, $origin, 1, '$comments', '$dateF')";
-
     if ($conn->query($sql) === TRUE) {
-
         $stmt = $conn->prepare("SELECT id FROM Orders WHERE number = ?");
         $stmt->bind_param("s", $order);
         $stmt->execute();
@@ -54,16 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['order'])) {
         $row = $result->fetch_assoc();
         $ordersID = $row['id'];
     }
-
-    $sql = "INSERT INTO Orders_Status (orders, stat, changer, dates ) VALUES ($ordersID, 1, $changer, '$dateF')";
-
+    $sql = "INSERT INTO Orders_Status (orders, stat, changer, dates) VALUES ($ordersID, 1, $changer, '$dateF')";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(array("success" => true));
         exit();
-    } /*else {
-        echo "Error al insertar datos: " . $conn->error;
-    }*/
+    }
 }
 
-
 $conn->close();
+?>
