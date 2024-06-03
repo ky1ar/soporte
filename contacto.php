@@ -10,7 +10,7 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <section class="banner-top">
+    <section class="xbanner-top">
         <img src="assets/img/banner-contacto-pc.webp">
     </section>
     <section>
