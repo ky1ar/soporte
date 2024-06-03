@@ -1391,7 +1391,9 @@ section.contact-info .card{
   height: 17rem;
   cursor: pointer;
 }
-
+section.contact-info .card:nth-child(3) img{
+  width: 4rem;
+}
 section.contact-info .card h1{
   font-size: 1rem;
   font-weight: 600;
@@ -1406,19 +1408,6 @@ section.contact-info .card img{
   filter: opacity(0.5);
   margin: 2rem 0;
 }
-/* section.contact-info a:last-child > div > img{
-  width: 5rem;
-  filter: opacity(0.5);
-  margin: 1.5rem 0;
-} */
-
-/* section.contact-info a:nth-child(3) .card img{
-  width: 4rem;
-  margin: 2.5rem 0;
-}
-section.contact-info .card:last-child img{
-  margin: 1.5rem 0;
-} */
 
 section.contact-info .card p{
   color: #727272;
