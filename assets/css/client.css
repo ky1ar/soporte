@@ -1423,5 +1423,11 @@ section.contact-map{
 
 section.contact-map iframe{
   width: 40rem;
-  height: 25rem;
+  height: 20rem;
+}
+
+section.contact-map div{
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
