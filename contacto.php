@@ -10,10 +10,13 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <section>
-        hola
+    <section class="banner-top">
+        <img src="assets/img/banner-contacto-pc.webp">
     </section>
-     <?php require_once 'includes/common/footer.php'; ?>
+    <section>
+
+    </section>
+    <?php require_once 'includes/common/footer.php'; ?>
 </body>
 
 </html>

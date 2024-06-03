@@ -1357,3 +1357,13 @@ footer .item ul.social-icons li img {
     padding-left: 0;
   }
 }
+
+/* vista de contacto */
+section.banner-top{
+  padding: 0 2rem;
+}
+
+section.banner-top img{ 
+  width: 100%;
+  border-radius: 1rem;
+}
