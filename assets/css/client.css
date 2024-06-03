@@ -1360,14 +1360,12 @@ footer .item ul.social-icons li img {
 
 /* vista de contacto */
 section.xbanner-top{
-  padding: 0 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 section.xbanner-top img{ 
-  width: 100%;
   border-radius: 1rem;
   max-width: 100rem;
 }
