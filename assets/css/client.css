@@ -1372,10 +1372,10 @@ section.xbanner-top img{
 }
 
 .bar-div {
-  margin: 2rem 0;
+  margin: 2rem auto;
   height: 0.2rem;
-  width: 20rem;
-  background-color: #727272;
+  width: 80rem;
+  background-color: #acacac;
 }
 
 section.contact-info{
