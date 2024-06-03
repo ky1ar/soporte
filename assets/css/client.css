@@ -1419,7 +1419,7 @@ section.contact-map{
   justify-content: center;
   padding: 0 2rem;
   margin-bottom: 3rem;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 section.contact-map iframe{
@@ -1432,4 +1432,7 @@ section.contact-map div{
   flex-direction: column;
   margin-top: auto;
   width: 21rem;
+}
+section.contact-map div h1{
+  margin: 0;
 }
