@@ -1387,7 +1387,7 @@ section.contact-info .card{
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
-  width: 13rem;
+  width: 15rem;
   height: 17rem;
 }
 
@@ -1435,4 +1435,8 @@ section.contact-map div{
 }
 section.contact-map div h1{
   margin: 0;
+}
+
+section.contact-map div p{
+  width: 17rem;
 }
