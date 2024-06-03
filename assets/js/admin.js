@@ -687,7 +687,15 @@ $(document).ready(function () {
 
           $schedule.text(data.schedule);
           $model.text(data.model);
-          $count.text("(Ya tiene " + data.count + " capacitación)");
+          var countT = data.count;
+          // $count.text("(Ya tiene " + data.count + " capacitación)");
+          if (countT === 0) {
+            $count.text(""); 
+        } else if (countT === 1) {
+            $count.text("(Ya tiene " + countT + " capacitación)");
+        } else {
+            $count.text("(Ya tiene " + countT + " capacitaciones)"); 
+        }
           $name.text(data.name);
           if(data.admin) {
             $invoice.hide();
