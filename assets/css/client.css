@@ -1412,3 +1412,6 @@ section.contact-info .card p{
   line-height: 1.5;
 }
 
+section.contact-map iframe{
+  width: 10rem;
+}

@@ -36,7 +36,7 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.881126920144!2d-77.02178992418398!3d-12.12028514327561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8050a2d4db7%3A0x22544c87aa238139!2sCalle%20Javier%20Fernandez%20262%2C%20Miraflores%2015047!5e0!3m2!1ses-419!2spe!4v1717449142718!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.727233699139!2d-77.00177192418383!3d-12.13080614347271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b807d9f38e5b%3A0xc35c73ba4479f1ea!2sC.%20Tutumo%20116%2C%20Santiago%20de%20Surco%2015038!5e0!3m2!1ses-419!2spe!4v1717449253128!5m2!1ses-419!2spe" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
