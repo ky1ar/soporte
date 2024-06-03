@@ -31,7 +31,7 @@ require_once 'includes/common/header.php';
         </div>
         <div class="card">
             <h1>Horario</h1>
-            <img src="assets/img/calendar.png" alt="">
+            <img src="assets/img/calendario.png" alt="">
             <p>Lun - Sab de 9:00 a 1:00 pm <br>Lun - Vie de 2:00 a 6:00 pm</p>
         </div>
     </section>
