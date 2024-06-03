@@ -1386,8 +1386,8 @@ section.contact-info .card{
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
-  width: 12rem;
-  height: 16rem;
+  width: 13rem;
+  height: 17rem;
 }
 
 section.contact-info .card h1{
@@ -1398,7 +1398,7 @@ section.contact-info .card h1{
 
 section.contact-info .card img{
   width: 5rem;
-  filter: opacity(0.4);
+  filter: opacity(0.5);
   margin: 2rem 0;
 }
 
