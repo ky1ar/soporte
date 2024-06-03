@@ -1404,4 +1404,5 @@ section.contact-info .card img{
 
 section.contact-info .card:nth-child(3) img{
   width: 4rem;
+  margin: 2.5rem 0;
 }
