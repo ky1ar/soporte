@@ -1400,6 +1400,6 @@ section.contact-info .card img{
   width: 5rem;
 }
 
-section.contact-info .card img:nth-child(3){
+section.contact-info .card:nth-child(3) img{
   width: 4rem;
 }
