@@ -1440,3 +1440,14 @@ section.contact-map div h1{
 section.contact-map div p{
   width: 17rem;
 }
+
+@media only screen and (max-width: 1600px) {
+  section.contact-map{
+    padding: 0 4rem;
+  }
+}
+@media only screen and (max-width: 1200px) {}
+@media only screen and (max-width: 992px) {}
+@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 576px) {}
+@media only screen and (max-width: 416px) {}
