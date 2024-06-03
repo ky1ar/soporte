@@ -687,7 +687,7 @@ $(document).ready(function () {
 
           $schedule.text(data.schedule);
           $model.text(data.model);
-          $count.text("(" + data.count + ")");
+          $count.text("(Ya tiene " + data.count + " capacitación)");
           $name.text(data.name);
           if(data.admin) {
             $invoice.hide();
