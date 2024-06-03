@@ -1363,9 +1363,10 @@ section.xbanner-top{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 1rem;
 }
 
 section.xbanner-top img{ 
   border-radius: 1rem;
-  max-width: 100rem;
+  max-width: 98rem;
 }
