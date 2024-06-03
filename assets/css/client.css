@@ -1391,14 +1391,6 @@ section.contact-info .card{
   height: 17rem;
   cursor: pointer;
 }
-/* section.contact-info a:nth-child(3) > div > img{
-  width: 4rem;
-  margin: 2.5rem 0;
-}
-section.contact-info a:nth-child(4) > div > img{
-  margin: 1.5rem 0;
-} */
-
 
 section.contact-info .card h1{
   font-size: 1rem;
@@ -1419,6 +1411,9 @@ section.contact-info .card img{
 section.contact-info .card p{
   color: #727272;
   line-height: 1.5;
+  height: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 section.contact-map{
