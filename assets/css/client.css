@@ -1385,6 +1385,8 @@ section.contact-info .card{
   align-items: center;
   justify-content: center;
   background-color: #dadada;
+  width: 10rem;
+  height: 8rem;
 }
 
 section.contact-info .card h1{
