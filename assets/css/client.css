@@ -1457,9 +1457,9 @@ section.contact-map div p{
   }
 }
 @media only screen and (max-width: 1200px) {
-  section.contact-map {
+  /* section.contact-map {
     padding: 0;
-  }
+  } */
 }
 @media only screen and (max-width: 992px) {}
 @media only screen and (max-width: 768px) {
