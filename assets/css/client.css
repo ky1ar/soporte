@@ -1398,16 +1398,16 @@ section.contact-info .card h1{
   color: #3b3b3b;
 }
 
-section.contact-info .card img{
+section.contact-info a .card img{
   width: 5rem;
   filter: opacity(0.5);
   margin: 2rem 0;
 }
 
-/* section.contact-info .card:nth-child(3) img{
+section.contact-info a:nth-child(3) .card img{
   width: 4rem;
   margin: 2.5rem 0;
-} */
+}
 
 section.contact-info .card p{
   color: #727272;
