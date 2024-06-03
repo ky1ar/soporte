@@ -1370,6 +1370,7 @@ section.xbanner-top{
 section.xbanner-top img{ 
   border-radius: 1rem;
   max-width: 98rem;
+  padding: 0 1rem;
 }
 
 section.contact-info{
