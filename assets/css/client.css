@@ -1407,6 +1407,8 @@ section.contact-info .card img{
   margin: 2rem 0;
 }
 section.contact-info a:last-child .card img{
+  width: 5rem;
+  filter: opacity(0.5);
   margin: 1.5rem 0;
 }
 
