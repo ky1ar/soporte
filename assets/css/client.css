@@ -1407,6 +1407,7 @@ section.contact-info a.card img{
   margin: 2rem 0;
 }
 section.contact-info .card img{
+  width: 5rem;
   margin: 1.5rem 0;
 }
 
