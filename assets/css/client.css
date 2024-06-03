@@ -1385,3 +1385,13 @@ section.contact-info .card{
   align-items: center;
   justify-content: center;
 }
+
+section.contact-info .card h1{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3b3b3b;
+}
+
+section.contact-info .card img{
+  width: 3rem;
+}
