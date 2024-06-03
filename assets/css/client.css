@@ -1418,8 +1418,10 @@ section.contact-map{
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
+  margin-bottom: 3rem;
 }
 
 section.contact-map iframe{
   width: 40rem;
+  height: 25rem;
 }
