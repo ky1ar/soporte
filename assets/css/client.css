@@ -1398,7 +1398,8 @@ section.contact-info .card h1{
 
 section.contact-info .card img{
   width: 5rem;
-  filter: brightness(0.6);
+  filter: opacity(0.4);
+  margin: 2rem 0;
 }
 
 section.contact-info .card:nth-child(3) img{
