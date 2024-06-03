@@ -1391,7 +1391,7 @@ section.contact-info .card{
   height: 17rem;
   cursor: pointer;
 }
-section.contact-info .card:nth-child(3) img{
+section.contact-info a:nth-child(3) > div > img{
   width: 4rem;
 }
 section.contact-info .card h1{
