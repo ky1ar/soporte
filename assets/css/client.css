@@ -1391,13 +1391,15 @@ section.contact-info .card{
   height: 17rem;
   cursor: pointer;
 }
-section.contact-info a:nth-child(3) > div > img{
+/* section.contact-info a:nth-child(3) > div > img{
   width: 4rem;
   margin: 2.5rem 0;
 }
 section.contact-info a:nth-child(4) > div > img{
   margin: 1.5rem 0;
-}
+} */
+
+
 section.contact-info .card h1{
   font-size: 1rem;
   font-weight: 600;
@@ -1409,6 +1411,7 @@ section.contact-info .card h1{
 
 section.contact-info .card img{
   width: 5rem;
+  height: 5rem;
   filter: opacity(0.5);
   margin: 2rem 0;
 }
