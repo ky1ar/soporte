@@ -26,12 +26,12 @@ require_once 'includes/common/header.php';
         </div>
         <div class="card">
             <h1>Encuéntranos</h1>
-            <img src="ssets/img/home-ubi.png" alt="">
+            <img src="asets/img/home-ubi.png" alt="">
             <p>Calle Tutumo 116, Surco</p>
         </div>
         <div class="card">
             <h1>Horario</h1>
-            <img src="ssets/img/calendar.png" alt="">
+            <img src="asets/img/calendar.png" alt="">
             <p>Lun - Sab de 9:00 a 1:00 pm <br>Lun - Vie de 2:00 a 6:00 pm</p>
         </div>
     </section>
