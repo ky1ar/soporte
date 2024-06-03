@@ -1363,12 +1363,12 @@ section.xbanner-top{
   padding: 0 1rem;
   margin-bottom: 3rem;
   max-width: 100rem;
+  margin: auto;
 }
 
 section.xbanner-top img{ 
   border-radius: 1rem;
   width: 100%;
-  margin: auto;
 }
 
 section.contact-info{
