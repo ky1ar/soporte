@@ -1408,7 +1408,7 @@ section.contact-info a:nth-child(3) .card img{
   width: 4rem;
   margin: 2.5rem 0;
 }
-section.contact-info a:nth-child(4) .card img{
+section.contact-info .card:last-child img{
   width: 4rem;
   margin: 1.5rem 0;
 }
