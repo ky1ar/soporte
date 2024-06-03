@@ -1366,4 +1366,5 @@ section.xbanner-top{
 section.xbanner-top img{ 
   width: 100%;
   border-radius: 1rem;
+  max-width: 100rem;
 }
