@@ -35,7 +35,7 @@ require_once 'includes/common/header.php';
                 <p>Calle Tutumo 116, Surco</p>
             </div>
         </a>
-        <div class="card">
+        <div class="card-sch">
             <h1>Horario</h1>
             <img src="assets/img/calendario.png" alt="">
             <p>Lun - Sab de 9:00 a 1:00 pm <br>Lun - Vie de 2:00 a 6:00 pm</p>

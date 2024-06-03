@@ -1406,6 +1406,9 @@ section.contact-info .card img{
   filter: opacity(0.5);
   margin: 2rem 0;
 }
+section.contact-info .card-sch img{
+  margin: 1.5rem 0;
+}
 
 /* section.contact-info a:nth-child(3) .card img{
   width: 4rem;
