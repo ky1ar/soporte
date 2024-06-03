@@ -1377,7 +1377,7 @@ section.contact-info{
   align-items: center;
   justify-content: center;
   padding: 1rem 4rem;
-  gap: 3rem;
+  gap: 4rem;
   margin-bottom: 3rem;
 }
 
@@ -1428,7 +1428,6 @@ section.contact-map iframe{
 
 section.contact-map div{
   display: flex;
-  align-items: center;
-  justify-content: end;
   flex-direction: column;
+  margin-top: auto;
 }
