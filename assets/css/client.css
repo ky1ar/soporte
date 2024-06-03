@@ -1406,3 +1406,9 @@ section.contact-info .card:nth-child(3) img{
   width: 4rem;
   margin: 2.5rem 0;
 }
+
+section.contact-info .card p{
+  color: rgb(167, 167, 167);
+  line-height: 1;
+}
+
