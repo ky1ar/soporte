@@ -1401,12 +1401,12 @@ section.contact-info .card h1{
   align-items: center;
 }
 
-section.contact-info .card img{
+section.contact-info a.card img{
   width: 5rem;
   filter: opacity(0.5);
   margin: 2rem 0;
 }
-section.contact-info .card-sch img{
+section.contact-info .card img{
   margin: 1.5rem 0;
 }
 
