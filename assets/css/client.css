@@ -1371,6 +1371,13 @@ section.xbanner-top img{
   width: 100%;
 }
 
+.bar-div {
+  margin: 2rem 0;
+  height: 0.2rem;
+  width: 20rem;
+  background-color: #727272;
+}
+
 section.contact-info{
   display: flex;
   align-items: center;
