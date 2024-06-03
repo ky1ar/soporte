@@ -1365,11 +1365,12 @@ section.xbanner-top{
   justify-content: center;
   padding: 0 1rem;
   margin-bottom: 3rem;
+  max-width: 98rem;
 }
 
 section.xbanner-top img{ 
   border-radius: 1rem;
-  max-width: 98rem;
+  width: 100%;
 }
 
 section.contact-info{
