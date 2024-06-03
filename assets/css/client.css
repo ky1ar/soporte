@@ -1377,7 +1377,7 @@ section.contact-info{
   align-items: center;
   justify-content: center;
   padding: 1rem 4rem;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 section.contact-info .card{
@@ -1387,7 +1387,7 @@ section.contact-info .card{
   justify-content: center;
   background-color: #dadada;
   width: 12rem;
-  height: 18rem;
+  height: 16rem;
 }
 
 section.contact-info .card h1{
@@ -1397,5 +1397,9 @@ section.contact-info .card h1{
 }
 
 section.contact-info .card img{
-  width: 3rem;
+  width: 5rem;
+}
+
+section.contact-info .card img:nth-child(3){
+  width: 4rem;
 }
