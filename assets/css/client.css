@@ -1467,8 +1467,6 @@ section.contact-map div p{
     gap: 5rem;
     flex-wrap: wrap;
     max-width: 80%;
-    margin: auto;
-    margin-bottom: 2rem;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -1477,7 +1475,6 @@ section.contact-map div p{
   }
   section.contact-info {
     display: grid;
-    margin: auto;
     grid-template-columns: repeat(2, 1fr);
   }
 }
