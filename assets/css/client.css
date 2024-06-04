@@ -1471,9 +1471,11 @@ section.contact-map div p{
   }
 }
 @media only screen and (max-width: 992px) {
-  /* section.contact-info {
+  section.contact-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);} */
+    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-top img{
