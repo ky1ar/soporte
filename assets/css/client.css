@@ -1493,11 +1493,19 @@ section.stls .card-stl{
 section.stls .card-stl img{
   width: 100%;
 }
-
+section.stls .card-stl h1{
+  margin-bottom: 0;
+}
+section.stls .card-stl p{
+  margin-top: 0;
+}
+section.stls .card-stl a{
+  margin: auto;
+}
 section.stls .card-stl button{
   background-color: var(--primary);
   padding: 0.5rem 1rem;
-  width: 12rem;
+  width: 10rem;
   color: white;
   border: none;
   border-radius: 1rem;
