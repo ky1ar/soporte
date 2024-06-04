@@ -1489,6 +1489,8 @@ section.contact-map div p{
   }
   section.contact-info{
     margin-top: 3rem;
+    padding: 0;
+    gap: 1rem;
   } 
   
 }
