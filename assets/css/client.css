@@ -1573,15 +1573,19 @@ section.xbanner-top-stls img{
 
 section.stls{
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 section.stls .card-stl{
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  width: 40rem;
+  width: 20rem;
+  height: 26rem;
 }
 
 section.stls .card-stl img{
   width: 100%;
+  height: 60%;
 }
