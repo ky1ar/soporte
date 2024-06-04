@@ -1479,9 +1479,11 @@ section.contact-map div p{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  section.contact-map{
+  section.contact-map div {
     flex-direction: column;
-  }
+    text-align: left;
+    width: 90%;
+}
   section.contact-map iframe{
     width: 36rem;
   }
@@ -1531,5 +1533,8 @@ section.contact-map div p{
   }
   section.contact-info .card p {
     font-size: 0.6rem;
+  }
+  section.contact-map {
+    gap: 1rem;
   }
 }
