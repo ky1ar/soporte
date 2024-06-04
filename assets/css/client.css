@@ -1595,4 +1595,5 @@ section.stls .card-stl img{
 section.stls .card-stl h1{
   margin-bottom: 0;
   font-size: 1rem;
+  text-align: center;
 }
