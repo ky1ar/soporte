@@ -1570,3 +1570,18 @@ section.xbanner-top-stls img{
   border-radius: 1rem;
   width: 100%;
 }
+
+section.stls{
+  display: flex;
+}
+
+section.stls .card-stl{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 40rem;
+}
+
+section.stls .card-stl img{
+  width: 100%;
+}

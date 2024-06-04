@@ -14,6 +14,15 @@ require_once 'includes/common/header.php';
     <section class="xbanner-top-stls">
         <img src="assets/img/stl-pc.webp">
     </section>
+
+    <section class="stls">
+        <div class="card-stl">
+            <img src="" alt="">
+            <h1></h1>
+            <p></p>
+            <button>DESCARGA AQUÍ</button>
+        </div>
+    </section>
 </body>
 
 </html>
