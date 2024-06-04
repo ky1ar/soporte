@@ -1492,6 +1492,7 @@ section.stls .card-stl{
 
 section.stls .card-stl img{
   width: 100%;
+  height: 60%;
 }
 section.stls .card-stl h1{
   margin-bottom: 0;
