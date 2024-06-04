@@ -11,7 +11,7 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
 
-    <section class="xbanner-top">
+    <section class="xbanner-top-stls">
         <img src="assets/img/stl-pc.webp">
     </section>
 </body>

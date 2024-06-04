@@ -1557,3 +1557,16 @@ section.contact-map div p{
     gap: 1rem;
   }
 }
+
+/* vista de stls */
+section.xbanner-top-stls{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: auto;
+}
+
+section.xbanner-top-stls img{ 
+  border-radius: 1rem;
+  width: 100%;
+}
