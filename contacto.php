@@ -23,14 +23,14 @@ require_once 'includes/common/header.php';
                 <p>soporte@krear3d.com</p>
             </div>
         </a>
-        <a href="https://wa.me/51970539751">
+        <a href="https://wa.me/51970539751" target="_blank">
             <div class="card">
                 <h1>WhatsApp</h1>
                 <img src="assets/img/whatsapp.png" alt="">
                 <p>+51 970 539 751</p>
             </div>
         </a>
-        <a href="https://www.google.com/maps/dir//C.+Tutumo+116+Santiago+de+Surco+15038/@-12.1308114,-76.999197,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x9105b807d9f38e5b:0xc35c73ba4479f1ea">
+        <a href="https://www.google.com/maps/dir//C.+Tutumo+116+Santiago+de+Surco+15038/@-12.1308114,-76.999197,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x9105b807d9f38e5b:0xc35c73ba4479f1ea" target="_blank">
             <div class="card">
                 <h1>Encuéntranos</h1>
                 <img src="assets/img/home-ubi.png" alt="">
