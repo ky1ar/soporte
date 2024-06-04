@@ -1471,6 +1471,9 @@ section.contact-map div p{
   }
 }
 @media only screen and (max-width: 992px) {
+  section.contact-info a{
+    margin: auto;
+  }
   section.contact-info {
     display: grid;
     margin: auto;
