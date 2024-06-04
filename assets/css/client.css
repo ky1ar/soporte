@@ -1477,6 +1477,7 @@ section.stls {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: auto;
 }
 
 section.stls .card-stl{
