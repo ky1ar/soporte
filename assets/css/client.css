@@ -1503,4 +1503,17 @@ section.contact-map div p{
     height: 14rem;
   }
 }
-@media only screen and (max-width: 416px) {}
+@media only screen and (max-width: 416px) {
+  section.contact-info {
+    gap: 1rem;
+  }
+  section.contact-info .card {
+    width: 9rem;
+    height: 12rem;
+  }
+  section.contact-info .card img {
+    width: 4rem;
+    height: 4rem;
+    margin: 0;
+  }
+}
