@@ -1458,3 +1458,17 @@ section.contact-map div p{
 }
 @media only screen and (max-width: 576px) {}
 @media only screen and (max-width: 416px) {}
+
+
+/* vista de stls */
+section.xbanner-stls{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: auto;
+}
+
+section.xbanner-stls img{ 
+  border-radius: 1rem;
+  width: 100%;
+}
