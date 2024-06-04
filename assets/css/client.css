@@ -1583,6 +1583,7 @@ section.stls .card-stl{
   padding: 1rem;
   width: 20rem;
   height: 26rem;
+  box-shadow: 0 0 1rem 0.2rem rgb(207, 207, 207);
 }
 
 section.stls .card-stl img{
