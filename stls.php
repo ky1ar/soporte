@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/pika.png" alt="">
             <h1>OBJETO1</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/archivo.stl" download>
+            <a href="stls/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
