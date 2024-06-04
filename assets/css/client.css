@@ -1475,7 +1475,6 @@ section.contact-map div p{
     display: grid;
     margin: auto;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 100%;
   }
 }
 @media only screen and (max-width: 768px) {
