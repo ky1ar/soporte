@@ -1491,7 +1491,10 @@ section.contact-map div p{
     margin-top: 2rem;
     padding: 0;
     gap: 1rem;
-  } 
+  }
+  section.contact-map{
+    flex-direction: column;
+  }
   
 }
 @media only screen and (max-width: 576px) {
