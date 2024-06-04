@@ -23,6 +23,7 @@ require_once 'includes/common/header.php';
             <button>DESCARGA AQUÍ</button>
         </div>
     </section>
+    <?php require_once 'includes/common/footer.php'; ?>
 </body>
 
 </html>
