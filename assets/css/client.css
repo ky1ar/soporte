@@ -1498,4 +1498,8 @@ section.stls .card-stl button{
   background-color: var(--primary);
   padding: 0.5rem 1rem;
   width: 12rem;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  margin: auto;
 }
