@@ -1472,3 +1472,23 @@ section.xbanner-stls img{
   border-radius: 1rem;
   width: 100%;
 }
+
+section.stls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.stls .card-stl{
+  background-color: white;
+  box-sizing: 0 0 1rem 0.1rem rgb(202, 202, 202);
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  height: 17rem;
+  padding: 1rem;
+}
+
+section.stls .card-stl img{
+  width: 100%;
+}

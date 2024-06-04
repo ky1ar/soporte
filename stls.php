@@ -15,7 +15,14 @@ require_once 'includes/common/header.php';
         <img src="assets/img/banner-contacto-pc.webp">
     </section>
 
-
+    <section class="stls">
+        <div class="card-stl">
+            <img src="assets/img/pika.png" alt="">
+            <h1>OBJETO1</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
+            <button>DESCARGA AQUÍ</button>
+        </div>
+    </section>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
 
