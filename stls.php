@@ -17,9 +17,9 @@ require_once 'includes/common/header.php';
 
     <section class="stls">
         <div class="card-stl">
-            <img src="" alt="">
-            <h1></h1>
-            <p></p>
+            <img src="assets/img/pika.png" alt="">
+            <h1>OBJETO1</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <button>DESCARGA AQUÍ</button>
         </div>
     </section>
