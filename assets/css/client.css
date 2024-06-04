@@ -1503,6 +1503,7 @@ section.stls .card-stl p{
 }
 section.stls .card-stl a{
   margin: auto;
+  cursor: pointer;
 }
 section.stls .card-stl button{
   background-color: var(--primary);
