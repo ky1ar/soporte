@@ -1575,6 +1575,7 @@ section.stls{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2rem auto;
 }
 
 section.stls .card-stl{
