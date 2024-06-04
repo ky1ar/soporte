@@ -1461,7 +1461,13 @@ section.contact-map div p{
     padding: 0;
   } */
   .bar-div{
-    width: 96%;
+    width: 94%;
+  }
+  section.contact-info {
+    gap: 5rem;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: auto;
   }
 }
 @media only screen and (max-width: 992px) {}
