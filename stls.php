@@ -12,7 +12,7 @@ require_once 'includes/common/header.php';
     ?>
 
     <section class="xbanner-stls">
-        <img src="assets/img/banner-contacto-pc.webp">
+        <img src="assets/img/stl-pc.webp">
     </section>
 
     <section class="stls">
