@@ -1477,7 +1477,11 @@ section.contact-map div p{
   }
   .bar-div{
     display: none;
+  }
+  section.contact-info{
+    margin-top: 3rem;
   } 
+  
 }
 @media only screen and (max-width: 576px) {}
 @media only screen and (max-width: 416px) {}
