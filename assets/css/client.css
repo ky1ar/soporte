@@ -1484,14 +1484,16 @@ section.contact-map div p{
     gap: 1rem;
   }
   section.contact-map div {
-    text-align: left;
+    text-align: center;
+    align-items: center;
     width: 90%;
   }
   section.contact-map iframe{
     width: 36rem;
   }
   section.contact-map div p {
-    width: 90%; 
+    width: 90%;
+    text-align: center; 
   }
 }
 @media only screen and (max-width: 768px) {
@@ -1512,7 +1514,14 @@ section.contact-map div p{
   section.contact-map iframe{
     width: 90%;
   }
-  
+  section.contact-map div {
+    text-align: left;
+    align-items: left;
+  }
+  section.contact-map div p {
+    width: 90%;
+    text-align: left; 
+  }
   
 }
 @media only screen and (max-width: 576px) {
