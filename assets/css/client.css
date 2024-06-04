@@ -1516,7 +1516,7 @@ section.contact-map div p{
   }
   section.contact-map div {
     text-align: left;
-    align-items: left;
+    align-items: start;
   }
   section.contact-map div p {
     width: 90%;
