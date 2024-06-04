@@ -1471,11 +1471,9 @@ section.contact-map div p{
   }
 }
 @media only screen and (max-width: 992px) {
-  section.contact-info {
+  /* section.contact-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas */
-    gap: 20px; /* Espacio entre las tarjetas */
-}
+    grid-template-columns: repeat(2, 1fr);} */
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-top img{
