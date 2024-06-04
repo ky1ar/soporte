@@ -1479,8 +1479,10 @@ section.contact-map div p{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  section.contact-map div {
+  section.contact-map{
     flex-direction: column;
+  }
+  section.contact-map div {
     text-align: left;
     width: 90%;
 }
