@@ -1489,6 +1489,10 @@ section.contact-map div p{
   section.contact-map iframe{
     width: 36rem;
   }
+  section.contact-map div p {
+    width: 21rem;
+    margin-top: 0;
+}
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-top img{
