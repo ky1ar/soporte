@@ -1474,6 +1474,9 @@ section.contact-map div p{
 @media only screen and (max-width: 768px) {
   section.xbanner-top img{
     content: url(../img/banner-contacto-movil.webp);
+  }
+  .bar-div{
+    display: none;
   } 
 }
 @media only screen and (max-width: 576px) {}
