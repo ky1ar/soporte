@@ -1485,11 +1485,17 @@ section.stls .card-stl{
   box-shadow: 0 0 1rem 0.1rem rgb(202, 202, 202);
   display: flex;
   flex-direction: column;
-  width: 22rem;
-  height: 17rem;
+  width: 18rem;
+  height: 26rem;
   padding: 1rem;
 }
 
 section.stls .card-stl img{
   width: 100%;
+}
+
+section.stls .card-stl button{
+  background-color: var(--primary);
+  padding: 0.5rem 1rem;
+  width: 12rem;
 }
