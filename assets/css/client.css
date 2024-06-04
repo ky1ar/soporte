@@ -1488,7 +1488,8 @@ section.contact-map div p{
     display: none;
   }
   section.contact-info{
-    margin-top: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 0;
     gap: 1rem;
   } 
