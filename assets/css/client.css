@@ -1565,7 +1565,7 @@ section.xbanner-stls{
   padding: 0 1rem;
   margin-bottom: 3rem;
   max-width: 100rem;
-  margin: auto;
+  margin: 0 auto 3rem auto;
 }
 
 section.xbanner-stls img{ 
@@ -1578,7 +1578,7 @@ section.stls {
   align-items: center;
   justify-content: center;
   height: auto;
-  margin: 4rem;
+  padding: 3rem;
   gap: 2rem;
 }
 section.stls:nth-child(odd){
