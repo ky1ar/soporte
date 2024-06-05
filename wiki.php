@@ -86,7 +86,7 @@ require_once 'includes/common/header.php';
                 </li>
             </ul>
         </section>
-        <section>
+        <section class="data">
             hola soy el contenido
         </section>
     </section>

@@ -1662,6 +1662,7 @@ section.xbanner-wiki img{
 
 section.data-wiki{
   display: flex;
+  margin-bottom: 2rem;
 }
 
 section.menu-wiki{
@@ -1721,4 +1722,9 @@ section.menu-wiki ul li ul li a:hover{
 section.menu-wiki a{
   text-decoration: none;
   color: black; 
+}
+
+section.data-wiki .data{
+  border-left: 0.2rem solid gray;    
+  padding-left: 1rem;
 }
