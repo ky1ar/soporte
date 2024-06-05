@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/pika.webp" alt="">
             <h1>PIKACHU</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="archivos-stl/pencil-stl.zip" download>
+            <a href="archivos-stl/pikachu.rar" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>

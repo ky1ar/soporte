@@ -211,7 +211,7 @@ color: #B08A7A;
   list-style: none;
   gap: 1rem;
 }
-#navigationBar ul a {
+#navigationBar ul a { 
   color: var(--black);
   padding: 0.5rem 1rem;
   display: block;
