@@ -1595,13 +1595,14 @@ section.stls .card-stl {
   width: 18rem;
   height: 29rem;
   padding: 1rem;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease;
   backface-visibility: hidden; /* Ayuda a mejorar la nitidez del texto */
   will-change: transform; /* Informa al navegador que la propiedad 'transform' va a cambiar */
+  transform: translateZ(0); /* Forzar un nuevo contexto de renderizado */
 }
 
 section.stls .card-stl:hover {
-  transform: scale(1.02) translateZ(0);
+  transform: scale(1.02) translateZ(0); /* Aumenta el tamaño en un 2% */
 }
 section.stls .card-stl img{
   width: 100%;
