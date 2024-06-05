@@ -1437,13 +1437,14 @@ section.contact-map{
   flex-direction: column;
 }
 
+section.contact-map iframe{
+  width: 90%;
+}
+
 section.contact-map div {
   text-align: center;
   align-items: center;
   width: 90%;
-}
-section.contact-map iframe{
-  width: 36rem;
 }
 section.contact-map div p {
   width: 90%;
