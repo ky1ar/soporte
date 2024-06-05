@@ -1672,6 +1672,9 @@ section.menu-wiki ul{
 section.menu-wiki ul li a{
   font-weight: 600;
 }
+section.menu-wiki ul li ul li a{
+  font-weight: 500;
+}
 section.menu-wiki a{
   text-decoration: none;
   color: black; 
