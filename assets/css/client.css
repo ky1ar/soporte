@@ -1583,7 +1583,6 @@ section.stls {
 }
 
 section.stls .card-stl{
-  background-color: white;
   box-shadow: 0 0 1rem 0.1rem rgb(202, 202, 202);
   display: flex;
   flex-direction: column;
@@ -1591,7 +1590,12 @@ section.stls .card-stl{
   height: 26rem;
   padding: 1rem;
 }
-
+section.stls .card-stl:nth-child(odd){
+  background-color: var(--gray);
+}
+section.stls .card-stl:nth-child(even){
+  background-color: var(--white);
+}
 section.stls .card-stl img{
   width: 100%;
   height: 60%;
