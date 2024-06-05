@@ -19,21 +19,21 @@ require_once 'includes/common/header.php';
         <p>Contáctanos desde nuestros distintos canales de comunicación para ayudarte a resolver todas tus dudas y consultas.</p>
     </div>
     <section class="contact-info">
-        <a href="">
+        <a href="mailto:soporte@krear3d.com" target="_blank">
             <div class="card">
                 <h1>Email</h1>
                 <img src="assets/img/home-email.png" alt="">
                 <p>soporte@krear3d.com</p>
             </div>
         </a>
-        <a href="">
+        <a href="https://wa.me/51970539751" target="_blank">
             <div class="card">
                 <h1>WhatsApp</h1>
                 <img src="assets/img/whatsapp.png" alt="">
                 <p>+51 970 539 751</p>
             </div>
         </a>
-        <a href="">
+        <a href="https://www.google.com/maps?ll=-12.130591,-76.999031&z=17&t=m&hl=es-419&gl=PE&mapclient=embed&q=C.+Tutumo+116+Santiago+de+Surco+15038" target="_blank">
             <div class="card">
                 <h1>Encuéntranos</h1>
                 <img src="assets/img/home-ubi.png" alt="">
