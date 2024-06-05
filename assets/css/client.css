@@ -1689,6 +1689,9 @@ section.menu-wiki ul li p{
   margin: 0;
   user-select: none;
 }
+section.menu-wiki ul li p:hover{
+  opacity: 0.8;
+}
 section.menu-wiki ul li a{
   font-weight: 600;
 }
