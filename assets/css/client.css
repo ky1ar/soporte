@@ -1473,6 +1473,8 @@ section.contact-map div p {
   } */
   section.contact-map{
     padding: 0;
+  }
+  section.contact-map iframe{
     width: 90%;
   }
   .bar-div{
