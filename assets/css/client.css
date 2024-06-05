@@ -1579,7 +1579,7 @@ section.stls {
   justify-content: center;
   height: auto;
   padding: 3rem;
-  gap: 2rem;
+  gap: 4rem;
 }
 section.stls:nth-child(odd){
   background-color: var(--gray);
