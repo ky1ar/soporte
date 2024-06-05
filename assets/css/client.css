@@ -1587,7 +1587,7 @@ section.stls:nth-child(odd){
 section.stls:nth-child(even){
   background-color: var(--white);
 }
-section.stls .card-stl{
+section.stls .card-stl {
   background-color: white;
   box-shadow: 0 0 1rem 0.1rem rgb(202, 202, 202);
   display: flex;
@@ -1596,8 +1596,11 @@ section.stls .card-stl{
   height: 29rem;
   padding: 1rem;
   transition: transform 0.3s ease;
+  backface-visibility: hidden; /* Ayuda a mejorar la nitidez del texto */
+  will-change: transform; /* Informa al navegador que la propiedad 'transform' va a cambiar */
 }
-section.stls .card-stl:hover{
+
+section.stls .card-stl:hover {
   transform: scale(1.02) translateZ(0);
 }
 section.stls .card-stl img{
