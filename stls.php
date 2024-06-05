@@ -1,5 +1,5 @@
 <?php
-$currentPage = "STL";
+$currentPage = "STLs";
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
