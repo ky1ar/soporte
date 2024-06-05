@@ -1577,7 +1577,8 @@ section.stls {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40rem;
+  height: auto;
+  margin: 4rem;
   gap: 2rem;
 }
 
