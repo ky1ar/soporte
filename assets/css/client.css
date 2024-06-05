@@ -1438,21 +1438,24 @@ section.contact-map{
 }
 
 section.contact-map iframe{
-  width: 90%;
+  width: 60%;
+  height: 25rem;
 }
 
 section.contact-map div {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 90%;
-}
-section.contact-map div p {
-  width: 90%;
-  text-align: center; 
 }
 section.contact-map div h1{
   margin: 0;
+  text-align: center;
 }
+section.contact-map div p {
+  text-align: center; 
+}
+
 
 /* section.contact-map div p{
   width: 21rem;
