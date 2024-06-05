@@ -1624,7 +1624,7 @@ section.stls .card-stl button{
   border-radius: 1rem;
   margin: 0 auto;
   cursor: pointer;
-  word-spacing: 0.4rem;
+  word-spacing: 0.2rem;
 }
 
 section.stls .card-stl button:hover{
