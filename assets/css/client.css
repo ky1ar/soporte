@@ -1670,6 +1670,9 @@ section.menu-wiki ul{
   line-height: 2;
   font-size: 0.8rem;
 }
+section.menu-wiki ul ul{
+  display: none;
+}
 
 section.menu-wiki ul li p{
   font-weight: 600;
