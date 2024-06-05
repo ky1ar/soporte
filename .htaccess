@@ -1,11 +1,20 @@
+# Activa el motor de reescritura
 RewriteEngine On
+
+# Redirige URLs con .php a la versión sin la extensión .php
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[^\s]* [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Reescribe las URLs para que elimine la extensión .php
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\.]+)/?$ $1.php/ [L]
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [L]
 
-RewriteCond %{REQUEST_URI} ^/index\.php$
-RewriteRule ^(.*)$ / [R=301,L]
+# Redirige index.php a la raíz del sitio
+RewriteCond %{THE_REQUEST} /index\.php [NC]
+RewriteRule ^index\.php$ / [R=301,L]
 
+# Habilita la visualización de errores PHP
 php_flag display_startup_errors on
 php_flag display_errors on
 php_flag html_errors on
