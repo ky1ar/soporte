@@ -1442,17 +1442,12 @@ section.contact-map iframe{
   height: 25rem;
 }
 
-section.contact-map div {
+.contact-in {
   display: flex;
-  flex-direction: column;
   text-align: center;
   align-items: center;
 }
-section.contact-map div h1{
-  margin: 0;
-  text-align: center;
-}
-section.contact-map div p {
+.contact-in  p {
   margin-top: 0;
   text-align: center;
   font-size:  0.8rem;; 
@@ -1520,7 +1515,7 @@ section.contact-map div p {
   section.contact-map iframe{
     width: 90%;
   }
-  section.contact-map div {
+  /* section.contact-map div {
     text-align: left;
     align-items: start;
     width: 90%;
@@ -1528,7 +1523,7 @@ section.contact-map div p {
   section.contact-map div p {
     text-align: left; 
   }
-  
+   */
 }
 @media only screen and (max-width: 576px) {
   section.contact-info{
