@@ -1595,6 +1595,7 @@ section.stls .card-stl{
   width: 18rem;
   height: 29rem;
   padding: 1rem;
+  transition: transform 0.3s ease;
 }
 section.stls .card-stl:hover{
   transform: scale(1.1);
