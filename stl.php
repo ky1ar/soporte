@@ -36,7 +36,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/dragon.webp" alt="">
             <h1>DRAGON</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="archivos-stl/pencil-stl.zip" download>
+            <a href="archivos-stl/dragon-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
