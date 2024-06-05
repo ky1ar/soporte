@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/pika.webp" alt="">
             <h1>PIKACHU</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/pencil-stl.zip" download>
+            <a href="archivos-stl/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
@@ -28,7 +28,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/cajas.webp" alt="">
             <h1>PUZZLE</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/pencil-stl.zip" download>
+            <a href="archivos-stl/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
@@ -36,7 +36,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/dragon.webp" alt="">
             <h1>DRAGON</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/pencil-stl.zip" download>
+            <a href="archivos-stl/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
@@ -46,7 +46,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/egg.webp" alt="">
             <h1>HUEVOS DE PASCUA</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/pencil-stl.zip" download>
+            <a href="archivos-stl/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
@@ -54,7 +54,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/espeon.webp" alt="">
             <h1>ESPEON</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/pencil-stl.zip" download>
+            <a href="archivos-stl/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
@@ -62,7 +62,7 @@ require_once 'includes/common/header.php';
             <img src="assets/img/naruto.webp" alt="">
             <h1>NARUTO</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="stls/pencil-stl.zip" download>
+            <a href="archivos-stl/pencil-stl.zip" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
