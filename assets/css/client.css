@@ -1592,7 +1592,7 @@ section.stls .card-stl{
   display: flex;
   flex-direction: column;
   width: 18rem;
-  height: 26rem;
+  height: 28rem;
   padding: 1rem;
 }
 
@@ -1619,5 +1619,5 @@ section.stls .card-stl button{
   border-radius: 1rem;
   margin: 0 auto;
   cursor: pointer;
-  word-spacing: 1rem
+  word-spacing: 0.6rem;
 }
