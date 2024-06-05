@@ -1676,7 +1676,7 @@ section.menu-wiki ul{
   list-style-type: none;
   line-height: 2;
   font-size: 0.8rem;
-  padding: 1rem;
+  padding-left: 0.5rem;
 }
 section.menu-wiki ul ul {
   max-height: 0;
