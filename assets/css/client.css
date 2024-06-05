@@ -1667,14 +1667,16 @@ section.menu-wiki{
 
 section.menu-wiki ul{
   list-style-type: none;
-  line-height: 1.2;
+  line-height: 2;
+  font-size: 0.8rem;
 }
 
 section.menu-wiki ul li a{
   font-weight: 600;
 }
 section.menu-wiki ul li a img{
-  width: 1rem;
+  width: 0.6rem;
+  margin-right: 0.4rem;
 }
 section.menu-wiki ul li ul{
   padding-left: 1rem;
