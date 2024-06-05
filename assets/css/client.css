@@ -1453,7 +1453,9 @@ section.contact-map div h1{
   text-align: center;
 }
 section.contact-map div p {
-  text-align: center; 
+  margin-top: 0;
+  text-align: center;
+  font-size:  0.8rem;; 
 }
 
 
