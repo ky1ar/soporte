@@ -1589,7 +1589,7 @@ section.stls:nth-child(even){
 }
 section.stls .card-stl{
   background-color: white;
-  box-shadow: 0 0 1rem 0.1rem rgb(202, 202, 202);
+  box-shadow: 0 0 0.8rem 0.1rem #cacaca;
   display: flex;
   flex-direction: column;
   width: 18rem;
