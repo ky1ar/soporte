@@ -1593,7 +1593,7 @@ section.stls .card-stl{
   display: flex;
   flex-direction: column;
   width: 18rem;
-  height: 28rem;
+  height: 29rem;
   padding: 1rem;
 }
 
@@ -1607,6 +1607,7 @@ section.stls .card-stl h1{
 }
 section.stls .card-stl p{
   margin-top: 0;
+  line-height: 1.1;
 }
 section.stls .card-stl a{
   margin: auto;
