@@ -1645,3 +1645,17 @@ section.stls .card-stl button:hover{
 }
 @media only screen and (max-width: 576px) {}
 @media only screen and (max-width: 416px) {}
+
+
+/* vista de wiki */
+section.xbanner-wiki{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: 0 auto 3rem auto;
+}
+
+section.xbanner-wiki img{ 
+  border-radius: 1rem;
+  width: 100%;
+}

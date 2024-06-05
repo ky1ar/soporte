@@ -11,7 +11,9 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
 
-    <section>HOLA SOY WIKI</section>
+    <section class="xbanner-wiki">
+        <img src="assets/img/stl-pc.webp">
+    </section>
 
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
