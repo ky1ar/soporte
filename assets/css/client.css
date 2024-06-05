@@ -1450,7 +1450,8 @@ section.contact-map iframe{
 }
 .contact-in  p {
   text-align: center;
-  font-size:  1rem;; 
+  font-size:  1rem;
+  margin-bottom: 0;
 }
 
 
