@@ -1672,6 +1672,9 @@ section.menu-wiki ul{
 section.menu-wiki ul li a{
   font-weight: 600;
 }
+section.menu-wiki ul li ul{
+  padding-left: 1rem;
+}
 section.menu-wiki ul li ul li a{
   font-weight: 400;
   text-transform: capitalize;
