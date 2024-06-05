@@ -1659,3 +1659,17 @@ section.xbanner-wiki img{
   border-radius: 1rem;
   width: 100%;
 }
+
+section.menu-wiki{
+  display: flex;
+  flex-direction: column;
+}
+
+section.menu-wiki ul{
+  list-style-type: none;
+}
+
+section.menu-wiki a{
+  text-decoration: none;
+  color: black; 
+}
