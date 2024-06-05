@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
                 <a href="#">INICIO</a>
             </li>
             <li>
-                <a href="#">SOLUCIÓN DE PROBLEMAS</a>
+                <a href="#"><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</a>
                 <ul>
                     <li><a href="#">Residuos En El Extrusor</a></li>
                     <li><a href="#">Problemas Con El Relleno</a></li>
@@ -47,7 +47,7 @@ require_once 'includes/common/header.php';
                 </ul>
             </li>
             <li>
-                <a href="#">USANDO LA IMPRESORA</a>
+                <a href="#"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA</a>
                 <ul>
                     <li><a href="#">Actualización Del Firmware</a></li>
                     <li><a href="#">Cambiar O Reemplazar La Boquilla</a></li>
@@ -67,7 +67,7 @@ require_once 'includes/common/header.php';
                 </ul>
             </li>
             <li>
-                <a href="#">CALIBRACIÓN</a>
+                <a href="#"><img src="./assets/img/menu-clip.png" alt="">CALIBRACIÓN</a>
                 <ul>
                     <li><a href="#">Nivelación De La Cama</a></li>
                     <li><a href="#">Corrección De La Nivelación De La Cama</a></li>
@@ -76,7 +76,7 @@ require_once 'includes/common/header.php';
                 </ul>
             </li>
             <li>
-                <a href="#">SOBRE TU IMPRESORA</a>
+                <a href="#"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA</a>
                 <ul>
                     <li><a href="#">Documentación Con Fotos Y Videos</a></li>
                     <li><a href="#">Problemas Con Tus Tarjetas SD Y Unidades USB</a></li>
