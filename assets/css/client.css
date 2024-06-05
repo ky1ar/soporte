@@ -1701,7 +1701,7 @@ section.menu-wiki ul li p img{
     transition: transform 0.3s ease-in-out;
 }
 section.menu-wiki ul li ul{
-  padding-left: 1rem;
+  padding-left: 1.1rem;
 }
 section.menu-wiki ul li ul li a{
   font-weight: 400;
