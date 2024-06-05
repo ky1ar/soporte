@@ -1471,6 +1471,10 @@ section.contact-map div p {
   /* section.contact-map {
     padding: 0;
   } */
+  section.contact-map{
+    padding: 0;
+    width: 90%;
+  }
   .bar-div{
     width: 94%;
   }
