@@ -1690,7 +1690,7 @@ section.menu-wiki ul li p img{
 }
 .rotate {
     transform: rotate(90deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
 }
 section.menu-wiki ul li ul{
   padding-left: 1rem;
