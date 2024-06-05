@@ -1660,6 +1660,10 @@ section.xbanner-wiki img{
   width: 100%;
 }
 
+section.data-wiki{
+  display: flex;
+}
+
 section.menu-wiki{
   display: flex;
   flex-direction: column;
