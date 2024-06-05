@@ -1673,7 +1673,8 @@ section.menu-wiki ul li a{
   font-weight: 600;
 }
 section.menu-wiki ul li ul li a{
-  font-weight: 500;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 section.menu-wiki a{
   text-decoration: none;
