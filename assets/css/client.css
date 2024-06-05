@@ -1669,6 +1669,9 @@ section.menu-wiki ul{
   list-style-type: none;
 }
 
+section.menu-wiki ul li a{
+  font-weight: 600;
+}
 section.menu-wiki a{
   text-decoration: none;
   color: black; 

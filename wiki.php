@@ -15,7 +15,6 @@ require_once 'includes/common/header.php';
         <img src="assets/img/stl-pc.webp">
     </section>
     <section class="menu-wiki">
-        <h1>Inicio</h1>
         <ul>
             <li>
                 <a href="#">INICIO</a>
