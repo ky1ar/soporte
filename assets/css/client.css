@@ -1626,6 +1626,6 @@ section.stls .card-stl button{
   word-spacing: 0.4rem;
 }
 
-section.stls .card-stl button{
+section.stls .card-stl button:hover{
   opacity: 0.9;
 }
