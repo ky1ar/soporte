@@ -1673,6 +1673,8 @@ section.menu-wiki ul{
 
 section.menu-wiki ul li a{
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 section.menu-wiki ul li a img{
   width: 0.6rem;
