@@ -1625,6 +1625,7 @@ section.stls .card-stl button{
   margin: 0 auto;
   cursor: pointer;
   word-spacing: 0.2rem;
+  font-size: 0.8rem;
 }
 
 section.stls .card-stl button:hover{
