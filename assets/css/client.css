@@ -1688,6 +1688,7 @@ section.menu-wiki ul li p{
   align-items: center;
   margin: 0;
   user-select: none;
+  cursor: pointer;
 }
 section.menu-wiki ul li p:hover{
   opacity: 0.8;
