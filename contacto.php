@@ -13,6 +13,8 @@ require_once 'includes/common/header.php';
     <section class="xbanner-top">
         <img src="assets/img/banner-contacto-pc.webp">
     </section>
+    <div class="bar-div">
+    </div>
     <section class="contact-info">
         <a href="">
             <div class="card">
