@@ -1667,6 +1667,7 @@ section.menu-wiki{
 
 section.menu-wiki ul{
   list-style-type: none;
+  line-height: 1.2;
 }
 
 section.menu-wiki ul li a{
