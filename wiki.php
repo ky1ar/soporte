@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
                 <a href="#">INICIO</a>
             </li>
             <li>
-                <a href="#"><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</a>
+                <p><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</p>
                 <ul>
                     <li><a href="#">Residuos En El Extrusor</a></li>
                     <li><a href="#">Problemas Con El Relleno</a></li>
