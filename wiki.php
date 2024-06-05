@@ -97,12 +97,12 @@ require_once 'includes/common/header.php';
                     var imgElement = menu.querySelector('img');
 
                     if (nextElement && nextElement.tagName === 'UL') {
-                        if (nextElement.style.display === 'none' || nextElement.style.display === '') {
-                            nextElement.style.display = 'block';
-                            imgElement.classList.add('rotate');
-                        } else {
-                            nextElement.style.display = 'none';
+                        if (nextElement.classList.contains('show')) {
+                            nextElement.classList.remove('show');
                             imgElement.classList.remove('rotate');
+                        } else {
+                            nextElement.classList.add('show');
+                            imgElement.classList.add('rotate');
                         }
                     }
                 });

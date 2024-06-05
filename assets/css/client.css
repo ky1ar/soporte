@@ -1670,8 +1670,16 @@ section.menu-wiki ul{
   line-height: 2;
   font-size: 0.8rem;
 }
-section.menu-wiki ul ul{
-  display: none;
+section.menu-wiki ul ul {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+section.menu-wiki ul ul.show {
+  max-height: 34rem;
+  opacity: 1;
 }
 
 section.menu-wiki ul li p{
