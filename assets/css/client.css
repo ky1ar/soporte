@@ -1499,18 +1499,6 @@ section.contact-map div p {
     flex-direction: column;
     gap: 1rem;
   }
-  /* section.contact-map div {
-    text-align: center;
-    align-items: center;
-    width: 90%;
-  }
-  section.contact-map iframe{
-    width: 36rem;
-  }
-  section.contact-map div p {
-    width: 90%;
-    text-align: center; 
-  } */
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-top img{
@@ -1533,9 +1521,9 @@ section.contact-map div p {
   section.contact-map div {
     text-align: left;
     align-items: start;
+    width: 90%;
   }
   section.contact-map div p {
-    width: 90%;
     text-align: left; 
   }
   
