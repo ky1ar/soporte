@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
                 <a href="#">INICIO</a>
             </li>
             <li>
-                <p><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</p>
+                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</p>
                 <ul>
                     <li><a href="#">Residuos En El Extrusor</a></li>
                     <li><a href="#">Problemas Con El Relleno</a></li>
@@ -43,11 +43,10 @@ require_once 'includes/common/header.php';
                     <li><a href="#">Uso Del Multímetro</a></li>
                     <li><a href="#">La Extrusión Se Detuvo A La Mitad De La Impresión</a></li>
                     <li><a href="#">Boquilla / Hotend Obstruidos</a></li>
-
                 </ul>
             </li>
             <li>
-                <p><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA</p>
+                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA</p>
                 <ul>
                     <li><a href="#">Actualización Del Firmware</a></li>
                     <li><a href="#">Cambiar O Reemplazar La Boquilla</a></li>
@@ -67,7 +66,7 @@ require_once 'includes/common/header.php';
                 </ul>
             </li>
             <li>
-                <p><img src="./assets/img/menu-clip.png" alt="">CALIBRACIÓN</p>
+                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">CALIBRACIÓN</p>
                 <ul>
                     <li><a href="#">Nivelación De La Cama</a></li>
                     <li><a href="#">Corrección De La Nivelación De La Cama</a></li>
@@ -76,7 +75,7 @@ require_once 'includes/common/header.php';
                 </ul>
             </li>
             <li>
-                <p><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA</p>
+                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA</p>
                 <ul>
                     <li><a href="#">Documentación Con Fotos Y Videos</a></li>
                     <li><a href="#">Problemas Con Tus Tarjetas SD Y Unidades USB</a></li>
@@ -88,6 +87,25 @@ require_once 'includes/common/header.php';
     </section>
 
     <?php require_once 'includes/common/footer.php'; ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleMenus = document.querySelectorAll('.toggle-menu');
+
+            toggleMenus.forEach(function(menu) {
+                menu.addEventListener('click', function() {
+                    var nextElement = menu.nextElementSibling;
+
+                    if (nextElement && nextElement.tagName === 'UL') {
+                        if (nextElement.style.display === 'none' || nextElement.style.display === '') {
+                            nextElement.style.display = 'block';
+                        } else {
+                            nextElement.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
