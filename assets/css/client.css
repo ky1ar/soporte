@@ -1578,6 +1578,7 @@ section.stls {
   align-items: center;
   justify-content: center;
   height: 40rem;
+  gap: 2rem;
 }
 
 section.stls .card-stl{
