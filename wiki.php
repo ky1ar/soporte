@@ -94,12 +94,15 @@ require_once 'includes/common/header.php';
             toggleMenus.forEach(function(menu) {
                 menu.addEventListener('click', function() {
                     var nextElement = menu.nextElementSibling;
+                    var imgElement = menu.querySelector('img');
 
                     if (nextElement && nextElement.tagName === 'UL') {
                         if (nextElement.style.display === 'none' || nextElement.style.display === '') {
                             nextElement.style.display = 'block';
+                            imgElement.classList.add('rotate');
                         } else {
                             nextElement.style.display = 'none';
+                            imgElement.classList.remove('rotate');
                         }
                     }
                 });
