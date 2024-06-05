@@ -1675,6 +1675,7 @@ section.menu-wiki ul li p{
   font-weight: 600;
   display: flex;
   align-items: center;
+  margin: 0;
 }
 section.menu-wiki ul li p img{
   width: 0.6rem;
