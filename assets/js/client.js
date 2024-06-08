@@ -24,6 +24,60 @@ $(document).ready(function () {
     target.text(message).slideDown();
   }
 
+  // Función para manejar el clic en los enlaces del menú
+  $("section.menu-wiki ul li ul li a").on("click", function (event) {
+    event.preventDefault();
+    var title = $(this).text();
+
+    // Realizar la solicitud AJAX
+    $.ajax({
+      url: "ruta/a/tu/php/file.php", // Cambia esto a la ruta correcta de tu archivo PHP
+      type: "POST",
+      data: { title: title },
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          var data = response.data;
+          mostrarDatos(data);
+          console.log(data);
+        } else {
+          alert(response.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error en la solicitud AJAX: ", error);
+      },
+    });
+  });
+
+  function mostrarDatos(data) {
+    var content = `
+        <div>
+            <p>${data.fecha_creacion}</p>
+            <h1>${data.tit_father} -> ${data.title}</h1>
+            <img src="${data.img}" alt="">
+        </div>
+        <div>
+            <h1>${data.sub1}</h1>
+            <p>${data.p1}</p>
+            <img src="${data.img1}" alt="">
+            <h1>${data.sub2}</h1>
+            <p>${data.p2}</p>
+            <img src="${data.img2}" alt="">
+            <h1>${data.sub3}</h1>
+            <p>${data.p3}</p>
+            <img src="${data.img3}" alt="">
+            <h1>${data.sub4}</h1>
+            <p>${data.p4}</p>
+            <img src="${data.img4}" alt="">
+            <h1>${data.sub5}</h1>
+            <p>${data.p5}</p>
+            <img src="${data.img5}" alt="">
+        </div>
+    `;
+    $(".data").html(content);
+  }
+
   searchOrder.submit(function (event) {
     event.preventDefault();
     searchOrderMessage.slideUp();
@@ -226,7 +280,7 @@ $(document).ready(function () {
   });
 
   scheduleSubmit.submit(function (event) {
-    console.log('s');
+    console.log("s");
     event.preventDefault();
     scheduleFormMessage.slideUp();
 
@@ -287,12 +341,12 @@ $(document).ready(function () {
     const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
 
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
-        message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
-        return false;
+      message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+      return false;
     }
 
     return true;
-}
+  }
 
   function validateClient(client) {
     if (client.trim() === "") {
