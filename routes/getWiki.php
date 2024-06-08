@@ -3,7 +3,6 @@ require_once '../includes/app/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['title'])) {
     $title = $_POST['title'];
-
     // Prepara la consulta SQL
     $stmt = $conn->prepare("SELECT * FROM Wiki WHERE title = ?");
     $stmt->bind_param("s", $title);

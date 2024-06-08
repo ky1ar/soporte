@@ -31,7 +31,7 @@ $(document).ready(function () {
 
     // Realizar la solicitud AJAX
     $.ajax({
-      url: "ruta/a/tu/php/file.php", // Cambia esto a la ruta correcta de tu archivo PHP
+      url: "routes/getWiki.php", // Cambia esto a la ruta correcta de tu archivo PHP
       type: "POST",
       data: { title: title },
       dataType: "json",
