@@ -28,10 +28,9 @@ $(document).ready(function () {
   $("section.menu-wiki ul li ul li a").on("click", function (event) {
     event.preventDefault();
     var title = $(this).text();
-
-    // Realizar la solicitud AJAX
+    console.log(title);
     $.ajax({
-      url: "routes/getWiki.php", // Cambia esto a la ruta correcta de tu archivo PHP
+      url: "routes/getWiki.php", 
       type: "POST",
       data: { title: title },
       dataType: "json",
