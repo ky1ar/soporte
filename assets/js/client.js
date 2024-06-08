@@ -30,7 +30,7 @@ $(document).ready(function () {
     var title = $(this).text();
     console.log(title);
     $.ajax({
-      url: "routes/getWiki.php", 
+      url: "routes/getWiki.php",
       type: "POST",
       data: { title: title },
       dataType: "json",
@@ -50,30 +50,68 @@ $(document).ready(function () {
   });
 
   function mostrarDatos(data) {
-    var content = `
-        <div>
-            <p>${data.fecha_creacion}</p>
-            <h1>${data.tit_father} -> ${data.title}</h1>
-            <img src="${data.img}" alt="">
-        </div>
-        <div>
-            <h1>${data.sub1}</h1>
-            <p>${data.p1}</p>
-            <img src="${data.img1}" alt="">
-            <h1>${data.sub2}</h1>
-            <p>${data.p2}</p>
-            <img src="${data.img2}" alt="">
-            <h1>${data.sub3}</h1>
-            <p>${data.p3}</p>
-            <img src="${data.img3}" alt="">
-            <h1>${data.sub4}</h1>
-            <p>${data.p4}</p>
-            <img src="${data.img4}" alt="">
-            <h1>${data.sub5}</h1>
-            <p>${data.p5}</p>
-            <img src="${data.img5}" alt="">
-        </div>
-    `;
+    var content = "<div>";
+
+    if (data.fecha_creacion) {
+      content += `<p>${data.fecha_creacion}</p>`;
+    }
+
+    if (data.tit_father || data.title) {
+      content += `<h1>${data.tit_father ? data.tit_father : ""} -> ${
+        data.title
+      }</h1>`;
+    }
+
+    if (data.img) {
+      content += `<img src="${data.img}" alt="">`;
+    }
+    content += "</div><div>";
+    if (data.sub1) {
+      content += `<h1>${data.sub1}</h1>`;
+    }
+    if (data.p1) {
+      content += `<p>${data.p1}</p>`;
+    }
+    if (data.img1) {
+      content += `<img src="${data.img1}" alt="">`;
+    }
+    if (data.sub2) {
+      content += `<h1>${data.sub2}</h1>`;
+    }
+    if (data.p2) {
+      content += `<p>${data.p2}</p>`;
+    }
+    if (data.img2) {
+      content += `<img src="${data.img2}" alt="">`;
+    }
+    if (data.sub3) {
+      content += `<h1>${data.sub3}</h1>`;
+    }
+    if (data.p3) {
+      content += `<p>${data.p3}</p>`;
+    }
+    if (data.img3) {
+      content += `<img src="${data.img3}" alt="">`;
+    }
+    if (data.sub4) {
+      content += `<h1>${data.sub4}</h1>`;
+    }
+    if (data.p4) {
+      content += `<p>${data.p4}</p>`;
+    }
+    if (data.img4) {
+      content += `<img src="${data.img4}" alt="">`;
+    }
+    if (data.sub5) {
+      content += `<h1>${data.sub5}</h1>`;
+    }
+    if (data.p5) {
+      content += `<p>${data.p5}</p>`;
+    }
+    if (data.img5) {
+      content += `<img src="${data.img5}" alt="">`;
+    }
+    content += "</div>";
     $(".data").html(content);
   }
 

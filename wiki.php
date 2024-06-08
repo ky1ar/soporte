@@ -90,7 +90,7 @@ require_once 'includes/common/header.php';
             </ul>
         </section>
         <section class="data">
-            <div>
+            <!-- <div>
                 <p>05 de Mayo del 2024</p>
                 <h1>TituloPadre -> Título</h1>
                 <img src="" alt="">
@@ -108,7 +108,7 @@ require_once 'includes/common/header.php';
                     <p></p>
                     <img src="" alt="">
                 </div>
-            </div>
+            </div> -->
         </section>
     </section>
 
