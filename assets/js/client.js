@@ -53,7 +53,11 @@ $(document).ready(function () {
     var content = "<div>";
 
     if (data.fecha_creacion) {
-      content += `<p>${data.fecha_creacion}</p>`;
+      let fecha = new Date(data.fecha_creacion);
+      let fechaFormateada = `${String(fecha.getDate()).padStart(2, "0")} de ${
+        months[fecha.getMonth()]
+      } del ${fecha.getFullYear()}`;
+      content += `<p>${fechaFormateada}</p>`;
     }
 
     if (data.tit_father || data.title) {
