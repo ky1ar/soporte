@@ -1778,7 +1778,8 @@ section.data-wiki .data div:last-child img{
 section.data-wiki .data div:last-child .comentario{
   text-align: center;
   color: red;
-  font-style: italic;  
+  font-style: italic;
+  margin-top: -0.5rem;  
 }
 /* section.data-wiki .data div:last-child p{
   margin-top: 0;
