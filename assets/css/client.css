@@ -1737,6 +1737,7 @@ section.menu-wiki-movil{
   z-index: 1;
   height: 100%;
   width: 65%;
+  display: none;
 
 }
 section.menu-wiki-movil ul{
