@@ -84,9 +84,9 @@ $(document).ready(function () {
     if (data.p2) {
       content += `<p>${data.p2}</p>`;
     }
-    if (data.img2) {
-      content += `<img src="${data.img2}" alt="">`;
-    }
+    // if (data.img2) {
+    //   content += `<img src="${data.img2}" alt="">`;
+    // }
     if (data.sub3) {
       content += `<h1>${data.sub3}</h1>`;
     }
