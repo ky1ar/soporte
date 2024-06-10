@@ -1749,11 +1749,10 @@ section.data-wiki .data div:first-child h1 .pas{
 }
 section.data-wiki .data div:first-child .imgP{
   display: flex;
-  margin: 0 auto;
+  margin: 1rem auto;
   max-height: 20rem;
   max-width: 90%;
 }
-
 
 section.data-wiki .data div:last-child{
   background-color: #74fc86;
