@@ -1772,7 +1772,7 @@ section.data-wiki .data div:last-child h1{
 section.data-wiki .data div:last-child img{
   display: flex;
   margin: 1rem auto;
-  max-height: 22rem;
+  max-height: 25rem;
   max-width: 90%;
 }
 /* section.data-wiki .data div:last-child p{
