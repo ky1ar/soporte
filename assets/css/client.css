@@ -1734,8 +1734,11 @@ section.data-wiki .data{
   width: 60%;
 }
 
-section.data-wiki .data div:first-child{
+/* section.data-wiki .data div:first-child{
   background-color: red;
+} */
+section.data-wiki .data div:first-child p{
+  margin: 0;
 }
 
 section.data-wiki .data div:last-child{
