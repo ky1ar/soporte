@@ -1737,8 +1737,12 @@ section.data-wiki .data{
 /* section.data-wiki .data div:first-child{
   background-color: red;
 } */
-section.data-wiki .data div:first-child p{
+section.data-wiki .data div:first-child p,
+section.data-wiki .data div:first-child h1{
   margin: 0;
+}
+section.data-wiki .data div:first-child h1 .pas{
+  width: 1rem;
 }
 
 section.data-wiki .data div:last-child{
