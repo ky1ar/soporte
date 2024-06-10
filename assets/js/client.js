@@ -64,9 +64,8 @@ $(document).ready(function () {
         data.tit_father ? data.tit_father : ""
       } <img class="pas" src="assets/img/menu-clip.png"> ${data.title}</h1>`;
     }
-
     if (data.img) {
-      content += `<img src="assets/img/wiki-images/${data.img}" alt="">`;
+      content += `<img class="imgP" src="assets/img/wiki-images/${data.img}" alt="">`;
     }
 
     content += "</div><div>";
