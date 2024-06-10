@@ -1798,6 +1798,7 @@ section.menu-wiki-movil ul li ul li:hover{
   position: fixed;
   bottom: 1rem;
   left: 1rem;
+  width: 2rem;
 }
 .btn-menu-movil img{
   width: 1rem;
