@@ -94,7 +94,7 @@ $(document).ready(function () {
       content += `<img src="assets/img/wiki-images/${data.img2}" alt="">`;
     }
     if (data.coment2) {
-      content += `<p>${data.coment2}</p>`;
+      content += `<p class="comentario">${data.coment2}</p>`;
     }
     if (data.sub3) {
       content += `<h1>${data.sub3}</h1>`;
