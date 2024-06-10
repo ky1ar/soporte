@@ -60,9 +60,9 @@ $(document).ready(function () {
     }
 
     if (data.tit_father || data.title) {
-      content += `<h1>${data.tit_father ? data.tit_father : ""} <img class="pas" src"assets/img/menu-clip.png"> ${
-        data.title
-      }</h1>`;
+      content += `<h1>${
+        data.tit_father ? data.tit_father : ""
+      } <img class="pas" src="assets/img/menu-clip.png"> ${data.title}</h1>`;
     }
 
     if (data.img) {
