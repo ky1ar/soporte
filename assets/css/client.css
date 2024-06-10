@@ -1733,3 +1733,11 @@ section.data-wiki .data{
   padding-left: 1rem;
   width: 60%;
 }
+
+section.data-wiki .data div:first-child{
+  background-color: red;
+}
+
+section.data-wiki .data div:last-child{
+  background-color: #74fc86;
+}
