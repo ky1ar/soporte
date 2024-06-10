@@ -1788,7 +1788,7 @@ section.menu-wiki-movil ul li ul li{
   cursor: pointer;
 }
 section.menu-wiki-movil ul li ul li:hover{
-  color: var(--primary);
+  color: red;
 }
 
 
