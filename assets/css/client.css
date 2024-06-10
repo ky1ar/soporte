@@ -1729,19 +1729,23 @@ section.data-wiki .menu-wiki ul li ul li:hover{
 }
 
 /* menu movil */
-section.menu-wiki-movil{
+section.menu-wiki-movil {
   position: absolute;
   color: white;
   background-color: var(--primary);
   top: 0;
   z-index: 2;
   height: 100%;
-  width: 65%;
+  width: 0;
   visibility: hidden;
   opacity: 0;
-  /* transition: visibility 0s, opacity 0.5s ease-in-out; */
-  transition: visibility 0s, opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+}
 
+section.menu-wiki-movil.visible {
+  visibility: visible;
+  opacity: 1;
+  width: 65%;
 }
 section.menu-wiki-movil ul{
   list-style-type: none;

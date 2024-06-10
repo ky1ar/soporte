@@ -182,34 +182,27 @@ require_once 'includes/common/header.php';
             $('.btn-menu-movil').on('click', function() {
                 var menu = $('section.menu-wiki-movil');
 
-                // Toggle visibility, opacity, and width
-                if (menu.css('visibility') === 'hidden') {
-                    menu.css({
-                        'visibility': 'visible',
-                        'opacity': 1,
-                        'width': '65%'
-                    });
+                if (menu.hasClass('visible')) {
+                    menu.removeClass('visible');
+                    setTimeout(function() {
+                        menu.css('visibility', 'hidden');
+                    }, 500); // Igual a la duración de la transición en CSS
                 } else {
-                    menu.css({
-                        'visibility': 'hidden',
-                        'opacity': 0,
-                        'width': '0'
-                    });
+                    menu.css('visibility', 'visible');
+                    menu.addClass('visible');
                 }
             });
 
-            // Close the menu when clicking outside of it
             $(document).on('click', function(event) {
                 var menu = $('section.menu-wiki-movil');
                 var btnMenu = $('.btn-menu-movil');
 
                 if (!menu.is(event.target) && menu.has(event.target).length === 0 &&
                     !btnMenu.is(event.target) && btnMenu.has(event.target).length === 0) {
-                    menu.css({
-                        'visibility': 'hidden',
-                        'opacity': 0,
-                        'width': '0'
-                    });
+                    menu.removeClass('visible');
+                    setTimeout(function() {
+                        menu.css('visibility', 'hidden');
+                    }, 500); // Igual a la duración de la transición en CSS
                 }
             });
         });
