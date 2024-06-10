@@ -1726,6 +1726,11 @@ section.data-wiki .menu-wiki ul li ul li{
 section.data-wiki .menu-wiki ul li ul li:hover{
   color: var(--primary);
 }
+section.data-wiki .menu-wiki-movil{
+  position: absolute;
+  color: white;
+  background-color: var(--primary);
+}
 /* section.data-wiki .menu-wiki ul li ul li:focus,
 section.data-wiki .menu-wiki ul li ul li:active,
 section.data-wiki .menu-wiki ul li ul li:hover{
