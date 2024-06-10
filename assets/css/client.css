@@ -1732,6 +1732,7 @@ section.menu-wiki-movil{
   position: absolute;
   color: white;
   background-color: var(--primary);
+  top: 0;
 }
 section.menu-wiki-movil ul{
   list-style-type: none;
