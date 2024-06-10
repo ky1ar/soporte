@@ -1761,6 +1761,7 @@ section.data-wiki .data div:first-child .imgP{
   background-color: #74fc86;
 } */
 
-section.data-wiki .data div:last-child p{
-  margin: 0;
+section.data-wiki .data div:last-child{
+  line-height: 1.5;
+  font-size: 0.85rem;
 }
