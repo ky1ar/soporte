@@ -1775,6 +1775,11 @@ section.data-wiki .data div:last-child img{
   max-height: 25rem;
   max-width: 90%;
 }
+section.data-wiki .data div:last-child .comentario{
+  text-align: center;
+  color: red;
+  font-style: italic;  
+}
 /* section.data-wiki .data div:last-child p{
   margin-top: 0;
 } */

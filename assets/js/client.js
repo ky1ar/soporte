@@ -79,7 +79,7 @@ $(document).ready(function () {
       content += `<img src="assets/img/wiki-images/${data.img1}" alt="">`;
     }
     if (data.coment1) {
-      content += `<p>${data.coment1}</p>`;
+      content += `<p class="comentario">${data.coment1}</p>`;
     }
     if (data.pex1) {
       content += `<p>${data.pex1}</p>`;
