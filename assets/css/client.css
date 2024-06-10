@@ -1792,13 +1792,17 @@ section.menu-wiki-movil ul li ul li:hover{
   color: black;
 }
 
-.btn-menu-movil{
+.btn-menu-movil {
   background-color: var(--primary);
   border-radius: 50%;
   position: fixed;
   bottom: 1rem;
   left: 1rem;
-  width: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }
 .btn-menu-movil img{
   width: 1rem;
