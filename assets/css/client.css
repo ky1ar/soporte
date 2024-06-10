@@ -1719,6 +1719,7 @@ section.data-wiki .menu-wiki ul li ul{
 }
 section.data-wiki .menu-wiki ul li ul li{
   font-weight: 400;
+  cursor: pointer;
 }
 section.data-wiki .menu-wiki ul li ul li:hover{
   color: var(--primary);
