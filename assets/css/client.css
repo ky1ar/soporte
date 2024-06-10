@@ -133,6 +133,7 @@ color: #B08A7A;
 }
 #navigationBar ul {
   padding-right: 8rem;
+  flex-wrap: wrap;
 }
 @media (min-width: 551px) {
   #navigationBar .wrapper .link-te{
