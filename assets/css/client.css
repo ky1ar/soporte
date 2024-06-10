@@ -1723,14 +1723,14 @@ section.data-wiki .menu-wiki ul li ul li{
   font-weight: 400;
   cursor: pointer;
 }
-/* section.data-wiki .menu-wiki ul li ul li:hover{
-  color: var(--primary);
-} */
-section.data-wiki .menu-wiki ul li ul li:focus,
-section.data-wiki .menu-wiki ul li ul li:active,
 section.data-wiki .menu-wiki ul li ul li:hover{
   color: var(--primary);
 }
+/* section.data-wiki .menu-wiki ul li ul li:focus,
+section.data-wiki .menu-wiki ul li ul li:active,
+section.data-wiki .menu-wiki ul li ul li:hover{
+  color: var(--primary);
+} */
 /* section.data-wiki .menu-wiki a{
   text-decoration: none;
   color: black; 
