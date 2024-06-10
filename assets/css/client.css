@@ -1734,7 +1734,7 @@ section.data-wiki .menu-wiki a{
 
 section.data-wiki .data{
   border-left: 0.2rem solid gray;    
-  padding-left: 1rem;
+  padding: 0 1rem;
   width: 60%;
 }
 
