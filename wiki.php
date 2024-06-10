@@ -18,7 +18,7 @@ require_once 'includes/common/header.php';
         <section class="menu-wiki">
             <ul>
                 <li>
-                    <a href="/">INICIO</a>
+                    <a href="/wiki">INICIO</a>
                 </li>
                 <li>
                     <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</p>
