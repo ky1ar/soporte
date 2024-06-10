@@ -1748,7 +1748,7 @@ section.data-wiki .data div:first-child h1{
 }
 section.data-wiki .data div:first-child h1 .pas{
   width: 0.7rem;
-  margin: 0 0.3rem;
+  margin: 0 0.5rem;
 }
 section.data-wiki .data div:first-child .imgP{
   display: flex;
@@ -1768,6 +1768,12 @@ section.data-wiki .data div:last-child{
 section.data-wiki .data div:last-child h1{
   font-weight: 600;
   margin-bottom: 0;
+}
+section.data-wiki .data div:last-child img{
+  display: flex;
+  margin: 1rem auto;
+  max-height: 20rem;
+  max-width: 80%;
 }
 /* section.data-wiki .data div:last-child p{
   margin-top: 0;
