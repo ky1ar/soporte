@@ -1745,14 +1745,14 @@ section.menu-wiki-movil ul{
   font-size: 0.8rem;
   padding: 0 1rem;
 }
-section.menu-wiki-movil ul .toogle-menu ul {
+section.menu-wiki-movil ul ul {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
-section.menu-wiki-movil ul .toogle-menu ul.show {
+section.menu-wiki-movil ul ul.show {
   max-height: 34rem;
   opacity: 1;
 }
