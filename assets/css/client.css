@@ -1795,7 +1795,7 @@ section.menu-wiki-movil ul li ul li:hover{
 .btn-menu-movil{
   background-color: var(--primary);
   border-radius: 50%;
-  position: relative;
+  position: absolute;
   bottom: 1rem;
   left: 1rem;
 }
