@@ -1737,7 +1737,9 @@ section.menu-wiki-movil{
   z-index: 2;
   height: 100%;
   width: 65%;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
 
 }
 section.menu-wiki-movil ul{

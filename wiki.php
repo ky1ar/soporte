@@ -177,6 +177,25 @@ require_once 'includes/common/header.php';
                 });
             });
         });
+
+        $(document).ready(function() {
+            $('.btn-menu-movil').on('click', function() {
+                var menu = $('section.menu-wiki-movil');
+
+                // Toggle visibility and opacity
+                if (menu.css('visibility') === 'hidden') {
+                    menu.css({
+                        'visibility': 'visible',
+                        'opacity': 1
+                    });
+                } else {
+                    menu.css({
+                        'visibility': 'hidden',
+                        'opacity': 0
+                    });
+                }
+            });
+        });
     </script>
 </body>
 
