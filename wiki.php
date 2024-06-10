@@ -79,7 +79,7 @@ require_once 'includes/common/header.php';
                     <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA</p>
                     <ul>
                         <li><a href="#">Documentación con fotos y videos</a></li>
-                        <li><a href="#">Problemas con tus tarjetas SD y unidades USB</a></li>
+                        <li><a href="#">Problemas con tarjetas SD y unidades USB</a></li>
                         <li><a href="#">Manuales de montaje</a></li>
 
 
