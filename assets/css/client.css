@@ -1809,6 +1809,13 @@ section.data-wiki .data div:last-child .comentario{
   section.xbanner-wiki img{
     content: url(../img/wiki-movil.webp);
   }
+  section.data-wiki .menu-wiki{
+    display: none;
+  }
+  section.data-wiki .data{
+    border: none;
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 576px) {}
 @media only screen and (max-width: 416px) {}
