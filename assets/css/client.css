@@ -1794,14 +1794,16 @@ section.data-wiki .data div:last-child .comentario{
 } */
 
 @media only screen and (max-width: 1600px) {}
-@media only screen and (max-width: 1200px) {}
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
   section.data-wiki .menu-wiki{
     width: 30%;
   }
   section.data-wiki .data{
     width: 70%;
   }
+}
+@media only screen and (max-width: 992px) {
+  
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-wiki img{
