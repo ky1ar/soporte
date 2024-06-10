@@ -1809,6 +1809,7 @@ section.menu-wiki-movil ul li ul li:hover{
   height: 1rem;
   pad: 0.5rem;
   filter: invert(1);
+  user-select: none;
 }
 
 
