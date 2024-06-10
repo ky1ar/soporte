@@ -1734,7 +1734,7 @@ section.menu-wiki-movil{
   color: white;
   background-color: var(--primary);
   top: 0;
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   width: 65%;
   display: none;
