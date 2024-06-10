@@ -75,9 +75,9 @@ $(document).ready(function () {
     if (data.p1) {
       content += `<p>${data.p1}</p>`;
     }
-    if (data.img1) {
-      content += `<img src="${data.img1}" alt="">`;
-    }
+    // if (data.img1) {
+    //   content += `<img src="${data.img1}" alt="">`;
+    // }
     if (data.sub2) {
       content += `<h1>${data.sub2}</h1>`;
     }
