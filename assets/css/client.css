@@ -1736,12 +1736,13 @@ section.menu-wiki-movil{
   z-index: 1;
   height: 100%;
   width: 80%;
+
 }
 section.menu-wiki-movil ul{
   list-style-type: none;
   line-height: 2;
   font-size: 0.8rem;
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
 section.menu-wiki-movil ul ul {
   max-height: 0;
@@ -1775,6 +1776,7 @@ section.menu-wiki-movil ul li a{
 }
 section.menu-wiki-movil ul li p img{
   width: 0.7rem;
+  filter: invert(1);
   margin-right: 0.4rem;
 }
 
