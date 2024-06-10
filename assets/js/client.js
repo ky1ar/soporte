@@ -38,7 +38,6 @@ $(document).ready(function () {
         if (response.success) {
           var data = response.data;
           mostrarDatos(data);
-          console.log(data);
         } else {
           alert(response.message);
         }
@@ -67,7 +66,7 @@ $(document).ready(function () {
     }
 
     if (data.img) {
-      content += `<img src="../assets/img/wiki-images/${data.img}" alt="">`;
+      content += `<img src="assets/img/wiki-images/${data.img}" alt="">`;
     }
     content += "</div><div>";
     if (data.sub1) {

@@ -1690,14 +1690,16 @@ section.menu-wiki ul ul.show {
   opacity: 1;
 }
 
-section.menu-wiki ul li p{
+.menu-wiki ul li p {
   font-weight: 600;
   display: flex;
   align-items: center;
   margin: 0;
-  user-select: none;
+  -webkit-user-select: none; /* For Safari and iOS */
+  user-select: none; /* Standard property */
   cursor: pointer;
 }
+
 section.menu-wiki ul li p:hover{
   opacity: 0.8;
 }
