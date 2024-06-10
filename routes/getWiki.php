@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
             
-            // Reemplazar \n por <br> en los valores de los textos
+            // Reemplazar \r\n y \n por <br> en los valores de los textos
             $textKeys = [
                 'p1', 'coment1', 'pex1', 'p2', 'coment2', 'p3', 'pex3', 'p4', 'p5', 
                 'p51', 'p52', 'p6', 'p61', 'p7', 'p71', 'p72', 'p73', 'p74', 'p8', 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
             
             foreach ($textKeys as $key) {
                 if (isset($data[$key])) {
-                    $data[$key] = str_replace("\n", "<br>", $data[$key]);
+                    $data[$key] = str_replace(array("\r\n", "\n"), "<br>", $data[$key]);
                 }
             }
             
