@@ -1731,15 +1731,6 @@ section.data-wiki .menu-wiki-movil{
   color: white;
   background-color: var(--primary);
 }
-/* section.data-wiki .menu-wiki ul li ul li:focus,
-section.data-wiki .menu-wiki ul li ul li:active,
-section.data-wiki .menu-wiki ul li ul li:hover{
-  color: var(--primary);
-} */
-/* section.data-wiki .menu-wiki a{
-  text-decoration: none;
-  color: black; 
-} */
 
 section.data-wiki .data{
   border-left: 0.2rem solid gray;    
@@ -1747,9 +1738,7 @@ section.data-wiki .data{
   width: 60%;
 }
 
-/* section.data-wiki .data div:first-child{
-  background-color: red;
-} */
+
 section.data-wiki .data div:first-child p,
 section.data-wiki .data div:first-child h1{
   margin: 0;
