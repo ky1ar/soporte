@@ -80,7 +80,7 @@ require_once 'includes/common/header.php';
         <img src="assets/img/wiki-pc.webp">
     </section>
     <section class="data-wiki">
-        <!-- <section class="menu-wiki">
+        <section class="menu-wiki">
             <ul>
                 <li>
                     <a href="/wiki">INICIO</a>
@@ -145,7 +145,7 @@ require_once 'includes/common/header.php';
                     </ul>
                 </li>
             </ul>
-        </section> -->
+        </section>
 
         <section class="data">
             <h1 class="title">Bienvenido al Wiki de KREAR 3D</h1>
