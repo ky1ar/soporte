@@ -1757,6 +1757,10 @@ section.data-wiki .data div:first-child .imgP{
   max-width: 90%;
 }
 
-section.data-wiki .data div:last-child{
+/* section.data-wiki .data div:last-child{
   background-color: #74fc86;
+} */
+
+section.data-wiki .data div:last-child p{
+  margin: 0;
 }
