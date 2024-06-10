@@ -1726,10 +1726,19 @@ section.data-wiki .menu-wiki ul li ul li{
 section.data-wiki .menu-wiki ul li ul li:hover{
   color: var(--primary);
 }
+
+/* menu movil */
 section.menu-wiki-movil{
   position: absolute;
   color: white;
   background-color: var(--primary);
+}
+
+section.menu-wiki-movil ul{
+  list-style-type: none;
+  line-height: 2;
+  font-size: 0.8rem;
+  padding-left: 1rem;
 }
 
 section.data-wiki .data{
