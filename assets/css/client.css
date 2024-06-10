@@ -1666,31 +1666,31 @@ section.data-wiki{
   margin-bottom: 2rem;
 }
 
-section.menu-wiki{
+section.data-wiki .menu-wiki{
   display: flex;
   flex-direction: column;
   margin-right: 1rem;
 }
 
-section.menu-wiki ul{
+section.data-wiki .menu-wiki ul{
   list-style-type: none;
   line-height: 2;
   font-size: 0.8rem;
   padding-left: 1rem;
 }
-section.menu-wiki ul ul {
+section.data-wiki .menu-wiki ul ul {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
-section.menu-wiki ul ul.show {
+section.data-wiki .menu-wiki ul ul.show {
   max-height: 34rem;
   opacity: 1;
 }
 
-.menu-wiki ul li p {
+section.data-wiki .menu-wiki ul li p {
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -1700,13 +1700,13 @@ section.menu-wiki ul ul.show {
   cursor: pointer;
 }
 
-section.menu-wiki ul li p:hover{
+section.data-wiki .menu-wiki ul li p:hover{
   opacity: 0.8;
 }
-section.menu-wiki ul li a{
+section.data-wiki .menu-wiki ul li a{
   font-weight: 600;
 }
-section.menu-wiki ul li p img{
+section.data-wiki .menu-wiki ul li p img{
   width: 0.7rem;
   margin-right: 0.4rem;
 }
@@ -1714,20 +1714,20 @@ section.menu-wiki ul li p img{
     transform: rotate(90deg);
     transition: transform 0.3s ease-in-out;
 }
-section.menu-wiki ul li ul{
+section.data-wiki .menu-wiki ul li ul{
   padding-left: 1.1rem;
 }
-section.menu-wiki ul li ul li a{
+section.data-wiki .menu-wiki ul li ul li a{
   font-weight: 400;
 }
-section.menu-wiki ul li ul li a:hover{
+section.data-wiki .menu-wiki ul li ul li a:hover{
   color: var(--primary);
 }
-section.menu-wiki ul li ul li a:focus,
-section.menu-wiki ul li ul li a:active{
+section.data-wiki .menu-wiki ul li ul li a:focus,
+section.data-wiki .menu-wiki ul li ul li a:active{
   color: var(--primary);
 }
-section.menu-wiki a{
+section.data-wiki .menu-wiki a{
   text-decoration: none;
   color: black; 
 }
