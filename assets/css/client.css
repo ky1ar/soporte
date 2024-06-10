@@ -1805,7 +1805,8 @@ section.menu-wiki-movil ul li ul li:hover{
   align-items: center;
   z-index: 1;
   visibility: hidden;
-  opacity: 0; 
+  opacity: 0;
+  cursor: pointer; 
 }
 .btn-menu-movil img{
   width: 1rem;
