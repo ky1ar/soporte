@@ -1748,7 +1748,10 @@ section.data-wiki .data div:first-child h1 .pas{
   margin: 0 0.3rem;
 }
 section.data-wiki .data div:first-child .imgP{
+  display: flex;
   margin: 0 auto;
+  max-height: 20rem;
+  max-width: 90%;
 }
 
 
