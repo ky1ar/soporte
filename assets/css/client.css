@@ -1801,6 +1801,7 @@ section.menu-wiki-movil ul li ul li:hover{
 }
 .btn-menu-movil img{
   width: 1rem;
+  height: 1rem;
   pad: 0.5rem;
   filter: invert(1);
 }
