@@ -25,7 +25,7 @@ $(document).ready(function () {
   }
 
   // Función para manejar el clic en los enlaces del menú
-  $("section.menu-wiki ul li ul li a").on("click", function (event) {
+  $("section.menu-wiki ul li ul li").on("click", function (event) {
     event.preventDefault();
     var title = $(this).text();
     console.log(title);
