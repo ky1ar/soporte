@@ -1745,8 +1745,11 @@ section.data-wiki .data div:first-child h1{
 }
 section.data-wiki .data div:first-child h1 .pas{
   width: 0.7rem;
+  margin: 0 0.3rem;
 }
-
+section.data-wiki .data div:first-child img{
+  margin: 0 auto;
+}
 section.data-wiki .data div:last-child{
   background-color: #74fc86;
 }
