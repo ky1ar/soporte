@@ -49,7 +49,6 @@ require_once 'includes/common/header.php';
                 <li>
                     <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA</p>
                     <ul>
-                        <li><a href="#">Cambiar o reemplazar la boquilla</a></li>
                         <li><a href="#">Mantenimiento habitual</a></li>
                         <li><a href="#">Cambiar o reemplazar la boquilla - Anycubic</a></li>
                         <li><a href="#">Cambiar o reemplazar la boquilla - Artillery</a></li>
