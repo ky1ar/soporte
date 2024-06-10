@@ -1792,6 +1792,16 @@ section.menu-wiki-movil ul li ul li:hover{
   color: black;
 }
 
+.btn-menu-movil{
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+.btn-menu-movil img{
+  width: 1rem;
+  filter: invert(1);
+}
+
+
 
 
 

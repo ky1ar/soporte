@@ -76,6 +76,9 @@ require_once 'includes/common/header.php';
             </li>
         </ul>
     </section>
+    <div class="btn-menu-movil">
+        <img src="./assets/img/menu-bar.png" alt="">
+    </div>
     <section class="xbanner-wiki">
         <img src="assets/img/wiki-pc.webp">
     </section>
