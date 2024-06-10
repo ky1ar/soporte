@@ -12,7 +12,7 @@ require_once 'includes/common/header.php';
     ?>
 
     <section class="xbanner-wiki">
-        <img src="assets/img/stl-pc.webp">
+        <img src="assets/img/wiki-pc.webp">
     </section>
     <section class="data-wiki">
         <section class="menu-wiki">
