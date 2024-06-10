@@ -1733,6 +1733,9 @@ section.menu-wiki-movil{
   color: white;
   background-color: var(--primary);
   top: 0;
+  z-index: 1;
+  height: 100%;
+  width: 80%;
 }
 section.menu-wiki-movil ul{
   list-style-type: none;
