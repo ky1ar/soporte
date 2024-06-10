@@ -1739,7 +1739,8 @@ section.menu-wiki-movil{
   width: 65%;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s ease-in-out;
+  /* transition: visibility 0s, opacity 0.5s ease-in-out; */
+  transition: visibility 0s, opacity 0.5s ease-in-out, width 0.5s ease-in-out;
 
 }
 section.menu-wiki-movil ul{
