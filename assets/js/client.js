@@ -68,6 +68,7 @@ $(document).ready(function () {
     if (data.img) {
       content += `<img src="assets/img/wiki-images/${data.img}" alt="">`;
     }
+
     content += "</div><div>";
     if (data.sub1) {
       content += `<h1>${data.sub1}</h1>`;
@@ -75,45 +76,237 @@ $(document).ready(function () {
     if (data.p1) {
       content += `<p>${data.p1}</p>`;
     }
-    // if (data.img1) {
-    //   content += `<img src="${data.img1}" alt="">`;
-    // }
+    if (data.img1) {
+      content += `<img src="assets/img/wiki-images/${data.img1}" alt="">`;
+    }
+    if (data.coment1) {
+      content += `<p>${data.coment1}</p>`;
+    }
+    if (data.pex1) {
+      content += `<p>${data.pex1}</p>`;
+    }
     if (data.sub2) {
       content += `<h1>${data.sub2}</h1>`;
     }
     if (data.p2) {
       content += `<p>${data.p2}</p>`;
     }
-    // if (data.img2) {
-    //   content += `<img src="${data.img2}" alt="">`;
-    // }
+    if (data.img2) {
+      content += `<img src="assets/img/wiki-images/${data.img2}" alt="">`;
+    }
+    if (data.coment2) {
+      content += `<p>${data.coment2}</p>`;
+    }
     if (data.sub3) {
       content += `<h1>${data.sub3}</h1>`;
     }
     if (data.p3) {
       content += `<p>${data.p3}</p>`;
     }
-    // if (data.img3) {
-    //   content += `<img src="${data.img3}" alt="">`;
-    // }
+    if (data.img3) {
+      content += `<img src="assets/img/wiki-images/${data.img3}" alt="">`;
+    }
+    if (data.pex3) {
+      content += `<p>${data.pex3}</p>`;
+    }
     if (data.sub4) {
       content += `<h1>${data.sub4}</h1>`;
     }
     if (data.p4) {
       content += `<p>${data.p4}</p>`;
     }
-    // if (data.img4) {
-    //   content += `<img src="${data.img4}" alt="">`;
-    // }
+    if (data.img4) {
+      content += `<img src="assets/img/wiki-images/${data.img4}" alt="">`;
+    }
     if (data.sub5) {
       content += `<h1>${data.sub5}</h1>`;
     }
     if (data.p5) {
       content += `<p>${data.p5}</p>`;
     }
-    // if (data.img5) {
-    //   content += `<img src="${data.img5}" alt="">`;
-    // }
+    if (data.img5) {
+      content += `<img src="assets/img/wiki-images/${data.img5}" alt="">`;
+    }
+    if (data.img51) {
+      content += `<img src="assets/img/wiki-images/${data.img51}" alt="">`;
+    }
+    if (data.p51) {
+      content += `<p>${data.p51}</p>`;
+    }
+    if (data.img52) {
+      content += `<img src="assets/img/wiki-images/${data.img52}" alt="">`;
+    }
+    if (data.p52) {
+      content += `<p>${data.p52}</p>`;
+    }
+    if (data.sub6) {
+      content += `<h1>${data.sub6}</h1>`;
+    }
+    if (data.sub61) {
+      content += `<h1>${data.sub61}</h1>`;
+    }
+    if (data.p6) {
+      content += `<p>${data.p6}</p>`;
+    }
+    if (data.img6) {
+      content += `<img src="assets/img/wiki-images/${data.img6}" alt="">`;
+    }
+    if (data.p61) {
+      content += `<p>${data.p61}</p>`;
+    }
+    if (data.sub7) {
+      content += `<h1>${data.sub7}</h1>`;
+    }
+    if (data.sub711) {
+      content += `<h1>${data.sub711}</h1>`;
+    }
+    if (data.p711) {
+      content += `<p>${data.p711}</p>`;
+    }
+    if (data.sub72) {
+      content += `<h1>${data.sub72}</h1>`;
+    }
+    if (data.p721) {
+      content += `<p>${data.p721}</p>`;
+    }
+    if (data.sub73) {
+      content += `<h1>${data.sub73}</h1>`;
+    }
+    if (data.p731) {
+      content += `<p>${data.p731}</p>`;
+    }
+    if (data.p7) {
+      content += `<p>${data.p7}</p>`;
+    }
+    if (data.img7) {
+      content += `<img src="assets/img/wiki-images/${data.img7}" alt="">`;
+    }
+    if (data.p71) {
+      content += `<p>${data.p71}</p>`;
+    }
+    if (data.img71) {
+      content += `<img src="assets/img/wiki-images/${data.img71}" alt="">`;
+    }
+    if (data.p72) {
+      content += `<p>${data.p72}</p>`;
+    }
+    if (data.img72) {
+      content += `<img src="assets/img/wiki-images/${data.img72}" alt="">`;
+    }
+    if (data.p73) {
+      content += `<p>${data.p73}</p>`;
+    }
+    if (data.img73) {
+      content += `<img src="assets/img/wiki-images/${data.img73}" alt="">`;
+    }
+    if (data.p74) {
+      content += `<p>${data.p74}</p>`;
+    }
+    if (data.img74) {
+      content += `<img src="assets/img/wiki-images/${data.img74}" alt="">`;
+    }
+    if (data.sub8) {
+      content += `<h1>${data.sub8}</h1>`;
+    }
+    if (data.sub81) {
+      content += `<h1>${data.sub81}</h1>`;
+    }
+    if (data.p811) {
+      content += `<p>${data.p811}</p>`;
+    }
+    if (data.sub82) {
+      content += `<h1>${data.sub82}</h1>`;
+    }
+    if (data.p821) {
+      content += `<p>${data.p821}</p>`;
+    }
+    if (data.sub83) {
+      content += `<h1>${data.sub83}</h1>`;
+    }
+    if (data.p831) {
+      content += `<p>${data.p831}</p>`;
+    }
+    if (data.sub84) {
+      content += `<h1>${data.sub84}</h1>`;
+    }
+    if (data.p841) {
+      content += `<p>${data.p841}</p>`;
+    }
+    if (data.sub85) {
+      content += `<h1>${data.sub85}</h1>`;
+    }
+    if (data.p851) {
+      content += `<p>${data.p851}</p>`;
+    }
+    if (data.sub86) {
+      content += `<h1>${data.sub86}</h1>`;
+    }
+    if (data.p861) {
+      content += `<p>${data.p861}</p>`;
+    }
+    if (data.p8) {
+      content += `<p>${data.p8}</p>`;
+    }
+    if (data.img8) {
+      content += `<img src="assets/img/wiki-images/${data.img8}" alt="">`;
+    }
+    if (data.p81) {
+      content += `<p>${data.p81}</p>`;
+    }
+    if (data.img81) {
+      content += `<img src="assets/img/wiki-images/${data.img81}" alt="">`;
+    }
+    if (data.p82) {
+      content += `<p>${data.p82}</p>`;
+    }
+    if (data.sub822) {
+      content += `<h1>${data.sub822}</h1>`;
+    }
+    if (data.p822) {
+      content += `<p>${data.p822}</p>`;
+    }
+    if (data.img822) {
+      content += `<img src="assets/img/wiki-images/${data.img822}" alt="">`;
+    }
+    if (data.p823) {
+      content += `<p>${data.p823}</p>`;
+    }
+    if (data.img823) {
+      content += `<img src="assets/img/wiki-images/${data.img823}" alt="">`;
+    }
+    if (data.sub823) {
+      content += `<h1>${data.sub823}</h1>`;
+    }
+    if (data.p824) {
+      content += `<p>${data.p824}</p>`;
+    }
+    if (data.sub824) {
+      content += `<h1>${data.sub824}</h1>`;
+    }
+    if (data.p825) {
+      content += `<p>${data.p825}</p>`;
+    }
+    if (data.sub825) {
+      content += `<h1>${data.sub825}</h1>`;
+    }
+    if (data.p826) {
+      content += `<p>${data.p826}</p>`;
+    }
+    if (data.sub826) {
+      content += `<h1>${data.sub826}</h1>`;
+    }
+    if (data.p8261) {
+      content += `<p>${data.p8261}</p>`;
+    }
+    if (data.img826) {
+      content += `<img src="assets/img/wiki-images/${data.img826}" alt="">`;
+    }
+    if (data.sub9) {
+      content += `<h1>${data.sub9}</h1>`;
+    }
+    if (data.p9) {
+      content += `<p>${data.p9}</p>`;
+    }
     content += "</div>";
     $(".data").html(content);
   }
