@@ -1705,6 +1705,8 @@ section.data-wiki .menu-wiki ul li p:hover{
 }
 section.data-wiki .menu-wiki ul li a{
   font-weight: 600;
+  color: black;
+  text-decoration: none;
 }
 section.data-wiki .menu-wiki ul li p img{
   width: 0.7rem;
