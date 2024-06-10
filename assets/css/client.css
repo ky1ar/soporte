@@ -1743,6 +1743,9 @@ section.data-wiki .data div:first-child h1{
   display: flex;
   align-items: center;
 }
+section.data-wiki .data div:first-child h1{
+  font-size: 1.2rem;
+}
 section.data-wiki .data div:first-child h1 .pas{
   width: 0.7rem;
   margin: 0 0.3rem;
