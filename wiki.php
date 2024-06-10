@@ -88,25 +88,7 @@ require_once 'includes/common/header.php';
             </ul>
         </section>
         <section class="data">
-            <!-- <div>
-                <p>05 de Mayo del 2024</p>
-                <h1>TituloPadre -> Título</h1>
-                <img src="" alt="">
-            </div>
-            <div>
-                <h1>Título</h1>
-                <div class="first-p">
-                    <h1></h1>
-                    <p></p>
-                    <img src="" alt="">
-                    <p class="coment"></p>
-                </div>
-                <div class="parrafo">
-                    <h1></h1>
-                    <p></p>
-                    <img src="" alt="">
-                </div>
-            </div> -->
+            <h1 class="title">Bienvenido al Wiki</h1>
         </section>
     </section>
 
