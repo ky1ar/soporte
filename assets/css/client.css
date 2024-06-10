@@ -1793,12 +1793,12 @@ section.menu-wiki-movil ul li ul li:hover{
 
 
 
+
 section.data-wiki .data{
   border-left: 0.2rem solid gray;    
   padding: 0 1rem;
   width: 60%;
 }
-
 
 section.data-wiki .data div:first-child p,
 section.data-wiki .data div:first-child h1{
