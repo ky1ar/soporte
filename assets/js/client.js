@@ -93,27 +93,27 @@ $(document).ready(function () {
     if (data.p3) {
       content += `<p>${data.p3}</p>`;
     }
-    if (data.img3) {
-      content += `<img src="${data.img3}" alt="">`;
-    }
+    // if (data.img3) {
+    //   content += `<img src="${data.img3}" alt="">`;
+    // }
     if (data.sub4) {
       content += `<h1>${data.sub4}</h1>`;
     }
     if (data.p4) {
       content += `<p>${data.p4}</p>`;
     }
-    if (data.img4) {
-      content += `<img src="${data.img4}" alt="">`;
-    }
+    // if (data.img4) {
+    //   content += `<img src="${data.img4}" alt="">`;
+    // }
     if (data.sub5) {
       content += `<h1>${data.sub5}</h1>`;
     }
     if (data.p5) {
       content += `<p>${data.p5}</p>`;
     }
-    if (data.img5) {
-      content += `<img src="${data.img5}" alt="">`;
-    }
+    // if (data.img5) {
+    //   content += `<img src="${data.img5}" alt="">`;
+    // }
     content += "</div>";
     $(".data").html(content);
   }
