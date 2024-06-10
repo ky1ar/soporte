@@ -1723,6 +1723,7 @@ section.menu-wiki ul li ul li a{
 section.menu-wiki ul li ul li a:hover{
   color: var(--primary);
 }
+section.menu-wiki ul li ul li a:focus,
 section.menu-wiki ul li ul li a:active{
   color: var(--primary);
 }
