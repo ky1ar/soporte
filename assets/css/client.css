@@ -1767,7 +1767,7 @@ section.data-wiki .data div:last-child{
 }
 section.data-wiki .data div:last-child h1{
   font-weight: 600;
-  margin-bottom: 0;
+  margin: 0;
 }
 section.data-wiki .data div:last-child img{
   display: flex;
