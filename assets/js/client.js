@@ -67,7 +67,7 @@ $(document).ready(function () {
     }
 
     if (data.img) {
-      content += `<img src="${data.img}" alt="">`;
+      content += `<img src="../img/wiki-images/${data.img}" alt="">`;
     }
     content += "</div><div>";
     if (data.sub1) {
