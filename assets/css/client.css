@@ -1849,10 +1849,12 @@ section.data-wiki .data{
   border-left: 0.2rem solid gray;    
   padding: 0 1rem;
   width: 60%;
+}
+
+section.data-wiki .data a{
   text-decoration: none;
   color: black;
 }
-
 section.data-wiki .data div:first-child p,
 section.data-wiki .data div:first-child h1{
   margin: 0;
