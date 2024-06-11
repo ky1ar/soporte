@@ -1729,12 +1729,30 @@ section.data-wiki .menu-wiki ul li ul li:hover{
 }
 
 /* menu movil */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según sea necesario */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+  z-index: 2; /* Asegúrate de que el overlay esté por encima del contenido pero debajo del menú móvil */
+}
+
+/* Estilo para mostrar el overlay */
+.overlay.visible {
+  visibility: visible;
+  opacity: 1;
+}
 section.menu-wiki-movil {
   position: fixed;
   color: white;
   background-color: var(--primary);
   top: 0;
-  z-index: 2;
+  z-index: 3;
   height: 100vh;
   width: 0;
   visibility: hidden;
