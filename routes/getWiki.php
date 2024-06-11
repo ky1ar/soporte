@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
                         if ($pos_dos_puntos !== false) {
                             $parte_inicial = substr($linea_trim, 0, $pos_dos_puntos + 1);
                             $parte_restante = substr($linea_trim, $pos_dos_puntos + 1);
-                            $linea_formateada = '<span style="font-weight: 600;">' . htmlspecialchars($parte_inicial) . '</span>' . htmlspecialchars($parte_restante);
+                            $linea_formateada = '<span style="font-weight: 600;">' . $parte_inicial . '</span>' . $parte_restante;
                         } else {
-                            $linea_formateada = htmlspecialchars($linea_trim);
+                            $linea_formateada = $linea_trim;
                         }
                         $texto_formateado .= '<div style="padding-left: 1rem;">' . $linea_formateada . '</div>';
                     } else {
-                        $texto_formateado .= '<div>' . htmlspecialchars($linea) . '</div>';
+                        $texto_formateado .= '<div>' . $linea . '</div>';
                     }
                 }
 
