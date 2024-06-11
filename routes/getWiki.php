@@ -23,24 +23,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
 
-            // Función para agregar padding-left a las líneas que comienzan con números seguidos de un punto
-            function agregarPadding($texto) {
+            // Función para formatear el texto con listas y sangría
+            function formatearTexto($texto) {
                 $lineas = explode("\n", $texto);
                 $texto_formateado = "";
+                $lista_abierta = false;
 
                 foreach ($lineas as $linea) {
                     $linea_trim = trim($linea);
+
                     if (preg_match('/^\d+\./', $linea_trim)) {
-                        $texto_formateado .= '<div style="padding-left: 1rem;">' . htmlspecialchars($linea) . '</div>';
+                        if (!$lista_abierta) {
+                            $texto_formateado .= '<ol style="padding-left: 1rem; margin-left: 1rem;">';
+                            $lista_abierta = true;
+                        }
+                        $texto_formateado .= '<li>' . htmlspecialchars($linea) . '</li>';
                     } else {
+                        if ($lista_abierta) {
+                            $texto_formateado .= '</ol>';
+                            $lista_abierta = false;
+                        }
                         $texto_formateado .= '<div>' . htmlspecialchars($linea) . '</div>';
                     }
                 }
-                
+
+                if ($lista_abierta) {
+                    $texto_formateado .= '</ol>';
+                }
+
                 return $texto_formateado;
             }
 
-            // Reemplazar \r\n y \n por <br> y agregar padding-left a las líneas que comienzan con números seguidos de un punto
+            // Reemplazar \r\n y \n por <br> y formatear texto
             $textKeys = [
                 'p1', 'coment1', 'pex1', 'p2', 'coment2', 'p3', 'pex3', 'p4', 'p5',
                 'p51', 'p52', 'p6', 'p61', 'p7', 'p71', 'p72', 'p73', 'p74', 'p8',
@@ -50,8 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 
             foreach ($textKeys as $key) {
                 if (isset($data[$key])) {
-                    // Reemplazar saltos de línea con <br> y agregar padding
-                    $data[$key] = str_replace(array("\r\n", "\n"), "<br>", agregarPadding($data[$key]));
+                    // Reemplazar saltos de línea con <br> y formatear
+                    $data[$key] = str_replace(array("\r\n", "\n"), "<br>", formatearTexto($data[$key]));
                 }
             }
 
