@@ -1945,4 +1945,8 @@ section.data-wiki .data div:last-child .comentario{
 
 }
 @media only screen and (max-width: 576px) {}
-@media only screen and (max-width: 416px) {}
+@media only screen and (max-width: 416px) {
+  section.data-wiki .data div:first-child h1{
+    max-width: 15rem;
+  }
+}
