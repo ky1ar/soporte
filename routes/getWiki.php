@@ -23,17 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
 
-            // Función para agregar padding-left y negrita a las líneas que corresponden
-            function agregarPaddingYNegrita($texto) {
-                // Explode the text into lines
+            // Función para aplicar estilos directamente al texto
+            function aplicarEstilosTexto($texto) {
                 $lineas = explode("\n", $texto);
                 $texto_formateado = "";
 
                 foreach ($lineas as $linea) {
                     $linea_trim = trim($linea);
-
+                    
                     if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
-                        // Search for the first ':' after the number and point or bullet point
+                        // Buscar el primer ':' después del número y punto o viñeta
                         $pos_dos_puntos = strpos($linea_trim, ':');
                         if ($pos_dos_puntos !== false) {
                             $parte_inicial = substr($linea_trim, 0, $pos_dos_puntos + 1);
@@ -42,17 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
                         } else {
                             $linea_formateada = htmlspecialchars($linea_trim);
                         }
-                        // Applying the padding style directly to the line
-                        $texto_formateado .= '<p style="padding-left: 1rem; text-indent: -1rem;">' . $linea_formateada . '</p>';
+                        // Aplicar estilos directamente al texto dentro de las etiquetas <p>
+                        $texto_formateado .= '<p style="padding-left: 1rem; text-indent: -1rem; margin: 0;">' . $linea_formateada . '</p>';
                     } else {
-                        $texto_formateado .= '<p>' . htmlspecialchars($linea_trim) . '</p>';
+                        $texto_formateado .= '<p style="margin: 0;">' . htmlspecialchars($linea_trim) . '</p>';
                     }
                 }
 
                 return $texto_formateado;
             }
 
-            // Reemplazar \r\n y \n por <br> y aplicar el formato adecuado
+            // Aplicar la función a los datos
             $textKeys = [
                 'p1', 'coment1', 'pex1', 'p2', 'coment2', 'p3', 'pex3', 'p4', 'p5',
                 'p51', 'p52', 'p6', 'p61', 'p7', 'p71', 'p72', 'p73', 'p74', 'p8',
@@ -62,8 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 
             foreach ($textKeys as $key) {
                 if (isset($data[$key])) {
-                    // Reemplazar saltos de línea con <br> y aplicar el formato adecuado
-                    $data[$key] = agregarPaddingYNegrita($data[$key]);
+                    $data[$key] = aplicarEstilosTexto($data[$key]);
                 }
             }
 
