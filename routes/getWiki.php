@@ -69,7 +69,7 @@ function agregarEstilosViñetas($texto)
 
         // Verificar si la línea contiene un enlace
         if (strpos($linea_trim, 'href=') !== false) {
-            // Si es un enlace, no se aplica ningún formato, solo se añade al texto formateado
+            // Si es un enlace, se añade al texto formateado sin ningún cambio
             $texto_formateado .= $linea_trim . "<br>";
         } else {
             // Si no es un enlace, se aplica el formato según corresponda
@@ -95,3 +95,4 @@ function agregarEstilosViñetas($texto)
 
 
 echo json_encode($response);
+?>
