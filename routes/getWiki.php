@@ -78,6 +78,10 @@ function agregarEstilosViñetas($texto)
                 $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
             }
             $texto_formateado .= $linea_formateada . "<br>"; 
+        } elseif (strpos($linea_trim, '•') === 0) {
+            // Aplicar padding-left de 1rem a las líneas que comienzan con viñetas
+            $linea_formateada = '<span style="padding-left: 1rem;">' . $linea_trim . '</span>';
+            $texto_formateado .= $linea_formateada . "<br>"; 
         } else {
             $texto_formateado .= $linea_trim . "<br>"; 
         }
