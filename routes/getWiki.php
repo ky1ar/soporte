@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 
 // Función para agregar estilos a las líneas con viñetas numeradas o de puntos
 // Función para agregar estilos a las líneas con viñetas numeradas o de puntos
+// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
 function agregarEstilosViñetas($texto) {
     $lineas = explode("\n", $texto);
     $texto_formateado = "";
@@ -71,9 +72,6 @@ function agregarEstilosViñetas($texto) {
         $linea_trim = trim($linea);
         // Si la línea comienza con un número seguido de un punto o una viñeta
         if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
-            // Reiniciar la bandera para la siguiente viñeta
-            $primera_linea = true;
-            
             // Buscar el primer ':' después del número y punto o viñeta
             $pos_dos_puntos = strpos($linea_trim, ':');
             if ($pos_dos_puntos !== false) {
@@ -87,6 +85,7 @@ function agregarEstilosViñetas($texto) {
                 $linea_formateada = '<span style="padding-left: 1rem;">' . $parte_inicial . '</span>';
             }
             $texto_formateado .= $linea_formateada . "<br>"; // Agregar <br> para mantener los saltos de línea
+            $primera_linea = true; // Reiniciar la bandera para la siguiente viñeta
         } elseif ($primera_linea) {
             // Mantener la primera línea sin cambios
             $texto_formateado .= $linea_trim . "<br>";
@@ -99,6 +98,7 @@ function agregarEstilosViñetas($texto) {
 
     return $texto_formateado;
 }
+
 
 
 
