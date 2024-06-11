@@ -23,30 +23,93 @@ $(document).ready(function () {
   function message(target, message) {
     target.text(message).slideDown();
   }
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggleMenus = document.querySelectorAll(".toggle-menu");
 
-  // Función para manejar el clic en los enlaces del menú
-  $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on("click", function (event) {
-    event.preventDefault();
-    var title = $(this).text();
-    console.log(title);
-    $.ajax({
-      url: "routes/getWiki.php",
-      type: "POST",
-      data: { title: title },
-      dataType: "json",
-      success: function (response) {
-        if (response.success) {
-          var data = response.data;
-          mostrarDatos(data);
-        } else {
-          alert(response.message);
+    toggleMenus.forEach(function (menu) {
+      menu.addEventListener("click", function () {
+        var nextElement = menu.nextElementSibling;
+        var imgElement = menu.querySelector("img");
+
+        if (nextElement && nextElement.tagName === "UL") {
+          if (nextElement.classList.contains("show")) {
+            nextElement.classList.remove("show");
+            imgElement.classList.remove("rotate");
+          } else {
+            nextElement.classList.add("show");
+            imgElement.classList.add("rotate");
+          }
         }
-      },
-      error: function (xhr, status, error) {
-        console.error("Error en la solicitud AJAX: ", error);
-      },
+      });
     });
   });
+
+  $(document).ready(function () {
+    $(".btn-menu-movil").on("click", function () {
+      var menu = $("section.menu-wiki-movil");
+      var overlay = $(".overlay");
+
+      if (menu.hasClass("visible")) {
+        menu.removeClass("visible");
+        overlay.removeClass("visible");
+        setTimeout(function () {
+          menu.css("visibility", "hidden");
+          overlay.css("visibility", "hidden");
+        }, 500); // Igual a la duración de la transición en CSS
+      } else {
+        menu.css("visibility", "visible");
+        menu.addClass("visible");
+        overlay.css("visibility", "visible");
+        overlay.addClass("visible");
+      }
+    });
+
+    $(document).on("click", function (event) {
+      var menu = $("section.menu-wiki-movil");
+      var btnMenu = $(".btn-menu-movil");
+      var overlay = $(".overlay");
+
+      if (
+        !menu.is(event.target) &&
+        menu.has(event.target).length === 0 &&
+        !btnMenu.is(event.target) &&
+        btnMenu.has(event.target).length === 0
+      ) {
+        menu.removeClass("visible");
+        overlay.removeClass("visible");
+        setTimeout(function () {
+          menu.css("visibility", "hidden");
+          overlay.css("visibility", "hidden");
+        }, 500); // Igual a la duración de la transición en CSS
+      }
+    });
+  });
+  // Función para manejar el clic en los enlaces del menú
+  $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
+    "click",
+    function (event) {
+      event.preventDefault();
+      var title = $(this).text();
+      console.log(title);
+      $.ajax({
+        url: "routes/getWiki.php",
+        type: "POST",
+        data: { title: title },
+        dataType: "json",
+        success: function (response) {
+          if (response.success) {
+            var data = response.data;
+            mostrarDatos(data);
+          } else {
+            alert(response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("Error en la solicitud AJAX: ", error);
+        },
+      });
+    }
+  );
 
   function mostrarDatos(data) {
     var content = "<div>";

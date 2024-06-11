@@ -158,63 +158,7 @@ require_once 'includes/common/header.php';
 
     <?php require_once 'includes/common/footer.php'; ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggleMenus = document.querySelectorAll('.toggle-menu');
-
-            toggleMenus.forEach(function(menu) {
-                menu.addEventListener('click', function() {
-                    var nextElement = menu.nextElementSibling;
-                    var imgElement = menu.querySelector('img');
-
-                    if (nextElement && nextElement.tagName === 'UL') {
-                        if (nextElement.classList.contains('show')) {
-                            nextElement.classList.remove('show');
-                            imgElement.classList.remove('rotate');
-                        } else {
-                            nextElement.classList.add('show');
-                            imgElement.classList.add('rotate');
-                        }
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function() {
-            $('.btn-menu-movil').on('click', function() {
-                var menu = $('section.menu-wiki-movil');
-                var overlay = $('.overlay');
-
-                if (menu.hasClass('visible')) {
-                    menu.removeClass('visible');
-                    overlay.removeClass('visible');
-                    setTimeout(function() {
-                        menu.css('visibility', 'hidden');
-                        overlay.css('visibility', 'hidden');
-                    }, 500); // Igual a la duración de la transición en CSS
-                } else {
-                    menu.css('visibility', 'visible');
-                    menu.addClass('visible');
-                    overlay.css('visibility', 'visible');
-                    overlay.addClass('visible');
-                }
-            });
-
-            $(document).on('click', function(event) {
-                var menu = $('section.menu-wiki-movil');
-                var btnMenu = $('.btn-menu-movil');
-                var overlay = $('.overlay');
-
-                if (!menu.is(event.target) && menu.has(event.target).length === 0 &&
-                    !btnMenu.is(event.target) && btnMenu.has(event.target).length === 0) {
-                    menu.removeClass('visible');
-                    overlay.removeClass('visible');
-                    setTimeout(function() {
-                        menu.css('visibility', 'hidden');
-                        overlay.css('visibility', 'hidden');
-                    }, 500); // Igual a la duración de la transición en CSS
-                }
-            });
-        });
+        
     </script>
 </body>
 
