@@ -157,9 +157,9 @@ require_once 'includes/common/header.php';
     </section>
 
     <?php require_once 'includes/common/footer.php'; ?>
-    <script>
+    <!-- <script>
         
-    </script>
+    </script> -->
 </body>
 
 </html>
