@@ -72,7 +72,7 @@ function agregarEstilosViñetas($texto) {
             $pos_dos_puntos = strpos($linea_trim, ':');
             if ($pos_dos_puntos !== false) {
                 // Aplicar negrita al texto antes del ':'
-                $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
+                $parte_inicial = '<span style="padding-left: 1rem; font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
