@@ -69,15 +69,11 @@ function agregarEstilosViñetas($texto)
 
         // Verificar si la línea contiene un enlace
         if (strpos($linea_trim, 'href=') !== false) {
-            // Si es un enlace, se añade al texto formateado sin ningún cambio
+            // Si es un enlace, no se aplica ningún formato, solo se añade al texto formateado
             $texto_formateado .= $linea_trim . "<br>";
         } else {
             // Si no es un enlace, se aplica el formato según corresponda
-            if (preg_match('/^\d+\.$/', $linea_trim)) {
-                // Si encuentra un número seguido de un punto al final de la línea
-                $linea_formateada = '<span style="font-weight: bold;">' . $linea_trim . '</span>';
-            } elseif (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
-                // Si encuentra un número seguido de un punto o una viñeta al inicio de la línea
+            if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
                 $pos_dos_puntos = strpos($linea_trim, ':');
                 if ($pos_dos_puntos !== false) {
                     $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
@@ -87,10 +83,9 @@ function agregarEstilosViñetas($texto)
                     $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-right: 0.5rem;">$1</span>', $linea_trim);
                     $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
                 }
-                $texto_formateado .= $linea_formateada . "<br>";
+                $texto_formateado .= $linea_formateada . "<br>"; 
             } else {
-                // Si no cumple ninguna de las condiciones anteriores, se deja sin formato
-                $linea_formateada = $linea_trim;
+                $texto_formateado .= $linea_trim . "<br>"; 
             }
         }
     }
@@ -100,3 +95,4 @@ function agregarEstilosViñetas($texto)
 
 
 echo json_encode($response);
+?>
