@@ -1952,3 +1952,8 @@ section.data-wiki .data div:last-child .comentario{
 }
 @media only screen and (max-width: 576px) {}
 @media only screen and (max-width: 416px) {}
+
+body > section.data-wiki > section.data > div:nth-child(2) > div:nth-child(6){
+  color: red;
+  text-align: center;
+}
