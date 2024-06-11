@@ -59,29 +59,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
     $response['message'] = 'Solicitud inválida.';
 }
 
-function agregarEstilosViñetas($texto) {
+// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
+function agregarEstilosViñetas($texto)
+{
     $lineas = explode("\n", $texto);
     $texto_formateado = "";
 
     foreach ($lineas as $linea) {
         $linea_trim = trim($linea);
-        if (preg_match('/^[\d+\.•]/', $linea_trim)) {
+        if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
             $pos_dos_puntos = strpos($linea_trim, ':');
             if ($pos_dos_puntos !== false) {
                 $parte_inicial = '<span style="padding-left: 1rem; font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
-                $linea_formateada = '<span style="padding-left: 1rem; font-weight: bold;">' . $linea_trim . '</span>';
+                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold;">$1</span>', $linea_trim);
+                $linea_formateada = '<span style="padding-left: 1rem;">' . $parte_inicial . '</span>';
             }
             $texto_formateado .= $linea_formateada . "<br>"; 
         } else {
             $texto_formateado .= $linea_trim . "<br>"; 
         }
     }
+
     return $texto_formateado;
 }
 
 
+
 echo json_encode($response);
-?>
