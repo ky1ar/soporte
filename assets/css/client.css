@@ -1939,6 +1939,9 @@ section.data-wiki .data div:last-child .comentario{
   section.data-wiki .data div:last-child{
     font-size: 0.75rem;
   }
+  section.data-wiki .data .title{
+    font-size: 2rem;
+  }
 
 }
 @media only screen and (max-width: 576px) {}
