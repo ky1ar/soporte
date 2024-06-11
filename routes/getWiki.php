@@ -59,48 +59,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
     $response['message'] = 'Solicitud inválida.';
 }
 
-// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
-// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
-// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
 function agregarEstilosViñetas($texto) {
     $lineas = explode("\n", $texto);
     $texto_formateado = "";
 
-    $primera_linea = true; // Bandera para identificar la primera línea en una viñeta
-
     foreach ($lineas as $linea) {
         $linea_trim = trim($linea);
-        // Si la línea comienza con un número seguido de un punto o una viñeta
-        if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
-            // Buscar el primer ':' después del número y punto o viñeta
+        if (preg_match('/^[\d+\.•]/', $linea_trim)) {
             $pos_dos_puntos = strpos($linea_trim, ':');
             if ($pos_dos_puntos !== false) {
-                // Aplicar negrita al texto antes del ':'
                 $parte_inicial = '<span style="padding-left: 1rem; font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
-                // Aplicar negrita solo al número seguido de punto
-                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold;">$1</span>', $linea_trim);
-                $linea_formateada = '<span style="padding-left: 1rem;">' . $parte_inicial . '</span>';
+                $linea_formateada = '<span style="padding-left: 1rem; font-weight: bold;">' . $linea_trim . '</span>';
             }
-            $texto_formateado .= $linea_formateada . "<br>"; // Agregar <br> para mantener los saltos de línea
-            $primera_linea = true; // Reiniciar la bandera para la siguiente viñeta
-        } elseif ($primera_linea) {
-            // Mantener la primera línea sin cambios
-            $texto_formateado .= $linea_trim . "<br>";
-            $primera_linea = false;
+            $texto_formateado .= $linea_formateada . "<br>"; 
         } else {
-            // Agregar sangría de 1 rem a las líneas que siguen después de la primera en la viñeta
-            $texto_formateado .= '<span style="padding-left: 1rem;">' . $linea_trim . '</span><br>';
+            $texto_formateado .= $linea_trim . "<br>"; 
         }
     }
-
     return $texto_formateado;
 }
 
 
-
-
-
 echo json_encode($response);
+?>
