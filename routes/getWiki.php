@@ -74,13 +74,9 @@ function agregarEstilosViñetas($texto)
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
-                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-left: 1rem; padding-right: 0.5rem;">$1</span>', $linea_trim);
+                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-right: 0.5rem;">$1</span>', $linea_trim);
                 $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
             }
-            $texto_formateado .= $linea_formateada . "<br>"; 
-        } elseif (strpos($linea_trim, '•') === 0) {
-            // Aplicar padding-left de 1rem a las líneas que comienzan con viñetas
-            $linea_formateada = '<span style="padding-left: 1rem;">' . $linea_trim . '</span>';
             $texto_formateado .= $linea_formateada . "<br>"; 
         } else {
             $texto_formateado .= $linea_trim . "<br>"; 
