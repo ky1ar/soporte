@@ -24,6 +24,11 @@ $(document).ready(function () {
     target.text(message).slideDown();
   }
 
+  const lastDiv = $(".data-wiki .data div:last-child");
+  if (lastDiv.text().includes("•")) {
+    lastDiv.css("padding-left", "1rem");
+  }
+
   // Toggle menus
   var toggleMenus = document.querySelectorAll(".toggle-menu");
   toggleMenus.forEach(function (menu) {
@@ -82,7 +87,7 @@ $(document).ready(function () {
       }, 500); // Igual a la duración de la transición en CSS
     }
   });
-  
+
   // Función para manejar el clic en los enlaces del menú
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
     "click",
