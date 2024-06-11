@@ -23,7 +23,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
 
-            // Reemplazar \r\n y \n por <br> en los valores de los textos
+            // Función para agregar padding-left a las líneas que comienzan con •
+            function agregarPadding($texto) {
+                $lineas = explode("\n", $texto);
+                $texto_formateado = "";
+
+                foreach ($lineas as $linea) {
+                    if (strpos(trim($linea), '•') === 0) {
+                        $texto_formateado .= '<div style="padding-left: 1rem;">' . htmlspecialchars($linea) . '</div>';
+                    } else {
+                        $texto_formateado .= '<div>' . htmlspecialchars($linea) . '</div>';
+                    }
+                }
+                
+                return $texto_formateado;
+            }
+
+            // Reemplazar \r\n y \n por <br> y agregar padding-left a las líneas que comienzan con •
             $textKeys = [
                 'p1', 'coment1', 'pex1', 'p2', 'coment2', 'p3', 'pex3', 'p4', 'p5',
                 'p51', 'p52', 'p6', 'p61', 'p7', 'p71', 'p72', 'p73', 'p74', 'p8',
@@ -33,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 
             foreach ($textKeys as $key) {
                 if (isset($data[$key])) {
-                    $data[$key] = str_replace(array("\r\n", "\n"), "<br>", $data[$key]);
+                    // Reemplazar saltos de línea con <br> y agregar padding
+                    $data[$key] = str_replace(array("\r\n", "\n"), "<br>", agregarPadding($data[$key]));
                 }
             }
 
@@ -57,3 +74,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 }
 
 echo json_encode($response);
+?>
