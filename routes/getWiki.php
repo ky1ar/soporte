@@ -70,12 +70,12 @@ function agregarEstilosViñetas($texto)
         if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
             $pos_dos_puntos = strpos($linea_trim, ':');
             if ($pos_dos_puntos !== false) {
-                $parte_inicial = '<span style="padding-left: 1rem; font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
+                $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
                 $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold;">$1</span>', $linea_trim);
-                $linea_formateada = '<span style="padding-left: 1rem;">' . $parte_inicial . '</span>';
+                $linea_formateada = $parte_inicial;
             }
             $texto_formateado .= $linea_formateada . "<br>"; 
         } else {
@@ -85,6 +85,7 @@ function agregarEstilosViñetas($texto)
 
     return $texto_formateado;
 }
+
 
 
 
