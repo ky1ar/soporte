@@ -67,15 +67,14 @@ function agregarEstilosViñetas($texto)
 
     foreach ($lineas as $linea) {
         $linea_trim = trim($linea);
-        if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
+        if (preg_match('/^\d+\./', $linea_trim)) {
             $pos_dos_puntos = strpos($linea_trim, ':');
-            if ($pos_dos_puntos !== false) {
-                $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
+            if ($pos_dos_puntos !== false && !preg_match('/<a href="([^"]+)">([^<]+)<\/a>/', $linea_trim)) {
+                $parte_inicial = '<span style="font-weight: bold; padding-right: 0.5rem;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
-                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-right: 0.5rem;">$1</span>', $linea_trim);
-                $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
+                $linea_formateada = $linea_trim;
             }
             $texto_formateado .= $linea_formateada . "<br>"; 
         } else {
