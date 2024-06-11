@@ -74,7 +74,7 @@ function agregarEstilosViñetas($texto)
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
-                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-right: 0.5rem;">$1</span>', $linea_trim);
+                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-left: 1rem; padding-right: 0.5rem;">$1</span>', $linea_trim);
                 $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
             }
             $texto_formateado .= $linea_formateada . "<br>"; 
