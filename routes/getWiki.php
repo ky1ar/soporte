@@ -59,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
     $response['message'] = 'Solicitud inválida.';
 }
 
-// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
 function agregarEstilosViñetas($texto)
 {
     $lineas = explode("\n", $texto);
@@ -67,24 +66,32 @@ function agregarEstilosViñetas($texto)
 
     foreach ($lineas as $linea) {
         $linea_trim = trim($linea);
-        if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
-            $pos_dos_puntos = strpos($linea_trim, ':');
-            if ($pos_dos_puntos !== false) {
-                $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
-                $parte_restante = substr($linea_trim, $pos_dos_puntos);
-                $linea_formateada = $parte_inicial . $parte_restante;
-            } else {
-                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-right: 0.5rem;">$1</span>', $linea_trim);
-                $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
-            }
-            $texto_formateado .= $linea_formateada . "<br>"; 
+
+        // Verificar si la línea contiene un enlace
+        if (strpos($linea_trim, 'href=') !== false) {
+            // Si es un enlace, no se aplica ningún formato, solo se añade al texto formateado
+            $texto_formateado .= $linea_trim . "<br>";
         } else {
-            $texto_formateado .= $linea_trim . "<br>"; 
+            // Si no es un enlace, se aplica el formato según corresponda
+            if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
+                $pos_dos_puntos = strpos($linea_trim, ':');
+                if ($pos_dos_puntos !== false) {
+                    $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
+                    $parte_restante = substr($linea_trim, $pos_dos_puntos);
+                    $linea_formateada = $parte_inicial . $parte_restante;
+                } else {
+                    $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold; padding-right: 0.5rem;">$1</span>', $linea_trim);
+                    $linea_formateada = $parte_inicial . " "; // Añadir un espacio después del punto
+                }
+                $texto_formateado .= $linea_formateada . "<br>";
+            } else {
+                $texto_formateado .= $linea_trim . "<br>";
+            }
         }
     }
 
     return $texto_formateado;
 }
 
+
 echo json_encode($response);
-?>
