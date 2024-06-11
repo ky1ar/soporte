@@ -25,7 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 
             // Función para agregar padding-left y negrita a las líneas que corresponden
             function agregarPaddingYNegrita($texto) {
-                $lineas = explode("\n", $texto);
+                // Remover etiquetas HTML para trabajar con el texto plano
+                $texto_limpio = strip_tags($texto);
+                // Reemplazar saltos de línea con un token temporal
+                $lineas = explode("\n", $texto_limpio);
                 $texto_formateado = "";
 
                 foreach ($lineas as $linea) {
@@ -41,12 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
                         } else {
                             $linea_formateada = htmlspecialchars($linea_trim);
                         }
-                        $texto_formateado .= '<p style="padding-left: 1rem;">' . $linea_formateada . '</p>';
+                        $texto_formateado .= '<p style="padding-left: 1rem; text-indent: -1rem; padding-left: 2rem;">' . $linea_formateada . '</p>';
                     } else {
-                        $texto_formateado .= '<p>' . htmlspecialchars($linea) . '</p>';
+                        $texto_formateado .= '<p>' . htmlspecialchars($linea_trim) . '</p>';
                     }
                 }
 
+                // Reemplazar el token temporal con saltos de línea HTML
+                $texto_formateado = str_replace("\n", "<br>", $texto_formateado);
+                
                 return $texto_formateado;
             }
 
