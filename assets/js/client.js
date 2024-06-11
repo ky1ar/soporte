@@ -24,10 +24,10 @@ $(document).ready(function () {
     target.text(message).slideDown();
   }
 
-  const lastDiv = $(".data-wiki .data div:last-child");
-  if (lastDiv.text().includes("•")) {
-    lastDiv.css("padding-left", "1rem");
-  }
+  // const lastDiv = $(".data-wiki .data div:last-child");
+  // if (lastDiv.text().includes("•")) {
+  //   lastDiv.css("padding-left", "1rem");
+  // }
 
   // Toggle menus
   var toggleMenus = document.querySelectorAll(".toggle-menu");
