@@ -73,7 +73,11 @@ function agregarEstilosViñetas($texto)
             $texto_formateado .= $linea_trim . "<br>";
         } else {
             // Si no es un enlace, se aplica el formato según corresponda
-            if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
+            if (preg_match('/^\d+\.$/', $linea_trim)) {
+                // Si encuentra un número seguido de un punto al final de la línea
+                $linea_formateada = '<span style="font-weight: bold;">' . $linea_trim . '</span>';
+            } elseif (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
+                // Si encuentra un número seguido de un punto o una viñeta al inicio de la línea
                 $pos_dos_puntos = strpos($linea_trim, ':');
                 if ($pos_dos_puntos !== false) {
                     $parte_inicial = '<span style="font-weight: bold;">' . substr($linea_trim, 0, $pos_dos_puntos) . '</span>';
@@ -85,7 +89,8 @@ function agregarEstilosViñetas($texto)
                 }
                 $texto_formateado .= $linea_formateada . "<br>";
             } else {
-                $texto_formateado .= $linea_trim . "<br>";
+                // Si no cumple ninguna de las condiciones anteriores, se deja sin formato
+                $linea_formateada = $linea_trim;
             }
         }
     }
@@ -95,4 +100,3 @@ function agregarEstilosViñetas($texto)
 
 
 echo json_encode($response);
-?>
