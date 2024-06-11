@@ -60,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 }
 
 // Función para agregar estilos a las líneas con viñetas numeradas o de puntos
-// Función para agregar estilos a las líneas con viñetas numeradas o de puntos
 function agregarEstilosViñetas($texto)
 {
     $lineas = explode("\n", $texto);
@@ -69,7 +68,7 @@ function agregarEstilosViñetas($texto)
     foreach ($lineas as $linea) {
         $linea_trim = trim($linea);
         // Si la línea comienza con un número seguido de un punto o una viñeta
-        if (preg_match('/^[\d+\.•]/', $linea_trim)) {
+        if (preg_match('/^\d+\./', $linea_trim) || strpos($linea_trim, '•') === 0) {
             // Buscar el primer ':' después del número y punto o viñeta
             $pos_dos_puntos = strpos($linea_trim, ':');
             if ($pos_dos_puntos !== false) {
@@ -78,8 +77,9 @@ function agregarEstilosViñetas($texto)
                 $parte_restante = substr($linea_trim, $pos_dos_puntos);
                 $linea_formateada = $parte_inicial . $parte_restante;
             } else {
-                // Aplicar negrita a toda la línea
-                $linea_formateada = '<span style="padding-left: 1rem; font-weight: bold;">' . $linea_trim . '</span>';
+                // Aplicar negrita solo al número seguido de punto
+                $parte_inicial = preg_replace('/^(\d+\.) /', '<span style="font-weight: bold;">$1</span>', $linea_trim);
+                $linea_formateada = '<span style="padding-left: 1rem;">' . $parte_inicial . '</span>';
             }
             $texto_formateado .= $linea_formateada . "<br>"; // Agregar <br> para mantener los saltos de línea
         } else {
@@ -89,6 +89,7 @@ function agregarEstilosViñetas($texto)
 
     return $texto_formateado;
 }
+
 
 
 echo json_encode($response);
