@@ -23,13 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
 
-            // Función para agregar padding-left a las líneas que comienzan con •
+            // Función para agregar padding-left a las líneas que comienzan con números seguidos de un punto
             function agregarPadding($texto) {
                 $lineas = explode("\n", $texto);
                 $texto_formateado = "";
 
                 foreach ($lineas as $linea) {
-                    if (strpos(trim($linea), '•') === 0) {
+                    $linea_trim = trim($linea);
+                    if (preg_match('/^\d+\./', $linea_trim)) {
                         $texto_formateado .= '<div style="padding-left: 1rem;">' . htmlspecialchars($linea) . '</div>';
                     } else {
                         $texto_formateado .= '<div>' . htmlspecialchars($linea) . '</div>';
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
                 return $texto_formateado;
             }
 
-            // Reemplazar \r\n y \n por <br> y agregar padding-left a las líneas que comienzan con •
+            // Reemplazar \r\n y \n por <br> y agregar padding-left a las líneas que comienzan con números seguidos de un punto
             $textKeys = [
                 'p1', 'coment1', 'pex1', 'p2', 'coment2', 'p3', 'pex3', 'p4', 'p5',
                 'p51', 'p52', 'p6', 'p61', 'p7', 'p71', 'p72', 'p73', 'p74', 'p8',
