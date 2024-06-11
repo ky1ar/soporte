@@ -1855,6 +1855,7 @@ section.data-wiki .data a{
   text-decoration: none;
   color: black;
   font-weight: 600;
+  color: var(--primary);
 }
 section.data-wiki .data div:first-child p,
 section.data-wiki .data div:first-child h1{
