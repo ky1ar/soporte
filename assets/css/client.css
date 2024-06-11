@@ -1930,6 +1930,16 @@ section.data-wiki .data div:last-child .comentario{
     visibility: visible;
     opacity: 1;
   }
+  section.data-wiki .data div:first-child h1{
+    font-size: 0.9rem;
+  }
+  section.data-wiki .data div:last-child h1{
+    font-size: 0.85rem;
+  }
+  section.data-wiki .data div:last-child{
+    font-size: 0.75rem;
+  }
+
 }
 @media only screen and (max-width: 576px) {}
 @media only screen and (max-width: 416px) {}
