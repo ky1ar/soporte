@@ -1973,6 +1973,17 @@ section.i3d{
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  background-color: #efefef;
+}
+
+section.i3d h1{
+  margin-top: 0;
+  text-align: center;
+  background-color: #ed6d22;
+  margin: 0 auto 2rem auto;
+  padding: 0.5rem 2rem;
+  border-radius: 0 0 1rem 1rem;
+  color: white;
 }
 
 section.i3d .cont-cards{
