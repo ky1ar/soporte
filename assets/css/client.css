@@ -1993,7 +1993,7 @@ section.i3d h1.sub{
 
 section.i3d .cont-cards{
   display: flex;
-    gap: 2rem;
+    gap: 3rem;
     flex-wrap: wrap;
     /* align-items: center; */
     justify-content: center;
