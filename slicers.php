@@ -21,7 +21,7 @@ require_once 'includes/common/header.php';
                 <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
                 <div>
                     <h1>UltiMaker Cura</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas. Ofrece más de 400 ajustes para optimizar tus modelos 3D y obtener los mejores resultados de impresión.</p>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://ultimaker.com/es/software/ultimaker-cura/">DESCARGA AQUÍ</a>
                 </div>
             </div>
