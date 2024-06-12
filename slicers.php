@@ -96,9 +96,9 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/logos-slicer/logo-cura.png" alt="">
                 </div>
                 <div>
-                    <h1>UltiMaker Cura</h1>
+                    <h1>LaserGRBL</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://ultimaker.com/es/software/ultimaker-cura/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://lasergrbl.com/download/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
@@ -107,9 +107,9 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/logos-slicer/logo-prusa.png" alt="">
                 </div>
                 <div>
-                    <h1>PrusaSlicer</h1>
+                    <h1>K40 Whisperer</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.prusa3d.com/es/pagina/prusaslicer_424/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://www.scorchworks.com/K40whisperer/k40whisperer.html" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
@@ -118,9 +118,9 @@ require_once 'includes/common/header.php';
                     <img src="assets/img/logos-slicer/logo-slic3r.png" alt="">
                 </div>
                 <div>
-                    <h1>Slic3r</h1>
+                    <h1>Inkscape</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://slic3r.org/download/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://inkscape.org/release/inkscape-1.3.2/windows/64-bit/msi/?redirected=1" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
