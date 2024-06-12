@@ -18,7 +18,9 @@ require_once 'includes/common/header.php';
         <h1>IMPRESORAS 3D</h1>
         <div class="cont-cards">
             <div class="card">
-                <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                </div>
                 <div>
                     <h1>UltiMaker Cura</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>

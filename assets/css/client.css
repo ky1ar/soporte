@@ -1989,30 +1989,35 @@ section.i3d .cont-cards .card{
   width: 28rem;
 }
 
-section.i3d .cont-cards .card img{
+section.i3d .cont-cards .card div:first-child{
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-section.i3d .cont-cards .card div{
+section.i3d .cont-cards .card div:first-child img{
+  width: 90%;
+}
+section.i3d .cont-cards .card div:last-child{
   width: 50%;
   margin-top: auto;
   display: flex;
   flex-direction: column;
 }
 
-section.i3d .cont-cards .card div h1,
-section.i3d .cont-cards .card div p{
+section.i3d .cont-cards .card div:last-child h1,
+section.i3d .cont-cards .card div:last-child p{
   margin: 0;
 }
-section.i3d .cont-cards .card div h1{
+section.i3d .cont-cards .card div:last-child h1{
   font-weight: 500;
   font-size: 1rem;
 }
-section.i3d .cont-cards .card div p{
+section.i3d .cont-cards .card div:last-child p{
   font-size: 0.8rem;
   line-height: 1;
 }
-section.i3d .cont-cards .card div a{
+section.i3d .cont-cards .card div:last-child a{
   background-color: var(--primary);
   border-radius: 1rem;
   color: white;
