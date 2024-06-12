@@ -115,6 +115,14 @@ $(document).ready(function () {
     }
   );
 
+  // Simular clic en el primer elemento al cargar la página
+  $(document).ready(function () {
+    var firstListItem = $(
+      "section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li"
+    ).first();
+    firstListItem.trigger("click");
+  });
+
   function mostrarDatos(data) {
     var content = "<div>";
 
