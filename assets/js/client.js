@@ -120,7 +120,7 @@ $(document).ready(function () {
     var firstListItem = $(
       "section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li"
     ).first();
-    listItemAtIndex38.trigger("click");
+    listItemAtIndex36.trigger("click");
   });
 
   function mostrarDatos(data) {
