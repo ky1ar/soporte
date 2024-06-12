@@ -19,7 +19,7 @@ require_once 'includes/common/header.php';
         <div class="cont-cards">
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                    <img src="assets/img/logos-slicer/logo-cura.png" alt="">
                 </div>
                 <div>
                     <h1>UltiMaker Cura</h1>
