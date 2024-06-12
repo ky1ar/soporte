@@ -10,7 +10,9 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <section>hola soy SLICERS</section>
+    <section class="xbanner-slicers">
+        <img src="assets/img/SLICERS-pc.webp" alt="">
+    </section>
     <?php require_once 'includes/common/footer.php'; ?>
 
 </body>

@@ -1950,12 +1950,16 @@ section.data-wiki .data div:last-child .comentario{
   }
 
 }
-@media only screen and (max-width: 576px) {}
-@media only screen and (max-width: 416px) {}
 
-/* body > section.data-wiki > section.data > div:nth-child(2) > p:nth-child(20),
-body > section.data-wiki > section.data > div:nth-child(2) > p:nth-child(22),
-body > section.data-wiki > section.data > div:nth-child(2) > p:nth-child(24),
-body > section.data-wiki > section.data > div:nth-child(2) > p:nth-child(26){
-  text-align: center;
-} */
+/* vista de slicers */
+section.xbanner-slicers{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: 0 auto 3rem auto;
+}
+
+section.xbanner-slicers img{ 
+  border-radius: 1rem;
+  width: 100%;
+}
