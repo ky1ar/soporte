@@ -1972,6 +1972,7 @@ section.xbanner-slicers img{
 section.i3d{
   display: flex;
   flex-direction: column;
+  padding: 2rem;
 }
 
 section.i3d .cont-cards{
@@ -1983,14 +1984,24 @@ section.i3d .cont-cards .card{
   display: flex;
   background-color: white;
   box-shadow: 0 0 1rem 0.5rem rgb(199, 199, 199);
-  padding: 1rem;
+  padding: 0.5rem;
+  width: 28rem;
 }
 
 section.i3d .cont-cards .card img{
-  width: 5rem;
-  height: 5rem;
+  width: 50%;
 }
 
 section.i3d .cont-cards .card div{
   width: 50%;
+}
+
+section.i3d .cont-cards .card div h1,
+section.i3d .cont-cards .card div p{
+  margin: 0;
+}
+
+section.i3d .cont-cards .card div a{
+  background-color: var(--primary);
+
 }
