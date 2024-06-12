@@ -2001,8 +2001,7 @@ section.i3d .cont-cards{
 
 section.i3d .cont-cards .card{
   display: flex;
-  box-shadow: 0 0 1rem 0.5rem rgb(226, 226, 226);
-  /* border: 0.2rem solid rgb(196, 196, 196); */
+  box-shadow: 0 0 0.7rem 0.2rem #a3a3a3;
   background-color: white;
   padding: 0.5rem;
   width: 28rem;
@@ -2014,7 +2013,7 @@ section.i3d .cont-cards .card div:first-child{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(223, 223, 223);
+  background-color: #dfdfdf
 }
 section.i3d .cont-cards .card div:first-child img{
   width: 70%;
@@ -2032,7 +2031,7 @@ section.i3d .cont-cards .card div:last-child p{
   margin: 0;
 }
 section.i3d .cont-cards .card div:last-child h1{
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
 }
 section.i3d .cont-cards .card div:last-child p{
