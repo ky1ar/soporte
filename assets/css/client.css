@@ -1687,6 +1687,7 @@ section.data-wiki .menu-wiki ul{
 section.data-wiki .menu-wiki ul ul {
   max-height: 34rem;
   opacity: 0;
+  overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
