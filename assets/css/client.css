@@ -1973,9 +1973,13 @@ section.i3d{
   display: flex;
   flex-direction: column;
   padding: 0 2rem 2rem 2rem;
+}
+section.i3d:nth-child(odd){
   background-color: #efefef;
 }
-
+section.i3d:nth-child(even){
+  background-color: white;
+}
 section.i3d h1.sub{
   margin-top: 0;
   text-align: center;
