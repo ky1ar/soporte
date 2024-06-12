@@ -13,7 +13,7 @@ require_once 'includes/common/header.php';
     <section class="xbanner-slicers">
         <img src="assets/img/SLICERS-pc.webp" alt="">
     </section>
-    <h1 class="title-slicers">SLICERS</h1>
+    <!-- <h1 class="title-slicers">SLICERS</h1> -->
     <section class="i3d">
         <h1 class="sub">IMPRESORAS 3D</h1>
         <div class="cont-cards">
