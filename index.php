@@ -32,15 +32,15 @@ require_once 'includes/common/header.php';
         </div>
         <div class="section-item">
             <p>Encuentra todo el contenido para que te vuelvas un experto.</p>
-            <button>WIKI</button>
+            <a href="/wiki"><button>WIKI</button></a> 
         </div>
         <div class="section-item">
             <p>Descarga de forma gratuita todos los diseños de nuestras redes</p>
-            <button>STLs</button>
+            <a href="/stl"><button>STLs</button></a> 
         </div>
         <div class="section-item">
             <p>Accede a los programas más avanzados para tus equipos</p>
-            <button>SLICERS</button>
+            <a href="/slicers"><button>SLICERS</button></a> 
         </div>
     </section>
 
