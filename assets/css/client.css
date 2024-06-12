@@ -1994,6 +1994,7 @@ section.i3d .cont-cards .card div:first-child{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(223, 223, 223);
 }
 section.i3d .cont-cards .card div:first-child img{
   width: 90%;
