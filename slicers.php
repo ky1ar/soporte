@@ -85,6 +85,11 @@ require_once 'includes/common/header.php';
 
         </div>
 
+
+    </section>
+
+    <section class="i3d">
+        <h1 class="sub">IMPRESORAS 3D</h1>
         <div class="cont-cards">
             <div class="card">
                 <div>
@@ -154,6 +159,11 @@ require_once 'includes/common/header.php';
 
         </div>
 
+
+    </section>
+
+    <section class="i3d">
+        <h1 class="sub">IMPRESORAS 3D</h1>
         <div class="cont-cards">
             <div class="card">
                 <div>
@@ -223,6 +233,7 @@ require_once 'includes/common/header.php';
 
         </div>
     </section>
+    
     <section class="cortlas"></section>
     <section class="es3d"></section>
     <section class="cnc"></section>
