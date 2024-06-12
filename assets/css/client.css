@@ -1995,6 +1995,8 @@ section.i3d .cont-cards .card img{
 section.i3d .cont-cards .card div{
   width: 50%;
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 section.i3d .cont-cards .card div h1{
