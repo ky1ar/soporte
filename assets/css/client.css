@@ -1686,14 +1686,14 @@ section.data-wiki .menu-wiki ul{
 }
 section.data-wiki .menu-wiki ul ul {
   max-height: 34rem;
-  opacity: 1;
-  overflow: hidden;
+  opacity: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 section.data-wiki .menu-wiki ul ul.show {
   max-height: 0;
-  opacity: 1;
+  opacity: 0;
+  overflow: hidden;
 }
 
 section.data-wiki .menu-wiki ul li p {

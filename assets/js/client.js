@@ -35,7 +35,7 @@ $(document).ready(function () {
     menu.addEventListener("click", function () {
       var nextElement = menu.nextElementSibling;
       var imgElement = menu.querySelector("img");
-  
+
       if (nextElement && nextElement.tagName === "UL") {
         if (nextElement.classList.contains("show")) {
           nextElement.classList.remove("show");
@@ -46,18 +46,6 @@ $(document).ready(function () {
         }
       }
     });
-  
-    // Verificar el estado inicial
-    var nextElement = menu.nextElementSibling;
-    if (nextElement && nextElement.tagName === "UL") {
-      // Asumiendo que quieres que esté abierto por defecto
-      nextElement.classList.add("show");
-      // Asegúrate de que también se rote la imagen si es necesario
-      var imgElement = menu.querySelector("img");
-      if (imgElement) {
-        imgElement.classList.add("rotate");
-      }
-    }
   });
 
   // Mobile menu toggle
