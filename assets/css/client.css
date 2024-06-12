@@ -1692,8 +1692,8 @@ section.data-wiki .menu-wiki ul ul {
 }
 
 section.data-wiki .menu-wiki ul ul.show {
-  max-height: 34rem;
-  opacity: 1;
+  max-height: 0;
+  opacity: 0;
 }
 
 section.data-wiki .menu-wiki ul li p {
