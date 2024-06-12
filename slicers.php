@@ -133,6 +133,17 @@ require_once 'includes/common/header.php';
                     <a href="https://visicut.org/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
+
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-lightburn.jpg" alt="">
+                </div>
+                <div>
+                    <h1>LightBurn</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://lightburnsoftware.com/pages/download-trial" target="_blank">DESCARGA AQUÍ</a>
+                </div>
+            </div>
         </div>
 
 
