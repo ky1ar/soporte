@@ -144,6 +144,17 @@ require_once 'includes/common/header.php';
                     <a href="https://lightburnsoftware.com/pages/download-trial" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
+
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-beam.png" alt="">
+                </div>
+                <div>
+                    <h1>Beam Studio</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://www.fluxlasers.com/service/downloads/" target="_blank">DESCARGA AQUÍ</a>
+                </div>
+            </div>
         </div>
 
 
