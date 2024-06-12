@@ -1999,7 +1999,8 @@ section.i3d .cont-cards .card div{
   flex-direction: column;
 }
 
-section.i3d .cont-cards .card div h1{
+section.i3d .cont-cards .card div h1,
+section.i3d .cont-cards .card div p{
   margin: 0;
 }
 
