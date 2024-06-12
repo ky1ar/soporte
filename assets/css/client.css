@@ -1646,7 +1646,11 @@ section.stls .card-stl button:hover{
   }
 }
 @media only screen and (max-width: 576px) {}
-@media only screen and (max-width: 416px) {}
+@media only screen and (max-width: 416px) {
+  section.stls{
+    padding: 2rem;
+  }
+}
 
 
 /* vista de wiki */
