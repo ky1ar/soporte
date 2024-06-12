@@ -2008,5 +2008,5 @@ section.i3d .cont-cards .card div a{
   color: white;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  margin-top: 1rem;
+  margin: 1rem auto;
 }
