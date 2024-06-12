@@ -211,6 +211,7 @@ color: #B08A7A;
   display: flex;
   list-style: none;
   gap: 1rem;
+  justify-content: center;
 }
 #navigationBar ul a { 
   color: var(--black);
