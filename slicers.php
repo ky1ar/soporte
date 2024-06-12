@@ -41,7 +41,7 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                    <img src="assets/img/logos-slicer/logo-slic3r.png" alt="">
                 </div>
                 <div>
                     <h1>Slic3r</h1>
@@ -52,7 +52,7 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                    <img src="assets/img/logos-slicer/logo-chitubox.png" alt="">
                 </div>
                 <div>
                     <h1>Chitubox</h1>
@@ -63,26 +63,26 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                    <img src="assets/img/logos-slicer/logo-mattercontrol.png" alt="">
                 </div>
                 <div>
-                    <h1>UltiMaker Cura</h1>
+                    <h1>MatterControl</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://ultimaker.com/es/software/ultimaker-cura/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://www.matterhackers.com/store/l/mattercontrol/sk/MKZGTDW6" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
+                    <img src="assets/img/logos-slicer/logo-repetier.png" alt="">
                 </div>
                 <div>
-                    <h1>UltiMaker Cura</h1>
+                    <h1>Repetier-Host</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://ultimaker.com/es/software/ultimaker-cura/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://www.repetier.com/download-now/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
-            
+
         </div>
     </section>
     <section class="cortlas"></section>
