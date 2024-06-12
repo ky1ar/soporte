@@ -1977,14 +1977,16 @@ section.i3d{
 
 section.i3d .cont-cards{
   display: flex;
-  gap: 1rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
 }
 
 section.i3d .cont-cards .card{
   display: flex;
   border: 0.2rem solid rgb(196, 196, 196);
   background-color: white;
-  /* box-shadow: 0 0 1rem 0.5rem rgb(199, 199, 199); */
   padding: 0.5rem;
   width: 28rem;
 }
