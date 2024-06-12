@@ -2014,7 +2014,7 @@ section.i3d .cont-cards .card div:first-child{
   align-items: center;
   justify-content: center;
   /* background-color: #dfdfdf */
-  background: linear-gradient(45deg, #595959, transparent);
+  background: linear-gradient(45deg, #98d4ff, transparent);
 }
 section.i3d .cont-cards .card div:first-child img{
   width: 70%;
@@ -2048,3 +2048,14 @@ section.i3d .cont-cards .card div:last-child a{
   margin: 0.5rem auto;
   font-size: 0.7rem;
 }
+@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 576px) {
+  section.i3d .cont-cards .card div:last-child p {
+    margin: 1rem 0;
+  }
+  section.i3d .cont-cards .card div:last-child{
+    justify-content: center;
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 416px) {}
