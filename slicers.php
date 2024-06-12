@@ -24,7 +24,7 @@ require_once 'includes/common/header.php';
                 <div>
                     <h1>UltiMaker Cura</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://ultimaker.com/es/software/ultimaker-cura/">DESCARGA AQUÍ</a>
+                    <a href="https://ultimaker.com/es/software/ultimaker-cura/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
         </div>
