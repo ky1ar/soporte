@@ -1976,7 +1976,7 @@ section.i3d{
   background-color: #efefef;
 }
 
-section.i3d h1{
+section.i3d h1.sub{
   margin-top: 0;
   text-align: center;
   background-color: #ed6d22;
