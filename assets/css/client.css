@@ -1717,11 +1717,11 @@ section.data-wiki .menu-wiki ul li a{
   align-items: center;
 }
 section.data-wiki .menu-wiki ul li a img{
-  width: 0.8rem;
+  width: 1rem;
   margin-right: 0.5rem;
 }
 section.data-wiki .menu-wiki ul li p img{
-  width: 1rem;
+  width: 0.7rem;
   margin-right: 0.4rem;
 }
 .rotate {
