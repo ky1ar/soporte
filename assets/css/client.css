@@ -1999,15 +1999,19 @@ section.i3d .cont-cards .card div{
   display: flex;
   flex-direction: column;
 }
-section.i3d .cont-cards .card div h1{
-  font-weight: 500;
-  font-size: 1rem;
-}
+
 section.i3d .cont-cards .card div h1,
 section.i3d .cont-cards .card div p{
   margin: 0;
 }
-
+section.i3d .cont-cards .card div h1{
+  font-weight: 500;
+  font-size: 1rem;
+}
+section.i3d .cont-cards .card div p{
+  font-size: 0.8rem;
+  line-height: 1;
+}
 section.i3d .cont-cards .card div a{
   background-color: var(--primary);
   border-radius: 1rem;
