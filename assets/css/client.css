@@ -1984,6 +1984,7 @@ section.i3d h1.sub{
   padding: 0.5rem 2rem;
   border-radius: 0 0 1rem 1rem;
   color: white;
+  box-shadow: 0 0 1rem 0.5rem gray;
 }
 
 section.i3d .cont-cards{

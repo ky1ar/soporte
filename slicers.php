@@ -74,12 +74,12 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-repetier.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-orca.png" alt="">
                 </div>
                 <div>
-                    <h1>Repetier-Host</h1>
+                    <h1>Orca Slicer</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.repetier.com/download-now/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.0.0" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
