@@ -161,7 +161,7 @@ require_once 'includes/common/header.php';
     </section>
 
     <section class="i3d">
-        <h1 class="sub">ESCANERES 3D</h1>
+        <h1 class="sub">ESCANERES 3Ds</h1>
         <div class="cont-cards">
             <div class="card">
                 <div>
