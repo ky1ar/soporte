@@ -201,34 +201,34 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-chitubox.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-freecad.png" alt="">
                 </div>
                 <div>
-                    <h1>Chitubox</h1>
+                    <h1>FreeCAD</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.chitubox.com/en/download/chitubox-free" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://www.freecad.org/downloads.php?lang=es_ES" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-mattercontrol.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-3dbuilder.webp" alt="">
                 </div>
                 <div>
-                    <h1>MatterControl</h1>
+                    <h1>3D Builder</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.matterhackers.com/store/l/mattercontrol/sk/MKZGTDW6" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://apps.microsoft.com/detail/9wzdncrfj3t6?hl=es-pe&gl=PE" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-orca.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-blender.png" alt="">
                 </div>
                 <div>
-                    <h1>Orca Slicer</h1>
+                    <h1>Blender</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.0.0" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://www.blender.org/download/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
 
