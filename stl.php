@@ -52,7 +52,7 @@ require_once 'includes/common/header.php';
         </div>
         <div class="card-stl">
             <img src="assets/img/knight.webp" alt="">
-            <h1>ESPEON</h1>
+            <h1>KNIGHT</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/knight-stl.rar" download>
                 <button>DESCARGA AQUÍ</button>
