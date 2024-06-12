@@ -51,10 +51,10 @@ require_once 'includes/common/header.php';
             </a>
         </div>
         <div class="card-stl">
-            <img src="assets/img/espeon.webp" alt="">
+            <img src="assets/img/knight.webp" alt="">
             <h1>ESPEON</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
-            <a href="archivos-stl/pencil-stl.zip" download>
+            <a href="archivos-stl/knight-stl.rar" download>
                 <button>DESCARGA AQUÍ</button>
             </a>
         </div>
