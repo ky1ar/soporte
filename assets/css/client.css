@@ -2004,6 +2004,7 @@ section.i3d .cont-cards .card div:last-child{
   margin-top: auto;
   display: flex;
   flex-direction: column;
+  margin-left: 1rem;
 }
 
 section.i3d .cont-cards .card div:last-child h1,
