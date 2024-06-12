@@ -1718,6 +1718,7 @@ section.data-wiki .menu-wiki ul li a{
 }
 section.data-wiki .menu-wiki ul li a img{
   width: 0.8rem;
+  margin-right: 0.5rem;
 }
 section.data-wiki .menu-wiki ul li p img{
   width: 0.7rem;
