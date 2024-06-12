@@ -1963,3 +1963,34 @@ section.xbanner-slicers img{
   border-radius: 1rem;
   width: 100%;
 }
+
+.title-slicers{
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+section.i3d{
+  display: flex;
+  flex-direction: column;
+}
+
+section.i3d .cont-cards{
+  display: flex;
+  gap: 1rem;
+}
+
+section.i3d .cont-cards .card{
+  display: flex;
+  background-color: white;
+  box-shadow: 0 0 1rem 0.5rem rgb(199, 199, 199);
+  padding: 1rem;
+}
+
+section.i3d .cont-cards .card img{
+  width: 5rem;
+  height: 5rem;
+}
+
+section.i3d .cont-cards .card div{
+  width: 50%;
+}

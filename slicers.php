@@ -13,11 +13,11 @@ require_once 'includes/common/header.php';
     <section class="xbanner-slicers">
         <img src="assets/img/SLICERS-pc.webp" alt="">
     </section>
-    <h1>SLICERS</h1>
+    <h1 class="title-slicers">SLICERS</h1>
     <section class="i3d">
         <h1>IMPRESORAS 3D</h1>
         <div class="cont-cards">
-            <div class="card-s">
+            <div class="card">
                 <img src="assets/img/logos-slicer/logo-cura.webp" alt="">
                 <div>
                     <h1>UltiMaker Cura</h1>
