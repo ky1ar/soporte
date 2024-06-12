@@ -187,7 +187,10 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-regard3d.jpg" alt="">
+                    <img src="assets/img/logos-slicer/logo-regard3d.jpg"
+                    style="border-radius: 1rem;" 
+                    alt="">
+
                 </div>
                 <div>
                     <h1>Regard3D</h1>
