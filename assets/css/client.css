@@ -1714,6 +1714,9 @@ section.data-wiki .menu-wiki ul li a{
   color: black;
   text-decoration: none;
 }
+section.data-wiki .menu-wiki ul li a img{
+  width: 0.8rem;
+}
 section.data-wiki .menu-wiki ul li p img{
   width: 0.7rem;
   margin-right: 0.4rem;

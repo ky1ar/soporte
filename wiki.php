@@ -87,7 +87,7 @@ require_once 'includes/common/header.php';
         <section class="menu-wiki">
             <ul>
                 <li>
-                    <a href="/wiki">INICIO</a>
+                    <a href="/wiki"><img src="./assets/img/home-icon.png" alt="">INICIO</a>
                 </li>
                 <li>
                     <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOLUCIÓN DE PROBLEMAS</p>
@@ -157,9 +157,6 @@ require_once 'includes/common/header.php';
     </section>
 
     <?php require_once 'includes/common/footer.php'; ?>
-    <!-- <script>
-        
-    </script> -->
 </body>
 
 </html>
