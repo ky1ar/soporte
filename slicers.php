@@ -136,7 +136,7 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-lightburn.jpg" alt="">
+                    <img src="assets/img/logos-slicer/logo-lightburn.png" alt="">
                 </div>
                 <div>
                     <h1>LightBurn</h1>
