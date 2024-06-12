@@ -125,7 +125,7 @@ require_once 'includes/common/header.php';
             </div>
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-mattercontrol.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-visicut.png" alt="">
                 </div>
                 <div>
                     <h1>VisiCut</h1>
