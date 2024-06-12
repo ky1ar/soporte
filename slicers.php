@@ -161,14 +161,14 @@ require_once 'includes/common/header.php';
     </section>
 
     <section class="i3d">
-        <h1 class="sub">ESCANERES 3Ds</h1>
+        <h1 class="sub">ESCANERES 3D</h1>
         <div class="cont-cards">
             <div class="card">
                 <div>
                     <img src="assets/img/logos-slicer/logo-meshlab.png" alt="">
                 </div>
                 <div>
-                    <h1>Meshlaba</h1>
+                    <h1>Meshlab</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.meshlab.net/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
