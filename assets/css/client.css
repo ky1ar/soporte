@@ -2033,7 +2033,7 @@ section.i3d .cont-cards .card div:first-child{
 section.i3d .cont-cards .card div:first-child img{
   width: 60%;
 }
-section.i3d .cont-cards .card:nth-child(12) div:first-child img{
+section:nth-child(9) > div > div:nth-child(1) > div:nth-child(1) > img{
   border-radius: 1rem;
 }
 section.i3d .cont-cards .card div:last-child{
