@@ -3,7 +3,10 @@ $pages = [
     // ['Home','Home'],
     ['Consultas', 'consultas'],
     ['Capacitaciones', 'capacitaciones'],
-    // ['Contacto', 'contacto'],
+    ['Wiki', 'wiki'],
+    ['Slicers', 'slicers'],
+    ['STLs', 'stl'],
+    ['Contacto', 'contacto'],
     // ['Conocimiento', 'conocimiento'],
     // ['Cursos', 'cursos']
 ];

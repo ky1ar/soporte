@@ -133,6 +133,7 @@ color: #B08A7A;
 }
 #navigationBar ul {
   padding-right: 8rem;
+  flex-wrap: wrap;
 }
 @media (min-width: 551px) {
   #navigationBar .wrapper .link-te{
@@ -200,7 +201,7 @@ color: #B08A7A;
 
 #navigationBar .logo {
   width: 10rem;
-  transition: 0.25s all ease-in-out;
+  /* transition: 0.25s all ease-in-out; */
 }
 #navigationBar .logo:hover {
   opacity: 0.9;
@@ -210,8 +211,9 @@ color: #B08A7A;
   display: flex;
   list-style: none;
   gap: 1rem;
+  justify-content: center;
 }
-#navigationBar ul a {
+#navigationBar ul a { 
   color: var(--black);
   padding: 0.5rem 1rem;
   display: block;
@@ -948,7 +950,11 @@ footer .item ul.social-icons li a{
 footer .item ul.social-icons li img {
   filter: invert(1);
 }
-
+@media only screen and (max-width: 768px) {
+  footer .top .wrapper .item:first-child{
+    margin: auto;
+  }
+}
 /*********************************** FOOTER **********************************/
 #ky1-ord {
   background-color: var(--gray);
@@ -1371,6 +1377,13 @@ section.xbanner-top img{
   width: 100%;
 }
 
+.bar-div {
+  margin: 3rem auto 1rem auto;
+  height: 0.15rem;
+  width: 72rem;
+  background-color: #e0e0e0;
+}
+
 section.contact-info{
   display: flex;
   align-items: center;
@@ -1389,6 +1402,10 @@ section.contact-info .card{
   width: 15rem;
   height: 17rem;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+section.contact-info .card:hover{
+  transform: scale(1.1);
 }
 
 section.contact-info .card h1{
@@ -1420,41 +1437,653 @@ section.contact-map{
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
+  margin-top: 2rem;
   margin-bottom: 6rem;
-  gap: 3rem;
+  gap: 2rem;
+  flex-direction: column;
 }
 
 section.contact-map iframe{
-  width: 40rem;
-  height: 20rem;
+  width: 60rem;
+  height: 25rem;
 }
 
-section.contact-map div{
+.contact-in {
   display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  width: 29rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
 }
-section.contact-map div h1{
-  margin: 0;
+.contact-in  p {
+  text-align: center;
+  font-size:  1rem;
+  margin-bottom: 0;
 }
 
-section.contact-map div p{
+
+/* section.contact-map div p{
   width: 21rem;
   margin-top: 0;
-}
+} */
 
 @media only screen and (max-width: 1600px) {
   section.contact-map{
     padding: 0 4rem;
   }
 }
-@media only screen and (max-width: 1200px) {}
-@media only screen and (max-width: 992px) {}
+@media only screen and (max-width: 1200px) {
+  /* section.contact-map {
+    padding: 0;
+  } */
+  section.contact-map{
+    padding: 0;
+  }
+  section.contact-map iframe{
+    width: 90%;
+  }
+  .bar-div{
+    width: 94%;
+  }
+  section.contact-info {
+    gap: 5rem;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 992px) {
+  section.contact-info a{
+    margin: auto;
+  }
+  section.contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section.contact-map{
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 @media only screen and (max-width: 768px) {
   section.xbanner-top img{
     content: url(../img/banner-contacto-movil.webp);
-  } 
+  }
+  .bar-div{
+    display: none;
+  }
+  section.contact-info{
+    margin-top: 2rem;
+    padding: 0;
+    gap: 1rem;
+  }
+  section.contact-map{
+    padding: 0;
+  }
+  section.contact-map iframe{
+    width: 90%;
+  }
+  /* section.contact-map div {
+    text-align: left;
+    align-items: start;
+    width: 90%;
+  }
+  section.contact-map div p {
+    text-align: left; 
+  }
+   */
+  .contact-in  p {
+    font-size:  0.8rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  section.contact-info{
+    gap: 1.5rem;
+  }
+  section.contact-info .card{
+    width: 11rem;
+    height: 14rem;
+  }
+}
+@media only screen and (max-width: 416px) {
+  section.contact-info {
+    gap: 1rem;
+  }
+  section.contact-info .card {
+    width: 9rem;
+    height: 12rem;
+  }
+  section.contact-info .card img {
+    width: 4rem;
+    height: 4rem;
+    margin: 0;
+  }
+  section.contact-info .card p {
+    font-size: 0.6rem;
+  }
+  section.contact-map {
+    gap: 1rem;
+  }
+}
+
+/* vista de stls */
+section.xbanner-stls{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: 0 auto 3rem auto;
+}
+
+section.xbanner-stls img{ 
+  border-radius: 1rem;
+  width: 100%;
+}
+
+section.stls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 3rem;
+  gap: 4rem;
+}
+section.stls:nth-child(odd){
+  background-color: var(--gray);
+}
+section.stls:nth-child(even){
+  background-color: var(--white);
+}
+section.stls .card-stl{
+  background-color: white;
+  box-shadow: 0 0 0.5rem 0.2rem #cacaca;
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  height: 29rem;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+section.stls .card-stl:hover{
+  transform: scale(1.02);
+}
+section.stls .card-stl img{
+  width: 100%;
+  height: 65%;
+}
+section.stls .card-stl h1{
+  margin-bottom: 0;
+  text-align: center;
+}
+section.stls .card-stl p{
+  margin-top: 0;
+  line-height: 1.1;
+}
+section.stls .card-stl a{
+  margin: auto;
+}
+section.stls .card-stl button{
+  background-color: var(--primary);
+  padding: 0.5rem 1rem;
+  width: 10rem;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  margin: 0 auto;
+  cursor: pointer;
+  word-spacing: 0.2rem;
+  font-size: 0.8rem;
+}
+
+section.stls .card-stl button:hover{
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 1600px) {}
+@media only screen and (max-width: 1200px) {}
+@media only screen and (max-width: 992px) {
+  section.stls{
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 768px) {
+  section.xbanner-stls img{
+    content: url(../img/stl-movil.webp);
+  }
 }
 @media only screen and (max-width: 576px) {}
-@media only screen and (max-width: 416px) {}
+@media only screen and (max-width: 416px) {
+  section.stls{
+    padding: 2rem;
+  }
+}
+
+
+/* vista de wiki */
+section.xbanner-wiki{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: 0 auto 3rem auto;
+}
+
+section.xbanner-wiki img{ 
+  border-radius: 1rem;
+  width: 100%;
+}
+
+section.data-wiki{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+section.data-wiki .menu-wiki{
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+}
+
+section.data-wiki .menu-wiki ul{
+  list-style-type: none;
+  line-height: 2;
+  font-size: 0.8rem;
+  padding-left: 1rem;
+}
+section.data-wiki .menu-wiki ul ul {
+  max-height: 34rem;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+section.data-wiki .menu-wiki ul ul.show {
+  max-height: 0;
+  opacity: 0;
+ 
+}
+
+section.data-wiki .menu-wiki ul li p {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  -webkit-user-select: none; /* For Safari and iOS */
+  user-select: none; /* Standard property */
+  cursor: pointer;
+}
+
+section.data-wiki .menu-wiki ul li p:hover{
+  opacity: 0.8;
+}
+section.data-wiki .menu-wiki ul li a{
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+section.data-wiki .menu-wiki ul li a img{
+  width: 1.1rem;
+  margin-right: 0.5rem;
+}
+section.data-wiki .menu-wiki ul li p img{
+  width: 0.7rem;
+  margin-right: 0.4rem;
+}
+.rotate {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
+}
+section.data-wiki .menu-wiki ul li ul{
+  padding-left: 1.1rem;
+}
+section.data-wiki .menu-wiki ul li ul li{
+  font-weight: 400;
+  cursor: pointer;
+}
+section.data-wiki .menu-wiki ul li ul li:hover{
+  color: var(--primary);
+}
+
+/* menu movil */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según sea necesario */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+  z-index: 2; /* Asegúrate de que el overlay esté por encima del contenido pero debajo del menú móvil */
+}
+
+/* Estilo para mostrar el overlay */
+.overlay.visible {
+  visibility: visible;
+  opacity: 1;
+}
+section.menu-wiki-movil {
+  position: fixed;
+  color: white;
+  background-color: var(--primary);
+  top: 0;
+  z-index: 3;
+  height: 100vh;
+  width: 0;
+  visibility: hidden;
+  opacity: 0;
+  overflow-y: auto;
+  scrollbar-width: none; 
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+
+section.menu-wiki-movil.visible {
+  visibility: visible;
+  opacity: 1;
+  width: 65%;
+}
+section.menu-wiki-movil ul{
+  list-style-type: none;
+  line-height: 2;
+  font-size: 0.8rem;
+  padding: 0 1rem;
+}
+section.menu-wiki-movil ul ul {
+  max-height: 34rem;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+section.menu-wiki-movil ul ul.show {
+  max-height: 0;
+  opacity: 0;
+}
+
+section.menu-wiki-movil ul li p {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  -webkit-user-select: none; /* For Safari and iOS */
+  user-select: none; /* Standard property */
+  cursor: pointer;
+}
+
+section.menu-wiki-movil ul li p:hover{
+  opacity: 0.8;
+}
+section.menu-wiki-movil ul li a{
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+section.menu-wiki-movil ul li p img{
+  width: 0.7rem;
+  filter: invert(1);
+  margin-right: 0.4rem;
+}
+section.menu-wiki-movil ul li ul{
+  padding-left: 1.1rem;
+}
+section.menu-wiki-movil ul li ul li{
+  font-weight: 400;
+  cursor: pointer;
+}
+section.menu-wiki-movil ul li ul li:hover{
+  color: black;
+}
+
+.btn-menu-movil {
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer; 
+}
+.btn-menu-movil img{
+  width: 1rem;
+  height: 1rem;
+  pad: 0.5rem;
+  filter: invert(1);
+  user-select: none;
+}
+
+
+
+
+
+section.data-wiki .data{
+  border-left: 0.2rem solid gray;    
+  padding: 0 1rem;
+  width: 60%;
+}
+
+section.data-wiki .data a{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  color: var(--primary);
+}
+section.data-wiki .data div:first-child p,
+section.data-wiki .data div:first-child h1{
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+section.data-wiki .data .title{
+  font-size: 3rem;
+  text-align: center;
+}
+section.data-wiki .data div:first-child h1{
+  font-size: 1.2rem;
+}
+section.data-wiki .data div:first-child h1 .pas{
+  width: 0.7rem;
+  margin: 0 0.5rem;
+}
+section.data-wiki .data div:first-child .imgP{
+  display: flex;
+  margin: 1rem auto;
+  max-height: 22rem;
+  max-width: 90%;
+}
+
+/* section.data-wiki .data div:last-child{
+  background-color: #74fc86;
+} */
+
+section.data-wiki .data div:last-child{
+  line-height: 1.5;
+  font-size: 0.85rem;
+}
+section.data-wiki .data div:last-child h1{
+  font-weight: 600;
+  margin: 0;
+}
+section.data-wiki .data div:last-child img{
+  display: flex;
+  margin: 1rem auto;
+  max-height: 35rem;
+  max-width: 90%;
+}
+section.data-wiki .data div:last-child .comentario{
+  text-align: center;
+  color: red;
+  font-style: italic;
+  margin-top: -0.5rem;  
+}
+/* section.data-wiki .data div:last-child p{
+  margin-top: 0;
+} */
+
+@media only screen and (max-width: 1600px) {}
+@media only screen and (max-width: 1200px) {
+  section.data-wiki .menu-wiki{
+    width: 30%;
+  }
+  section.data-wiki .data{
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  
+}
+@media only screen and (max-width: 768px) {
+  section.xbanner-wiki img{
+    content: url(../img/wiki-movil.webp);
+  }
+  section.data-wiki .menu-wiki{
+    display: none;
+  }
+  section.data-wiki .data{
+    border: none;
+    width: 100%;
+  }
+  .btn-menu-movil {
+    visibility: visible;
+    opacity: 1;
+  }
+  section.data-wiki .data div:first-child h1{
+    font-size: 0.9rem;
+  }
+  section.data-wiki .data div:last-child h1{
+    font-size: 0.85rem;
+  }
+  section.data-wiki .data div:last-child{
+    font-size: 0.75rem;
+  }
+  section.data-wiki .data .title{
+    font-size: 2rem;
+  }
+
+}
+
+/* vista de slicers */
+section.xbanner-slicers{
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100rem;
+  margin: 0 auto 3rem auto;
+}
+
+section.xbanner-slicers img{ 
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.title-slicers{
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+section.i3d{
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem 3rem 2rem;
+}
+section.i3d:nth-child(odd){
+  background-color: #efefef;
+}
+section.i3d:nth-child(even){
+  background-color: white;
+}
+section.i3d h1.sub{
+  margin-top: 0;
+  text-align: center;
+  background-color: #ed6d22;
+  margin: 0 auto 3rem auto;
+  padding: 0.5rem 2rem;
+  border-radius: 0 0 1rem 1rem;
+  color: white;
+  box-shadow: 0 0.5rem 0.5rem 0.1rem #a7a7a7;
+}
+
+section.i3d .cont-cards{
+  display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+section.i3d .cont-cards .card{
+  display: flex;
+  box-shadow: 0 0 0.7rem 0.2rem #c3c3c3;
+  background-color: white;
+  padding: 0.5rem;
+  width: 20rem;
+  height: 11rem;
+}
+
+section.i3d .cont-cards .card div:first-child{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #dfdfdf */
+  background: linear-gradient(45deg, #ffba7e, transparent);
+}
+section.i3d .cont-cards .card div:first-child img{
+  width: 63%;
+}
+section:nth-child(9) > div > div:nth-child(1) > div:nth-child(1) > img{
+  border-radius: 1rem;
+}
+section.i3d .cont-cards .card div:last-child{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  justify-content: center;
+}
+
+section.i3d .cont-cards .card div:last-child h1,
+section.i3d .cont-cards .card div:last-child p{
+  margin: 0;
+  text-align: center;
+}
+section.i3d .cont-cards .card div:last-child h1{
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 1rem auto;
+}
+section.i3d .cont-cards .card div:last-child p{
+  font-size: 0.8rem;
+  line-height: 1;
+  margin: 1rem 0;
+}
+section.i3d .cont-cards .card div:last-child a{
+  background-color: var(--primary);
+  border-radius: 1rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+@media only screen and (max-width: 768px) {
+  section.xbanner-slicers img{
+    content: url(../img/SLICERS-movil.webp);
+  }
+}
+@media only screen and (max-width: 576px) {
+  /* section.i3d .cont-cards .card div:last-child p {
+    margin: 1rem 0;
+  }
+  section.i3d .cont-cards .card div:last-child{
+    justify-content: center;
+    margin-top: 0;
+  } */
+}
