@@ -118,7 +118,7 @@ $(document).ready(function () {
   // Simular clic en el primer elemento al cargar la página
   $(document).ready(function() {
     // Obtener el segundo elemento (índice 1 en base 0)
-    var listItemAtIndex = $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").eq(4);
+    var listItemAtIndex = $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").eq(3);
     listItemAtIndex.trigger("click");
 });
 
