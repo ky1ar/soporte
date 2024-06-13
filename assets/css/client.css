@@ -1769,6 +1769,7 @@ section.menu-wiki-movil {
   width: 0;
   visibility: hidden;
   opacity: 0;
+  overflow-y: auto; 
   transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
 }
 
