@@ -16,7 +16,7 @@ require_once 'includes/common/header.php';
                 <a href="/wiki">INICIO</a>
             </li>
             <li>
-                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA</p>
+                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA 3D</p>
                 <ul>
                     <li>Documentación con fotos y videos</li>
                     <li>Problemas con tarjetas SD y unidades USB</li>
@@ -32,7 +32,7 @@ require_once 'includes/common/header.php';
                 </ul>
             </li>
             <li>
-                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA</p>
+                <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA 3D</p>
                 <ul>
                     <li>Mantenimiento habitual</li>
                     <li>Cambiar o reemplazar la boquilla - Anycubic</li>
@@ -91,7 +91,7 @@ require_once 'includes/common/header.php';
                     <a href="/wiki"><img src="./assets/img/home-icon.png" alt="">INICIO</a>
                 </li>
                 <li>
-                    <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA</p>
+                    <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">SOBRE TU IMPRESORA 3D</p>
                     <ul>
                         <li>Documentación con fotos y videos</li>
                         <li>Problemas con tarjetas SD y unidades USB</li>
@@ -107,7 +107,7 @@ require_once 'includes/common/header.php';
                     </ul>
                 </li>
                 <li>
-                    <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA</p>
+                    <p class="toggle-menu"><img src="./assets/img/menu-clip.png" alt="">USANDO LA IMPRESORA 3D</p>
                     <ul>
                         <li>Mantenimiento habitual</li>
                         <li>Cambiar o reemplazar la boquilla - Anycubic</li>
