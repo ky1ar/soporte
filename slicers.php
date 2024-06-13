@@ -23,7 +23,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>UltiMaker Cura</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://ultimaker.com/es/software/ultimaker-cura/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -34,7 +33,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>PrusaSlicer</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.prusa3d.com/es/pagina/prusaslicer_424/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -45,7 +43,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Orca Slicer</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.0.0" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -60,7 +57,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Chitubox</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.chitubox.com/en/download/chitubox-free" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -71,7 +67,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Lychee</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://mango3d.io/downloads/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -86,7 +81,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>LaserGRBL</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://lasergrbl.com/download/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -96,7 +90,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>LightBurn</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://lightburnsoftware.com/pages/download-trial" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -107,7 +100,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Beam Studio</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.fluxlasers.com/service/downloads/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -125,7 +117,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Revo Scan 5</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://global.revopoint3d.com/pages/support-download" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -135,7 +126,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>JM Studio</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://forum.jimumeta.com/home/help/download.html" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -146,7 +136,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>IntraoralScan</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://support.shining3ddental.com/es/support/solutions/articles/60000706166-descargar-el-software-intraoralscan" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -162,7 +151,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Candle</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://github.com/Denvi/Candle" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -173,7 +161,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Easel</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://easel.inventables.com/downloads" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -184,7 +171,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>UGS</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://winder.github.io/ugs_website/download/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -200,7 +186,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Tinkercad</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.tinkercad.com/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -211,7 +196,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>SelfCAD</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.selfcad.com/download-for-pc" target="_blank">DESCARGAR</a>
                 </div>
             </div>
@@ -222,7 +206,6 @@ require_once 'includes/common/header.php';
                 </div>
                 <div>
                     <h1>Meshmixer</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://meshmixer.softonic.com/" target="_blank">DESCARGAR</a>
                 </div>
             </div>
