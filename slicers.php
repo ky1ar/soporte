@@ -158,23 +158,23 @@ require_once 'includes/common/header.php';
         <div class="cont-cards">
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cambam.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-candle.png" alt="">
                 </div>
                 <div>
-                    <h1>CamBam</h1>
+                    <h1>Candle</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="http://www.cambam.info/downloads/" target="_blank">DESCARGAR</a>
+                    <a href="https://github.com/Denvi/Candle" target="_blank">DESCARGAR</a>
                 </div>
             </div>
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-estlcam.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-easel.png" alt="">
                 </div>
                 <div>
-                    <h1>Estlcam</h1>
+                    <h1>Easel</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.estlcam.de/" target="_blank">DESCARGAR</a>
+                    <a href="https://easel.inventables.com/downloads" target="_blank">DESCARGAR</a>
                 </div>
             </div>
 
