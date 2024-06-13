@@ -2061,6 +2061,7 @@ section.i3d .cont-cards .card div:last-child a{
   padding: 0.5rem 1rem;
   margin: 0.5rem auto;
   font-size: 0.7rem;
+  font-weight: 600;
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-slicers img{
