@@ -950,7 +950,11 @@ footer .item ul.social-icons li a{
 footer .item ul.social-icons li img {
   filter: invert(1);
 }
-
+@media only screen and (max-width: 768px) {
+  footer .top .wrapper .item:first-child{
+    margin: auto;
+  }
+}
 /*********************************** FOOTER **********************************/
 #ky1-ord {
   background-color: var(--gray);
