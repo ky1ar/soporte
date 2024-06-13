@@ -139,6 +139,17 @@ require_once 'includes/common/header.php';
                     <a href="https://forum.jimumeta.com/home/help/download.html" target="_blank">DESCARGAR</a>
                 </div>
             </div>
+
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-dental.png" alt="">
+                </div>
+                <div>
+                    <h1>IntraoralScan</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://support.shining3ddental.com/es/support/solutions/articles/60000706166-descargar-el-software-intraoralscan" target="_blank">DESCARGAR</a>
+                </div>
+            </div>
         </div>
     </section>
 
