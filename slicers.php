@@ -39,39 +39,6 @@ require_once 'includes/common/header.php';
                 </div>
             </div>
 
-            <!-- <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-slic3r.png" alt="">
-                </div>
-                <div>
-                    <h1>Slic3r</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://slic3r.org/download/" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-chitubox.png" alt="">
-                </div>
-                <div>
-                    <h1>Chitubox</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.chitubox.com/en/download/chitubox-free" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-mattercontrol.png" alt="">
-                </div>
-                <div>
-                    <h1>MatterControl</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.matterhackers.com/store/l/mattercontrol/sk/MKZGTDW6" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div> -->
-
             <div class="card">
                 <div>
                     <img src="assets/img/logos-slicer/logo-orca.png" alt="">
@@ -111,7 +78,7 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section class="i3d">
-        <h1 class="sub">CORTADORAS LASERS</h1>
+        <h1 class="sub">CORTADORAS LÁSER</h1>
         <div class="cont-cards">
             <div class="card">
                 <div>
@@ -123,39 +90,6 @@ require_once 'includes/common/header.php';
                     <a href="https://lasergrbl.com/download/" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-k40.png" alt="">
-                </div>
-                <div>
-                    <h1>K40 Whisperer</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.scorchworks.com/K40whisperer/k40whisperer.html" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-inkscape.png" alt="">
-                </div>
-                <div>
-                    <h1>Inkscape</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://inkscape.org/release/inkscape-1.3.2/windows/64-bit/msi/?redirected=1" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-visicut.png" alt="">
-                </div>
-                <div>
-                    <h1>VisiCut</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://visicut.org/" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
             <div class="card">
                 <div>
                     <img src="assets/img/logos-slicer/logo-lightburn.png" alt="">
