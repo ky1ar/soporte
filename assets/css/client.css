@@ -2018,8 +2018,8 @@ section.i3d .cont-cards .card{
   box-shadow: 0 0 0.7rem 0.2rem #c3c3c3;
   background-color: white;
   padding: 0.5rem;
-  width: 28rem;
-  height: 14rem;
+  width: 24rem;
+  height: 13rem;
 }
 
 section.i3d .cont-cards .card div:first-child{
@@ -2039,6 +2039,7 @@ section.i3d .cont-cards .card div:last-child{
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
+  justify-content: center;
 }
 
 section.i3d .cont-cards .card div:last-child h1,
@@ -2052,6 +2053,7 @@ section.i3d .cont-cards .card div:last-child h1{
 section.i3d .cont-cards .card div:last-child p{
   font-size: 0.8rem;
   line-height: 1;
+  margin: 1rem 0;
 }
 section.i3d .cont-cards .card div:last-child a{
   background-color: var(--primary);
@@ -2069,11 +2071,11 @@ section.i3d .cont-cards .card div:last-child a{
   }
 }
 @media only screen and (max-width: 576px) {
-  section.i3d .cont-cards .card div:last-child p {
+  /* section.i3d .cont-cards .card div:last-child p {
     margin: 1rem 0;
   }
   section.i3d .cont-cards .card div:last-child{
     justify-content: center;
     margin-top: 0;
-  }
+  } */
 }
