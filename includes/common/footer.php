@@ -2,7 +2,8 @@
     <div class="top">
         <div class="wrapper">
             <div class="item">
-                <img class="logo" width="152" height="38" src="assets/img/logo-v1-white.png" alt="Krear 3D">
+                
+                <img class="logo" width="170" height="38" src="assets/img/logo-v1-white.png" alt="Krear 3D">
             </div>
             <div class="item">
                 <b>HORARIO DE ATENCIÓN</b>
