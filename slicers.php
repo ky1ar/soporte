@@ -190,6 +190,44 @@ require_once 'includes/common/header.php';
             </div>
         </div>
     </section>
+
+    <section class="i3d">
+        <h1 class="sub">CAD</h1>
+        <div class="cont-cards">
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-tinkercad.webp" alt="">
+                </div>
+                <div>
+                    <h1>Tinkercad</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://www.tinkercad.com/" target="_blank">DESCARGAR</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-self.png" alt="">
+                </div>
+                <div>
+                    <h1>SelfCAD</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://www.selfcad.com/download-for-pc" target="_blank">DESCARGAR</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-mesh.png" alt="">
+                </div>
+                <div>
+                    <h1>Meshmixer</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://meshmixer.softonic.com/" target="_blank">DESCARGAR</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <?php require_once 'includes/common/footer.php'; ?>
 
 </body>
