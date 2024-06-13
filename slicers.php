@@ -121,71 +121,24 @@ require_once 'includes/common/header.php';
         <div class="cont-cards">
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-meshlab.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-revos5.png" alt="">
                 </div>
                 <div>
-                    <h1>Meshlab</h1>
+                    <h1>Revo Scan 5</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.meshlab.net/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://global.revopoint3d.com/pages/support-download" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
-
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-cc.png" alt="">
+                    <img src="assets/img/logos-slicer/logo-jm.png" alt="">
                 </div>
                 <div>
-                    <h1>CloudCompare</h1>
+                    <h1>JM Studio</h1>
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://cloudcompare-org.danielgm.net/release/" target="_blank">DESCARGA AQUÍ</a>
+                    <a href="https://forum.jimumeta.com/home/help/download.html" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-regard3d.jpg" style="border-radius: 1rem;" alt="">
-
-                </div>
-                <div>
-                    <h1>Regard3D</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.regard3d.org/index.php/download" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-freecad.png" alt="">
-                </div>
-                <div>
-                    <h1>FreeCAD</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.freecad.org/downloads.php?lang=es_ES" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-3dbuilder.webp" alt="">
-                </div>
-                <div>
-                    <h1>3D Builder</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://apps.microsoft.com/detail/9wzdncrfj3t6?hl=es-pe&gl=PE" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <img src="assets/img/logos-slicer/logo-blender.png" alt="">
-                </div>
-                <div>
-                    <h1>Blender</h1>
-                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
-                    <a href="https://www.blender.org/download/" target="_blank">DESCARGA AQUÍ</a>
-                </div>
-            </div>
-
         </div>
     </section>
 
