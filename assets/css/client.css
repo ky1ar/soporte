@@ -1784,15 +1784,15 @@ section.menu-wiki-movil ul{
   padding: 0 1rem;
 }
 section.menu-wiki-movil ul ul {
-  max-height: 0;
-  opacity: 0;
+  max-height: 34rem;
+  opacity: 1;
   overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 section.menu-wiki-movil ul ul.show {
-  max-height: 34rem;
-  opacity: 1;
+  max-height: 0;
+  opacity: 0;
 }
 
 section.menu-wiki-movil ul li p {
