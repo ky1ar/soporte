@@ -2044,6 +2044,7 @@ section.i3d .cont-cards .card div:last-child{
 section.i3d .cont-cards .card div:last-child h1,
 section.i3d .cont-cards .card div:last-child p{
   margin: 0;
+  text-align: center;
 }
 section.i3d .cont-cards .card div:last-child h1{
   font-weight: 600;
@@ -2060,7 +2061,7 @@ section.i3d .cont-cards .card div:last-child a{
   color: white;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  margin: 0.5rem auto;
+  margin: 2rem auto;
   font-size: 0.7rem;
   font-weight: 600;
 }
