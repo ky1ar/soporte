@@ -2022,8 +2022,8 @@ section.i3d .cont-cards .card{
   box-shadow: 0 0 0.7rem 0.2rem #c3c3c3;
   background-color: white;
   padding: 0.5rem;
-  width: 24rem;
-  height: 13rem;
+  width: 20rem;
+  height: 11rem;
 }
 
 section.i3d .cont-cards .card div:first-child{
@@ -2035,7 +2035,7 @@ section.i3d .cont-cards .card div:first-child{
   background: linear-gradient(45deg, #ffba7e, transparent);
 }
 section.i3d .cont-cards .card div:first-child img{
-  width: 60%;
+  width: 63%;
 }
 section:nth-child(9) > div > div:nth-child(1) > div:nth-child(1) > img{
   border-radius: 1rem;
