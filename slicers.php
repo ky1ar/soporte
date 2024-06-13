@@ -39,7 +39,7 @@ require_once 'includes/common/header.php';
                 </div>
             </div>
 
-            <div class="card">
+            <!-- <div class="card">
                 <div>
                     <img src="assets/img/logos-slicer/logo-slic3r.png" alt="">
                 </div>
@@ -70,7 +70,7 @@ require_once 'includes/common/header.php';
                     <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
                     <a href="https://www.matterhackers.com/store/l/mattercontrol/sk/MKZGTDW6" target="_blank">DESCARGA AQUÍ</a>
                 </div>
-            </div>
+            </div> -->
 
             <div class="card">
                 <div>
