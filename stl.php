@@ -21,7 +21,7 @@ require_once 'includes/common/header.php';
             <h1>PIKACHU</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/pikachu.rar" download>
-                <button>DESCARGA AQUÍ</button>
+                <button>DESCARGAR</button>
             </a>
         </div>
         <div class="card-stl">
@@ -29,7 +29,7 @@ require_once 'includes/common/header.php';
             <h1>PUZZLE</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/puzzle-stl.zip" download>
-                <button>DESCARGA AQUÍ</button>
+                <button>DESCARGAR</button>
             </a>
         </div>
         <div class="card-stl">
@@ -37,7 +37,7 @@ require_once 'includes/common/header.php';
             <h1>DRAGON</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/dragon-stl.zip" download>
-                <button>DESCARGA AQUÍ</button>
+                <button>DESCARGAR</button>
             </a>
         </div>
     </section>
@@ -47,7 +47,7 @@ require_once 'includes/common/header.php';
             <h1>HUEVOS DE PASCUA</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/egg-stl.rar" download>
-                <button>DESCARGA AQUÍ</button>
+                <button>DESCARGAR</button>
             </a>
         </div>
         <div class="card-stl">
@@ -55,7 +55,7 @@ require_once 'includes/common/header.php';
             <h1>KNIGHT</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/knight-stl.rar" download>
-                <button>DESCARGA AQUÍ</button>
+                <button>DESCARGAR</button>
             </a>
         </div>
         <div class="card-stl">
@@ -63,7 +63,7 @@ require_once 'includes/common/header.php';
             <h1>NARUTO</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eligendi consequuntur soluta itaque fugiat debitis in esse odit.</p>
             <a href="archivos-stl/naruto-stl.zip" download>
-                <button>DESCARGA AQUÍ</button>
+                <button>DESCARGAR</button>
             </a>
         </div>
     </section>
