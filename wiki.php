@@ -152,9 +152,9 @@ require_once 'includes/common/header.php';
             </ul>
         </section>
 
-        <!-- <section class="data">
-            <h1 class="title">Bienvenido al Wiki de KREAR 3D</h1>
-        </section> -->
+        <section class="data">
+            <!-- <h1 class="title">Bienvenido al Wiki de KREAR 3D</h1> -->
+        </section>
     </section>
 
     <?php require_once 'includes/common/footer.php'; ?>
