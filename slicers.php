@@ -15,7 +15,7 @@ require_once 'includes/common/header.php';
     </section>
     <!-- <h1 class="title-slicers">SLICERS</h1> -->
     <section class="i3d">
-        <h1 class="sub">IMPRESORAS 3D</h1>
+        <h1 class="sub">IMPRESORAS 3D FILAMENTO</h1>
         <div class="cont-cards">
             <div class="card">
                 <div>
@@ -82,12 +82,34 @@ require_once 'includes/common/header.php';
                     <a href="https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.0.0" target="_blank">DESCARGA AQUÍ</a>
                 </div>
             </div>
-
         </div>
-
-
     </section>
+    <section class="i3d">
+        <h1 class="sub">IMPRESORAS 3D RESINA</h1>
+        <div class="cont-cards">
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-chitubox.png" alt="">
+                </div>
+                <div>
+                    <h1>Chitubox</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://www.chitubox.com/en/download/chitubox-free" target="_blank">DESCARGA AQUÍ</a>
+                </div>
+            </div>
 
+            <div class="card">
+                <div>
+                    <img src="assets/img/logos-slicer/logo-lychee.png" alt="">
+                </div>
+                <div>
+                    <h1>Lychee</h1>
+                    <p>Cura de Ultimaker es un software de impresión 3D gratuito y popular, utilizado por millones de personas.</p>
+                    <a href="https://mango3d.io/downloads/" target="_blank">DESCARGA AQUÍ</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="i3d">
         <h1 class="sub">CORTADORAS LASERS</h1>
         <div class="cont-cards">
@@ -187,9 +209,7 @@ require_once 'includes/common/header.php';
 
             <div class="card">
                 <div>
-                    <img src="assets/img/logos-slicer/logo-regard3d.jpg"
-                    style="border-radius: 1rem;" 
-                    alt="">
+                    <img src="assets/img/logos-slicer/logo-regard3d.jpg" style="border-radius: 1rem;" alt="">
 
                 </div>
                 <div>
