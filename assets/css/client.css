@@ -1652,14 +1652,14 @@ section.stls .card-stl button:hover{
   background-color: var(--primary);
   border: none;
   padding: 1rem;
-  border-right: 0.5rem solid white;
+  border-right: 0.2rem solid white;
 }
 .page-stls button:first-child img{
   transform: scaleX(-1);
 }
 .page-stls span{
   color: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-size: 0.85rem;
   background-color: var(--primary);
 }
@@ -1668,7 +1668,7 @@ section.stls .card-stl button:hover{
   background-color: var(--primary);
   border: none;
   padding: 1rem;
-  border-left: 0.5rem solid white;
+  border-left: 0.2rem solid white;
 }
 .page-stls button img{
   width: 1rem;
