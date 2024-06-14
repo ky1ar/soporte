@@ -1650,7 +1650,7 @@ section.stls .card-stl button:hover{
 .page-stls button:first-child{
   border-radius: 0.5rem 0 0 0.5rem;
   background-color: var(--primary);
-  transform: translate(180deg);
+  transform: scaleX(-1);
 }
 .page-stls span{
   color: var(--primary);
