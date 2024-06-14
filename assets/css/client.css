@@ -1641,6 +1641,18 @@ section.stls .card-stl button:hover{
   opacity: 0.8;
 }
 
+.page-stls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.page-stls button img{
+  width: 1rem;
+}
+
+
 @media only screen and (max-width: 1600px) {}
 @media only screen and (max-width: 1200px) {}
 @media only screen and (max-width: 992px) {
