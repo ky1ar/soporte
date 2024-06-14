@@ -1652,7 +1652,7 @@ section.stls .card-stl button:hover{
   background-color: var(--primary);
   border: none;
 }
-page-stls button:first-child img{
+.page-stls button:first-child img{
   transform: scaleX(-1);
 }
 .page-stls span{
@@ -1661,6 +1661,7 @@ page-stls button:first-child img{
 .page-stls button:last-child{
   border-radius: 0 0.5rem 0.5rem 0;
   background-color: var(--primary);
+  border: none;
 }
 .page-stls button img{
   width: 1rem;
