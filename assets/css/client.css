@@ -1651,17 +1651,21 @@ section.stls .card-stl button:hover{
   border-radius: 0.5rem  0 0 0.5rem;
   background-color: var(--primary);
   border: none;
+  padding: 1rem;
 }
 .page-stls button:first-child img{
   transform: scaleX(-1);
 }
 .page-stls span{
-  color: var(--primary);
+  color: white;
+  padding: 1rem;
+  background-color: var(--primary);
 }
 .page-stls button:last-child{
   border-radius: 0 0.5rem 0.5rem 0;
   background-color: var(--primary);
   border: none;
+  padding: 1rem;
 }
 .page-stls button img{
   width: 1rem;
