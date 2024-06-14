@@ -18,7 +18,7 @@ require_once 'includes/common/header.php';
     <!-- Contenedor para las tarjetas de STLs -->
     <div id="stls-container"></div>
     <!-- Controles de paginación -->
-    <div id="pagination">
+    <div class="page-">
         <button id="prevPage">Anterior</button>
         <span id="pageIndicator"></span>
         <button id="nextPage">Siguiente</button>
