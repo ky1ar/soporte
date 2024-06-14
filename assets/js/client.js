@@ -148,7 +148,7 @@ $(document).ready(function () {
           stlsContainer.empty(); // Limpiar el contenedor actual
 
           stlsData.forEach((stl, index) => {
-            if (index % 3 === 0) {
+            if (index % 4 === 0) {
               // Insertar nueva sección stls
               stlsContainer.append('<section class="stls"></section>');
             }
