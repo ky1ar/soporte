@@ -16,7 +16,7 @@ require_once 'includes/common/header.php';
     </section>
 
     <section class="stls">
-        <div class="card-stl">
+        <!-- <div class="card-stl">
             <img src="assets/img/pika.webp" alt="">
             <h1>PIKACHU</h1>
             <p>Modelo STL de Pikachu, ideal para impresión en 3D. Captura la esencia del personaje con este diseño detallado.</p>
@@ -39,9 +39,9 @@ require_once 'includes/common/header.php';
             <a href="archivos-stl/dragon-stl.zip" download>
                 <button>DESCARGAR</button>
             </a>
-        </div>
+        </div> -->
     </section>
-    <section class="stls">
+    <!-- <section class="stls">
         <div class="card-stl">
             <img src="assets/img/egg.webp" alt="">
             <h1>HUEVOS DE PASCUA</h1>
@@ -66,7 +66,7 @@ require_once 'includes/common/header.php';
                 <button>DESCARGAR</button>
             </a>
         </div>
-    </section>
+    </section> -->
 
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
