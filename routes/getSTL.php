@@ -6,28 +6,30 @@ header('Content-Type: application/json');
 $response = array();
 
 try {
-    $sql = "SELECT * FROM STL";
+    // Configuración de la paginación
+    $itemsPerPage = 6; // Cambiar según tu necesidad
+    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+    $offset = ($currentPage - 1) * $itemsPerPage;
+
+    // Consulta para obtener los datos paginados
+    $sql = "SELECT * FROM STL LIMIT ? OFFSET ?";
     $stmt = $conn->prepare($sql);
+    $stmt->bind_param('ii', $itemsPerPage, $offset);
 
-    if ($stmt === false) {
-        throw new Exception('Error en la preparación de la consulta SQL: ' . $conn->error);
-    }
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $data = $result->fetch_all(MYSQLI_ASSOC);
 
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $data = array();
-
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+        if (!empty($data)) {
+            $response['success'] = true;
+            $response['data'] = $data;
+        } else {
+            $response['success'] = false;
+            $response['message'] = "No se encontraron datos en la tabla STL.";
         }
-
-        $response['success'] = true;
-        $response['data'] = $data;
     } else {
         $response['success'] = false;
-        $response['message'] = "No se encontraron datos en la tabla STL.";
+        $response['message'] = 'Error en la ejecución de la consulta: ' . $stmt->error;
     }
 
     $stmt->close();
