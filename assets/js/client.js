@@ -172,7 +172,7 @@ $(document).ready(function () {
           // Actualizar el indicador de página
           currentPage = page;
           totalPages = Math.ceil(stlsData.length / 3); // Cambio en la paginación
-          $("#pageIndicator").text(`Página ${currentPage} de ${totalPages}`);
+          $("#pageIndicator").text(`Página ${currentPage}`);
         } else {
           console.error("Error:", response.message);
         }
