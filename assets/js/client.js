@@ -88,6 +88,50 @@ $(document).ready(function () {
     }
   });
 
+  cargarSTLs();
+  function cargarSTLs() {
+    $.ajax({
+      url: "routes/getSTL.php",
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          var stlsData = response.data;
+          var stlsContainer = $("#stls-container");
+          stlsContainer.empty(); // Limpiar el contenedor actual
+
+          stlsData.forEach(function (stl, index) {
+            var sectionIndex = Math.floor(index / 3); // Determinar el índice de la sección
+            var section = stlsContainer.find(".stls").eq(sectionIndex);
+
+            if (section.length === 0) {
+              section = $('<section class="stls"></section>');
+              stlsContainer.append(section);
+            }
+
+            var cardHtml = `
+                        <div class="card-stl">
+                            <img src="assets/img/${stl.name
+                              .toLowerCase()
+                              .replace(/\s/g, "-")}.webp" alt="${stl.name}">
+                            <h1>${stl.name}</h1>
+                            <p>${stl.info}</p>
+                            <a href="archivos-stl/${stl.archivo_stl}" download>
+                                <button>DESCARGAR</button>
+                            </a>
+                        </div>
+                    `;
+            section.append(cardHtml);
+          });
+        } else {
+          console.error("Error:", response.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error en la solicitud AJAX:", error);
+      },
+    });
+  }
   // Función para manejar el clic en los enlaces del menú
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
     "click",
