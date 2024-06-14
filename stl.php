@@ -15,7 +15,7 @@ require_once 'includes/common/header.php';
         <img src="assets/img/stl-pc.webp">
     </section>
 
-    <section class="stls">
+    <!-- <section class="stls">
         <div class="card-stl">
             <img src="assets/img/pika.webp" alt="">
             <h1>PIKACHU</h1>
@@ -66,7 +66,7 @@ require_once 'includes/common/header.php';
                 <button>DESCARGAR</button>
             </a>
         </div>
-    </section>
+    </section> -->
 
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
