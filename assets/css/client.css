@@ -1651,7 +1651,8 @@ section.stls .card-stl button:hover{
   border-radius: 0.5rem  0 0 0.5rem;
   background-color: var(--primary);
   border: none;
-  padding: 1rem;
+  width: 3rem;
+  height: 3rem;
   border-right: 0.2rem solid white;
 }
 .page-stls button:first-child img{
@@ -1659,15 +1660,20 @@ section.stls .card-stl button:hover{
 }
 .page-stls span{
   color: white;
-  padding: 1rem 2rem;
+  width: 6rem;
+  height: 3rem;
   font-size: 0.85rem;
   background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .page-stls button:last-child{
   border-radius: 0 0.5rem 0.5rem 0;
   background-color: var(--primary);
   border: none;
-  padding: 1rem;
+  width: 3rem;
+  height: 3rem;
   border-left: 0.2rem solid white;
 }
 .page-stls button img{
