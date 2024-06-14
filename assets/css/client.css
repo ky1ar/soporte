@@ -1650,6 +1650,7 @@ section.stls .card-stl button:hover{
 .page-stls button:first-child{
   border-radius: 0.5rem  0 0 0.5rem;
   background-color: var(--primary);
+  border: none;
 }
 page-stls button:first-child img{
   transform: scaleX(-1);
