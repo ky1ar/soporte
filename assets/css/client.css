@@ -1648,8 +1648,10 @@ section.stls .card-stl button:hover{
   margin: 2rem auto;
 }
 .page-stls button:first-child{
-  border-radius: 0.5rem 0 0 0.5rem;
+  border-radius: 0.5rem  0 0 0.5rem;
   background-color: var(--primary);
+}
+page-stls button:first-child img{
   transform: scaleX(-1);
 }
 .page-stls span{
