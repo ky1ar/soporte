@@ -1654,6 +1654,7 @@ section.stls .card-stl button:hover{
   width: 3rem;
   height: 3rem;
   border-right: 0.2rem solid white;
+  cursor: pointer;
 }
 .page-stls button:first-child img{
   transform: scaleX(-1);
@@ -1667,6 +1668,7 @@ section.stls .card-stl button:hover{
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 .page-stls button:last-child{
   border-radius: 0 0.5rem 0.5rem 0;
@@ -1675,6 +1677,7 @@ section.stls .card-stl button:hover{
   width: 3rem;
   height: 3rem;
   border-left: 0.2rem solid white;
+  cursor: pointer;
 }
 .page-stls button img{
   width: 1rem;
