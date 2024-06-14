@@ -149,7 +149,7 @@ $(document).ready(function () {
                   stlsContainer.empty(); // Limpiar el contenedor actual
 
                   stlsData.forEach((stl, index) => {
-                      if (index % 2 === 0) {
+                      if (index % 3 === 0) {
                           // Insertar nueva sección stls
                           stlsContainer.append('<section class="stls"></section>');
                       }
@@ -172,7 +172,7 @@ $(document).ready(function () {
 
                   // Actualizar el indicador de página
                   currentPage = page;
-                  totalPages = Math.ceil(stlsData.length / 3);
+                  totalPages = Math.ceil(stlsData.length / 6);
                   $("#pageIndicator").text(`Página ${currentPage} de ${totalPages}`);
               } else {
                   console.error("Error:", response.message);
