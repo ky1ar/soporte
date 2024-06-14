@@ -111,9 +111,7 @@ $(document).ready(function () {
 
             var cardHtml = `
                         <div class="card-stl">
-                            <img src="assets/img/${stl.name
-                              .toLowerCase()
-                              .replace(/\s/g, "-")}.webp" alt="${stl.name}">
+                            <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
                             <h1>${stl.name}</h1>
                             <p>${stl.info}</p>
                             <a href="archivos-stl/${stl.archivo_stl}" download>
