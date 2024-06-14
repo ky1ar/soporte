@@ -1647,7 +1647,18 @@ section.stls .card-stl button:hover{
   justify-content: center;
   margin: 2rem auto;
 }
-
+.page-stls button:first-child{
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: var(--primary);
+  transform: translate(180deg);
+}
+.page-stls span{
+  color: var(--primary);
+}
+.page-stls button:last-child{
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: var(--primary);
+}
 .page-stls button img{
   width: 1rem;
 }
