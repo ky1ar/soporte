@@ -1669,6 +1669,7 @@ section.stls .card-stl button:hover{
 }
 .page-stls button img{
   width: 1rem;
+  filter: invert(1);
 }
 
 
