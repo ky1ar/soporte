@@ -1612,6 +1612,7 @@ section.stls .card-stl img{
 section.stls .card-stl h1{
   margin-bottom: 0;
   text-align: center;
+  text-transform: uppercase;
 }
 section.stls .card-stl p{
   /* margin-top: 0; */
