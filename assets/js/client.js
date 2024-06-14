@@ -88,83 +88,39 @@ $(document).ready(function () {
     }
   });
 
-  // cargarSTLs();
-  // function cargarSTLs() {
-  //   $.ajax({
-  //     url: "routes/getSTL.php",
-  //     type: "GET",
-  //     dataType: "json",
-  //     success: function (response) {
-  //       if (response.success) {
-  //         var stlsData = response.data;
-  //         var stlsContainer = $("#stls-container");
-  //         stlsContainer.empty(); // Limpiar el contenedor actual
-
-  //         stlsData.forEach(function (stl, index) {
-  //           var sectionIndex = Math.floor(index / 3); // Determinar el índice de la sección
-  //           var section = stlsContainer.find(".stls").eq(sectionIndex);
-
-  //           if (section.length === 0) {
-  //             section = $('<section class="stls"></section>');
-  //             stlsContainer.append(section);
-  //           }
-
-  //           var cardHtml = `
-  //                       <div class="card-stl">
-  //                           <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-  //                           <h1>${stl.name}</h1>
-  //                           <p>${stl.info}</p>
-  //                           <a href="archivos-stl/${stl.archivo_stl}" download>
-  //                               <button>DESCARGAR</button>
-  //                           </a>
-  //                       </div>
-  //                   `;
-  //           section.append(cardHtml);
-  //         });
-  //       } else {
-  //         console.error("Error:", response.message);
-  //       }
-  //     },
-  //     error: function (xhr, status, error) {
-  //       console.error("Error en la solicitud AJAX:", error);
-  //     },
-  //   });
-  // }
-
-  const stlsContainer = $("#stls-container");
-  let currentPage = 1;
-  let totalPages = 1;
-
-  cargarSTLs(currentPage);
-
-  // Función para cargar los STLs
-  function cargarSTLs(page) {
+  cargarSTLs();
+  function cargarSTLs() {
     $.ajax({
       url: "routes/getSTL.php",
       type: "GET",
       dataType: "json",
-      data: { page: page },
       success: function (response) {
         if (response.success) {
-          const stlsData = response.data;
+          var stlsData = response.data;
+          var stlsContainer = $("#stls-container");
           stlsContainer.empty(); // Limpiar el contenedor actual
 
-          stlsData.forEach((stl) => {
-            const cardHtml = `
-                            <div class="card-stl">
-                                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-                                <h1>${stl.name}</h1>
-                                <p>${stl.info}</p>
-                                <a href="archivos-stl/${stl.archivo_stl}" download>
-                                    <button>DESCARGAR</button>
-                                </a>
-                            </div>
-                        `;
-            stlsContainer.append(cardHtml);
-          });
+          stlsData.forEach(function (stl, index) {
+            var sectionIndex = Math.floor(index / 3); // Determinar el índice de la sección
+            var section = stlsContainer.find(".stls").eq(sectionIndex);
 
-          totalPages = response.totalPages;
-          actualizarPaginacion();
+            if (section.length === 0) {
+              section = $('<section class="stls"></section>');
+              stlsContainer.append(section);
+            }
+
+            var cardHtml = `
+                        <div class="card-stl">
+                            <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                            <h1>${stl.name}</h1>
+                            <p>${stl.info}</p>
+                            <a href="archivos-stl/${stl.archivo_stl}" download>
+                                <button>DESCARGAR</button>
+                            </a>
+                        </div>
+                    `;
+            section.append(cardHtml);
+          });
         } else {
           console.error("Error:", response.message);
         }
@@ -174,29 +130,6 @@ $(document).ready(function () {
       },
     });
   }
-
-  // Función para actualizar los controles de paginación
-  function actualizarPaginacion() {
-    $("#pageIndicator").text(`Página ${currentPage}`);
-    $("#prevPage").prop("disabled", currentPage === 1);
-    $("#nextPage").prop("disabled", currentPage === totalPages);
-  }
-
-  // Manejador de eventos para el botón "Anterior"
-  $("#prevPage").on("click", function () {
-    if (currentPage > 1) {
-      currentPage--;
-      cargarSTLs(currentPage);
-    }
-  });
-
-  // Manejador de eventos para el botón "Siguiente"
-  $("#nextPage").on("click", function () {
-    if (currentPage < totalPages) {
-      currentPage++;
-      cargarSTLs(currentPage);
-    }
-  });
   // Función para manejar el clic en los enlaces del menú
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
     "click",
