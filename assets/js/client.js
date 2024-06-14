@@ -138,72 +138,64 @@ $(document).ready(function () {
 
   // Función para cargar los STLs
   function cargarSTLs(page) {
-    $.ajax({
-      url: "routes/getSTL.php",
-      type: "GET",
-      dataType: "json",
-      data: { page: page },
-      success: function (response) {
-        if (response.success) {
-          const stlsData = response.data;
-          stlsContainer.empty(); // Limpiar el contenedor actual
+      $.ajax({
+          url: "routes/getSTL.php",
+          type: "GET",
+          dataType: "json",
+          data: { page: page },
+          success: function (response) {
+              if (response.success) {
+                  const stlsData = response.data;
+                  stlsContainer.empty(); // Limpiar el contenedor actual
 
-          // Dividir los datos en grupos de 6 para las secciones
-          const sectionsData = [];
-          for (let i = 0; i < stlsData.length; i += 6) {
-            sectionsData.push(stlsData.slice(i, i + 6));
-          }
+                  stlsData.forEach((stl, index) => {
+                      if (index % 2 === 0) {
+                          // Insertar nueva sección stls
+                          stlsContainer.append('<section class="stls"></section>');
+                      }
 
-          // Mostrar las secciones por página
-          const startIndex = (page - 1) * 2;
-          const endIndex = startIndex + 2;
-          const pageSections = sectionsData.slice(startIndex, endIndex);
+                      // Obtener la última sección stls
+                      const section = stlsContainer.find(".stls").last();
 
-          pageSections.forEach((sectionData) => {
-            const section = $('<section class="stls"></section>');
+                      const cardHtml = `
+                          <div class="card-stl">
+                              <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                              <h1>${stl.name}</h1>
+                              <p>${stl.info}</p>
+                              <a href="archivos-stl/${stl.archivo_stl}" download>
+                                  <button>DESCARGAR</button>
+                              </a>
+                          </div>
+                      `;
+                      section.append(cardHtml);
+                  });
 
-            sectionData.forEach((stl) => {
-              const cardHtml = `
-                            <div class="card-stl">
-                                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-                                <h1>${stl.name}</h1>
-                                <p>${stl.info}</p>
-                                <a href="archivos-stl/${stl.archivo_stl}" download>
-                                    <button>DESCARGAR</button>
-                                </a>
-                            </div>
-                        `;
-              section.append(cardHtml);
-            });
-
-            stlsContainer.append(section);
-          });
-
-          // Actualizar el indicador de página
-          currentPage = page;
-          $("#pageIndicator").text(`Página ${currentPage}`);
-        } else {
-          console.error("Error:", response.message);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error("Error en la solicitud AJAX:", error);
-      },
-    });
+                  // Actualizar el indicador de página
+                  currentPage = page;
+                  totalPages = Math.ceil(stlsData.length / 3);
+                  $("#pageIndicator").text(`Página ${currentPage} de ${totalPages}`);
+              } else {
+                  console.error("Error:", response.message);
+              }
+          },
+          error: function (xhr, status, error) {
+              console.error("Error en la solicitud AJAX:", error);
+          },
+      });
   }
 
   // Manejador de eventos para el botón "Anterior"
   $("#prevPage").on("click", function () {
-    if (currentPage > 1) {
-      cargarSTLs(currentPage - 1);
-    }
+      if (currentPage > 1) {
+          cargarSTLs(currentPage - 1);
+      }
   });
 
   // Manejador de eventos para el botón "Siguiente"
   $("#nextPage").on("click", function () {
-    if (currentPage < totalPages) {
-      cargarSTLs(currentPage + 1);
-    }
+      if (currentPage < totalPages) {
+          cargarSTLs(currentPage + 1);
+      }
   });
   // Función para manejar el clic en los enlaces del menú
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
