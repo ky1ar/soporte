@@ -37,15 +37,40 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['order'])) {
         echo json_encode(array("success" => false, "message" => "El número de orden ya existe."));
         exit();
     }
+    // if ($clientID == '') {
+    //     $sql = "INSERT INTO Users (levels, document, name, nick, role, image, phone, email, pass) VALUES (1, '$document', '$client', '', '', '', '$phone', '$email', 'password')";
+    //     if ($conn->query($sql) === TRUE) {
+    //         $stmt = $conn->prepare("SELECT id FROM Users WHERE document = ?");
+    //         $stmt->bind_param("s", $document);
+    //         $stmt->execute();
+    //         $result = $stmt->get_result();
+    //         $row = $result->fetch_assoc();
+    //         $clientID = $row['id'];
+    //     }
+    // }
     if ($clientID == '') {
-        $sql = "INSERT INTO Users (levels, document, name, nick, role, image, phone, email, pass) VALUES (1, '$document', '$client', '', '', '', '$phone', '$email', 'password')";
-        if ($conn->query($sql) === TRUE) {
+        $sql = "INSERT INTO Users (levels, document, name, nick, role, image, phone, email, pass) VALUES (1, ?, ?, '', '', '', ?, ?, 'password')";
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            echo json_encode(array("success" => false, "message" => "Error al preparar la consulta: " . $conn->error));
+            exit();
+        }
+        $stmt->bind_param("ssss", $document, $client, $phone, $email);
+        if ($stmt->execute() === TRUE) {
             $stmt = $conn->prepare("SELECT id FROM Users WHERE document = ?");
             $stmt->bind_param("s", $document);
             $stmt->execute();
             $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-            $clientID = $row['id'];
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $clientID = $row['id'];
+            } else {
+                echo json_encode(array("success" => false, "message" => "Error al obtener el ID del cliente."));
+                exit();
+            }
+        } else {
+            echo json_encode(array("success" => false, "message" => "Error al insertar el cliente: " . $stmt->error));
+            exit();
         }
     }
 
