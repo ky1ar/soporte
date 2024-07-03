@@ -42,21 +42,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['order'])) {
 
     // Inserta un nuevo cliente si no se proporcionó un clientID
     if ($clientID == '') {
-        $sql = "INSERT INTO Users (levels, document, name, nick, role, image, phone, email, pass) VALUES (1, '$document', '$client', '', '', '', '$phone', '$email', 'password')";
-        if ($conn->query($sql) === TRUE) {
+        // Prepara la consulta de inserción
+        $sql = "INSERT INTO Users (levels, document, name, nick, role, image, phone, email, pass) VALUES (1, ?, ?, '', '', '', ?, ?, 'password')";
+        $stmt = $conn->prepare($sql);
+    
+        if ($stmt === false) {
+            // Error al preparar la consulta
+            echo json_encode(array("success" => false, "message" => "Error al preparar la consulta: " . $conn->error));
+            exit();
+        }
+    
+        // Vincula los parámetros
+        $stmt->bind_param("ssss", $document, $client, $phone, $email);
+    
+        // Ejecuta la consulta
+        if ($stmt->execute() === TRUE) {
+            // Consulta de selección para obtener el ID del cliente
             $stmt = $conn->prepare("SELECT id FROM Users WHERE document = ?");
             $stmt->bind_param("s", $document);
             $stmt->execute();
             $result = $stmt->get_result();
+    
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $clientID = $row['id'];
             } else {
+                // Error al obtener el ID del cliente
                 echo json_encode(array("success" => false, "message" => "Error al obtener el ID del cliente."));
                 exit();
             }
         } else {
-            echo json_encode(array("success" => false, "message" => "Error al insertar el cliente."));
+            // Error al ejecutar la consulta de inserción
+            echo json_encode(array("success" => false, "message" => "Error al insertar el cliente: " . $stmt->error));
             exit();
         }
     }
