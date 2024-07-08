@@ -483,7 +483,10 @@ color: #B08A7A;
   margin-top: 0;
   font-size: 1rem;
 }
-#trainingSection .left .step div button.cap-example{
+#trainingSection .left .step div div.ex-body{
+  display: flex;
+}
+#trainingSection .left .step div div.ex-body button{
   background-color: red;
 }
 #trainingSection .left .step p {
