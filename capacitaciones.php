@@ -118,14 +118,14 @@ require_once 'includes/common/header.php';
                                 <ul>
                                     <li class="percent30">
                                         <div class="formRow">
-                                            <label for="">Documento</label>
+                                            <label for="">DNI o RUC</label>
                                             <input id="dniRUC" type="text" placeholder="DNI / RUC">
                                             <input id="clientId" type="hidden">
                                         </div>
                                     </li>
                                     <li class="percent70">
                                         <div class="formRow">
-                                            <label for="">Cliente</label>
+                                            <label for="">Nombre o Razón Social</label>
                                             <input id="client" type="text" placeholder="Nombre del cliente">
                                         </div>
                                     </li>
