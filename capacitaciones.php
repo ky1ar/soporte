@@ -18,7 +18,6 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <div class="example-cap">
-        <div class="back-ex"></div>
         <img src="assets/img/example-cap.webp" alt="">
     </div>
     <section id="trainingSection">
