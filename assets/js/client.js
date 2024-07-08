@@ -839,4 +839,19 @@ $(document).ready(function () {
       $(this).css("left", dat_prc + "%");
     });
   }
+
+  const exampleCap = document.querySelector(".example-cap");
+  const showExampleBtn = document.getElementById("showExampleBtn");
+  const backEx = document.querySelector(".example-cap .back-ex");
+  const exampleImg = document.querySelector(".example-cap img");
+
+  showExampleBtn.addEventListener("click", function () {
+    exampleCap.style.display = "flex";
+  });
+
+  exampleCap.addEventListener("click", function (event) {
+    if (event.target !== exampleImg) {
+      exampleCap.style.display = "none";
+    }
+  });
 });

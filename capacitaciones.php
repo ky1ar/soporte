@@ -1,14 +1,15 @@
-<?php 
-$currentPage = "Capacitaciones"; 
+<?php
+$currentPage = "Capacitaciones";
 require_once 'includes/app/db.php';
-require_once 'includes/app/globals.php'; 
+require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 ?>
 </head>
+
 <body>
-    <?php 
+    <?php
     require_once 'includes/bar/topBar.php';
-    require_once 'includes/bar/navigationBar.php'; 
+    require_once 'includes/bar/navigationBar.php';
     ?>
     <section id="frontSlider">
         <div class="wrapper">
@@ -16,7 +17,10 @@ require_once 'includes/common/header.php';
             <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
     </section>
-
+    <div class="example-cap">
+        <div class="back-ex"></div>
+        <img src="assets/img/example-cap.webp" alt="">
+    </div>
     <section id="trainingSection">
         <div class="top">
             <h2>Agenda Aquí</h2>
@@ -28,7 +32,9 @@ require_once 'includes/common/header.php';
                     <div class="step">
                         <span><img width="22" height="22" src="assets/img/register.svg" alt=""></span>
                         <div>
-                            <h3>Agenda tu capacitación</h3>
+                            <div class="ex-body">
+                                <h3>Agenda tu capacitación</h3><button id="showExampleBtn">Ver Ejemplo</button>
+                            </div>
                             <p>Elige la fecha y hora que mejor te convenga.</p>
                         </div>
                     </div>
@@ -69,7 +75,7 @@ require_once 'includes/common/header.php';
                                 <img src="assets/img/fav.png" alt="Cargando..." />
                             </div>
                         </div>
-                    
+
                         <div id="calendarSelector">
                             <ul class="box header">
                                 <li>dom</li>
@@ -82,17 +88,22 @@ require_once 'includes/common/header.php';
                             </ul>
                             <ul class="box" id="calendarTable">
                                 <?php
-                                for ($i = 0; $i < $firstDayNum; $i++) { echo '<li></li>'; }
-                                
+                                for ($i = 0; $i < $firstDayNum; $i++) {
+                                    echo '<li></li>';
+                                }
+
                                 $sql = "SELECT * FROM Calendar WHERE YEAR(calendar_date) = YEAR('$firstDay') AND MONTH(calendar_date) = MONTH('$firstDay')";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
                                     $dayNum = date('d', strtotime($row['calendar_date']));
                                     $state = $row['state'];
-                                    
+
                                     echo '<li' . (($today == $dayNum) ? ' class="today"' : '') . '>';
-                                    if ( $dayNum <= $today || $state == 0 ) { echo '<span>'.$dayNum.'</span>'; } 
-                                    else { echo '<div class="boxDay" data-day="'.$dayNum.'">'.$dayNum.'</div>'; }
+                                    if ($dayNum <= $today || $state == 0) {
+                                        echo '<span>' . $dayNum . '</span>';
+                                    } else {
+                                        echo '<div class="boxDay" data-day="' . $dayNum . '">' . $dayNum . '</div>';
+                                    }
                                     echo '</li>';
                                 }
                                 ?>
@@ -103,19 +114,19 @@ require_once 'includes/common/header.php';
                             <form method="post" id="scheduleSubmit" enctype="multipart/form-data">
                                 <div id="selectedSchedule"></div>
                                 <p class="selectedMessage">Completa los campos para tu reserva.</p>
-                                
+
                                 <ul>
                                     <li class="percent30">
                                         <div class="formRow">
-                                            <label for="">Documento</label>
-                                            <input id="dniRUC" type="text" placeholder="DNI / RUC">
+                                            <label for="">DNI o RUC</label>
+                                            <input id="dniRUC" type="text" placeholder="Ingresar Número">
                                             <input id="clientId" type="hidden">
                                         </div>
                                     </li>
                                     <li class="percent70">
                                         <div class="formRow">
-                                            <label for="">Cliente</label>
-                                            <input id="client" type="text" placeholder="Nombre del cliente">
+                                            <label for="">Nombre o Razón Social</label>
+                                            <input id="client" type="text" placeholder="Datos del cliente">
                                         </div>
                                     </li>
                                     <li class="percent60">
@@ -136,7 +147,7 @@ require_once 'includes/common/header.php';
                                                 <label for="">Producto</label>
                                                 <div class="formMachine">
                                                     <input id="machine" type="text" placeholder="Nombre del equipo">
-                                                    <input id="machineId" type="hidden" >
+                                                    <input id="machineId" type="hidden">
                                                     <div id="suggestions"></div>
                                                 </div>
                                             </div>
@@ -154,7 +165,7 @@ require_once 'includes/common/header.php';
                                             <img id="machineImage" src="assets/img/def.webp" alt="">
                                         </div>
                                     </li>
-                                </ul> 
+                                </ul>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">
                                     <div id="scheduleFormMessage"></div>
@@ -162,12 +173,12 @@ require_once 'includes/common/header.php';
                                 </div>
                             </form>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
-</html>
 
+</html>
