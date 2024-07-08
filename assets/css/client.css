@@ -495,6 +495,7 @@ color: #B08A7A;
   margin-left: 2rem;
   padding: 0 1rem;
   transform: translateY(-0.25rem);
+  cursor: pointer;
 }
 #trainingSection .left .step p {
   margin: 0;
