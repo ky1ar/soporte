@@ -119,7 +119,7 @@ require_once 'includes/common/header.php';
                                     <li class="percent30">
                                         <div class="formRow">
                                             <label for="">DNI o RUC</label>
-                                            <input id="dniRUC" type="text" placeholder="Ingresa tu DNI/RUC">
+                                            <input id="dniRUC" type="text" placeholder="Ingresa DNI/RUC">
                                             <input id="clientId" type="hidden">
                                         </div>
                                     </li>
