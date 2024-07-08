@@ -2165,7 +2165,7 @@ section.i3d .cont-cards .card div:last-child a{
   align-items: center;
 }
 .example-cap .back-ex {
-  position: fixed;
+  position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
