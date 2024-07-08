@@ -489,7 +489,12 @@ color: #B08A7A;
 #trainingSection .left .step div div.ex-body button{
   background-color: var(--primary);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
+  color: white;
+  font-size: 0.9rem;
+  margin-left: 2rem;
+  padding: 0 1rem;
+  transform: translateY(-0.25rem);
 }
 #trainingSection .left .step p {
   margin: 0;
