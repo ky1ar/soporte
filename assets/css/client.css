@@ -487,7 +487,9 @@ color: #B08A7A;
   display: flex;
 }
 #trainingSection .left .step div div.ex-body button{
-  background-color: red;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 0.5rem;
 }
 #trainingSection .left .step p {
   margin: 0;
