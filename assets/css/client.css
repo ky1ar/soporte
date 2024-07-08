@@ -2158,7 +2158,7 @@ section.i3d .cont-cards .card div:last-child a{
 
 
 .example-cap{
-  display: flex;
+  display: none;
   position: relative;
   justify-content: center;
   align-items: center;
