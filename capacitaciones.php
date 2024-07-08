@@ -30,7 +30,7 @@ require_once 'includes/common/header.php';
                         <span><img width="22" height="22" src="assets/img/register.svg" alt=""></span>
                         <div>
                             <div>
-                                <h3>Agenda tu capacitación</h3><button>VER EJEMPLO</button>
+                                <h3>Agenda tu capacitación</h3><button class="cap-example">VER EJEMPLO</button>
                             </div>
                             <p>Elige la fecha y hora que mejor te convenga.</p>
                         </div>
