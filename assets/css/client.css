@@ -2167,6 +2167,6 @@ section.i3d .cont-cards .card div:last-child a{
 }
 
 .example-cap img{
-  position: absolute;
+  position: fixed;
   width: 20rem;
 }
