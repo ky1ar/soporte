@@ -2177,4 +2177,5 @@ section.i3d .cont-cards .card div:last-child a{
   width: 20rem;
   border-radius: 0.5rem;
   width: 29rem;
+  z-index: 2;
 }
