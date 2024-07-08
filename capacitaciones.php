@@ -17,7 +17,9 @@ require_once 'includes/common/header.php';
             <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
     </section>
-
+    <div class="example-cap">
+        <img src="assets/img/example-cap.webp" alt="">
+    </div>
     <section id="trainingSection">
         <div class="top">
             <h2>Agenda Aquí</h2>

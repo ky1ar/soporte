@@ -500,6 +500,7 @@ color: #B08A7A;
 #trainingSection .left .step p {
   margin: 0;
 }
+
 /***********************************************************************************/
 #trainingSection .right {
   /* min-width: 20rem; */
@@ -2153,4 +2154,19 @@ section.i3d .cont-cards .card div:last-child a{
     justify-content: center;
     margin-top: 0;
   } */
+}
+
+
+.example-cap{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-cap img{
+  position: absolute;
+  width: 20rem;
 }
