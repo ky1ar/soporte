@@ -2160,10 +2160,9 @@ section.i3d .cont-cards .card div:last-child a{
 .example-cap{
   display: flex;
   position: relative;
-  width: 100vw;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);;
 }
 
 .example-cap img{
