@@ -2165,6 +2165,13 @@ section.i3d .cont-cards .card div:last-child a{
   background-color: rgba(0, 0, 0, 0.5);;
 }
 
+.example-cap .back-ex {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; 
+}
 .example-cap img{
   position: fixed;
   width: 20rem;
