@@ -12,7 +12,7 @@ try {
     $offset = ($currentPage - 1) * $itemsPerPage;
 
     // Consulta para obtener los datos paginados
-    $sql = "SELECT * FROM STL LIMIT ? OFFSET ?";
+    $sql = "SELECT * FROM STL ORDER BY registro DESC LIMIT ? OFFSET ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ii', $itemsPerPage, $offset);
 
