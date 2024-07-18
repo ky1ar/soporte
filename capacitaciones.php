@@ -146,7 +146,7 @@ require_once 'includes/common/header.php';
                                             <div class="formRow">
                                                 <label for="">Producto</label>
                                                 <div class="formMachine">
-                                                    <input id="machine" type="text" placeholder="Nombre del equipo">
+                                                    <input id="machine" autocomplete="off" type="text" placeholder="Nombre del equipo">
                                                     <input id="machineId" type="hidden">
                                                     <div id="suggestions"></div>
                                                 </div>
