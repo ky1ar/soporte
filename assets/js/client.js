@@ -137,57 +137,57 @@ $(document).ready(function () {
   cargarSTLs(currentPage);
 
   function cargarSTLs(page) {
-  // Verificar si el contenedor existe
-  const stlsContainer = $("#stlsContainer");
-  if (stlsContainer.length === 0) {
-    return; // Salir de la función si el contenedor no existe
+    // Verificar si el contenedor existe
+    const stlsContainer = $("#stlsContainer");
+    if (stlsContainer.length === 0) {
+      return; // Salir de la función si el contenedor no existe
+    }
+  
+    $.ajax({
+      url: "routes/getSTL.php",
+      type: "GET",
+      dataType: "json",
+      data: { page: page },
+      success: function (response) {
+        if (response.success) {
+          const stlsData = response.data;
+          stlsContainer.empty(); // Limpiar el contenedor actual
+  
+          stlsData.forEach((stl, index) => {
+            if (index % 4 === 0) {
+              // Insertar nueva sección stls
+              stlsContainer.append('<section class="stls"></section>');
+            }
+  
+            // Obtener la última sección stls
+            const section = stlsContainer.find(".stls").last();
+  
+            const cardHtml = `
+              <div class="card-stl">
+                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                <h1>${stl.name}</h1>
+                <p>${stl.info}</p>
+                <a href="archivos-stl/${stl.archivo_stl}" download>
+                  <button>DESCARGAR</button>
+                </a>
+              </div>
+            `;
+            section.append(cardHtml);
+          });
+  
+          // Actualizar el indicador de página
+          currentPage = page;
+          totalPages = Math.ceil(stlsData.length / 3); // Cambio en la paginación
+          $("#pageIndicator").text(`Página ${currentPage}`);
+        } else {
+          console.error("Error:", response.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error en la solicitud AJAX:", error);
+      },
+    });
   }
-
-  $.ajax({
-    url: "routes/getSTL.php",
-    type: "GET",
-    dataType: "json",
-    data: { page: page },
-    success: function (response) {
-      if (response.success) {
-        const stlsData = response.data;
-        stlsContainer.empty(); // Limpiar el contenedor actual
-
-        stlsData.forEach((stl, index) => {
-          if (index % 4 === 0) {
-            // Insertar nueva sección stls
-            stlsContainer.append('<section class="stls"></section>');
-          }
-
-          // Obtener la última sección stls
-          const section = stlsContainer.find(".stls").last();
-
-          const cardHtml = `
-            <div class="card-stl">
-              <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-              <h1>${stl.name}</h1>
-              <p>${stl.info}</p>
-              <a href="archivos-stl/${stl.archivo_stl}" download>
-                <button>DESCARGAR</button>
-              </a>
-            </div>
-          `;
-          section.append(cardHtml);
-        });
-
-        // Actualizar el indicador de página
-        currentPage = page;
-        totalPages = Math.ceil(stlsData.length / 3); // Cambio en la paginación
-        $("#pageIndicator").text(`Página ${currentPage}`);
-      } else {
-        console.error("Error:", response.message);
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error("Error en la solicitud AJAX:", error);
-    },
-  });
-}
 
   // Manejador de eventos para el botón "Anterior"
   $("#prevPage").on("click", function () {
