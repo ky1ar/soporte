@@ -754,13 +754,13 @@ $(document).ready(function () {
   });
 
   function validateDniRuc(dniRUC) {
-    const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
-
+    const regex = /^\d{1,11}$/;
+  
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
       message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
       return false;
     }
-
+  
     return true;
   }
 
