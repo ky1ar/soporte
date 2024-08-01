@@ -137,6 +137,12 @@ $(document).ready(function () {
   cargarSTLs(currentPage);
 
   function cargarSTLs(page) {
+    // Verificar si el contenedor existe
+    const stlsContainer = $("#stlsContainer");
+    if (stlsContainer.length === 0) {
+      return; // Salir de la función si el contenedor no existe
+    }
+  
     $.ajax({
       url: "routes/getSTL.php",
       type: "GET",
@@ -146,29 +152,29 @@ $(document).ready(function () {
         if (response.success) {
           const stlsData = response.data;
           stlsContainer.empty(); // Limpiar el contenedor actual
-
+  
           stlsData.forEach((stl, index) => {
             if (index % 4 === 0) {
               // Insertar nueva sección stls
               stlsContainer.append('<section class="stls"></section>');
             }
-
+  
             // Obtener la última sección stls
             const section = stlsContainer.find(".stls").last();
-
+  
             const cardHtml = `
-                            <div class="card-stl">
-                                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-                                <h1>${stl.name}</h1>
-                                <p>${stl.info}</p>
-                                <a href="archivos-stl/${stl.archivo_stl}" download>
-                                    <button>DESCARGAR</button>
-                                </a>
-                            </div>
-                        `;
+              <div class="card-stl">
+                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                <h1>${stl.name}</h1>
+                <p>${stl.info}</p>
+                <a href="archivos-stl/${stl.archivo_stl}" download>
+                  <button>DESCARGAR</button>
+                </a>
+              </div>
+            `;
             section.append(cardHtml);
           });
-
+  
           // Actualizar el indicador de página
           currentPage = page;
           totalPages = Math.ceil(stlsData.length / 3); // Cambio en la paginación
@@ -696,7 +702,6 @@ $(document).ready(function () {
   });
 
   scheduleSubmit.submit(function (event) {
-    console.log("s");
     event.preventDefault();
     scheduleFormMessage.slideUp();
 
@@ -754,13 +759,13 @@ $(document).ready(function () {
   });
 
   function validateDniRuc(dniRUC) {
-    const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
-
+    const regex = /^\d{1,11}$/;
+  
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
       message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
       return false;
     }
-
+  
     return true;
   }
 
