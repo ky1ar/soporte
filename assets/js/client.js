@@ -852,9 +852,12 @@ $(document).ready(function () {
     });
   }
 
-  exampleCap.addEventListener("click", function (event) {
-    if (event.target !== exampleImg) {
-      exampleCap.style.display = "none";
-    }
-  });
+  if (exampleCap && exampleImg) {
+    exampleCap.addEventListener("click", function (event) {
+      // Verificar si el clic no fue en exampleImg
+      if (event.target !== exampleImg) {
+        exampleCap.style.display = "none";
+      }
+    });
+  }
 });
