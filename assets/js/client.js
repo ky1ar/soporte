@@ -702,7 +702,6 @@ $(document).ready(function () {
   });
 
   scheduleSubmit.submit(function (event) {
-    console.log("s");
     event.preventDefault();
     scheduleFormMessage.slideUp();
 
