@@ -844,9 +844,13 @@ $(document).ready(function () {
   const backEx = document.querySelector(".example-cap .back-ex");
   const exampleImg = document.querySelector(".example-cap img");
 
-  showExampleBtn.addEventListener("click", function () {
-    exampleCap.style.display = "flex";
-  });
+  if (showExampleBtn) {
+    showExampleBtn.addEventListener("click", function () {
+      if (exampleCap) {
+        exampleCap.style.display = "flex";
+      }
+    });
+  }
 
   exampleCap.addEventListener("click", function (event) {
     if (event.target !== exampleImg) {
