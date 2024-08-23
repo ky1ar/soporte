@@ -23,20 +23,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $response['html'] .= '<ul>';
 
         if ($custom == 1) {
-            // Para los horarios personalizados, verificamos si están asignados a una sesión de entrenamiento
-            // Se incluye la condición para considerar los horarios con estado Cancelado (4)
+            // Para los horarios personalizados, se incluyen solo los que no tienen registro en Training o están cancelados (4)
             $sql2 = "SELECT cs.id, cs.h_start, cs.h_end 
                      FROM Custom_Schedule cs
                      LEFT JOIN Training t ON cs.h_start = t.training_start AND cs.t_date = t.training_date
                      WHERE cs.t_date = '$date' 
-                     AND (t.id IS NULL OR t.training_state = 4) 
+                     AND (t.id IS NULL OR t.training_state = 4)
                      ORDER BY cs.h_start;";
             $result2 = $conn->query($sql2);
             while ($row2 = $result2->fetch_assoc()) {
                 $response['html'] .= '<li><div class="boxSchedule" data-schedule="'.substr($row2['h_start'], 0, 5).'">'.substr($row2['h_start'], 0, 5).'</div></li>';
             }
         } else {
-            // Para los horarios predeterminados, filtramos según el estado de la sesión de entrenamiento
+            // Para los horarios predeterminados, se excluyen aquellos con estados 0, 1, 2 o 3
             $sql2 = "SELECT 
                         ds.id,
                         ds.h_start,
@@ -49,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                      HAVING MIN(t.training_state) != 0 
                         AND MIN(t.training_state) != 1
                         AND MIN(t.training_state) != 2
+                        AND MIN(t.training_state) != 3
                         OR MIN(t.training_state) IS NULL 
                      ORDER BY ds.h_start;";
                      
