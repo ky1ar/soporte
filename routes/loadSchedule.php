@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $response['html'] .= '<ul>';
 
         if ($custom == 1) {
-            // Para los horarios personalizados, verificamos si están asignados a una sesión de entrenamiento
+            // Para los horarios personalizados
             $sql2 = "SELECT cs.id, cs.h_start, cs.h_end 
                      FROM Custom_Schedule cs
                      LEFT JOIN Training t ON cs.h_start = t.training_start AND cs.t_date = t.training_date
@@ -31,9 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                      AND (t.id IS NULL) 
                      ORDER BY cs.h_start;";
             $result2 = $conn->query($sql2);
-            while ($row2 = $result2->fetch_assoc()) {
-                $response['html'] .= '<li><div class="boxSchedule" data-schedule="'.substr($row2['h_start'], 0, 5).'">'.substr($row2['h_start'], 0, 5).'</div></li>';
+            
+            if ($result2->num_rows > 0) {
+                while ($row2 = $result2->fetch_assoc()) {
+                    $response['html'] .= '<li><div class="boxSchedule" data-schedule="'.substr($row2['h_start'], 0, 5).'">'.substr($row2['h_start'], 0, 5).'</div></li>';
+                }
+            } else {
+                // No hay horarios disponibles para Custom_Schedule
+                $response['html'] .= '<li><span>'.$dayMonth.'</span></li>';
             }
+
         } else {
             // Para los horarios predeterminados, filtramos según el estado de la sesión de entrenamiento
             $sql2 = "SELECT 
@@ -64,4 +71,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     echo json_encode($response);
 }
 $conn->close();
+
 ?>
