@@ -24,12 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
 
         if ($custom == 1) {
             // Para los horarios personalizados, verificamos si están asignados a una sesión de entrenamiento
-            $sql2 = "SELECT cs.id, cs.h_start, cs.h_end
-                    FROM Custom_Schedule cs
-                    LEFT JOIN Training t ON cs.h_start = t.training_start AND cs.t_date = t.training_date
-                    WHERE cs.t_date = '$date'
-                    AND (t.id IS NULL OR t.training_state IN (3, 4))
-                    ORDER BY cs.h_start;";
+            $sql2 = "SELECT 
+            cs.id,
+            cs.h_start,
+            cs.h_end
+         FROM Custom_Schedule cs
+         LEFT JOIN Training t ON cs.h_start = t.training_start
+         AND cs.t_date = t.training_date
+         WHERE cs.t_date = '$date'
+         GROUP BY cs.id, cs.h_start, cs.h_end
+         HAVING MIN(t.training_state) IS NULL 
+            OR MIN(t.training_state) NOT IN (0, 1, 2)
+         ORDER BY cs.h_start;";
             $result2 = $conn->query($sql2);
             while ($row2 = $result2->fetch_assoc()) {
                 $response['html'] .= '<li><div class="boxSchedule" data-schedule="'.substr($row2['h_start'], 0, 5).'">'.substr($row2['h_start'], 0, 5).'</div></li>';
