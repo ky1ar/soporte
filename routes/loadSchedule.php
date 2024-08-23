@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $date = $_POST['date'];
     $response = array();
 
+    // Consulta para obtener la información del calendario
     $sql = "SELECT * FROM Calendar WHERE calendar_date = '$date'";
     $result = $conn->query($sql);
 
@@ -24,10 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         $customScheduleAvailable = false;
         $defaultScheduleAvailable = false;
 
-        $response['html'] = '<div id="selectedData" data-day="'.$selectedDateText.'" data-date="'.$date.'">'.$selectedDateText.'</div>';
+        // Inicializamos el HTML con el día seleccionado
+        $response['html'] = '<div id="selectedData" data-day="'.$selectedDateText.'" data-date="'.$date.'" class="dateUnavailable">'.$selectedDateText.'</div>';
 
+        // Verificamos la disponibilidad de horarios personalizados
         if ($custom == 1) {
-            // Verificamos los horarios personalizados disponibles
             $sql2 = "SELECT cs.id, cs.h_start, cs.h_end 
                      FROM Custom_Schedule cs
                      LEFT JOIN Training t ON cs.h_start = t.training_start AND cs.t_date = t.training_date
@@ -37,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
             $result2 = $conn->query($sql2);
             if ($result2->num_rows > 0) {
                 $customScheduleAvailable = true;
+                $response['html'] = '<div id="selectedData" data-day="'.$selectedDateText.'" data-date="'.$date.'">'.$selectedDateText.'</div>';
                 $response['html'] .= '<p class="selectedMessage">A continuación elige un horario disponible</p>';
                 $response['html'] .= '<ul>';
                 while ($row2 = $result2->fetch_assoc()) {
@@ -45,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                 $response['html'] .= '</ul>';
             }
         } else {
-            // Verificamos los horarios predeterminados disponibles
+            // Verificamos la disponibilidad de horarios predeterminados
             $sql2 = "SELECT 
                         ds.id,
                         ds.h_start,
@@ -64,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
             $result2 = $conn->query($sql2);
             if ($result2->num_rows > 0) {
                 $defaultScheduleAvailable = true;
+                $response['html'] = '<div id="selectedData" data-day="'.$selectedDateText.'" data-date="'.$date.'">'.$selectedDateText.'</div>';
                 $response['html'] .= '<p class="selectedMessage">A continuación elige un horario disponible</p>';
                 $response['html'] .= '<ul>';
                 while ($row2 = $result2->fetch_assoc()) {
@@ -73,9 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
             }
         }
 
-        // Si no hay horarios disponibles en ninguno de los casos, indicamos que el día no tiene horarios disponibles
+        // Si no hay horarios disponibles en ninguno de los casos, marcamos el día como no seleccionable
         if (!$customScheduleAvailable && !$defaultScheduleAvailable) {
-            $response['html'] .= '<p class="selectedMessage">Este día no tiene horarios disponibles.</p>';
+            $response['html'] = '<div id="selectedData" data-day="'.$selectedDateText.'" data-date="'.$date.'" class="dateUnavailable">'.$selectedDateText.'</div>';
         }
 
         // Añadimos la cantidad de horarios disponibles en el valor oculto
