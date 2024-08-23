@@ -24,11 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
 
         if ($custom == 1) {
             // Para los horarios personalizados, verificamos si están asignados a una sesión de entrenamiento
+            // Se incluye la condición para considerar los horarios con estado Cancelado (4)
             $sql2 = "SELECT cs.id, cs.h_start, cs.h_end 
                      FROM Custom_Schedule cs
                      LEFT JOIN Training t ON cs.h_start = t.training_start AND cs.t_date = t.training_date
                      WHERE cs.t_date = '$date' 
-                     AND (t.id IS NULL) 
+                     AND (t.id IS NULL OR t.training_state = 4) 
                      ORDER BY cs.h_start;";
             $result2 = $conn->query($sql2);
             while ($row2 = $result2->fetch_assoc()) {
