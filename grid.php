@@ -2,7 +2,7 @@
 session_start();
 
 // Definir el tiempo de inactividad (1 hora en segundos)
-$inactiveTime = 100; // 3600 segundos = 1 hora
+$inactiveTime = 10; // 3600 segundos = 1 hora
 
 // Verificar si la sesión ya está iniciada
 if (isset($_SESSION['user_id'])) {
