@@ -6,9 +6,7 @@ $pages = [
 
 $super = [
     ['H. de Equipos', 'report'],
-    ['H. de Capacitaciones', 'training_report'],
-    ['Técnicos', '#'],
-    ['Clientes', '#']
+    ['H. de Capacitaciones', 'training_report']
 ];
 
 $links = $s_levels >= 3 ? array_merge($pages, $super) : $pages;

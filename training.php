@@ -1,21 +1,44 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
+
+// Definir el tiempo de inactividad (1 hora en segundos)
+$inactiveTime = 3600; // 3600 segundos = 1 hora
+
+// Verificar si la sesión ya está iniciada
+if (isset($_SESSION['user_id'])) {
+    // Verificar si la última actividad está establecida
+    if (isset($_SESSION['last_activity'])) {
+        // Comprobar si ha pasado el tiempo de inactividad
+        if (time() - $_SESSION['last_activity'] > $inactiveTime) {
+            // La sesión ha estado inactiva durante más de 1 hora, destruirla
+            session_unset();     // Eliminar todas las variables de sesión
+            session_destroy();   // Destruir la sesión
+            // Redirigir al usuario a la página de login
+            header("Location: krear3dperu");
+            exit();
+        }
+    }
+    
+    // Actualizar la última actividad
+    $_SESSION['last_activity'] = time(); // Actualizar la marca de tiempo de la última actividad
+
+    // Variables de sesión
+    $s_id = $_SESSION['user_id'];
+    $s_levels = $_SESSION['user_levels'];
+    $s_name = $_SESSION['user_name'];
+    $s_nick = $_SESSION['user_nick'];
+    $s_role = $_SESSION['user_role'];
+
+    $currentPage = "Capacitaciones";
+    require_once 'includes/app/db.php';
+    require_once 'includes/app/globals.php';
+    require_once 'includes/common/header_admin.php';
+    $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
+} else {
+    // Redirigir al usuario a la página de login si no está autenticado
     header("Location: krear3dperu");
     exit();
 }
-
-$s_id = $_SESSION['user_id'];
-$s_levels = $_SESSION['user_levels'];
-$s_name = $_SESSION['user_name'];
-$s_nick = $_SESSION['user_nick'];
-$s_role = $_SESSION['user_role'];
-
-$currentPage = "Capacitaciones";
-require_once 'includes/app/db.php';
-require_once 'includes/app/globals.php';
-require_once 'includes/common/header_admin.php';
-$stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 ?>
 </head>
 
@@ -117,7 +140,6 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                     <h2 style="background-color: #<?= $row2['w_image']?>;">
                                                         <?= substr($row2['training_start'], 0, 5)?>
                                                     </h2>
-                                                    <p><?php// $row2['w_nick']?></p>
                                                 </div>
                                             </div>
                                         <?php endwhile;
