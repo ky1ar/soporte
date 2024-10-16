@@ -117,7 +117,7 @@ $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
                                                     <h2 style="background-color: #<?= $row2['w_image']?>;">
                                                         <?= substr($row2['training_start'], 0, 5)?>
                                                     </h2>
-                                                    <p><?php// $row2['w_nick']?></p>
+                                                    
                                                 </div>
                                             </div>
                                         <?php endwhile;
