@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
             session_unset();     // Eliminar todas las variables de sesión
             session_destroy();   // Destruir la sesión
             // Redirigir al usuario a la página de login
-            header("Location: krear3dperu");
+            header("Location: grid");
             exit();
         }
     }
@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
     $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 } else {
     // Redirigir al usuario a la página de login si no está autenticado
-    header("Location: krear3dperu");
+    header("Location: grid");
     exit();
 }
 ?>
