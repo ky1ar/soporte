@@ -17,24 +17,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     
     // Preparar y ejecutar la consulta
     if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("ss", $startDate, $endDate); // Vinculamos las fechas
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $data = $result->fetch_assoc();
+        // Vinculamos las fechas a los parámetros de la consulta
+        $stmt->bind_param("ss", $startDate, $endDate);
 
-        // Guardar los resultados
-        $stat1Count = $data['stat_1_count'];
-        $stat9Count = $data['stat_9_count'];
+        // Ejecutamos la consulta
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $data = $result->fetch_assoc();
 
-        // Devolver los resultados como un array
-        echo json_encode([
-            'stat1Count' => $stat1Count,
-            'stat9Count' => $stat9Count
-        ]);
+            // Verificamos si hay resultados
+            if ($data) {
+                $stat1Count = $data['stat_1_count'];
+                $stat9Count = $data['stat_9_count'];
+
+                // Devolver los resultados como un array JSON
+                echo json_encode([
+                    'stat1Count' => $stat1Count,
+                    'stat9Count' => $stat9Count
+                ]);
+            } else {
+                echo json_encode([
+                    'error' => 'No se encontraron resultados para las fechas proporcionadas'
+                ]);
+            }
+        } else {
+            echo json_encode([
+                'error' => 'Error al ejecutar la consulta: ' . $stmt->error
+            ]);
+        }
+
+        $stmt->close(); // Cerrar el statement
     } else {
-        // En caso de error en la preparación de la consulta
+        // Error al preparar la consulta
         echo json_encode([
-            'error' => 'Error al ejecutar la consulta'
+            'error' => 'Error al preparar la consulta: ' . $conn->error
         ]);
     }
 } else {
