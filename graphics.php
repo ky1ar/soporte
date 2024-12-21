@@ -39,10 +39,10 @@ if (isset($_SESSION['user_id'])) {
         <form id="dateForm" method="POST">
             <label for="start_date">Fecha de inicio:</label>
             <input type="date" id="start_date" name="start_date" required>
-            
+
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
-            
+
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
 
@@ -64,21 +64,21 @@ if (isset($_SESSION['user_id'])) {
             formData.append('end_date', endDate);
 
             fetch('./routes/searchGraphics.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error);
-                } else {
-                    document.getElementById('stat1Result').textContent = 'Estadísticas con stat 1: ' + data.stat1Count;
-                    document.getElementById('stat9Result').textContent = 'Estadísticas con stat 9: ' + data.stat9Count;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        document.getElementById('stat1Result').textContent = 'Estadísticas con stat 1: ' + data.stat1Count;
+                        document.getElementById('stat9Result').textContent = 'Estadísticas con stat 9: ' + data.stat9Count;
+                    }
+                })
+                .catch(error => {
+                    // Elimina console.log aquí si no deseas que se imprima en consola
+                });
         }
     </script>
 </body>
