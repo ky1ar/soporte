@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
     $s_nick = $_SESSION['user_nick'];
     $s_role = $_SESSION['user_role'];
 
-    $currentPage = "Capacitaciones";
+    $currentPage = "Graficos";
     require_once 'includes/app/db.php';
     require_once 'includes/app/globals.php';
     require_once 'includes/common/header_admin.php';
@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php';
     ?>
-    <div id="reportsView">
+    <div id="graphicsView">
         Hola
     </div>
 </body>
