@@ -547,16 +547,18 @@ $(document).ready(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
 
+    // Si el mes se vuelve negativo, ajustar a diciembre del año anterior
     if (offsetMonth < 0) {
         offsetMonth = 11;
         offsetYear--;
     }
 
-    // Solo agregar 'disabled' cuando se llega al mes actual
-    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth()) {
+    // Si el mes actual es mayor al mes retrocedido, no permitir retroceder
+    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
+        // Retroceder es posible solo si no se sale del límite
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-        $(this).addClass("disabled"); // Deshabilitar cuando llegues al mes actual
+        $(this).addClass("disabled"); // Deshabilitar si estamos en el mes actual (diciembre)
     } else {
         $(this).removeClass("disabled");
         loadCalendar(-1);
@@ -568,11 +570,13 @@ calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
+    // Si el mes excede diciembre, volver a enero y avanzar al siguiente año
     if (offsetMonth > 11) {
         offsetMonth = 0;
         offsetYear++;
     }
 
+    // Avanzar hasta los meses permitidos
     if (
         (offsetYear === today.getFullYear() &&
             offsetMonth <= today.getMonth() + 2) ||
@@ -585,7 +589,7 @@ calendarNext.click(function () {
         }
     }
 
-    // Asegurar que calendarPrev se habilite cuando esté fuera del mes actual
+    // Si el mes en offset es mayor al mes actual, habilitar el retroceso
     if (offsetMonth > today.getMonth() + 1) {
         calendarPrev.removeClass("disabled");
     }
