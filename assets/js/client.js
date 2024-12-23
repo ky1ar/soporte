@@ -573,12 +573,16 @@ $(document).ready(function () {
     }
 
     if (
-      offsetYear === today.getFullYear() &&
-      offsetMonth <= today.getMonth() + 1
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 1) ||
+      (offsetYear === today.getFullYear() + 1 && offsetMonth === 0)
     ) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
-      if (offsetMonth === today.getMonth() + 1) {
+      if (
+        offsetYear === today.getFullYear() &&
+        offsetMonth === today.getMonth() + 1
+      ) {
         $(this).addClass("disabled");
       }
     }
