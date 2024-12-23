@@ -553,7 +553,7 @@ $(document).ready(function () {
     }
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
       loadCalendar(-1);
-      calendarNext.removeClass("disabled");
+      //calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
       loadCalendar(-1);
