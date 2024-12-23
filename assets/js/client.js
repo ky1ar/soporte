@@ -544,45 +544,27 @@ $(document).ready(function () {
   ];
 
   calendarPrev.click(function () {
-    // Calcular el mes anterior y ajustar el año si es necesario
     let offsetMonth = currentDate.getMonth() - 1;
-    let offsetYear = currentDate.getFullYear();
-
-    if (offsetMonth < 0) {
-        offsetMonth = 11; // Diciembre
-        offsetYear--; // Año anterior
+    if (offsetMonth > today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+    } else if (offsetMonth == today.getMonth()) {
+      loadCalendar(-1);
+      $(this).addClass("disabled");
     }
+  });
 
-    // Comparar con el mes y año actual
-    if (offsetYear < today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth < today.getMonth())) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() - 1) {
-            $(this).addClass("disabled");
-        }
-    }
-});
-
-calendarNext.click(function () {
-    // Calcular el mes siguiente y ajustar el año si es necesario
+  calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
-    let offsetYear = currentDate.getFullYear();
-
-    if (offsetMonth > 11) {
-        offsetMonth = 0; // Enero
-        offsetYear++; // Año siguiente
+    let maxMonth = today.getMonth() + 2;
+    if (offsetMonth < maxMonth) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+    } else if (offsetMonth == maxMonth) {
+      loadCalendar(1);
+      $(this).addClass("disabled");
     }
-
-    // Comparar con el mes y año actual
-    if (offsetYear < today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth < today.getMonth() + 2)) {
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 2) {
-            $(this).addClass("disabled");
-        }
-    }
-});
-
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
