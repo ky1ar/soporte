@@ -574,14 +574,14 @@ $(document).ready(function () {
 
     if (
       (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) || // Permite avanzar hasta 2 meses
+        offsetMonth <= today.getMonth() + 1) ||
       (offsetYear === today.getFullYear() + 1 && offsetMonth === 0)
     ) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
       if (
         offsetYear === today.getFullYear() &&
-        offsetMonth === today.getMonth() + 2 // Deshabilitar después de 2 meses
+        offsetMonth === today.getMonth() + 1
       ) {
         $(this).addClass("disabled");
       }
