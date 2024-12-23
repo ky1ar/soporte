@@ -555,9 +555,15 @@ $(document).ready(function () {
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-        $(this).addClass("disabled");  // Deshabilitar retroceder en el mes actual (diciembre)
-    } else {
-        $(this).removeClass("disabled");  // Permitir retroceder en otros meses
+        $(this).addClass("disabled");  // Deshabilitar retroceder en el mes actual
+    } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");
     }
 });
 
