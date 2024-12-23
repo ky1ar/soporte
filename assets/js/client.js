@@ -552,17 +552,15 @@ $(document).ready(function () {
         offsetYear--;
     }
 
-    // Permitir retroceder a enero 2025 desde febrero 2025
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-        $(this).addClass("disabled");
+        $(this).addClass("disabled");  // Deshabilitar retroceder en el mes actual
     } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
         $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-        // Permitir retroceder de febrero 2025 a enero 2025
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
         $(this).addClass("disabled");
@@ -578,7 +576,6 @@ calendarNext.click(function () {
         offsetYear++;
     }
 
-    // Lógica para avanzar hasta dos meses hacia el futuro
     if (
         (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 2) ||
         (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
@@ -586,15 +583,10 @@ calendarNext.click(function () {
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
 
-        // Deshabilitar el botón "next" en el mes límite (febrero de 2025)
+        // Deshabilitar el botón "next" en el segundo mes permitido (febrero de 2025)
         if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-            $(this).addClass("disabled");
+            $(this).addClass("disabled");  // Deshabilitar avanzar en febrero 2025
         }
-    }
-
-    // Permite retroceder después de avanzar a los meses siguientes
-    if (offsetMonth > today.getMonth() + 1) {
-        calendarPrev.removeClass("disabled");
     }
 });
 
