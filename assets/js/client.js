@@ -601,12 +601,13 @@ $(document).ready(function () {
     scheduleSelector.hide();
     calendarBackDiv.hide();
     scheduleForm.hide();
+
     calendarSelector.show();
     calendarNavigation.show();
-    currentDate = new Date(today.getFullYear(), today.getMonth(), 1); // Diciembre 2024
+    currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
     loadCalendar(0);
-    calendarPrev.addClass("disabled"); // Deshabilitar Prev en el mes actual
-    calendarNext.removeClass("disabled"); // Habilitar siempre Next
+    calendarPrev.addClass("disabled");
+    calendarNext.removeClass("disabled");
   });
 
   function loadCalendar(offset) {
