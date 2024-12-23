@@ -601,21 +601,12 @@ $(document).ready(function () {
     scheduleSelector.hide();
     calendarBackDiv.hide();
     scheduleForm.hide();
-
     calendarSelector.show();
     calendarNavigation.show();
+    currentDate = new Date(today.getFullYear(), today.getMonth(), 1); // Diciembre 2024
     loadCalendar(0);
-    const offsetMonth = today.getMonth();
-    const offsetYear = today.getFullYear();
-    if (
-      currentDate.getFullYear() === offsetYear &&
-      currentDate.getMonth() === offsetMonth
-    ) {
-      calendarPrev.addClass("disabled"); 
-    } else {
-      calendarPrev.removeClass("disabled");
-    }
-    calendarNext.removeClass("disabled");
+    calendarPrev.addClass("disabled"); // Deshabilitar Prev en el mes actual
+    calendarNext.removeClass("disabled"); // Habilitar siempre Next
   });
 
   function loadCalendar(offset) {
