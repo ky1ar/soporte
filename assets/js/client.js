@@ -546,45 +546,48 @@ $(document).ready(function () {
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-    if (offsetMonth < 0) {
-      offsetMonth = 11;
-      offsetYear--;
-    }
-    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    }
-  });
 
-  calendarNext.click(function () {
+    if (offsetMonth < 0) {
+        offsetMonth = 11;
+        offsetYear--;
+    }
+
+    // Retroceder solo está deshabilitado en el mes actual
+    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth()) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");  // Solo deshabilitar en el mes actual (diciembre)
+    } else {
+        $(this).removeClass("disabled");  // Habilitar si no estamos en el mes actual
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+    }
+});
+
+calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
     if (offsetMonth > 11) {
-      offsetMonth = 0;
-      offsetYear++;
+        offsetMonth = 0;
+        offsetYear++;
     }
+
+    // Se permite avanzar 2 meses hasta febrero 2025
     if (
-      (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) ||
+      (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 2) ||
       (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
+        loadCalendar(1);
+        calendarPrev.removeClass("disabled");
+
+        // Deshabilitar solo en el segundo mes permitido (febrero 2025)
+        if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+            $(this).addClass("disabled");
+        }
     }
-  });
+});
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
