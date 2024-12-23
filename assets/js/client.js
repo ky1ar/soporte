@@ -553,14 +553,15 @@ $(document).ready(function () {
         offsetYear--; // año anterior
     }
 
-    // Verificamos si estamos en el rango del mes actual o el siguiente
-    if ((offsetYear === today.getFullYear() && offsetMonth >= today.getMonth() - 1) || 
-        (offsetYear === today.getFullYear() - 1 && offsetMonth === 11)) {
+    // Verificamos si estamos en el mes actual o el siguiente
+    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() - 1) {
-            $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en el mes anterior al actual
-        }
+        $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en el mes actual
+    } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en diciembre del año anterior
     }
 });
 
@@ -584,6 +585,7 @@ calendarNext.click(function () {
         }
     }
 });
+
 
 
 
