@@ -563,6 +563,7 @@ $(document).ready(function () {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
+      calendarPrev.removeClass("disabled");
     }
   });
 
