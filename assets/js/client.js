@@ -546,7 +546,6 @@ $(document).ready(function () {
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-
     if (offsetMonth < 0) {
       offsetMonth = 11;
       offsetYear--;
@@ -568,7 +567,6 @@ $(document).ready(function () {
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
-
     if (offsetMonth > 11) {
       offsetMonth = 0;
       offsetYear++;
