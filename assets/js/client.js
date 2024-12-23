@@ -553,7 +553,7 @@ $(document).ready(function () {
         offsetYear--;
     }
 
-    // Verificamos si estamos en el mes actual
+    // Verificamos si estamos en el mes actual (diciembre 2024 en este caso)
     if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth()) {
         loadCalendar(-1); // Retrocedemos al mes actual
         calendarNext.removeClass("disabled");
