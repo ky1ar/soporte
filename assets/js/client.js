@@ -526,8 +526,8 @@ $(document).ready(function () {
     });
   });
 
-  //let currentDate = new Date();
-  //let today = new Date();
+  let currentDate = new Date();
+  let today = new Date();
   let months = [
     "enero",
     "febrero",
@@ -542,9 +542,7 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-
-  let currentDate = new Date(2025, 0); // Año 2025, mes enero (0 porque getMonth() está indexado desde 0)
-  let today = new Date(); // Esto mantiene la referencia al día actual
+  
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
