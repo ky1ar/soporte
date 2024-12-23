@@ -543,49 +543,61 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  calendarPrev.click(function (event) {
+  calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-  
-    // Si el mes es menor a 0, volvemos a diciembre y restamos un año
-    if (offsetMonth < 0) {
-      offsetMonth = 11;
-      offsetYear--;
-    }
-  
-    // Verificar si estamos en el mes actual (limite mínimo)
-    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth()) {
-      // Si estamos en el mes actual, deshabilitar el botón de retroceder
-      $(this).addClass("disabled");
-      return; // Evitar que se retroceda
-    }
-  
-    // Si no estamos en el mes actual, permitir retroceder
-    $(this).removeClass("disabled");
-    loadCalendar(-1);
-    calendarNext.removeClass("disabled");
-  });
-  
 
-  calendarNext.click(function () {
+    if (offsetMonth < 0) {
+        offsetMonth = 11;
+        offsetYear--;
+    }
+
+    // Permitir retroceder a enero 2025 desde febrero 2025
+    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+        // Permitir retroceder de febrero 2025 a enero 2025
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");
+    }
+});
+
+calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
+
     if (offsetMonth > 11) {
-      offsetMonth = 0;
-      offsetYear++;
+        offsetMonth = 0;
+        offsetYear++;
     }
+
+    // Lógica para avanzar hasta dos meses hacia el futuro
     if (
-      (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) ||
-      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
+        (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 2) ||
+        (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
+        loadCalendar(1);
+        calendarPrev.removeClass("disabled");
+
+        // Deshabilitar el botón "next" en el mes límite (febrero de 2025)
+        if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+            $(this).addClass("disabled");
+        }
     }
-  });
+
+    // Permite retroceder después de avanzar a los meses siguientes
+    if (offsetMonth > today.getMonth() + 1) {
+        calendarPrev.removeClass("disabled");
+    }
+});
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
