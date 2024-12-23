@@ -542,11 +542,11 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-
+  
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-  
+
     if (offsetMonth < 0) {
       offsetMonth = 11;
       offsetYear--;
@@ -565,17 +565,18 @@ $(document).ready(function () {
       calendarPrev.removeClass("disabled");
     }
   });
-  
+
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
-  
+
     if (offsetMonth > 11) {
       offsetMonth = 0;
       offsetYear++;
     }
     if (
-      (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 3) ||  // Permite avanzar 3 meses
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 2) ||
       (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
       loadCalendar(1);
@@ -588,7 +589,6 @@ $(document).ready(function () {
       calendarPrev.removeClass("disabled");
     }
   });
-  
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
