@@ -547,15 +547,19 @@ $(document).ready(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
 
+    // Si el mes es menor a 0 (es decir, pasamos de enero a diciembre del año anterior)
     if (offsetMonth < 0) {
-        offsetMonth = 11;
-        offsetYear--;
+        offsetMonth = 11; // diciembre
+        offsetYear--; // año anterior
     }
 
-    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() - 1) {
+    // Solo retroceder si el mes es el actual o el siguiente
+    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth() - 1) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-        $(this).addClass("disabled");
+        if (offsetMonth === today.getMonth() - 1) {
+            $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en el mes anterior
+        }
     }
 });
 
@@ -563,18 +567,21 @@ calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
+    // Si el mes es mayor a 11 (es decir, pasamos de diciembre a enero del siguiente año)
     if (offsetMonth > 11) {
-        offsetMonth = 0;
-        offsetYear++;
+        offsetMonth = 0; // enero
+        offsetYear++; // año siguiente
     }
 
-    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 1) {
+    // Solo avanzar si el mes es el siguiente o el mes actual
+    if (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 1) {
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
-        $(this).addClass("disabled");
+        if (offsetMonth === today.getMonth() + 1) {
+            $(this).addClass("disabled"); // Deshabilitar avanzar si estamos en el siguiente mes
+        }
     }
 });
-
 
 
   const calendarNavigation = $("#calendarNavigation");
