@@ -547,18 +547,19 @@ $(document).ready(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
 
-    // Si el mes es menor a 0 (es decir, pasamos de enero a diciembre del año anterior)
+    // Si estamos en enero, retrocedemos a diciembre del año anterior
     if (offsetMonth < 0) {
         offsetMonth = 11; // diciembre
         offsetYear--; // año anterior
     }
 
-    // Solo retroceder si el mes es el actual o el siguiente
-    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth() - 1) {
+    // Verificamos si estamos en el rango del mes actual o el siguiente
+    if ((offsetYear === today.getFullYear() && offsetMonth >= today.getMonth() - 1) || 
+        (offsetYear === today.getFullYear() - 1 && offsetMonth === 11)) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-        if (offsetMonth === today.getMonth() - 1) {
-            $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en el mes anterior
+        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() - 1) {
+            $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en el mes anterior al actual
         }
     }
 });
@@ -567,21 +568,23 @@ calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
-    // Si el mes es mayor a 11 (es decir, pasamos de diciembre a enero del siguiente año)
+    // Si estamos en diciembre, avanzamos a enero del siguiente año
     if (offsetMonth > 11) {
         offsetMonth = 0; // enero
-        offsetYear++; // año siguiente
+        offsetYear++; // siguiente año
     }
 
-    // Solo avanzar si el mes es el siguiente o el mes actual
-    if (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 1) {
+    // Verificamos si estamos en el rango del mes actual o el siguiente
+    if ((offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 1) || 
+        (offsetYear === today.getFullYear() + 1 && offsetMonth === 0)) {
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
-        if (offsetMonth === today.getMonth() + 1) {
-            $(this).addClass("disabled"); // Deshabilitar avanzar si estamos en el siguiente mes
+        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 1) {
+            $(this).addClass("disabled"); // Deshabilitar avanzar si estamos en el mes siguiente al actual
         }
     }
 });
+
 
 
   const calendarNavigation = $("#calendarNavigation");
