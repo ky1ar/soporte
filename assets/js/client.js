@@ -542,7 +542,7 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-  
+
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
@@ -576,7 +576,7 @@ $(document).ready(function () {
     }
     if (
       (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) ||
+        offsetMonth <= today.getMonth() + 3) || // Permite avanzar 3 meses
       (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
       loadCalendar(1);
