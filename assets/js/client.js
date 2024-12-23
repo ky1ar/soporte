@@ -545,22 +545,40 @@ $(document).ready(function () {
 
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
+    let offsetYear = currentDate.getFullYear();
+  
+    // Si el mes es menor a 0, es un salto al año anterior
+    if (offsetMonth < 0) {
+      offsetMonth = 11; // Diciembre
+      offsetYear--; // Retrocedemos al año anterior
+    }
+  
+    if (offsetYear > today.getFullYear() || (offsetYear == today.getFullYear() && offsetMonth >= today.getMonth())) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
+    } else if (offsetMonth == today.getMonth() && offsetYear == today.getFullYear()) {
       loadCalendar(-1);
       $(this).addClass("disabled");
     }
   });
-
+  
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
+    let offsetYear = currentDate.getFullYear();
+  
+    // Si el mes es mayor a 11, es un salto al año siguiente
+    if (offsetMonth > 11) {
+      offsetMonth = 0; // Enero
+      offsetYear++; // Avanzamos al siguiente año
+    }
+  
+    let maxYear = today.getFullYear();
     let maxMonth = today.getMonth() + 2;
-    if (offsetMonth < maxMonth) {
+  
+    if (offsetYear < maxYear || (offsetYear == maxYear && offsetMonth < maxMonth)) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
-    } else if (offsetMonth == maxMonth) {
+    } else if (offsetYear == maxYear && offsetMonth == maxMonth) {
       loadCalendar(1);
       $(this).addClass("disabled");
     }
