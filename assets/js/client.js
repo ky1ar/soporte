@@ -564,31 +564,29 @@ $(document).ready(function () {
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;  // Avanzar al siguiente mes
+    let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
-    // Si superamos diciembre, pasar a enero del siguiente año
     if (offsetMonth > 11) {
-        offsetMonth = 0;
-        offsetYear++;
+      offsetMonth = 0;
+      offsetYear++;
     }
 
-    // Si estamos dentro del rango de hasta dos meses después del mes actual
-    if (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 2) {
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
-
-        // Si llegamos al segundo mes, deshabilitar el botón de "Siguiente"
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 2) {
-            $(this).addClass("disabled");
-        }
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-        // Si es el primer mes del siguiente año, permitirlo
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
+    if (
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 1) ||
+      (offsetYear === today.getFullYear() + 1 && offsetMonth === 0)
+    ) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (
+        offsetYear === today.getFullYear() &&
+        offsetMonth === today.getMonth() + 1
+      ) {
+        $(this).addClass("disabled");
+      }
     }
-});
-
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
