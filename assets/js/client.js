@@ -562,7 +562,6 @@ $(document).ready(function () {
     } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
       calendarPrev.removeClass("disabled");
     }
   });
