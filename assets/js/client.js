@@ -546,50 +546,45 @@ $(document).ready(function () {
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-
     if (offsetMonth < 0) {
-        offsetMonth = 11;
-        offsetYear--;
+      offsetMonth = 11;
+      offsetYear--;
     }
-
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-        $(this).addClass("disabled");  // Deshabilitar retroceder en el mes actual
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-        $(this).addClass("disabled");
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-        $(this).addClass("disabled");
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
     }
-});
+  });
 
-calendarNext.click(function () {
+  calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
     if (offsetMonth > 11) {
-        offsetMonth = 0;
-        offsetYear++;
+      offsetMonth = 0;
+      offsetYear++;
     }
-
     if (
-        (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 2) ||
-        (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 2) ||
+      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
-
-        // Deshabilitar el botón "next" en el segundo mes permitido (febrero de 2025)
-        if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-            $(this).addClass("disabled");  // Deshabilitar avanzar en febrero 2025
-        }
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
+      }
     }
-});
-
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
