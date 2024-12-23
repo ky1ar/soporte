@@ -605,8 +605,6 @@ $(document).ready(function () {
     calendarSelector.show();
     calendarNavigation.show();
     loadCalendar(0);
-    calendarPrev.addClass("disabled");
-    calendarNext.removeClass("disabled");
   });
 
   function loadCalendar(offset) {
