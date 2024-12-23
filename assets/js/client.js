@@ -546,7 +546,7 @@ $(document).ready(function () {
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-    
+
     // Si el mes es menor a 0 (enero), retrocedemos al diciembre del año anterior
     if (offsetMonth < 0) {
         offsetMonth = 11;
@@ -559,7 +559,7 @@ $(document).ready(function () {
         calendarNext.removeClass("disabled");
         $(this).addClass("disabled"); // Deshabilitamos el botón retroceder en el mes actual
     } else {
-        $(this).removeClass("disabled"); // Habilitamos el botón retroceder en meses anteriores
+        $(this).removeClass("disabled"); // Habilitamos el botón retroceder si no estamos en el mes actual
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
     }
