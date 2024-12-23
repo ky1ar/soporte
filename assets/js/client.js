@@ -546,49 +546,53 @@ $(document).ready(function () {
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-
+  
     if (offsetMonth < 0) {
-      offsetMonth = 11;
+      offsetMonth = 11; // Si retrocedemos a un mes antes de enero, vamos a diciembre del año anterior
       offsetYear--;
     }
+  
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
+      // Si estamos en el mes actual o en un mes futuro, no se puede retroceder
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
+      // Si estamos retrocediendo a diciembre del año anterior
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+      // Si estamos retrocediendo desde enero del siguiente año
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
     }
   });
-
+  
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
-
+  
     if (offsetMonth > 11) {
-      offsetMonth = 0;
+      offsetMonth = 0;  // Si avanzamos más allá de diciembre, volvemos a enero del siguiente año
       offsetYear++;
     }
-    if (
-      (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) ||
-      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
-    ) {
+  
+    // Aquí se verifica si estamos en un mes posterior al actual pero no en diciembre,
+    // de modo que tanto retroceder como avanzar deben estar habilitados
+    if (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 1) {
+      loadCalendar(1);  // Avanzamos al siguiente mes
+      calendarPrev.removeClass("disabled");
+      calendarNext.removeClass("disabled");  // Ambos botones deben estar habilitados
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+      // Si llegamos a febrero del año siguiente
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
-    }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
+      $(this).addClass("disabled"); // Deshabilitamos el botón de avanzar si llegamos a febrero del siguiente año
     }
   });
+  
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
