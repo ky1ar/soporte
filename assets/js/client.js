@@ -547,47 +547,46 @@ $(document).ready(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
 
-    // Si estamos en enero, retrocedemos a diciembre del año anterior
     if (offsetMonth < 0) {
-        offsetMonth = 11; // diciembre
-        offsetYear--; // año anterior
+      offsetMonth = 11;
+      offsetYear--;
     }
 
-    // Verificamos si estamos en el mes actual o el siguiente
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-        $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en el mes actual
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-        $(this).addClass("disabled"); // Deshabilitar retroceder si estamos en diciembre del año anterior
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
     }
-});
+  });
 
-calendarNext.click(function () {
+  calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
 
-    // Si estamos en diciembre, avanzamos a enero del siguiente año
     if (offsetMonth > 11) {
-        offsetMonth = 0; // enero
-        offsetYear++; // siguiente año
+      offsetMonth = 0;
+      offsetYear++;
     }
 
-    // Verificamos si estamos en el rango del mes actual o el siguiente
-    if ((offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 1) || 
-        (offsetYear === today.getFullYear() + 1 && offsetMonth === 0)) {
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 1) {
-            $(this).addClass("disabled"); // Deshabilitar avanzar si estamos en el mes siguiente al actual
-        }
+    if (
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 1) ||
+      (offsetYear === today.getFullYear() + 1 && offsetMonth === 0)
+    ) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (
+        offsetYear === today.getFullYear() &&
+        offsetMonth === today.getMonth() + 1
+      ) {
+        $(this).addClass("disabled");
+      }
     }
-});
-
-
-
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
@@ -777,12 +776,12 @@ calendarNext.click(function () {
 
   function validateDniRuc(dniRUC) {
     const regex = /^\d{1,11}$/;
-  
+
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
       message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
       return false;
     }
-  
+
     return true;
   }
 
