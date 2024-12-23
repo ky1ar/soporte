@@ -552,13 +552,10 @@ $(document).ready(function () {
         offsetYear--;
     }
 
-    if (offsetYear < today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth < today.getMonth())) {
+    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() - 1) {
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
-
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth()) {
-            $(this).addClass("disabled");
-        }
+        $(this).addClass("disabled");
     }
 });
 
@@ -571,15 +568,13 @@ calendarNext.click(function () {
         offsetYear++;
     }
 
-    if (offsetYear < today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 1)) {
+    if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 1) {
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
-
-        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() + 2) {
-            $(this).addClass("disabled");
-        }
+        $(this).addClass("disabled");
     }
 });
+
 
 
   const calendarNavigation = $("#calendarNavigation");
