@@ -70,40 +70,32 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('start_date').value = formattedDate;
             document.getElementById('end_date').value = formattedDate;
         }
-
         function fetchData() {
             var startDate = document.getElementById('start_date').value;
             var endDate = document.getElementById('end_date').value;
-
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
-
             var formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', './routes/searchGraphics.php', true);
-
-            xhr.onload = function() {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    try {
-                        var data = JSON.parse(xhr.responseText);
-                        document.getElementById('stat1Result').textContent = data.stat1Count || 0; // Manejo de undefined
-                        document.getElementById('stat9Result').textContent = data.stat9Count || 0; // Manejo de undefined
-                    } catch (error) {
-                        document.getElementById('stat1Result').textContent = "Error"; // Indica error en la UI
-                        document.getElementById('stat9Result').textContent = "Error"; // Indica error en la UI
+            
+            fetch('./routes/searchGraphics.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        document.getElementById('stat1Result').textContent = data.stat1Count;
+                        document.getElementById('stat9Result').textContent = data.stat9Count;
                     }
-                } else {
-                    document.getElementById('stat1Result').textContent = "Error"; // Indica error en la UI
-                    document.getElementById('stat9Result').textContent = "Error"; // Indica error en la UI
-                }
-            };
-
-            xhr.send(formData);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
-
         window.onload = function() {
             setDefaultDates();
             fetchData();
