@@ -548,11 +548,11 @@ $(document).ready(function () {
     console.log("Current Month", currentDate.getMonth());
     console.log("offset Month", offsetMonth);
     console.log("today Month", today.getMonth());
-    if (offsetMonth > today.getMonth()) {
+    if (offsetMonth > 0) {
       console.log('here')
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
+    } else if (offsetMonth == 0) {
       loadCalendar(-1);
       $(this).addClass("disabled");
     }
