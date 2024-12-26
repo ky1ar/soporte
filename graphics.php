@@ -80,6 +80,11 @@ if (isset($_SESSION['user_id'])) {
             var startDate = document.getElementById('start_date').value;
             var endDate = document.getElementById('end_date').value;
 
+            // Mostrar las fechas en la consola antes de enviarlas
+            console.log("Fechas enviadas:");
+            console.log("Fecha de inicio: " + startDate);
+            console.log("Fecha final: " + endDate);
+            
             // Muestra un mensaje de "Cargando..." mientras se espera la respuesta
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
