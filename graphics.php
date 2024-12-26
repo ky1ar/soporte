@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/bar/navigationBar_admin.php';
     ?>
     <div id="graphicsView">
-        <form id="dateForm" method="POST">
+        <form method="POST">
             <label for="start_date">Fecha de inicio:</label>
             <input type="date" id="start_date" name="start_date" required>
 
@@ -45,8 +45,8 @@ if (isset($_SESSION['user_id'])) {
 
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
-        <div id="result">
-            <p>Estadísticas</p>
+        <div class="txt">
+            <p class="ttl">Estadísticas</p>
             <p>
                 Equipos entrantes:
                 <span id="stat1Result"></span>
@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
                 <span id="stat9Result"></span>
             </p>
         </div>
-        <div id="chartContainer">
+        <div>
             <canvas id="barChart"></canvas>
             <canvas id="pieChart"></canvas>
         </div>

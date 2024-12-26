@@ -3688,3 +3688,11 @@ footer .ftr-cpy {
     background-color: var(--secondary);
     color: var(--white);
 }
+
+#graphicsView .txt .ttl{
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0;
+    margin: 2rem 0;
+}
