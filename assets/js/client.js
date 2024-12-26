@@ -542,70 +542,49 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-
+  
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
-    console.log("val: " + offsetMonth);
-
+    console.log("fecha: " +offsetMonth +" "+offsetYear);
     if (offsetMonth < 0) {
       offsetMonth = 11;
       offsetYear--;
     }
-
-    // Actualiza currentDate antes de usarlo
-    currentDate.setFullYear(offsetYear);
-    currentDate.setMonth(offsetMonth);
-
-    // Evitar retroceder más allá del mes actual
-    if (
-      offsetYear < today.getFullYear() ||
-      (offsetYear === today.getFullYear() && offsetMonth < today.getMonth())
-    ) {
-      return; // No hace nada si intenta ir antes del mes actual
-    }
-
-    loadCalendar(-1);
-
-    // Deshabilitar botón si llega al mes actual
-    if (
-      offsetYear === today.getFullYear() &&
-      offsetMonth === today.getMonth()
-    ) {
+    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
+      loadCalendar(-1);
       $(this).addClass("disabled");
-    } else {
+    } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
+      loadCalendar(-1);
       calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      calendarPrev.removeClass("disabled");
     }
   });
 
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
-    console.log("val: " + offsetMonth);
-
+    console.log("fecha: " +offsetMonth +" "+offsetYear);
     if (offsetMonth > 11) {
       offsetMonth = 0;
       offsetYear++;
     }
-
-    // Actualiza currentDate antes de usarlo
-    currentDate.setFullYear(offsetYear);
-    currentDate.setMonth(offsetMonth);
-
-    // Permitir navegación hasta diciembre 2025
     if (
-      offsetYear > today.getFullYear() + 1 ||
-      (offsetYear === today.getFullYear() + 1 && offsetMonth > 11)
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 2) ||
+      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
-      return; // No hace nada si intenta ir después de diciembre 2025
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
+      }
     }
-
-    loadCalendar(1);
-
-    // Deshabilitar botón si llega a diciembre 2025
-    if (offsetYear === today.getFullYear() + 1 && offsetMonth === 11) {
-      $(this).addClass("disabled");
-    } else {
+    if (offsetMonth > today.getMonth() + 1) {
       calendarPrev.removeClass("disabled");
     }
   });
