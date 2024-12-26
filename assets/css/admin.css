@@ -3694,6 +3694,9 @@ footer .ftr-cpy {
     align-items: center;
     flex-direction: column;
 }
+#graphicsView .txt p{
+    margin: 0;
+}
 #graphicsView .txt .ttl{
     font-size: 1.7rem;
     font-weight: bold;
@@ -3701,3 +3704,4 @@ footer .ftr-cpy {
     padding: 0;
     margin: 2rem 0;
 }
+
