@@ -65,6 +65,7 @@ if (isset($_SESSION['user_id'])) {
     <script>
         let barChart = null;
         let pieChart = null;
+
         function setDefaultDates() {
             const today = new Date();
             const yyyy = today.getFullYear();
@@ -106,8 +107,8 @@ if (isset($_SESSION['user_id'])) {
         function createCharts(stat1Count, stat9Count) {
             const chartData = {
                 labels: ['Equipos Ingresados', 'Equipos Entregados'],
-                label: 'Grafico de Equipos',
                 datasets: [{
+                    label: 'Grafico de Equipos',
                     data: [stat1Count, stat9Count],
                     backgroundColor: [
                         'rgb(92, 190, 255)',
