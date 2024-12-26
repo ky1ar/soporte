@@ -545,8 +545,9 @@ $(document).ready(function () {
 
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
-    console.log(offsetMonth);
-    console.log(today.getMonth());
+    console.log("Current Month", currentDate.getMonth());
+    console.log("offset Month", offsetMonth);
+    console.log("today Month", today.getMonth());
     if (offsetMonth > today.getMonth()) {
       console.log('here')
       loadCalendar(-1);
