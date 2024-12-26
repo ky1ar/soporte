@@ -566,34 +566,28 @@ $(document).ready(function () {
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1; // Sumar un mes
+    let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear();
-
-    // Ajustar si el mes es mayor a 11 (diciembre), lo que significa que estamos en el siguiente año
     if (offsetMonth > 11) {
-        offsetMonth = 0; // Enero
-        offsetYear++; // Año siguiente
+      offsetMonth = 0;
+      offsetYear++;
     }
-
     console.log("fecha (next): " + offsetMonth + " " + offsetYear);
-
-    // Límite derecho cambiado a diciembre del próximo año (mes 11)
     if (
-        (offsetYear === today.getFullYear() && offsetMonth <= today.getMonth() + 11) || // Límite derecho: mes actual + 11
-        (offsetYear === today.getFullYear() + 1 && offsetMonth <= 11) // Límite derecho: diciembre del siguiente año
+      (offsetYear === today.getFullYear() &&
+        offsetMonth <= today.getMonth() + 2) ||
+      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
     ) {
-        loadCalendar(1); // Cargar calendario si está dentro del rango válido
-        calendarPrev.removeClass("disabled");
-        if (offsetYear === today.getFullYear() + 1 && offsetMonth === 11) {
-            $(this).addClass("disabled"); // Deshabilitar si es diciembre del siguiente año
-        }
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
+      }
     }
-
-    // Si el mes ya está más allá del actual, habilitar el botón de 'anterior'
     if (offsetMonth > today.getMonth() + 1) {
-        calendarPrev.removeClass("disabled");
+      calendarPrev.removeClass("disabled");
     }
-});
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
