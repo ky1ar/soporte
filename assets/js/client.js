@@ -545,6 +545,8 @@ $(document).ready(function () {
 
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
+    console.log(offsetMonth);
+    console.log(today.getMonth());
     if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
