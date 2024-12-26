@@ -3683,12 +3683,9 @@ footer .ftr-cpy {
     cursor: pointer;
 }
 #graphicsView form select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    background: url('/assets/img/row-down2.png') no-repeat right center;
-    background-size: 16px;
-    padding-right: 20px; /* Espacio para el icono */
+    background: url('/assets/img/row-down2.png') no-repeat calc(100% - 1rem) center;
+    background-size: 1rem;
 }
 #graphicsView form button{
     display: flex;
