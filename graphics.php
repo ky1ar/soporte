@@ -1,7 +1,10 @@
 <?php
 session_start();
+
 $inactiveTime = 3600;
+
 if (isset($_SESSION['user_id'])) {
+
     if (isset($_SESSION['last_activity'])) {
         if (time() - $_SESSION['last_activity'] > $inactiveTime) {
             session_unset();
@@ -10,6 +13,7 @@ if (isset($_SESSION['user_id'])) {
             exit();
         }
     }
+
     $_SESSION['last_activity'] = time();
     $s_id = $_SESSION['user_id'];
     $s_levels = $_SESSION['user_levels'];
@@ -21,12 +25,25 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/app/db.php';
     require_once 'includes/app/globals.php';
     require_once 'includes/common/header_admin.php';
+
+    // Obtener la lista de trabajadores
+    $workers = [];
+    $stmt = $conn->prepare("SELECT id, name FROM Users");
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $workers[] = $row;
+        }
+    }
+    $stmt->close();
+
     $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 } else {
     header("Location: krear3dperu");
     exit();
 }
 ?>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -43,8 +60,19 @@ if (isset($_SESSION['user_id'])) {
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
 
+            <label for="worker_id">Trabajador:</label>
+            <select id="worker_id" name="worker_id">
+                <option value="">Todos</option>
+                <?php foreach ($workers as $worker): ?>
+                    <option value="<?php echo $worker['id']; ?>">
+                        <?php echo htmlspecialchars($worker['name'], ENT_QUOTES, 'UTF-8'); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
+
         <div class="txt">
             <p class="ttl">Estadísticas</p>
             <p>
@@ -56,6 +84,7 @@ if (isset($_SESSION['user_id'])) {
                 <span id="stat9Result"></span>
             </p>
         </div>
+
         <div class="graf">
             <canvas id="barChart"></canvas>
             <canvas id="pieChart"></canvas>
@@ -79,11 +108,17 @@ if (isset($_SESSION['user_id'])) {
         function fetchData() {
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
+            const workerId = document.getElementById('worker_id').value;
+
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
+
             const formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
+            if (workerId) {
+                formData.append('worker_id', workerId);
+            }
 
             fetch('./routes/searchGraphics.php', {
                     method: 'POST',
@@ -138,7 +173,6 @@ if (isset($_SESSION['user_id'])) {
                 }
             });
 
-            // Gráfico de torta
             const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
             pieChart = new Chart(pieChartCanvas, {
                 type: 'pie',
@@ -156,12 +190,12 @@ if (isset($_SESSION['user_id'])) {
                 createCharts(stat1Count, stat9Count);
             }
         }
+
         window.onload = function() {
             setDefaultDates();
             fetchData();
         };
     </script>
-
 </body>
 
 </html>

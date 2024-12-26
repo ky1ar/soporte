@@ -4,6 +4,8 @@ require_once '../includes/app/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset($_POST['end_date'])) {
     $startDate = $_POST['start_date'];
     $endDate = $_POST['end_date'];
+    $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null; 
+
     $startDate .= ' 00:00:00';
     $endDate .= ' 23:59:59';
 
@@ -12,12 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat_1_count,
             SUM(CASE WHEN os.stat = 9 THEN 1 ELSE 0 END) AS stat_9_count
         FROM Orders_Status os
+        INNER JOIN Orders o ON os.orders = o.id
+        INNER JOIN Users u ON o.worker = u.id
         WHERE os.dates BETWEEN ? AND ?
     ";
 
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("ss", $startDate, $endDate);
+    $params = array($startDate, $endDate);
+    if (!is_null($workerId)) {
+        $sql .= " AND u.id = ?";
+        $params[] = $workerId;
+    }
 
+    $stmt = $conn->prepare($sql);
+    $types = str_repeat('s', count($params)); 
+
+    if ($stmt->bind_param($types, ...$params)) {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $data = $result->fetch_assoc();
