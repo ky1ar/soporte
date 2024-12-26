@@ -548,6 +548,7 @@ $(document).ready(function () {
     console.log(offsetMonth);
     console.log(today.getMonth());
     if (offsetMonth > today.getMonth()) {
+      console.log('here')
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
     } else if (offsetMonth == today.getMonth()) {
