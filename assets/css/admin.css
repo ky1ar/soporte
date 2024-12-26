@@ -3684,8 +3684,19 @@ footer .ftr-cpy {
 }
 #graphicsView form select{
     appearance: none;
-    background: url('/assets/img/row-down2.png') no-repeat calc(100% - 1rem) center;
-    background-size: 1rem;
+    position: relative; 
+}
+#graphicsView form::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem; /* Alejado del borde derecho */
+    transform: translateY(-50%);
+    width: 1rem; /* Tamaño de la imagen */
+    height: 1rem; /* Tamaño de la imagen */
+    background: url('/assets/img/row-down2.png') no-repeat center center;
+    background-size: contain; /* Asegura que la imagen se ajuste dentro */
+    pointer-events: none; /* Evita interferencias con clics */
 }
 #graphicsView form button{
     display: flex;
