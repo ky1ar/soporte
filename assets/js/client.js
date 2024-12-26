@@ -607,6 +607,7 @@ $(document).ready(function () {
       method: "POST",
       data: { date: formatedDate, day: firstDayNum },
       success: function (response) {
+        console.log(response);
         calendarTable.html(response);
         monthName.text(month + " " + currentDate.getFullYear());
         loadingResponse.hide();
