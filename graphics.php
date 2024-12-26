@@ -93,6 +93,7 @@ if (isset($_SESSION['user_id'])) {
                     } else {
                         document.getElementById('stat1Result').textContent = data.stat1Count;
                         document.getElementById('stat9Result').textContent = data.stat9Count;
+                        createCharts(data.stat1Count || 0, data.stat9Count || 0);
                     }
                 })
                 .catch(error => {
