@@ -8,12 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $endDate .= ' 23:59:59';
 
     $sql = "
-            SELECT
-                SUM(CASE WHEN os.state = 9 THEN 1 ELSE 0 END) AS count_state_9,
-                SUM(CASE WHEN os.state <> 9 THEN 1 ELSE 0 END) AS count_not_state_9
-            FROM Orders os
-            WHERE os.dates BETWEEN ? AND ?
-        ";
+        SELECT
+            SUM(CASE WHEN os.state = 1 THEN 1 ELSE 0 END) AS stat_1_count,
+            SUM(CASE WHEN os.state = 9 THEN 1 ELSE 0 END) AS stat_9_count
+        FROM Orders os
+        WHERE os.dates BETWEEN ? AND ?
+    ";
 
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("ss", $startDate, $endDate);
@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             $data = $result->fetch_assoc();
 
             if ($data) {
-                $stat1Count = $data['count_state_9'];
-                $stat9Count = $data['count_not_state_9'];
+                $stat1Count = $data['stat_1_count'];
+                $stat9Count = $data['stat_9_count'];
 
                 echo json_encode([
                     'stat1Count' => $stat1Count,
