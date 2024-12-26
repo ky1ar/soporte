@@ -602,6 +602,9 @@ $(document).ready(function () {
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
     let firstDayNum = currentDate.getDay();
+    console.log("formatedDate",formatedDate);
+    console.log("firstDayNum",firstDayNum);
+
     $.ajax({
       url: "routes/loadCalendar",
       method: "POST",
