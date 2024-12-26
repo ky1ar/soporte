@@ -3688,6 +3688,7 @@ footer .ftr-cpy {
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 1rem; 
+    padding-right: 2.5rem;
 }
 
 #graphicsView form button{
