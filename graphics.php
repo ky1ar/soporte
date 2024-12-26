@@ -50,11 +50,11 @@ if (isset($_SESSION['user_id'])) {
         <div id="result">
             <p>Estadísticas:</p>
             <p>
-                Estadísticas con stat 1:
+                Equipos entrantes:
                 <span id="stat1Result">Cargando...</span>
             </p>
             <p>
-                Estadísticas con stat 9:
+                Equipos salientes:
                 <span id="stat9Result">Cargando...</span>
             </p>
         </div>
@@ -84,7 +84,7 @@ if (isset($_SESSION['user_id'])) {
             console.log("Fechas enviadas:");
             console.log("Fecha de inicio: " + startDate);
             console.log("Fecha final: " + endDate);
-            
+
             // Muestra un mensaje de "Cargando..." mientras se espera la respuesta
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
