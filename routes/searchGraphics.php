@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat_1_count,
             SUM(CASE WHEN os.stat = 9 THEN 1 ELSE 0 END) AS stat_9_count
         FROM Orders_Status os
-        WHERE os.stamp BETWEEN ? AND ?
+        WHERE os.dates BETWEEN ? AND ?
     ";
 
     if ($stmt = $conn->prepare($sql)) {
