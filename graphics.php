@@ -63,10 +63,8 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <script>
-        // Variables globales para almacenar las instancias de los gráficos
         let barChart = null;
         let pieChart = null;
-
         function setDefaultDates() {
             const today = new Date();
             const yyyy = today.getFullYear();
@@ -80,11 +78,8 @@ if (isset($_SESSION['user_id'])) {
         function fetchData() {
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
-
-            // Muestra un mensaje de carga mientras se obtienen los datos
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
-
             const formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
@@ -98,11 +93,8 @@ if (isset($_SESSION['user_id'])) {
                     if (data.error) {
                         alert(data.error);
                     } else {
-                        // Actualiza los valores en el HTML
                         document.getElementById('stat1Result').textContent = data.stat1Count;
                         document.getElementById('stat9Result').textContent = data.stat9Count;
-
-                        // Actualiza los gráficos
                         updateCharts(data.stat1Count || 0, data.stat9Count || 0);
                     }
                 })
@@ -112,25 +104,22 @@ if (isset($_SESSION['user_id'])) {
         }
 
         function createCharts(stat1Count, stat9Count) {
-            // Datos para los gráficos
             const chartData = {
-                labels: ['Entrantes', 'Salientes'],
+                labels: ['Equipos Ingresados', 'Equipos Entregados'],
                 datasets: [{
-                    label: 'Cantidad de equipos',
                     data: [stat1Count, stat9Count],
                     backgroundColor: [
-                        'rgba(54, 162, 235, 0.5)', // Azul
-                        'rgba(255, 99, 132, 0.5)' // Rojo
+                        'rgb(92, 190, 255)', // Azul
+                        'rgb(231, 78, 78)' // Rojo
                     ],
                     borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 99, 132, 1)'
+                        'rgb(0, 100, 167)',
+                        'rgb(184, 0, 40)'
                     ],
                     borderWidth: 1
                 }]
             };
 
-            // Gráfico de barras
             const barChartCanvas = document.getElementById('barChart').getContext('2d');
             barChart = new Chart(barChartCanvas, {
                 type: 'bar',
@@ -138,9 +127,9 @@ if (isset($_SESSION['user_id'])) {
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: true, // El eje Y comienza en 0
+                            beginAtZero: true,
                             ticks: {
-                                stepSize: 1 // Para mostrar solo números enteros
+                                stepSize: 1
                             }
                         }
                     }
@@ -157,19 +146,14 @@ if (isset($_SESSION['user_id'])) {
 
         function updateCharts(stat1Count, stat9Count) {
             if (barChart && pieChart) {
-                // Actualiza los datos de los gráficos
                 barChart.data.datasets[0].data = [stat1Count, stat9Count];
                 pieChart.data.datasets[0].data = [stat1Count, stat9Count];
-
-                // Actualiza los gráficos en la pantalla
                 barChart.update();
                 pieChart.update();
             } else {
-                // Si no existen, crea nuevos gráficos
                 createCharts(stat1Count, stat9Count);
             }
         }
-
         window.onload = function() {
             setDefaultDates();
             fetchData();
