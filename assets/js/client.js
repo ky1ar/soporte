@@ -587,10 +587,13 @@ $(document).ready(function () {
 
   function loadCalendar(offset) {
     loadingResponse.show();
-    currentDate.setMonth(
-      offset === 0 ? today.getMonth() : currentDate.getMonth() + offset
-    );
-    currentDate.setDate(1);
+
+    if (offset === 0) {
+      currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+    } else {
+      currentDate.setMonth(currentDate.getMonth() + offset);
+      currentDate.setDate(1);
+    }
 
     let formatedDate =
       currentDate.getFullYear() +
@@ -598,12 +601,12 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
+    
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
+
     let firstDayNum = currentDate.getDay();
-    console.log("formatedDate",formatedDate);
-    console.log("firstDayNum",firstDayNum);
 
     $.ajax({
       url: "routes/loadCalendar",
