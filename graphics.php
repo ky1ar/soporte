@@ -63,6 +63,10 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <script>
+        // Variables globales para almacenar las instancias de los gráficos
+        let barChart = null;
+        let pieChart = null;
+
         function setDefaultDates() {
             const today = new Date();
             const yyyy = today.getFullYear();
@@ -74,11 +78,14 @@ if (isset($_SESSION['user_id'])) {
         }
 
         function fetchData() {
-            var startDate = document.getElementById('start_date').value;
-            var endDate = document.getElementById('end_date').value;
+            const startDate = document.getElementById('start_date').value;
+            const endDate = document.getElementById('end_date').value;
+
+            // Muestra un mensaje de carga mientras se obtienen los datos
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
-            var formData = new FormData();
+
+            const formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
 
@@ -91,9 +98,12 @@ if (isset($_SESSION['user_id'])) {
                     if (data.error) {
                         alert(data.error);
                     } else {
+                        // Actualiza los valores en el HTML
                         document.getElementById('stat1Result').textContent = data.stat1Count;
                         document.getElementById('stat9Result').textContent = data.stat9Count;
-                        createCharts(data.stat1Count || 0, data.stat9Count || 0);
+
+                        // Actualiza los gráficos
+                        updateCharts(data.stat1Count || 0, data.stat9Count || 0);
                     }
                 })
                 .catch(error => {
@@ -122,7 +132,7 @@ if (isset($_SESSION['user_id'])) {
 
             // Gráfico de barras
             const barChartCanvas = document.getElementById('barChart').getContext('2d');
-            new Chart(barChartCanvas, {
+            barChart = new Chart(barChartCanvas, {
                 type: 'bar',
                 data: chartData,
                 options: {
@@ -130,7 +140,7 @@ if (isset($_SESSION['user_id'])) {
                         y: {
                             beginAtZero: true, // El eje Y comienza en 0
                             ticks: {
-                                stepSize: 1 // Para mostrar solo numeros enteros
+                                stepSize: 1 // Para mostrar solo números enteros
                             }
                         }
                     }
@@ -139,11 +149,27 @@ if (isset($_SESSION['user_id'])) {
 
             // Gráfico de torta
             const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
-            new Chart(pieChartCanvas, {
+            pieChart = new Chart(pieChartCanvas, {
                 type: 'pie',
                 data: chartData
             });
         }
+
+        function updateCharts(stat1Count, stat9Count) {
+            if (barChart && pieChart) {
+                // Actualiza los datos de los gráficos
+                barChart.data.datasets[0].data = [stat1Count, stat9Count];
+                pieChart.data.datasets[0].data = [stat1Count, stat9Count];
+
+                // Actualiza los gráficos en la pantalla
+                barChart.update();
+                pieChart.update();
+            } else {
+                // Si no existen, crea nuevos gráficos
+                createCharts(stat1Count, stat9Count);
+            }
+        }
+
         window.onload = function() {
             setDefaultDates();
             fetchData();
