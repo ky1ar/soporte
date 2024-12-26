@@ -544,19 +544,19 @@ $(document).ready(function () {
   ];
 
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
+    let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() - 1 - today.getMonth());
+    if (offsetMonth > 0) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
+    } else if (offsetMonth == 0) {
       loadCalendar(-1);
       $(this).addClass("disabled");
     }
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
+    let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() + 1 - today.getMonth());
+    let maxMonth = 2; 
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
@@ -587,10 +587,13 @@ $(document).ready(function () {
 
   function loadCalendar(offset) {
     loadingResponse.show();
-    currentDate.setMonth(
-      offset === 0 ? today.getMonth() : currentDate.getMonth() + offset
-    );
-    currentDate.setDate(1);
+
+    if (offset === 0) {
+      currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+    } else {
+      currentDate.setMonth(currentDate.getMonth() + offset);
+      currentDate.setDate(1);
+    }
 
     let formatedDate =
       currentDate.getFullYear() +
@@ -598,15 +601,19 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
+    
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
+
     let firstDayNum = currentDate.getDay();
+
     $.ajax({
       url: "routes/loadCalendar",
       method: "POST",
       data: { date: formatedDate, day: firstDayNum },
       success: function (response) {
+        console.log(response);
         calendarTable.html(response);
         monthName.text(month + " " + currentDate.getFullYear());
         loadingResponse.hide();
