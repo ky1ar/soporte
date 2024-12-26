@@ -544,7 +544,7 @@ $(document).ready(function () {
   ];
 
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
+    let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() - 1 - today.getMonth());
     console.log("Current Month", currentDate.getMonth());
     console.log("offset Month", offsetMonth);
     console.log("today Month", today.getMonth());
