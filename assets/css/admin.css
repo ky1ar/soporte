@@ -3682,28 +3682,6 @@ footer .ftr-cpy {
     outline: none;
     cursor: pointer;
 }
-#graphicsView form select {
-    appearance: none;
-    position: relative;
-    padding-right: 30px; /* Espacio para la imagen */
-}
-
-/* Agregar la imagen de la flecha personalizada */
-#graphicsView form select::after {
-    content: "";
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background-image: url('/assets/img/row-down2.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: red; /* Temporarily add a background color */
-    border: 1px solid blue; /* Temporarily add a border to see the element */
-}
-
 #graphicsView form button{
     display: flex;
     border-radius: 1rem;
