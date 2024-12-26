@@ -3688,7 +3688,11 @@ footer .ftr-cpy {
     background-color: var(--secondary);
     color: var(--white);
 }
-
+#graphicsView .txt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #graphicsView .txt .ttl{
     font-size: 1.7rem;
     font-weight: bold;
