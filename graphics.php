@@ -55,33 +55,34 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <script>
+        function setDefaultDates() {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1; // El mes comienza desde 0, por lo que sumamos 1
+            let dd = today.getDate();
+
+            if (mm < 10) {
+                mm = '0' + mm; // Aseguramos que el mes tenga dos dígitos
+            }
+            if (dd < 10) {
+                dd = '0' + dd; // Aseguramos que el día tenga dos dígitos
+            }
+
+            const formattedDate = `${yyyy}-${mm}-${dd}`; // Formato yyyy-mm-dd
+
+            // Establecer la fecha de hoy en los campos de entrada
+            document.getElementById('start_date').value = formattedDate;
+            document.getElementById('end_date').value = formattedDate;
+        }
+
         function fetchData() {
             var startDate = document.getElementById('start_date').value;
             var endDate = document.getElementById('end_date').value;
-            if (!startDate || !endDate) {
-                const today = new Date();
-                const yyyy = today.getFullYear();
-                let mm = today.getMonth() + 1; // El mes comienza desde 0, por lo que sumamos 1
-                let dd = today.getDate();
-
-                if (mm < 10) {
-                    mm = '0' + mm; // Aseguramos que el mes tenga dos dígitos
-                }
-                if (dd < 10) {
-                    dd = '0' + dd; // Aseguramos que el día tenga dos dígitos
-                }
-                const formattedDate = `${yyyy}-${mm}-${dd}`; // Formato yyyy-mm-dd
-                if (!startDate) {
-                    startDate = formattedDate;
-                }
-                if (!endDate) {
-                    endDate = formattedDate;
-                }
-            }
 
             var formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
+
             fetch('./routes/searchGraphics.php', {
                     method: 'POST',
                     body: formData
@@ -99,7 +100,11 @@ if (isset($_SESSION['user_id'])) {
                     console.error('Error:', error);
                 });
         }
+        window.onload = function() {
+            setDefaultDates();
+        };
     </script>
+
 
 </body>
 
