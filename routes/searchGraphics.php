@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
 
     $sql = "
             SELECT
-                SUM(CASE WHEN os.state = 9 THEN 1 ELSE 0 END) AS count_9,
-                SUM(CASE WHEN os.state <> 9 THEN 1 ELSE 0 END) AS count_dif9
+                SUM(CASE WHEN os.state = 9 THEN 1 ELSE 0 END) AS count_state_9,
+                SUM(CASE WHEN os.state <> 9 THEN 1 ELSE 0 END) AS count_not_state_9
             FROM Orders os
             WHERE os.dates BETWEEN ? AND ?
         ";
@@ -23,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             $data = $result->fetch_assoc();
 
             if ($data) {
-                $count_9 = $data['count_9'];
-                $count_dif9 = $data['count_dif9'];
+                $stat1Count = $data['count_state_9'];
+                $stat9Count = $data['count_not_state_9'];
 
                 echo json_encode([
-                    'count_9' => $count_9,
-                    'count_dif9' => $count_dif9
+                    'stat1Count' => $stat1Count,
+                    'stat9Count' => $stat9Count
                 ]);
             } else {
                 echo json_encode([
