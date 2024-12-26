@@ -3684,5 +3684,5 @@ footer .ftr-cpy {
 }
 
 #graphicsView form button:hover{
-    opacity: 0.7;
+    background-color: var(--secondary);
 }
