@@ -556,7 +556,7 @@ $(document).ready(function () {
 
   calendarNext.click(function () {
     let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() + 1 - today.getMonth());
-    let maxMonth = 1; 
+    let maxMonth = 2; 
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
