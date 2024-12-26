@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
 
     // Obtener la lista de trabajadores
     $workers = [];
-    $stmt = $conn->prepare("SELECT id, name FROM Users");
+    $stmt = $conn->prepare("SELECT id, name FROM Users WHERE levels IN (2, 3)");
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
