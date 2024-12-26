@@ -545,11 +545,7 @@ $(document).ready(function () {
 
   calendarPrev.click(function () {
     let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() - 1 - today.getMonth());
-    console.log("Current Month", currentDate.getMonth());
-    console.log("offset Month", offsetMonth);
-    console.log("today Month", today.getMonth());
     if (offsetMonth > 0) {
-      console.log('here')
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
     } else if (offsetMonth == 0) {
@@ -559,8 +555,8 @@ $(document).ready(function () {
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
+    let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() + 1 - today.getMonth());
+    let maxMonth = 1; 
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
@@ -568,6 +564,7 @@ $(document).ready(function () {
       loadCalendar(1);
       $(this).addClass("disabled");
     }
+    currentDate.setMonth(currentDate.getMonth() + 1);
   });
 
   const calendarNavigation = $("#calendarNavigation");
