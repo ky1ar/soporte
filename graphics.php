@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 ?>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="ky1-adm">
@@ -45,10 +45,8 @@ if (isset($_SESSION['user_id'])) {
 
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
-
-        <!-- Mostrar los resultados -->
         <div id="result">
-            <p>Estadísticas:</p>
+            <p>Estadísticas</p>
             <p>
                 Equipos entrantes:
                 <span id="stat1Result"></span>
@@ -57,6 +55,10 @@ if (isset($_SESSION['user_id'])) {
                 Equipos salientes:
                 <span id="stat9Result"></span>
             </p>
+        </div>
+        <div id="chartContainer">
+            <canvas id="barChart"></canvas>
+            <canvas id="pieChart"></canvas>
         </div>
     </div>
 
@@ -70,6 +72,7 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('start_date').value = formattedDate;
             document.getElementById('end_date').value = formattedDate;
         }
+
         function fetchData() {
             var startDate = document.getElementById('start_date').value;
             var endDate = document.getElementById('end_date').value;
@@ -78,7 +81,7 @@ if (isset($_SESSION['user_id'])) {
             var formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
-            
+
             fetch('./routes/searchGraphics.php', {
                     method: 'POST',
                     body: formData
@@ -95,6 +98,50 @@ if (isset($_SESSION['user_id'])) {
                 .catch(error => {
                     console.error('Error:', error);
                 });
+        }
+
+        function createCharts(stat1Count, stat9Count) {
+            // Datos para los gráficos
+            const chartData = {
+                labels: ['Entrantes', 'Salientes'],
+                datasets: [{
+                    label: 'Cantidad de equipos',
+                    data: [stat1Count, stat9Count],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.5)', // Azul
+                        'rgba(255, 99, 132, 0.5)' // Rojo
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            // Gráfico de barras
+            const barChartCanvas = document.getElementById('barChart').getContext('2d');
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true, // El eje Y comienza en 0
+                            ticks: {
+                                stepSize: 1 // Para mostrar solo numeros enteros
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfico de torta
+            const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
+            new Chart(pieChartCanvas, {
+                type: 'pie',
+                data: chartData
+            });
         }
         window.onload = function() {
             setDefaultDates();
