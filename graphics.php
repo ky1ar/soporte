@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
                 <span id="stat9Result"></span>
             </p>
         </div>
-        <div>
+        <div class="graf">
             <canvas id="barChart"></canvas>
             <canvas id="pieChart"></canvas>
         </div>

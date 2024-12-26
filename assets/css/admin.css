@@ -3696,12 +3696,22 @@ footer .ftr-cpy {
 }
 #graphicsView .txt p{
     margin: 0;
+    font-size: 0.9rem;
 }
 #graphicsView .txt .ttl{
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 1;
     padding: 0;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
+#graphicsView .graf{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 0;
+}
+
+#graphicsView .graf canvas{
+    width: 50%;
+}
