@@ -3681,6 +3681,7 @@ footer .ftr-cpy {
     padding: .25rem 1rem;
     background-color: var(--white);
     cursor: pointer;
+    transition: 0.25s all ease-in-out;
 }
 
 #graphicsView form button:hover{
