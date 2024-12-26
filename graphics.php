@@ -49,24 +49,24 @@ if (isset($_SESSION['user_id'])) {
         <!-- Mostrar los resultados -->
         <div id="result">
             <p>Estadísticas:</p>
-            <p id="stat1Result">Estadísticas con stat 1: 0</p>
-            <p id="stat9Result">Estadísticas con stat 9: 0</p>
+            <p>
+                Estadísticas con stat 1:
+                <span id="stat1Result">Cargando...</span>
+            </p>
+            <p>
+                Estadísticas con stat 9:
+                <span id="stat9Result">Cargando...</span>
+            </p>
         </div>
     </div>
 
     <script>
+        // Esta función establece la fecha actual por defecto en los campos de fecha
         function setDefaultDates() {
             const today = new Date();
             const yyyy = today.getFullYear();
-            let mm = today.getMonth() + 1; // El mes comienza desde 0, por lo que sumamos 1
-            let dd = today.getDate();
-
-            if (mm < 10) {
-                mm = '0' + mm; // Aseguramos que el mes tenga dos dígitos
-            }
-            if (dd < 10) {
-                dd = '0' + dd; // Aseguramos que el día tenga dos dígitos
-            }
+            const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Asegura dos dígitos
+            const dd = today.getDate().toString().padStart(2, '0'); // Asegura dos dígitos
 
             const formattedDate = `${yyyy}-${mm}-${dd}`; // Formato yyyy-mm-dd
 
@@ -75,9 +75,14 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('end_date').value = formattedDate;
         }
 
+        // Esta función realiza la consulta y carga los datos
         function fetchData() {
             var startDate = document.getElementById('start_date').value;
             var endDate = document.getElementById('end_date').value;
+
+            // Muestra un mensaje de "Cargando..." mientras se espera la respuesta
+            document.getElementById('stat1Result').textContent = 'Cargando...';
+            document.getElementById('stat9Result').textContent = 'Cargando...';
 
             var formData = new FormData();
             formData.append('start_date', startDate);
@@ -92,19 +97,22 @@ if (isset($_SESSION['user_id'])) {
                     if (data.error) {
                         alert(data.error);
                     } else {
-                        document.getElementById('stat1Result').textContent = 'Estadísticas con stat 1: ' + data.stat1Count;
-                        document.getElementById('stat9Result').textContent = 'Estadísticas con stat 9: ' + data.stat9Count;
+                        document.getElementById('stat1Result').textContent = data.stat1Count;
+                        document.getElementById('stat9Result').textContent = data.stat9Count;
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    alert("Hubo un error al obtener los datos.");
                 });
         }
+
+        // Llamamos a la función para establecer las fechas por defecto cuando la página se carga
         window.onload = function() {
             setDefaultDates();
+            fetchData(); // Realiza la búsqueda con la fecha actual por defecto
         };
     </script>
-
 
 </body>
 
