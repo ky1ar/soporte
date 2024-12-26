@@ -564,7 +564,6 @@ $(document).ready(function () {
       loadCalendar(1);
       $(this).addClass("disabled");
     }
-    currentDate.setMonth(currentDate.getMonth() + 1);
   });
 
   const calendarNavigation = $("#calendarNavigation");
