@@ -26,7 +26,6 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/app/globals.php';
     require_once 'includes/common/header_admin.php';
 
-    // Obtener la lista de trabajadores
     $workers = [];
     $stmt = $conn->prepare("SELECT id, name FROM Users WHERE levels IN (2, 3)");
     if ($stmt->execute()) {
@@ -69,7 +68,6 @@ if (isset($_SESSION['user_id'])) {
                     </option>
                 <?php endforeach; ?>
             </select>
-
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
 
@@ -190,7 +188,6 @@ if (isset($_SESSION['user_id'])) {
                 createCharts(stat1Count, stat9Count);
             }
         }
-
         window.onload = function() {
             setDefaultDates();
             fetchData();
