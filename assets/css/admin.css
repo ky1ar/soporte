@@ -3688,7 +3688,7 @@ footer .ftr-cpy {
     padding-right: 2rem; /* Añade espacio a la derecha para la flecha */
 }
 
-#graphicsView form select::after {
+#graphicsView form select::before {
     content: '';
     background-image: url(/assets/img/row-down2.png);
     background-repeat: no-repeat;
