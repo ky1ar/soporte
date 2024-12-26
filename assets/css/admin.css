@@ -3690,15 +3690,17 @@ footer .ftr-cpy {
 
 #graphicsView form select::after {
     content: '';
+    background-image: url(/assets/img/row-down2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
     position: absolute;
     top: 50%;
-    right: 0.5rem; /* Ajusta para que la flecha esté dentro del select */
-    transform: translateY(-50%);
-    width: 1rem; /* Tamaño de la flecha */
-    height: 1rem; /* Tamaño de la flecha */
-    background: url('/assets/img/row-down2.png') no-repeat center center;
-    background-size: contain;
-    pointer-events: none; /* Evita interferencias con clics */
+    right: 0;
+    transform: translate(-50%, -50%);
 }
 #graphicsView form button{
     display: flex;
