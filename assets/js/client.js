@@ -542,46 +542,56 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-  
+
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
+    let offsetMonth = currentDate.getMonth() - 1; // Restar un mes
     let offsetYear = currentDate.getFullYear();
-    console.log("fecha: " +offsetMonth +" "+offsetYear);
+
+    // Ajustar si el mes es negativo, lo que significa que estamos en el año anterior
     if (offsetMonth < 0) {
-      offsetMonth = 11;
-      offsetYear--;
+      offsetMonth = 11; // Diciembre
+      offsetYear--; // Año anterior
     }
+
+    console.log("fecha (prev): " + offsetMonth + " " + offsetYear);
+
+    // Validación de límites
     if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
-      loadCalendar(-1);
+      loadCalendar(-1); // Cargar calendario si está dentro del rango válido
       $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
-      loadCalendar(-1);
+      loadCalendar(-1); // Si es diciembre del año anterior
       calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
     } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
+      loadCalendar(-1); // Si es enero del próximo año
       calendarNext.removeClass("disabled");
       calendarPrev.removeClass("disabled");
     }
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
+    let offsetMonth = currentDate.getMonth() + 1; // Sumar un mes
     let offsetYear = currentDate.getFullYear();
-    console.log("fecha: " +offsetMonth +" "+offsetYear);
+
+    // Ajustar si el mes es mayor a 11 (diciembre), lo que significa que estamos en el siguiente año
     if (offsetMonth > 11) {
-      offsetMonth = 0;
-      offsetYear++;
+      offsetMonth = 0; // Enero
+      offsetYear++; // Año siguiente
     }
+
+    console.log("fecha (next): " + offsetMonth + " " + offsetYear);
+
+    // Validación de límites
     if (
       (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) ||
-      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
+        offsetMonth <= today.getMonth() + 2) || // Límite derecho: mes actual + 2
+      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1) // Límite derecho para enero del siguiente año
     ) {
-      loadCalendar(1);
+      loadCalendar(1); // Cargar calendario si está dentro del rango válido
       calendarPrev.removeClass("disabled");
       if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
+        $(this).addClass("disabled"); // Deshabilitar si es enero del siguiente año
       }
     }
     if (offsetMonth > today.getMonth() + 1) {
