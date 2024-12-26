@@ -3682,6 +3682,10 @@ footer .ftr-cpy {
     outline: none;
     cursor: pointer;
 }
+#graphicsView form select{
+    appearance: none;
+    background: url('/assets/img/row-down2.png') no-repeat right center;
+}
 #graphicsView form button{
     display: flex;
     border-radius: 1rem;
