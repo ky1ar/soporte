@@ -3683,7 +3683,6 @@ footer .ftr-cpy {
     cursor: pointer;
 }
 #graphicsView form select{
-    appearance: none;
     position: relative; 
 }
 #graphicsView form::after {
