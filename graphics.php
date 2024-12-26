@@ -112,11 +112,11 @@ if (isset($_SESSION['user_id'])) {
                     data: [stat1Count, stat9Count],
                     backgroundColor: [
                         'rgb(92, 190, 255)',
-                        'rgb(105, 241, 93)'
+                        'rgb(94, 219, 82)'
                     ],
                     borderColor: [
                         'rgb(0, 100, 167)',
-                        'rgb(29, 255, 22)'
+                        'rgb(6, 175, 0)'
                     ],
                     borderWidth: 1
                 }]
