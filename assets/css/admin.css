@@ -3656,7 +3656,10 @@ footer .ftr-cpy {
     position: relative;
   }
 
-
+/**********************Graficos*******************************/
+#graphicsView{
+    display: flex;
+}
 
 
 
