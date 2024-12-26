@@ -546,16 +546,10 @@ $(document).ready(function () {
   //version prueba
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
-    let offsetYear = currentDate.getFullYear();
-    if (offsetMonth < 0) {
-      offsetMonth = 11;
-      offsetYear--;
-    }
-    console.log("fecha (prev): " + offsetMonth + " " + offsetYear);
-    if (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth()) {
+    if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() - 1 && offsetMonth === 11) {
+      calendarNext.removeClass("disabled");
+    } else if (offsetMonth == today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
@@ -568,17 +562,8 @@ $(document).ready(function () {
 
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
-    let offsetYear = currentDate.getFullYear();
-    if (offsetMonth > 11) {
-      offsetMonth = 0;
-      offsetYear++;
-    }
-    console.log("fecha (next): " + offsetMonth + " " + offsetYear);
-    if (
-      (offsetYear === today.getFullYear() &&
-        offsetMonth <= today.getMonth() + 2) ||
-      (offsetYear === today.getFullYear() + 1 && offsetMonth <= 1)
-    ) {
+    let maxMonth = today.getMonth() + 2;
+    if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
       if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
@@ -612,10 +597,13 @@ $(document).ready(function () {
 
   function loadCalendar(offset) {
     loadingResponse.show();
-    currentDate.setMonth(
-      offset === 0 ? today.getMonth() : currentDate.getMonth() + offset
-    );
-    currentDate.setDate(1);
+
+    if (offset === 0) {
+      currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+    } else {
+      currentDate.setMonth(currentDate.getMonth() + offset);
+      currentDate.setDate(1);
+    }
 
     let formatedDate =
       currentDate.getFullYear() +
@@ -623,15 +611,19 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
+    
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
+
     let firstDayNum = currentDate.getDay();
+
     $.ajax({
       url: "routes/loadCalendar",
       method: "POST",
       data: { date: formatedDate, day: firstDayNum },
       success: function (response) {
+        console.log(response);
         calendarTable.html(response);
         monthName.text(month + " " + currentDate.getFullYear());
         loadingResponse.hide();
