@@ -3682,20 +3682,22 @@ footer .ftr-cpy {
     outline: none;
     cursor: pointer;
 }
-#graphicsView form select{
+#graphicsView form select {
     appearance: none;
-    position: relative; 
+    position: relative;
+    padding-right: 2rem; /* Añade espacio a la derecha para la flecha */
 }
+
 #graphicsView form select::after {
     content: '';
     position: absolute;
     top: 50%;
-    right: 1rem; /* Alejado del borde derecho */
+    right: 0.5rem; /* Ajusta para que la flecha esté dentro del select */
     transform: translateY(-50%);
-    width: 1rem; /* Tamaño de la imagen */
-    height: 1rem; /* Tamaño de la imagen */
+    width: 1rem; /* Tamaño de la flecha */
+    height: 1rem; /* Tamaño de la flecha */
     background: url('/assets/img/row-down2.png') no-repeat center center;
-    background-size: contain; /* Asegura que la imagen se ajuste dentro */
+    background-size: contain;
     pointer-events: none; /* Evita interferencias con clics */
 }
 #graphicsView form button{
