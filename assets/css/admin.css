@@ -3686,7 +3686,7 @@ footer .ftr-cpy {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url('path-to-your-arrow-icon.svg') no-repeat right center;
+    background: url('/assets/img/row-down2.png') no-repeat right center;
     background-size: 16px;
     padding-right: 20px; /* Espacio para el icono */
 }
