@@ -3678,6 +3678,8 @@ footer .ftr-cpy {
     border-radius: 1rem;
     padding: .5rem;
     font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
 }
 #graphicsView form button{
     display: flex;
