@@ -3685,7 +3685,7 @@ footer .ftr-cpy {
 #graphicsView form select{
     position: relative; 
 }
-#graphicsView form::after {
+#graphicsView form select::after {
     content: '';
     position: absolute;
     top: 50%;
