@@ -3708,10 +3708,10 @@ footer .ftr-cpy {
 
 #graphicsView .graf{
     display: flex;
-    flex-direction: row;
     padding-top: 2rem;
+    gap: 3rem;
 }
 
 #graphicsView .graf canvas{
-    width: 50% !important;
+    height: 20rem !important;
 }
