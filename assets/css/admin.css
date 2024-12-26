@@ -3673,12 +3673,19 @@ footer .ftr-cpy {
 #graphicsView form label{
     font-size: 1rem;
 }
+#graphicsView form input[type="date"]{
+    border: 0.1rem solid var(--graydarkest);
+    border-radius: .25rem;
+    padding: .25rem;
+    padding: .25rem .5rem;
+    font-size: 0.9rem;
+}
 #graphicsView form button{
     display: flex;
     border-radius: 2rem;
     border: none;
     box-shadow: .2rem .2rem 0.25rem var(--graydarkest);
-    padding: .25rem 1rem;
+    padding: .5rem 2rem;
     background-color: var(--white);
     cursor: pointer;
     transition: 0.25s all ease-in-out;
