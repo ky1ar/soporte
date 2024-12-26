@@ -3684,24 +3684,28 @@ footer .ftr-cpy {
 }
 #graphicsView form select {
     appearance: none;
+    -webkit-appearance: none; /* Para compatibilidad con navegadores WebKit */
+    -moz-appearance: none; /* Para compatibilidad con Firefox */
     position: relative;
     padding-right: 2rem; /* Añade espacio a la derecha para la flecha */
+    width: 100%; /* Asegura que el select ocupe el espacio disponible */
+    border: 1px solid #ccc; /* Asegura que el borde sea visible */
+    background-color: #fff; /* Fondo blanco para mayor claridad */
 }
 
-#graphicsView form select::before {
+#graphicsView form select::after {
     content: '';
-    background-image: url(/assets/img/row-down2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    display: block;
-    width: 1.3rem;
-    height: 1.3rem;
     position: absolute;
     top: 50%;
-    right: 0;
-    transform: translate(-50%, -50%);
+    right: 0.75rem; /* Ajusta la posición de la flecha dentro del select */
+    transform: translateY(-50%);
+    width: 1rem; /* Tamaño de la flecha */
+    height: 1rem; /* Tamaño de la flecha */
+    background: url('/assets/img/row-down2.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none; /* Evita interferencias con clics */
 }
+
 #graphicsView form button{
     display: flex;
     border-radius: 1rem;
