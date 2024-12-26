@@ -3682,18 +3682,6 @@ footer .ftr-cpy {
     outline: none;
     cursor: pointer;
 }
-#graphicsView form select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: transparent;
-    background-image: url('ruta/a/tu/imagen.png');  /* Ruta de la imagen */
-    background-repeat: no-repeat;
-    background-position: right 1rem center;  /* Coloca la imagen a la derecha con 1rem de separación */
-    padding-right: 2rem;  /* Asegura espacio suficiente para la imagen */
-    border: 1px solid #ccc;  /* Opcional, para bordes */
-    font-size: 16px;  /* Ajusta el tamaño de la fuente si es necesario */
-}
 #graphicsView form button{
     display: flex;
     border-radius: 1rem;
