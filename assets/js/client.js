@@ -526,8 +526,8 @@ $(document).ready(function () {
     });
   });
 
-  //let currentDate = new Date();
-  //let today = new Date();
+  let currentDate = new Date();
+  let today = new Date();
   let months = [
     "enero",
     "febrero",
@@ -543,9 +543,7 @@ $(document).ready(function () {
     "diciembre",
   ];
   
-
-  const today = new Date('2025-01-01'); // Fecha de referencia para pruebas.
-  let currentDate = new Date(today); 
+  
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     let offsetYear = currentDate.getFullYear();
