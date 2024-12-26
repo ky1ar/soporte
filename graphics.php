@@ -51,41 +51,31 @@ if (isset($_SESSION['user_id'])) {
             <p>Estadísticas:</p>
             <p>
                 Equipos entrantes:
-                <span id="stat1Result">Cargando...</span>
+                <span id="stat1Result"></span>
             </p>
             <p>
                 Equipos salientes:
-                <span id="stat9Result">Cargando...</span>
+                <span id="stat9Result"></span>
             </p>
         </div>
     </div>
 
     <script>
-        // Esta función establece la fecha actual por defecto en los campos de fecha
         function setDefaultDates() {
             const today = new Date();
             const yyyy = today.getFullYear();
             const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Asegura dos dígitos
             const dd = today.getDate().toString().padStart(2, '0'); // Asegura dos dígitos
-
             const formattedDate = `${yyyy}-${mm}-${dd}`; // Formato yyyy-mm-dd
-
-            // Establecer la fecha de hoy en los campos de entrada
             document.getElementById('start_date').value = formattedDate;
             document.getElementById('end_date').value = formattedDate;
         }
-
-        // Esta función realiza la consulta y carga los datos
         function fetchData() {
             var startDate = document.getElementById('start_date').value;
             var endDate = document.getElementById('end_date').value;
-
-            // Mostrar las fechas en la consola antes de enviarlas
             console.log("Fechas enviadas:");
             console.log("Fecha de inicio: " + startDate);
             console.log("Fecha final: " + endDate);
-
-            // Muestra un mensaje de "Cargando..." mientras se espera la respuesta
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
 
@@ -108,14 +98,11 @@ if (isset($_SESSION['user_id'])) {
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert("Hubo un error al obtener los datos.");
                 });
         }
-
-        // Llamamos a la función para establecer las fechas por defecto cuando la página se carga
         window.onload = function() {
             setDefaultDates();
-            fetchData(); // Realiza la búsqueda con la fecha actual por defecto
+            fetchData();
         };
     </script>
 
