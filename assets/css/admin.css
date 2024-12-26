@@ -3682,6 +3682,18 @@ footer .ftr-cpy {
     outline: none;
     cursor: pointer;
 }
+#graphicsView form select{
+    select {
+        -webkit-appearance: none; 
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent; 
+        background-image: url('/assets/img/row-down2.png'); /* Cambia la ruta por la de tu imagen */
+        background-repeat: no-repeat;
+        background-position: right 10px center; /* Ajusta la posición de la imagen */
+        padding-right: 30px; /* Asegura que haya espacio para la imagen */
+    }
+}
 #graphicsView form button{
     display: flex;
     border-radius: 1rem;
