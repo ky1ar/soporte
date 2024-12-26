@@ -3659,7 +3659,29 @@ footer .ftr-cpy {
 /**********************Graficos*******************************/
 #graphicsView{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;     
+}
+#graphicsView form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+#graphicsView form label{
+    font-size: 1rem;
+}
+#graphicsView form button{
+    display: flex;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: .2rem .2rem 0.5rem var(--graydark);
+    padding: .25rem 1rem;
+    background-color: var(--white);
 }
 
-
-
+#graphicsView form button:hover{
+    opacity: 0.7;
+}
