@@ -93,26 +93,12 @@ if (isset($_SESSION['user_id'])) {
         let barChart = null;
         let pieChart = null;
 
-        // Función para convertir la fecha a formato DD/MM/YYYY
-        function formatDateToDDMMYYYY(inputId) {
-            var input = document.getElementById(inputId);
-            input.addEventListener('change', function() {
-                var date = new Date(input.value);
-                var day = ('0' + date.getDate()).slice(-2); // Día con dos dígitos
-                var month = ('0' + (date.getMonth() + 1)).slice(-2); // Mes con dos dígitos
-                var year = date.getFullYear(); // Año
-                input.value = day + '/' + month + '/' + year; // Establecer el nuevo valor en el campo
-            });
-        }
-
-        // Función para establecer las fechas predeterminadas
         function setDefaultDates() {
             const today = new Date();
             const yyyy = today.getFullYear();
             const mm = (today.getMonth() + 1).toString().padStart(2, '0');
             const dd = today.getDate().toString().padStart(2, '0');
-            const formattedDate = `${yyyy}-${mm}-${dd}`; // Formato YYYY-MM-DD para el input
-
+            const formattedDate = `${yyyy}-${mm}-${dd}`;
             document.getElementById('start_date').value = formattedDate;
             document.getElementById('end_date').value = formattedDate;
         }
@@ -202,15 +188,11 @@ if (isset($_SESSION['user_id'])) {
                 createCharts(stat1Count, stat9Count);
             }
         }
-
         window.onload = function() {
             setDefaultDates();
-            formatDateToDDMMYYYY('start_date');
-            formatDateToDDMMYYYY('end_date');
             fetchData();
         };
     </script>
-
 </body>
 
 </html>
