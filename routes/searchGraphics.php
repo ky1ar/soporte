@@ -5,6 +5,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $startDate = $_POST['start_date'];
     $endDate = $_POST['end_date'];
 
+    // Asegurar que la fecha de inicio tenga la hora a las 00:00:00
+    $startDate .= ' 00:00:00';
+
+    // Asegurar que la fecha de fin tenga la hora a las 23:59:59
+    $endDate .= ' 23:59:59';
+
     $sql = "
         SELECT
             SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat_1_count,
@@ -12,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
         FROM Orders_Status os
         WHERE os.dates BETWEEN ? AND ?
     ";
-    
+
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("ss", $startDate, $endDate);
 
