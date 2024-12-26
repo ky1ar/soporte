@@ -106,11 +106,12 @@ if (isset($_SESSION['user_id'])) {
         function createCharts(stat1Count, stat9Count) {
             const chartData = {
                 labels: ['Equipos Ingresados', 'Equipos Entregados'],
+                label: 'Grafico de Equipos',
                 datasets: [{
                     data: [stat1Count, stat9Count],
                     backgroundColor: [
-                        'rgb(92, 190, 255)', // Azul
-                        'rgb(231, 78, 78)' // Rojo
+                        'rgb(92, 190, 255)',
+                        'rgb(231, 78, 78)'
                     ],
                     borderColor: [
                         'rgb(0, 100, 167)',
