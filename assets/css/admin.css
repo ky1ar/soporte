@@ -3695,13 +3695,14 @@ footer .ftr-cpy {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    width: 16px; /* Ajusta el tamaño de la imagen */
-    height: 16px; /* Ajusta el tamaño de la imagen */
-    background-image: url(https://asoporte.krear3d.com/assets/img/row-down2.png);
+    width: 16px;
+    height: 16px;
+    background-image: url('/assets/img/row-down2.png');
     background-size: contain;
     background-repeat: no-repeat;
+    background-color: red; /* Temporarily add a background color */
+    border: 1px solid blue; /* Temporarily add a border to see the element */
 }
-
 
 #graphicsView form button{
     display: flex;
