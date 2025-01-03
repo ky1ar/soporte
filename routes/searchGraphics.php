@@ -9,8 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $startDate .= ' 00:00:00';
     $endDate .= ' 23:59:59';
 
+    // Consulta con subconsultas para obtener el conteo de stat y total_trainings
     $sql = "
-        SELECT
+        SELECT u.id AS user_id,
                stat_counts.stat_1_count,
                stat_counts.stat_9_count,
                training_counts.total_trainings
@@ -55,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             $data = $result->fetch_assoc();
 
             if ($data) {
-                // Solo enviar los stats y total_trainings en la respuesta
                 echo json_encode([
+                    'user_id' => $data['user_id'],
                     'stat1Count' => $data['stat_1_count'],
                     'stat9Count' => $data['stat_9_count'],
                     'totalTrainings' => $data['total_trainings']
