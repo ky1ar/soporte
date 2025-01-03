@@ -57,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
 
             if ($data) {
                 echo json_encode([
-                    'user_id' => $data['user_id'],
                     'stat1Count' => $data['stat_1_count'],
                     'stat9Count' => $data['stat_9_count'],
                     'totalTrainings' => $data['total_trainings']
