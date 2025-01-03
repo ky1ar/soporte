@@ -108,8 +108,10 @@ if (isset($_SESSION['user_id'])) {
             const endDate = document.getElementById('end_date').value;
             const workerId = document.getElementById('worker_id').value;
 
+            // Mostrar mensaje de carga
             document.getElementById('stat1Result').textContent = 'Cargando...';
             document.getElementById('stat9Result').textContent = 'Cargando...';
+            document.getElementById('trainingCountResult').textContent = 'Cargando...';
 
             const formData = new FormData();
             formData.append('start_date', startDate);
@@ -129,7 +131,10 @@ if (isset($_SESSION['user_id'])) {
                     } else {
                         document.getElementById('stat1Result').textContent = data.stat1Count;
                         document.getElementById('stat9Result').textContent = data.stat9Count;
-                        updateCharts(data.stat1Count || 0, data.stat9Count || 0);
+                        document.getElementById('trainingCountResult').textContent = data.totalTrainings;
+
+                        // Actualizar los gráficos
+                        updateCharts(data.stat1Count || 0, data.stat9Count || 0, data.totalTrainings || 0);
                     }
                 })
                 .catch(error => {
@@ -137,24 +142,27 @@ if (isset($_SESSION['user_id'])) {
                 });
         }
 
-        function createCharts(stat1Count, stat9Count) {
+        function createCharts(stat1Count, stat9Count, totalTrainings) {
             const chartData = {
-                labels: ['Equipos Ingresados', 'Equipos Entregados'],
+                labels: ['Equipos Ingresados', 'Equipos Entregados', 'Entrenamientos Completados'],
                 datasets: [{
-                    label: 'Grafico de Equipos',
-                    data: [stat1Count, stat9Count],
+                    label: 'Gráficos de Datos',
+                    data: [stat1Count, stat9Count, totalTrainings],
                     backgroundColor: [
-                        'rgb(92, 190, 255)',
-                        'rgb(94, 219, 82)'
+                        'rgb(92, 190, 255)', // Equipos Ingresados
+                        'rgb(94, 219, 82)', // Equipos Entregados
+                        'rgb(255, 159, 64)' // Entrenamientos Completados
                     ],
                     borderColor: [
                         'rgb(0, 100, 167)',
-                        'rgb(6, 175, 0)'
+                        'rgb(6, 175, 0)',
+                        'rgb(255, 99, 132)'
                     ],
                     borderWidth: 1
                 }]
             };
 
+            // Crear gráfico de barras
             const barChartCanvas = document.getElementById('barChart').getContext('2d');
             barChart = new Chart(barChartCanvas, {
                 type: 'bar',
@@ -171,6 +179,7 @@ if (isset($_SESSION['user_id'])) {
                 }
             });
 
+            // Crear gráfico de pastel
             const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
             pieChart = new Chart(pieChartCanvas, {
                 type: 'pie',
@@ -178,16 +187,19 @@ if (isset($_SESSION['user_id'])) {
             });
         }
 
-        function updateCharts(stat1Count, stat9Count) {
+        function updateCharts(stat1Count, stat9Count, totalTrainings) {
             if (barChart && pieChart) {
-                barChart.data.datasets[0].data = [stat1Count, stat9Count];
-                pieChart.data.datasets[0].data = [stat1Count, stat9Count];
+                // Actualizar los datos de los gráficos
+                barChart.data.datasets[0].data = [stat1Count, stat9Count, totalTrainings];
+                pieChart.data.datasets[0].data = [stat1Count, stat9Count, totalTrainings];
                 barChart.update();
                 pieChart.update();
             } else {
-                createCharts(stat1Count, stat9Count);
+                // Si no existen los gráficos, los creamos
+                createCharts(stat1Count, stat9Count, totalTrainings);
             }
         }
+
         window.onload = function() {
             setDefaultDates();
             fetchData();
