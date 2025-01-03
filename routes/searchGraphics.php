@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $startDate .= ' 00:00:00';
     $endDate .= ' 23:59:59';
 
-    // Consulta con subconsultas para obtener el conteo de stat y total_trainings
     $sql = "
         SELECT
                stat_counts.stat_1_count,
