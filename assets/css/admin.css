@@ -3681,6 +3681,7 @@ footer .ftr-cpy {
     font-size: 0.9rem;
     outline: none;
     cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
 }
 #graphicsView form select{
     appearance: none;
