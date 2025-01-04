@@ -9,25 +9,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $startDate .= ' 00:00:00';
     $endDate .= ' 23:59:59';
 
-    // Consulta combinada con subconsulta para contar las filas de Training
+    // Consulta para obtener los conteos de los estados 1 y 9
     $sql = "
-        SELECT 
+        SELECT
             SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat_1_count,
-            SUM(CASE WHEN os.stat = 9 THEN 1 ELSE 0 END) AS stat_9_count,
-            (
-                SELECT COUNT(*) 
-                FROM Training t
-                WHERE t.training_state = 2
-                AND t.worker = o.worker
-                AND t.training_date BETWEEN ? AND ?
-            ) AS totalTrainings
+            SUM(CASE WHEN os.stat = 9 THEN 1 ELSE 0 END) AS stat_9_count
         FROM Orders_Status os
         INNER JOIN Orders o ON os.orders = o.id
         INNER JOIN Users u ON o.worker = u.id
         WHERE os.dates BETWEEN ? AND ?
     ";
 
-    $params = array($startDate, $endDate, $startDate, $endDate);
+    $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
         $sql .= " AND u.id = ?";
         $params[] = $workerId;
@@ -36,18 +29,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $stmt = $conn->prepare($sql);
     $types = str_repeat('s', count($params)); 
 
-    // Ejecutar la consulta combinada
+    // Ejecutar la consulta para obtener los estados 1 y 9
     if ($stmt->bind_param($types, ...$params)) {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $data = $result->fetch_assoc();
 
+            // Obtener el resultado de los conteos de los estados
             if ($data) {
                 $stat1Count = $data['stat_1_count'];
                 $stat9Count = $data['stat_9_count'];
-                $totalTrainings = $data['totalTrainings'];
 
-                // Devolver el JSON con los resultados
+                // Consulta para obtener el conteo de las filas en la tabla Training
+                $trainingSql = "
+                    SELECT COUNT(*) AS num_rows
+                    FROM Training t
+                    INNER JOIN Users u ON t.worker = u.id
+                    WHERE t.training_state = 2
+                    AND t.worker = ?
+                    AND t.training_date BETWEEN ? AND ?
+                ";
+
+                $trainingStmt = $conn->prepare($trainingSql);
+                $trainingStmt->bind_param('iss', $workerId, $startDate, $endDate);
+                $trainingStmt->execute();
+                $trainingResult = $trainingStmt->get_result();
+                $trainingData = $trainingResult->fetch_assoc();
+                
+                $totalTrainings = $trainingData ? $trainingData['num_rows'] : 0;
+
                 echo json_encode([
                     'stat1Count' => $stat1Count,
                     'stat9Count' => $stat9Count,
