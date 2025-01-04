@@ -99,13 +99,14 @@ if (isset($_SESSION['user_id'])) {
 
         function setDefaultDates() {
             const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = (today.getMonth() + 1).toString().padStart(2, '0');
-            const dd = today.getDate().toString().padStart(2, '0');
-            const formattedDate = `${yyyy}-${mm}-${dd}`;
-            document.getElementById('start_date').value = formattedDate;
-            document.getElementById('end_date').value = formattedDate;
+            const startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+            const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+            const formattedStartDate = startDate.toISOString().split('T')[0];
+            const formattedEndDate = endDate.toISOString().split('T')[0];
+            document.getElementById('start_date').value = formattedStartDate;
+            document.getElementById('end_date').value = formattedEndDate;
         }
+
 
         function fetchData() {
             const startDate = document.getElementById('start_date').value;
