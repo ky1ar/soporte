@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
 
     $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
-        $sql .= " AND u.id = ?";
+        $sql .= " AND u.id = ?";  // Filtramos si se recibe un worker_id
         $params[] = $workerId;
     }
 
@@ -46,12 +46,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                     FROM Training t
                     INNER JOIN Users u ON t.worker = u.id
                     WHERE t.training_state = 2
-                    AND t.worker = ?
                     AND t.training_date BETWEEN ? AND ?
                 ";
 
+                // Si se recibe un worker_id, añadimos el filtro correspondiente
+                if (!is_null($workerId)) {
+                    $trainingSql .= " AND t.worker = ?";
+                    $paramsTraining = array($startDate, $endDate, $workerId);
+                    $typesTraining = 'sss';  // El workerId es un string
+                } else {
+                    // Si no hay worker_id, no se filtra por worker
+                    $paramsTraining = array($startDate, $endDate);
+                    $typesTraining = 'ss';  // Solo las fechas
+                }
+
                 $trainingStmt = $conn->prepare($trainingSql);
-                $trainingStmt->bind_param('iss', $workerId, $startDate, $endDate);
+                $trainingStmt->bind_param($typesTraining, ...$paramsTraining);
                 $trainingStmt->execute();
                 $trainingResult = $trainingStmt->get_result();
                 $trainingData = $trainingResult->fetch_assoc();
