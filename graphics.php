@@ -107,7 +107,6 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('end_date').value = formattedEndDate;
         }
 
-
         function fetchData() {
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
