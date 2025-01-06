@@ -4,18 +4,20 @@ require_once '../includes/app/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset($_POST['end_date'])) {
     $startDate = $_POST['start_date'];
     $endDate = $_POST['end_date'];
-    $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null;
+    $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null; 
 
     $startDate .= ' 00:00:00';
     $endDate .= ' 23:59:59';
 
     // Consulta para obtener los conteos de los estados 1 y 9
-    $sql = "SELECT
+    $sql = "
+        SELECT
             SUM(CASE WHEN o.state = 1 THEN 1 ELSE 0 END) AS state_1_count,
             SUM(CASE WHEN o.state = 9 THEN 1 ELSE 0 END) AS state_9_count
         FROM Orders o
         INNER JOIN Users u ON o.worker = u.id
-        WHERE o.dates BETWEEN ? AND ?";
+        WHERE o.dates BETWEEN ? AND ?
+    ";
 
     $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
@@ -24,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     }
 
     $stmt = $conn->prepare($sql);
-    $types = str_repeat('s', count($params));
+    $types = str_repeat('s', count($params)); 
 
     // Ejecutar la consulta para obtener los estados 1 y 9
     if ($stmt->bind_param($types, ...$params)) {
@@ -62,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                 $trainingStmt->execute();
                 $trainingResult = $trainingStmt->get_result();
                 $trainingData = $trainingResult->fetch_assoc();
-
+                
                 $totalTrainings = $trainingData ? $trainingData['num_rows'] : 0;
 
                 echo json_encode([
@@ -92,3 +94,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
         'error' => 'Fechas no proporcionadas'
     ]);
 }
+?>
