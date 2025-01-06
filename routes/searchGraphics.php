@@ -10,14 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $endDate .= ' 23:59:59';
 
     // Consulta para obtener los conteos de los estados 1 y 9
-    $sql = "
-            SELECT
+    $sql = "SELECT
             SUM(CASE WHEN o.state = 1 THEN 1 ELSE 0 END) AS state_1_count,
             SUM(CASE WHEN o.state = 9 THEN 1 ELSE 0 END) AS state_9_count
         FROM Orders o
         INNER JOIN Users u ON o.worker = u.id
-        WHERE o.dates BETWEEN ? AND ?
-    ";
+        WHERE o.dates BETWEEN ? AND ?";
 
     $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
