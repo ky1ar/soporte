@@ -51,6 +51,7 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php';
     ?>
+    <h1>Estadísticas</h1>
     <div id="graphicsView">
         <form method="POST">
             <label for="start_date">Fecha de inicio:</label>
@@ -72,7 +73,6 @@ if (isset($_SESSION['user_id'])) {
         </form>
 
         <div class="txt">
-            <p class="ttl">Estadísticas</p>
             <p>
                 Equipos entrantes:
                 <span id="stat1Result"></span>
