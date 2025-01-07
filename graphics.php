@@ -74,11 +74,11 @@ if (isset($_SESSION['user_id'])) {
 
         <div class="txt">
             <p>
-                Equipos entrantes:
+                Equipos Ingresados:
                 <span id="stat1Result"></span>
             </p>
             <p>
-                Equipos salientes:
+                Equipos Entregados:
                 <span id="stat8Result"></span>
             </p>
             <p>
