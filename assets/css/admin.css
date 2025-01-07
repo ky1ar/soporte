@@ -3101,6 +3101,7 @@ footer .ftr-cpy {
 }
 #viewTraining .content .sect-pruebas .pruebas textarea{
   resize: vertical;
+  height: 5rem;
 }
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
