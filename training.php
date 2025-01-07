@@ -196,7 +196,7 @@ if (isset($_SESSION['user_id'])) {
                                 <input type="text" id="comevi" name="comevi">
 
                                 <label for="imgevi"></label>
-                                <input type="image" id="imgevi" name="imgevi">
+                                <input type="file" id="imgevi" name="imgevi">
                             </div>
                         </div>
                         <div class="staticMeet">
