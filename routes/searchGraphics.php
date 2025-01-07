@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     }
 
     // Depuración: Mostrar la consulta antes de ejecutarla
-    echo "Consulta SQL: $sql\n";
+    echo "Consulta SQL final: " . $sql . "\n";
+    echo "Parámetros: " . implode(", ", array($startDate, $endDate, $workerId)) . "\n";
 
     $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     }
 
     // Definir tipos de parámetros
-    $types = str_repeat('s', count($params)); 
+    $types = str_repeat('s', count($params) - (is_null($workerId) ? 0 : 1)) . (is_null($workerId) ? '' : 'i');
 
     if ($stmt->bind_param($types, ...$params)) {
         if ($stmt->execute()) {
@@ -111,4 +112,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
         'error' => 'Fechas no proporcionadas'
     ]);
 }
+
 ?>
