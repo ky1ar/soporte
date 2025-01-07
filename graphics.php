@@ -145,7 +145,7 @@ if (isset($_SESSION['user_id'])) {
 
         function createCharts(stat1Count, stat8Count, totalTrainings) {
             const chartData = {
-                labels: ['Equipos Ingresados', 'Equipos Entregados', 'Capacitaciones'],
+                labels: ['Equipos Ingresados', 'Equipos Entregados', 'Capacitaciones Finalizadas'],
                 datasets: [{
                     label: 'Grafico Informativo',
                     data: [stat1Count, stat8Count, totalTrainings],
