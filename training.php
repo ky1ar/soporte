@@ -197,6 +197,9 @@ if (isset($_SESSION['user_id'])) {
 
                                 <label for="imgevi">Archivo:</label>
                                 <input type="file" id="imgevi" name="imgevi">
+                                <button type="submit">
+                                    Guardar
+                                </button>
                             </div>
                         </div>
                         <div class="staticMeet">
