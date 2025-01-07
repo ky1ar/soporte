@@ -194,7 +194,7 @@ if (isset($_SESSION['user_id'])) {
                             <div class="pruebas">
                                 <div>
                                     <label for="comevi">Comentarios:</label>
-                                    <input type="text" id="comevi" name="comevi">
+                                    <textarea type="text" id="comevi" name="comevi">
                                 </div>
                                 <div>
                                     <label for="imgevi">Archivo:</label>
