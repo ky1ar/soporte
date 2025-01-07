@@ -204,6 +204,10 @@ if (isset($_SESSION['user_id'])) {
                                     Guardar
                                 </button>
                             </div>
+                            <div class="result">
+                                <p></p>
+                                <img src="" alt="">
+                            </div>
                         </div>
                         <div class="staticMeet">
                             <img src="assets/img/meet.svg" alt="">

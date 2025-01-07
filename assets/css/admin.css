@@ -3081,21 +3081,22 @@ footer .ftr-cpy {
 }
 #viewTraining .content .sect-pruebas {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 #viewTraining .content .sect-pruebas > p {
   font-weight: 600;
   font-size: 1rem;
   margin: 0;
+  width: 100%;
 }
 #viewTraining .content .sect-pruebas .pruebas {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 50%;
 }
 #viewTraining .content .sect-pruebas .pruebas div {
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
