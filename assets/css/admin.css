@@ -3099,6 +3099,9 @@ footer .ftr-cpy {
   font-weight: 600;
   font-size: .8rem;
 }
+#viewTraining .content .sect-pruebas .pruebas textarea{
+  resize: vertical;
+}
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
 #viewTraining .content .staticWorker,
