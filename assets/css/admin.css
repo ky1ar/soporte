@@ -3145,7 +3145,7 @@ footer .ftr-cpy {
   padding: 0.5rem;
   text-align: center;
 }
-#viewTraining .content button {
+#viewTraining .content button#upd_worker {
   border: none;
   background-color: var(--gray);
   padding: 0.5rem 1.25rem;
