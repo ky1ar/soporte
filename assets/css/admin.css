@@ -3106,6 +3106,7 @@ footer .ftr-cpy {
   resize: vertical;
   height: 5rem;
   border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
   width: 100%;
