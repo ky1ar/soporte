@@ -3740,12 +3740,15 @@ footer .ftr-cpy {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-bottom: 2rem;
+  margin: 3rem 0;
+  gap: 3rem;
 }
 #graphicsView .txt p {
   margin: 0;
   font-size: 0.9rem;
+}
+#graphicsView .txt p span {
+  font-weight: 600;
 }
 #graphicsView .tp {
   font-size: 1.7rem;
@@ -3757,7 +3760,6 @@ footer .ftr-cpy {
 
 #graphicsView .graf {
   display: flex;
-  padding-top: 2rem;
   gap: 5rem;
 }
 
