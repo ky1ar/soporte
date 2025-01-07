@@ -3079,29 +3079,32 @@ footer .ftr-cpy {
   gap: 0.5rem;
   flex-direction: column;
 }
-#viewTraining .content .sect-pruebas{
+#viewTraining .content .sect-pruebas {
   display: flex;
   flex-direction: column;
 }
-#viewTraining .content .sect-pruebas > p{
+#viewTraining .content .sect-pruebas > p {
   font-weight: 600;
   font-size: 1rem;
   margin: 0;
 }
-#viewTraining .content .sect-pruebas .pruebas{
+#viewTraining .content .sect-pruebas .pruebas {
   display: flex;
 }
-#viewTraining .content .sect-pruebas .pruebas div{
+#viewTraining .content .sect-pruebas .pruebas div {
   display: flex;
   flex-direction: column;
 }
-#viewTraining .content .sect-pruebas .pruebas div label{
+#viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-#viewTraining .content .sect-pruebas .pruebas textarea{
+#viewTraining .content .sect-pruebas .pruebas textarea {
   resize: vertical;
   height: 5rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
 }
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
