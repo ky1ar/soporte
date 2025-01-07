@@ -51,8 +51,8 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php';
     ?>
-    <h1>Estadísticas</h1>
     <div id="graphicsView">
+        <h1 class="tp">Estadísticas</h1>
         <form method="POST">
             <label for="start_date">Fecha de inicio:</label>
             <input type="date" id="start_date" name="start_date" required>
