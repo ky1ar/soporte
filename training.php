@@ -190,12 +190,12 @@ if (isset($_SESSION['user_id'])) {
                             </button>
                         </div>
                         <div class="sect-pruebas">
-                            <p>Evidencias:</p>
+                            <p>Evidencias</p>
                             <div class="pruebas">
-                                <label for="comevi">Comentarios</label>
+                                <label for="comevi">Comentarios:</label>
                                 <input type="text" id="comevi" name="comevi">
 
-                                <label for="imgevi"></label>
+                                <label for="imgevi">Archivo:</label>
                                 <input type="file" id="imgevi" name="imgevi">
                             </div>
                         </div>
