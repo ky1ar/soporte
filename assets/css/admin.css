@@ -3094,6 +3094,10 @@ footer .ftr-cpy {
   display: flex;
   flex-direction: column;
 }
+#viewTraining .content .sect-pruebas .pruebas div label{
+  font-weight: 600;
+  font-size: .8rem;
+}
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
 #viewTraining .content .staticWorker,
