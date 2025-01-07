@@ -3097,6 +3097,7 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas .pruebas div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
@@ -3106,7 +3107,6 @@ footer .ftr-cpy {
   resize: vertical;
   height: 5rem;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
   width: 100%;
