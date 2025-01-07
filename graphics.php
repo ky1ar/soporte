@@ -79,7 +79,7 @@ if (isset($_SESSION['user_id'])) {
             </p>
             <p>
                 Equipos salientes:
-                <span id="stat9Result"></span>
+                <span id="stat8Result"></span>
             </p>
             <p>
                 Capacitaciones Finalizadas:
@@ -113,7 +113,7 @@ if (isset($_SESSION['user_id'])) {
             const workerId = document.getElementById('worker_id').value;
 
             document.getElementById('stat1Result').textContent = 'Cargando...';
-            document.getElementById('stat9Result').textContent = 'Cargando...';
+            document.getElementById('stat8Result').textContent = 'Cargando...';
             document.getElementById('trainingResult').textContent = 'Cargando...';
 
             const formData = new FormData();
@@ -133,9 +133,9 @@ if (isset($_SESSION['user_id'])) {
                         alert(data.error);
                     } else {
                         document.getElementById('stat1Result').textContent = data.stat1Count;
-                        document.getElementById('stat9Result').textContent = data.stat9Count;
+                        document.getElementById('stat8Result').textContent = data.stat8Count;
                         document.getElementById('trainingResult').textContent = data.totalTrainings;
-                        updateCharts(data.stat1Count || 0, data.stat9Count || 0, data.totalTrainings || 0);
+                        updateCharts(data.stat1Count || 0, data.stat8Count || 0, data.totalTrainings || 0);
                     }
                 })
                 .catch(error => {
@@ -143,12 +143,12 @@ if (isset($_SESSION['user_id'])) {
                 });
         }
 
-        function createCharts(stat1Count, stat9Count, totalTrainings) {
+        function createCharts(stat1Count, stat8Count, totalTrainings) {
             const chartData = {
                 labels: ['Equipos Ingresados', 'Equipos Entregados', 'Capacitaciones'],
                 datasets: [{
                     label: 'Grafico Informativo',
-                    data: [stat1Count, stat9Count, totalTrainings],
+                    data: [stat1Count, stat8Count, totalTrainings],
                     backgroundColor: [
                         'rgb(108, 255, 248)',
                         'rgb(94, 219, 82)',
@@ -186,14 +186,14 @@ if (isset($_SESSION['user_id'])) {
             });
         }
 
-        function updateCharts(stat1Count, stat9Count, totalTrainings) {
+        function updateCharts(stat1Count, stat8Count, totalTrainings) {
             if (barChart && pieChart) {
-                barChart.data.datasets[0].data = [stat1Count, stat9Count, totalTrainings];
-                pieChart.data.datasets[0].data = [stat1Count, stat9Count, totalTrainings];
+                barChart.data.datasets[0].data = [stat1Count, stat8Count, totalTrainings];
+                pieChart.data.datasets[0].data = [stat1Count, stat8Count, totalTrainings];
                 barChart.update();
                 pieChart.update();
             } else {
-                createCharts(stat1Count, stat9Count, totalTrainings);
+                createCharts(stat1Count, stat8Count, totalTrainings);
             }
         }
         window.onload = function() {
