@@ -3079,6 +3079,10 @@ footer .ftr-cpy {
   gap: 0.5rem;
   flex-direction: column;
 }
+#viewTraining .content .sect-pruebas{
+  display: flex;
+  flex-direction: column;
+}
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
 #viewTraining .content .staticWorker,
