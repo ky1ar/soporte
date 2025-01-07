@@ -3090,10 +3090,12 @@ footer .ftr-cpy {
 }
 #viewTraining .content .sect-pruebas .pruebas {
   display: flex;
+  flex-wrap: wrap;
 }
 #viewTraining .content .sect-pruebas .pruebas div {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
@@ -3105,6 +3107,16 @@ footer .ftr-cpy {
   width: 15rem;
   border-radius: 0.5rem;
   margin-right: 1rem;
+}
+#viewTraining .content .sect-pruebas .pruebas button {
+  width: 100%;
+  background-color: #4cc2db;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  border: none;
 }
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
