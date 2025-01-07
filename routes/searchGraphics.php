@@ -19,15 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
         WHERE os.dates BETWEEN ? AND ?;
 
     ";
-
     $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
-        $sql .= " AND u.id = ?";  // Filtramos si se recibe un worker_id
+        $sql .= " AND u.id = ?";
         $params[] = $workerId;
     }
 
     $stmt = $conn->prepare($sql);
-    $types = str_repeat('s', count($params)); 
+    $types = str_repeat('i', count($params)); 
 
     if ($stmt->bind_param($types, ...$params)) {
         if ($stmt->execute()) {
@@ -47,11 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                 if (!is_null($workerId)) {
                     $trainingSql .= " AND t.worker = ?";
                     $paramsTraining = array($startDate, $endDate, $workerId);
-                    $typesTraining = 'sss';  // El workerId es un string
+                    $typesTraining = 'ssi';
                 } else {
-                    // Si no hay worker_id, no se filtra por worker
                     $paramsTraining = array($startDate, $endDate);
-                    $typesTraining = 'ss';  // Solo las fechas
+                    $typesTraining = 'ss';
                 }
 
                 $trainingStmt = $conn->prepare($trainingSql);
