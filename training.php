@@ -192,11 +192,14 @@ if (isset($_SESSION['user_id'])) {
                         <div class="sect-pruebas">
                             <p>Evidencias</p>
                             <div class="pruebas">
-                                <label for="comevi">Comentarios:</label>
-                                <input type="text" id="comevi" name="comevi">
-
-                                <label for="imgevi">Archivo:</label>
-                                <input type="file" id="imgevi" name="imgevi">
+                                <div>
+                                    <label for="comevi">Comentarios:</label>
+                                    <input type="text" id="comevi" name="comevi">
+                                </div>
+                                <div>
+                                    <label for="imgevi">Archivo:</label>
+                                    <input type="file" id="imgevi" name="imgevi">
+                                </div>
                                 <button type="submit">
                                     Guardar
                                 </button>
