@@ -3105,9 +3105,7 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas .pruebas textarea {
   resize: vertical;
   height: 5rem;
-  width: 15rem;
   border-radius: 0.5rem;
-  margin-right: 1rem;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
   width: 100%;
