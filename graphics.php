@@ -127,11 +127,12 @@ if (isset($_SESSION['user_id'])) {
                     method: 'POST',
                     body: formData
                 })
-                .then(response => response.json())
+                .then(response => response.json()) // Se espera que la respuesta sea JSON
                 .then(data => {
                     if (data.error) {
                         alert(data.error);
                     } else {
+                        // Manejar los datos si no hay error
                         document.getElementById('stat1Result').textContent = data.stat1Count;
                         document.getElementById('stat8Result').textContent = data.stat8Count;
                         document.getElementById('trainingResult').textContent = data.totalTrainings;
@@ -140,6 +141,7 @@ if (isset($_SESSION['user_id'])) {
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    alert('Hubo un problema al procesar la solicitud.');
                 });
         }
 
