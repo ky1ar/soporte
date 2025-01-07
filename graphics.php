@@ -150,9 +150,9 @@ if (isset($_SESSION['user_id'])) {
                     label: 'Grafico Informativo',
                     data: [stat1Count, stat8Count, totalTrainings],
                     backgroundColor: [
-                        'rgb(108, 255, 248)',
+                        'rgb(101, 199, 255)',
                         'rgb(94, 219, 82)',
-                        'rgb(255, 181, 70)'
+                        'rgb(255, 89, 48)'
                     ],
                     borderColor: [
                         'rgb(0, 151, 252)',
