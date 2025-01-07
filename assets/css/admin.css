@@ -3086,6 +3086,7 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas > p{
   font-weight: 600;
   font-size: 1rem;
+  margin: 0;
 }
 #viewTraining .content .sect-pruebas .pruebas{
   display: flex;
