@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/common/header_admin.php';
 
     $workers = [];
-    $stmt = $conn->prepare("SELECT id, name FROM Users WHERE levels IN (2, 3)");
+    $stmt = $conn->prepare("SELECT id, name FROM Users WHERE levels IN (2, 3) AND id != 203");
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
