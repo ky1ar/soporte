@@ -89,13 +89,11 @@ if (isset($_SESSION['user_id'])) {
 
         <div class="graf">
             <canvas id="barChart"></canvas>
-            <canvas id="pieChart"></canvas>
         </div>
     </div>
 
     <script>
         let barChart = null;
-        let pieChart = null;
 
         function setDefaultDates() {
             const today = new Date();
@@ -135,7 +133,7 @@ if (isset($_SESSION['user_id'])) {
                         document.getElementById('stat1Result').textContent = data.stat1Count;
                         document.getElementById('stat8Result').textContent = data.stat8Count;
                         document.getElementById('trainingResult').textContent = data.totalTrainings;
-                        updateCharts(data.stat1Count || 0, data.stat8Count || 0, data.totalTrainings || 0);
+                        updateBarChart(data.stat1Count || 0, data.stat8Count || 0, data.totalTrainings || 0);
                     }
                 })
                 .catch(error => {
@@ -143,7 +141,7 @@ if (isset($_SESSION['user_id'])) {
                 });
         }
 
-        function createCharts(stat1Count, stat8Count, totalTrainings) {
+        function createBarChart(stat1Count, stat8Count, totalTrainings) {
             const chartData = {
                 labels: ['Equipos Ingresados', 'Equipos Entregados', 'Capacitaciones Finalizadas'],
                 datasets: [{
@@ -178,29 +176,23 @@ if (isset($_SESSION['user_id'])) {
                     }
                 }
             });
-
-            const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
-            pieChart = new Chart(pieChartCanvas, {
-                type: 'pie',
-                data: chartData
-            });
         }
 
-        function updateCharts(stat1Count, stat8Count, totalTrainings) {
-            if (barChart && pieChart) {
+        function updateBarChart(stat1Count, stat8Count, totalTrainings) {
+            if (barChart) {
                 barChart.data.datasets[0].data = [stat1Count, stat8Count, totalTrainings];
-                pieChart.data.datasets[0].data = [stat1Count, stat8Count, totalTrainings];
                 barChart.update();
-                pieChart.update();
             } else {
-                createCharts(stat1Count, stat8Count, totalTrainings);
+                createBarChart(stat1Count, stat8Count, totalTrainings);
             }
         }
+
         window.onload = function() {
             setDefaultDates();
             fetchData();
         };
     </script>
+
 </body>
 
 </html>
