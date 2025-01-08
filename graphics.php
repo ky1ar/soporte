@@ -44,6 +44,9 @@ if (isset($_SESSION['user_id'])) {
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
 
 <body class="ky1-adm">
@@ -94,6 +97,17 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#start_date", {
+                locale: "es", // Configura el idioma a español
+                dateFormat: "d-m-Y" // Formato de fecha: día-mes-año
+            });
+
+            flatpickr("#end_date", {
+                locale: "es", // Configura el idioma a español
+                dateFormat: "d-m-Y" // Formato de fecha: día-mes-año
+            });
+        });
         let barChart = null;
         let pieChart = null;
 
