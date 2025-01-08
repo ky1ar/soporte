@@ -21,7 +21,7 @@ if (isset($_SESSION['user_id'])) {
     $s_nick = $_SESSION['user_nick'];
     $s_role = $_SESSION['user_role'];
 
-    $currentPage = "Graficos";
+    $currentPage = "Reportes";
     require_once 'includes/app/db.php';
     require_once 'includes/app/globals.php';
     require_once 'includes/common/header_admin.php';
@@ -52,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/bar/navigationBar_admin.php';
     ?>
     <div id="graphicsView">
-        <h1 class="tp">Estadísticas</h1>
+        <h1 class="tp">Reportes - Soporte Técnico</h1>
         <form method="POST">
             <label for="start_date">Fecha de inicio:</label>
             <input type="date" id="start_date" name="start_date" required>
