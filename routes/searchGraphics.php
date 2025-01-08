@@ -2,33 +2,26 @@
 require_once '../includes/app/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset($_POST['end_date'])) {
-    $startDate = $_POST['start_date'] . ' 00:00:00';
-    $endDate = $_POST['end_date'] . ' 23:59:59';
+    $startDate = $_POST['start_date'];
+    $endDate = $_POST['end_date'];
     $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null;
 
-    $sql = "
-        SELECT
-            SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat1,
-            SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
-            (
-                SELECT COUNT(*)
-                FROM Training t
-                WHERE t.training_state = 2
-                AND t.training_date BETWEEN ? AND ?
-                " . (!is_null($workerId) ? "AND t.worker = ?" : "") . "
-            ) AS totalTrainings
-        FROM Orders_Status os
-        INNER JOIN Orders o ON os.orders = o.id
-        INNER JOIN Users u ON o.worker = u.id
-        WHERE os.dates BETWEEN ? AND ?
-        " . (!is_null($workerId) ? "AND u.id = ?" : "") . "
-    ";
+    $startDate .= ' 00:00:00';
+    $endDate .= ' 23:59:59';
 
-    // Configuramos los parámetros según si se incluye el workerId
-    $params = [$startDate, $endDate, $startDate, $endDate];
+    $sql = "
+            SELECT
+                SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat1,
+                SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
+            FROM Orders_Status os
+            INNER JOIN Orders o ON os.orders = o.id
+            INNER JOIN Users u ON o.worker = u.id
+            WHERE os.dates BETWEEN ? AND ?
+        ";
+    $params = array($startDate, $endDate);
     if (!is_null($workerId)) {
-        $params[] = $workerId; // Para la subconsulta (Training)
-        $params[] = $workerId; // Para el filtro principal
+        $sql .= " AND u.id = ?";
+        $params[] = $workerId;
     }
 
     $stmt = $conn->prepare($sql);
@@ -40,10 +33,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             $data = $result->fetch_assoc();
 
             if ($data) {
+                $stat1Count = $data['stat1'];
+                $stat8Count = $data['stat8'];
+                $trainingSql = "
+                    SELECT COUNT(*) AS num_rows
+                    FROM Training t
+                    INNER JOIN Users u ON t.worker = u.id
+                    WHERE t.training_state = 2
+                    AND t.training_date BETWEEN ? AND ?
+                ";
+                if (!is_null($workerId)) {
+                    $trainingSql .= " AND t.worker = ?";
+                    $paramsTraining = array($startDate, $endDate, $workerId);
+                    $typesTraining = 'sss';
+                } else {
+                    $paramsTraining = array($startDate, $endDate);
+                    $typesTraining = 'ss';
+                }
+
+                $trainingStmt = $conn->prepare($trainingSql);
+                $trainingStmt->bind_param($typesTraining, ...$paramsTraining);
+                $trainingStmt->execute();
+                $trainingResult = $trainingStmt->get_result();
+                $trainingData = $trainingResult->fetch_assoc();
+
+                $totalTrainings = $trainingData ? $trainingData['num_rows'] : 0;
+
                 echo json_encode([
-                    'stat1Count' => $data['stat1'],
-                    'stat8Count' => $data['stat8'],
-                    'totalTrainings' => $data['totalTrainings']
+                    'stat1Count' => $stat1Count,
+                    'stat8Count' => $stat8Count,
+                    'totalTrainings' => $totalTrainings
                 ]);
             } else {
                 echo json_encode([
