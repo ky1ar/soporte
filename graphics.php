@@ -23,6 +23,16 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/app/db.php';
     require_once 'includes/app/globals.php';
     require_once 'includes/common/header_admin.php';
+
+    $workers = [];
+    $stmt = $conn->prepare("SELECT id, name FROM Users WHERE levels IN (2, 3) AND id != 203");
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $workers[] = $row;
+        }
+    }
+    $stmt->close();
 } else {
     header("Location: krear3dperu");
     exit();
@@ -47,7 +57,15 @@ if (isset($_SESSION['user_id'])) {
 
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
-
+            <label for="worker_id">Técnico:</label>
+            <select id="worker_id" name="worker_id">
+                <option value="">Todos</option>
+                <?php foreach ($workers as $worker): ?>
+                    <option value="<?php echo $worker['id']; ?>">
+                        <?php echo htmlspecialchars($worker['name'], ENT_QUOTES, 'UTF-8'); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
             <label for="metric_select">Categoría:</label>
             <select id="metric_select" name="metric_select">
                 <option value="">Todos</option>
