@@ -148,6 +148,9 @@ if (isset($_SESSION['user_id'])) {
                         options: {
                             responsive: true,
                             plugins: {
+                                legend: {
+                                    display: false
+                                },
                                 title: {
                                     display: true,
                                     text: chartTitle
