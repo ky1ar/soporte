@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             INNER JOIN Users u ON o.worker = u.id
             WHERE os.dates BETWEEN ? AND ?
             AND u.levels IN (2, 3)
-            AND u.id NOT IN (203, 1, 573);
+            AND u.id NOT IN (203, 1, 573)
             AND u.id IN ($validWorkersSubquery)";
 
             $stmt = $conn->prepare($sql);
