@@ -147,6 +147,12 @@ if (isset($_SESSION['user_id'])) {
                         },
                         options: {
                             responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true, // Mostrar leyenda
+                                    position: 'top', // Posición de la leyenda ('top', 'bottom', 'left', 'right')
+                                }
+                            },
                             scales: {
                                 y: {
                                     beginAtZero: true
