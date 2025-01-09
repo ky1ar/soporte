@@ -117,13 +117,13 @@ if (isset($_SESSION['user_id'])) {
                     // Crear el gráfico de barras con Chart.js
                     const ctx = document.getElementById('barChart').getContext('2d');
 
-                    // Si ya hay un gráfico previo, lo destruimos para evitar que se acumule
-                    if (window.barChart) {
-                        window.barChart.destroy(); // Destruir el gráfico previo
+                    if (!ctx) {
+                        console.error("El contexto del lienzo no es válido.");
+                        return;
                     }
 
-                    // Crear o destruir el gráfico y crear uno nuevo
-                    window.barChart = new Chart(ctx, {
+                    // Crear el gráfico (sin destruir el anterior)
+                    barChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
                             labels: labels,
@@ -150,7 +150,6 @@ if (isset($_SESSION['user_id'])) {
                     alert('Hubo un problema al obtener los datos. Intenta nuevamente.');
                 });
         }
-
 
         window.onload = function() {
             setDefaultDates();
