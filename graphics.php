@@ -147,12 +147,7 @@ if (isset($_SESSION['user_id'])) {
                         },
                         options: {
                             responsive: true,
-                            plugins: {
-                                title: {
-                                    display: true,
-                                    text: chartTitle
-                                }
-                            },
+                           
                             scales: {
                                 y: {
                                     beginAtZero: true
