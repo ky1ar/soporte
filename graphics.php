@@ -153,7 +153,10 @@ if (isset($_SESSION['user_id'])) {
                                 },
                                 title: {
                                     display: true,
-                                    text: chartTitle
+                                    text: chartTitle,
+                                    padding: {
+                                        bottom: 20
+                                    }
                                 },
                                 datalabels: {
                                     anchor: 'end',
