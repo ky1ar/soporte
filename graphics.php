@@ -93,7 +93,7 @@ if (isset($_SESSION['user_id'])) {
             formData.append('metric', metric);
 
             // Enviar la solicitud AJAX usando fetch
-            fetch('./routes/searchGraph.php', { // Cambia la ruta al archivo PHP según corresponda
+            fetch('ruta-al-archivo-php.php', { // Cambia la ruta al archivo PHP según corresponda
                     method: 'POST',
                     body: formData
                 })
@@ -119,7 +119,7 @@ if (isset($_SESSION['user_id'])) {
 
                     // Si ya hay un gráfico previo, lo destruimos para evitar que se acumule
                     if (window.barChart) {
-                        window.barChart.destroy();
+                        window.barChart.destroy(); // Destruir el gráfico previo
                     }
 
                     // Crear un nuevo gráfico de barras
@@ -150,6 +150,7 @@ if (isset($_SESSION['user_id'])) {
                     alert('Hubo un problema al obtener los datos. Intenta nuevamente.');
                 });
         }
+
 
 
 
