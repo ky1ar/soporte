@@ -75,53 +75,62 @@ if (isset($_SESSION['user_id'])) {
         }
 
         function fetchData() {
-            // Obtener los valores de los campos de entrada
+            // Obtener los valores de las fechas y la métrica seleccionada
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
             const metric = document.getElementById('metric_select').value;
 
-            // Verificar si los valores están presentes
-            if (!startDate || !endDate || !metric) {
-                alert("Por favor, complete todos los campos.");
+            // Validar que las fechas sean válidas
+            if (!startDate || !endDate) {
+                alert('Por favor, ingresa las fechas de inicio y fin.');
                 return;
             }
 
-            // Crear un objeto con los parámetros en formato JSON
-            const requestData = {
-                start_date: startDate,
-                end_date: endDate,
-                metric: metric
-            };
+            // Crear un objeto FormData para enviar los parámetros por POST
+            const formData = new FormData();
+            formData.append('start_date', startDate);
+            formData.append('end_date', endDate);
+            formData.append('metric', metric);
 
-            // Realizar la solicitud Fetch al servidor con el tipo de contenido JSON
-            fetch('./routes/searchGraph.php', {
+            // Enviar la solicitud AJAX usando fetch
+            fetch('./routes/searchGraph.php', { // Cambia la ruta al archivo PHP según corresponda
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json' // Especificar que los datos son JSON
-                    },
-                    body: JSON.stringify(requestData) // Convertir el objeto a JSON
+                    body: formData
                 })
-                .then(response => response.json()) // Parsear la respuesta JSON
+                .then(response => response.json()) // Convertir la respuesta en JSON
                 .then(data => {
-                    // Verificar si hay un error en la respuesta del servidor
+                    // Verificar si hay un error en los datos
                     if (data.error) {
-                        console.error(data.error);
+                        alert('Error: ' + data.error);
                         return;
                     }
 
-                    // Preparar los datos para el gráfico
-                    const labels = data.labels; // Nombres de los usuarios
-                    const chartData = data.data; // Los valores de la métrica seleccionada
+                    // Procesar los datos y prepararlos para el gráfico
+                    const labels = []; // Etiquetas (por ejemplo, nombres de usuario)
+                    const values = []; // Valores correspondientes a cada usuario
 
-                    // Configurar el gráfico
-                    const chart = new Chart(document.getElementById('chartCanvas'), {
-                        type: 'bar', // Tipo de gráfico, puede ser 'bar', 'line', etc.
+                    data.forEach(item => {
+                        labels.push(item.name); // Nombre del usuario
+                        values.push(item.valor); // Valor de la métrica seleccionada
+                    });
+
+                    // Crear el gráfico de barras con Chart.js
+                    const ctx = document.getElementById('barChart').getContext('2d');
+
+                    // Si ya hay un gráfico previo, lo destruimos para evitar que se acumule
+                    if (window.barChart) {
+                        window.barChart.destroy();
+                    }
+
+                    // Crear un nuevo gráfico de barras
+                    window.barChart = new Chart(ctx, {
+                        type: 'bar',
                         data: {
-                            labels: labels, // Asignamos los nombres de los usuarios como etiquetas
+                            labels: labels, // Etiquetas de los ejes X (nombres de los usuarios)
                             datasets: [{
-                                label: 'Metric Value', // Etiqueta que aparecerá en el gráfico
-                                data: chartData, // Los valores correspondientes a la métrica seleccionada
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo de las barras
+                                label: metric, // Etiqueta del conjunto de datos
+                                data: values, // Valores correspondientes a cada usuario
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de las barras
                                 borderColor: 'rgba(54, 162, 235, 1)', // Color del borde de las barras
                                 borderWidth: 1
                             }]
@@ -130,17 +139,18 @@ if (isset($_SESSION['user_id'])) {
                             responsive: true,
                             scales: {
                                 y: {
-                                    beginAtZero: true // Iniciar la escala Y desde 0
+                                    beginAtZero: true
                                 }
                             }
                         }
                     });
                 })
                 .catch(error => {
-                    // Manejo de errores
-                    console.error('Error al obtener los datos:', error);
+                    console.error('Error:', error);
+                    alert('Hubo un problema al obtener los datos. Intenta nuevamente.');
                 });
         }
+
 
 
         window.onload = function() {
