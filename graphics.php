@@ -93,7 +93,7 @@ if (isset($_SESSION['user_id'])) {
             formData.append('metric', metric);
 
             // Realizar la solicitud Fetch al servidor
-            fetch('ruta_del_php.php', {
+            fetch('./routes/searchGraph.php', {
                     method: 'POST',
                     body: formData // Enviar los datos como FormData
                 })
