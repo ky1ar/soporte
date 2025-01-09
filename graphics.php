@@ -31,7 +31,8 @@ if (isset($_SESSION['user_id'])) {
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d@1.0.0"></script>
+
 
 </head>
 
@@ -150,10 +151,10 @@ if (isset($_SESSION['user_id'])) {
                             responsive: true,
                             plugins: {
                                 chart3d: {
-                                    enabled: true, 
+                                    enabled: true,
                                     alpha: 10,
-                                    beta: 10, 
-                                    depth: 20 
+                                    beta: 10,
+                                    depth: 20
                                 },
                                 legend: {
                                     display: false
@@ -186,7 +187,7 @@ if (isset($_SESSION['user_id'])) {
                                 }
                             }
                         },
-                        plugins: [ChartDataLabels, Chart3D]
+                        plugins: [ChartDataLabels]
                     });
                 })
                 .catch(error => {
