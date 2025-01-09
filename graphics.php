@@ -84,6 +84,7 @@ if (isset($_SESSION['user_id'])) {
     <script>
         let barChart = null;
 
+        // Función para actualizar las fechas predeterminadas
         function setDefaultDates() {
             const today = new Date();
             const startDate = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -94,12 +95,81 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('end_date').value = formattedEndDate;
         }
 
+        // Función para obtener los datos desde searchGraph.php
+        function fetchData() {
+            const startDate = document.getElementById('start_date').value;
+            const endDate = document.getElementById('end_date').value;
+            const metric = document.getElementById('metric_select').value;
+
+            const requestData = {
+                start_date: startDate,
+                end_date: endDate,
+                metric: metric
+            };
+
+            // Llamada AJAX a searchGraph.php
+            fetch('routes/searchGraph.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    updateChart(data);
+                    updateTextResults(data);
+                })
+                .catch(error => console.error('Error al obtener los datos:', error));
+        }
+
+        // Función para actualizar los resultados en los textos (stat1, stat8, etc.)
+        function updateTextResults(data) {
+            document.getElementById('stat1Result').textContent = data.stat1Count || 0;
+            document.getElementById('stat8Result').textContent = data.stat8Count || 0;
+            document.getElementById('trainingResult').textContent = data.totalTrainings || 0;
+            document.getElementById('trabajo_realizado').textContent = data.trabajo_realizado || 0;
+        }
+
+        // Función para actualizar el gráfico con los nuevos datos
+        function updateChart(data) {
+            // Datos de ejemplo para el gráfico
+            const labels = data.map(item => item.name);
+            const values = data.map(item => item.value); // Puede ser stat8, totalTrainings o trabajo_realizado
+
+            if (barChart) {
+                barChart.destroy();
+            }
+
+            const ctx = document.getElementById('barChart').getContext('2d');
+            barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Métrica Seleccionada',
+                        data: values,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
 
         window.onload = function() {
             setDefaultDates();
             fetchData();
         };
     </script>
+
 
 </body>
 

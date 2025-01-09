@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
         FROM Users 
         WHERE levels IN (2, 3) AND id != 203
     ";
-    echo "Consulta SQL generada: " . $validWorkersSubquery;
     if ($metric === 'stat8') {
         $sql = "SELECT u.id, u.name, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
                 FROM Users u
@@ -53,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                 AND u.id IN ($validWorkersSubquery)
                 GROUP BY u.id, u.name";
     } else {
-        // Opción por defecto ("Todos") para contar stat1, stat8 y totalTrainings en diciembre de 2024
         $sql = "
             SELECT
                 -- Contar los registros con stat = 1
