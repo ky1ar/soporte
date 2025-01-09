@@ -106,7 +106,7 @@ if (isset($_SESSION['user_id'])) {
                 metric: metric
             };
 
-            fetch('path_to_searchGraph.php', { // Cambia 'path_to_searchGraph.php' por la ruta correcta
+            fetch('routes/searchGraph.php', { // Cambia 'path_to_searchGraph.php' por la ruta correcta
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
