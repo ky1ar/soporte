@@ -180,6 +180,11 @@ if (isset($_SESSION['user_id'])) {
                                 }
                             },
                             scales: {
+                                x: {
+                                    // Ajuste de la separación
+                                    barPercentage: 0.6, // Ajusta el ancho de las barras
+                                    categoryPercentage: 0.1 // Ajusta la separación entre categorías
+                                },
                                 y: {
                                     beginAtZero: true
                                 }
