@@ -140,14 +140,13 @@ if (isset($_SESSION['user_id'])) {
                                 label: metric,
                                 label: chartTitle,
                                 data: values,
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(69, 221, 132, 0.83)',
+                                borderColor: 'rgb(0, 211, 53)',
                                 borderWidth: 1
                             }]
                         },
                         options: {
                             responsive: true,
-                           
                             scales: {
                                 y: {
                                     beginAtZero: true
