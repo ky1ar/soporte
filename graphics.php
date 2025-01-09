@@ -142,7 +142,7 @@ if (isset($_SESSION['user_id'])) {
                                 label: metric,
                                 label: chartTitle,
                                 data: values,
-                                backgroundColor: labels.map(label => personColors[label] || 'rgba(75, 192, 192, 0.6)'),
+                                backgroundColor: 'rgba(69, 221, 132, 0.83)',
                                 borderColor: 'rgb(0, 211, 53)',
                                 borderWidth: 1
                             }]
@@ -151,13 +151,14 @@ if (isset($_SESSION['user_id'])) {
                             responsive: true,
                             plugins: {
                                 datalabels: {
-                                    anchor: 'end',
-                                    align: 'top',
-                                    formatter: (value) => value, // Muestra el valor numérico
+                                    anchor: 'end', // Posición: parte superior
+                                    align: 'top', // Alinear el valor con la parte superior
+                                    formatter: (value) => value, // Mostrar el valor numérico
                                     font: {
+                                        size: 12, // Tamaño de fuente
                                         weight: 'bold'
                                     },
-                                    color: '#000' // Cambia el color del texto si es necesario
+                                    color: '#000' // Color del texto (opcional)
                                 }
                             },
                             scales: {
