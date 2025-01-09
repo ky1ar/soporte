@@ -98,6 +98,8 @@ if (isset($_SESSION['user_id'])) {
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
             const metric = document.getElementById('metric_select').value;
+            const workerId = document.getElementById('worker_id').value;
+
             if (!startDate || !endDate) {
                 alert('Por favor, ingresa las fechas de inicio y fin.');
                 return;
@@ -106,6 +108,7 @@ if (isset($_SESSION['user_id'])) {
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
             formData.append('metric', metric);
+            formData.append('worker_id', workerId);
 
             fetch('routes/searchGraph.php', {
                     method: 'POST',

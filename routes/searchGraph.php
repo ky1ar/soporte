@@ -5,9 +5,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     // Obtener parámetros de entrada
     $startDate = $_POST['start_date'] . ' 00:00:00';
     $endDate = $_POST['end_date'] . ' 23:59:59';
+    $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null;
     $metric = $_POST['metric'];
 
-    $validWorkersSubquery = "SELECT id FROM Users WHERE levels IN (2, 3) AND id != 203";
+    $validWorkersSubquery = "SELECT id FROM Users WHERE levels IN (2, 3)  AND id NOT IN (203, 1, 573)";
 
     $stat8Count = 0;
     $totalTrainings = 0;
@@ -111,6 +112,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             break;
 
         default:
+            // Verificar si $workerId tiene un valor
+            if ($workerId) {
+                $validWorkersSubquery = $workerId;
+            }
             $sql = "SELECT 
                 SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat1,
                 SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
@@ -126,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             INNER JOIN Users u ON o.worker = u.id
             WHERE os.dates BETWEEN ? AND ?
             AND u.levels IN (2, 3)
-            AND u.id != 203
+            AND u.id NOT IN (203, 1, 573);
             AND u.id IN ($validWorkersSubquery)";
 
             $stmt = $conn->prepare($sql);
