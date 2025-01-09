@@ -9,13 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
     $endDate = $data['end_date'] . ' 23:59:59';
     $metric = isset($data['metric']) ? $data['metric'] : '';
 
-    // Subconsulta para obtener los trabajadores válidos (usuarios con levels 2 o 3, excluyendo id 203)
     $validWorkersSubquery = "
         SELECT id 
         FROM Users 
         WHERE levels IN (2, 3) AND id != 203
     ";
-
+    echo "Consulta SQL generada: " . $validWorkersSubquery;
     if ($metric === 'stat8') {
         $sql = "SELECT u.id, u.name, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
                 FROM Users u
