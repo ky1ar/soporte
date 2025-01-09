@@ -62,6 +62,7 @@ if (isset($_SESSION['user_id'])) {
 
             <label for="worker_id">Trabajador:</label>
             <select id="metric_select" name="metric_select">
+                <option value="">Todos</option>
                 <option value="stat8">Equipos Entregados</option>
                 <option value="totalTrainings">Capacitaciones Finalizadas</option>
                 <option value="trabajo_realizado">Trabajo Realizado</option>
