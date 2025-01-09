@@ -86,16 +86,20 @@ if (isset($_SESSION['user_id'])) {
                 return;
             }
 
-            // Crear un objeto FormData y agregar los parámetros
-            const formData = new FormData();
-            formData.append('start_date', startDate);
-            formData.append('end_date', endDate);
-            formData.append('metric', metric);
+            // Crear un objeto con los parámetros en formato JSON
+            const requestData = {
+                start_date: startDate,
+                end_date: endDate,
+                metric: metric
+            };
 
-            // Realizar la solicitud Fetch al servidor
+            // Realizar la solicitud Fetch al servidor con el tipo de contenido JSON
             fetch('./routes/searchGraph.php', {
                     method: 'POST',
-                    body: formData // Enviar los datos como FormData
+                    headers: {
+                        'Content-Type': 'application/json' // Especificar que los datos son JSON
+                    },
+                    body: JSON.stringify(requestData) // Convertir el objeto a JSON
                 })
                 .then(response => response.json()) // Parsear la respuesta JSON
                 .then(data => {
