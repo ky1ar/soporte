@@ -139,9 +139,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                 while ($row = $result->fetch_assoc()) {
                     // Reformatear los datos
                     $data[] = [
-                        ['name' => 'stat1', 'valor' => $row['stat1']],
-                        ['name' => 'stat8', 'valor' => $row['stat8']],
-                        ['name' => 'totalTrainings', 'valor' => $row['totalTrainings']]
+                        ['name' => 'Equipos Entrantes', 'valor' => $row['stat1']],
+                        ['name' => 'Equipos Entregados', 'valor' => $row['stat8']],
+                        ['name' => 'Total de Capacitaciones', 'valor' => $row['totalTrainings']]
                     ];
                 }
                 // Aplanar el array de resultados
