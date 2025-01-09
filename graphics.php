@@ -122,10 +122,12 @@ if (isset($_SESSION['user_id'])) {
                         return;
                     }
 
-                    // Limpiar el canvas antes de crear un nuevo gráfico
-                    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                    // Si existe un gráfico previo, destruirlo
+                    if (barChart) {
+                        barChart.destroy();
+                    }
 
-                    // Crear el gráfico (sin destruir el anterior, pero limpiando el canvas)
+                    // Crear un nuevo gráfico
                     barChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
