@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
     }
 
     $stmt = $conn->prepare($sql);
-    if ($metric === 'totalTrainings' || $metric === 'trabajo_realizado') {
+    if ($metric === 'stat8' || $metric === 'totalTrainings' || $metric === 'trabajo_realizado') {
         $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
     } else {
         $stmt->bind_param('ss', $startDate, $endDate);
