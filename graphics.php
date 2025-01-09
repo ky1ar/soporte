@@ -75,65 +75,70 @@ if (isset($_SESSION['user_id'])) {
         }
 
         function fetchData() {
-            // Obtener los valores de las fechas y la métrica seleccionada
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
             const metric = document.getElementById('metric_select').value;
-
-            // Validar que las fechas sean válidas
             if (!startDate || !endDate) {
                 alert('Por favor, ingresa las fechas de inicio y fin.');
                 return;
             }
-
-            // Crear un objeto FormData para enviar los parámetros por POST
             const formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
             formData.append('metric', metric);
 
-            // Enviar la solicitud AJAX usando fetch
             fetch('routes/searchGraph.php', {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Verificar si hay un error en los datos
                     if (data.error) {
                         alert('Error: ' + data.error);
                         return;
                     }
-
-                    // Procesar los datos y prepararlos para el gráfico
-                    const labels = []; // Etiquetas (por ejemplo, nombres de usuario)
-                    const values = []; // Valores correspondientes a cada usuario
+                    const labels = [];
+                    const values = [];
 
                     data.forEach(item => {
-                        labels.push(item.name); // Nombre del usuario
-                        values.push(item.valor !== undefined ? item.valor : 0); // Asegúrate de agregar 0 si el valor es undefined
+                        labels.push(item.name);
+                        values.push(item.valor !== undefined ? item.valor : 0);
                     });
-
-                    // Obtener el contexto del canvas
                     const ctx = document.getElementById('barChart').getContext('2d');
-
                     if (!ctx) {
                         console.error("El contexto del lienzo no es válido.");
                         return;
                     }
-
-                    // Si existe un gráfico previo, destruirlo
+                    //destruir
                     if (barChart) {
                         barChart.destroy();
                     }
 
-                    // Crear un nuevo gráfico
+                    // Asignar título
+                    let chartTitle = "";
+                    switch (metric) {
+                        case 'stat8':
+                            chartTitle = "Equipos Entregados";
+                            break;
+                        case 'totalTrainings':
+                            chartTitle = "Capacitaciones Finalizadas";
+                            break;
+                        case 'trabajo_realizado':
+                            chartTitle = "Trabajo Realizado (Equipos Entregados + Capacitaciones)";
+                            break;
+                        default:
+                            chartTitle = "Gráfico de Métrica";
+                            break;
+                    }
+
+                    //crear
                     barChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
                             labels: labels,
                             datasets: [{
                                 label: metric,
+                                label: chartTitle,
                                 data: values,
                                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -142,6 +147,12 @@ if (isset($_SESSION['user_id'])) {
                         },
                         options: {
                             responsive: true,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: chartTitle
+                                }
+                            },
                             scales: {
                                 y: {
                                     beginAtZero: true
