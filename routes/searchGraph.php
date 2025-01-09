@@ -137,13 +137,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
 
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    // Reformatear los datos
                     $data[] = [
                         ['name' => 'stat1', 'valor' => $row['stat1']],
                         ['name' => 'stat8', 'valor' => $row['stat8']],
                         ['name' => 'totalTrainings', 'valor' => $row['totalTrainings']]
                     ];
                 }
-                echo json_encode($data);
+                // Aplanar el array de resultados
+                $formattedData = array_merge(...$data);
+                echo json_encode($formattedData);
             } else {
                 echo json_encode([]);
             }
