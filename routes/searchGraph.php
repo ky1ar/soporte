@@ -138,8 +138,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $data[] = [
-                        'name' => $row['stat1'],
-                        'valor' => $row['stat8']
+                        'stat1' => $row['stat1'],
+                        'stat8' => $row['stat8'],
+                        'totalTrainings' => $row['totalTrainings']
                     ];
                 }
                 echo json_encode($data);
