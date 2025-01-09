@@ -151,14 +151,14 @@ if (isset($_SESSION['user_id'])) {
                             responsive: true,
                             plugins: {
                                 datalabels: {
-                                    anchor: 'end', // Posición: parte superior
-                                    align: 'top', // Alinear el valor con la parte superior
-                                    formatter: (value) => value, // Mostrar el valor numérico
+                                    anchor: 'center',
+                                    align: 'center', 
+                                    formatter: (value) => value,
                                     font: {
-                                        size: 12, // Tamaño de fuente
+                                        size: 12,
                                         weight: 'bold'
                                     },
-                                    color: '#000' // Color del texto (opcional)
+                                    color: '#000'
                                 }
                             },
                             scales: {
