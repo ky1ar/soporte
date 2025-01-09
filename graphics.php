@@ -140,8 +140,8 @@ if (isset($_SESSION['user_id'])) {
                             labels: labels,
                             datasets: [{
                                 data: values,
-                                backgroundColor: 'rgba(69, 221, 132, 0.83)',
-                                borderColor: 'rgb(0, 211, 53)',
+                                backgroundColor: 'rgb(131, 255, 249)',
+                                borderColor: 'rgb(0, 192, 96)',
                                 borderWidth: 1
                             }]
                         },
