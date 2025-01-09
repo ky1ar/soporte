@@ -122,28 +122,53 @@ if (isset($_SESSION['user_id'])) {
                         window.barChart.destroy(); // Destruir el gráfico previo
                     }
 
-                    // Crear un nuevo gráfico de barras
-                    window.barChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: labels, // Etiquetas de los ejes X (nombres de los usuarios)
-                            datasets: [{
-                                label: metric, // Etiqueta del conjunto de datos
-                                data: values, // Valores correspondientes a cada usuario
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de las barras
-                                borderColor: 'rgba(54, 162, 235, 1)', // Color del borde de las barras
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                y: {
-                                    beginAtZero: true
+                    if (!window.barChart || !(window.barChart instanceof Chart)) {
+                        window.barChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: metric,
+                                    data: values,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
+                    } else {
+                        // Si ya existe el gráfico, destruirlo antes de crear uno nuevo
+                        window.barChart.destroy();
+                        window.barChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: metric,
+                                    data: values,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
