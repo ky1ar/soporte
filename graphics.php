@@ -152,7 +152,7 @@ if (isset($_SESSION['user_id'])) {
                             plugins: {
                                 datalabels: {
                                     anchor: 'center',
-                                    align: 'center', 
+                                    align: 'top', 
                                     formatter: (value) => value,
                                     font: {
                                         size: 12,
