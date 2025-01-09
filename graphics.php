@@ -60,7 +60,7 @@ if (isset($_SESSION['user_id'])) {
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
 
-            <label for="worker_id">Trabajador:</label>
+            <label for="metric_select">Categoría:</label>
             <select id="metric_select" name="metric_select">
                 <option value="">Todos</option>
                 <option value="stat8">Equipos Entregados</option>
