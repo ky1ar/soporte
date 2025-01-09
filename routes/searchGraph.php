@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                     FROM Training t
                     WHERE t.training_state = 2
                     AND t.training_date BETWEEN ? AND ?
-                    AND t.worker IN (573, 193, 1, 638, 324, 2)
+                    AND t.worker IN ($validWorkersSubquery)
                 ) AS totalTrainings
             FROM Orders_Status os
             INNER JOIN Orders o ON os.orders = o.id
@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             WHERE os.dates BETWEEN ? AND ?
             AND u.levels IN (2, 3)
             AND u.id != 203
-            AND u.id IN (573, 193, 1, 638, 324, 2)";
+            AND u.id IN ($validWorkersSubquery)";
 
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
