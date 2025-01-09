@@ -59,7 +59,6 @@ if (isset($_SESSION['user_id'])) {
             <input type="date" id="end_date" name="end_date" required>
             <label for="worker_id">Técnico:</label>
             <select id="worker_id" name="worker_id">
-                <option value="">Todos</option>
                 <?php foreach ($workers as $worker): ?>
                     <option value="<?php echo $worker['id']; ?>">
                         <?php echo htmlspecialchars($worker['name'], ENT_QUOTES, 'UTF-8'); ?>
