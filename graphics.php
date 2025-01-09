@@ -60,14 +60,15 @@ if (isset($_SESSION['user_id'])) {
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
 
-            <label for="metric_select">Categoría:</label>
-            <select id="metric_select" name="metric_select">
+            <label for="worker_id">Trabajador:</label>
+            <select id="worker_id" name="worker_id">
                 <option value="">Todos</option>
-                <option value="stat8">Equipos Entregados</option>
-                <option value="totalTrainings">Capacitaciones Finalizadas</option>
-                <option value="trabajo_realizado">Trabajo Realizado</option>
+                <?php foreach ($workers as $worker): ?>
+                    <option value="<?php echo $worker['id']; ?>">
+                        <?php echo htmlspecialchars($worker['name'], ENT_QUOTES, 'UTF-8'); ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
-
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
 
