@@ -126,7 +126,7 @@ if (isset($_SESSION['user_id'])) {
             };
 
             // Realizar la solicitud POST usando Fetch API
-            fetch('ruta-a-tu-servidor.php', { // Cambia 'ruta-a-tu-servidor.php' por la ruta correcta del archivo PHP
+            fetch('./routes/searchGraph.php', { // Cambia 'ruta-a-tu-servidor.php' por la ruta correcta del archivo PHP
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json', // Establecer el tipo de contenido como JSON
