@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null;
     $metric = $_POST['metric'];
 
-    $validWorkersSubquery = "SELECT id FROM Users WHERE levels IN (2, 3)  AND id NOT IN (203, 1, 573)";
+    // Si workerId es válido, usarlo en lugar del subquery
+    $validWorkersSubquery = $workerId ? $workerId : "SELECT id FROM Users WHERE levels IN (2, 3) AND id NOT IN (203, 1, 573)";
 
     $stat8Count = 0;
     $totalTrainings = 0;
@@ -112,10 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             break;
 
         default:
-            // Verificar si $workerId tiene un valor
-            if ($workerId) {
-                $validWorkersSubquery = $workerId;
-            }
             $sql = "SELECT 
                 SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat1,
                 SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
