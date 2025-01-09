@@ -93,7 +93,7 @@ if (isset($_SESSION['user_id'])) {
             formData.append('metric', metric);
 
             // Enviar la solicitud AJAX usando fetch
-            fetch('ruta-al-archivo-php.php', { // Cambia la ruta al archivo PHP según corresponda
+            fetch('routes/searchGraph.php', { // Cambia la ruta al archivo PHP según corresponda
                     method: 'POST',
                     body: formData
                 })
