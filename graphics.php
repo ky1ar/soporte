@@ -96,36 +96,40 @@ if (isset($_SESSION['user_id'])) {
         }
 
         function fetchData() {
+            // Obtener los valores de las fechas y la métrica seleccionada
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
             const metric = document.getElementById('metric_select').value;
 
+            // Crear un objeto con los datos para enviar al servidor
             const requestData = {
                 start_date: startDate,
                 end_date: endDate,
                 metric: metric
             };
 
-            fetch('./routes/searchGraph.php', { 
+            // Realizar la solicitud POST al servidor
+            fetch('./routes/searchGraph.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(requestData)
                 })
-                .then(response => response.json())
+                .then(response => response.json()) // Obtener la respuesta en formato JSON
                 .then(data => {
-                    const labels = data.labels;
+                    const labels = data.labels; // Obtener las etiquetas (nombres de trabajadores)
                     let chartData = [];
 
+                    // Según la métrica seleccionada, asignar los datos correspondientes
                     if (metric === 'stat8') {
-                        chartData = data.data;
+                        chartData = data.data; // Para la métrica 'stat8', usar los datos directamente
                     } else if (metric === 'totalTrainings') {
-                        chartData = data.data;
+                        chartData = data.data; // Para la métrica 'totalTrainings', usar los datos directamente
                     } else if (metric === 'trabajo_realizado') {
-                        chartData = data.data;
+                        chartData = data.data; // Para la métrica 'trabajo_realizado', usar los datos directamente
                     } else {
-                        // Default case: show all metrics in a grouped way
+                        // Si no se selecciona una métrica específica, usar todos los datos en un formato agrupado
                         chartData = data.data.map(item => ({
                             stat1: item.stat1,
                             stat8: item.stat8,
@@ -133,38 +137,47 @@ if (isset($_SESSION['user_id'])) {
                         }));
                     }
 
+                    // Actualizar el gráfico con los datos obtenidos
                     updateChart(labels, chartData);
                 })
-                .catch(error => console.error('Error fetching data:', error));
+                .catch(error => console.error('Error fetching data:', error)); // Manejar errores
         }
 
         function updateChart(labels, data) {
+            // Si ya existe un gráfico, destruirlo antes de crear uno nuevo
             if (barChart) {
                 barChart.destroy();
             }
 
+            // Crear un nuevo gráfico de barras usando los datos
             barChart = new Chart(document.getElementById('barChart'), {
                 type: 'bar',
                 data: {
-                    labels: labels,
+                    labels: labels, // Las etiquetas (nombres de trabajadores)
                     datasets: [{
-                        label: 'Metric',
-                        data: data, // Adjusted data format according to the selected metric
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        label: 'Metric', // Etiqueta del gráfico
+                        data: data, // Datos obtenidos
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo de las barras
+                        borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
                         borderWidth: 1
                     }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: true, // Hacer el gráfico responsive
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true // Iniciar el eje Y en cero
                         }
                     }
                 }
             });
         }
+
+        // Llamar a fetchData() cuando se actualicen las fechas o la métrica
+        document.getElementById('start_date').addEventListener('change', fetchData);
+        document.getElementById('end_date').addEventListener('change', fetchData);
+        document.getElementById('metric_select').addEventListener('change', fetchData);
+
 
         window.onload = function() {
             setDefaultDates();
