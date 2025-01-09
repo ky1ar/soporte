@@ -186,7 +186,7 @@ if (isset($_SESSION['user_id'])) {
                                 }
                             }
                         },
-                        plugins: [ChartDataLabels]
+                        plugins: [ChartDataLabels, Chart3D]
                     });
                 })
                 .catch(error => {
