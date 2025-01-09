@@ -50,7 +50,7 @@ if (isset($_SESSION['user_id'])) {
 
             <label for="metric_select">Categoría:</label>
             <select id="metric_select" name="metric_select">
-            <option value="">Todos</option>
+                <option value="">Todos</option>
                 <option value="stat8">Equipos Reparados</option>
                 <option value="totalTrainings">Capacitaciones Finalizadas</option>
                 <option value="trabajo_realizado">Trabajo Realizado</option>
@@ -102,16 +102,21 @@ if (isset($_SESSION['user_id'])) {
                     }
                     const labels = [];
                     const values = [];
+                    const colors = [];
 
                     data.forEach(item => {
                         labels.push(item.name);
                         values.push(item.valor !== undefined ? item.valor : 0);
+                        const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+                        colors.push(randomColor);
                     });
+
                     const ctx = document.getElementById('barChart').getContext('2d');
                     if (!ctx) {
                         console.error("El contexto del lienzo no es válido.");
                         return;
                     }
+
                     //destruir
                     if (barChart) {
                         barChart.destroy();
@@ -141,8 +146,8 @@ if (isset($_SESSION['user_id'])) {
                             labels: labels,
                             datasets: [{
                                 data: values,
-                                backgroundColor: 'rgb(81, 245, 149)',
-                                borderColor: 'rgb(0, 214, 11)',
+                                backgroundColor: colors, // Usar colores aleatorios
+                                borderColor: colors, // Opcional: usar el mismo color para el borde
                                 borderWidth: 1
                             }]
                         },
