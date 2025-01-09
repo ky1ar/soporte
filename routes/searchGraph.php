@@ -111,8 +111,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             break;
 
         default:
-            echo json_encode(['error' => 'Métrica no válida']);
-            exit;
+            $sql = "SELECT 
+                SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat1,
+                SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
+                (
+                    SELECT COUNT(*)
+                    FROM Training t
+                    WHERE t.training_state = 2
+                    AND t.training_date BETWEEN ? AND ?
+                    AND t.worker IN (573, 193, 1, 638, 324, 2)
+                ) AS totalTrainings
+            FROM Orders_Status os
+            INNER JOIN Orders o ON os.orders = o.id
+            INNER JOIN Users u ON o.worker = u.id
+            WHERE os.dates BETWEEN ? AND ?
+            AND u.levels IN (2, 3)
+            AND u.id != 203
+            AND u.id IN (573, 193, 1, 638, 324, 2)";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $data = [];
+
+            if ($result && $result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = [
+                        'name' => $row['stat1'],
+                        'valor' => $row['stat8']
+                    ];
+                }
+                echo json_encode($data);
+            } else {
+                echo json_encode([]);
+            }
+            $stmt->close();
+            break;
     }
 } else {
     echo json_encode(['error' => 'Fecha de inicio y fin son requeridas']);
