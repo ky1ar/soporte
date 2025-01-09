@@ -30,6 +30,8 @@ if (isset($_SESSION['user_id'])) {
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 </head>
 
 <body class="ky1-adm">
@@ -140,13 +142,24 @@ if (isset($_SESSION['user_id'])) {
                                 label: metric,
                                 label: chartTitle,
                                 data: values,
-                                backgroundColor: 'rgba(69, 221, 132, 0.83)',
+                                backgroundColor: labels.map(label => personColors[label] || 'rgba(75, 192, 192, 0.6)'),
                                 borderColor: 'rgb(0, 211, 53)',
                                 borderWidth: 1
                             }]
                         },
                         options: {
                             responsive: true,
+                            plugins: {
+                                datalabels: {
+                                    anchor: 'end',
+                                    align: 'top',
+                                    formatter: (value) => value, // Muestra el valor numérico
+                                    font: {
+                                        weight: 'bold'
+                                    },
+                                    color: '#000' // Cambia el color del texto si es necesario
+                                }
+                            },
                             scales: {
                                 y: {
                                     beginAtZero: true
