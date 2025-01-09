@@ -155,7 +155,7 @@ if (isset($_SESSION['user_id'])) {
                                     display: true,
                                     text: chartTitle,
                                     padding: {
-                                        bottom: 20
+                                        bottom: 50
                                     }
                                 },
                                 datalabels: {
