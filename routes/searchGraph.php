@@ -1,4 +1,5 @@
 <?php
+require_once '../includes/app/db.php';
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset($data['end_date']) && isset($data['metric'])) {
