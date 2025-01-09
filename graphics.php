@@ -114,7 +114,7 @@ if (isset($_SESSION['user_id'])) {
                         values.push(item.valor !== undefined ? item.valor : 0); // Asegúrate de agregar 0 si el valor es undefined
                     });
 
-                    // Crear el gráfico de barras con Chart.js
+                    // Obtener el contexto del canvas
                     const ctx = document.getElementById('barChart').getContext('2d');
 
                     if (!ctx) {
@@ -122,7 +122,10 @@ if (isset($_SESSION['user_id'])) {
                         return;
                     }
 
-                    // Crear el gráfico (sin destruir el anterior)
+                    // Limpiar el canvas antes de crear un nuevo gráfico
+                    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+                    // Crear el gráfico (sin destruir el anterior, pero limpiando el canvas)
                     barChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
