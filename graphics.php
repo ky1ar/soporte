@@ -130,7 +130,7 @@ if (isset($_SESSION['user_id'])) {
                             chartTitle = "Trabajo Realizado (Equipos Entregados + Capacitaciones)";
                             break;
                         default:
-                            chartTitle = "Gráfico de Métrica";
+                            chartTitle = "Reporte General";
                             break;
                     }
 

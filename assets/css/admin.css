@@ -3805,5 +3805,6 @@ footer .ftr-cpy {
 }
 
 #graphicsView .graf canvas {
-  height: 20rem !important;
+  height: 30rem !important;
+  width: 60rem !important;
 }
