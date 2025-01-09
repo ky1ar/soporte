@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                     $data[] = [
                         ['name' => 'Equipos Ingresados', 'valor' => $row['stat1']],
                         ['name' => 'Equipos Reparados', 'valor' => $row['stat8']],
-                        ['name' => 'Total de Capacitaciones', 'valor' => $row['totalTrainings']]
+                        ['name' => 'Capacitaciones Realizadas', 'valor' => $row['totalTrainings']]
                     ];
                 }
                 // Aplanar el array de resultados
