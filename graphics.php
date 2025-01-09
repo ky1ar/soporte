@@ -154,6 +154,10 @@ if (isset($_SESSION['user_id'])) {
                                 title: {
                                     display: true,
                                     text: chartTitle,
+                                    font: {
+                                        size: 16,
+                                        weight: 'bold'
+                                    },
                                     padding: {
                                         bottom: 50
                                     }
