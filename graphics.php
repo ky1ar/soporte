@@ -165,7 +165,8 @@ if (isset($_SESSION['user_id'])) {
                                     beginAtZero: true
                                 }
                             }
-                        }
+                        },
+                        plugins: [ChartDataLabels]
                     });
                 })
                 .catch(error => {
