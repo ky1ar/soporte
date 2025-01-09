@@ -7,7 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $endDate = $_POST['end_date'] . ' 23:59:59';
     $metric = $_POST['metric'];
 
-    $validWorkersSubquery = "573, 193, 1, 638, 324, 2";
+    $validWorkersSubquery = "SELECT id FROM Users WHERE levels IN (2, 3) AND id != 203";
+
     $stat8Count = 0;
     $totalTrainings = 0;
     $trabajoRealizado = 0;
