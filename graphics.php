@@ -93,11 +93,11 @@ if (isset($_SESSION['user_id'])) {
             formData.append('metric', metric);
 
             // Enviar la solicitud AJAX usando fetch
-            fetch('routes/searchGraph.php', { // Cambia la ruta al archivo PHP según corresponda
+            fetch('routes/searchGraph.php', {
                     method: 'POST',
                     body: formData
                 })
-                .then(response => response.json()) // Convertir la respuesta en JSON
+                .then(response => response.json())
                 .then(data => {
                     // Verificar si hay un error en los datos
                     if (data.error) {
@@ -111,7 +111,7 @@ if (isset($_SESSION['user_id'])) {
 
                     data.forEach(item => {
                         labels.push(item.name); // Nombre del usuario
-                        values.push(item.valor); // Valor de la métrica seleccionada
+                        values.push(item.valor !== undefined ? item.valor : 0); // Asegúrate de agregar 0 si el valor es undefined
                     });
 
                     // Crear el gráfico de barras con Chart.js
@@ -122,61 +122,34 @@ if (isset($_SESSION['user_id'])) {
                         window.barChart.destroy(); // Destruir el gráfico previo
                     }
 
-                    if (!window.barChart || !(window.barChart instanceof Chart)) {
-                        window.barChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: labels,
-                                datasets: [{
-                                    label: metric,
-                                    data: values,
-                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                    borderColor: 'rgba(54, 162, 235, 1)',
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                    // Crear o destruir el gráfico y crear uno nuevo
+                    window.barChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: metric,
+                                data: values,
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
                                 }
                             }
-                        });
-                    } else {
-                        // Si ya existe el gráfico, destruirlo antes de crear uno nuevo
-                        window.barChart.destroy();
-                        window.barChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: labels,
-                                datasets: [{
-                                    label: metric,
-                                    data: values,
-                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                    borderColor: 'rgba(54, 162, 235, 1)',
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        });
-                    }
+                        }
+                    });
                 })
                 .catch(error => {
                     console.error('Error:', error);
                     alert('Hubo un problema al obtener los datos. Intenta nuevamente.');
                 });
         }
-
-
 
 
         window.onload = function() {
