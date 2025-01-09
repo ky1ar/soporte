@@ -57,13 +57,6 @@ if (isset($_SESSION['user_id'])) {
 
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
-            <label for="metric_select">Categoría:</label>
-            <select id="metric_select" name="metric_select">
-                <option value="">General</option>
-                <option value="stat8">Equipos Reparados</option>
-                <option value="totalTrainings">Capacitaciones Realizadas</option>
-                <option value="trabajo_realizado">Total de Actividad</option>
-            </select>
             <label for="worker_id">Técnico:</label>
             <select id="worker_id" name="worker_id">
                 <option value="">Todos</option>
@@ -73,6 +66,14 @@ if (isset($_SESSION['user_id'])) {
                     </option>
                 <?php endforeach; ?>
             </select>
+            <label for="metric_select">Categoría:</label>
+            <select id="metric_select" name="metric_select">
+                <option value="">General</option>
+                <option value="stat8">Equipos Reparados</option>
+                <option value="totalTrainings">Capacitaciones Realizadas</option>
+                <option value="trabajo_realizado">Total de Actividad</option>
+            </select>
+
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
 
