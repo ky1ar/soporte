@@ -151,7 +151,7 @@ if (isset($_SESSION['user_id'])) {
                             responsive: true,
                             plugins: {
                                 datalabels: {
-                                    anchor: 'center',
+                                    anchor: 'top',
                                     align: 'top', 
                                     formatter: (value) => value,
                                     font: {
