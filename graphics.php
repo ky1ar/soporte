@@ -56,21 +56,6 @@ if (isset($_SESSION['user_id'])) {
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
 
-        <!-- <div class="txt">
-            <p>
-                Equipos Entregados:
-                <span id="stat8Result"></span>
-            </p>
-            <p>
-                Capacitaciones Finalizadas:
-                <span id="trainingResult"></span>
-            </p>
-            <p>
-                Trabajo Realizado:
-                <span id="trabajo_realizado"></span>
-            </p>
-        </div> -->
-
         <div class="graf">
             <canvas id="barChart"></canvas>
         </div>
@@ -105,6 +90,10 @@ if (isset($_SESSION['user_id'])) {
                 })
                 .then(response => response.json())
                 .then(data => {
+                    if (!data.labels || !data.data) {
+                        throw new Error('No data found');
+                    }
+
                     // Procesar la respuesta y actualizar el gráfico
                     const labels = data.labels;
                     const chartData = data.data;
@@ -140,6 +129,7 @@ if (isset($_SESSION['user_id'])) {
                 })
                 .catch(error => {
                     console.error('Error al obtener los datos:', error);
+                    alert('Hubo un error al obtener los datos. Intenta nuevamente.');
                 });
         }
 
