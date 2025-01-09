@@ -150,9 +150,13 @@ if (isset($_SESSION['user_id'])) {
                         options: {
                             responsive: true,
                             plugins: {
+                                title: {
+                                    display: true,
+                                    text: chartTitle
+                                },
                                 datalabels: {
                                     anchor: 'end',
-                                    align: 'top', 
+                                    align: 'top',
                                     formatter: (value) => value,
                                     font: {
                                         size: 12,
