@@ -75,45 +75,50 @@ if (isset($_SESSION['user_id'])) {
         }
 
         function fetchData() {
+            // Obtener los valores de los campos de entrada
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
             const metric = document.getElementById('metric_select').value;
 
+            // Verificar si los valores están presentes
+            if (!startDate || !endDate || !metric) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Crear un objeto FormData y agregar los parámetros
             const formData = new FormData();
             formData.append('start_date', startDate);
             formData.append('end_date', endDate);
             formData.append('metric', metric);
 
-            fetch('./routes/searchGraph.php', {
+            // Realizar la solicitud Fetch al servidor
+            fetch('ruta_del_php.php', {
                     method: 'POST',
-                    body: formData
+                    body: formData // Enviar los datos como FormData
                 })
-                .then(response => response.json())
+                .then(response => response.json()) // Parsear la respuesta JSON
                 .then(data => {
-                    if (!data.labels || !data.data) {
-                        throw new Error('No data found');
+                    // Verificar si hay un error en la respuesta del servidor
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
                     }
 
-                    // Procesar la respuesta y actualizar el gráfico
-                    const labels = data.labels;
-                    const chartData = data.data;
+                    // Preparar los datos para el gráfico
+                    const labels = data.labels; // Nombres de los usuarios
+                    const chartData = data.data; // Los valores de la métrica seleccionada
 
-                    // Si existe un gráfico previo, destrúyelo antes de crear uno nuevo
-                    if (barChart) {
-                        barChart.destroy();
-                    }
-
-                    // Crear el gráfico de barras
-                    const ctx = document.getElementById('barChart').getContext('2d');
-                    barChart = new Chart(ctx, {
-                        type: 'bar',
+                    // Configurar el gráfico
+                    const chart = new Chart(document.getElementById('chartCanvas'), {
+                        type: 'bar', // Tipo de gráfico, puede ser 'bar', 'line', etc.
                         data: {
-                            labels: labels, // Nombres de los trabajadores
+                            labels: labels, // Asignamos los nombres de los usuarios como etiquetas
                             datasets: [{
-                                label: 'Métrica seleccionada', // Título del dataset
-                                data: chartData, // Datos de la métrica seleccionada
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                borderColor: 'rgba(54, 162, 235, 1)',
+                                label: 'Metric Value', // Etiqueta que aparecerá en el gráfico
+                                data: chartData, // Los valores correspondientes a la métrica seleccionada
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo de las barras
+                                borderColor: 'rgba(54, 162, 235, 1)', // Color del borde de las barras
                                 borderWidth: 1
                             }]
                         },
@@ -121,17 +126,18 @@ if (isset($_SESSION['user_id'])) {
                             responsive: true,
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: true // Iniciar la escala Y desde 0
                                 }
                             }
                         }
                     });
                 })
                 .catch(error => {
+                    // Manejo de errores
                     console.error('Error al obtener los datos:', error);
-                    alert('Hubo un error al obtener los datos. Intenta nuevamente.');
                 });
         }
+
 
         window.onload = function() {
             setDefaultDates();

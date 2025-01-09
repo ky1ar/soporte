@@ -3,14 +3,9 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 // Verificar si los datos llegaron correctamente
 if ($data === null) {
-    echo "Error al decodificar los datos JSON: " . json_last_error_msg();
+    echo json_encode(['error' => 'Error al decodificar los datos JSON: ' . json_last_error_msg()]);
     exit;
 }
-
-// Imprimir los datos recibidos
-echo "<pre>";
-print_r($data);
-echo "</pre>";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset($data['end_date'])) {
     $startDate = $data['start_date'] . ' 00:00:00';
@@ -24,13 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
         WHERE levels IN (2, 3) AND id != 203
     ";
 
-    // Inicializamos el array de respuesta
+    // Inicializamos la respuesta
     $response = [
         'labels' => [],
         'data' => []
     ];
 
-    // Condiciones para la métrica seleccionada
+    // Consulta según la métrica seleccionada
     if ($metric === 'stat8') {
         // Consulta para 'stat8' (Equipos entregados)
         $sql = "SELECT u.id, u.name, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
@@ -41,20 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                 AND u.id IN ($validWorkersSubquery)
                 GROUP BY u.id, u.name";
 
-        // Preparar y ejecutar la consulta
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ss', $startDate, $endDate);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-
-        // Rellenamos el array de respuesta con los valores
-        foreach ($data as $row) {
-            $response['labels'][] = $row['name']; // Nombre del trabajador
-            $response['data'][] = $row['stat8']; // Valor de stat8
-        }
-    }
-    elseif ($metric === 'totalTrainings') {
+    } elseif ($metric === 'totalTrainings') {
         // Consulta para 'totalTrainings' (Capacitaciones finalizadas)
         $sql = "SELECT u.id, u.name, IFNULL(t.totalTrainings, 0) AS totalTrainings
                 FROM Users u
@@ -67,20 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                 ) t ON t.worker = u.id
                 WHERE u.id IN ($validWorkersSubquery)";
 
-        // Preparar y ejecutar la consulta
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ss', $startDate, $endDate);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-
-        // Rellenamos el array de respuesta con los valores
-        foreach ($data as $row) {
-            $response['labels'][] = $row['name']; // Nombre del trabajador
-            $response['data'][] = $row['totalTrainings']; // Valor de totalTrainings
-        }
-    }
-    elseif ($metric === 'trabajo_realizado') {
+    } elseif ($metric === 'trabajo_realizado') {
         // Consulta para 'trabajo_realizado' (Trabajo realizado)
         $sql = "SELECT u.id, u.name, 
                     SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
@@ -99,23 +68,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                 WHERE os.dates BETWEEN ? AND ? 
                 AND u.id IN ($validWorkersSubquery)
                 GROUP BY u.id, u.name";
+    } else {
+        echo json_encode(['error' => 'Métrica no válida']);
+        exit;
+    }
 
-        // Preparar y ejecutar la consulta
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $data = $result->fetch_all(MYSQLI_ASSOC);
+    // Preparar y ejecutar la consulta
+    $stmt = $conn->prepare($sql);
+    if ($stmt === false) {
+        echo json_encode(['error' => 'Error al preparar la consulta SQL']);
+        exit;
+    }
 
-        // Rellenamos el array de respuesta con los valores
-        foreach ($data as $row) {
+    $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Verificar si se obtuvieron resultados
+    if ($result && $result->num_rows > 0) {
+        // Rellenamos los datos de la respuesta
+        while ($row = $result->fetch_assoc()) {
             $response['labels'][] = $row['name']; // Nombre del trabajador
-            $response['data'][] = $row['trabajo_realizado']; // Valor de trabajo_realizado
+            if ($metric === 'stat8') {
+                $response['data'][] = $row['stat8']; // Equipos entregados
+            } elseif ($metric === 'totalTrainings') {
+                $response['data'][] = $row['totalTrainings']; // Capacitaciones finalizadas
+            } elseif ($metric === 'trabajo_realizado') {
+                $response['data'][] = $row['trabajo_realizado']; // Trabajo realizado
+            }
         }
+    } else {
+        echo json_encode(['error' => 'No se encontraron resultados']);
+        exit;
     }
 
     // Devolver la respuesta en formato JSON
     echo json_encode($response);
+    exit;
+} else {
+    echo json_encode(['error' => 'Fecha de inicio y fin son requeridas']);
     exit;
 }
 ?>
