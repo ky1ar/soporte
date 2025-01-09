@@ -95,7 +95,6 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('end_date').value = formattedEndDate;
         }
 
-        // Función para obtener los datos desde searchGraph.php
         function fetchData() {
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
@@ -107,54 +106,57 @@ if (isset($_SESSION['user_id'])) {
                 metric: metric
             };
 
-            // Llamada AJAX a searchGraph.php
-            fetch('routes/searchGraph.php', {
+            fetch('path_to_searchGraph.php', { // Cambia 'path_to_searchGraph.php' por la ruta correcta
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(requestData),
+                    body: JSON.stringify(requestData)
                 })
                 .then(response => response.json())
                 .then(data => {
-                    updateChart(data);
-                    updateTextResults(data);
+                    const labels = data.labels;
+                    let chartData = [];
+
+                    if (metric === 'stat8') {
+                        chartData = data.data;
+                    } else if (metric === 'totalTrainings') {
+                        chartData = data.data;
+                    } else if (metric === 'trabajo_realizado') {
+                        chartData = data.data;
+                    } else {
+                        // Default case: show all metrics in a grouped way
+                        chartData = data.data.map(item => ({
+                            stat1: item.stat1,
+                            stat8: item.stat8,
+                            totalTrainings: item.totalTrainings
+                        }));
+                    }
+
+                    updateChart(labels, chartData);
                 })
-                .catch(error => console.error('Error al obtener los datos:', error));
+                .catch(error => console.error('Error fetching data:', error));
         }
 
-        // Función para actualizar los resultados en los textos (stat1, stat8, etc.)
-        function updateTextResults(data) {
-            document.getElementById('stat1Result').textContent = data.stat1Count || 0;
-            document.getElementById('stat8Result').textContent = data.stat8Count || 0;
-            document.getElementById('trainingResult').textContent = data.totalTrainings || 0;
-            document.getElementById('trabajo_realizado').textContent = data.trabajo_realizado || 0;
-        }
-
-        // Función para actualizar el gráfico con los nuevos datos
-        function updateChart(data) {
-            // Datos de ejemplo para el gráfico
-            const labels = data.map(item => item.name);
-            const values = data.map(item => item.value); // Puede ser stat8, totalTrainings o trabajo_realizado
-
+        function updateChart(labels, data) {
             if (barChart) {
                 barChart.destroy();
             }
 
-            const ctx = document.getElementById('barChart').getContext('2d');
-            barChart = new Chart(ctx, {
+            barChart = new Chart(document.getElementById('barChart'), {
                 type: 'bar',
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Métrica Seleccionada',
-                        data: values,
+                        label: 'Metric',
+                        data: data, // Adjusted data format according to the selected metric
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
+                    responsive: true,
                     scales: {
                         y: {
                             beginAtZero: true

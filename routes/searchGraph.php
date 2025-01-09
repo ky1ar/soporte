@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
         FROM Users 
         WHERE levels IN (2, 3) AND id != 203
     ";
+
+    // Consulta para stat8
     if ($metric === 'stat8') {
         $sql = "SELECT u.id, u.name, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
                 FROM Users u
@@ -22,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                 WHERE os.dates BETWEEN ? AND ? 
                 AND u.id IN ($validWorkersSubquery)
                 GROUP BY u.id, u.name";
-    } elseif ($metric === 'totalTrainings') {
+    }
+    // Consulta para totalTrainings
+    elseif ($metric === 'totalTrainings') {
         $sql = "SELECT u.id, u.name, IFNULL(t.totalTrainings, 0) AS totalTrainings
                 FROM Users u
                 LEFT JOIN (
@@ -33,7 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                     GROUP BY t.worker
                 ) t ON t.worker = u.id
                 WHERE u.id IN ($validWorkersSubquery)";
-    } elseif ($metric === 'trabajo_realizado') {
+    }
+    // Consulta para trabajo_realizado
+    elseif ($metric === 'trabajo_realizado') {
         $sql = "SELECT u.id, u.name, 
                     SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
                     IFNULL(t.totalTrainings, 0) AS totalTrainings,
@@ -51,42 +57,66 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($data['start_date']) && isset
                 WHERE os.dates BETWEEN ? AND ? 
                 AND u.id IN ($validWorkersSubquery)
                 GROUP BY u.id, u.name";
-    } else {
+    }
+    // Consulta por defecto (todas las métricas)
+    else {
         $sql = "
             SELECT
-                -- Contar los registros con stat = 1
+                u.id, u.name,
                 (SELECT COUNT(*) 
                  FROM Orders_Status os 
                  WHERE os.stat = 1 
-                 AND os.dates BETWEEN '2024-12-01 00:00:00' AND '2024-12-31 23:59:59'
+                 AND os.dates BETWEEN ? AND ?
                  AND os.orders IN (SELECT id FROM Orders WHERE worker IN ($validWorkersSubquery))) AS stat1Count,
-
-                -- Contar los registros con stat = 8
                 (SELECT COUNT(*) 
                  FROM Orders_Status os 
                  WHERE os.stat = 8 
-                 AND os.dates BETWEEN '2024-12-01 00:00:00' AND '2024-12-31 23:59:59'
+                 AND os.dates BETWEEN ? AND ?
                  AND os.orders IN (SELECT id FROM Orders WHERE worker IN ($validWorkersSubquery))) AS stat8Count,
-
-                -- Contar las capacitaciones (Training) con estado 2 en el rango de fechas
                 (SELECT COUNT(*) 
                  FROM Training t 
                  WHERE t.training_state = 2 
-                 AND t.training_date BETWEEN '2024-12-01 00:00:00' AND '2024-12-31 23:59:59'
+                 AND t.training_date BETWEEN ? AND ?
                  AND t.worker IN ($validWorkersSubquery)) AS totalTrainings";
     }
 
+    // Preparar la consulta
     $stmt = $conn->prepare($sql);
     if ($metric === 'stat8' || $metric === 'totalTrainings' || $metric === 'trabajo_realizado') {
         $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
     } else {
-        $stmt->bind_param('ss', $startDate, $endDate);
+        $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
     }
+
     $stmt->execute();
     $result = $stmt->get_result();
     $data = $result->fetch_all(MYSQLI_ASSOC);
 
-    echo json_encode($data);
+    // Formato de salida para el gráfico
+    $response = [
+        'labels' => [],
+        'data' => []
+    ];
+
+    foreach ($data as $row) {
+        $response['labels'][] = $row['name'];  // Nombre del trabajador
+        if ($metric === 'stat8') {
+            $response['data'][] = $row['stat8'];  // Equipos entregados
+        } elseif ($metric === 'totalTrainings') {
+            $response['data'][] = $row['totalTrainings'];  // Capacitaciones finalizadas
+        } elseif ($metric === 'trabajo_realizado') {
+            $response['data'][] = $row['trabajo_realizado'];  // Trabajo realizado
+        } else {
+            // Default: data contains multiple metrics (stat1, stat8, totalTrainings)
+            $response['data'][] = [
+                'stat1' => $row['stat1Count'],
+                'stat8' => $row['stat8Count'],
+                'totalTrainings' => $row['totalTrainings']
+            ];
+        }
+    }
+
+    echo json_encode($response);
     exit;
 } else {
     echo json_encode(['error' => 'Fechas no proporcionadas']);
