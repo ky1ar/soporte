@@ -140,7 +140,6 @@ if (isset($_SESSION['user_id'])) {
                             labels: labels,
                             datasets: [{
                                 label: metric,
-                                label: chartTitle,
                                 data: values,
                                 backgroundColor: 'rgba(69, 221, 132, 0.83)',
                                 borderColor: 'rgb(0, 211, 53)',
