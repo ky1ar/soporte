@@ -105,87 +105,120 @@ if (isset($_SESSION['user_id'])) {
             document.getElementById('end_date').value = formattedEndDate;
         }
 
+        // Función para hacer la solicitud POST
         function fetchData() {
+            // Obtener las fechas y la métrica seleccionada
             const startDate = document.getElementById('start_date').value;
             const endDate = document.getElementById('end_date').value;
-            const workerId = document.getElementById('worker_id').value;
+            const metric = document.getElementById('metric').value;
 
-            document.getElementById('stat1Result').textContent = 'Cargando...';
-            document.getElementById('stat8Result').textContent = 'Cargando...';
-            document.getElementById('trainingResult').textContent = 'Cargando...';
-
-            const formData = new FormData();
-            formData.append('start_date', startDate);
-            formData.append('end_date', endDate);
-            if (workerId) {
-                formData.append('worker_id', workerId);
+            // Validar que las fechas estén seleccionadas
+            if (!startDate || !endDate) {
+                alert("Por favor, seleccione las fechas.");
+                return;
             }
 
-            fetch('./routes/searchGraphics.php', {
+            // Crear el objeto de datos a enviar
+            const requestData = {
+                start_date: startDate,
+                end_date: endDate,
+                metric: metric // Se añade la métrica seleccionada
+            };
+
+            // Realizar la solicitud POST usando Fetch API
+            fetch('ruta-a-tu-servidor.php', { // Cambia 'ruta-a-tu-servidor.php' por la ruta correcta del archivo PHP
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json', // Establecer el tipo de contenido como JSON
+                    },
+                    body: JSON.stringify(requestData), // Convertir los datos a JSON
                 })
                 .then(response => response.json())
                 .then(data => {
+                    // Verificar si la respuesta contiene los resultados esperados
                     if (data.error) {
-                        alert(data.error);
+                        alert('Error: ' + data.error);
+                        return;
+                    }
+
+                    // Mostrar los resultados según la métrica seleccionada
+                    if (metric === 'stat8') {
+                        displayStat8Results(data);
+                    } else if (metric === 'totalTrainings') {
+                        displayTotalTrainingsResults(data);
+                    } else if (metric === 'trabajo_realizado') {
+                        displayTrabajoRealizadoResults(data);
                     } else {
-                        document.getElementById('stat1Result').textContent = data.stat1Count;
-                        document.getElementById('stat8Result').textContent = data.stat8Count;
-                        document.getElementById('trainingResult').textContent = data.totalTrainings;
-                        updateBarChart(data.stat1Count || 0, data.stat8Count || 0, data.totalTrainings || 0);
+                        displayDefaultResults(data);
                     }
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    alert('Ocurrió un error: ' + error);
                 });
         }
 
-        function createBarChart(stat1Count, stat8Count, totalTrainings) {
-            const chartData = {
-                labels: ['Equipos Ingresados', 'Equipos Entregados', 'Capacitaciones Finalizadas'],
-                datasets: [{
-                    label: 'Grafico Informativo',
-                    data: [stat1Count, stat8Count, totalTrainings],
-                    backgroundColor: [
-                        'rgb(101, 199, 255)',
-                        'rgb(94, 219, 82)',
-                        'rgb(255, 89, 48)'
-                    ],
-                    borderColor: [
-                        'rgb(0, 151, 252)',
-                        'rgb(6, 187, 0)',
-                        'rgb(236, 132, 13)'
-                    ],
-                    borderWidth: 1
-                }]
-            };
+        // Función para mostrar los resultados de 'stat8'
+        function displayStat8Results(data) {
+            // Mostrar los resultados de 'stat8'
+            let output = '';
+            data.forEach(item => {
+                output += `<p>${item.name}: ${item.stat8} registros con stat 8</p>`;
+            });
+            document.getElementById('results').innerHTML = output;
+        }
 
-            const barChartCanvas = document.getElementById('barChart').getContext('2d');
-            barChart = new Chart(barChartCanvas, {
+        // Función para mostrar los resultados de 'totalTrainings'
+        function displayTotalTrainingsResults(data) {
+            // Mostrar los resultados de 'totalTrainings'
+            let output = '';
+            data.forEach(item => {
+                output += `<p>${item.name}: ${item.totalTrainings} capacitaciones finalizadas</p>`;
+            });
+            document.getElementById('results').innerHTML = output;
+        }
+
+        // Función para mostrar los resultados de 'trabajo_realizado'
+        function displayTrabajoRealizadoResults(data) {
+            // Mostrar los resultados de 'trabajo_realizado'
+            let output = '';
+            data.forEach(item => {
+                output += `<p>${item.name}: ${item.trabajo_realizado} trabajo realizado</p>`;
+            });
+            document.getElementById('results').innerHTML = output;
+        }
+
+        // Función para mostrar los resultados por defecto
+        function displayDefaultResults(data) {
+            // Mostrar los resultados de la consulta por defecto
+            const results = data[0]; // Solo hay un conjunto de resultados
+            document.getElementById('stat1Count').textContent = results.stat1Count || 0;
+            document.getElementById('stat8Count').textContent = results.stat8Count || 0;
+            document.getElementById('totalTrainings').textContent = results.totalTrainings || 0;
+
+            // Aquí puedes agregar código para mostrar un gráfico de barras, si lo deseas
+            // Ejemplo con Chart.js:
+            const ctx = document.getElementById('barChart').getContext('2d');
+            const barChart = new Chart(ctx, {
                 type: 'bar',
-                data: chartData,
+                data: {
+                    labels: ['Equipos Ingresados', 'Equipos Entregados', 'Capacitaciones Finalizadas'],
+                    datasets: [{
+                        label: 'Estadísticas',
+                        data: [results.stat1Count || 0, results.stat8Count || 0, results.totalTrainings || 0],
+                        backgroundColor: ['#ffcc00', '#66cc33', '#3399ff'],
+                    }],
+                },
                 options: {
+                    responsive: true,
                     scales: {
                         y: {
                             beginAtZero: true,
-                            ticks: {
-                                stepSize: 1
-                            }
-                        }
-                    }
-                }
+                        },
+                    },
+                },
             });
         }
 
-        function updateBarChart(stat1Count, stat8Count, totalTrainings) {
-            if (barChart) {
-                barChart.data.datasets[0].data = [stat1Count, stat8Count, totalTrainings];
-                barChart.update();
-            } else {
-                createBarChart(stat1Count, stat8Count, totalTrainings);
-            }
-        }
 
         window.onload = function() {
             setDefaultDates();
