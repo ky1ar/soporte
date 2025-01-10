@@ -8,12 +8,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $workerId = isset($_POST['worker_id']) ? $_POST['worker_id'] : null;
     $metric = $_POST['metric'];
 
-    // Si workerId es válido, usarlo en lugar del subquery
+    // Usar workerId o subconsulta según corresponda
     $validWorkersSubquery = $workerId ? $workerId : "SELECT id FROM Users WHERE levels IN (2, 3) AND id NOT IN (203, 1, 573)";
+
+    $startDateObj = new DateTime($_POST['start_date']);
+    $endDateObj = new DateTime($_POST['end_date']);
+    $previoFinal = $startDateObj->modify('-1 day')->format('Y-m-d 23:59:59');
+    $daysDifference = $startDateObj->diff($endDateObj)->days;
+    $previoInicial = $startDateObj->modify("-$daysDifference days")->format('Y-m-d 00:00:00');
+
+    echo "Previo Inicial: $previoInicial<br>";
+    echo "Previo Final: $previoFinal<br>";
 
     $stat8Count = 0;
     $totalTrainings = 0;
     $trabajoRealizado = 0;
+
+    // Debug para verificar valores de las fechas
+    echo "Previo Inicial: $previoInicial<br>";
+    echo "Previo Final: $previoFinal<br>";
 
     switch ($metric) {
 
