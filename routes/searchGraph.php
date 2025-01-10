@@ -51,7 +51,7 @@ WHERE u.id IN ($validWorkersSubquery)
 GROUP BY u.id, u.name;
 ";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ss', $startDate, $endDate);
+            $stmt->bind_param('ssss', $startDate, $endDate, $previoInicial, $previoFinal);
             $stmt->execute();
             $result = $stmt->get_result();
             $data = [];
