@@ -73,6 +73,8 @@ if (isset($_SESSION['user_id'])) {
                 <option value="totalTrainings">Capacitaciones Realizadas</option>
                 <option value="trabajo_realizado">Total de Actividad</option>
             </select>
+            <input type="checkbox" id="dup" name="dup" value="true">
+            <label for="dup">Ciclo Anterior</label>
 
             <button type="button" onclick="fetchData()">Buscar</button>
         </form>
