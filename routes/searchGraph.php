@@ -26,32 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     switch ($metric) {
 
         case 'stat8':
-            $sql = "SELECT 
-    u.id, 
-    u.name, 
-    COALESCE(currentData.stat8, 0) AS stat8, 
-    COALESCE(previousData.stat8, 0) AS prestat8
-FROM 
-    Users u
-LEFT JOIN (
-    SELECT o.worker AS worker_id, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
-    FROM Orders o
-    LEFT JOIN Orders_Status os ON os.orders = o.id
-    WHERE os.dates BETWEEN ? AND ?
-    GROUP BY o.worker
-) currentData ON currentData.worker_id = u.id
-LEFT JOIN (
-    SELECT o.worker AS worker_id, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
-    FROM Orders o
-    LEFT JOIN Orders_Status os ON os.orders = o.id
-    WHERE os.dates BETWEEN ? AND ?
-    GROUP BY o.worker
-) previousData ON previousData.worker_id = u.id
-WHERE u.id IN ($validWorkersSubquery)
-GROUP BY u.id, u.name;
-";
+            $sql = "SELECT u.id, u.name, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
+                    FROM Users u
+                    LEFT JOIN Orders o ON o.worker = u.id
+                    LEFT JOIN Orders_Status os ON os.orders = o.id
+                    WHERE os.dates BETWEEN ? AND ? 
+                    AND u.id IN ($validWorkersSubquery)
+                    GROUP BY u.id, u.name";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ssss', $startDate, $endDate, $previoInicial, $previoFinal);
+            $stmt->bind_param('ss', $startDate, $endDate);
             $stmt->execute();
             $result = $stmt->get_result();
             $data = [];
