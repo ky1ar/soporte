@@ -49,6 +49,7 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/bar/topBar_admin.php';
     require_once 'includes/bar/navigationBar_admin.php';
     ?>
+    <a href="" target="t_bla"></a>
     <div id="graphicsView">
         <h1 class="tp">Reportes - Soporte Técnico</h1>
         <form method="POST">
@@ -80,6 +81,7 @@ if (isset($_SESSION['user_id'])) {
         </form>
 
         <div class="graf">
+            <canvas id="prebarChart"></canvas>
             <canvas id="barChart"></canvas>
         </div>
     </div>
