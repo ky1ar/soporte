@@ -17,9 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $daysDifference = $startDateObj->diff($endDateObj)->days;
     $previoInicial = $startDateObj->modify("-$daysDifference days")->format('Y-m-d 00:00:00');
 
-    echo "Previo Inicial: $previoInicial<br>";
-    echo "Previo Final: $previoFinal<br>";
-
     $stat8Count = 0;
     $totalTrainings = 0;
     $trabajoRealizado = 0;
