@@ -81,7 +81,6 @@ if (isset($_SESSION['user_id'])) {
         </form>
 
         <div class="graf">
-            <canvas id="prebarChart"></canvas>
             <canvas id="barChart"></canvas>
         </div>
     </div>
