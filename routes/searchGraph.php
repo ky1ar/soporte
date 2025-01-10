@@ -113,7 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             break;
 
         default:
-            // Verificar si el workerId es válido
             $isWorkerValid = !empty($workerId) && is_numeric($workerId);
 
             $sql = "SELECT 
