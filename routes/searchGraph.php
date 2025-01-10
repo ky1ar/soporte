@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
 
     // Si workerId es válido, usarlo en lugar del subquery
     $validWorkersSubquery = $workerId ? $workerId : "SELECT id FROM Users WHERE levels IN (2, 3) AND id NOT IN (203, 1, 573)";
-
+    
 
     $stat8Count = 0;
     $totalTrainings = 0;
@@ -19,33 +19,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
     $startDateObj = new DateTime($_POST['start_date']);
     $endDateObj = new DateTime($_POST['end_date']);
     $previoFinal = $startDateObj->modify('-1 day')->format('Y-m-d 23:59:59');
-
+    
     $daysDifference = $startDateObj->diff($endDateObj)->days;
     $previoInicial = $startDateObj->modify("-$daysDifference days")->format('Y-m-d 00:00:00');
 
     switch ($metric) {
 
         case 'stat8':
-            $sql = "SELECT 
-          u.id, 
-          u.name,
-          SUM(CASE WHEN os.stat = 8 AND os.dates BETWEEN ? AND ? THEN 1 ELSE 0 END) AS stat8,
-          (
-              SELECT SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END)
-              FROM Orders_Status os
-              INNER JOIN Orders o ON os.orders = o.id
-              WHERE os.dates BETWEEN ? AND ?
-              AND o.worker = u.id
-          ) AS prestat8
-      FROM Users u
-      LEFT JOIN Orders o ON o.worker = u.id
-      LEFT JOIN Orders_Status os ON os.orders = o.id
-      WHERE u.id IN ($validWorkersSubquery)
-      GROUP BY u.id, u.name
-  ";
-
+            $sql = "SELECT u.id, u.name, SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8
+                    FROM Users u
+                    LEFT JOIN Orders o ON o.worker = u.id
+                    LEFT JOIN Orders_Status os ON os.orders = o.id
+                    WHERE os.dates BETWEEN ? AND ? 
+                    AND u.id IN ($validWorkersSubquery)
+                    GROUP BY u.id, u.name";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ssss', $startDate, $endDate, $previoInicial, $previoFinal);
+            $stmt->bind_param('ss', $startDate, $endDate);
             $stmt->execute();
             $result = $stmt->get_result();
             $data = [];
