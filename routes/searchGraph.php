@@ -116,13 +116,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             $sql = "SELECT 
                 SUM(CASE WHEN os.stat = 1 THEN 1 ELSE 0 END) AS stat1,
                 SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) AS stat8,
+            (
+                SELECT COUNT(*)
+                FROM Training t
+                WHERE t.training_state = 2
+                AND t.training_date BETWEEN ? AND ?
+                AND t.worker IN ($validWorkersSubquery)
+            ) AS totalTrainings,
+            (
+                SUM(CASE WHEN os.stat = 8 THEN 1 ELSE 0 END) + 
                 (
                     SELECT COUNT(*)
                     FROM Training t
                     WHERE t.training_state = 2
                     AND t.training_date BETWEEN ? AND ?
                     AND t.worker IN ($validWorkersSubquery)
-                ) AS totalTrainings
+                )
+            ) AS totalSum
             FROM Orders_Status os
             INNER JOIN Orders o ON os.orders = o.id
             INNER JOIN Users u ON o.worker = u.id
@@ -132,21 +142,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             AND u.id IN ($validWorkersSubquery)";
 
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ssss', $startDate, $endDate, $startDate, $endDate);
+            $stmt->bind_param('ssssss', $startDate, $endDate, $startDate, $endDate, $startDate, $endDate);
             $stmt->execute();
             $result = $stmt->get_result();
             $data = [];
 
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    // Reformatear los datos
                     $data[] = [
                         ['name' => 'Equipos Ingresados', 'valor' => $row['stat1']],
                         ['name' => 'Equipos Reparados', 'valor' => $row['stat8']],
-                        ['name' => 'Capacitaciones Realizadas', 'valor' => $row['totalTrainings']]
+                        ['name' => 'Capacitaciones Realizadas', 'valor' => $row['totalTrainings']],
+                        ['name' => 'Suma Total', 'valor' => $row['totalSum']]
                     ];
                 }
-                // Aplanar el array de resultados
                 $formattedData = array_merge(...$data);
                 echo json_encode($formattedData);
             } else {
