@@ -150,10 +150,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $data[] = [
-                        ['name' => 'Equipos Ingresados', 'valor' => $row['stat1']],
                         ['name' => 'Equipos Reparados', 'valor' => $row['stat8']],
                         ['name' => 'Capacitaciones Realizadas', 'valor' => $row['totalTrainings']],
-                        ['name' => 'Suma Total', 'valor' => $row['totalSum']]
+                        ['name' => 'Total de Actividad', 'valor' => $row['totalSum']]
                     ];
                 }
                 $formattedData = array_merge(...$data);
