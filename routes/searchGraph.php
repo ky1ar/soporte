@@ -163,7 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['start_date']) && isset
                             ['name' => 'Equipos Ingresados', 'valor' => $row['stat1']],
                             ['name' => 'Equipos Reparados', 'valor' => $row['stat8']],
                             ['name' => 'Capacitaciones Realizadas', 'valor' => $row['totalTrainings']],
-                            ['name' => 'Total de Actividad', 'valor' => $row['totalSum']]
                         ];
                     }
                 }
