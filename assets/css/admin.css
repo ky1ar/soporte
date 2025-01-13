@@ -3738,8 +3738,11 @@ footer .ftr-cpy {
   gap: 1rem;
   flex-direction: column;
 }
-#graphicsView form div{
+#graphicsView form div {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
 }
 #graphicsView form label {
   font-size: 1rem;
