@@ -3746,6 +3746,7 @@ footer .ftr-cpy {
 }
 #graphicsView form label {
   font-size: 1rem;
+  font-weight: 600;
 }
 #graphicsView form input[type="date"],
 #graphicsView form select {
@@ -3813,5 +3814,5 @@ footer .ftr-cpy {
 
 #graphicsView .graf canvas {
   height: 30rem !important;
-  width: 80% !important;
+  width: 90% !important;
 }
