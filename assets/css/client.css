@@ -525,6 +525,7 @@ color: #B08A7A;
   justify-content: center;
   align-items: center;
   background-color: #ed6b22;
+  user-select: none;
 }
 #trainingSection .right .button.text {
   width: initial;

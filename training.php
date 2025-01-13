@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id'])) {
             exit();
         }
     }
-    
+
     // Actualizar la última actividad
     $_SESSION['last_activity'] = time(); // Actualizar la marca de tiempo de la última actividad
 
@@ -60,10 +60,10 @@ if (isset($_SESSION['user_id'])) {
                     <div class="calendarHeader">
                         <span id="monthName"><?php echo strftime('%B %Y', strtotime($firstDay)) ?></span>
                         <div id="calendarNavigation" class="buttons">
-                            <div class="button <?php echo $s_levels == 4 ? 'admin':'disabled' ?>" id="calendarPrev">
+                            <div class="button <?php echo $s_levels == 4 ? 'admin' : 'disabled' ?>" id="calendarPrev">
                                 <img width="12" height="12" src="assets/img/arrow.svg" alt="">
                             </div>
-                            <div class="button <?php echo $s_levels == 4 ? 'admin':'' ?>" id="calendarNext">
+                            <div class="button <?php echo $s_levels == 4 ? 'admin' : '' ?>" id="calendarNext">
                                 <img width="12" height="12" src="assets/img/arrow.svg" alt="">
                             </div>
                         </div>
@@ -93,7 +93,7 @@ if (isset($_SESSION['user_id'])) {
                                 $todayDate = new DateTime();
                                 $todayDate->setTime(0, 0, 0);
                                 $sql =
-                                "SELECT *
+                                    "SELECT *
                                 FROM Calendar
                                 WHERE YEAR(calendar_date) = YEAR('$firstDay')
                                 AND MONTH(calendar_date) = MONTH('$firstDay')";
@@ -105,12 +105,12 @@ if (isset($_SESSION['user_id'])) {
                                     $checkDate = new DateTime($date);
 
                                     $dayNum = date('d', strtotime($date));
-                                    echo '<li'.(($today == $dayNum) ? ' class="today"' : '').'>';
-                                    echo '<span'.($checkDate >= $todayDate ? ' class="calendarAdd"':'').' data-day="'.$dayNum.'">'.$dayNum.'</span>';
+                                    echo '<li' . (($today == $dayNum) ? ' class="today"' : '') . '>';
+                                    echo '<span' . ($checkDate >= $todayDate ? ' class="calendarAdd"' : '') . ' data-day="' . $dayNum . '">' . $dayNum . '</span>';
                                     echo '<div class="calendarView">';
 
                                     $sql2 =
-                                    "SELECT t.id,
+                                        "SELECT t.id,
                                         t.training_state,
                                         t.training_start,
                                         t.admin,
@@ -126,25 +126,25 @@ if (isset($_SESSION['user_id'])) {
                                     ORDER BY training_start;";
                                     $result2 = $conn->query($sql2);
                                     if ($result2->num_rows > 0) {
-                                        while ($row2 = $result2->fetch_assoc()):?>
+                                        while ($row2 = $result2->fetch_assoc()): ?>
                                             <div class="calendarViewRow
-                                                <?= $row2['training_state'] == 0 ? 'pending' : ''?>
-                                                <?= $row2['training_state'] == 2 ? 'finish' : ''?>"
-                                                data-id="<?= $row2['id']?>"
-                                                data-date="<?= $date?>"
-                                                data-start="<?= $row2['training_start']?>"
-                                                style="background-color: #<?= $row2['w_image']?>47;">
-                                                <?php echo $row2['admin'] ? "<i style='background-color: #".$row2['w_image']."'></i>":''; ?>
-                                                <h3><?= $row2['m_model']?></h3>
+                                                <?= $row2['training_state'] == 0 ? 'pending' : '' ?>
+                                                <?= $row2['training_state'] == 2 ? 'finish' : '' ?>"
+                                                data-id="<?= $row2['id'] ?>"
+                                                data-date="<?= $date ?>"
+                                                data-start="<?= $row2['training_start'] ?>"
+                                                style="background-color: #<?= $row2['w_image'] ?>47;">
+                                                <?php echo $row2['admin'] ? "<i style='background-color: #" . $row2['w_image'] . "'></i>" : ''; ?>
+                                                <h3><?= $row2['m_model'] ?></h3>
                                                 <div class="flex">
-                                                    <h2 style="background-color: #<?= $row2['w_image']?>;">
-                                                        <?= substr($row2['training_start'], 0, 5)?>
+                                                    <h2 style="background-color: #<?= $row2['w_image'] ?>;">
+                                                        <?= substr($row2['training_start'], 0, 5) ?>
                                                     </h2>
                                                 </div>
                                             </div>
-                                        <?php endwhile;
+                                <?php endwhile;
                                     } else {
-                                        echo $detail ? '<div class="dayDetail">'.$detail.'</div>':'';
+                                        echo $detail ? '<div class="dayDetail">' . $detail . '</div>' : '';
                                     }
                                     echo '</div>';
                                     echo '</li>';
@@ -178,7 +178,7 @@ if (isset($_SESSION['user_id'])) {
                             <select class="id_worker" id="trainingWorker">
                                 <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
                                 $result = $conn->query($sql);
-                                while ($row = $result->fetch_assoc()):?>
+                                while ($row = $result->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
                                 <?php endwhile;
                                 $conn->close();
@@ -188,6 +188,26 @@ if (isset($_SESSION['user_id'])) {
                             <button type="submit" id="upd_worker" data-level="<?php echo $s_levels ?>">
                                 <img src="assets/img/sav.svg" alt="">
                             </button>
+                        </div>
+                        <div class="sect-pruebas">
+                            <p>Evidencias</p>
+                            <div class="pruebas">
+                                <div>
+                                    <label for="comevi">Comentarios:</label>
+                                    <textarea type="text" id="comevi" name="comevi"></textarea>
+                                </div>
+                                <div>
+                                    <label for="imgevi">Archivo:</label>
+                                    <input type="file" id="imgevi" name="imgevi">
+                                </div>
+                                <button type="submit">
+                                    Guardar
+                                </button>
+                            </div>
+                            <div class="result">
+                                <p></p>
+                                <img src="" alt="">
+                            </div>
                         </div>
                         <div class="staticMeet">
                             <img src="assets/img/meet.svg" alt="">
@@ -217,7 +237,7 @@ if (isset($_SESSION['user_id'])) {
                                 <img src="assets/img/wsp2.svg" alt="">
                                 <a class="phone" href="" target="_blank" rel="nofollow"></a>
                             </div>
-                            
+
                         </div>
                     </div>
                     <img class="image" src="" alt="">
@@ -286,7 +306,7 @@ if (isset($_SESSION['user_id'])) {
                                         <label for="">Producto</label>
                                         <div class="formMachine">
                                             <input id="machine" type="text" placeholder="Nombre del equipo">
-                                            <input id="machineId" type="hidden" >
+                                            <input id="machineId" type="hidden">
                                             <div id="suggestions"></div>
                                         </div>
                                     </div>
@@ -304,7 +324,7 @@ if (isset($_SESSION['user_id'])) {
                                     <img id="machineImage" src="assets/img/def.webp" alt="">
                                 </div>
                             </li>
-                        </ul> 
+                        </ul>
                         <div class="formButton">
                             <input type="hidden" id="picked">
                             <div id="scheduleFormMessage"></div>
@@ -317,4 +337,5 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </section>
 </body>
+
 </html>

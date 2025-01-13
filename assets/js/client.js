@@ -543,26 +543,35 @@ $(document).ready(function () {
     "diciembre",
   ];
 
+  //version prueba
   calendarPrev.click(function () {
-    let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() - 1 - today.getMonth());
-    if (offsetMonth > 0) {
+    let offsetMonth = currentDate.getMonth() - 1;
+    if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
-    } else if (offsetMonth == 0) {
+    } else if (offsetMonth == today.getMonth()) {
       loadCalendar(-1);
+      calendarNext.removeClass("disabled");
       $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      calendarPrev.removeClass("disabled");
     }
   });
 
   calendarNext.click(function () {
-    let offsetMonth = (currentDate.getFullYear() - today.getFullYear()) * 12 + (currentDate.getMonth() + 1 - today.getMonth());
-    let maxMonth = 2; 
+    let offsetMonth = currentDate.getMonth() + 1;
+    let maxMonth = today.getMonth() + 2;
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
-    } else if (offsetMonth == maxMonth) {
-      loadCalendar(1);
-      $(this).addClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
+      }
+    }
+    if (offsetMonth > today.getMonth() + 1) {
+      calendarPrev.removeClass("disabled");
     }
   });
 
@@ -580,6 +589,7 @@ $(document).ready(function () {
 
     calendarSelector.show();
     calendarNavigation.show();
+    currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
     loadCalendar(0);
     calendarPrev.addClass("disabled");
     calendarNext.removeClass("disabled");
@@ -761,12 +771,12 @@ $(document).ready(function () {
 
   function validateDniRuc(dniRUC) {
     const regex = /^\d{1,11}$/;
-  
+
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
       message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
       return false;
     }
-  
+
     return true;
   }
 
