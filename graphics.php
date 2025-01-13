@@ -58,7 +58,6 @@ if (isset($_SESSION['user_id'])) {
 
             <label for="end_date">Fecha final:</label>
             <input type="date" id="end_date" name="end_date" required>
-            <br>
             <label for="worker_id">Técnico:</label>
             <select id="worker_id" name="worker_id">
                 <option value="">Todos</option>
