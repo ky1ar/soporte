@@ -3129,6 +3129,7 @@ footer .ftr-cpy {
   height: 5rem;
   padding: .5rem;
   border-radius: 0.5rem;
+  outline: none;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
   width: 100%;

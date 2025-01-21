@@ -199,7 +199,8 @@ if (isset($_SESSION['user_id'])) {
                                 <div class="archi">
                                     <div>
                                         <label for="imgevi">Archivo:</label>
-                                        <input type="file" id="imgevi" name="imgevi">
+                                        <input type="file" id="imgevi" name="imgevi" accept="image/*, .pdf">
+
                                     </div>
                                     <div data-src="">
                                         <img width="12" height="12" src="assets/img/invoice.svg" alt="">Evidencias
