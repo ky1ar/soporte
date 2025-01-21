@@ -3138,6 +3138,7 @@ footer .ftr-cpy {
   border-radius: 2rem;
   font-size: 0.7rem;
   border: none;
+  cursor: pointer;
 }
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
