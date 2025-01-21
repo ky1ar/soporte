@@ -3109,6 +3109,7 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas .pruebas div.archi div:nth-of-type(2) {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
   align-items: center;
   justify-content: center;
   background-color: var(--gray);
