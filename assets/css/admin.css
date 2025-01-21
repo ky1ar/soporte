@@ -3099,12 +3099,25 @@ footer .ftr-cpy {
   flex-direction: column;
   margin-bottom: 1rem;
 }
-#viewTraining .content .sect-pruebas .pruebas div.archi{
+#viewTraining .content .sect-pruebas .pruebas div.archi {
   display: flex;
   flex-direction: row;
 }
-#viewTraining .content .sect-pruebas .pruebas div.archi div{
+#viewTraining .content .sect-pruebas .pruebas div.archi div {
   width: 50%;
+}
+#viewTraining .content .sect-pruebas .pruebas div.archi div:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray);
+  margin: auto;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  gap: 1rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--primary);
 }
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
