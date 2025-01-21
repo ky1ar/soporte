@@ -709,6 +709,7 @@ $(document).ready(function () {
           $document.text(data.document);
           $email.text(data.email);
           $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
+          $comentarios.text(data.comentarios);
           $meet.text(data.meet).attr("href", data.meet);
           $upd_meet.val(data.meet).focus();
           $image.attr("src", "assets/mac/" + data.slug + ".webp");
