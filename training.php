@@ -200,6 +200,9 @@ if (isset($_SESSION['user_id'])) {
                                     <label for="imgevi">Archivo:</label>
                                     <input type="file" id="imgevi" name="imgevi">
                                 </div>
+                                <div data-src="">
+                                    <img width="12" height="12" src="assets/img/invoice.svg" alt="">Evidencias
+                                </div>
                                 <button type="submit">
                                     Guardar
                                 </button>
