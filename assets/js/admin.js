@@ -629,6 +629,7 @@ $(document).ready(function () {
     const $count       = $("#viewTraining .count");
     const $name        = $("#viewTraining .name");
     const $invoice     = $("#viewTraining .invoice");
+    const $comentarios     = $("#viewTraining .comentarios");
     const $admin      = $("#viewTraining .admin");
     const $document    = $("#viewTraining .document");
     const $email       = $("#viewTraining .email");

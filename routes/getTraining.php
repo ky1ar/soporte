@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         t.email as c_email,
         t.meet as t_meet,
         t.invoice as t_invoice,
+        t.comentarios as t_comentarios,
         m.model as m_model,
         m.slug as m_slug,
         w.name as w_name
@@ -78,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
                 'id_worker' => $row['t_worker'],
                 't_state' => $row['t_state'],
                 'meet' => $row['t_meet'],
+                'comentarios' => $row['t_comentarios'],
                 'invoice' => $row['t_invoice']
             ];
         } else {
