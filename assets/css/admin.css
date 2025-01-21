@@ -3099,6 +3099,9 @@ footer .ftr-cpy {
   flex-direction: column;
   margin-bottom: 1rem;
 }
+#viewTraining .content .sect-pruebas .pruebas dev.archi{
+  display: flex;
+}
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
   font-size: 0.8rem;
