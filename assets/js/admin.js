@@ -499,6 +499,7 @@ $(document).ready(function () {
   const invoiceFile = $("#invoiceFile");
   const viewOverlay = $("#viewOverlay");
   const viewInvoice = $("#viewInvoice");
+  const viewEvi = $("#viewEvidencias");
 
   viewInvoice.click(function () {
     let fileUrl = $(this).attr('data-src');
@@ -630,6 +631,7 @@ $(document).ready(function () {
     const $name        = $("#viewTraining .name");
     const $invoice     = $("#viewTraining .invoice");
     const $comentarios     = $("#viewTraining #comevi");
+    const $pruebas     = $("#viewTraining #comevi");
     const $admin      = $("#viewTraining .admin");
     const $document    = $("#viewTraining .document");
     const $email       = $("#viewTraining .email");
