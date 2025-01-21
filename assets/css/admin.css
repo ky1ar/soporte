@@ -3112,7 +3112,7 @@ footer .ftr-cpy {
   align-items: center;
   justify-content: center;
   background-color: var(--gray);
-  margin: auto;
+  margin: auto 0 auto auto;
   padding: 0.5rem 1rem;
   width: fit-content;
   gap: 1rem;
