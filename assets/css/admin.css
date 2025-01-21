@@ -3099,9 +3099,6 @@ footer .ftr-cpy {
   flex-direction: column;
   margin-bottom: .5rem;
 }
-#viewTraining #comevi{
-  background-color: red;
-}
 #viewTraining .content .sect-pruebas .pruebas div.archi {
   display: flex;
   flex-direction: row;
