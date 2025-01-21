@@ -202,7 +202,7 @@ if (isset($_SESSION['user_id'])) {
                                         <input type="file" id="imgevi" name="imgevi" accept="image/*, .pdf">
 
                                     </div>
-                                    <div data-src="">
+                                    <div class="evi" id="viewEvidencias" data-src="">
                                         <img width="12" height="12" src="assets/img/invoice.svg" alt="">Evidencias
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@ if (isset($_SESSION['user_id'])) {
                         </div>
                         <h3 class="name"></h3>
                         <h3 class="document"></h3>
-                        <div class="invoice" id="viewEvidencias" data-src="">
+                        <div class="invoice" id="viewInvoice" data-src="">
                             <img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante
                         </div>
                         <div class="link">
