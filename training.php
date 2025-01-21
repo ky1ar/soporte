@@ -189,7 +189,7 @@ if (isset($_SESSION['user_id'])) {
                                 <img src="assets/img/sav.svg" alt="">
                             </button>
                         </div>
-                        <!-- <div class="sect-pruebas">
+                        <div class="sect-pruebas">
                             <p>Evidencias</p>
                             <div class="pruebas">
                                 <div>
@@ -208,7 +208,7 @@ if (isset($_SESSION['user_id'])) {
                                 <p></p>
                                 <img src="" alt="">
                             </div>
-                        </div> -->
+                        </div>
                         <div class="staticMeet">
                             <img src="assets/img/meet.svg" alt="">
                             <a class="meet" href="" target="_blank"></a>
