@@ -3127,6 +3127,7 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas .pruebas textarea {
   resize: vertical;
   height: 5rem;
+  padding: .5rem;
   border-radius: 0.5rem;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
