@@ -4,29 +4,30 @@ require_once '../includes/app/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $_POST['id'];
     $comentarios = $_POST['comentarios'];
-    $pruebas = $_FILES['pruebas'];
-
-    // Verifica si se proporcionó un archivo
-    if ($pruebas['error'] === 0) {
+    
+    // Asegúrate de que el archivo 'pruebas' esté presente
+    if (isset($_FILES['pruebas']) && $_FILES['pruebas']['error'] === 0) {
+        $pruebas = $_FILES['pruebas'];
         $fileName = $pruebas['name'];
         $tempFileName = $pruebas['tmp_name'];
         
+        // Generar un nombre único para el archivo
         $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
         $uniqueFileName = uniqid() . '_' . time() . '.' . $fileExt;
 
-        // Define el directorio donde se guardarán los archivos
+        // Directorio donde se almacenarán los archivos
         $uploadDir = "../uploads/invoices/";
         $pruebas_ruta = $uploadDir . $uniqueFileName;
 
-        // Mueve el archivo a la carpeta de destino
+        // Mueve el archivo cargado a la carpeta destino
         if (move_uploaded_file($tempFileName, $pruebas_ruta)) {
-            // Si el archivo se movió correctamente, proceder con la inserción en la base de datos
+            // Archivo guardado correctamente
         } else {
             echo json_encode(array("success" => false, "message" => "Error al guardar el archivo"));
             exit();
         }
     } else {
-        // Si no se proporciona un archivo, no se cambia el valor de pruebas
+        // Si no se subió un archivo, dejamos el valor de pruebas como null
         $pruebas_ruta = null;
     }
 
