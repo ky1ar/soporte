@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
         $uniqueCode = strtoupper(bin2hex(random_bytes(3)));
         $currentDateTime = date('Ymd-His');
-        $uniqueFileName =$currentDate . '-' . $uniqueCode . '.' . $fileExt;
+        $uniqueFileName =$currentDateTime . '-' . $uniqueCode . '.' . $fileExt;
         $uploadDir = "../uploads/invoices/";
         $pruebas_ruta = $uploadDir . $uniqueFileName;
         if (move_uploaded_file($tempFileName, $pruebas_ruta)) {
