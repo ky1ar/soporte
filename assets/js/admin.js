@@ -520,9 +520,7 @@ $(document).ready(function () {
       previewInvoice.fadeToggle();
       $("#viewOverlay").addClass("blur");
     } else {
-      console.error(
-        "No se encontró el archivo o el atributo 'data-src' está vacío."
-      );
+      
     }
   }
 
