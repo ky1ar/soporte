@@ -503,8 +503,6 @@ $(document).ready(function () {
   function showFile(fileType) {
     let fileUrl = $("#" + fileType).attr("data-src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
-    let fileName = fileUrl.split("/").pop(); // Obtiene el nombre del archivo
-
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
@@ -521,13 +519,7 @@ $(document).ready(function () {
 
     // Mostrar el panel de vista previa
     previewInvoice.fadeToggle();
-    viewOverlay.addClass("blur");
-
-    // Cambiar el texto del div para mostrar el nombre del archivo
-    $("#" + fileType).html(
-      '<img width="12" height="12" src="assets/img/invoice.svg" alt="">' +
-        fileName
-    );
+    $("#viewOverlay").addClass("blur");
   }
 
   // Manejadores de clic para ambos elementos
@@ -718,13 +710,29 @@ $(document).ready(function () {
           $name.text(data.name);
           if (data.admin) {
             $invoice.hide();
-            $pruebas.hide();
+            $pruebas.show();
             $admin.show();
           } else {
             $invoice.show();
             $admin.hide();
             $invoice.attr("data-src", data.invoice);
             $pruebas.attr("data-src", data.pruebas);
+
+            const pruebasFileUrl = $pruebas.attr("data-src");
+            const pruebasFileName = pruebasFileUrl
+              ? pruebasFileUrl.split("/").pop()
+              : null;
+
+            if (pruebasFileName) {
+              $pruebas.html(
+                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">' +
+                  pruebasFileName
+              );
+            } else {
+              $pruebas.html(
+                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">Evidencias'
+              );
+            }
           }
           $document.text(data.document);
           $email.text(data.email);
