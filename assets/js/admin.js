@@ -360,7 +360,7 @@ $(document).ready(function () {
     if (machine.length >= 2) {
       $.ajax({
         type: "POST",
-        url: 'routes/srcMachine',
+        url: "routes/srcMachine",
         data: { machine: machine },
         success: function (data) {
           $("#ky1-sgs").html(data);
@@ -433,18 +433,17 @@ $(document).ready(function () {
     });
   }
 
-  $('.tbl-tec').on('click', function() {
-
+  $(".tbl-tec").on("click", function () {
     rpt_over.fadeToggle();
-    $('.ky1-blr').toggleClass('blr-act');
+    $(".ky1-blr").toggleClass("blr-act");
 
-    const now_li = $(this).closest('tr');
-    const now_liId = now_li.data('id');
-    
-    now_open = itm_time.find('li[data-id="' + (now_liId) + '"]');
+    const now_li = $(this).closest("tr");
+    const now_liId = now_li.data("id");
+
+    now_open = itm_time.find('li[data-id="' + now_liId + '"]');
 
     now_open.fadeToggle();
-});
+  });
 
   $(".edt-yes").on("click", function (e) {
     e.preventDefault();
@@ -489,7 +488,7 @@ $(document).ready(function () {
         header.addClass("ky1-fxd");
       }
     } else if (currentScroll <= headerHeight) {
-        header.removeClass("ky1-fxd");
+      header.removeClass("ky1-fxd");
     }
 
     lastScroll = currentScroll;
@@ -501,9 +500,12 @@ $(document).ready(function () {
   const viewInvoice = $("#viewInvoice");
   const viewEvi = $("#viewEvidencias");
 
-  viewInvoice.click(function () {
-    let fileUrl = $(this).attr('data-src');
+  // Función común para mostrar el archivo
+  function showFile(fileType) {
+    let fileUrl = $("#" + fileType).attr("data-src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
+
+    // Mostrar el archivo dependiendo de la extensión
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
@@ -517,21 +519,30 @@ $(document).ready(function () {
           '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
       );
     }
+
+    // Mostrar el panel de vista previa
     previewInvoice.fadeToggle();
-    $("#viewOverlay").addClass('blur');
+    $("#viewOverlay").addClass("blur");
+  }
+
+  // Manejadores de clic para ambos elementos
+  viewInvoice.click(function () {
+    showFile("viewInvoice");
   });
 
+  viewEvi.click(function () {
+    showFile("viewEvidencias");
+  });
+  
   $("#previewInvoice .close").click(function () {
     previewInvoice.fadeToggle();
-    $("#viewOverlay").removeClass('blur');
-
+    $("#viewOverlay").removeClass("blur");
   });
 
   $(window).click(function (event) {
     if (event.target == previewInvoice[0]) {
       previewInvoice.fadeToggle();
-    $("#viewOverlay").removeClass('blur');
-
+      $("#viewOverlay").removeClass("blur");
     }
   });
 
@@ -612,8 +623,8 @@ $(document).ready(function () {
 
   const calendarTable = $("#calendarTable");
 
-  const $actionButtons  = $("#viewTraining .actionButtons");
-  const $viewButtons    = $("#viewTraining .viewButtons");
+  const $actionButtons = $("#viewTraining .actionButtons");
+  const $viewButtons = $("#viewTraining .viewButtons");
 
   calendarTable.on("click", ".calendarViewRow", function () {
     let trainingId = $(this).data("id");
@@ -621,31 +632,31 @@ $(document).ready(function () {
     let formData = new FormData();
     formData.append("trainingId", trainingId);
 
-    const $date        = $("#viewTraining .date");
-    const $worker      = $("#viewTraining .worker");
-    const $id_worker   = $("#viewTraining .id_worker");
-    const $upd_worker  = $("#upd_worker");
-    const $schedule    = $("#viewTraining .schedule");
-    const $model       = $("#viewTraining .model");
-    const $count       = $("#viewTraining .count");
-    const $name        = $("#viewTraining .name");
-    const $invoice     = $("#viewTraining .invoice");
-    const $comentarios     = $("#viewTraining #comevi");
-    const $pruebas     = $("#viewTraining #comevi");
-    const $admin      = $("#viewTraining .admin");
-    const $document    = $("#viewTraining .document");
-    const $email       = $("#viewTraining .email");
-    const $phone       = $("#viewTraining .phone");
-    const $meet        = $("#viewTraining .meet");
-    const $upd_meet    = $("#viewTraining .upd_meet");
-    const $image       = $("#viewTraining .image");
-    const $pre         = $("#viewTraining .pre");
+    const $date = $("#viewTraining .date");
+    const $worker = $("#viewTraining .worker");
+    const $id_worker = $("#viewTraining .id_worker");
+    const $upd_worker = $("#upd_worker");
+    const $schedule = $("#viewTraining .schedule");
+    const $model = $("#viewTraining .model");
+    const $count = $("#viewTraining .count");
+    const $name = $("#viewTraining .name");
+    const $invoice = $("#viewTraining .invoice");
+    const $comentarios = $("#viewTraining #comevi");
+    const $pruebas = $("#viewTraining .evi");
+    const $admin = $("#viewTraining .admin");
+    const $document = $("#viewTraining .document");
+    const $email = $("#viewTraining .email");
+    const $phone = $("#viewTraining .phone");
+    const $meet = $("#viewTraining .meet");
+    const $upd_meet = $("#viewTraining .upd_meet");
+    const $image = $("#viewTraining .image");
+    const $pre = $("#viewTraining .pre");
 
-    const $staticWorker   = $("#viewTraining .staticWorker");
+    const $staticWorker = $("#viewTraining .staticWorker");
     const $editableWorker = $("#viewTraining .editableWorker");
-    const $staticMeet     = $("#viewTraining .staticMeet");
-    const $editableMeet   = $("#viewTraining .editableMeet");
-    
+    const $staticMeet = $("#viewTraining .staticMeet");
+    const $editableMeet = $("#viewTraining .editableMeet");
+
     $.ajax({
       url: "routes/getTraining",
       method: "POST",
@@ -656,7 +667,7 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         if (jsonData.success) {
           const data = jsonData.success;
-          $date.text(data.dayName+" "+data.day+" de "+data.month);
+          $date.text(data.dayName + " " + data.day + " de " + data.month);
 
           $staticWorker.hide();
           $staticMeet.hide();
@@ -673,7 +684,7 @@ $(document).ready(function () {
               $actionButtons.show();
               $actionButtons.attr("data-id", trainingId);
               $actionButtons.attr("data-date", data.date);
-            } else if(data.t_state == 1) {
+            } else if (data.t_state == 1) {
               $staticMeet.show();
               $editableWorker.show();
               $viewButtons.show();
@@ -693,24 +704,28 @@ $(document).ready(function () {
           var countT = data.count;
           // $count.text("(Ya tiene " + data.count + " capacitación)");
           if (countT === 0) {
-            $count.text(""); 
-        } else if (countT === 1) {
+            $count.text("");
+          } else if (countT === 1) {
             $count.text("(Ya tiene " + countT + " capacitación)");
-        } else {
-            $count.text("(Ya tiene " + countT + " capacitaciones)"); 
-        }
+          } else {
+            $count.text("(Ya tiene " + countT + " capacitaciones)");
+          }
           $name.text(data.name);
-          if(data.admin) {
+          if (data.admin) {
             $invoice.hide();
+            $pruebas.hide();
             $admin.show();
           } else {
             $invoice.show();
             $admin.hide();
             $invoice.attr("data-src", data.invoice);
+            $pruebas.attr("data-src", data.pruebas);
           }
           $document.text(data.document);
           $email.text(data.email);
-          $phone.text("+" + data.phone).attr("href", "https://api.whatsapp.com/send?phone="+data.phone);
+          $phone
+            .text("+" + data.phone)
+            .attr("href", "https://api.whatsapp.com/send?phone=" + data.phone);
           $comentarios.text(data.comentarios);
           $meet.text(data.meet).attr("href", data.meet);
           $upd_meet.val(data.meet).focus();
@@ -719,9 +734,9 @@ $(document).ready(function () {
           $id_worker.val(data.id_worker);
           $pre.val(trainingId);
 
-          $("#topBar").addClass('blur');
-          $("#navigationBar").addClass('blur');
-          $("#adminSection").addClass('blur');
+          $("#topBar").addClass("blur");
+          $("#navigationBar").addClass("blur");
+          $("#adminSection").addClass("blur");
           viewOverlay.fadeToggle();
         }
       },
@@ -733,17 +748,17 @@ $(document).ready(function () {
 
   viewOverlay.find(".modalClose").click(function () {
     viewOverlay.fadeToggle();
-    $("#topBar").removeClass('blur');
-    $("#navigationBar").removeClass('blur');
-    $("#adminSection").removeClass('blur');
+    $("#topBar").removeClass("blur");
+    $("#navigationBar").removeClass("blur");
+    $("#adminSection").removeClass("blur");
   });
 
   $(window).click(function (event) {
     if (event.target == viewOverlay[0]) {
       viewOverlay.fadeToggle();
-      $("#topBar").removeClass('blur');
-      $("#navigationBar").removeClass('blur');
-      $("#adminSection").removeClass('blur');
+      $("#topBar").removeClass("blur");
+      $("#navigationBar").removeClass("blur");
+      $("#adminSection").removeClass("blur");
     }
   });
 
@@ -788,7 +803,7 @@ $(document).ready(function () {
         const jsonData = JSON.parse(response);
         if (jsonData.success) {
           window.location.href = "training";
-        } 
+        }
       },
       error: function (xhr, status, error) {
         console.error("Error:", error);
@@ -810,7 +825,6 @@ $(document).ready(function () {
     }
     return true;
   }
-  
 
   let currentDate = new Date();
   let months = [
@@ -914,7 +928,7 @@ $(document).ready(function () {
       processData: false,
       dataType: "json",
       success: function (response) {
-        if (response.success ) {
+        if (response.success) {
           window.location.href = "training";
         }
       },
@@ -945,32 +959,30 @@ $(document).ready(function () {
         scheduleSelector.show();
         scheduleForm.hide();
 
-        $("#topBar").addClass('blur');
-        $("#navigationBar").addClass('blur');
-        $("#adminSection").addClass('blur');
+        $("#topBar").addClass("blur");
+        $("#navigationBar").addClass("blur");
+        $("#adminSection").addClass("blur");
         AddOverlay.fadeToggle();
       },
       error: function (xhr, status, error) {
         console.error(xhr.responseText);
       },
     });
-
-    
   });
 
   AddOverlay.find(".modalClose").click(function () {
     AddOverlay.fadeToggle();
-    $("#topBar").removeClass('blur');
-    $("#navigationBar").removeClass('blur');
-    $("#adminSection").removeClass('blur');
+    $("#topBar").removeClass("blur");
+    $("#navigationBar").removeClass("blur");
+    $("#adminSection").removeClass("blur");
   });
 
   $(window).click(function (event) {
     if (event.target == AddOverlay[0]) {
       AddOverlay.fadeToggle();
-      $("#topBar").removeClass('blur');
-      $("#navigationBar").removeClass('blur');
-      $("#adminSection").removeClass('blur');
+      $("#topBar").removeClass("blur");
+      $("#navigationBar").removeClass("blur");
+      $("#adminSection").removeClass("blur");
     }
   });
 
@@ -1032,7 +1044,7 @@ $(document).ready(function () {
   });
 
   scheduleSubmit.submit(function (event) {
-    console.log('paso 0');
+    console.log("paso 0");
 
     event.preventDefault();
     scheduleFormMessage.slideUp();
@@ -1040,7 +1052,7 @@ $(document).ready(function () {
     let date = picked.val();
     let schedule = picked.data("schedule");
     let count = picked.data("count");
-    console.log('paso 1');
+    console.log("paso 1");
 
     let dniRUC = $("#dniRUC").val();
     let client = $("#client").val();
@@ -1048,7 +1060,7 @@ $(document).ready(function () {
     let phone = $("#phone").val();
     let machine = machineId.val();
     let meet = $("#meet").val();
-    console.log('paso 2' + meet + ' test ');
+    console.log("paso 2" + meet + " test ");
 
     if (
       !validateDniRuc(dniRUC) ||
@@ -1095,8 +1107,8 @@ $(document).ready(function () {
     const regex = /^(KREAR\*3D|\d{8}|\d{11})$/;
 
     if (!dniRUC.trim() || !regex.test(dniRUC.trim())) {
-        message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
-        return false;
+      message(scheduleFormMessage, "Ingrese un documento válido (DNI o RUC)");
+      return false;
     }
 
     return true;
@@ -1137,6 +1149,4 @@ $(document).ready(function () {
     }
     return true;
   }
-
-
 });
