@@ -202,7 +202,7 @@ if (isset($_SESSION['user_id'])) {
 
                                     </div>
                                     <div class="evi" id="viewEvidencias" data-src="">
-                                        <img src="/assets/img/invoice.svg" alt="Vista previa de la imagen">Sin Archivos
+                                        <img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos
                                     </div>
                                 </div>
                                 <button type="submit" id="upd_evi">
