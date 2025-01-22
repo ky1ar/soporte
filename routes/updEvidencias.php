@@ -4,7 +4,7 @@ require_once '../includes/app/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $_POST['id'];
     $comentarios = $_POST['comentarios'];
-
+    
     if (isset($_FILES['pruebas']) && $_FILES['pruebas']['error'] === 0) {
         $pruebas = $_FILES['pruebas'];
         $fileName = $pruebas['name'];
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
         $uniqueCode = chr(rand(65, 90)) . rand(0, 9);
         $currentDateTime = date('YmdHis');
-        $uniqueFileName = $currentDateTime . '-' . $uniqueCode . '.' . $fileExt;
+        $uniqueFileName =$currentDateTime . '-' . $uniqueCode . '.' . $fileExt;
         $uploadDir = "../uploads/invoices/";
         $pruebas_ruta = $uploadDir . $uniqueFileName;
         if (move_uploaded_file($tempFileName, $pruebas_ruta)) {
@@ -35,11 +35,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iss", $id, $comentarios, $pruebas_ruta);
     $stmt->execute();
-
+    
     if ($stmt->affected_rows > 0) {
         echo json_encode(array("success" => true));
+        exit();
+    } else {
+        echo json_encode(array("success" => false, "message" => "No se realizaron cambios."));
         exit();
     }
 }
 
 $conn->close();
+?>
