@@ -3114,6 +3114,9 @@ footer .ftr-cpy {
   border-radius: 2rem;
   border: 0.1rem solid var(--graydarkest);
 }
+#viewTraining .content .sect-pruebas .pruebas div.archi div:nth-of-type(2):hover{
+  background-color: var(--graydarkest);
+}
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
   font-size: 0.8rem;
