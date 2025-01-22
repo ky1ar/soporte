@@ -957,7 +957,6 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success) {
-          alert("¡Evidencia guardada con éxito!");
           window.location.reload();
         } else {
           alert("Error: " + response.message);
