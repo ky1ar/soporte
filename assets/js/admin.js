@@ -673,8 +673,8 @@ $(document).ready(function () {
           $editableWorker.hide();
           $editableMeet.hide();
           $actionButtons.hide();
-          $sectPruebas.hide();
           $viewButtons.hide();
+          $sectPruebas.hide();
           $upd_worker.hide();
 
           if (level >= 3) {
@@ -682,13 +682,13 @@ $(document).ready(function () {
               $editableWorker.show();
               $editableMeet.show();
               $actionButtons.show();
-              $sectPruebas.show();
               $actionButtons.attr("data-id", trainingId);
               $actionButtons.attr("data-date", data.date);
             } else if (data.t_state == 1) {
               $staticMeet.show();
               $editableWorker.show();
               $viewButtons.show();
+              $sectPruebas.show();
               $upd_worker.show();
               $viewButtons.attr("data-id", trainingId);
             } else {
