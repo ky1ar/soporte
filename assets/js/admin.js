@@ -721,9 +721,18 @@ $(document).ready(function () {
             const pruebasFileUrl = $pruebas.attr("data-src");
             const pruebasFileName = pruebasFileUrl
               ? pruebasFileUrl.split("/").pop()
-              : "Sin archivos";
+              : null;
 
-            $pruebas.find("img").after(" " + pruebasFileName);
+            if (pruebasFileName) {
+              $pruebas.html(
+                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">' +
+                  pruebasFileName
+              );
+            } else {
+              $pruebas.html(
+                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin archivos'
+              );
+            }
           }
           $document.text(data.document);
           $email.text(data.email);
