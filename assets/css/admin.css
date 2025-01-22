@@ -3116,7 +3116,7 @@ footer .ftr-cpy {
   margin: auto 0 auto auto;
   padding: 0.5rem 1rem;
   width: fit-content;
-  gap: 1rem;
+  gap: .5rem;
   border-radius: 2rem;
   border: 0.1rem solid var(--graydarkest);
 }

@@ -730,7 +730,7 @@ $(document).ready(function () {
               );
             } else {
               $pruebas.html(
-                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin archivos'
+                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos'
               );
             }
           }
