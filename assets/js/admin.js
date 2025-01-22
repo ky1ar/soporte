@@ -721,18 +721,9 @@ $(document).ready(function () {
             const pruebasFileUrl = $pruebas.attr("data-src");
             const pruebasFileName = pruebasFileUrl
               ? pruebasFileUrl.split("/").pop()
-              : null;
+              : "Sin archivos";
 
-            if (pruebasFileName) {
-              $pruebas.html(
-                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">' +
-                  pruebasFileName
-              );
-            } else {
-              $pruebas.html(
-                '<img width="12" height="12" src="assets/img/invoice.svg" alt="">Evidencias'
-              );
-            }
+            $pruebas.find("img").after(" " + pruebasFileName);
           }
           $document.text(data.document);
           $email.text(data.email);
