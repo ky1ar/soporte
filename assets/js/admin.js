@@ -500,12 +500,11 @@ $(document).ready(function () {
   const viewInvoice = $("#viewInvoice");
   const viewEvi = $("#viewEvidencias");
 
-  // Función común para mostrar el archivo
   function showFile(fileType) {
     let fileUrl = $("#" + fileType).attr("data-src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
+    let fileName = fileUrl.split("/").pop(); // Obtiene el nombre del archivo
 
-    // Mostrar el archivo dependiendo de la extensión
     if (fileExtension === "pdf") {
       invoiceFile.html(
         '<embed src="' +
@@ -522,7 +521,13 @@ $(document).ready(function () {
 
     // Mostrar el panel de vista previa
     previewInvoice.fadeToggle();
-    $("#viewOverlay").addClass("blur");
+    viewOverlay.addClass("blur");
+
+    // Cambiar el texto del div para mostrar el nombre del archivo
+    $("#" + fileType).html(
+      '<img width="12" height="12" src="assets/img/invoice.svg" alt="">' +
+        fileName
+    );
   }
 
   // Manejadores de clic para ambos elementos
