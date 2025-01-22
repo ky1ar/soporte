@@ -621,6 +621,7 @@ $(document).ready(function () {
   const calendarTable = $("#calendarTable");
 
   const $actionButtons = $("#viewTraining .actionButtons");
+  const $sectPruebas = $("#viewTraining .sect-pruebas");
   const $viewButtons = $("#viewTraining .viewButtons");
 
   calendarTable.on("click", ".calendarViewRow", function () {
@@ -654,6 +655,7 @@ $(document).ready(function () {
     const $staticMeet = $("#viewTraining .staticMeet");
     const $editableMeet = $("#viewTraining .editableMeet");
 
+
     $.ajax({
       url: "routes/getTraining",
       method: "POST",
@@ -671,6 +673,7 @@ $(document).ready(function () {
           $editableWorker.hide();
           $editableMeet.hide();
           $actionButtons.hide();
+          $sectPruebas.hide();
           $viewButtons.hide();
           $upd_worker.hide();
 

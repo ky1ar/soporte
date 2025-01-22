@@ -189,7 +189,7 @@ if (isset($_SESSION['user_id'])) {
                                 <img src="assets/img/sav.svg" alt="">
                             </button>
                         </div>
-                        <div class="sect-pruebas">
+                        <div class="sect-pruebas" id="sectpruebas">
                             <div class="pruebas">
                                 <div>
                                     <label for="comevi">Comentarios:</label>
