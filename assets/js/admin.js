@@ -503,18 +503,26 @@ $(document).ready(function () {
   function showFile(fileType) {
     let fileUrl = $("#" + fileType).attr("data-src");
     let fileExtension = fileUrl.split(".").pop().toLowerCase();
-    if (fileExtension === "pdf") {
-      invoiceFile.html(
-        '<embed src="' +
-          fileUrl +
-          '" type="application/pdf" height="800px" width="800px" />'
-      );
+    if (fileUrl) {
+      // Verificar si fileUrl no es undefined o vacío
+      let fileExtension = fileUrl.split(".").pop().toLowerCase();
+
+      if (fileExtension === "pdf") {
+        invoiceFile.html(
+          '<embed src="' +
+            fileUrl +
+            '" type="application/pdf" height="800px" width="800px" />'
+        );
+      } else {
+        invoiceFile.html(
+          '<img src="' +
+            fileUrl +
+            '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
+        );
+      }
     } else {
-      invoiceFile.html(
-        '<img src="' +
-          fileUrl +
-          '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
-      );
+      console.error("No se ha encontrado un archivo válido.");
+      // Opcionalmente, mostrar un mensaje o tomar alguna otra acción en caso de error.
     }
 
     // Mostrar el panel de vista previa
@@ -654,7 +662,6 @@ $(document).ready(function () {
     const $editableWorker = $("#viewTraining .editableWorker");
     const $staticMeet = $("#viewTraining .staticMeet");
     const $editableMeet = $("#viewTraining .editableMeet");
-
 
     $.ajax({
       url: "routes/getTraining",
