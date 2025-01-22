@@ -206,7 +206,7 @@ if (isset($_SESSION['user_id'])) {
                                         <img width="12" height="12" src="assets/img/invoice.svg" alt="">Evidencias
                                     </div>
                                 </div>
-                                <button type="submit">
+                                <button type="submit" id="upd_evi">
                                     Guardar
                                 </button>
                             </div>

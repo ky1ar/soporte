@@ -533,7 +533,7 @@ $(document).ready(function () {
   viewEvi.click(function () {
     showFile("viewEvidencias");
   });
-  
+
   $("#previewInvoice .close").click(function () {
     previewInvoice.fadeToggle();
     $("#viewOverlay").removeClass("blur");
@@ -931,6 +931,40 @@ $(document).ready(function () {
         if (response.success) {
           window.location.href = "training";
         }
+      },
+    });
+  });
+
+  $("#upd_evi").on("click", function (e) {
+    e.preventDefault();
+
+    let comentarios = $("#comevi").val();
+    let archivo = $("#imgevi")[0].files[0];
+    let id = $(".pre").val();
+
+    let formData = new FormData();
+    formData.append("id", id);
+    formData.append("comentarios", comentarios);
+    formData.append("pruebas", archivo);
+
+    $.ajax({
+      url: "routes/updEvidencias",
+      method: "POST",
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          alert("¡Evidencia guardada con éxito!");
+          window.location.reload();
+        } else {
+          alert("Error: " + response.message);
+        }
+      },
+      error: function () {
+        alert("Ocurrió un error al enviar los datos.");
       },
     });
   });
