@@ -682,6 +682,7 @@ $(document).ready(function () {
               $editableWorker.show();
               $editableMeet.show();
               $actionButtons.show();
+              $sectPruebas.show();
               $actionButtons.attr("data-id", trainingId);
               $actionButtons.attr("data-date", data.date);
             } else if (data.t_state == 1) {
