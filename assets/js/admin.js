@@ -502,11 +502,8 @@ $(document).ready(function () {
 
   function showFile(fileType) {
     let fileUrl = $("#" + fileType).attr("data-src");
-    let fileExtension = fileUrl.split(".").pop().toLowerCase();
     if (fileUrl) {
-      // Verificar si fileUrl no es undefined o vacío
       let fileExtension = fileUrl.split(".").pop().toLowerCase();
-
       if (fileExtension === "pdf") {
         invoiceFile.html(
           '<embed src="' +
@@ -520,14 +517,13 @@ $(document).ready(function () {
             '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
         );
       }
+      previewInvoice.fadeToggle();
+      $("#viewOverlay").addClass("blur");
     } else {
-      console.error("No se ha encontrado un archivo válido.");
-      // Opcionalmente, mostrar un mensaje o tomar alguna otra acción en caso de error.
+      console.error(
+        "No se encontró el archivo o el atributo 'data-src' está vacío."
+      );
     }
-
-    // Mostrar el panel de vista previa
-    previewInvoice.fadeToggle();
-    $("#viewOverlay").addClass("blur");
   }
 
   // Manejadores de clic para ambos elementos
