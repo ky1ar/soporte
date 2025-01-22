@@ -5,29 +5,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $_POST['id'];
     $comentarios = $_POST['comentarios'];
     
-    // Asegúrate de que el archivo 'pruebas' esté presente
     if (isset($_FILES['pruebas']) && $_FILES['pruebas']['error'] === 0) {
         $pruebas = $_FILES['pruebas'];
         $fileName = $pruebas['name'];
         $tempFileName = $pruebas['tmp_name'];
-        
-        // Generar un nombre único para el archivo
         $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
-        $uniqueFileName = uniqid() . '_' . time() . '.' . $fileExt;
-
-        // Directorio donde se almacenarán los archivos
+        $uniqueCode = strtoupper(bin2hex(random_bytes(3)));
+        $fileBaseName = pathinfo($fileName, PATHINFO_FILENAME);
+        $uniqueFileName = $fileBaseName . '_' . $uniqueCode . '.' . $fileExt;
         $uploadDir = "../uploads/invoices/";
         $pruebas_ruta = $uploadDir . $uniqueFileName;
-
-        // Mueve el archivo cargado a la carpeta destino
         if (move_uploaded_file($tempFileName, $pruebas_ruta)) {
-            // Archivo guardado correctamente
         } else {
             echo json_encode(array("success" => false, "message" => "Error al guardar el archivo"));
             exit();
         }
     } else {
-        // Si no se subió un archivo, dejamos el valor de pruebas como null
         $pruebas_ruta = null;
     }
 
