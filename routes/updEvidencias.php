@@ -11,10 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $tempFileName = $pruebas['tmp_name'];
         $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
         $uniqueCode = strtoupper(bin2hex(random_bytes(3)));
-
-        //$fileBaseName = pathinfo($fileName, PATHINFO_FILENAME);
-
-        $currentDate = date('Ymd');
+        $currentDateTime = date('Ymd-His');
         $uniqueFileName =$currentDate . '-' . $uniqueCode . '.' . $fileExt;
         $uploadDir = "../uploads/invoices/";
         $pruebas_ruta = $uploadDir . $uniqueFileName;
