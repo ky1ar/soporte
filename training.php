@@ -190,7 +190,6 @@ if (isset($_SESSION['user_id'])) {
                             </button>
                         </div>
                         <div class="sect-pruebas">
-                            <p>Evidencias</p>
                             <div class="pruebas">
                                 <div>
                                     <label for="comevi">Comentarios:</label>

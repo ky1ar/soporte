@@ -3083,12 +3083,6 @@ footer .ftr-cpy {
   display: flex;
   flex-wrap: wrap;
 }
-#viewTraining .content .sect-pruebas > p {
-  font-weight: 600;
-  font-size: 1rem;
-  margin: 0;
-  width: 100%;
-}
 #viewTraining .content .sect-pruebas .pruebas {
   display: flex;
   flex-direction: column;
@@ -3097,7 +3091,7 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas .pruebas div {
   display: flex;
   flex-direction: column;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 #viewTraining .content .sect-pruebas .pruebas div.archi {
   display: flex;
@@ -3116,7 +3110,7 @@ footer .ftr-cpy {
   margin: auto 0 auto auto;
   padding: 0.5rem 1rem;
   width: fit-content;
-  gap: .5rem;
+  gap: 0.5rem;
   border-radius: 2rem;
   border: 0.1rem solid var(--graydarkest);
 }
@@ -3127,9 +3121,10 @@ footer .ftr-cpy {
 #viewTraining .content .sect-pruebas .pruebas textarea {
   resize: vertical;
   height: 5rem;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   outline: none;
+  font-family: "DM Sans", sans-serif;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
   width: 100%;
