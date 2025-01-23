@@ -277,20 +277,49 @@ body {
   margin: 0 auto;
   max-width: 100rem;
   padding: 0 1rem;
+  margin-top: 4rem;
 }
 #frontSlider .car-prices .card {
   display: flex;
   padding: 1.5rem;
   box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem var(--graydarkest);
   border: 0.1rem solid var(--graydarkest);
+  gap: 1rem;
 }
-#frontSlider .car-prices .card img{
+#frontSlider .car-prices .card img {
   height: 10rem;
   border-radius: 0;
 }
-#frontSlider .car-prices .card div p{
+#frontSlider .car-prices .card div {
+  height: fit-content;
+  margin-top: auto;
+}
+#frontSlider .car-prices .card div p {
   margin: 0;
   padding: 0;
+  text-align: left;
+}
+#frontSlider .car-prices .card div p:nth-of-type(1) {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+#frontSlider .car-prices .card div p:nth-of-type(2) {
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+#frontSlider .car-prices .card div p:nth-of-type(3) {
+  background-color: var(--primary);
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: auto;
+}
+#frontSlider .car-prices .card div p:nth-of-type(4) {
+  font-size: 0.6rem;
+  opacity: 0.6;
 }
 /***********************************************************************************/
 #searchOrderBox {
