@@ -378,6 +378,9 @@ body {
   #frontSlider .car-prices .card img {
     height: 8rem;
   }
+  #frontSlider .car-prices .card{
+    padding: 1rem;
+  }
   #frontSlider .car-prices .card div p:nth-of-type(1) {
     font-size: 0.7rem;
   }
