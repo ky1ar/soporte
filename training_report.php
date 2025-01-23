@@ -128,15 +128,12 @@ if (isset($_SESSION['user_id'])) {
                             $sql .= " AND training_date <= '$endDate'";
                         }
 
-                        // Aquí se agrega el filtro para el estado
                         if ($filterState !== '') {
                             $sql .= " AND s.id = '$filterState'";
                         }
-
                         if (!empty($filterClient)) {
                             $sql .= " AND t.name LIKE '%$filterClient%'";
                         }
-
                         $sql .= " ORDER BY t.id DESC";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0):
