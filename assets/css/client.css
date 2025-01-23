@@ -368,12 +368,28 @@ body {
 }
 
 @media only screen and (max-width: 36rem) {
-  #frontSlider .car-prices .swiffy-slider ul{
+  #frontSlider .car-prices .swiffy-slider ul {
     padding: 0;
     margin: 0 !important;
   }
-  #frontSlider .car-prices .slider-nav-dark .slider-nav{
+  #frontSlider .car-prices .slider-nav-dark .slider-nav {
     display: none;
+  }
+  #frontSlider .car-prices .card img {
+    height: 8rem;
+  }
+  #frontSlider .car-prices .card div p:nth-of-type(1) {
+    font-size: 0.7rem;
+  }
+  #frontSlider .car-prices .card div p:nth-of-type(2) {
+    font-size: 0.6rem;
+  }
+  #frontSlider .car-prices .card div p:nth-of-type(3) {
+    font-size: 0.9rem;
+  }
+  #frontSlider .car-prices .card div p:nth-of-type(4) {
+    line-height: 1;
+    font-size: 0.6rem;
   }
 }
 /***********************************************************************************/
