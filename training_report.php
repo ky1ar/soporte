@@ -74,9 +74,7 @@ if (isset($_SESSION['user_id'])) {
                             <button type="button" id="clearFilters">Limpiar Filtros</button>
                         </form>
                     </div>
-                    <div class="resultados">
-                        <p>Resultados: <?php echo $result->num_rows; ?> fila(s)</p>
-                    </div>
+
                     <script>
                         document.getElementById('clearFilters').addEventListener('click', function() {
                             document.getElementById('startDate').value = '';
