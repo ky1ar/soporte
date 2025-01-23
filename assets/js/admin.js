@@ -689,7 +689,6 @@ $(document).ready(function () {
               $staticMeet.show();
               $editableWorker.show();
               $viewButtons.show();
-              $sectPruebas.show();
               $upd_worker.show();
               $viewButtons.attr("data-id", trainingId);
             } else {
