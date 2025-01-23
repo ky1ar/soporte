@@ -23,7 +23,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
-                                <p>Capacitación de Impresora 3D de Filamento</p>
+                                <p>Capacitación de<br> Impresora 3D de Filamento</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -34,7 +34,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-2.png" alt="">
                             <div>
-                                <p>Capacitación de Impresora 3D de Resina</p>
+                                <p>Capacitación de<br> Impresora 3D de Resina</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -45,7 +45,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-3.png" alt="">
                             <div>
-                                <p>Capacitación de Cortadoras Láser</p>
+                                <p>Capacitación de<br> Cortadoras Láser</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -56,7 +56,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
-                                <p>Capacitación de Impresora 3D de Filamento</p>
+                                <p>Capacitación de<br> Impresora 3D de Filamento</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
