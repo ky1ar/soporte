@@ -48,8 +48,10 @@ if (isset($_SESSION['user_id'])) {
                         <form id="filterForm" method="GET">
                             <label for="startDate">Fecha Inicial:</label>
                             <input type="date" id="startDate" name="startDate" value="<?php echo isset($_GET['startDate']) ? $_GET['startDate'] : ''; ?>">
+
                             <label for="endDate">Fecha Final:</label>
                             <input type="date" id="endDate" name="endDate" value="<?php echo isset($_GET['endDate']) ? $_GET['endDate'] : ''; ?>">
+
                             <label for="filterState">Estado:</label>
                             <select id="filterState" name="filterState">
                                 <option value="">Todos</option>
@@ -64,11 +66,25 @@ if (isset($_SESSION['user_id'])) {
                                 }
                                 ?>
                             </select>
+
                             <label for="filterClient">Cliente:</label>
                             <input type="text" id="filterClient" name="filterClient" value="<?php echo isset($_GET['filterClient']) ? $_GET['filterClient'] : ''; ?>" placeholder="Nombre del cliente">
+
                             <button type="submit">Filtrar</button>
+                            <button type="button" id="clearFilters">Limpiar Filtros</button>
                         </form>
                     </div>
+
+                    <script>
+                        document.getElementById('clearFilters').addEventListener('click', function() {
+                            document.getElementById('startDate').value = '';
+                            document.getElementById('endDate').value = '';
+                            document.getElementById('filterState').selectedIndex = 0;
+                            document.getElementById('filterClient').value = '';
+                            window.location.href = window.location.pathname;
+                        });
+                    </script>
+
 
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
                         <tr class="row-hdr">
