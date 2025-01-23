@@ -4,8 +4,8 @@ $inactiveTime = 3600;
 if (isset($_SESSION['user_id'])) {
     if (isset($_SESSION['last_activity'])) {
         if (time() - $_SESSION['last_activity'] > $inactiveTime) {
-            session_unset();  
-            session_destroy(); 
+            session_unset();
+            session_destroy();
             header("Location: krear3dperu");
             exit();
         }
@@ -45,7 +45,31 @@ if (isset($_SESSION['user_id'])) {
                         </h3>
                     </div>
                     <div class="filtros">
+                        <form id="filterForm" method="GET">
+                            <label for="filterDate">Fecha:</label>
+                            <input type="date" id="filterDate" name="filterDate" value="<?php echo isset($_GET['filterDate']) ? $_GET['filterDate'] : ''; ?>">
 
+                            <label for="filterState">Estado:</label>
+                            <select id="filterState" name="filterState">
+                                <option value="">Todos</option>
+                                <?php
+                                // Obtener los estados desde la base de datos
+                                $stateQuery = "SELECT id, name FROM State";
+                                $stateResult = $conn->query($stateQuery);
+                                if ($stateResult->num_rows > 0) {
+                                    while ($state = $stateResult->fetch_assoc()) {
+                                        $selected = isset($_GET['filterState']) && $_GET['filterState'] == $state['id'] ? 'selected' : '';
+                                        echo "<option value='{$state['id']}' $selected>{$state['name']}</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+
+                            <label for="filterClient">Cliente:</label>
+                            <input type="text" id="filterClient" name="filterClient" value="<?php echo isset($_GET['filterClient']) ? $_GET['filterClient'] : ''; ?>" placeholder="Nombre del cliente">
+
+                            <button type="submit">Filtrar</button>
+                        </form>
                     </div>
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
                         <tr class="row-hdr">
