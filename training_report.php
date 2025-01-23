@@ -55,16 +55,12 @@ if (isset($_SESSION['user_id'])) {
                             <label for="filterState">Estado:</label>
                             <select id="filterState" name="filterState">
                                 <option value="">Todos</option>
-                                <?php
-                                $stateQuery = "SELECT id, name FROM State";
-                                $stateResult = $conn->query($stateQuery);
-                                if ($stateResult->num_rows > 0) {
-                                    while ($state = $stateResult->fetch_assoc()) {
-                                        $selected = isset($_GET['filterState']) && $_GET['filterState'] == $state['id'] ? 'selected' : '';
-                                        echo "<option value='{$state['id']}' $selected>{$state['name']}</option>";
-                                    }
-                                }
-                                ?>
+                                <option value="0" <?php echo isset($_GET['filterState']) && $_GET['filterState'] == '0' ? 'selected' : ''; ?>>Pendiente</option>
+                                <option value="1" <?php echo isset($_GET['filterState']) && $_GET['filterState'] == '1' ? 'selected' : ''; ?>>Agendado</option>
+                                <option value="2" <?php echo isset($_GET['filterState']) && $_GET['filterState'] == '2' ? 'selected' : ''; ?>>Finalizado</option>
+                                <option value="3" <?php echo isset($_GET['filterState']) && $_GET['filterState'] == '3' ? 'selected' : ''; ?>>Rechazado</option>
+                                <option value="4" <?php echo isset($_GET['filterState']) && $_GET['filterState'] == '4' ? 'selected' : ''; ?>>Cancelado</option>
+                            </select>
                             </select>
 
                             <label for="filterClient">Cliente:</label>
