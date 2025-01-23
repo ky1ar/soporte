@@ -109,12 +109,12 @@ if (isset($_SESSION['user_id'])) {
                             training_start,
                             s.name as state_name,
                             s.id as state_id
-                        FROM Training t
-                        INNER JOIN Machine m ON t.machine = m.id
-                        INNER JOIN Brand b ON m.brand = b.id
-                        LEFT JOIN Users w ON t.worker = w.id
-                        INNER JOIN State s ON t.training_state = s.id
-                        WHERE 1=1";
+                            FROM Training t
+                            INNER JOIN Machine m ON t.machine = m.id
+                            INNER JOIN Brand b ON m.brand = b.id
+                            LEFT JOIN Users w ON t.worker = w.id
+                            INNER JOIN State s ON t.training_state = s.id
+                            WHERE 1=1";
 
                         if (!empty($startDate) && !empty($endDate)) {
                             $sql .= " AND training_date BETWEEN '$startDate' AND '$endDate'";
@@ -123,12 +123,16 @@ if (isset($_SESSION['user_id'])) {
                         } elseif (!empty($endDate)) {
                             $sql .= " AND training_date <= '$endDate'";
                         }
-                        if (!empty($filterState)) {
+
+                        // Aquí se agrega el filtro para el estado
+                        if ($filterState !== '') {
                             $sql .= " AND s.id = '$filterState'";
                         }
+
                         if (!empty($filterClient)) {
                             $sql .= " AND t.name LIKE '%$filterClient%'";
                         }
+
                         $sql .= " ORDER BY t.id DESC";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0):
