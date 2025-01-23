@@ -54,7 +54,6 @@ if (isset($_SESSION['user_id'])) {
                         <h3>Historial de Capacitaciones
                             <p>Listado de usuarios y solicitudes de capacitación</p>
                         </h3>
-                        <a href="#"><img src="assets/img/pls.svg" alt="" style="width: 1rem;">Añadir Orden</a>
                     </div>
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
                         <tr class="row-hdr">
