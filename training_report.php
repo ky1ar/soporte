@@ -73,6 +73,7 @@ if (isset($_SESSION['user_id'])) {
                             <button type="submit">Filtrar</button>
                             <button type="button" id="clearFilters">Limpiar Filtros</button>
                         </form>
+                        <p>Resultados: <?php echo isset($result) ? $result->num_rows : 0; ?> fila(s)</p>
                     </div>
 
                     <script>
