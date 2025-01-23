@@ -283,13 +283,13 @@ body {
   --swiffy-slider-item-gap: 2rem;
 }
 #frontSlider .car-prices .swiffy-slider ul {
-  padding: 1rem 0;
+  padding: 1rem;
 }
 #frontSlider .car-prices .card {
   display: flex;
   padding: 1.5rem;
-  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem var(--graydarkest);
-  border: 0.1rem solid var(--graydarkest);
+  box-shadow: 0.1rem .5rem 0.5rem 0.1rem var(--gray);
+  border: 0.1rem solid var(--gray);
   gap: 1rem;
 }
 #frontSlider .car-prices .card img {
