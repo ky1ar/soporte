@@ -520,7 +520,6 @@ $(document).ready(function () {
       previewInvoice.fadeToggle();
       $("#viewOverlay").addClass("blur");
     } else {
-      
     }
   }
 
@@ -689,8 +688,11 @@ $(document).ready(function () {
               $staticMeet.show();
               $editableWorker.show();
               $viewButtons.show();
+              $sectPruebas.show();
               $upd_worker.show();
               $viewButtons.attr("data-id", trainingId);
+            } else if (data.t_state == 2) {
+              $sectPruebas.show();
             } else {
               $staticWorker.show();
               $staticMeet.show();
