@@ -46,14 +46,14 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="filtros">
                         <form id="filterForm" method="GET">
-                            <label for="filterDate">Fecha:</label>
-                            <input type="date" id="filterDate" name="filterDate" value="<?php echo isset($_GET['filterDate']) ? $_GET['filterDate'] : ''; ?>">
-
+                            <label for="startDate">Fecha Inicial:</label>
+                            <input type="date" id="startDate" name="startDate" value="<?php echo isset($_GET['startDate']) ? $_GET['startDate'] : ''; ?>">
+                            <label for="endDate">Fecha Final:</label>
+                            <input type="date" id="endDate" name="endDate" value="<?php echo isset($_GET['endDate']) ? $_GET['endDate'] : ''; ?>">
                             <label for="filterState">Estado:</label>
                             <select id="filterState" name="filterState">
                                 <option value="">Todos</option>
                                 <?php
-                                // Obtener los estados desde la base de datos
                                 $stateQuery = "SELECT id, name FROM State";
                                 $stateResult = $conn->query($stateQuery);
                                 if ($stateResult->num_rows > 0) {
@@ -64,13 +64,12 @@ if (isset($_SESSION['user_id'])) {
                                 }
                                 ?>
                             </select>
-
                             <label for="filterClient">Cliente:</label>
                             <input type="text" id="filterClient" name="filterClient" value="<?php echo isset($_GET['filterClient']) ? $_GET['filterClient'] : ''; ?>" placeholder="Nombre del cliente">
-
                             <button type="submit">Filtrar</button>
                         </form>
                     </div>
+
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
                         <tr class="row-hdr">
                             <th>#</th>
