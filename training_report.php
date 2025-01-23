@@ -105,24 +105,24 @@ if (isset($_SESSION['user_id'])) {
 
                         // Construir consulta base
                         $sql = "SELECT
-                            t.id as training_id,
-                            m.slug as machine_slug,
-                            b.name as brand_name,
-                            m.model as machine_model,
-                            w.name as worker_name,
-                            t.name as client_name,
-                            training_date,
-                            training_start,
-                            s.name as state_name,
-                            s.id as state_id
-                            FROM Training t
-                            INNER JOIN Machine m ON t.machine = m.id
-                            INNER JOIN Brand b ON m.brand = b.id
-                            LEFT JOIN Users w ON t.worker = w.id
-                            INNER JOIN State s ON t.training_state = s.id
-                            WHERE 1=1";
+            t.id as training_id,
+            m.slug as machine_slug,
+            b.name as brand_name,
+            m.model as machine_model,
+            w.name as worker_name,
+            t.name as client_name,
+            training_date,
+            training_start,
+            s.name as state_name,
+            s.id as state_id
+        FROM Training t
+        INNER JOIN Machine m ON t.machine = m.id
+        INNER JOIN Brand b ON m.brand = b.id
+        LEFT JOIN Users w ON t.worker = w.id
+        INNER JOIN State s ON t.training_state = s.id
+        WHERE 1=1";
 
-                        // Agregar condiciones según los filtros
+                        // Filtro por fechas
                         if (!empty($startDate) && !empty($endDate)) {
                             $sql .= " AND training_date BETWEEN '$startDate' AND '$endDate'";
                         } elseif (!empty($startDate)) {
@@ -131,16 +131,19 @@ if (isset($_SESSION['user_id'])) {
                             $sql .= " AND training_date <= '$endDate'";
                         }
 
+                        // Filtro por estado
                         if (!empty($filterState)) {
                             $sql .= " AND s.id = '$filterState'";
                         }
 
+                        // Filtro por cliente
                         if (!empty($filterClient)) {
                             $sql .= " AND t.name LIKE '%$filterClient%'";
                         }
 
                         $sql .= " ORDER BY t.id DESC";
 
+                        // Ejecutar la consulta
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0):
                             while ($row = $result->fetch_assoc()):
@@ -151,10 +154,7 @@ if (isset($_SESSION['user_id'])) {
                                 <tr>
                                     <td><?php echo $row['training_id'] ?></td>
                                     <td class="row-odr">
-                                        <img
-                                            width="48"
-                                            class="tbl-img"
-                                            src="assets/mac/<?php echo $row['machine_slug'] ?>.webp" alt="">
+                                        <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['machine_slug'] ?>.webp" alt="">
                                         <div class="tbl-odr">
                                             <?php echo $row['brand_name'] ?><span><?php echo $row['machine_model'] ?></span>
                                         </div>
@@ -172,7 +172,8 @@ if (isset($_SESSION['user_id'])) {
                                 </tr>
                         <?php
                             endwhile;
-                        endif; ?>
+                        endif;
+                        ?>
                     </table>
                     <span id="totalRows" data-total="<?php echo $result->num_rows; ?>"></span>
                     <div class="pagination" id="pagination"></div>
