@@ -358,6 +358,9 @@ body {
   #frontSlider .car-prices .swiffy-slider {
     --swiffy-slider-item-count: 1;
   }
+  #frontSlider .car-prices .card img {
+    height: 10rem;
+  }
 }
 
 @media only screen and (max-width: 48rem) {
