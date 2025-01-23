@@ -75,10 +75,7 @@ if (isset($_SESSION['user_id'])) {
                     </form>
                 </div>
 
-                <!-- Aquí mostramos el total de resultados -->
-                <div class="resultados">
-                    <p>Resultados: <?php echo $result->num_rows; ?> fila(s)</p>
-                </div>
+           
 
                 <script>
                     document.getElementById('clearFilters').addEventListener('click', function() {
@@ -177,6 +174,10 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 </section>
+     <!-- Aquí mostramos el total de resultados -->
+     <div class="resultados">
+                    <p>Resultados: <?php echo $result->num_rows; ?> fila(s)</p>
+                </div>
 
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
 </body>
