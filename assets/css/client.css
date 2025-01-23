@@ -278,7 +278,19 @@ body {
   max-width: 100rem;
   padding: 0 1rem;
 }
-
+#frontSlider .car-prices .card {
+  display: flex;
+  padding: 1.5rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem var(--graydarkest);
+  border: 0.1rem solid var(--graydarkest);
+}
+#frontSlider .car-prices .card img{
+  height: 10rem;
+  border-radius: 0;
+}
+#frontSlider .car-prices .card div p{
+  margin: 0;
+}
 /***********************************************************************************/
 #searchOrderBox {
   background-color: var(--gray);
