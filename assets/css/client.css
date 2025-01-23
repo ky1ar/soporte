@@ -335,11 +335,17 @@ body {
 }
 
 @media only screen and (max-width: 90rem) {
-  #frontSlider .car-prices .slider-item-show3{
+  #frontSlider .car-prices .slider-item-show3 {
     --swiffy-slider-item-count: 2;
   }
   #frontSlider .car-prices .card img {
     height: 11rem;
+  }
+  #frontSlider .car-prices .slider-nav::after,
+  #frontSlider .car-prices .slider-nav::before {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.3rem;
   }
 }
 
