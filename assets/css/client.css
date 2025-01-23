@@ -334,8 +334,13 @@ body {
   }
 }
 
-@media only screen and (max-width: 75rem) {
-  /* 1200px */
+@media only screen and (max-width: 90rem) {
+  #frontSlider .car-prices .swiffy-slider ul .slider-item-show3{
+    --swiffy-slider-item-count: 2;
+  }
+  #frontSlider .car-prices .card img {
+    height: 11rem;
+  }
 }
 
 @media only screen and (max-width: 62rem) {
