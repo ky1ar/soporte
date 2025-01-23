@@ -81,7 +81,6 @@ if (isset($_SESSION['user_id'])) {
                         });
                     </script>
 
-
                     <table aria-describedby="Training Report" class="rpt-tbl" border="0">
                         <tr class="row-hdr">
                             <th>#</th>
@@ -99,26 +98,24 @@ if (isset($_SESSION['user_id'])) {
                         $filterState = isset($_GET['filterState']) ? $_GET['filterState'] : '';
                         $filterClient = isset($_GET['filterClient']) ? $_GET['filterClient'] : '';
 
-                        // Construir consulta base
                         $sql = "SELECT
-            t.id as training_id,
-            m.slug as machine_slug,
-            b.name as brand_name,
-            m.model as machine_model,
-            w.name as worker_name,
-            t.name as client_name,
-            training_date,
-            training_start,
-            s.name as state_name,
-            s.id as state_id
-        FROM Training t
-        INNER JOIN Machine m ON t.machine = m.id
-        INNER JOIN Brand b ON m.brand = b.id
-        LEFT JOIN Users w ON t.worker = w.id
-        INNER JOIN State s ON t.training_state = s.id
-        WHERE 1=1";
+                            t.id as training_id,
+                            m.slug as machine_slug,
+                            b.name as brand_name,
+                            m.model as machine_model,
+                            w.name as worker_name,
+                            t.name as client_name,
+                            training_date,
+                            training_start,
+                            s.name as state_name,
+                            s.id as state_id
+                        FROM Training t
+                        INNER JOIN Machine m ON t.machine = m.id
+                        INNER JOIN Brand b ON m.brand = b.id
+                        LEFT JOIN Users w ON t.worker = w.id
+                        INNER JOIN State s ON t.training_state = s.id
+                        WHERE 1=1";
 
-                        // Filtro por fechas
                         if (!empty($startDate) && !empty($endDate)) {
                             $sql .= " AND training_date BETWEEN '$startDate' AND '$endDate'";
                         } elseif (!empty($startDate)) {
@@ -126,20 +123,13 @@ if (isset($_SESSION['user_id'])) {
                         } elseif (!empty($endDate)) {
                             $sql .= " AND training_date <= '$endDate'";
                         }
-
-                        // Filtro por estado
                         if (!empty($filterState)) {
                             $sql .= " AND s.id = '$filterState'";
                         }
-
-                        // Filtro por cliente
                         if (!empty($filterClient)) {
                             $sql .= " AND t.name LIKE '%$filterClient%'";
                         }
-
                         $sql .= " ORDER BY t.id DESC";
-
-                        // Ejecutar la consulta
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0):
                             while ($row = $result->fetch_assoc()):
