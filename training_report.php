@@ -24,7 +24,6 @@ if (isset($_SESSION['user_id'])) {
     require_once 'includes/common/header_admin.php';
     $stt_img = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
 } else {
-    // Redirigir al usuario a la página de login si no está autenticado
     header("Location: krear3dperu");
     exit();
 }
