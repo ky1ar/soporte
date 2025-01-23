@@ -368,7 +368,13 @@ body {
 }
 
 @media only screen and (max-width: 36rem) {
-  /* 576px */
+  #frontSlider .car-prices .swiffy-slider ul{
+    padding: 0;
+    margin: 0
+  }
+  #frontSlider .car-prices .slider-nav-dark .slider-nav{
+    display: none;
+  }
 }
 /***********************************************************************************/
 #searchOrderBox {
