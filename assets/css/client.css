@@ -355,7 +355,9 @@ body {
 }
 
 @media only screen and (max-width: 62rem) {
-  /* 992px */
+  #frontSlider .car-prices .swiffy-slider {
+    --swiffy-slider-item-count: 1;
+  }
 }
 
 @media only screen and (max-width: 48rem) {
