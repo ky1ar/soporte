@@ -82,23 +82,48 @@ if (isset($_SESSION['user_id'])) {
                             <th></th>
                         </tr>
                         <?php
+                        $startDate = isset($_GET['startDate']) ? $_GET['startDate'] : '';
+                        $endDate = isset($_GET['endDate']) ? $_GET['endDate'] : '';
+                        $filterState = isset($_GET['filterState']) ? $_GET['filterState'] : '';
+                        $filterClient = isset($_GET['filterClient']) ? $_GET['filterClient'] : '';
+
+                        // Construir consulta base
                         $sql = "SELECT
-                        t.id as training_id,
-                        m.slug as machine_slug,
-                        b.name as brand_name,
-                        m.model as machine_model,
-                        w.name as worker_name,
-                        t.name as client_name,
-                        training_date,
-                        training_start,
-                        s.name as state_name,
-                        s.id as state_id
-                        FROM Training t
-                        INNER JOIN Machine m ON t.machine = m.id
-                        INNER JOIN Brand b ON m.brand = b.id
-                        LEFT JOIN Users w ON t.worker = w.id
-                        INNER JOIN State s ON t.training_state = s.id
-                        ORDER BY t.id DESC";
+                            t.id as training_id,
+                            m.slug as machine_slug,
+                            b.name as brand_name,
+                            m.model as machine_model,
+                            w.name as worker_name,
+                            t.name as client_name,
+                            training_date,
+                            training_start,
+                            s.name as state_name,
+                            s.id as state_id
+                            FROM Training t
+                            INNER JOIN Machine m ON t.machine = m.id
+                            INNER JOIN Brand b ON m.brand = b.id
+                            LEFT JOIN Users w ON t.worker = w.id
+                            INNER JOIN State s ON t.training_state = s.id
+                            WHERE 1=1";
+
+                        // Agregar condiciones según los filtros
+                        if (!empty($startDate) && !empty($endDate)) {
+                            $sql .= " AND training_date BETWEEN '$startDate' AND '$endDate'";
+                        } elseif (!empty($startDate)) {
+                            $sql .= " AND training_date >= '$startDate'";
+                        } elseif (!empty($endDate)) {
+                            $sql .= " AND training_date <= '$endDate'";
+                        }
+
+                        if (!empty($filterState)) {
+                            $sql .= " AND s.id = '$filterState'";
+                        }
+
+                        if (!empty($filterClient)) {
+                            $sql .= " AND t.name LIKE '%$filterClient%'";
+                        }
+
+                        $sql .= " ORDER BY t.id DESC";
 
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0):
