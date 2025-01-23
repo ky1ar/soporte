@@ -20,48 +20,53 @@ require_once 'includes/common/header.php';
             <div class="swiffy-slider slider-item-show3 slider-nav-outside slider-nav-visible slider-indicators-round">
                 <ul class="slider-container">
                     <li class="slide-visible">
-                        <div id="slide1"></div>
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de Impresora 3D de Filamento</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
                     </li>
                     <li class="slide-visible">
-                        <div id="slide2"></div>
+                        <div class="card">
+                            <img src="assets/img/pre-2.png" alt="">
+                            <div>
+                                <p>Capacitación de Impresora 3D de Resina</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
                     </li>
                     <li class="slide-visible">
-                        <div id="slide3"></div>
+                        <div class="card">
+                            <img src="assets/img/pre-3.png" alt="">
+                            <div>
+                                <p>Capacitación de Cortadoras Láser</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
                     </li>
                     <li class="">
-                        <div id="slide4"></div>
-                    </li>
-                    <li>
-                        <div id="slide5"></div>
-                    </li>
-                    <li>
-                        <div id="slide6"></div>
-                    </li>
-                    <li>
-                        <div id="slide7"></div>
-                    </li>
-                    <li>
-                        <div id="slide8"></div>
-                    </li>
-                    <li>
-                        <div id="slide9"></div>
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de Impresora 3D de Filamento</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
                     </li>
                 </ul>
 
                 <button type="button" class="slider-nav"></button>
                 <button type="button" class="slider-nav slider-nav-next"></button>
-
-                <ul class="slider-indicators">
-                    <li class=""></li>
-                    <li class="active"></li>
-                    <li></li>
-                    <li class=""></li>
-                    <li class=""></li>
-                    <li class=""></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
             </div>
         </div>
     </section>
