@@ -16,6 +16,54 @@ require_once 'includes/common/header.php';
             <img class="imaCap" width="1920" height="630" src="assets/img/capacitaciones-pc.webp">
             <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
+        <div class="car-prices">
+            <div class="swiffy-slider slider-item-show3 slider-nav-outside slider-nav-visible slider-indicators-round">
+                <ul class="slider-container">
+                    <li class="slide-visible">
+                        <div id="slide1"></div>
+                    </li>
+                    <li class="slide-visible">
+                        <div id="slide2"></div>
+                    </li>
+                    <li class="slide-visible">
+                        <div id="slide3"></div>
+                    </li>
+                    <li class="">
+                        <div id="slide4"></div>
+                    </li>
+                    <li>
+                        <div id="slide5"></div>
+                    </li>
+                    <li>
+                        <div id="slide6"></div>
+                    </li>
+                    <li>
+                        <div id="slide7"></div>
+                    </li>
+                    <li>
+                        <div id="slide8"></div>
+                    </li>
+                    <li>
+                        <div id="slide9"></div>
+                    </li>
+                </ul>
+
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+
+                <ul class="slider-indicators">
+                    <li class=""></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li class=""></li>
+                    <li class=""></li>
+                    <li class=""></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
     </section>
     <div class="example-cap">
         <div class="back-ex"></div>
