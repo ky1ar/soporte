@@ -122,7 +122,7 @@ if (isset($_SESSION['user_id'])) {
                                         }
                                         ?>
                                     </td>
-                                    <td class="row-act"><img class="tbl-tec" src="assets/img/dot.svg" alt=""></td>
+                                    <td class="row-act"><img class="tbl-tec" src="assets/img/ver-capa.webp" alt=""></td>
 
                                 </tr>
                         <?php $n++;
