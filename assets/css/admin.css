@@ -2074,6 +2074,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+}
+#rpt-dat .dat-two .filas {
+  position: absolute;
+  top: 8rem;
+  font-size: 0.8rem;
+  color: #0aa139;
 }
 #rpt-dat .dat-two .two-hdr {
   display: flex;
@@ -2142,8 +2149,8 @@ body {
   cursor: pointer;
 }
 #rpt-dat .dat-two .filtros form button[type="submit"]:hover,
-#rpt-dat .dat-two .filtros form button#clearFilters:hover{
-  opacity: .8;
+#rpt-dat .dat-two .filtros form button#clearFilters:hover {
+  opacity: 0.8;
 }
 #rpt-dat .dat-two .filtros form button#clearFilters {
   display: flex;

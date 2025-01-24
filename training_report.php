@@ -168,7 +168,7 @@ if (isset($_SESSION['user_id'])) {
                     </table>
                     <span id="totalRows" data-total="<?php echo $result->num_rows; ?>"></span>
                     <div class="pagination" id="pagination"></div>
-                    <p>Resultados: <?php echo isset($result) ? $result->num_rows : 0; ?> fila(s)</p>
+                    <p class="filas">Resultados: <?php echo isset($result) ? $result->num_rows : 0; ?> fila(s)</p>
 
                 </div>
             </div>
