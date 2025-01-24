@@ -200,21 +200,6 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const img = document.querySelector("#rpt-dat .dat-two .rpt-tbl .row-act img");
-            const viewCap = document.querySelector("#viewCap");
-
-            img.addEventListener("click", () => {
-                // Alternar entre mostrar y ocultar
-                if (viewCap.style.display === "flex") {
-                    viewCap.style.display = "none"; // Oculta el div
-                } else {
-                    viewCap.style.display = "flex"; // Muestra el div
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
