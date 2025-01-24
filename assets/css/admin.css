@@ -3911,6 +3911,9 @@ footer .ftr-cpy {
 }
 
 /**********************View Cap*******************************/
+#modalViewCap{
+  display: none;
+}
 #modalViewCap .fondo {
   position: fixed;
   background-color: #808080ba;
