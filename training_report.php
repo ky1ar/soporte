@@ -200,16 +200,8 @@ if (isset($_SESSION['user_id'])) {
                                 <textarea type="text" id="comevi" name="comevi"></textarea>
                             </div>
                             <div class="archi">
-                                <div>
-                                    <label for="imgevi">Archivo:</label>
-                                    <input type="file" id="imgevi" name="imgevi" accept="image/*, .pdf">
-
-                                </div>
                                 <div class="evi" id="viewEvidencias"><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
                             </div>
-                            <button type="submit" id="upd_evi">
-                                Guardar
-                            </button>
                         </div>
                         <div class="result">
                             <p></p>
