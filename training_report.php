@@ -203,10 +203,10 @@ if (isset($_SESSION['user_id'])) {
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const img = document.querySelector(".tbl-tec");
-            const viewCap = document.querySelector(".viewCap");
+            const viewCap = document.querySelector("#viewCap"); // Usamos el id para seleccionar
 
             img.addEventListener("click", () => {
-                viewCap.style.display = "flex"; // Muestra el div con flex
+                viewCap.style.display = "flex"; // Cambia el estilo a 'flex' para mostrar el div
             });
         });
     </script>
