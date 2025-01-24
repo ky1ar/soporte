@@ -2297,8 +2297,12 @@ body {
   border: 1px solid #f0f0f0;
   font-weight: 700;
 }
+
 #rpt-dat .dat-two .rpt-tbl .row-act img + img {
   margin-left: 1rem;
+}
+#rpt-dat .dat-two .rpt-tbl .row-act img{
+  width: 2rem;
 }
 #rpt-dat .dat-two .rpt-tbl .tbl-img {
   width: 3rem;
