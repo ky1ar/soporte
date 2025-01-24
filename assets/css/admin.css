@@ -2130,6 +2130,11 @@ body {
   outline: none;
   text-align: center;
 }
+#rpt-dat .dat-two .filtros form select {
+  display: flex;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
 #rpt-dat .dat-two .two-tbl {
   padding: 0;
   margin: 0;
