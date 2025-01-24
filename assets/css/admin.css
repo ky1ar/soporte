@@ -3929,4 +3929,5 @@ footer .ftr-cpy {
   background-color: #fff;
   padding: 2rem;
   border-radius: 0.5rem;
+  z-index: 2;
 }
