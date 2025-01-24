@@ -2141,6 +2141,9 @@ body {
   text-align: center;
   font-family: "DM Sans", sans-serif;
 }
+#rpt-dat .dat-two .filtros form input[type="text"]{
+  cursor: text;
+}
 #rpt-dat .dat-two .filtros form button[type="submit"] {
   display: flex;
   background-color: var(--primary);
