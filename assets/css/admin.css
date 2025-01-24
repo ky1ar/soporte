@@ -2131,6 +2131,23 @@ body {
   outline: none;
   text-align: center;
 }
+#rpt-dat .dat-two .filtros form button[type="submit"] {
+  display: flex;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+#rpt-dat .dat-two .filtros form button#clearFilters {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--secondary);
+  color: var(--white);
+}
 #rpt-dat .dat-two .two-tbl {
   padding: 0;
   margin: 0;

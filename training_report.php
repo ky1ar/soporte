@@ -66,8 +66,6 @@ if (isset($_SESSION['user_id'])) {
                                 }
                                 ?>
                             </select>
-                            <br>
-
                             <label for="filterClient">Cliente:</label>
                             <input type="text" id="filterClient" name="filterClient" value="<?php echo isset($_GET['filterClient']) ? $_GET['filterClient'] : ''; ?>" placeholder="Nombre del cliente">
 
