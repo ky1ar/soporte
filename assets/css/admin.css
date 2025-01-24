@@ -2141,6 +2141,10 @@ body {
   color: var(--white);
   cursor: pointer;
 }
+#rpt-dat .dat-two .filtros form button[type="submit"]:hover,
+#rpt-dat .dat-two .filtros form button#clearFilters:hover{
+  opacity: .9;
+}
 #rpt-dat .dat-two .filtros form button#clearFilters {
   display: flex;
   padding: 0.5rem 1rem;
