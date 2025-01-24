@@ -2080,7 +2080,7 @@ body {
   position: absolute;
   top: 8rem;
   font-size: 0.8rem;
-  color: #0aa139;
+  color: red;
 }
 #rpt-dat .dat-two .two-hdr {
   display: flex;
@@ -2122,6 +2122,7 @@ body {
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 #rpt-dat .dat-two .filtros form label {
   font-size: 0.8rem;
