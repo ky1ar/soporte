@@ -2147,6 +2147,7 @@ body {
   border-radius: 1rem;
   background-color: var(--secondary);
   color: var(--white);
+  cursor: pointer;
 }
 #rpt-dat .dat-two .two-tbl {
   padding: 0;
