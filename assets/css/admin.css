@@ -2120,7 +2120,8 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
 }
-#rpt-dat .dat-two .filtros form input {
+#rpt-dat .dat-two .filtros form input,
+#rpt-dat .dat-two .filtros form select {
   display: flex;
   padding: 0.5rem;
   border-radius: 1rem;
@@ -2129,11 +2130,6 @@ body {
   cursor: pointer;
   outline: none;
   text-align: center;
-}
-#rpt-dat .dat-two .filtros form select {
-  display: flex;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
 }
 #rpt-dat .dat-two .two-tbl {
   padding: 0;
