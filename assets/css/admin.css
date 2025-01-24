@@ -3911,7 +3911,17 @@ footer .ftr-cpy {
 }
 
 /**********************View Cap*******************************/
-#viewCap {
+#modalViewCap .fondo {
+  background: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(
+    10px
+  ); /* Compatibilidad con navegadores Webkit */
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* Opcional: bordes redondeados */
+}
+#modalViewCap .viewCap {
   display: flex;
   position: fixed;
   top: 50%;
