@@ -121,10 +121,14 @@ if (isset($_SESSION['user_id'])) {
                             WHERE 1=1";
 
                         if (!empty($startDate) && !empty($endDate)) {
+                            $startDate .= " 00:00:00";
+                            $endDate .= " 23:59:59"; 
                             $sql .= " AND training_date BETWEEN '$startDate' AND '$endDate'";
                         } elseif (!empty($startDate)) {
+                            $startDate .= " 00:00:00";
                             $sql .= " AND training_date >= '$startDate'";
                         } elseif (!empty($endDate)) {
+                            $endDate .= " 23:59:59"; 
                             $sql .= " AND training_date <= '$endDate'";
                         }
 
