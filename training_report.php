@@ -202,11 +202,16 @@ if (isset($_SESSION['user_id'])) {
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const img = document.querySelector(".tbl-tec");
-            const viewCap = document.querySelector("#viewCap"); // Usamos el id para seleccionar
+            const img = document.querySelector("#rpt-dat .dat-two .rpt-tbl .row-act img");
+            const viewCap = document.querySelector("#viewCap");
 
             img.addEventListener("click", () => {
-                viewCap.style.display = "flex"; // Cambia el estilo a 'flex' para mostrar el div
+                // Alternar entre mostrar y ocultar
+                if (viewCap.style.display === "flex") {
+                    viewCap.style.display = "none"; // Oculta el div
+                } else {
+                    viewCap.style.display = "flex"; // Muestra el div
+                }
             });
         });
     </script>
