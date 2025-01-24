@@ -178,70 +178,15 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
     </section>
-    <div class="modalBox">
-        <div id="viewTraining">
-            <div class="header">
-                <div class="block">
-                    <h2 class="date">Miércoles 22 de enero</h2>
-                    <div class="box">
-                        <span class="schedule">09:30</span>
-                        <div class="admin" style="display: none;">Administrador</div>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="staticWorker">
-                        <img src="assets/img/worker.svg" alt="">
-                        <span class="worker"></span>
-                    </div>
-                    <div class="sect-pruebas" id="sectpruebas">
-                        <div class="pruebas">
-                            <div>
-                                <label for="comevi">Comentarios:</label>
-                                <textarea type="text" id="comevi" name="comevi"></textarea>
-                            </div>
-                            <div class="archi">
-                                <div class="evi" id="viewEvidencias"><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <p></p>
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="staticMeet" style="display: none;">
-                        <img src="assets/img/meet.svg" alt="">
-                        <a class="meet" href="https://meet.google.com/tsw-qnsk-win" target="_blank">https://meet.google.com/tsw-qnsk-win</a>
-                    </div>
-                    <div class="editableMeet" style="display: none;">
-                        <a href="https://meet.google.com/" target="_blank"><img src="assets/img/meet.svg" alt=""></a>
-                        <input class="upd_meet" id="meetLink" type="text" placeholder="Ingrese el link de Google Meet">
-                        <div id="actionMessage"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="left">
-                    <div class="title">
-                        <h2 class="model">A1</h2>
-                        <h2 class="count">(Ya tiene 1 capacitación)</h2>
-                    </div>
-                    <h3 class="name">PEDRO NICOLAS CHAVEZ PRADO</h3>
-                    <h3 class="document">09140833</h3>
-                    <div class="invoice" id="viewInvoice" data-src="../uploads/invoices/678bc58a7b610_1737213322.pdf">
-                        <img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante
-                    </div>
-                    <div class="link">
-                        <p class="email">pedronotas53@gmail.com</p>
-                        <div class="flex">
-                            <img src="assets/img/wsp2.svg" alt="">
-                            <a class="phone" href="https://api.whatsapp.com/send?phone=51997618358" target="_blank" rel="nofollow">+51997618358</a>
-                        </div>
-
-                    </div>
-                </div>
-                <img class="image" src="assets/mac/a1.webp" alt="">
-            </div>
-            <img class="modalClose" src="assets/img/x.svg" alt="">
+    <div id="viewCap" class="">
+        <div>
+            <p class="fecha"></p>
+            <p class="hora"></p>
+        </div>
+        <div>
+            <p>Comentarios:</p>
+            <p class="comentarios"></p>
+            <div class="evi" id="viewEvidencias" data-src="../uploads/invoices/20250123155442-O0.png"><img width="12" height="12" src="assets/img/invoice.svg" alt="">20250123155442-O0.png</div>
         </div>
     </div>
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
