@@ -2141,7 +2141,7 @@ body {
   text-align: center;
   font-family: "DM Sans", sans-serif;
 }
-#rpt-dat .dat-two .filtros form input[type="text"]{
+#rpt-dat .dat-two .filtros form input[type="text"] {
   cursor: text;
 }
 #rpt-dat .dat-two .filtros form button[type="submit"] {
@@ -2301,7 +2301,7 @@ body {
 #rpt-dat .dat-two .rpt-tbl .row-act img + img {
   margin-left: 1rem;
 }
-#rpt-dat .dat-two .rpt-tbl .row-act img{
+#rpt-dat .dat-two .rpt-tbl .row-act img {
   width: 1.5rem;
   margin-right: -1rem;
   cursor: pointer;
@@ -3908,4 +3908,9 @@ footer .ftr-cpy {
 #graphicsView .graf canvas {
   height: 30rem !important;
   width: 90% !important;
+}
+
+/**********************View Cap*******************************/
+#viewCap {
+  display: none;
 }

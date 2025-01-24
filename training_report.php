@@ -200,6 +200,16 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const img = document.querySelector(".tbl-tec");
+            const viewCap = document.querySelector(".viewCap");
+
+            img.addEventListener("click", () => {
+                viewCap.style.display = "flex"; // Muestra el div con flex
+            });
+        });
+    </script>
 </body>
 
 </html>
