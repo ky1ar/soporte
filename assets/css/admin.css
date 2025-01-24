@@ -2302,7 +2302,8 @@ body {
   margin-left: 1rem;
 }
 #rpt-dat .dat-two .rpt-tbl .row-act img{
-  width: 2rem;
+  width: 1.5rem;
+  margin-right: -1rem;
 }
 #rpt-dat .dat-two .rpt-tbl .tbl-img {
   width: 3rem;
