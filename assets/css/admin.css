@@ -3913,7 +3913,7 @@ footer .ftr-cpy {
 /**********************View Cap*******************************/
 #modalViewCap .fondo {
   position: fixed;
-  background-color: rgb(128 128 128 / 40%);
+  background-color: #808080ba;
   z-index: 1;
   top: 0;
   bottom: 0;
