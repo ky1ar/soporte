@@ -180,13 +180,23 @@ if (isset($_SESSION['user_id'])) {
     </section>
     <div id="viewCap" class="">
         <div>
-            <p class="fecha"></p>
-            <p class="hora"></p>
+            <p class="fecha">Jueves 23 de Enero</p>
+            <p class="hora">09:30</p>
         </div>
         <div>
             <p>Comentarios:</p>
-            <p class="comentarios"></p>
-            <div class="evi" id="viewEvidencias" data-src="../uploads/invoices/20250123155442-O0.png"><img width="12" height="12" src="assets/img/invoice.svg" alt="">20250123155442-O0.png</div>
+            <textarea name="" id="">asdasdsa</textarea>
+            <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
+        </div>
+        <div>
+            <div>
+                <p>A1 Combo</p>
+                <p>Alex</p>
+                <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante</div>
+                <p>alex@gmail.com</p>
+                <p>+51 910900581</p>
+            </div>
+            <img src="https://asoporte.krear3d.com/assets/mac/a1-combo.webp" alt="">
         </div>
     </div>
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
