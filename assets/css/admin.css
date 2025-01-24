@@ -3912,14 +3912,13 @@ footer .ftr-cpy {
 
 /**********************View Cap*******************************/
 #modalViewCap .fondo {
-  background: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
-  backdrop-filter: blur(10px); /* Efecto de desenfoque */
-  -webkit-backdrop-filter: blur(
-    10px
-  ); /* Compatibilidad con navegadores Webkit */
-  width: 100%;
-  height: 100%;
-  border-radius: 10px; /* Opcional: bordes redondeados */
+  position: fixed;
+  background-color: rgb(128 128 128 / 40%);
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 #modalViewCap .viewCap {
   display: flex;
