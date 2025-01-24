@@ -2081,6 +2081,7 @@ body {
   top: 8rem;
   font-size: 0.8rem;
   color: red;
+  margin: 0.5rem 0 0 0;
 }
 #rpt-dat .dat-two .two-hdr {
   display: flex;
