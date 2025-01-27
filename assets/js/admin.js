@@ -1107,7 +1107,7 @@ $(document).ready(function () {
           if (response.success) {
             const data = response.success;
             const date = new Date(data.date + "T00:00:00");
-
+  
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
@@ -1125,10 +1125,8 @@ $(document).ready(function () {
               })
               .join(" ");
             const slug = data.slug;
-            // const imageUrl = `/assets/mac/${slug}.webp`;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
-            console.log(data);
-
+  
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
@@ -1137,13 +1135,13 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .comm .pruebas").attr("data-idf", trainingId);
             $("#modalViewCap .viewCap .inf .comprobante").attr("data-idf", trainingId);
-
+  
             const icon =
               '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
             $("#modalViewCap .viewCap .comm .pruebas").html(
               data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
             );
-
+  
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
@@ -1158,11 +1156,48 @@ $(document).ready(function () {
         },
       });
     });
-
+  
+    // Clic en el div .pruebas para cargar el archivo en #mostradorInfoT
+    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
+      var fileUrl = $(this).text().trim();
+      if (fileUrl) {
+        loadFileInViewer(fileUrl);
+      }
+    });
+  
+    // Clic en el div .comprobante para cargar el archivo en #mostradorInfoT
+    $("#modalViewCap .viewCap .inf .comprobante").click(function () {
+      var fileUrl = $(this).text().trim(); // Ajusta esto según el valor real en data.invoice
+      if (fileUrl) {
+        loadFileInViewer(fileUrl);
+      }
+    });
+  
+    // Función para cargar el archivo en el visualizador
+    function loadFileInViewer(fileUrl) {
+      const extension = fileUrl.split('.').pop().toLowerCase();
+      const viewer = $('#mostradorInfoT .visualizador');
+      viewer.empty(); // Limpiar el visualizador
+  
+      if (extension === 'pdf') {
+        // Si es un PDF, mostrarlo dentro de un iframe
+        viewer.html('<iframe src="' + fileUrl + '" width="100%" height="600px"></iframe>');
+      } else if (['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(extension)) {
+        // Si es una imagen, mostrarla
+        viewer.html('<img src="' + fileUrl + '" width="100%" alt="Archivo">');
+      } else {
+        viewer.html('<p>Archivo no compatible.</p>');
+      }
+  
+      // Mostrar el visualizador
+      $('#mostradorInfoT').fadeIn();
+    }
+  
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
   });
+  
 
   scheduleSubmit.submit(function (event) {
     console.log("paso 0");
