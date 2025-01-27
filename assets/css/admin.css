@@ -4021,3 +4021,22 @@ footer .ftr-cpy {
   width: 10rem;
   margin-left: auto;
 }
+
+#mostradorInfoT {
+  position: fixed;
+  background-color: rgb(128 128 128 / 40%);
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+#mostradorInfoT .visualizador{
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
