@@ -1124,6 +1124,9 @@ $(document).ready(function () {
                 return word.charAt(0).toUpperCase() + word.slice(1);
               })
               .join(" ");
+            const slug = data.slug;
+            // const imageUrl = `/assets/mac/${slug}.webp`;
+            const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
             console.log(data);
 
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
@@ -1134,7 +1137,8 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
-              .text("+"+data.phone);
+              .text("+" + data.phone);
+            $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
             $("#modalViewCap").fadeIn();
           } else {
             alert("Error: No se encontraron datos en la respuesta.");
