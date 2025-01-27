@@ -1102,47 +1102,28 @@ $(document).ready(function () {
         type: "POST",
         url: "routes/getTraining",
         data: { trainingId: trainingId },
-        dataType: "json", // Aseguramos que esperamos JSON
+        dataType: "json",
         success: function (response) {
-          // Imprimimos la respuesta completa para inspeccionar los datos
-          console.log("Respuesta completa:", response);
-      
-          // Comprobamos que response.success esté disponible
-          if (response && response.success) {
+          if (response?.success?.name) {
             const data = response.success;
-      
-            // Verificamos que el dato 'name' esté disponible antes de continuar
-            if (data.name) {
-              // Llenamos los campos con los datos recibidos
-              $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
-              $("#modalViewCap .viewCap .inf .email").text(data.email);
-              $("#modalViewCap .viewCap .inf .name").text(data.name);
-              $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
-              $("#modalViewCap .viewCap .inf a")
-                .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
-                .text(data.phone); // Enlace de WhatsApp
-      
-              // Mostrar el modal
-              $("#modalViewCap").fadeIn();
-            } else {
-              // Si no se encuentra 'name', mostramos un mensaje de error
-              alert("Error: No se encontraron datos en la respuesta.");
-            }
+            $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
+            $("#modalViewCap .viewCap .inf .email").text(data.email);
+            $("#modalViewCap .viewCap .inf .name").text(data.name);
+            $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
+            $("#modalViewCap .viewCap .inf a")
+              .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
+              .text(data.phone);
+            $("#modalViewCap").fadeIn();
           } else {
-            // Si no se encuentra 'success' en la respuesta
             alert("Error: No se encontraron datos en la respuesta.");
           }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-          console.error("Error en la petición AJAX:", textStatus, errorThrown);
+        error: function () {
           alert("Error al obtener la información.");
         },
       });
-      
-      
     });
 
-    // Cerrar modal al hacer clic en el fondo
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
