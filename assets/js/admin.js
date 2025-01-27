@@ -1113,7 +1113,8 @@ $(document).ready(function () {
               month: "long",
             })
               .format(date)
-              .replace(/\bde\b/g, "de");
+              .replace(/\bde\b/g, "de") // Mantener "de" en minúsculas
+              .replace(/\b(\w)/g, (match) => match.toUpperCase());
             console.log(data);
 
             $("#modalViewCap .viewCap .dates .fecha").text(formattedDate);
