@@ -1190,7 +1190,7 @@ $(document).ready(function () {
     }
 
     // Evento para cargar el archivo de pruebas
-    $(".viewCap .comm .pruebas").click(function () {
+    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
       var trainingId = $(this).attr("data-idf");
       $.ajax({
         type: "POST",
@@ -1213,10 +1213,10 @@ $(document).ready(function () {
     });
 
     // Evento para cargar el archivo de comprobante
-    $(".viewCap .inf .comprobante").click(function () {
+    $("#modalViewCap .viewCap .inf .comprobante").click(function () {
       var trainingId = $(this).attr("data-idf");
       $.ajax({
-        type: "POST",Ñ
+        type: "POST",
         url: "routes/getDocsTraining", // Ruta del backend
         data: { trainingId: trainingId },
         dataType: "json",
