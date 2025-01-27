@@ -1107,7 +1107,7 @@ $(document).ready(function () {
           if (response.success) {
             const data = response.success;
             const date = new Date(data.date + "T00:00:00");
-
+      
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
@@ -1117,34 +1117,68 @@ $(document).ready(function () {
               .replace(/\bde\b/g, "de"); // Mantener "de" en minúsculas
             const capitalizedDate = formattedDate
               .split(" ")
-              .map((word, index) => {
+              .map((word) => {
                 if (word.toLowerCase() === "de") {
                   return word; // No capitalizar "de"
                 }
                 return word.charAt(0).toUpperCase() + word.slice(1);
               })
               .join(" ");
+      
             const slug = data.slug;
-            // const imageUrl = `/assets/mac/${slug}.webp`;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
-            console.log(data);
-
+      
+            // Mostrar los datos en el modal
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
+      
             const icon =
               '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
-            $("#modalViewCap .viewCap .comm .pruebas").html(
-              data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
-            );
-
+            // Actualizar contenido de "pruebas"
+            const pruebasUrl = data.pruebas ? `https://soporte.krear3d.com/${data.pruebas.replace(/^(\.\.\/)/, '')}` : null;
+            const invoiceUrl = data.invoice ? `https://soporte.krear3d.com/${data.invoice.replace(/^(\.\.\/)/, '')}` : null;
+      
+            // Condicionar la visualización de "pruebas" (archivo o imagen)
+            if (pruebasUrl) {
+              const fileExtension = pruebasUrl.split(".").pop().toLowerCase();
+              if (fileExtension === "pdf") {
+                $("#modalViewCap .viewCap .comm .pruebas").html(
+                  `${icon} <embed src="${pruebasUrl}" type="application/pdf" height="800px" width="800px" />`
+                );
+              } else {
+                $("#modalViewCap .viewCap .comm .pruebas").html(
+                  `${icon} <img src="${pruebasUrl}" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">`
+                );
+              }
+            } else {
+              $("#modalViewCap .viewCap .comm .pruebas").html(`${icon} Sin Archivos`);
+            }
+      
+            // Condicionar la visualización de "invoice" (archivo o imagen)
+            if (invoiceUrl) {
+              const fileExtension = invoiceUrl.split(".").pop().toLowerCase();
+              if (fileExtension === "pdf") {
+                $("#modalViewCap .viewCap .comm .comprobante").html(
+                  `<embed src="${invoiceUrl}" type="application/pdf" height="800px" width="800px" />`
+                );
+              } else {
+                $("#modalViewCap .viewCap .comm .comprobante").html(
+                  `<img src="${invoiceUrl}" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">`
+                );
+              }
+            }
+      
+            // Otros datos
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
             $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
+      
+            // Mostrar el modal
             $("#modalViewCap").fadeIn();
           } else {
             alert("Error: No se encontraron datos en la respuesta.");
