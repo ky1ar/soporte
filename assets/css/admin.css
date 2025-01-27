@@ -3956,7 +3956,7 @@ footer .ftr-cpy {
   border-radius: 0.5rem;
   resize: vertical;
   outline: none;
-  border: 0.1rem solid var(--gray);
+  border: 0.1rem solid var(--graydarkest);
 }
 #modalViewCap .viewCap .comm div {
   display: flex;
@@ -3964,7 +3964,6 @@ footer .ftr-cpy {
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray);
   margin: 0.5rem 0 1rem auto;
   padding: 0.5rem 1rem;
   width: fit-content;
