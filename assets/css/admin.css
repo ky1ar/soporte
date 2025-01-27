@@ -3959,6 +3959,7 @@ footer .ftr-cpy {
   border: 0.1rem solid var(--graydarkest);
   height: 5rem;
   background-color: red;
+  font-family: "DM Sans", sans-serif;
 }
 #modalViewCap .viewCap .comm div {
   display: flex;
