@@ -1104,9 +1104,17 @@ $(document).ready(function () {
         data: { trainingId: trainingId },
         success: function (data) {
           console.log(data);
-          $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
-          $("#modalViewCap .viewCap .inf .email").val(data.email);
-          $("#modalViewCap .viewCap .inf .name").val(data.name);
+          // Actualizar los elementos con los datos recibidos
+          $("#modalViewCap .viewCap .comm textarea").val(data.comentarios); 
+          $("#modalViewCap .viewCap .inf .email").text(data.email); 
+          $("#modalViewCap .viewCap .inf .name").text(data.name); 
+          $("#modalViewCap .viewCap .dates .fecha").text(
+            data.dayName + " " + data.day + " de " + data.month
+          ); // Fecha
+          $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
+          $("#modalViewCap .viewCap .inf a")
+            .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
+            .text(data.phone); // Enlace WhatsApp
           $("#modalViewCap").fadeIn();
         },
         error: function () {
