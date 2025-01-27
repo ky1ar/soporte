@@ -1103,20 +1103,17 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (response) {
-          if (response.success) {
-            const userData = response.success;
-            console.log("total: " + userData);
-            console.log("nombre: " + userData.name);
-            console.log("hora: " + userData.schedule);
-            $("#modalViewCap .viewCap .comm textarea").val(userData.comentarios);
-            $("#modalViewCap .viewCap .inf .email").text(userData.email);
-            $("#modalViewCap .viewCap .inf .name").text(userData.name);
-            $("#modalViewCap .viewCap .dates .hora").text(userData.schedule);
-            $("#modalViewCap .viewCap .inf a")
-              .attr("href", `https://api.whatsapp.com/send?phone=${userData.phone}`)
-              .text(userData.phone); // Enlace WhatsApp
-            $("#modalViewCap").fadeIn();
-          }
+          console.log("total: " + response);
+          console.log("nombre: " + response.name);
+          console.log("hora: " + response.name);
+          $("#modalViewCap .viewCap .comm textarea").val(response.comentarios); 
+          $("#modalViewCap .viewCap .inf .email").text(response.email); 
+          $("#modalViewCap .viewCap .inf .name").text(response.name); 
+          $("#modalViewCap .viewCap .dates .hora").text(response.schedule);
+          $("#modalViewCap .viewCap .inf a")
+            .attr("href", `https://api.whatsapp.com/send?phone=${response.phone}`)
+            .text(response.phone); // Enlace WhatsApp
+          $("#modalViewCap").fadeIn();
         },
         error: function () {
           alert("Error al obtener la información.");
