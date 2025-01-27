@@ -3934,9 +3934,14 @@ footer .ftr-cpy {
   border-radius: 0.5rem;
   z-index: 2;
 }
-#modalViewCap .viewCap .dates{
+#modalViewCap .viewCap .dates {
   display: flex;
   align-items: center;
+}
+#modalViewCap .viewCap .dates .hora {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
 }
 #modalViewCap .viewCap .dates .hora {
   margin-left: auto;
@@ -3949,6 +3954,25 @@ footer .ftr-cpy {
   width: 40rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+}
+#modalViewCap .viewCap .comm div {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray);
+  margin: auto 0 auto auto;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--graydarkest);
+}
+#modalViewCap .viewCap .inf{
+  display: flex;
+  border-radius: .5rem;
+  border: 0.1rem solid var(--gray);
 }
 #modalViewCap .viewCap .inf > img {
   width: 10rem;
