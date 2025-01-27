@@ -1106,6 +1106,7 @@ $(document).ready(function () {
         success: function (response) {
           if (response.success) {
             const data = response.success;
+            console.log(data);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
