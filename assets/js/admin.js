@@ -1106,6 +1106,7 @@ $(document).ready(function () {
           console.log(data);
           $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
           $("#modalViewCap .viewCap .inf .email").val(data.email);
+          $("#modalViewCap .viewCap .inf .name").val(data.name);
           $("#modalViewCap").fadeIn();
         },
         error: function () {

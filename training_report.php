@@ -193,7 +193,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="inf">
                 <div>
                     <p>A1 Combo</p>
-                    <p>Alex</p>
+                    <p class="name">Alex</p>
                     <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante</div>
                     <p class="email">alex@gmail.com</p>
                     <a href="https://api.whatsapp.com/send?phone=">51903632236</a>
