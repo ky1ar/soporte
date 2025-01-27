@@ -3962,17 +3962,21 @@ footer .ftr-cpy {
   align-items: center;
   justify-content: center;
   background-color: var(--gray);
-  margin: auto 0 auto auto;
+  margin: 0.5rem 0 1rem auto;
   padding: 0.5rem 1rem;
   width: fit-content;
   gap: 0.5rem;
   border-radius: 2rem;
   border: 0.1rem solid var(--graydarkest);
 }
-#modalViewCap .viewCap .inf{
+#modalViewCap .viewCap .inf {
   display: flex;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: 0.1rem solid var(--gray);
+  padding: 1rem;
+}
+#modalViewCap .viewCap .inf p{
+  margin: 0;
 }
 #modalViewCap .viewCap .inf > img {
   width: 10rem;
