@@ -187,7 +187,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="comm">
                 <p>Comentarios:</p>
-                <textarea name="" id=""></textarea>
+                <textarea name="" id="" disabled></textarea>
                 <div class="pruebas"></div>
             </div>
             <div class="inf">
@@ -203,7 +203,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
     <div id="mostradorInfoT">
-                        
+
     </div>
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
 </body>
