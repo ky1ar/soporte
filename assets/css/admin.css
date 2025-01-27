@@ -4014,6 +4014,7 @@ footer .ftr-cpy {
   border: 0.1rem solid var(--primary);
   gap: 0.5rem;
   font-weight: 600;
+  width: fit-content;
 }
 #modalViewCap .viewCap .inf > img {
   width: 10rem;
