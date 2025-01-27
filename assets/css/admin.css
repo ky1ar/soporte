@@ -3988,11 +3988,13 @@ footer .ftr-cpy {
   font-weight: bold;
   color: var(--primary);
 }
-#modalViewCap .viewCap .inf > div p:nth-of-type(2),
-#modalViewCap .viewCap .inf > div a{
+#modalViewCap .viewCap .inf > div p:nth-of-type(2) {
   font-size: 1.2rem;
   font-weight: bold;
+}
+#modalViewCap .viewCap .inf > div a {
   color: var(--black);
+  text-decoration: none;
 }
 #modalViewCap .viewCap .inf div div {
   flex-direction: row;
