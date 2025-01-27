@@ -1135,8 +1135,14 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
-            $("#modalViewCap .viewCap .comm .pruebas").attr("data-idf", trainingId);
-            $("#modalViewCap .viewCap .inf .comprobante").attr("data-idf", trainingId);
+            $("#modalViewCap .viewCap .comm .pruebas").attr(
+              "data-idf",
+              trainingId
+            );
+            $("#modalViewCap .viewCap .inf .comprobante").attr(
+              "data-idf",
+              trainingId
+            );
 
             const icon =
               '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
@@ -1163,7 +1169,50 @@ $(document).ready(function () {
       $("#modalViewCap").fadeOut();
     });
   });
+  $(".viewCap .comm .pruebas").click(function () {
+    var trainingId = $(this).attr("data-idf");
+    $.ajax({
+      type: "POST",
+      url: "routes/getDocsTraining", // Ruta del backend
+      data: { trainingId: trainingId },
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          const fileUrl = response.success.pruebas; // Obtener URL de las pruebas
+          $("#" + "pruebas").attr("data-src", fileUrl); // Establecer data-src para pruebas
+          showFile("pruebas"); // Llamar a la función para mostrar el archivo
+        } else {
+          alert("No se encontraron archivos para las pruebas.");
+        }
+      },
+      error: function () {
+        alert("Error al obtener las pruebas.");
+      },
+    });
+  });
 
+  // Evento para cargar el archivo de comprobante
+  $(".viewCap .inf .comprobante").click(function () {
+    var trainingId = $(this).attr("data-idf");
+    $.ajax({
+      type: "POST",
+      url: "routes/getDocsTraining", // Ruta del backend
+      data: { trainingId: trainingId },
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          const fileUrl = response.success.comprobante; // Obtener URL del comprobante
+          $("#" + "comprobante").attr("data-src", fileUrl); // Establecer data-src para comprobante
+          showFile("comprobante"); // Llamar a la función para mostrar el archivo
+        } else {
+          alert("No se encontraron archivos para el comprobante.");
+        }
+      },
+      error: function () {
+        alert("Error al obtener el comprobante.");
+      },
+    });
+  });
   scheduleSubmit.submit(function (event) {
     console.log("paso 0");
 
