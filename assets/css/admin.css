@@ -4008,7 +4008,7 @@ footer .ftr-cpy {
   border-radius: 1rem;
   color: var(--primary);
   background-color: #fffdf5;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--graydarkest);
   gap: 0.5rem;
   font-weight: 600;
 }
