@@ -1096,7 +1096,7 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
-    var responseData = null; // Variable para almacenar la respuesta
+    var responseDataX = null; // Variable para almacenar la respuesta
   
     $(".row-act").click(function () {
       var trainingId = $(this).closest("tr").data("id");
@@ -1156,8 +1156,8 @@ $(document).ready(function () {
       });
     });
     $("#modalViewCap .viewCap .comm .pruebas").click(function () {
-      if (responseData && responseData.pruebas) {
-        let fileUrl = responseData.pruebas;
+      if (responseDataX && responseDataX.pruebas) {
+        let fileUrl = responseDataX.pruebas;
         if (fileUrl) {
           fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
           showFile(fileUrl);
@@ -1165,8 +1165,8 @@ $(document).ready(function () {
       }
     });
     $("#modalViewCap .viewCap .inf .comprobante").click(function () {
-      if (responseData && responseData.invoice) { 
-        let fileUrl = responseData.invoice;
+      if (responseDataX && responseDataX.invoice) { 
+        let fileUrl = responseDataX.invoice;
         if (fileUrl) {
           fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
           showFile(fileUrl);
