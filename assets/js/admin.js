@@ -1098,11 +1098,10 @@ $(document).ready(function () {
   $(document).ready(function () {
     $(".row-act").click(function () {
       var trainingId = $(this).closest("tr").data("id");
-      console.log("id" + trainingId);
       $.ajax({
         type: "POST",
         url: "routes/getTraining",
-        data: { training_id: trainingId },
+        data: { trainingId: trainingId },
         success: function (data) {
           $("#modalViewCap .viewCap .comm textarea").val(data.comments);
           $("#modalViewCap").fadeIn();
