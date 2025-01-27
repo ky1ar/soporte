@@ -1107,7 +1107,7 @@ $(document).ready(function () {
           if (response.success) {
             const data = response.success;
             const date = new Date(data.date + "T00:00:00");
-  
+
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
@@ -1126,15 +1126,21 @@ $(document).ready(function () {
               .join(" ");
             const slug = data.slug;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
-  
+
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
-            $("#modalViewCap .viewCap .comm .pruebas").attr("data-idf", trainingId);
-            $("#modalViewCap .viewCap .inf .comprobante").attr("data-idf", trainingId);
+            $("#modalViewCap .viewCap .comm .pruebas").attr(
+              "data-idf",
+              trainingId
+            );
+            $("#modalViewCap .viewCap .inf .comprobante").attr(
+              "data-idf",
+              trainingId
+            );
             const icon =
               '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
             $("#modalViewCap .viewCap .comm .pruebas").html(
@@ -1154,49 +1160,42 @@ $(document).ready(function () {
         },
       });
     });
-  
     $("#modalViewCap .viewCap .comm .pruebas").click(function () {
       var fileUrl = $(this).text().trim();
       if (fileUrl) {
         loadFileInViewer(fileUrl);
       }
     });
-  
     $("#modalViewCap .viewCap .inf .comprobante").click(function () {
       var fileUrl = $(this).text().trim();
       if (fileUrl) {
         loadFileInViewer(fileUrl);
       }
     });
-  
     function loadFileInViewer(fileUrl) {
-      const extension = fileUrl.split('.').pop().toLowerCase();
-      const viewer = $('#mostradorInfoT .visualizador');
+      const extension = fileUrl.split(".").pop().toLowerCase();
+      const viewer = $("#mostradorInfoT .visualizador");
       viewer.empty();
-  
-      if (extension === 'pdf') {
-        viewer.html('<iframe src="' + fileUrl + '" width="100%" height="600px"></iframe>');
-      } else if (['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(extension)) {
+      if (extension === "pdf") {
+        viewer.html(
+          '<iframe src="' + fileUrl + '" width="100%" height="600px"></iframe>'
+        );
+      } else if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
         viewer.html('<img src="' + fileUrl + '" width="100%" alt="Archivo">');
       } else {
-        viewer.html('<p>Archivo no compatible.</p>');
+        viewer.html("<p>Archivo no compatible.</p>");
       }
-      $('#mostradorInfoT').addClass('show');
+      $("#mostradorInfoT").addClass("show");
     }
-  
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
-  
-    // Cerrar el modal de visualización al hacer clic en el fondo de #mostradorInfoT
     $("#mostradorInfoT").click(function (e) {
       if ($(e.target).is("#mostradorInfoT")) {
-        $('#mostradorInfoT').removeClass('show');
+        $("#mostradorInfoT").removeClass("show");
       }
     });
   });
-  
-  
 
   scheduleSubmit.submit(function (event) {
     console.log("paso 0");
