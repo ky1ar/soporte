@@ -1155,32 +1155,24 @@ $(document).ready(function () {
         },
       });
     });
-  
-    // Cuando se hace clic en "Comprobante" (ver el comprobante)
     $("#modalViewCap .viewCap .comm .pruebas").click(function () {
-      if (responseData && responseData.invoice) { // Verificamos que responseData esté disponible
-        let fileUrl = responseData.invoice; // Suponiendo que `invoice` es la URL del comprobante
+      if (responseData && responseData.pruebas) {
+        let fileUrl = responseData.pruebas;
         if (fileUrl) {
-          // Modificar la ruta de las pruebas
           fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
           showFile(fileUrl);
         }
       }
     });
-  
-    // Cuando se hace clic en "Sin Archivos" (ver el archivo de pruebas)
     $("#modalViewCap .viewCap .inf .comprobante").click(function () {
-      if (responseData && responseData.pruebas) { // Verificamos que responseData esté disponible
-        let fileUrl = responseData.pruebas; // Suponiendo que `pruebas` es la URL del archivo de pruebas
+      if (responseData && responseData.invoice) { 
+        let fileUrl = responseData.invoice;
         if (fileUrl) {
-          // Modificar la ruta de las pruebas
           fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
           showFile(fileUrl);
         }
       }
     });
-  
-    // Función para mostrar el archivo
     function showFile(fileUrl) {
       const fileExtension = fileUrl.split(".").pop().toLowerCase();
       if (fileExtension === "pdf") {
