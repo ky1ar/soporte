@@ -1157,6 +1157,8 @@ $(document).ready(function () {
     $("#modalViewCap .viewCap .comm .comprobante").click(function () {
       const fileUrl = response.success.invoice; // Suponiendo que `invoice` es la URL del comprobante
       if (fileUrl) {
+        // Modificar la ruta de las pruebas
+        fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
         showFile(fileUrl);
       }
     });
@@ -1165,6 +1167,11 @@ $(document).ready(function () {
     $("#modalViewCap .viewCap .comm .pruebas").click(function () {
       const fileUrl = response.success.pruebas; // Suponiendo que `pruebas` es la URL del archivo de pruebas
       if (fileUrl) {
+        // Modificar la ruta de las pruebas
+        fileUrl = `https://soporte.krear3d.com${fileUrl.replace(
+          /^(\.\.\/)/,
+          ""
+        )}`;
         showFile(fileUrl);
       }
     });
