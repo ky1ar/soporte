@@ -1096,8 +1096,6 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
-    var responseDataX = null; // Variable para almacenar la respuesta
-  
     $(".row-act").click(function () {
       var trainingId = $(this).closest("tr").data("id");
       $.ajax({
@@ -1107,10 +1105,9 @@ $(document).ready(function () {
         dataType: "json",
         success: function (response) {
           if (response.success) {
-            responseData = response.success; // Guardamos la respuesta en la variable
-            const data = responseData;
+            const data = response.success;
             const date = new Date(data.date + "T00:00:00");
-  
+
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
@@ -1127,12 +1124,11 @@ $(document).ready(function () {
                 return word.charAt(0).toUpperCase() + word.slice(1);
               })
               .join(" ");
-  
             const slug = data.slug;
+            // const imageUrl = `/assets/mac/${slug}.webp`;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
             console.log(data);
-  
-            // Mostrar información en el modal
+
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
@@ -1143,8 +1139,6 @@ $(document).ready(function () {
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
             $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
-  
-            // Mostrar el modal
             $("#modalViewCap").fadeIn();
           } else {
             alert("Error: No se encontraron datos en la respuesta.");
@@ -1155,44 +1149,7 @@ $(document).ready(function () {
         },
       });
     });
-    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
-      if (responseDataX && responseDataX.pruebas) {
-        let fileUrl = responseDataX.pruebas;
-        if (fileUrl) {
-          fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
-          showFile(fileUrl);
-        }
-      }
-    });
-    $("#modalViewCap .viewCap .inf .comprobante").click(function () {
-      if (responseDataX && responseDataX.invoice) { 
-        let fileUrl = responseDataX.invoice;
-        if (fileUrl) {
-          fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
-          showFile(fileUrl);
-        }
-      }
-    });
-    function showFile(fileUrl) {
-      const fileExtension = fileUrl.split(".").pop().toLowerCase();
-      if (fileExtension === "pdf") {
-        invoiceFile.html(
-          '<embed src="' +
-            fileUrl +
-            '" type="application/pdf" height="800px" width="800px" />'
-        );
-      } else {
-        invoiceFile.html(
-          '<img src="' +
-            fileUrl +
-            '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
-        );
-      }
-      previewInvoice.fadeToggle();
-      $("#viewOverlay").addClass("blur");
-    }
-  
-    // Cerrar el modal cuando se hace clic en el fondo
+
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
