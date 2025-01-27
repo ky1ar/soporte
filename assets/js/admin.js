@@ -1109,11 +1109,17 @@ $(document).ready(function () {
             const date = new Date(data.date);
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
-              day: "numeric",
+              day: "numeric", 
               month: "long",
             }).format(date);
+            const capitalizeFirstLetter = (str) =>
+              str.charAt(0).toUpperCase() + str.slice(1);
+            const capitalizedDate = formattedDate
+              .split(" ")
+              .map(capitalizeFirstLetter)
+              .join(" ");
             console.log(data);
-            $("#modalViewCap .viewCap .dates .fecha").text(formattedDate); 
+            $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
