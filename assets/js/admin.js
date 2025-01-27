@@ -1103,26 +1103,32 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (response) {
-          // Imprime toda la respuesta para revisarla
-          console.log("Respuesta completa: ", response);
-
-          // Verifica que 'response.success' exista y tenga datos
-          if (response.success && response.success.name) {
+          // Imprime toda la respuesta para revisarla en la consola
+          console.log("Respuesta completa:", response);
+      
+          // Verificamos que 'response' y 'response.success' estén presentes y contengan datos
+          if (response && response.success) {
             const data = response.success;
-
-            // Llenamos los campos con los datos correspondientes
-            $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
-            $("#modalViewCap .viewCap .inf .email").text(data.email);
-            $("#modalViewCap .viewCap .inf .name").text(data.name);
-            $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
-            $("#modalViewCap .viewCap .inf a")
-              .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
-              .text(data.phone); // Enlace WhatsApp
-
-            // Mostramos el modal
-            $("#modalViewCap").fadeIn();
+      
+            // Verifica si 'name' está en los datos para asegurarte de que tiene el valor esperado
+            if (data.name) {
+              // Llenamos los campos con los datos correspondientes
+              $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
+              $("#modalViewCap .viewCap .inf .email").text(data.email);
+              $("#modalViewCap .viewCap .inf .name").text(data.name);
+              $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
+              $("#modalViewCap .viewCap .inf a")
+                .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
+                .text(data.phone); // Enlace WhatsApp
+      
+              // Mostramos el modal
+              $("#modalViewCap").fadeIn();
+            } else {
+              // Si 'name' no está en los datos, muestra el mensaje de error
+              alert("Error: No se encontraron datos en la respuesta.");
+            }
           } else {
-            // Si 'success' o 'name' no existe, muestra el error
+            // Si no existe 'response' o 'response.success', muestra el mensaje de error
             alert("Error: No se encontraron datos en la respuesta.");
           }
         },
@@ -1131,6 +1137,7 @@ $(document).ready(function () {
           alert("Error al obtener la información.");
         },
       });
+      
     });
 
     // Cerrar modal al hacer clic en el fondo
