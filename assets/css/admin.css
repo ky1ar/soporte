@@ -3995,6 +3995,7 @@ footer .ftr-cpy {
 #modalViewCap .viewCap .inf > div a {
   color: var(--black);
   text-decoration: none;
+  font-weight: bold;
 }
 #modalViewCap .viewCap .inf div div {
   flex-direction: row;
