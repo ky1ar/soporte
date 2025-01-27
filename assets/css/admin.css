@@ -3954,6 +3954,9 @@ footer .ftr-cpy {
   width: 40rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  resize: vertical;
+  outline: none;
+  border: 0.1rem solid var(--gray);
 }
 #modalViewCap .viewCap .comm div {
   display: flex;
