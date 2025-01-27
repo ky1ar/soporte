@@ -1104,7 +1104,7 @@ $(document).ready(function () {
         data: { trainingId: trainingId },
         dataType: "json",
         success: function (response) {
-          if (response?.success?.name) {
+          if (response.success) {
             const data = response.success;
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
