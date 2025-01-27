@@ -1102,33 +1102,34 @@ $(document).ready(function () {
         type: "POST",
         url: "routes/getTraining",
         data: { trainingId: trainingId },
-        dataType: "json", // Asegúrate de especificar que esperamos JSON
+        dataType: "json", // Aseguramos que esperamos JSON
         success: function (response) {
-          // Imprime la respuesta completa para inspeccionarla
+          // Imprimimos la respuesta completa para inspeccionar los datos
           console.log("Respuesta completa:", response);
       
-          // Verificamos que 'response' y 'response.success' estén definidos
+          // Comprobamos que response.success esté disponible
           if (response && response.success) {
             const data = response.success;
       
-            // Verificamos que 'data.name' exista y luego completamos los campos
+            // Verificamos que el dato 'name' esté disponible antes de continuar
             if (data.name) {
+              // Llenamos los campos con los datos recibidos
               $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
               $("#modalViewCap .viewCap .inf .email").text(data.email);
               $("#modalViewCap .viewCap .inf .name").text(data.name);
               $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
               $("#modalViewCap .viewCap .inf a")
                 .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
-                .text(data.phone); // Enlace WhatsApp
+                .text(data.phone); // Enlace de WhatsApp
       
               // Mostrar el modal
               $("#modalViewCap").fadeIn();
             } else {
-              // Si no se encuentra 'name', mostramos el error
+              // Si no se encuentra 'name', mostramos un mensaje de error
               alert("Error: No se encontraron datos en la respuesta.");
             }
           } else {
-            // Si 'response.success' no está presente
+            // Si no se encuentra 'success' en la respuesta
             alert("Error: No se encontraron datos en la respuesta.");
           }
         },
@@ -1137,6 +1138,7 @@ $(document).ready(function () {
           alert("Error al obtener la información.");
         },
       });
+      
       
     });
 
