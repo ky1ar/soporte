@@ -3975,7 +3975,11 @@ footer .ftr-cpy {
   border: 0.1rem solid var(--gray);
   padding: 1rem;
 }
-#modalViewCap .viewCap .inf p{
+#modalViewCap .viewCap .inf div{
+  display: flex;
+  gap: 1rem;
+}
+#modalViewCap .viewCap .inf div p{
   margin: 0;
 }
 #modalViewCap .viewCap .inf > img {
