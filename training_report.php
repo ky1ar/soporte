@@ -181,16 +181,16 @@ if (isset($_SESSION['user_id'])) {
     <div id="modalViewCap">
         <div class="fondo"></div>
         <div id="viewCap" class="viewCap">
-            <div>
+            <div class="dates">
                 <p class="fecha">Jueves 23 de Enero</p>
                 <p class="hora">09:30</p>
             </div>
-            <div>
+            <div class="comm">
                 <p>Comentarios:</p>
                 <textarea name="" id="">asdasdsa</textarea>
                 <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
             </div>
-            <div>
+            <div class="inf">
                 <div>
                     <p>A1 Combo</p>
                     <p>Alex</p>

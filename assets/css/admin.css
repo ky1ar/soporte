@@ -3934,21 +3934,21 @@ footer .ftr-cpy {
   border-radius: 0.5rem;
   z-index: 2;
 }
-#modalViewCap .viewCap div:first-child {
+#modalViewCap .viewCap .dates{
   display: flex;
 }
-#modalViewCap .viewCap div:first-child .hora {
+#modalViewCap .viewCap .dates .hora {
   margin-left: auto;
   background-color: var(--secondary);
   color: var(--white);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
 }
-#modalViewCap .viewCap div:nth-of-type(2) textarea {
+#modalViewCap .viewCap .comm textarea {
   width: 40rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
-#modalViewCap .viewCap div:nth-of-type(3) > img {
+#modalViewCap .viewCap .inf > img {
   width: 10rem;
 }
