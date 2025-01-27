@@ -3964,6 +3964,7 @@ footer .ftr-cpy {
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  background-color: var(--gray);
   margin: 0.5rem 0 1rem auto;
   padding: 0.5rem 1rem;
   width: fit-content;
