@@ -1106,20 +1106,23 @@ $(document).ready(function () {
         success: function (response) {
           if (response.success) {
             const data = response.success;
-            const date = new Date(data.date + "T00:00:00"); // Añadir 'T00:00:00' para tratarla como una fecha sin hora específica
+            const date = new Date(data.date + "T00:00:00");
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
-              weekday: "long", // Día de la semana
-              day: "numeric", // Día numérico
-              month: "long", // Mes completo
+              weekday: "long",
+              day: "numeric",
+              month: "long",
             }).format(date);
-            const capitalizeFirstLetter = (str) =>
-              str.charAt(0).toUpperCase() + str.slice(1);
+            const capitalizeFirstLetter = (str) => {
+              return str.toLowerCase() === "de"
+                ? str
+                : str.charAt(0).toUpperCase() + str.slice(1);
+            };
             const capitalizedDate = formattedDate
               .split(" ")
               .map(capitalizeFirstLetter)
               .join(" ");
             console.log(data);
-            
+
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
