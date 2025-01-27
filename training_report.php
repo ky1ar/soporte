@@ -192,7 +192,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="inf">
                 <div>
-                    <p>A1 Combo</p>
+                    <p class="modelo"></p>
                     <p class="name"></p>
                     <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante</div>
                     <p class="email"></p>
