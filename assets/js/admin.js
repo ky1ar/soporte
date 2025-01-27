@@ -1107,7 +1107,7 @@ $(document).ready(function () {
           if (response.success) {
             const data = response.success;
             const date = new Date(data.date + "T00:00:00");
-  
+
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
@@ -1125,57 +1125,26 @@ $(document).ready(function () {
               })
               .join(" ");
             const slug = data.slug;
+            // const imageUrl = `/assets/mac/${slug}.webp`;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
-  
-            // Mostrar información en el modal
+            console.log(data);
+
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
-            
-            const icon = '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
+            const icon =
+              '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
             $("#modalViewCap .viewCap .comm .pruebas").html(
               data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
             );
-  
+
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
             $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
-  
-            // Manejo de clics en pruebas o comprobante
-            $(".viewCap .comm .pruebas, .viewCap .inf .comprobante").click(function () {
-              // Obtener la URL del archivo desde los datos
-              var fileUrl = $(this).data("file");  // Se asume que el archivo tiene la URL
-  
-              if (fileUrl) {
-                // Asegurar que el archivo tiene la base correcta
-                fileUrl = "https://soporte.krear3d.com/" + fileUrl.replace(/^(\.\.\/)/, '');
-  
-                // Obtener la extensión del archivo
-                var fileExtension = fileUrl.split(".").pop().toLowerCase();
-  
-                // Limpiar el div #mostradorInfoT
-                $("#mostradorInfoT").empty();
-  
-                // Mostrar el archivo dependiendo de la extensión
-                if (fileExtension === "pdf") {
-                  $("#mostradorInfoT").html('<embed src="' + fileUrl + '" type="application/pdf" height="800px" width="100%" />');
-                } else if (["jpg", "jpeg", "png", "gif"].includes(fileExtension)) {
-                  $("#mostradorInfoT").html('<img src="' + fileUrl + '" alt="Vista previa de la imagen" style="width: 100%; height: auto;">');
-                } else {
-                  $("#mostradorInfoT").html('<p>Formato no soportado</p>');
-                }
-              } else {
-                $("#mostradorInfoT").html('<p>No se encontró el archivo.</p>');
-              }
-  
-              // Mostrar el modal con el visualizador de archivo
-              $("#modalViewCap").fadeIn();
-            });
-  
             $("#modalViewCap").fadeIn();
           } else {
             alert("Error: No se encontraron datos en la respuesta.");
@@ -1186,13 +1155,11 @@ $(document).ready(function () {
         },
       });
     });
-  
-    // Cerrar el modal cuando se haga clic en el fondo
+
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
   });
-  
 
   scheduleSubmit.submit(function (event) {
     console.log("paso 0");
