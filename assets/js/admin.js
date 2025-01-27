@@ -1102,30 +1102,20 @@ $(document).ready(function () {
         type: "POST",
         url: "routes/getTraining",
         data: { trainingId: trainingId },
-        success: function (data) {
-          // Asegúrate de que data.success exista antes de acceder a sus propiedades
-          if (data.success) {
-            const successData = data.success;
-
-            console.log("total: ", successData);
-            console.log("nombre: ", successData.name);
-            console.log("hora: ", successData.schedule);
-
-            $("#modalViewCap .viewCap .comm textarea").val(
-              successData.comentarios
-            );
-            $("#modalViewCap .viewCap .inf .email").text(successData.email);
-            $("#modalViewCap .viewCap .inf .name").text(successData.name);
-            $("#modalViewCap .viewCap .dates .hora").text(successData.schedule);
+        success: function (response) {
+          if (response.success) {
+            const userData = response.success;
+            console.log("total: " + userData);
+            console.log("nombre: " + userData.name);
+            console.log("hora: " + userData.schedule);
+            $("#modalViewCap .viewCap .comm textarea").val(userData.comentarios);
+            $("#modalViewCap .viewCap .inf .email").text(userData.email);
+            $("#modalViewCap .viewCap .inf .name").text(userData.name);
+            $("#modalViewCap .viewCap .dates .hora").text(userData.schedule);
             $("#modalViewCap .viewCap .inf a")
-              .attr(
-                "href",
-                `https://api.whatsapp.com/send?phone=${successData.phone}`
-              )
-              .text(successData.phone); // Enlace WhatsApp
+              .attr("href", `https://api.whatsapp.com/send?phone=${userData.phone}`)
+              .text(userData.phone); // Enlace WhatsApp
             $("#modalViewCap").fadeIn();
-          } else {
-            alert("Error: La respuesta no contiene datos.");
           }
         },
         error: function () {
