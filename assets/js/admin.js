@@ -1136,11 +1136,11 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .comm .pruebas").attr(
-              "data-idf",
+              "data-src",
               trainingId
             );
             $("#modalViewCap .viewCap .inf .comprobante").attr(
-              "data-idf",
+              "data-src",
               trainingId
             );
 
