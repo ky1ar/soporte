@@ -1104,7 +1104,8 @@ $(document).ready(function () {
         data: { trainingId: trainingId },
         success: function (data) {
           console.log(data);
-          $("#modalViewCap .viewCap .comm textarea").val(data.comments);
+          $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
+          $("#modalViewCap .viewCap .inf .email").val(data.email);
           $("#modalViewCap").fadeIn();
         },
         error: function () {
