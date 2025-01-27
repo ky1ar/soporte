@@ -1157,7 +1157,7 @@ $(document).ready(function () {
     });
   
     // Cuando se hace clic en "Comprobante" (ver el comprobante)
-    $("#modalViewCap .viewCap .comm .comprobante").click(function () {
+    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
       if (responseData && responseData.invoice) { // Verificamos que responseData esté disponible
         let fileUrl = responseData.invoice; // Suponiendo que `invoice` es la URL del comprobante
         if (fileUrl) {
@@ -1169,7 +1169,7 @@ $(document).ready(function () {
     });
   
     // Cuando se hace clic en "Sin Archivos" (ver el archivo de pruebas)
-    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
+    $("#modalViewCap .viewCap .inf .comprobante").click(function () {
       if (responseData && responseData.pruebas) { // Verificamos que responseData esté disponible
         let fileUrl = responseData.pruebas; // Suponiendo que `pruebas` es la URL del archivo de pruebas
         if (fileUrl) {
