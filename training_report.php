@@ -202,6 +202,9 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
+    <div id="mostradorInfoT">
+                        
+    </div>
     <script type="text/javascript" src="assets/js/test.js?v=<?php echo $GLOBALS['ver']; ?>"></script>
 </body>
 
