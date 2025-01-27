@@ -146,7 +146,7 @@ if (isset($_SESSION['user_id'])) {
                                 $date = strtotime($row['training_date']);
                                 $date = strftime("%e de %B de %Y", $date);
                         ?>
-                                <tr>
+                                <tr data-id="<?php echo $row['training_id']; ?>">
                                     <td><?php echo $row['training_id'] ?></td>
                                     <td class="row-odr">
                                         <img width="48" class="tbl-img" src="assets/mac/<?php echo $row['machine_slug'] ?>.webp" alt="">

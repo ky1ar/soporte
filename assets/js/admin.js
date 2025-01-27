@@ -1095,6 +1095,28 @@ $(document).ready(function () {
     }
   });
 
+  $(document).ready(function () {
+    $(".row-act").click(function () {
+      var trainingId = $(this).closest("tr").data("id");
+      $.ajax({
+        type: "POST",
+        url: "routes/getTraining",
+        data: { training_id: trainingId },
+        success: function (data) {
+          $("#modalViewCap .viewCap .comm textarea").val(data.comments);
+          $("#modalViewCap").fadeIn();
+        },
+        error: function () {
+          alert("Error al obtener la información.");
+        },
+      });
+    });
+
+    $("#modalViewCap .fondo").click(function () {
+      $("#modalViewCap").fadeOut();
+    });
+  });
+
   scheduleSubmit.submit(function (event) {
     console.log("paso 0");
 
