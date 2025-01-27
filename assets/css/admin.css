@@ -3958,7 +3958,7 @@ footer .ftr-cpy {
   resize: vertical;
   outline: none;
   border: 0.1rem solid var(--graydarkest);
-  height: 5rem;
+  min-height: 5rem;
   font-family: "DM Sans", sans-serif;
 }
 #modalViewCap .viewCap .comm div {
