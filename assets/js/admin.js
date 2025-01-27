@@ -1102,17 +1102,17 @@ $(document).ready(function () {
         type: "POST",
         url: "routes/getTraining",
         data: { trainingId: trainingId },
+        dataType: "json", // Asegúrate de especificar que esperamos JSON
         success: function (response) {
-          // Imprime toda la respuesta para revisarla en la consola
+          // Imprime la respuesta completa para inspeccionarla
           console.log("Respuesta completa:", response);
       
-          // Verificamos que 'response' y 'response.success' estén presentes y contengan datos
+          // Verificamos que 'response' y 'response.success' estén definidos
           if (response && response.success) {
             const data = response.success;
       
-            // Verifica si 'name' está en los datos para asegurarte de que tiene el valor esperado
+            // Verificamos que 'data.name' exista y luego completamos los campos
             if (data.name) {
-              // Llenamos los campos con los datos correspondientes
               $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
               $("#modalViewCap .viewCap .inf .email").text(data.email);
               $("#modalViewCap .viewCap .inf .name").text(data.name);
@@ -1121,14 +1121,14 @@ $(document).ready(function () {
                 .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
                 .text(data.phone); // Enlace WhatsApp
       
-              // Mostramos el modal
+              // Mostrar el modal
               $("#modalViewCap").fadeIn();
             } else {
-              // Si 'name' no está en los datos, muestra el mensaje de error
+              // Si no se encuentra 'name', mostramos el error
               alert("Error: No se encontraron datos en la respuesta.");
             }
           } else {
-            // Si no existe 'response' o 'response.success', muestra el mensaje de error
+            // Si 'response.success' no está presente
             alert("Error: No se encontraron datos en la respuesta.");
           }
         },
