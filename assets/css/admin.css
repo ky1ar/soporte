@@ -3924,6 +3924,7 @@ footer .ftr-cpy {
 }
 #modalViewCap .viewCap {
   display: flex;
+  flex-direction: column;
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -3932,4 +3933,7 @@ footer .ftr-cpy {
   padding: 2rem;
   border-radius: 0.5rem;
   z-index: 2;
+}
+#modalViewCap .viewCap  div:nth-of-type(3) > img{
+  width: 10rem;
 }
