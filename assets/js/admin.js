@@ -1190,11 +1190,15 @@ $(document).ready(function () {
       }
   
       // Mostrar el visualizador
-      $('#mostradorInfoT').fadeIn();
+      $('#mostradorInfoT').addClass('show');
     }
   
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
+    });
+
+    $("#mostradorInfoT .close-btn").click(function () {
+      $('#mostradorInfoT').removeClass('show'); // Ocultar el visualizador
     });
   });
   
