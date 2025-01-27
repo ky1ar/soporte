@@ -1107,16 +1107,26 @@ $(document).ready(function () {
           if (response.success) {
             const data = response.success;
             const date = new Date(data.date + "T00:00:00");
+
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
               month: "long",
             })
               .format(date)
-              .replace(/\bde\b/g, "de");
+              .replace(/\bde\b/g, "de"); // Mantener "de" en minúsculas
+            const capitalizedDate = formattedDate
+              .split(" ")
+              .map((word, index) => {
+                if (word.toLowerCase() === "de") {
+                  return word; // No capitalizar "de"
+                }
+                return word.charAt(0).toUpperCase() + word.slice(1);
+              })
+              .join(" ");
             console.log(data);
 
-            $("#modalViewCap .viewCap .dates .fecha").text(formattedDate);
+            $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
