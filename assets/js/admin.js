@@ -1135,7 +1135,7 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
-            $(".viewCap .comm .pruebas").attr("data-idf", trainingId);
+            $("#modalViewCap .viewCap .comm .pruebas").attr("data-idf", trainingId);
 
             const icon =
               '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
