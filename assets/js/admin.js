@@ -1103,14 +1103,12 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (response) {
+          // Imprime toda la respuesta para revisarla
+          console.log("Respuesta completa: ", response);
+
           // Verificamos si la respuesta contiene 'success' y que no esté vacía
           if (response && response.success) {
             const data = response.success;
-
-            // Mostramos en consola los datos que llegan
-            console.log("total: ", data);
-            console.log("nombre: ", data.name);
-            console.log("hora: ", data.schedule);
 
             // Llenamos los campos con los datos correspondientes
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
