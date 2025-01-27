@@ -1103,8 +1103,8 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (response) {
-          // Verificamos si la respuesta contiene éxito
-          if (response.success) {
+          // Verificamos si la respuesta contiene 'success' y que no esté vacía
+          if (response && response.success) {
             const data = response.success;
 
             // Mostramos en consola los datos que llegan
@@ -1124,10 +1124,11 @@ $(document).ready(function () {
             // Mostramos el modal
             $("#modalViewCap").fadeIn();
           } else {
-            alert("Error: No se encontraron datos.");
+            alert("Error: No se encontraron datos en la respuesta.");
           }
         },
-        error: function () {
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.error("Error en la petición AJAX:", textStatus, errorThrown);
           alert("Error al obtener la información.");
         },
       });
