@@ -196,7 +196,7 @@ if (isset($_SESSION['user_id'])) {
                     <p class="name"></p>
                     <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante</div>
                     <p class="email"></p>
-                    <a href="https://api.whatsapp.com/send?phone="></a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone="></a>
                 </div>
                 <img src="https://asoporte.krear3d.com/assets/mac/a1-combo.webp" alt="">
             </div>
