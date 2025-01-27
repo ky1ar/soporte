@@ -1097,104 +1097,72 @@ $(document).ready(function () {
 
   $(document).ready(function () {
     $(".row-act").click(function () {
-        var trainingId = $(this).closest("tr").data("id");
-        $.ajax({
-            type: "POST",
-            url: "routes/getTraining",
-            data: { trainingId: trainingId },
-            dataType: "json",
-            success: function (response) {
-                if (response.success) {
-                    const data = response.success;
-                    const date = new Date(data.date + "T00:00:00");
+      var trainingId = $(this).closest("tr").data("id");
+      $.ajax({
+        type: "POST",
+        url: "routes/getTraining",
+        data: { trainingId: trainingId },
+        dataType: "json",
+        success: function (response) {
+          if (response.success) {
+            const data = response.success;
+            const date = new Date(data.date + "T00:00:00");
 
-                    const formattedDate = new Intl.DateTimeFormat("es-ES", {
-                        weekday: "long",
-                        day: "numeric",
-                        month: "long",
-                    })
-                        .format(date)
-                        .replace(/\bde\b/g, "de");
-                    const capitalizedDate = formattedDate
-                        .split(" ")
-                        .map((word, index) => {
-                            if (word.toLowerCase() === "de") {
-                                return word;
-                            }
-                            return word.charAt(0).toUpperCase() + word.slice(1);
-                        })
-                        .join(" ");
-                    const slug = data.slug;
-                    const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
-
-                    $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
-                    $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
-                    $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
-                    $("#modalViewCap .viewCap .inf .modelo").text(data.model);
-                    $("#modalViewCap .viewCap .inf .name").text(data.name);
-                    $("#modalViewCap .viewCap .inf .email").text(data.email);
-                    $("#modalViewCap .viewCap .comm .pruebas").attr("data-idf", trainingId);
-                    $("#modalViewCap .viewCap .inf .comprobante").attr("data-idf", trainingId);
-
-                    const icon =
-                        '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
-                    $("#modalViewCap .viewCap .comm .pruebas").html(
-                        data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
-                    );
-
-                    $("#modalViewCap .viewCap .inf a")
-                        .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
-                        .text("+" + data.phone);
-                    $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
-                    $("#modalViewCap").fadeIn();
-                } else {
-                    alert("Error: No se encontraron datos en la respuesta.");
+            const formattedDate = new Intl.DateTimeFormat("es-ES", {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+            })
+              .format(date)
+              .replace(/\bde\b/g, "de"); // Mantener "de" en minúsculas
+            const capitalizedDate = formattedDate
+              .split(" ")
+              .map((word, index) => {
+                if (word.toLowerCase() === "de") {
+                  return word; // No capitalizar "de"
                 }
-            },
-            error: function () {
-                alert("Error al obtener la información.");
-            },
-        });
+                return word.charAt(0).toUpperCase() + word.slice(1);
+              })
+              .join(" ");
+            const slug = data.slug;
+            // const imageUrl = `/assets/mac/${slug}.webp`;
+            const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
+            console.log(data);
+
+            $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
+            $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
+            $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
+            $("#modalViewCap .viewCap .inf .modelo").text(data.model);
+            $("#modalViewCap .viewCap .inf .name").text(data.name);
+            $("#modalViewCap .viewCap .inf .email").text(data.email);
+            $("#modalViewCap .viewCap .comm .pruebas").attr("data-idf", trainingId);
+            $("#modalViewCap .viewCap .inf .comprobante").attr("data-idf", trainingId);
+
+            const icon =
+              '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
+            $("#modalViewCap .viewCap .comm .pruebas").html(
+              data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
+            );
+
+            $("#modalViewCap .viewCap .inf a")
+              .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
+              .text("+" + data.phone);
+            $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
+            $("#modalViewCap").fadeIn();
+          } else {
+            alert("Error: No se encontraron datos en la respuesta.");
+          }
+        },
+        error: function () {
+          alert("Error al obtener la información.");
+        },
+      });
     });
 
     $("#modalViewCap .fondo").click(function () {
-        $("#modalViewCap").fadeOut();
+      $("#modalViewCap").fadeOut();
     });
-
-    // Función para cargar el archivo (PDF o imagen)
-    function loadFile(fileUrl) {
-        let fileExtension = fileUrl.split(".").pop().toLowerCase();
-        let contentHtml = "";
-
-        if (fileExtension === "pdf") {
-            contentHtml = '<embed src="' + fileUrl + '" type="application/pdf" width="100%" height="800px" />';
-        } else if (fileExtension === "jpg" || fileExtension === "jpeg" || fileExtension === "png" || fileExtension === "gif") {
-            contentHtml = '<img src="' + fileUrl + '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">';
-        } else {
-            contentHtml = "<p>Archivo no soportado</p>";
-        }
-
-        // Mostrar el archivo en el contenedor
-        $("#mostradorInfoT").html(contentHtml).fadeIn();
-    }
-
-    // Manejar clic en pruebas
-    $(".pruebas").click(function () {
-        const pruebasUrl = $(this).attr("data-idf"); // Asegúrate de que esta URL esté correctamente configurada
-        if (pruebasUrl) {
-            loadFile(pruebasUrl); // Cargar el archivo de pruebas
-        }
-    });
-
-    // Manejar clic en comprobante
-    $(".comprobante").click(function () {
-        const comprobanteUrl = $(this).attr("data-idf"); // Asegúrate de que esta URL esté correctamente configurada
-        if (comprobanteUrl) {
-            loadFile(comprobanteUrl); // Cargar el archivo de comprobante
-        }
-    });
-});
-
+  });
 
   scheduleSubmit.submit(function (event) {
     console.log("paso 0");
