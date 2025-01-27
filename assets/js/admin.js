@@ -1096,6 +1096,8 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
+    var responseData = null; // Variable para almacenar la respuesta
+  
     $(".row-act").click(function () {
       var trainingId = $(this).closest("tr").data("id");
       $.ajax({
@@ -1105,9 +1107,10 @@ $(document).ready(function () {
         dataType: "json",
         success: function (response) {
           if (response.success) {
-            const data = response.success;
+            responseData = response.success; // Guardamos la respuesta en la variable
+            const data = responseData;
             const date = new Date(data.date + "T00:00:00");
-
+  
             const formattedDate = new Intl.DateTimeFormat("es-ES", {
               weekday: "long",
               day: "numeric",
@@ -1124,11 +1127,11 @@ $(document).ready(function () {
                 return word.charAt(0).toUpperCase() + word.slice(1);
               })
               .join(" ");
-
+  
             const slug = data.slug;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
             console.log(data);
-
+  
             // Mostrar información en el modal
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
@@ -1140,7 +1143,7 @@ $(document).ready(function () {
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
             $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
-
+  
             // Mostrar el modal
             $("#modalViewCap").fadeIn();
           } else {
@@ -1152,30 +1155,31 @@ $(document).ready(function () {
         },
       });
     });
-
+  
     // Cuando se hace clic en "Comprobante" (ver el comprobante)
     $("#modalViewCap .viewCap .comm .comprobante").click(function () {
-      const fileUrl = response.success.invoice; // Suponiendo que `invoice` es la URL del comprobante
-      if (fileUrl) {
-        // Modificar la ruta de las pruebas
-        fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
-        showFile(fileUrl);
+      if (responseData && responseData.invoice) { // Verificamos que responseData esté disponible
+        let fileUrl = responseData.invoice; // Suponiendo que `invoice` es la URL del comprobante
+        if (fileUrl) {
+          // Modificar la ruta de las pruebas
+          fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
+          showFile(fileUrl);
+        }
       }
     });
-
+  
     // Cuando se hace clic en "Sin Archivos" (ver el archivo de pruebas)
     $("#modalViewCap .viewCap .comm .pruebas").click(function () {
-      const fileUrl = response.success.pruebas; // Suponiendo que `pruebas` es la URL del archivo de pruebas
-      if (fileUrl) {
-        // Modificar la ruta de las pruebas
-        fileUrl = `https://soporte.krear3d.com${fileUrl.replace(
-          /^(\.\.\/)/,
-          ""
-        )}`;
-        showFile(fileUrl);
+      if (responseData && responseData.pruebas) { // Verificamos que responseData esté disponible
+        let fileUrl = responseData.pruebas; // Suponiendo que `pruebas` es la URL del archivo de pruebas
+        if (fileUrl) {
+          // Modificar la ruta de las pruebas
+          fileUrl = `https://soporte.krear3d.com${fileUrl.replace(/^(\.\.\/)/, "")}`;
+          showFile(fileUrl);
+        }
       }
     });
-
+  
     // Función para mostrar el archivo
     function showFile(fileUrl) {
       const fileExtension = fileUrl.split(".").pop().toLowerCase();
@@ -1195,7 +1199,7 @@ $(document).ready(function () {
       previewInvoice.fadeToggle();
       $("#viewOverlay").addClass("blur");
     }
-
+  
     // Cerrar el modal cuando se hace clic en el fondo
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
