@@ -187,7 +187,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="comm">
                 <p>Comentarios:</p>
-                <textarea name="" id="">asdasdsa</textarea>
+                <textarea name="" id=""></textarea>
                 <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
             </div>
             <div class="inf">
