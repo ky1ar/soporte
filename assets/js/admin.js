@@ -1103,8 +1103,9 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (data) {
-          console.log(data);
-          // Actualizar los elementos con los datos recibidos
+          console.log("total: " + data);
+          console.log("nombre: " + data.name);
+          console.log("hora: " + data.schedule);
           $("#modalViewCap .viewCap .comm textarea").val(data.comentarios); 
           $("#modalViewCap .viewCap .inf .email").text(data.email); 
           $("#modalViewCap .viewCap .inf .name").text(data.name); 
