@@ -3989,7 +3989,7 @@ footer .ftr-cpy {
   color: var(--primary);
 }
 #modalViewCap .viewCap .inf > div p:nth-of-type(2),
-#modalViewCap .viewCap .inf > div p:nth-of-type(4){
+#modalViewCap .viewCap .inf > div a{
   font-size: 1.2rem;
   font-weight: bold;
 }
