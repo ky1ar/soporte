@@ -1135,10 +1135,10 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
+            const icon =
+              '<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ';
             $("#modalViewCap .viewCap .comm .pruebas").html(
-              data.pruebas
-                ? `<img width="12" height="12" src="assets/img/invoice.svg" alt=""> ${data.pruebas}`
-                : `<img width="12" height="12" src="assets/img/invoice.svg" alt=""> Sin Archivos`
+              data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
             );
 
             $("#modalViewCap .viewCap .inf a")
