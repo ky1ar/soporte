@@ -3975,16 +3975,25 @@ footer .ftr-cpy {
   border: 0.1rem solid var(--gray);
   padding: 1rem;
 }
-#modalViewCap .viewCap .inf div{
+#modalViewCap .viewCap .inf div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-#modalViewCap .viewCap .inf div p{
+#modalViewCap .viewCap .inf div p {
   margin: 0;
 }
-#modalViewCap .viewCap .inf div div{
+#modalViewCap .viewCap .inf div div {
+  flex-direction: row;
+  cursor: pointer;
   display: flex;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  color: var(--primary);
+  background-color: #fffdf5;
+  border: 1px solid var(--primary);
+  gap: 0.5rem;
+  font-weight: 600;
 }
 #modalViewCap .viewCap .inf > img {
   width: 10rem;
