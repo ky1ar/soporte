@@ -1106,8 +1106,8 @@ $(document).ready(function () {
           // Imprime toda la respuesta para revisarla
           console.log("Respuesta completa: ", response);
 
-          // Verificamos si la respuesta contiene 'success' y que no esté vacía
-          if (response && response.success) {
+          // Verifica que 'response.success' exista y tenga datos
+          if (response.success && response.success.name) {
             const data = response.success;
 
             // Llenamos los campos con los datos correspondientes
@@ -1122,6 +1122,7 @@ $(document).ready(function () {
             // Mostramos el modal
             $("#modalViewCap").fadeIn();
           } else {
+            // Si 'success' o 'name' no existe, muestra el error
             alert("Error: No se encontraron datos en la respuesta.");
           }
         },
