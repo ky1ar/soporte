@@ -3977,6 +3977,7 @@ footer .ftr-cpy {
 }
 #modalViewCap .viewCap .inf div{
   display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 #modalViewCap .viewCap .inf div p{
