@@ -1103,6 +1103,7 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (data) {
+          console.log(data);
           $("#modalViewCap .viewCap .comm textarea").val(data.comments);
           $("#modalViewCap").fadeIn();
         },
