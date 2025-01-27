@@ -3936,6 +3936,7 @@ footer .ftr-cpy {
 }
 #modalViewCap .viewCap .dates{
   display: flex;
+  align-items: center;
 }
 #modalViewCap .viewCap .dates .hora {
   margin-left: auto;
