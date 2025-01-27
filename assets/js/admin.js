@@ -1164,7 +1164,7 @@ $(document).ready(function () {
         },
       });
     });
-    function showFile(fileType) {
+    function showFileT(fileType) {
       let fileUrl = $("#" + fileType).attr("data-src"); // Obtiene la URL del archivo desde el atributo data-src
       if (fileUrl) {
         let fileExtension = fileUrl.split(".").pop().toLowerCase(); // Obtiene la extensión del archivo
@@ -1201,7 +1201,7 @@ $(document).ready(function () {
           if (response.success) {
             const fileUrl = response.success.pruebas; // Obtener URL de las pruebas
             $("#" + "pruebas").attr("data-src", fileUrl); // Establecer data-src para pruebas
-            showFile("pruebas"); // Llamar a la función para mostrar el archivo
+            showFileT("pruebas"); // Llamar a la función para mostrar el archivo
           } else {
             alert("No se encontraron archivos para las pruebas.");
           }
@@ -1216,77 +1216,7 @@ $(document).ready(function () {
     $(".viewCap .inf .comprobante").click(function () {
       var trainingId = $(this).attr("data-idf");
       $.ajax({
-        type: "POST",
-        url: "routes/getDocsTraining", // Ruta del backend
-        data: { trainingId: trainingId },
-        dataType: "json",
-        success: function (response) {
-          if (response.success) {
-            const fileUrl = response.success.comprobante; // Obtener URL del comprobante
-            $("#" + "comprobante").attr("data-src", fileUrl); // Establecer data-src para comprobante
-            showFile("comprobante"); // Llamar a la función para mostrar el archivo
-          } else {
-            alert("No se encontraron archivos para el comprobante.");
-          }
-        },
-        error: function () {
-          alert("Error al obtener el comprobante.");
-        },
-      });
-    });
-    function showFileT(fileType) {
-      let fileUrl = $("#" + fileType).attr("data-src"); // Obtiene la URL del archivo desde el atributo data-src
-      if (fileUrl) {
-        let fileExtension = fileUrl.split(".").pop().toLowerCase(); // Obtiene la extensión del archivo
-
-        // Si el archivo es PDF, lo cargamos en un embed
-        if (fileExtension === "pdf") {
-          $("#mostradorInfoT").html(
-            '<embed src="' +
-              fileUrl +
-              '" type="application/pdf" height="800px" width="100%" />'
-          );
-        } else {
-          // Si es una imagen, lo cargamos en un <img>
-          $("#mostradorInfoT").html(
-            '<img src="' +
-              fileUrl +
-              '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
-          );
-        }
-        $("#previewInvoice").fadeToggle(); // Muestra el modal
-        $("#viewOverlay").addClass("blur"); // Aplica el efecto blur
-      }
-    }
-
-    // Evento para cargar el archivo de pruebas
-    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
-      var trainingId = $(this).attr("data-idf");
-      $.ajax({
-        type: "POST",
-        url: "routes/getDocsTraining", // Ruta del backend
-        data: { trainingId: trainingId },
-        dataType: "json",
-        success: function (response) {
-          if (response.success) {
-            const fileUrl = response.success.pruebas; // Obtener URL de las pruebas
-            $("#" + "pruebas").attr("data-src", fileUrl); // Establecer data-src para pruebas
-            showFileT("pruebas"); // Llamar a la función para mostrar el archivo
-          } else {
-            alert("No se encontraron archivos para las pruebas.");
-          }
-        },
-        error: function () {
-          alert("Error al obtener las pruebas.");
-        },
-      });
-    });
-
-    // Evento para cargar el archivo de comprobante
-    $("#modalViewCap .viewCap .inf .comprobante").click(function () {
-      var trainingId = $(this).attr("data-idf");
-      $.ajax({
-        type: "POST",
+        type: "POST",Ñ
         url: "routes/getDocsTraining", // Ruta del backend
         data: { trainingId: trainingId },
         dataType: "json",
