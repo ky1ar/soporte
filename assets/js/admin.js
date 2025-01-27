@@ -1111,19 +1111,12 @@ $(document).ready(function () {
               weekday: "long",
               day: "numeric",
               month: "long",
-            }).format(date);
-            const capitalizeFirstLetter = (str) => {
-              return str.toLowerCase() === "de"
-                ? str
-                : str.charAt(0).toUpperCase() + str.slice(1);
-            };
-            const capitalizedDate = formattedDate
-              .split(" ")
-              .map(capitalizeFirstLetter)
-              .join(" ");
+            })
+              .format(date)
+              .replace(/\bde\b/g, "de");
             console.log(data);
 
-            $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
+            $("#modalViewCap .viewCap .dates .fecha").text(formattedDate);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
