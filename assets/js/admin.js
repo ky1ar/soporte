@@ -1169,7 +1169,7 @@ $(document).ready(function () {
       $("#modalViewCap").fadeOut();
     });
   });
-  $(".viewCap .comm .pruebas").click(function () {
+  $("#modalViewCap .viewCap .comm .pruebas").click(function () {
     var trainingId = $(this).attr("data-idf");
     $.ajax({
       type: "POST",
@@ -1192,7 +1192,7 @@ $(document).ready(function () {
   });
 
   // Evento para cargar el archivo de comprobante
-  $(".viewCap .inf .comprobante").click(function () {
+  $("#modalViewCap .viewCap .inf .comprobante").click(function () {
     var trainingId = $(this).attr("data-idf");
     $.ajax({
       type: "POST",
