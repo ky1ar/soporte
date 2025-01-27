@@ -1103,27 +1103,29 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (data) {
-          console.log("total: ", data);
+          // Asegúrate de que data.success exista antes de acceder a sus propiedades
           if (data.success) {
-            console.log("nombre: ", data.success.name);
-            console.log("hora: ", data.success.schedule);
+            const successData = data.success;
+
+            console.log("total: ", successData);
+            console.log("nombre: ", successData.name);
+            console.log("hora: ", successData.schedule);
+
             $("#modalViewCap .viewCap .comm textarea").val(
-              data.success.comentarios
+              successData.comentarios
             );
-            $("#modalViewCap .viewCap .inf .email").text(data.success.email);
-            $("#modalViewCap .viewCap .inf .name").text(data.success.name);
-            $("#modalViewCap .viewCap .dates .hora").text(
-              data.success.schedule
-            );
+            $("#modalViewCap .viewCap .inf .email").text(successData.email);
+            $("#modalViewCap .viewCap .inf .name").text(successData.name);
+            $("#modalViewCap .viewCap .dates .hora").text(successData.schedule);
             $("#modalViewCap .viewCap .inf a")
               .attr(
                 "href",
-                `https://api.whatsapp.com/send?phone=${data.success.phone}`
+                `https://api.whatsapp.com/send?phone=${successData.phone}`
               )
-              .text(data.success.phone);
+              .text(successData.phone); // Enlace WhatsApp
             $("#modalViewCap").fadeIn();
           } else {
-            alert("Error: datos no disponibles.");
+            alert("Error: La respuesta no contiene datos.");
           }
         },
         error: function () {
