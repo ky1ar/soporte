@@ -1103,17 +1103,29 @@ $(document).ready(function () {
         url: "routes/getTraining",
         data: { trainingId: trainingId },
         success: function (response) {
-          console.log("total: " + response);
-          console.log("nombre: " + response.name);
-          console.log("hora: " + response.name);
-          $("#modalViewCap .viewCap .comm textarea").val(response.comentarios); 
-          $("#modalViewCap .viewCap .inf .email").text(response.email); 
-          $("#modalViewCap .viewCap .inf .name").text(response.name); 
-          $("#modalViewCap .viewCap .dates .hora").text(response.schedule);
-          $("#modalViewCap .viewCap .inf a")
-            .attr("href", `https://api.whatsapp.com/send?phone=${response.phone}`)
-            .text(response.phone); // Enlace WhatsApp
-          $("#modalViewCap").fadeIn();
+          // Verificamos si la respuesta contiene éxito
+          if (response.success) {
+            const data = response.success;
+
+            // Mostramos en consola los datos que llegan
+            console.log("total: ", data);
+            console.log("nombre: ", data.name);
+            console.log("hora: ", data.schedule);
+
+            // Llenamos los campos con los datos correspondientes
+            $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
+            $("#modalViewCap .viewCap .inf .email").text(data.email);
+            $("#modalViewCap .viewCap .inf .name").text(data.name);
+            $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
+            $("#modalViewCap .viewCap .inf a")
+              .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
+              .text(data.phone); // Enlace WhatsApp
+
+            // Mostramos el modal
+            $("#modalViewCap").fadeIn();
+          } else {
+            alert("Error: No se encontraron datos.");
+          }
         },
         error: function () {
           alert("Error al obtener la información.");
@@ -1121,6 +1133,7 @@ $(document).ready(function () {
       });
     });
 
+    // Cerrar modal al hacer clic en el fondo
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
