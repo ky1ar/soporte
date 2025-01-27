@@ -4039,4 +4039,6 @@ footer .ftr-cpy {
   background-color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
+  max-width: 50rem;
+  max-height: 50rem;
 }
