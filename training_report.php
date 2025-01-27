@@ -188,13 +188,13 @@ if (isset($_SESSION['user_id'])) {
             <div class="comm">
                 <p>Comentarios:</p>
                 <textarea name="" id=""></textarea>
-                <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
+                <div class="pruebas"><img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos</div>
             </div>
             <div class="inf">
                 <div>
                     <p class="modelo"></p>
                     <p class="name"></p>
-                    <div><img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante</div>
+                    <div class="comprobante"><img width="12" height="12" src="assets/img/invoice.svg" alt="">Comprobante</div>
                     <p class="email"></p>
                     <a target="_blank" href="https://api.whatsapp.com/send?phone="></a>
                 </div>

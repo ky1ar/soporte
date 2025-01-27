@@ -1124,11 +1124,12 @@ $(document).ready(function () {
                 return word.charAt(0).toUpperCase() + word.slice(1);
               })
               .join(" ");
+
             const slug = data.slug;
-            // const imageUrl = `/assets/mac/${slug}.webp`;
             const imageUrl = `https://soporte.krear3d.com/assets/mac/${slug}.webp`;
             console.log(data);
 
+            // Mostrar información en el modal
             $("#modalViewCap .viewCap .dates .fecha").text(capitalizedDate);
             $("#modalViewCap .viewCap .dates .hora").text(data.schedule);
             $("#modalViewCap .viewCap .comm textarea").val(data.comentarios);
@@ -1139,6 +1140,8 @@ $(document).ready(function () {
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
             $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
+
+            // Mostrar el modal
             $("#modalViewCap").fadeIn();
           } else {
             alert("Error: No se encontraron datos en la respuesta.");
@@ -1150,6 +1153,43 @@ $(document).ready(function () {
       });
     });
 
+    // Cuando se hace clic en "Comprobante" (ver el comprobante)
+    $("#modalViewCap .viewCap .comm .comprobante").click(function () {
+      const fileUrl = response.success.invoice; // Suponiendo que `invoice` es la URL del comprobante
+      if (fileUrl) {
+        showFile(fileUrl);
+      }
+    });
+
+    // Cuando se hace clic en "Sin Archivos" (ver el archivo de pruebas)
+    $("#modalViewCap .viewCap .comm .pruebas").click(function () {
+      const fileUrl = response.success.pruebas; // Suponiendo que `pruebas` es la URL del archivo de pruebas
+      if (fileUrl) {
+        showFile(fileUrl);
+      }
+    });
+
+    // Función para mostrar el archivo
+    function showFile(fileUrl) {
+      const fileExtension = fileUrl.split(".").pop().toLowerCase();
+      if (fileExtension === "pdf") {
+        invoiceFile.html(
+          '<embed src="' +
+            fileUrl +
+            '" type="application/pdf" height="800px" width="800px" />'
+        );
+      } else {
+        invoiceFile.html(
+          '<img src="' +
+            fileUrl +
+            '" alt="Vista previa de la imagen" style="width: 100%; height: 800px;">'
+        );
+      }
+      previewInvoice.fadeToggle();
+      $("#viewOverlay").addClass("blur");
+    }
+
+    // Cerrar el modal cuando se hace clic en el fondo
     $("#modalViewCap .fondo").click(function () {
       $("#modalViewCap").fadeOut();
     });
