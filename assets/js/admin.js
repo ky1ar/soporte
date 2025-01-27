@@ -1135,7 +1135,7 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .modelo").text(data.model);
             $("#modalViewCap .viewCap .inf .name").text(data.name);
             $("#modalViewCap .viewCap .inf .email").text(data.email);
-            $("#modalViewCap .viewCap .comm .pruebas img").val(data.pruebas);
+            $("#modalViewCap .viewCap .comm .pruebas").text(data.pruebas);
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
