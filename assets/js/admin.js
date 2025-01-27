@@ -1177,9 +1177,7 @@ $(document).ready(function () {
       const viewer = $("#mostradorInfoT .visualizador");
       viewer.empty();
       if (extension === "pdf") {
-        viewer.html(
-          '<iframe src="' + fileUrl + '" width="100%" height="600px"></iframe>'
-        );
+        viewer.html('<embed src="' + fileUrl + '" type="application/pdf" height="800px" width="800px" />');
       } else if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
         viewer.html('<img src="' + fileUrl + '" width="100%" alt="Archivo">');
       } else {
