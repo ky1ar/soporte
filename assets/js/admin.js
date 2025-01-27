@@ -1134,7 +1134,7 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .email").text(data.email);
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
-              .text(data.phone);
+              .text("+"+data.phone);
             $("#modalViewCap").fadeIn();
           } else {
             alert("Error: No se encontraron datos en la respuesta.");
