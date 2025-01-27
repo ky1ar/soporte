@@ -4001,7 +4001,7 @@ footer .ftr-cpy {
   flex-direction: row;
   cursor: pointer;
   display: flex;
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 1rem;
   color: var(--primary);
   background-color: #fffdf5;
