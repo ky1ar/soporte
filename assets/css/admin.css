@@ -3911,7 +3911,7 @@ footer .ftr-cpy {
 }
 
 /**********************View Cap*******************************/
-#modalViewCap{
+#modalViewCap {
 }
 #modalViewCap .fondo {
   position: fixed;
@@ -3934,6 +3934,17 @@ footer .ftr-cpy {
   border-radius: 0.5rem;
   z-index: 2;
 }
-#modalViewCap .viewCap  div:nth-of-type(3) > img{
+#modalViewCap .viewCap div:nth-of-type(1) {
+  display: flex;
+}
+#modalViewCap .viewCap div:nth-of-type(1) .hora {
+  margin-left: auto;
+}
+#modalViewCap .viewCap div:nth-of-type(2) textarea {
+  width: 40rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+#modalViewCap .viewCap div:nth-of-type(3) > img {
   width: 10rem;
 }
