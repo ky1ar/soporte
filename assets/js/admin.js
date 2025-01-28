@@ -1175,7 +1175,7 @@ $(document).ready(function () {
         viewer.html(
           '<embed src="' +
             fileUrl +
-            '" type="application/pdf" height="52rem" width="52rem" />'
+            '" type="application/pdf" height="810px" width="810px" />'
         );
       } else if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
         viewer.html('<img style="max-height: 90vh;" src="' + fileUrl + '" width="100%" alt="Archivo">');
