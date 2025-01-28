@@ -1096,7 +1096,7 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
-    $(".row-act").click(function () {
+    $(".row-actx").click(function () {
       var trainingId = $(this).closest("tr").data("id");
       $.ajax({
         type: "POST",
