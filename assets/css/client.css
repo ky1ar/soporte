@@ -278,6 +278,7 @@ body {
   max-width: 109rem;
   padding: 0 1rem;
   margin-top: 3rem;
+  display: none;
 }
 #frontSlider .car-prices .swiffy-slider {
   --swiffy-slider-item-gap: 2rem;
