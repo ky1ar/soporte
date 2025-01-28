@@ -2298,10 +2298,12 @@ body {
   font-weight: 700;
 }
 
-#rpt-dat .dat-two .rpt-tbl .row-act img + img {
+#rpt-dat .dat-two .rpt-tbl .row-act img + img,
+#rpt-dat .dat-two .rpt-tbl .row-actx img + img  {
   margin-left: 1rem;
 }
-#rpt-dat .dat-two .rpt-tbl .row-act img {
+#rpt-dat .dat-two .rpt-tbl .row-act img,
+#rpt-dat .dat-two .rpt-tbl .row-actx img {
   width: 1.5rem;
   margin-right: -1rem;
   cursor: pointer;
