@@ -1138,6 +1138,9 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .comm .pruebas").html(
               data.pruebas ? icon + data.pruebas : icon + "Sin Archivos"
             );
+            $("#modalViewCap .viewCap .inf .comprobante")
+              .html(icon + "Comprobante")
+              .attr("data-invoice", data.invoice ? data.invoice : "");
             $("#modalViewCap .viewCap .inf a")
               .attr("href", `https://api.whatsapp.com/send?phone=${data.phone}`)
               .text("+" + data.phone);
@@ -1159,7 +1162,7 @@ $(document).ready(function () {
       }
     });
     $("#modalViewCap .viewCap .inf .comprobante").click(function () {
-      var fileUrl = $(this).text().trim();
+      var fileUrl = $(this).attr("data-invoice").trim();
       if (fileUrl) {
         loadFileInViewer(fileUrl);
       }
@@ -1169,7 +1172,11 @@ $(document).ready(function () {
       const viewer = $("#mostradorInfoT .visualizador");
       viewer.empty();
       if (extension === "pdf") {
-        viewer.html('<embed src="' + fileUrl + '" type="application/pdf" height="800px" width="800px" />');
+        viewer.html(
+          '<embed src="' +
+            fileUrl +
+            '" type="application/pdf" height="800px" width="800px" />'
+        );
       } else if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
         viewer.html('<img src="' + fileUrl + '" width="100%" alt="Archivo">');
       } else {
