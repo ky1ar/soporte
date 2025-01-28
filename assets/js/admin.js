@@ -1175,10 +1175,10 @@ $(document).ready(function () {
         viewer.html(
           '<embed src="' +
             fileUrl +
-            '" type="application/pdf" height="800px" width="800px" />'
+            '" type="application/pdf" height="52rem" width="52rem" />'
         );
       } else if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
-        viewer.html('<img src="' + fileUrl + '" width="100%" alt="Archivo">');
+        viewer.html('<img style="max-height: 90vh;" src="' + fileUrl + '" width="100%" alt="Archivo">');
       } else {
         viewer.html("<p>Archivo no disponible.</p>");
       }
