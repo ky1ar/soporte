@@ -56,7 +56,40 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
-                                <p>Capacitación de<br> Impresora 3D de Filamento</p>
+                                <p>Capacitación de<br> Routers CNC</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Escáneres 3D</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Drones</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Realidad Virtual</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
