@@ -1147,7 +1147,7 @@ $(document).ready(function () {
             $("#modalViewCap .viewCap .inf .mach").attr("src", imageUrl);
             $("#modalViewCap").fadeIn();
           } else {
-            alert("Error: No se encontraron datos en la respuesta.");
+            alert("Error: No se encontraron datos en la respuesta1.");
           }
         },
         error: function () {
