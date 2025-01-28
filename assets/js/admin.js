@@ -1180,7 +1180,7 @@ $(document).ready(function () {
       } else if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
         viewer.html('<img src="' + fileUrl + '" width="100%" alt="Archivo">');
       } else {
-        viewer.html("<p>Archivo no compatible.</p>");
+        viewer.html("<p>Archivo no disponible.</p>");
       }
       $("#mostradorInfoT").addClass("show");
     }
