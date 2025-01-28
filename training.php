@@ -189,18 +189,23 @@ if (isset($_SESSION['user_id'])) {
                                 <img src="assets/img/sav.svg" alt="">
                             </button>
                         </div>
-                        <!-- <div class="sect-pruebas">
-                            <p>Evidencias</p>
+                        <div class="sect-pruebas" id="sectpruebas">
                             <div class="pruebas">
                                 <div>
                                     <label for="comevi">Comentarios:</label>
                                     <textarea type="text" id="comevi" name="comevi"></textarea>
                                 </div>
-                                <div>
-                                    <label for="imgevi">Archivo:</label>
-                                    <input type="file" id="imgevi" name="imgevi">
+                                <div class="archi">
+                                    <div>
+                                        <label for="imgevi">Archivo:</label>
+                                        <input type="file" id="imgevi" name="imgevi" accept="image/*, .pdf">
+
+                                    </div>
+                                    <div class="evi" id="viewEvidencias" data-src="">
+                                        <img width="12" height="12" src="assets/img/invoice.svg" alt="">Sin Archivos
+                                    </div>
                                 </div>
-                                <button type="submit">
+                                <button type="submit" id="upd_evi">
                                     Guardar
                                 </button>
                             </div>
@@ -208,7 +213,7 @@ if (isset($_SESSION['user_id'])) {
                                 <p></p>
                                 <img src="" alt="">
                             </div>
-                        </div> -->
+                        </div>
                         <div class="staticMeet">
                             <img src="assets/img/meet.svg" alt="">
                             <a class="meet" href="" target="_blank"></a>

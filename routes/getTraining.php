@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
         t.email as c_email,
         t.meet as t_meet,
         t.invoice as t_invoice,
+        t.pruebas as pruebas,
+        t.comentarios as t_comentarios,
+        t.pruebas as t_pruebas,
         m.model as m_model,
         m.slug as m_slug,
         w.name as w_name
@@ -78,7 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trainingId'])) {
                 'id_worker' => $row['t_worker'],
                 't_state' => $row['t_state'],
                 'meet' => $row['t_meet'],
-                'invoice' => $row['t_invoice']
+                'comentarios' => $row['t_comentarios'],
+                'invoice' => $row['t_invoice'],
+                'pruebas' => $row['t_pruebas']
             ];
         } else {
             $response['success'] = false;

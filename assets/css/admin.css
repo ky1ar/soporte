@@ -2074,6 +2074,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+}
+#rpt-dat .dat-two .filas {
+  position: absolute;
+  top: 8rem;
+  font-size: 0.8rem;
+  color: red;
+  margin: 0.5rem 0 0 0;
 }
 #rpt-dat .dat-two .two-hdr {
   display: flex;
@@ -2106,6 +2114,57 @@ body {
   justify-content: center;
   cursor: pointer;
   padding: 0.5rem 1rem;
+}
+#rpt-dat .dat-two .filtros {
+  display: flex;
+}
+#rpt-dat .dat-two .filtros form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+#rpt-dat .dat-two .filtros form label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+#rpt-dat .dat-two .filtros form input,
+#rpt-dat .dat-two .filtros form select {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem var(--graydarkest);
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+}
+#rpt-dat .dat-two .filtros form input[type="text"] {
+  cursor: text;
+}
+#rpt-dat .dat-two .filtros form button[type="submit"] {
+  display: flex;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+#rpt-dat .dat-two .filtros form button[type="submit"]:hover,
+#rpt-dat .dat-two .filtros form button#clearFilters:hover {
+  opacity: 0.8;
+}
+#rpt-dat .dat-two .filtros form button#clearFilters {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--secondary);
+  color: var(--white);
+  cursor: pointer;
 }
 #rpt-dat .dat-two .two-tbl {
   padding: 0;
@@ -2238,8 +2297,14 @@ body {
   border: 1px solid #f0f0f0;
   font-weight: 700;
 }
+
 #rpt-dat .dat-two .rpt-tbl .row-act img + img {
   margin-left: 1rem;
+}
+#rpt-dat .dat-two .rpt-tbl .row-act img {
+  width: 1.5rem;
+  margin-right: -1rem;
+  cursor: pointer;
 }
 #rpt-dat .dat-two .rpt-tbl .tbl-img {
   width: 3rem;
@@ -3083,30 +3148,57 @@ footer .ftr-cpy {
   display: flex;
   flex-wrap: wrap;
 }
-#viewTraining .content .sect-pruebas > p {
-  font-weight: 600;
-  font-size: 1rem;
-  margin: 0;
-  width: 100%;
-}
 #viewTraining .content .sect-pruebas .pruebas {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
 }
 #viewTraining .content .sect-pruebas .pruebas div {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+#viewTraining .content .sect-pruebas .pruebas div.archi {
+  display: flex;
+  flex-direction: row;
+}
+#viewTraining .content .sect-pruebas .pruebas div.archi div {
+  width: 50%;
+}
+#viewTraining .content .sect-pruebas .pruebas div.archi div:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray);
+  margin: auto 0 auto auto;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--graydarkest);
+}
+#viewTraining
+  .content
+  .sect-pruebas
+  .pruebas
+  div.archi
+  div:nth-of-type(2):hover {
+  background-color: var(--graydarkest);
 }
 #viewTraining .content .sect-pruebas .pruebas div label {
   font-weight: 600;
   font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 #viewTraining .content .sect-pruebas .pruebas textarea {
   resize: vertical;
   height: 5rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
+  outline: none;
+  font-family: "DM Sans", sans-serif;
 }
 #viewTraining .content .sect-pruebas .pruebas button {
   width: 100%;
@@ -3117,6 +3209,7 @@ footer .ftr-cpy {
   border-radius: 2rem;
   font-size: 0.7rem;
   border: none;
+  cursor: pointer;
 }
 #viewTraining .content .editableWorker,
 #viewTraining .content .editableMeet,
@@ -3815,4 +3908,144 @@ footer .ftr-cpy {
 #graphicsView .graf canvas {
   height: 30rem !important;
   width: 90% !important;
+}
+
+/**********************View Cap*******************************/
+#modalViewCap {
+  display: none;
+}
+#modalViewCap .fondo {
+  position: fixed;
+  background-color: #808080ba;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+#modalViewCap .viewCap {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  z-index: 2;
+}
+#modalViewCap .viewCap .dates {
+  display: flex;
+  align-items: center;
+}
+#modalViewCap .viewCap .dates .fecha {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+#modalViewCap .viewCap .dates .hora {
+  margin-left: auto;
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+#modalViewCap .viewCap .comm textarea {
+  width: 40rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  resize: vertical;
+  outline: none;
+  border: 0.1rem solid var(--graydarkest);
+  min-height: 5rem;
+  font-family: "DM Sans", sans-serif;
+}
+#modalViewCap .viewCap .comm div {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray);
+  margin: 0.5rem 0 1rem auto;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--graydarkest);
+}
+#modalViewCap .viewCap .inf {
+  display: flex;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--graydarkest);
+  padding: 1rem;
+}
+#modalViewCap .viewCap .inf > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+#modalViewCap .viewCap .inf > div p {
+  margin: 0;
+}
+#modalViewCap .viewCap .inf > div p:nth-of-type(1) {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+#modalViewCap .viewCap .inf > div p:nth-of-type(2) {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#modalViewCap .viewCap .inf > div a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: bold;
+}
+#modalViewCap .viewCap .inf div div {
+  flex-direction: row;
+  cursor: pointer;
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  color: var(--primary);
+  background-color: #fffdf5;
+  border: 0.1rem solid var(--primary);
+  gap: 0.5rem;
+  font-weight: 600;
+  width: fit-content;
+}
+#modalViewCap .viewCap .inf > img {
+  width: 10rem;
+  margin-left: auto;
+}
+
+#mostradorInfoT {
+  position: fixed;
+  background-color: rgba(128, 128, 128, 0.4);
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#mostradorInfoT .visualizador {
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 3;
+}
+
+#mostradorInfoT.show {
+  display: block;
+  opacity: 1;
 }

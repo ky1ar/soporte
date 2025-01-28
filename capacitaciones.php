@@ -16,6 +16,92 @@ require_once 'includes/common/header.php';
             <img class="imaCap" width="1920" height="630" src="assets/img/capacitaciones-pc.webp">
             <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
+        <div class="car-prices">
+            <div class="swiffy-slider slider-item-show3 slider-nav-dark slider-nav-outside slider-nav-visible">
+                <ul class="slider-container">
+                    <li class="slide-visible">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Impresora 3D de Filamento</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="slide-visible">
+                        <div class="card">
+                            <img src="assets/img/pre-2.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Impresora 3D de Resina</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="slide-visible">
+                        <div class="card">
+                            <img src="assets/img/pre-3.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Cortadoras Láser</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Routers CNC</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Escáneres 3D</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Drones</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="card">
+                            <img src="assets/img/pre-1.png" alt="">
+                            <div>
+                                <p>Capacitación de<br> Realidad Virtual</p>
+                                <p>Duración: 03 horas</p>
+                                <p>S/50.00</p>
+                                <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+            </div>
+        </div>
     </section>
     <div class="example-cap">
         <div class="back-ex"></div>
