@@ -543,18 +543,18 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  //version prueba
   calendarPrev.click(function () {
     let currentMonth = currentDate.getMonth(); // Mes actual en currentDate
     let todayMonth = today.getMonth(); // Mes actual basado en "hoy"
-    
+
     if (currentMonth > todayMonth) {
         currentDate.setMonth(currentMonth - 1);
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
 
+        // Deshabilitar si llegamos al mes actual
         if (currentDate.getMonth() === todayMonth) {
-            $(this).addClass("disabled"); // Deshabilitar si volvemos al mes actual
+            $(this).addClass("disabled");
         }
     }
 });
@@ -562,18 +562,20 @@ $(document).ready(function () {
 calendarNext.click(function () {
     let currentMonth = currentDate.getMonth(); // Mes actual en currentDate
     let todayMonth = today.getMonth(); // Mes actual basado en "hoy"
-    let maxMonth = todayMonth + 2; // Límite de avance
+    let maxMonth = todayMonth + 2; // Límite de avance (dos meses más)
 
     if (currentMonth < maxMonth) {
         currentDate.setMonth(currentMonth + 1);
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
 
+        // Deshabilitar si llegamos al mes máximo permitido
         if (currentDate.getMonth() === maxMonth) {
-            $(this).addClass("disabled"); // Deshabilitar si llegamos al límite
+            $(this).addClass("disabled");
         }
     }
 });
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
