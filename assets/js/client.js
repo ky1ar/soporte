@@ -543,36 +543,32 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  //version v1.0
+  //version v1.1
+  let selectedDate = new Date(); // Fecha seleccionada (inicia en el mes actual)
+  let referenceDate = new Date(); // Fecha base (hoy)
+
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
+    let selectedMonth = selectedDate.getMonth(); // Obtener el mes actual seleccionado
+    selectedDate.setMonth(selectedMonth - 1); // Retrocede un mes
+    loadCalendar(-1);
+    calendarNext.removeClass("disabled");
+
+    // Deshabilita el botón "prev" si estamos en el mes actual
+    if (
+      selectedDate.getMonth() === referenceDate.getMonth() &&
+      selectedDate.getFullYear() === referenceDate.getFullYear()
+    ) {
       $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
     }
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
-    }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
-    }
+    let selectedMonth = selectedDate.getMonth(); // Obtener el mes actual seleccionado
+    selectedDate.setMonth(selectedMonth + 1); // Avanza un mes
+    loadCalendar(1);
+    calendarPrev.removeClass("disabled"); // Habilita retroceso
+
+    // El botón "next" nunca se deshabilita, ya que es ilimitado
   });
 
   const calendarNavigation = $("#calendarNavigation");
@@ -611,7 +607,7 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-    
+
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
