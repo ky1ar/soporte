@@ -544,37 +544,38 @@ $(document).ready(function () {
   ];
 
   //version prueba
-  let currentDate = new Date(today.getFullYear(), today.getMonth()); // Siempre inicia en el mes actual
+  let selectedDate = new Date(today.getFullYear(), today.getMonth()); // Fecha seleccionada
 
 calendarPrev.click(function () {
-    let currentMonth = currentDate.getMonth();
-    let currentYear = currentDate.getFullYear();
+    let selectedMonth = selectedDate.getMonth();
+    let selectedYear = selectedDate.getFullYear();
 
-    if (currentMonth > today.getMonth() - 2) { // No permite ir más de 2 meses atrás
-        currentDate.setMonth(currentMonth - 1);
+    if (selectedMonth > today.getMonth() - 2) { // No permite ir más de 2 meses atrás
+        selectedDate.setMonth(selectedMonth - 1);
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
     }
 
-    if (currentMonth - 1 < today.getMonth()) { // Bloquea cuando llega al mes actual
+    if (selectedMonth - 1 < today.getMonth()) { // Bloquea cuando llega al mes actual
         $(this).addClass("disabled");
     }
 });
 
 calendarNext.click(function () {
-    let maxMonth = today.getMonth() + 2; // Solo permite avanzar 2 meses desde el actual
-    let currentMonth = currentDate.getMonth();
+    let maxAllowedMonth = today.getMonth() + 2; // Solo permite avanzar 2 meses desde el actual
+    let selectedMonth = selectedDate.getMonth();
 
-    if (currentMonth < maxMonth - 1) { // No permite ir más allá de 2 meses desde el actual
-        currentDate.setMonth(currentMonth + 1);
+    if (selectedMonth < maxAllowedMonth - 1) { // No permite ir más allá de 2 meses desde el actual
+        selectedDate.setMonth(selectedMonth + 1);
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
     }
 
-    if (currentMonth + 1 >= maxMonth - 1) { // Bloquea cuando llega al límite
+    if (selectedMonth + 1 >= maxAllowedMonth - 1) { // Bloquea cuando llega al límite
         $(this).addClass("disabled");
     }
 });
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
