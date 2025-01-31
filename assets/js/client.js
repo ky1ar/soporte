@@ -543,37 +543,55 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  //version prueba
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
-    }
-  });
+    let offsetYear = currentDate.getFullYear();
 
-  calendarNext.click(function () {
+    if (offsetMonth < 0) {
+        offsetMonth = 11;
+        offsetYear -= 1;
+    }
+
+    if (offsetYear > today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth())) {
+        currentDate.setMonth(offsetMonth);
+        currentDate.setFullYear(offsetYear);
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+
+        if (offsetMonth === today.getMonth() && offsetYear === today.getFullYear()) {
+            $(this).addClass("disabled");
+        }
+    }
+});
+
+calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
+    let offsetYear = currentDate.getFullYear();
+
+    if (offsetMonth > 11) {
+        offsetMonth = 0;
+        offsetYear += 1;
+    }
+
     let maxMonth = today.getMonth() + 2;
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
+    let maxYear = today.getFullYear();
+
+    if (maxMonth > 11) {
+        maxMonth -= 12;
+        maxYear += 1;
     }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
+
+    if (offsetYear < maxYear || (offsetYear === maxYear && offsetMonth <= maxMonth)) {
+        currentDate.setMonth(offsetMonth);
+        currentDate.setFullYear(offsetYear);
+        loadCalendar(1);
+        calendarPrev.removeClass("disabled");
+
+        if (offsetMonth === maxMonth && offsetYear === maxYear) {
+            $(this).addClass("disabled");
+        }
     }
-  });
+});
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
@@ -623,7 +641,6 @@ $(document).ready(function () {
       method: "POST",
       data: { date: formatedDate, day: firstDayNum },
       success: function (response) {
-        console.log(response);
         calendarTable.html(response);
         monthName.text(month + " " + currentDate.getFullYear());
         loadingResponse.hide();
