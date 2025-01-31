@@ -544,7 +544,7 @@ $(document).ready(function () {
   ];
 
   // Imprimir la fecha actual para depuración
-console.log("Fecha actual: " + new Date().toLocaleString());
+  console.log("Fecha actual: " + new Date().toLocaleString());
 
   //version v1.0
   calendarPrev.click(function () {
@@ -564,40 +564,30 @@ console.log("Fecha actual: " + new Date().toLocaleString());
       calendarPrev.removeClass("disabled");
     }
   });
-
-  // Función para manejar el botón de siguiente
-calendarNext.click(function () {
-  let currentMonth = currentDate.getMonth(); // Obtener mes actual
-  let currentYear = currentDate.getFullYear(); // Obtener año actual
-
-  // Si el día de hoy es 31 de enero (o un mes con 31 días) y se intenta avanzar
-  if (currentDate.getDate() === 31) {
+  console.log("Fecha actual: " + new Date().toLocaleString());
+  calendarNext.click(function () {
+    let currentMonth = currentDate.getMonth(); // Obtener mes actual
+    let currentYear = currentDate.getFullYear(); // Obtener año actual
+    if (currentDate.getDate() === 31) {
       // Ajustamos al último día del mes siguiente (febrero)
       currentDate.setMonth(currentMonth + 1); // Avanzar al siguiente mes
       currentDate.setDate(1); // Establecer al primer día del siguiente mes (febrero)
-
-      // Verificar si la fecha se ajustó al 31 de febrero, que no existe
       if (currentDate.getMonth() !== currentMonth + 1) {
-          // Si no es el mes esperado (febrero), retroceder al último día de enero
-          currentDate.setDate(0);
+        currentDate.setDate(0);
       }
-  } else {
-      // Si no es el 31, simplemente avanzar al siguiente mes
+    } else {
       currentDate.setMonth(currentMonth + 1);
-  }
-
-  // Imprimir la nueva fecha ajustada
-  console.log("Fecha ajustada al siguiente mes: " + currentDate.toLocaleString());
-
-  // Cargar el calendario para el siguiente mes
-  loadCalendar(1); 
-  calendarPrev.removeClass("disabled");
-
-  // Deshabilitar el botón de siguiente si ya estamos en el límite de 2 meses
-  let maxMonth = today.getMonth() + 2; // Maximo hasta dos meses después
-  if (currentDate.getMonth() >= maxMonth) {
+    }
+    console.log(
+      "Fecha ajustada al siguiente mes: " + currentDate.toLocaleString()
+    );
+    loadCalendar(1);
+    calendarPrev.removeClass("disabled");
+    let maxMonth = today.getMonth() + 2; // Maximo hasta dos meses después
+    if (currentDate.getMonth() >= maxMonth) {
       $(this).addClass("disabled");
-  }
+    }
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
