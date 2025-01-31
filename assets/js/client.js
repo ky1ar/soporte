@@ -543,6 +543,8 @@ $(document).ready(function () {
     "diciembre",
   ];
 
+  let selectedDate = new Date();
+let referenceDate = new Date();
 
 function getMonthName(month) {
   const months = [
@@ -553,48 +555,49 @@ function getMonthName(month) {
 }
 
 function logCurrentMonth() {
-  let currentMonth = currentDate.getMonth();
-  console.log(`Mes actual: ${currentMonth + 1} (${getMonthName(currentMonth)})`);
+  let selectedMonth = selectedDate.getMonth();
+  console.log(`Mes actual: ${selectedMonth + 1} (${getMonthName(selectedMonth)})`);
 }
 
 logCurrentMonth(); // Ejecuta al inicio para mostrar el mes actual
 
 calendarPrev.click(function () {
-  let offsetMonth = currentDate.getMonth() - 1;
-  if (offsetMonth < 0) {
-    offsetMonth = 11;
+  let prevMonth = selectedDate.getMonth() - 1;
+  if (prevMonth < 0) {
+    prevMonth = 11;
   }
-  
-  if (offsetMonth >= today.getMonth()) {
+
+  if (prevMonth >= referenceDate.getMonth()) {
     loadCalendar(-1);
-    currentDate.setMonth(offsetMonth);
+    selectedDate.setMonth(prevMonth);
     logCurrentMonth();
     calendarNext.removeClass("disabled");
 
-    if (offsetMonth === today.getMonth()) {
+    if (prevMonth === referenceDate.getMonth()) {
       $(this).addClass("disabled");
     }
   }
 });
 
 calendarNext.click(function () {
-  let offsetMonth = currentDate.getMonth() + 1;
-  if (offsetMonth > 11) {
-    offsetMonth = 0;
+  let nextMonth = selectedDate.getMonth() + 1;
+  if (nextMonth > 11) {
+    nextMonth = 0;
   }
 
-  let maxMonth = today.getMonth() + 2;
-  if (offsetMonth <= maxMonth) {
+  let maxMonth = referenceDate.getMonth() + 2;
+  if (nextMonth <= maxMonth) {
     loadCalendar(1);
-    currentDate.setMonth(offsetMonth);
+    selectedDate.setMonth(nextMonth);
     logCurrentMonth();
     calendarPrev.removeClass("disabled");
 
-    if (offsetMonth === maxMonth) {
+    if (nextMonth === maxMonth) {
       $(this).addClass("disabled");
     }
   }
 });
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
