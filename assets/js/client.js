@@ -544,43 +544,66 @@ $(document).ready(function () {
   ];
 
   // Imprimir la fecha actual para depuración
-  console.log("Fecha actual: " + new Date().toLocaleString());
+console.log("Fecha actual: " + new Date().toLocaleString());
 
-  //version v1.1
-  calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+// Inicialización del mes actual y mes límite
+const today = new Date(); // Fecha actual
+const currentDate = new Date(today); // Copia de la fecha actual para navegación
 
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
+// Función para cargar el calendario
+function loadCalendar(direction) {
+  let currentMonth = currentDate.getMonth();
+  let currentYear = currentDate.getFullYear();
+
+  // Modificar la fecha en función de la dirección (1 para siguiente, -1 para anterior)
+  currentMonth += direction;
+
+  if (currentMonth < 0) {
+    currentMonth = 11; // Devolver a diciembre si retrocedes desde enero
+    currentYear--; // Retroceder un año
+  } else if (currentMonth > 11) {
+    currentMonth = 0; // Volver a enero si avanzas más allá de diciembre
+    currentYear++; // Avanzar un año
+  }
+
+  // Actualiza la fecha y recarga el calendario
+  currentDate.setFullYear(currentYear);
+  currentDate.setMonth(currentMonth);
+  console.log("Mes actual:", currentDate.toLocaleString()); // Depuración
+  // Aquí carga el calendario con la nueva fecha
+  // Ejemplo: loadCalendar(currentDate);
+}
+
+// Controlador del botón para retroceder un mes
+calendarPrev.click(function () {
+  let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
+  let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+
+  if (offsetMonth >= today.getMonth()) { // Permitir retroceder solo si no se pasa del mes actual
+    loadCalendar(-1); // Retroceder un mes
+    calendarNext.removeClass("disabled"); // Habilitar "Siguiente"
+  }
+
+  // Si estamos en el mes actual, desactivar el botón de retroceso
+  if (currentDate.getMonth() === today.getMonth()) {
+    $(this).addClass("disabled");
+  }
+});
+
+// Controlador del botón para avanzar un mes
+calendarNext.click(function () {
+  let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+  let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+
+  if (offsetMonth <= today.getMonth() + 2) { // Permitir avanzar hasta el mes después de dos meses desde el actual
+    loadCalendar(1); // Avanzar un mes
+    calendarPrev.removeClass("disabled"); // Habilitar "Anterior"
+    if (offsetMonth === today.getMonth() + 2) { // Limitar a solo dos meses adelante
       $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
     }
-  });
+  }
+});
 
-  calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
-
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
-    }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
-    }
-  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
