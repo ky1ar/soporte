@@ -545,7 +545,9 @@ $(document).ready(function () {
 
   //version v1.0
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
+    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+
     if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
@@ -561,8 +563,10 @@ $(document).ready(function () {
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
+    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
+
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
@@ -611,7 +615,7 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-    
+
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
