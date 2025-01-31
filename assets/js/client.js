@@ -543,27 +543,35 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
 
-if (currentDate.getMonth() === currentMonth && currentDate.getFullYear() === currentYear) {
-  calendarPrev.addClass("disabled");
+function getMonthName(month) {
+  const months = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+  return months[month];
 }
+
+function logCurrentMonth() {
+  let currentMonth = currentDate.getMonth();
+  console.log(`Mes actual: ${currentMonth + 1} (${getMonthName(currentMonth)})`);
+}
+
+logCurrentMonth(); // Ejecuta al inicio para mostrar el mes actual
 
 calendarPrev.click(function () {
   let offsetMonth = currentDate.getMonth() - 1;
-  let offsetYear = currentDate.getFullYear();
-
   if (offsetMonth < 0) {
     offsetMonth = 11;
-    offsetYear--;
   }
-
-  if (offsetYear > currentYear || (offsetYear === currentYear && offsetMonth >= currentMonth)) {
+  
+  if (offsetMonth >= today.getMonth()) {
     loadCalendar(-1);
+    currentDate.setMonth(offsetMonth);
+    logCurrentMonth();
     calendarNext.removeClass("disabled");
 
-    if (offsetYear === currentYear && offsetMonth === currentMonth) {
+    if (offsetMonth === today.getMonth()) {
       $(this).addClass("disabled");
     }
   }
@@ -571,24 +579,22 @@ calendarPrev.click(function () {
 
 calendarNext.click(function () {
   let offsetMonth = currentDate.getMonth() + 1;
-  let offsetYear = currentDate.getFullYear();
-  let maxMonth = currentMonth + 2;
-
   if (offsetMonth > 11) {
     offsetMonth = 0;
-    offsetYear++;
   }
 
-  if (offsetYear < currentYear + 1 || (offsetYear === currentYear && offsetMonth <= maxMonth)) {
+  let maxMonth = today.getMonth() + 2;
+  if (offsetMonth <= maxMonth) {
     loadCalendar(1);
+    currentDate.setMonth(offsetMonth);
+    logCurrentMonth();
     calendarPrev.removeClass("disabled");
 
-    if (offsetYear === currentYear && offsetMonth === maxMonth) {
+    if (offsetMonth === maxMonth) {
       $(this).addClass("disabled");
     }
   }
 });
-
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
