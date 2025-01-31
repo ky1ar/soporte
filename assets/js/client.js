@@ -546,9 +546,9 @@ $(document).ready(function () {
   // Imprimir la fecha actual para depuración
 console.log("Fecha actual: " + new Date().toLocaleString());
 
-// Inicialización del mes actual y mes límite
-const today = new Date(); // Fecha actual
-const currentDate = new Date(today); // Copia de la fecha actual para navegación
+// Usa la fecha actual solo una vez
+const currentDate = new Date(); // Establecemos la fecha inicial
+const initialMonth = currentDate.getMonth(); // Mes actual
 
 // Función para cargar el calendario
 function loadCalendar(direction) {
@@ -579,13 +579,13 @@ calendarPrev.click(function () {
   let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
   let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
 
-  if (offsetMonth >= today.getMonth()) { // Permitir retroceder solo si no se pasa del mes actual
+  if (offsetMonth >= initialMonth) { // Permitir retroceder solo si no se pasa del mes actual
     loadCalendar(-1); // Retroceder un mes
     calendarNext.removeClass("disabled"); // Habilitar "Siguiente"
   }
 
   // Si estamos en el mes actual, desactivar el botón de retroceso
-  if (currentDate.getMonth() === today.getMonth()) {
+  if (currentDate.getMonth() === initialMonth) {
     $(this).addClass("disabled");
   }
 });
@@ -595,10 +595,10 @@ calendarNext.click(function () {
   let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
   let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
 
-  if (offsetMonth <= today.getMonth() + 2) { // Permitir avanzar hasta el mes después de dos meses desde el actual
+  if (offsetMonth <= initialMonth + 2) { // Permitir avanzar hasta el mes después de dos meses desde el actual
     loadCalendar(1); // Avanzar un mes
     calendarPrev.removeClass("disabled"); // Habilitar "Anterior"
-    if (offsetMonth === today.getMonth() + 2) { // Limitar a solo dos meses adelante
+    if (offsetMonth === initialMonth + 2) { // Limitar a solo dos meses adelante
       $(this).addClass("disabled");
     }
   }
