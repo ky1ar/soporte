@@ -546,7 +546,7 @@ $(document).ready(function () {
   // Imprimir la fecha actual para depuración
   console.log("Fecha actual: " + new Date().toLocaleString());
 
-  //version v1.0
+  //version v1.1
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
     let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
@@ -564,28 +564,21 @@ $(document).ready(function () {
       calendarPrev.removeClass("disabled");
     }
   });
-  console.log("Fecha actual: " + new Date().toLocaleString());
+
   calendarNext.click(function () {
-    let currentMonth = currentDate.getMonth(); // Obtener mes actual
-    let currentYear = currentDate.getFullYear(); // Obtener año actual
-    if (currentDate.getDate() === 31) {
-      // Ajustamos al último día del mes siguiente (febrero)
-      currentDate.setMonth(currentMonth + 1); // Avanzar al siguiente mes
-      currentDate.setDate(1); // Establecer al primer día del siguiente mes (febrero)
-      if (currentDate.getMonth() !== currentMonth + 1) {
-        currentDate.setDate(0);
+    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
+
+    if (offsetMonth < maxMonth) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
       }
-    } else {
-      currentDate.setMonth(currentMonth + 1);
     }
-    console.log(
-      "Fecha ajustada al siguiente mes: " + currentDate.toLocaleString()
-    );
-    loadCalendar(1);
-    calendarPrev.removeClass("disabled");
-    let maxMonth = today.getMonth() + 2; // Maximo hasta dos meses después
-    if (currentDate.getMonth() >= maxMonth) {
-      $(this).addClass("disabled");
+    if (offsetMonth > today.getMonth() + 1) {
+      calendarPrev.removeClass("disabled");
     }
   });
 
