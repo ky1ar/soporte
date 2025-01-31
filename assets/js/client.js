@@ -545,35 +545,35 @@ $(document).ready(function () {
 
   //version prueba
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
-    }
-  });
+    let currentMonth = currentDate.getMonth(); // Mes actual en currentDate
+    let todayMonth = today.getMonth(); // Mes actual basado en "hoy"
+    
+    if (currentMonth > todayMonth) {
+        currentDate.setMonth(currentMonth - 1);
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
 
-  calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
+        if (currentDate.getMonth() === todayMonth) {
+            $(this).addClass("disabled"); // Deshabilitar si volvemos al mes actual
+        }
     }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
+});
+
+calendarNext.click(function () {
+    let currentMonth = currentDate.getMonth(); // Mes actual en currentDate
+    let todayMonth = today.getMonth(); // Mes actual basado en "hoy"
+    let maxMonth = todayMonth + 2; // Límite de avance
+
+    if (currentMonth < maxMonth) {
+        currentDate.setMonth(currentMonth + 1);
+        loadCalendar(1);
+        calendarPrev.removeClass("disabled");
+
+        if (currentDate.getMonth() === maxMonth) {
+            $(this).addClass("disabled"); // Deshabilitar si llegamos al límite
+        }
     }
-  });
+});
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
