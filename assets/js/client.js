@@ -547,11 +547,11 @@ $(document).ready(function () {
 console.log("Fecha actual: " + new Date().toLocaleString());
 
 // Asegúrate de que currentDate y today sean instancias de Date correctas
-let currentDate = new Date();  // Fecha actual
-let today = new Date();        // Fecha actual para límites
+let currentDatex = new Date();  // Fecha actual
+let todayx = new Date();        // Fecha actual para límites
 
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
+let currentMonth = todayx.getMonth();
+let currentYear = todayx.getFullYear();
 
 // Función para cargar el calendario (ajusta según tu lógica)
 function loadCalendar(offset) {
@@ -562,8 +562,8 @@ function loadCalendar(offset) {
 
 // Navegación hacia el mes anterior
 calendarPrev.click(function () {
-  let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
-  let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+  let offsetMonth = currentDatex.getMonth() - 1; // Mes anterior
+  let offsetYear = currentDatex.getFullYear(); // Año actual de currentDate
 
   // Retroceder si no estamos ya en el límite del mes actual (primer mes atrás)
   if (offsetMonth >= currentMonth - 1) {
@@ -579,14 +579,14 @@ calendarPrev.click(function () {
 
 // Navegación hacia el mes siguiente
 calendarNext.click(function () {
-  let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+  let offsetMonth = currentDatex.getMonth() + 1; // Mes siguiente
   let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
   let maxMonth = currentMonth + 1; // El máximo mes hacia adelante (1 mes adelante)
 
   // Permitir avanzar entre los meses
   if (offsetMonth <= maxMonth) {
     loadCalendar(1);
-    currentDate.setMonth(offsetMonth); // Actualizar la fecha al mes siguiente
+    currentDatex.setMonth(offsetMonth); // Actualizar la fecha al mes siguiente
     calendarPrev.removeClass("disabled");  // Habilitar "anterior"
     calendarNext.removeClass("disabled");  // Habilitar "siguiente"
   } else {
