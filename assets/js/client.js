@@ -544,41 +544,59 @@ $(document).ready(function () {
   ];
 
   let monthOffset = 0;
-  let viewDate = new Date();
+let viewDate = new Date();
 
-  console.log("Fecha actual: " + viewDate.toLocaleString());
-  calendarPrev.click(function () {
+console.log("Fecha actual: " + viewDate.toLocaleString());
+
+calendarPrev.click(function () {
     monthOffset--;
-    if (monthOffset < 0) {
-      monthOffset = 0;
-    }
-    let newMonth = viewDate.getMonth() + monthOffset;
-    let newDate = new Date(viewDate.getFullYear(), newMonth, 1);
-    console.log("Fecha ajustada al mes anterior: " + newDate.toLocaleString());
-    loadCalendar(newDate.toISOString().split("T")[0]);
-    calendarNext.removeClass("disabled");
-    if (monthOffset === 0) {
-      $(this).addClass("disabled");
-    }
-  });
 
-  calendarNext.click(function () {
-    monthOffset++;
-    if (monthOffset > 2) {
-      monthOffset = 2;
+    if (monthOffset < 0) {
+        monthOffset = 0;
     }
+
     let newMonth = viewDate.getMonth() + monthOffset;
     let newDate = new Date(viewDate.getFullYear(), newMonth, 1);
+
     if (newDate.getDate() !== 1) {
-      newDate = new Date(viewDate.getFullYear(), newMonth, 1);
+        newDate = new Date(viewDate.getFullYear(), newMonth, 1);
     }
+
+    console.log("Fecha ajustada al mes anterior: " + newDate.toLocaleString());
+
+    // Enviar la fecha formateada correctamente al backend
+    loadCalendar(newDate.toISOString().split('T')[0]); 
+    calendarNext.removeClass("disabled");
+
+    if (monthOffset === 0) {
+        $(this).addClass("disabled");
+    }
+});
+
+calendarNext.click(function () {
+    monthOffset++;
+
+    if (monthOffset > 2) {
+        monthOffset = 2;
+    }
+
+    let newMonth = viewDate.getMonth() + monthOffset;
+    let newDate = new Date(viewDate.getFullYear(), newMonth, 1);
+
+    if (newDate.getDate() !== 1) {
+        newDate = new Date(viewDate.getFullYear(), newMonth, 1);
+    }
+
     console.log("Fecha ajustada al siguiente mes: " + newDate.toLocaleString());
-    loadCalendar(newDate.toISOString().split("T")[0]);
+
+    // Enviar la fecha formateada correctamente al backend
+    loadCalendar(newDate.toISOString().split('T')[0]);
     calendarPrev.removeClass("disabled");
+
     if (monthOffset === 2) {
-      $(this).addClass("disabled");
+        $(this).addClass("disabled");
     }
-  });
+});
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
