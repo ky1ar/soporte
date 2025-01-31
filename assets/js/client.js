@@ -544,36 +544,32 @@ $(document).ready(function () {
   ];
 
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
-    let offsetYear = currentDate.getFullYear();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
 
-    if (offsetMonth < 0) {
-        offsetMonth = 11;
-        offsetYear -= 1;
+    if (currentMonth === 0) {
+        currentMonth = 11;
+        currentYear -= 1;
+    } else {
+        currentMonth -= 1;
     }
 
-    if (offsetYear > today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth())) {
-        currentDate.setMonth(offsetMonth);
-        currentDate.setFullYear(offsetYear);
+    if (currentYear > today.getFullYear() || (currentYear === today.getFullYear() && currentMonth >= today.getMonth())) {
+        currentDate.setMonth(currentMonth);
+        currentDate.setFullYear(currentYear);
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
 
-        if (offsetMonth === today.getMonth() && offsetYear === today.getFullYear()) {
+        if (currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
             $(this).addClass("disabled");
         }
     }
 });
 
 calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let offsetYear = currentDate.getFullYear();
-
-    if (offsetMonth > 11) {
-        offsetMonth = 0;
-        offsetYear += 1;
-    }
-
-    let maxMonth = today.getMonth() + 2;
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+    let maxMonth = today.getMonth() + 2; // Máximo 2 meses desde el actual
     let maxYear = today.getFullYear();
 
     if (maxMonth > 11) {
@@ -581,13 +577,20 @@ calendarNext.click(function () {
         maxYear += 1;
     }
 
-    if (offsetYear < maxYear || (offsetYear === maxYear && offsetMonth <= maxMonth)) {
-        currentDate.setMonth(offsetMonth);
-        currentDate.setFullYear(offsetYear);
+    if (currentMonth === 11) {
+        currentMonth = 0;
+        currentYear += 1;
+    } else {
+        currentMonth += 1;
+    }
+
+    if (currentYear < maxYear || (currentYear === maxYear && currentMonth <= maxMonth)) {
+        currentDate.setMonth(currentMonth);
+        currentDate.setFullYear(currentYear);
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
 
-        if (offsetMonth === maxMonth && offsetYear === maxYear) {
+        if (currentMonth === maxMonth && currentYear === maxYear) {
             $(this).addClass("disabled");
         }
     }
