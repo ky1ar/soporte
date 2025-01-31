@@ -543,58 +543,44 @@ $(document).ready(function () {
     "diciembre",
   ];
 
- // Imprimir la fecha actual para depuración
-console.log("Fecha actual: " + new Date().toLocaleString());
+  // Imprimir la fecha actual para depuración
+  console.log("Fecha actual: " + new Date().toLocaleString());
 
-// Asegúrate de que currentDate y today sean instancias de Date correctas
-let currentDatex = new Date();  // Fecha actual
-let todayx = new Date();        // Fecha actual para límites
+  //version v1.1
+  calendarPrev.click(function () {
+    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
 
-let currentMonth = todayx.getMonth();
-let currentYear = todayx.getFullYear();
+    if (offsetMonth > today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+    } else if (offsetMonth == today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      calendarPrev.removeClass("disabled");
+    }
+  });
 
-// Función para cargar el calendario (ajusta según tu lógica)
-function loadCalendar(offset) {
-  // Lógica para cargar el calendario con un desplazamiento de mes
-  console.log("Cargando calendario con desplazamiento: " + offset);
-  // Aquí implementas la carga del calendario de acuerdo al mes actualizado
-}
+  calendarNext.click(function () {
+    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
 
-// Navegación hacia el mes anterior
-calendarPrev.click(function () {
-  let offsetMonth = currentDatex.getMonth() - 1; // Mes anterior
-  let offsetYear = currentDatex.getFullYear(); // Año actual de currentDate
-
-  // Retroceder si no estamos ya en el límite del mes actual (primer mes atrás)
-  if (offsetMonth >= currentMonth - 1) {
-    loadCalendar(-1);
-    currentDate.setMonth(offsetMonth); // Actualizar la fecha al mes anterior
-    calendarNext.removeClass("disabled");  // Habilitar "siguiente"
-    calendarPrev.removeClass("disabled");  // Habilitar "anterior"
-  } else {
-    // Deshabilitar "anterior" si estamos en el primer mes
-    $(this).addClass("disabled");
-  }
-});
-
-// Navegación hacia el mes siguiente
-calendarNext.click(function () {
-  let offsetMonth = currentDatex.getMonth() + 1; // Mes siguiente
-  let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-  let maxMonth = currentMonth + 1; // El máximo mes hacia adelante (1 mes adelante)
-
-  // Permitir avanzar entre los meses
-  if (offsetMonth <= maxMonth) {
-    loadCalendar(1);
-    currentDatex.setMonth(offsetMonth); // Actualizar la fecha al mes siguiente
-    calendarPrev.removeClass("disabled");  // Habilitar "anterior"
-    calendarNext.removeClass("disabled");  // Habilitar "siguiente"
-  } else {
-    // Deshabilitar "siguiente" si se alcanza el mes máximo
-    $(this).addClass("disabled");
-  }
-});
-
+    if (offsetMonth < maxMonth) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
+      }
+    }
+    if (offsetMonth > today.getMonth() + 1) {
+      calendarPrev.removeClass("disabled");
+    }
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
