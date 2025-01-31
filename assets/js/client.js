@@ -543,7 +543,7 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  //version prueba
+  //version v1.0
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
     if (offsetMonth > today.getMonth()) {
