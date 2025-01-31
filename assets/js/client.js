@@ -543,44 +543,64 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  // Imprimir la fecha actual para depuración
-  console.log("Fecha actual: " + new Date().toLocaleString());
+  // Establecer la fecha actual como 1 de febrero (forzado)
+const currentDate = new Date();
+currentDate.setFullYear(2025); // Asegúrate de usar el año correcto
+currentDate.setMonth(1); // Mes de febrero (0 = enero, 1 = febrero)
+currentDate.setDate(1); // Día 1
 
-  //version v1.1
-  calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+// Imprimir la fecha actual para depuración
+console.log("Fecha actual (forzada): " + currentDate.toLocaleString());
 
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
-    }
-  });
+// Función para cargar el calendario (adaptada)
+function loadCalendar(direction) {
+  // Avanzamos o retrocedemos el mes dependiendo de la dirección
+  let offsetMonth = currentDate.getMonth() + direction;
+  let offsetYear = currentDate.getFullYear();
 
-  calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
+  // Aseguramos que no se retroceda más allá del mes actual
+  if (offsetMonth < 0) {
+    offsetMonth = 0; // Limitar el retroceso al mes de febrero
+  } else if (offsetMonth > 1) { // Limitar al mes de marzo
+    offsetMonth = 1; // Marzo como mes máximo
+  }
 
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
-    }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
-    }
-  });
+  // Ajustamos el año si cambiamos de diciembre o enero
+  if (offsetMonth < 0) {
+    offsetMonth = 11; // Diciembre
+    offsetYear--; // Año anterior
+  } else if (offsetMonth > 11) {
+    offsetMonth = 0; // Enero
+    offsetYear++; // Año siguiente
+  }
+
+  // Establecemos la nueva fecha
+  currentDate.setFullYear(offsetYear);
+  currentDate.setMonth(offsetMonth);
+
+  console.log("Fecha ajustada: ", currentDate.toLocaleString()); // Depuración
+  // Aquí se actualizaría la vista del calendario según la nueva fecha
+  // Ejemplo: cargarCalendario(currentDate);
+}
+
+// Controlador del botón de retroceder un mes
+calendarPrev.click(function () {
+  loadCalendar(-1); // Retroceder un mes
+  calendarNext.removeClass("disabled"); // Aseguramos que el siguiente esté habilitado
+  if (currentDate.getMonth() === 0) { // Si estamos en enero
+    $(this).addClass("disabled"); // Deshabilitar el botón si estamos en enero
+  }
+});
+
+// Controlador del botón de siguiente mes
+calendarNext.click(function () {
+  loadCalendar(1); // Avanzar un mes
+  calendarPrev.removeClass("disabled"); // Aseguramos que el anterior esté habilitado
+  if (currentDate.getMonth() === 1) { // Si estamos en marzo
+    $(this).addClass("disabled"); // Deshabilitar el botón si estamos en marzo
+  }
+});
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
