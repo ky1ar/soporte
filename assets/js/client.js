@@ -544,19 +544,19 @@ $(document).ready(function () {
   ];
 
   // Establecer la fecha actual como 1 de febrero (forzado)
-const currentDate = new Date();
-currentDate.setFullYear(2025); // Asegúrate de usar el año correcto
-currentDate.setMonth(1); // Mes de febrero (0 = enero, 1 = febrero)
-currentDate.setDate(1); // Día 1
+let customCurrentDate = new Date();
+customCurrentDate.setFullYear(2025); // Asegúrate de usar el año correcto
+customCurrentDate.setMonth(1); // Mes de febrero (0 = enero, 1 = febrero)
+customCurrentDate.setDate(1); // Día 1
 
 // Imprimir la fecha actual para depuración
-console.log("Fecha actual (forzada): " + currentDate.toLocaleString());
+console.log("Fecha actual (forzada): " + customCurrentDate.toLocaleString());
 
 // Función para cargar el calendario (adaptada)
 function loadCalendar(direction) {
   // Avanzamos o retrocedemos el mes dependiendo de la dirección
-  let offsetMonth = currentDate.getMonth() + direction;
-  let offsetYear = currentDate.getFullYear();
+  let offsetMonth = customCurrentDate.getMonth() + direction;
+  let offsetYear = customCurrentDate.getFullYear();
 
   // Aseguramos que no se retroceda más allá del mes actual
   if (offsetMonth < 0) {
@@ -575,19 +575,19 @@ function loadCalendar(direction) {
   }
 
   // Establecemos la nueva fecha
-  currentDate.setFullYear(offsetYear);
-  currentDate.setMonth(offsetMonth);
+  customCurrentDate.setFullYear(offsetYear);
+  customCurrentDate.setMonth(offsetMonth);
 
-  console.log("Fecha ajustada: ", currentDate.toLocaleString()); // Depuración
+  console.log("Fecha ajustada: ", customCurrentDate.toLocaleString()); // Depuración
   // Aquí se actualizaría la vista del calendario según la nueva fecha
-  // Ejemplo: cargarCalendario(currentDate);
+  // Ejemplo: cargarCalendario(customCurrentDate);
 }
 
 // Controlador del botón de retroceder un mes
 calendarPrev.click(function () {
   loadCalendar(-1); // Retroceder un mes
   calendarNext.removeClass("disabled"); // Aseguramos que el siguiente esté habilitado
-  if (currentDate.getMonth() === 0) { // Si estamos en enero
+  if (customCurrentDate.getMonth() === 0) { // Si estamos en enero
     $(this).addClass("disabled"); // Deshabilitar el botón si estamos en enero
   }
 });
@@ -596,7 +596,7 @@ calendarPrev.click(function () {
 calendarNext.click(function () {
   loadCalendar(1); // Avanzar un mes
   calendarPrev.removeClass("disabled"); // Aseguramos que el anterior esté habilitado
-  if (currentDate.getMonth() === 1) { // Si estamos en marzo
+  if (customCurrentDate.getMonth() === 1) { // Si estamos en marzo
     $(this).addClass("disabled"); // Deshabilitar el botón si estamos en marzo
   }
 });
