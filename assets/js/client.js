@@ -562,18 +562,25 @@ $(document).ready(function () {
 
   calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
+    let offsetYear = currentDate.getFullYear(); // Definir offsetYear
     let maxMonth = today.getMonth() + 2;
+
+    if (offsetMonth > 11) {
+        offsetYear += 1;
+        offsetMonth = 0; // Ajustar para enero del próximo año
+    }
+
     if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
+        loadCalendar(1);
+        calendarPrev.removeClass("disabled");
+        if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+            $(this).addClass("disabled");
+        }
     }
     if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
+        calendarPrev.removeClass("disabled");
     }
-  });
+});
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
