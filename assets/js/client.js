@@ -575,6 +575,13 @@ calendarNext.click(function () {
 
     let newMonth = today.getMonth() + monthOffset;
     let newDate = new Date(today.getFullYear(), newMonth, 1);
+
+    // Si el mes siguiente es inválido (por ejemplo, febrero en un año no bisiesto),
+    // ajustamos al primer día del mes
+    if (newDate.getDate() !== 1) {
+        newDate = new Date(today.getFullYear(), newMonth, 1);
+    }
+
     console.log("Fecha ajustada al siguiente mes: " + newDate.toLocaleString());
 
     loadCalendar(newDate);
