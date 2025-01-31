@@ -543,46 +543,45 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  // Imprimir la fecha actual para depuración
+  let monthOffset = 0;
+
 console.log("Fecha actual: " + new Date().toLocaleString());
 
 calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+    monthOffset--;
 
-    // Asegurarse de que no retroceda al mes anterior si ya está en el mes actual
-    if (offsetMonth >= today.getMonth()) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
+    if (monthOffset < 0) {
+        monthOffset = 0;
+    }
+
+    let newMonth = today.getMonth() + monthOffset;
+    let newDate = new Date(today.getFullYear(), newMonth, 1);
+    console.log("Fecha ajustada al mes anterior: " + newDate.toLocaleString());
+
+    loadCalendar(newDate);
+    calendarNext.removeClass("disabled");
+
+    if (monthOffset === 0) {
         $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth() - 1) {
-        loadCalendar(-1);
-        calendarPrev.removeClass("disabled");
-        calendarNext.removeClass("disabled");
     }
 });
 
 calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-    let maxMonth = today.getMonth() + 1; // Mes máximo para avanzar, solo al siguiente mes
+    monthOffset++;
 
-    console.log("Fecha ajustada al siguiente mes: " + currentDate.toLocaleString());
-
-    // Verificar si es el mes actual y no permitir avanzar a más de 2 meses de distancia
-    if (offsetMonth < maxMonth + 2) {
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
-    } else {
-        // Evitar el avance si es más allá de 2 meses
-        $(this).addClass("disabled");
+    if (monthOffset > 2) {
+        monthOffset = 2;
     }
 
-    if (offsetMonth > today.getMonth() + 1) {
-        calendarPrev.removeClass("disabled");
+    let newMonth = today.getMonth() + monthOffset;
+    let newDate = new Date(today.getFullYear(), newMonth, 1);
+    console.log("Fecha ajustada al siguiente mes: " + newDate.toLocaleString());
+
+    loadCalendar(newDate);
+    calendarPrev.removeClass("disabled");
+
+    if (monthOffset === 2) {
+        $(this).addClass("disabled");
     }
 });
 
