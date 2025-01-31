@@ -543,44 +543,44 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  // Imprimir la fecha actual para depuración
-  console.log("Fecha actual: " + new Date().toLocaleString());
+ // Imprimir la fecha actual para depuración
+ console.log("Fecha actual: " + new Date().toLocaleString());
 
-  //version v1.1
-  calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+ //version v1.1
+ calendarPrev.click(function () {
+   let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
+   let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
 
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
-    }
-  });
+   if (offsetMonth > today.getMonth()) {
+     loadCalendar(-1);
+     calendarNext.removeClass("disabled");
+   } else if (offsetMonth == today.getMonth()) {
+     loadCalendar(-1);
+     calendarNext.removeClass("disabled");
+     $(this).addClass("disabled");
+   } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+     loadCalendar(-1);
+     calendarNext.removeClass("disabled");
+     calendarPrev.removeClass("disabled");
+   }
+ });
 
-  calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
-    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
+ calendarNext.click(function () {
+   let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+   let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+   let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
 
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
-    }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
-    }
-  });
+   if (offsetMonth < maxMonth) {
+     loadCalendar(1);
+     calendarPrev.removeClass("disabled");
+     if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+       $(this).addClass("disabled");
+     }
+   }
+   if (offsetMonth > today.getMonth() + 1) {
+     calendarPrev.removeClass("disabled");
+   }
+ });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
