@@ -546,65 +546,54 @@ $(document).ready(function () {
   // Imprimir la fecha actual para depuración
 console.log("Fecha actual: " + new Date().toLocaleString());
 
-// Asegúrate de que `currentDate` se declare solo una vez, si ya está definida en el código anterior no es necesario volver a declararla
-// Si ya existe, usa esa instancia de `currentDate` en lugar de declararla nuevamente
-
-// Usar la fecha actual solo una vez
+// Asegúrate de que currentDate esté inicializado correctamente en tu código
 const initialMonth = currentDate.getMonth(); // Mes actual
+let currentMonth = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
 
 // Función para cargar el calendario
 function loadCalendar(direction) {
-  let currentMonth = currentDate.getMonth();
-  let currentYear = currentDate.getFullYear();
-
-  // Modificar la fecha en función de la dirección (1 para siguiente, -1 para anterior)
+  // Avanzamos o retrocedemos el mes dependiendo de la dirección
   currentMonth += direction;
 
-  if (currentMonth < 0) {
-    currentMonth = 11; // Devolver a diciembre si retrocedes desde enero
-    currentYear--; // Retroceder un año
-  } else if (currentMonth > 11) {
-    currentMonth = 0; // Volver a enero si avanzas más allá de diciembre
-    currentYear++; // Avanzar un año
+  // Aseguramos que no se retroceda más allá del mes actual
+  if (currentMonth < initialMonth) {
+    currentMonth = initialMonth; // Limitar el retroceso al mes actual
   }
 
-  // Actualiza la fecha y recarga el calendario
+  // Ajustamos el año si cambiamos de diciembre o enero
+  if (currentMonth < 0) {
+    currentMonth = 11; // Diciembre
+    currentYear--; // Año anterior
+  } else if (currentMonth > 11) {
+    currentMonth = 0; // Enero
+    currentYear++; // Año siguiente
+  }
+
+  // Establecemos la nueva fecha
   currentDate.setFullYear(currentYear);
   currentDate.setMonth(currentMonth);
-  console.log("Mes actual:", currentDate.toLocaleString()); // Depuración
-  // Aquí carga el calendario con la nueva fecha
-  // Ejemplo: loadCalendar(currentDate);
+
+  console.log("Fecha ajustada: ", currentDate.toLocaleString()); // Depuración
+  // Aquí se actualizaría la vista del calendario según la nueva fecha
+  // Ejemplo: cargarCalendario(currentDate);
 }
 
-// Controlador del botón para retroceder un mes
+// Controlador del botón de retroceder un mes
 calendarPrev.click(function () {
-  let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
-  let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-
-  if (offsetMonth >= initialMonth) { // Permitir retroceder solo si no se pasa del mes actual
-    loadCalendar(-1); // Retroceder un mes
-    calendarNext.removeClass("disabled"); // Habilitar "Siguiente"
-  }
-
-  // Si estamos en el mes actual, desactivar el botón de retroceso
+  loadCalendar(-1); // Retroceder un mes
+  calendarNext.removeClass("disabled"); // Aseguramos que el siguiente esté habilitado
   if (currentDate.getMonth() === initialMonth) {
-    $(this).addClass("disabled");
+    $(this).addClass("disabled"); // Deshabilitar si llegamos al mes actual
   }
 });
 
-// Controlador del botón para avanzar un mes
+// Controlador del botón de siguiente mes
 calendarNext.click(function () {
-  let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
-  let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
-
-  if (offsetMonth <= initialMonth + 2) { // Permitir avanzar hasta el mes después de dos meses desde el actual
-    loadCalendar(1); // Avanzar un mes
-    calendarPrev.removeClass("disabled"); // Habilitar "Anterior"
-    if (offsetMonth === initialMonth + 2) { // Limitar a solo dos meses adelante
-      $(this).addClass("disabled");
-    }
-  }
+  loadCalendar(1); // Avanzar un mes
+  calendarPrev.removeClass("disabled"); // Aseguramos que el anterior esté habilitado
 });
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
