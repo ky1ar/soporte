@@ -543,60 +543,44 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  let monthOffset = 0;
-let viewDate = new Date();
+  // Imprimir la fecha actual para depuración
+  console.log("Fecha actual: " + new Date().toLocaleString());
 
-console.log("Fecha actual: " + viewDate.toLocaleString());
+  //version v1.1
+  calendarPrev.click(function () {
+    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
 
-calendarPrev.click(function () {
-    monthOffset--;
-
-    if (monthOffset < 0) {
-        monthOffset = 0;
+    if (offsetMonth > today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+    } else if (offsetMonth == today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      calendarPrev.removeClass("disabled");
     }
+  });
 
-    let newMonth = viewDate.getMonth() + monthOffset;
-    let newDate = new Date(viewDate.getFullYear(), newMonth, 1);
+  calendarNext.click(function () {
+    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
 
-    if (newDate.getDate() !== 1) {
-        newDate = new Date(viewDate.getFullYear(), newMonth, 1);
-    }
-
-    console.log("Fecha ajustada al mes anterior: " + newDate.toLocaleString());
-
-    // Enviar la fecha formateada correctamente al backend
-    loadCalendar(newDate.toISOString().split('T')[0]); 
-    calendarNext.removeClass("disabled");
-
-    if (monthOffset === 0) {
+    if (offsetMonth < maxMonth) {
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
         $(this).addClass("disabled");
+      }
     }
-});
-
-calendarNext.click(function () {
-    monthOffset++;
-
-    if (monthOffset > 2) {
-        monthOffset = 2;
+    if (offsetMonth > today.getMonth() + 1) {
+      calendarPrev.removeClass("disabled");
     }
-
-    let newMonth = viewDate.getMonth() + monthOffset;
-    let newDate = new Date(viewDate.getFullYear(), newMonth, 1);
-
-    if (newDate.getDate() !== 1) {
-        newDate = new Date(viewDate.getFullYear(), newMonth, 1);
-    }
-
-    console.log("Fecha ajustada al siguiente mes: " + newDate.toLocaleString());
-
-    // Enviar la fecha formateada correctamente al backend
-    loadCalendar(newDate.toISOString().split('T')[0]);
-    calendarPrev.removeClass("disabled");
-
-    if (monthOffset === 2) {
-        $(this).addClass("disabled");
-    }
-});
+  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
