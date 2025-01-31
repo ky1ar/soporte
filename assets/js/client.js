@@ -546,21 +546,28 @@ $(document).ready(function () {
   //version prueba
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
-    }
-  });
+    let offsetYear = currentDate.getFullYear(); // Definir offsetYear
 
-  calendarNext.click(function () {
+    if (offsetMonth < 0) {
+        offsetYear -= 1;
+        offsetMonth = 11; // Ajustar para diciembre del año anterior
+    }
+
+    if (offsetMonth > today.getMonth()) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+    } else if (offsetMonth === today.getMonth()) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+        calendarPrev.removeClass("disabled");
+    }
+});
+
+calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
     let offsetYear = currentDate.getFullYear(); // Definir offsetYear
     let maxMonth = today.getMonth() + 2;
@@ -581,6 +588,7 @@ $(document).ready(function () {
         calendarPrev.removeClass("disabled");
     }
 });
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
