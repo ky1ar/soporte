@@ -543,67 +543,87 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  let today = new Date();
-let selectedDate = new Date(today.getFullYear(), today.getMonth(), 1);
+  let currentViewDate = new Date(today.getFullYear(), today.getMonth(), 1);
 
-console.log("Mes actual:", selectedDate.getMonth() + 1, "(" + obtenerNombreMes(selectedDate.getMonth()) + ")");
+  console.log(
+    "Mes actual:",
+    currentViewDate.getMonth() + 1,
+    "(" + obtenerNombreMes(currentViewDate.getMonth()) + ")"
+  );
 
-calendarPrev.click(function () {
-    let newMonth = selectedDate.getMonth() - 1;
-    let newYear = selectedDate.getFullYear();
-    
-    if (newMonth < 0) {
-        newMonth = 11;
-        newYear -= 1;
+  calendarPrev.click(function () {
+    let prevMonth = currentViewDate.getMonth() - 1;
+    let prevYear = currentViewDate.getFullYear();
+
+    if (prevMonth < 0) {
+      prevMonth = 11;
+      prevYear -= 1;
     }
 
-    if (newYear > today.getFullYear() || (newYear === today.getFullYear() && newMonth >= today.getMonth())) {
-        selectedDate.setMonth(newMonth);
-        selectedDate.setFullYear(newYear);
-        loadCalendar(-1);
-        calendarNext.removeClass("disabled");
+    if (
+      prevYear > today.getFullYear() ||
+      (prevYear === today.getFullYear() && prevMonth >= today.getMonth())
+    ) {
+      currentViewDate.setMonth(prevMonth);
+      currentViewDate.setFullYear(prevYear);
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
 
-        if (newMonth === today.getMonth() && newYear === today.getFullYear()) {
-            calendarPrev.addClass("disabled");
-        }
+      if (prevMonth === today.getMonth() && prevYear === today.getFullYear()) {
+        calendarPrev.addClass("disabled");
+      }
     }
-});
+  });
 
-calendarNext.click(function () {
-    let newMonth = selectedDate.getMonth() + 1;
-    let newYear = selectedDate.getFullYear();
+  calendarNext.click(function () {
+    let nextMonth = currentViewDate.getMonth() + 1;
+    let nextYear = currentViewDate.getFullYear();
 
-    if (newMonth > 11) {
-        newMonth = 0;
-        newYear += 1;
-    }
-
-    let maxMonth = today.getMonth() + 2;
-    let maxYear = today.getFullYear();
-
-    if (maxMonth > 11) {
-        maxMonth -= 12;
-        maxYear += 1;
+    if (nextMonth > 11) {
+      nextMonth = 0;
+      nextYear += 1;
     }
 
-    if (newYear < maxYear || (newYear === maxYear && newMonth <= maxMonth)) {
-        selectedDate.setMonth(newMonth);
-        selectedDate.setFullYear(newYear);
-        loadCalendar(1);
-        calendarPrev.removeClass("disabled");
+    let maxAllowedMonth = today.getMonth() + 2;
+    let maxAllowedYear = today.getFullYear();
 
-        if (newMonth === maxMonth && newYear === maxYear) {
-            calendarNext.addClass("disabled");
-        }
+    if (maxAllowedMonth > 11) {
+      maxAllowedMonth -= 12;
+      maxAllowedYear += 1;
     }
-});
 
-function obtenerNombreMes(mes) {
-    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    if (
+      nextYear < maxAllowedYear ||
+      (nextYear === maxAllowedYear && nextMonth <= maxAllowedMonth)
+    ) {
+      currentViewDate.setMonth(nextMonth);
+      currentViewDate.setFullYear(nextYear);
+      loadCalendar(1);
+      calendarPrev.removeClass("disabled");
+
+      if (nextMonth === maxAllowedMonth && nextYear === maxAllowedYear) {
+        calendarNext.addClass("disabled");
+      }
+    }
+  });
+
+  function obtenerNombreMes(mes) {
+    const meses = [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
+    ];
     return meses[mes];
-}
-
-
+  }
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
@@ -641,7 +661,7 @@ function obtenerNombreMes(mes) {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-    
+
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
