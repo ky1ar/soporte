@@ -546,8 +546,10 @@ $(document).ready(function () {
   // Imprimir la fecha actual para depuración
 console.log("Fecha actual: " + new Date().toLocaleString());
 
-// Usa la fecha actual solo una vez
-const currentDate = new Date(); // Establecemos la fecha inicial
+// Asegúrate de que `currentDate` se declare solo una vez, si ya está definida en el código anterior no es necesario volver a declararla
+// Si ya existe, usa esa instancia de `currentDate` en lugar de declararla nuevamente
+
+// Usar la fecha actual solo una vez
 const initialMonth = currentDate.getMonth(); // Mes actual
 
 // Función para cargar el calendario
@@ -603,7 +605,6 @@ calendarNext.click(function () {
     }
   }
 });
-
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
