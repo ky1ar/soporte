@@ -543,37 +543,51 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  //version prueba
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1;
-    if (offsetMonth > today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-    } else if (offsetMonth == today.getMonth()) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      $(this).addClass("disabled");
-    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
-      loadCalendar(-1);
-      calendarNext.removeClass("disabled");
-      calendarPrev.removeClass("disabled");
-    }
-  });
+    let offsetYear = currentDate.getFullYear();
 
-  calendarNext.click(function () {
+    // Ajustar año si se retrocede desde enero a diciembre del año anterior
+    if (offsetMonth < 0) {
+        offsetMonth = 11; // Diciembre
+        offsetYear--;
+    }
+
+    if (offsetYear > today.getFullYear() || (offsetYear === today.getFullYear() && offsetMonth >= today.getMonth())) {
+        loadCalendar(-1);
+        calendarNext.removeClass("disabled");
+
+        if (offsetYear === today.getFullYear() && offsetMonth === today.getMonth()) {
+            $(this).addClass("disabled"); // Deshabilitar si es el mes mínimo permitido
+        } else {
+            $(this).removeClass("disabled");
+        }
+    }
+});
+
+calendarNext.click(function () {
     let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
-    if (offsetMonth < maxMonth) {
-      loadCalendar(1);
-      calendarPrev.removeClass("disabled");
-      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
-        $(this).addClass("disabled");
-      }
+    let offsetYear = currentDate.getFullYear();
+    let maxMonth = today.getMonth() + 2; // Permitir hasta dos meses después del mes actual
+
+    // Ajustar año si se avanza desde diciembre a enero del siguiente año
+    if (offsetMonth > 11) {
+        offsetMonth = 0; // Enero
+        offsetYear++;
     }
-    if (offsetMonth > today.getMonth() + 1) {
-      calendarPrev.removeClass("disabled");
+
+    if (offsetYear < today.getFullYear() + 2 || (offsetYear === today.getFullYear() + 1 && offsetMonth < maxMonth)) {
+        loadCalendar(1);
+        calendarPrev.removeClass("disabled");
+
+        if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+            $(this).addClass("disabled"); // Deshabilitar si llega al límite superior
+        } else {
+            $(this).removeClass("disabled");
+        }
     }
-  });
+});
+
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
