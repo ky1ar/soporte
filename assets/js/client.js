@@ -543,56 +543,36 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  calendarPrev.click(function () {
+  //version prueba
+  let currentDate = new Date(today.getFullYear(), today.getMonth()); // Siempre inicia en el mes actual
+
+calendarPrev.click(function () {
     let currentMonth = currentDate.getMonth();
     let currentYear = currentDate.getFullYear();
 
-    if (currentMonth === 0) {
-        currentMonth = 11;
-        currentYear -= 1;
-    } else {
-        currentMonth -= 1;
-    }
-
-    if (currentYear > today.getFullYear() || (currentYear === today.getFullYear() && currentMonth >= today.getMonth())) {
-        currentDate.setMonth(currentMonth);
-        currentDate.setFullYear(currentYear);
+    if (currentMonth > today.getMonth() - 2) { // No permite ir más de 2 meses atrás
+        currentDate.setMonth(currentMonth - 1);
         loadCalendar(-1);
         calendarNext.removeClass("disabled");
+    }
 
-        if (currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
-            $(this).addClass("disabled");
-        }
+    if (currentMonth - 1 < today.getMonth()) { // Bloquea cuando llega al mes actual
+        $(this).addClass("disabled");
     }
 });
 
 calendarNext.click(function () {
+    let maxMonth = today.getMonth() + 2; // Solo permite avanzar 2 meses desde el actual
     let currentMonth = currentDate.getMonth();
-    let currentYear = currentDate.getFullYear();
-    let maxMonth = today.getMonth() + 2; // Máximo 2 meses desde el actual
-    let maxYear = today.getFullYear();
 
-    if (maxMonth > 11) {
-        maxMonth -= 12;
-        maxYear += 1;
-    }
-
-    if (currentMonth === 11) {
-        currentMonth = 0;
-        currentYear += 1;
-    } else {
-        currentMonth += 1;
-    }
-
-    if (currentYear < maxYear || (currentYear === maxYear && currentMonth <= maxMonth)) {
-        currentDate.setMonth(currentMonth);
-        currentDate.setFullYear(currentYear);
+    if (currentMonth < maxMonth - 1) { // No permite ir más allá de 2 meses desde el actual
+        currentDate.setMonth(currentMonth + 1);
         loadCalendar(1);
         calendarPrev.removeClass("disabled");
+    }
 
-        if (currentMonth === maxMonth && currentYear === maxYear) {
-            $(this).addClass("disabled");
-        }
+    if (currentMonth + 1 >= maxMonth - 1) { // Bloquea cuando llega al límite
+        $(this).addClass("disabled");
     }
 });
 
