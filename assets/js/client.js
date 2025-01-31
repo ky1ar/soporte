@@ -543,87 +543,37 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  let currentViewDate = new Date(today.getFullYear(), today.getMonth(), 1);
-
-  console.log(
-    "Mes actual:",
-    currentViewDate.getMonth() + 1,
-    "(" + obtenerNombreMes(currentViewDate.getMonth()) + ")"
-  );
-
+  //version prueba
   calendarPrev.click(function () {
-    let prevMonth = currentViewDate.getMonth() - 1;
-    let prevYear = currentViewDate.getFullYear();
-
-    if (prevMonth < 0) {
-      prevMonth = 11;
-      prevYear -= 1;
-    }
-
-    if (
-      prevYear > today.getFullYear() ||
-      (prevYear === today.getFullYear() && prevMonth >= today.getMonth())
-    ) {
-      currentViewDate.setMonth(prevMonth);
-      currentViewDate.setFullYear(prevYear);
+    let offsetMonth = currentDate.getMonth() - 1;
+    if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
-
-      if (prevMonth === today.getMonth() && prevYear === today.getFullYear()) {
-        calendarPrev.addClass("disabled");
-      }
+    } else if (offsetMonth == today.getMonth()) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      $(this).addClass("disabled");
+    } else if (offsetYear === today.getFullYear() + 1 && offsetMonth === 0) {
+      loadCalendar(-1);
+      calendarNext.removeClass("disabled");
+      calendarPrev.removeClass("disabled");
     }
   });
 
   calendarNext.click(function () {
-    let nextMonth = currentViewDate.getMonth() + 1;
-    let nextYear = currentViewDate.getFullYear();
-
-    if (nextMonth > 11) {
-      nextMonth = 0;
-      nextYear += 1;
-    }
-
-    let maxAllowedMonth = today.getMonth() + 2;
-    let maxAllowedYear = today.getFullYear();
-
-    if (maxAllowedMonth > 11) {
-      maxAllowedMonth -= 12;
-      maxAllowedYear += 1;
-    }
-
-    if (
-      nextYear < maxAllowedYear ||
-      (nextYear === maxAllowedYear && nextMonth <= maxAllowedMonth)
-    ) {
-      currentViewDate.setMonth(nextMonth);
-      currentViewDate.setFullYear(nextYear);
+    let offsetMonth = currentDate.getMonth() + 1;
+    let maxMonth = today.getMonth() + 1;
+    if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
-
-      if (nextMonth === maxAllowedMonth && nextYear === maxAllowedYear) {
-        calendarNext.addClass("disabled");
+      if (offsetYear === today.getFullYear() + 1 && offsetMonth === 1) {
+        $(this).addClass("disabled");
       }
     }
+    if (offsetMonth > today.getMonth() + 1) {
+      calendarPrev.removeClass("disabled");
+    }
   });
-
-  function obtenerNombreMes(mes) {
-    const meses = [
-      "Enero",
-      "Febrero",
-      "Marzo",
-      "Abril",
-      "Mayo",
-      "Junio",
-      "Julio",
-      "Agosto",
-      "Septiembre",
-      "Octubre",
-      "Noviembre",
-      "Diciembre",
-    ];
-    return meses[mes];
-  }
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
@@ -661,7 +611,7 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-
+    
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
