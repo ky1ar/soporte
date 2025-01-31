@@ -544,32 +544,30 @@ $(document).ready(function () {
   ];
 
   //version v1.1
-  let selectedDate = new Date(); // Fecha seleccionada (inicia en el mes actual)
-  let referenceDate = new Date(); // Fecha base (hoy)
+  // Establecer la fecha seleccionada al cargar
+let selectedDate = new Date(); // Fecha seleccionada (inicia en el mes actual)
+let referenceDate = new Date(); // Fecha base (hoy)
 
-  calendarPrev.click(function () {
+calendarPrev.click(function () {
     let selectedMonth = selectedDate.getMonth(); // Obtener el mes actual seleccionado
     selectedDate.setMonth(selectedMonth - 1); // Retrocede un mes
     loadCalendar(-1);
     calendarNext.removeClass("disabled");
 
     // Deshabilita el botón "prev" si estamos en el mes actual
-    if (
-      selectedDate.getMonth() === referenceDate.getMonth() &&
-      selectedDate.getFullYear() === referenceDate.getFullYear()
-    ) {
-      $(this).addClass("disabled");
+    if (selectedDate.getMonth() === referenceDate.getMonth() &&
+        selectedDate.getFullYear() === referenceDate.getFullYear()) {
+        $(this).addClass("disabled");
     }
-  });
+});
 
-  calendarNext.click(function () {
+calendarNext.click(function () {
     let selectedMonth = selectedDate.getMonth(); // Obtener el mes actual seleccionado
     selectedDate.setMonth(selectedMonth + 1); // Avanza un mes
     loadCalendar(1);
     calendarPrev.removeClass("disabled"); // Habilita retroceso
+});
 
-    // El botón "next" nunca se deshabilita, ya que es ilimitado
-  });
 
   const calendarNavigation = $("#calendarNavigation");
   const calendarBackDiv = $("#calendarBackDiv");
@@ -607,7 +605,7 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-
+    
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
