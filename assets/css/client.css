@@ -561,16 +561,15 @@ body {
   outline: 1px solid #bfbfbf;
 }
 #searchOrderBox form button {
-  width: 100%;
-  text-align: center;
-  padding: 0.75rem;
-  background-color: #ed6d22;
-  border-radius: 2rem;
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 700;
+  width: 9rem;
+  position: absolute;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  bottom: 1.25rem;
+  right: 2rem;
   font-family: "DM Sans", sans-serif;
 }
 #searchOrderBox form button:focus {
