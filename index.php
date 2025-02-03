@@ -12,11 +12,14 @@ require_once 'includes/common/header.php';
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-42H4RQXRQG"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'G-42H4RQXRQG');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-42H4RQXRQG');
     </script>
 </head>
 
@@ -37,19 +40,19 @@ require_once 'includes/common/header.php';
         </div>
         <div class="section-item">
             <p>Ahorra tiempo y agenda tu mismo la capacitación en el horario que tengas disponible.</p>
-           <a href="/capacitaciones"><button>CAPACITACIONES</button></a> 
+            <a href="/capacitaciones"><button>CAPACITACIONES</button></a>
         </div>
         <div class="section-item">
             <p>Encuentra todo el contenido para que te vuelvas un experto.</p>
-            <a href="/wiki"><button>WIKI</button></a> 
+            <a href="/wiki"><button>WIKI</button></a>
         </div>
         <div class="section-item">
             <p>Descarga de forma gratuita todos los diseños de nuestras redes</p>
-            <a href="/stl"><button>STLs</button></a> 
+            <a href="/stl"><button>STLs</button></a>
         </div>
         <div class="section-item">
             <p>Accede a los programas más avanzados para tus equipos</p>
-            <a href="/slicers"><button>SLICERS</button></a> 
+            <a href="/slicers"><button>SLICERS</button></a>
         </div>
     </section>
 
@@ -116,21 +119,21 @@ require_once 'includes/common/header.php';
     <section class="home-contact">
         <h1>CONTÁCTANOS</h1>
         <div class="container-cards">
-            <div class="card-info">
+            <a href="mailto:soporte@krear3d.com" class="card-info">
                 <h1>Email</h1>
                 <img src="assets/img/home-email.png" alt="">
                 <p>soporte@krear3d.com</p>
-            </div>
-            <div class="card-info">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=51970539751" class="card-info">
                 <h1>WhatsApp</h1>
                 <img src="assets/img/whatsapp.png" alt="">
                 <p>+51 970 539 751</p>
-            </div>
-            <div class="card-info">
+            </a>
+            <a href="https://maps.app.goo.gl/SVhW83RMynodKTYw6" class="card-info">
                 <h1>Encuéntranos</h1>
                 <img src="assets/img/home-ubi.png" alt="">
                 <p>Calle Tutumo 116, Surco</p>
-            </div>
+            </a>
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
