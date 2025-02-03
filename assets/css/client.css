@@ -582,6 +582,9 @@ body {
   background-color: var(--primary);
   color: var(--white);
 }
+#searchOrderBox form button:hover{
+  opacity: .8;
+}
 #searchOrderBox form button:focus {
   outline: 1px solid #bfbfbf;
 }
