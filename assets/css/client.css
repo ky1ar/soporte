@@ -368,12 +368,12 @@ body {
 }
 
 @media only screen and (max-width: 36rem) {
-  #frontSlider .car-prices .swiffy-slider > ul {
+  #frontSlider .car-prices .swiffy-slider .slider-container {
     padding: 0;
     margin: 0 !important;
     scroll-snap-type: x mandatory;
   }
-  #frontSlider .car-prices .swiffy-slider > ul li {
+  #frontSlider .car-prices .swiffy-slider .slider-container li {
     scroll-snap-align: start;
     flex: 0 0 100%;
   }
