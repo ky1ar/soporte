@@ -449,20 +449,6 @@ body {
   gap: 0.5rem;
   text-align: center;
 }
-@media (max-width: 1024px) {
-  #searchOrderBox .wrapper {
-    flex-direction: column;
-  }
-
-  #searchOrderBox .guide {
-    width: 100%;
-  }
-}
-@media (min-width: 1025px) {
-  #searchOrderBox .wrapper {
-    flex-direction: row-reverse;
-  }
-}
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
 }
