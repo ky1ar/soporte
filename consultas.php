@@ -16,7 +16,7 @@ require_once 'includes/common/header.php';
             <img class="imaSop" width="1920" height="630" src="assets/img/consulta-pc.webp">
         </div>
     </section>
-    <section id="pasos">
+    <section id="pasos-consulta">
         <div class="t">
             <p>¿Cómo registrar un equipo <span>en Soporte Técnico?</span></p>
             <p>Te presentamos el paso a paso para introducir tu equipo en nuestro servicio.</p>

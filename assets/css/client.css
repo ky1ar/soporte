@@ -415,6 +415,12 @@ body {
   }
 }
 /***********************************************************************************/
+#pasos-consulta {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 100rem;
+  padding: 0 1rem;
+}
 #searchOrderBox {
   background-color: var(--gray);
   background-image: url(whirlpool.png);
