@@ -285,7 +285,7 @@ body {
 #frontSlider .car-prices .swiffy-slider .slider-container {
   padding: 1rem;
 }
-#frontSlider .car-prices .swiffy-slider .slider-indicators{
+#frontSlider .car-prices .swiffy-slider .slider-indicators {
   display: none;
 }
 #frontSlider .car-prices .card {
@@ -383,7 +383,7 @@ body {
   #frontSlider .car-prices .slider-nav-dark .slider-nav {
     display: none;
   }
-  #frontSlider .car-prices .swiffy-slider .slider-indicators{
+  #frontSlider .car-prices .swiffy-slider .slider-indicators {
     display: flex;
   }
   #frontSlider .car-prices .card img {
@@ -405,6 +405,13 @@ body {
   #frontSlider .car-prices .card div p:nth-of-type(4) {
     line-height: 1;
     font-size: 0.6rem;
+  }
+  #frontSlider .car-prices .slider-indicators-round .slider-indicators > *,
+  #frontSlider .car-prices .slider-indicators-round.slider-indicators > *,
+  #frontSlider .car-prices .slider-indicators-square .slider-indicators > *,
+  #frontSlider .car-prices .slider-indicators-square.slider-indicators > * {
+    width: 0.5rem;
+    height: 0.5rem;
   }
 }
 /***********************************************************************************/
