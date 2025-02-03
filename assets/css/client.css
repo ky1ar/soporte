@@ -518,10 +518,11 @@ body {
   display: flex;
   gap: 0.5rem;
   text-align: center;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 108rem;
+  height: 17rem;
 }
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
