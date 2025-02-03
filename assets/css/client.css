@@ -552,17 +552,20 @@ body {
 }
 #searchOrderBox form input#orderNumber {
   position: absolute;
-  top: 1rem;
-  right: 7rem;
-  width: 6rem;
-  height: 1rem;
+  top: 0.6rem;
+  right: 6.2rem;
+  width: 7rem;
+  height: 1.75rem;
+  padding: 0.75rem;
+  border: 0.1rem solid var(--primary);
 }
 #searchOrderBox form input#document {
   position: absolute;
-  width: 11rem;
+  width: 13rem;
   top: 5.25rem;
-  left: 7rem;
-  height: 1rem;
+  left: 6.5rem;
+  height: 1.25rem;
+  border: 0.1rem solid var(--primary);
 }
 #searchOrderBox form button {
   width: 9rem;
