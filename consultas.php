@@ -61,8 +61,8 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section id="con-servicios">
-        <h1>Precios del Servicio <span>Técnico K3D</span></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ut tempore. Totam dignissimos facere dolor sunt quaerat.</p>
+        <h1 class="tit">Precios del Servicio <span>Técnico K3D</span></h1>
+        <p class="subt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ut tempore. Totam dignissimos facere dolor sunt quaerat.</p>
         <div class="servicios">
             <div class="ser">
                 <img src="./assets/img/con-s1.webp" alt="">

@@ -621,7 +621,7 @@ body {
   color: #ed5d1f;
   font-weight: 700;
 }
-#con-servicios{
+#con-servicios {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -629,19 +629,31 @@ body {
   padding: 2rem;
 }
 #con-servicios h1,
-#con-servicios p{
+#con-servicios p {
   margin: 0;
 }
-#con-servicios .servicios{
+#con-servicios .tit {
+  font-size: 2rem;
+  font-weight: 400;
+}
+#con-servicios .tit span{
+  color: var(--primary);
+  font-weight: 600;
+}
+#con-servicios .subt {
+  width: 30rem;
+  text-align: center;
+}
+#con-servicios .servicios {
   display: flex;
 }
-#con-servicios .servicios .ser{
+#con-servicios .servicios .ser {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#con-servicios .servicios .ser img{
+#con-servicios .servicios .ser img {
   width: 4rem;
 }
 /***********************************************************************************/
