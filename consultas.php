@@ -22,22 +22,22 @@ require_once 'includes/common/header.php';
             <p>Te presentamos el paso a paso para introducir tu equipo en nuestro servicio.</p>
         </div>
         <div class="pasos">
-            <div class="p">
+            <div class="pas">
                 <p>1</p>
                 <p>Contáctanos</p>
                 <p>Comunícate con nuestra área de soporte al +51 970 539 751 y describe el problema o inconveniente que presenta tu equipo.</p>
             </div>
-            <div class="p">
+            <div class="pas">
                 <p>2</p>
                 <p>Interna tu equipo</p>
                 <p>Ingresa el producto a nuestros locales autorizados previa coordinación.</p>
             </div>
-            <div class="p">
+            <div class="pas">
                 <p>3</p>
                 <p>Seguimiento</p>
                 <p>Ten a la mano el número de orden, tu DNI o RUC y podrás consultar el estado de tu equipo de forma rápida y sencilla.</p>
             </div>
-            <div class="p">
+            <div class="pas">
                 <p>4</p>
                 <p>¡Listo para entrega!</p>
                 <p>Nuestro equipo de soporte solucionará tu caso y podrás recogerlo en la fecha indicada.</p>
