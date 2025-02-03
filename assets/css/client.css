@@ -571,6 +571,8 @@ body {
   bottom: 1.25rem;
   right: 2rem;
   font-family: "DM Sans", sans-serif;
+  border: none;
+  background-color: var(--primary);
 }
 #searchOrderBox form button:focus {
   outline: 1px solid #bfbfbf;

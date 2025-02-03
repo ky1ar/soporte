@@ -56,7 +56,7 @@ require_once 'includes/common/header.php';
                 <input id="orderNumber" type="text" placeholder="Número de Orden">
                 <input id="document" type="text" placeholder="Documento ( DNI/RUC )">
                 <div id="searchOrderMessage"></div>
-                <button type="submit">Consultar Estado</button>
+                <button type="submit">Consultar</button>
             </form>
         </div>
     </section>
