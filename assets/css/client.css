@@ -441,11 +441,12 @@ body {
 }
 #pasos-consulta .t p:nth-of-type(2) {
   margin-top: 0.5rem;
+  line-height: 1.1;
 }
 #pasos-consulta .pasos {
   display: flex;
-  max-width: 55rem;
-  gap: 1rem;
+  max-width: 60rem;
+  gap: 2rem;
 }
 #pasos-consulta .pasos .pas {
   align-items: center;
