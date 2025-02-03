@@ -45,7 +45,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-3.png" alt="">
                             <div>
-                                <p>Capacitación de<br> Cortadoras Láser</p>
+                                <p>Capacitación de<br> Cortadora Láser</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -56,7 +56,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
-                                <p>Capacitación de<br> Routers CNC</p>
+                                <p>Capacitación de<br> Router CNC</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -67,7 +67,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
-                                <p>Capacitación de<br> Escáneres 3D</p>
+                                <p>Capacitación de<br> Escáner 3D</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -78,7 +78,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
-                                <p>Capacitación de<br> Drones</p>
+                                <p>Capacitación de<br> Dron</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
