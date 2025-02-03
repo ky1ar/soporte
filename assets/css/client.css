@@ -453,7 +453,7 @@ body {
   text-align: center;
 }
 #pasos-consulta .pasos .pas p:nth-of-type(1) {
-  background-color: (--primary);
+  background-color: var(--primary);
   color: var(--white);
   border-radius: 2rem;
   width: 3rem;
