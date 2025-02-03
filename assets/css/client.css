@@ -523,6 +523,7 @@ body {
   background-repeat: no-repeat;
   width: 120rem;
   height: 17rem;
+  position: relative;
 }
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
@@ -541,14 +542,20 @@ body {
   margin-bottom: 1.5rem;
 }
 #searchOrderBox form input {
-  border: 1px solid var(--graydark);
+  border: none;
   padding: 0.5rem;
   border-radius: 0.25rem;
   outline: none;
-  width: 100%;
   font-size: 0.9rem;
   text-align: center;
   font-family: "DM Sans", sans-serif;
+}
+#searchOrderBox form input#orderNumber {
+  position: absolute;
+  top: 1rem;
+  right: 7rem;
+  width: 6rem;
+  height: 1rem;
 }
 #searchOrderBox form input:focus {
   outline: 1px solid #bfbfbf;
