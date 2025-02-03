@@ -495,13 +495,14 @@ body {
 #searchOrderBox * {
   z-index: 2;
 }
-#searchOrderBox .o{
+#searchOrderBox .o {
   color: var(--white);
   max-width: 75rem;
   display: flex;
   justify-content: end;
   margin: 1rem auto;
   padding-right: 6rem;
+  position: relative;
 }
 #searchOrderBox .guide img {
   width: 100%;
@@ -528,7 +529,8 @@ body {
 }
 #searchOrderBox .wrapper .cons .d {
   position: absolute;
-  top: 4rem;
+  bottom: 14rem;
+  right: 0;
 }
 #searchOrderBox .wrapper .cons p:nth-of-type(2) {
   font-size: 1.2rem;
