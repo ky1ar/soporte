@@ -480,7 +480,7 @@ body {
   color: var(--white);
   position: relative;
   background-position: 0 45%;
-  padding: 3rem 0;
+  padding: 6rem 0;
 }
 #searchOrderBox::before {
   content: "";
@@ -510,6 +510,17 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+#searchOrderBox .wrapper .d {
+  margin: 0;
+  position: absolute;
+  top: 4rem;
+  right: 19rem;
+}
+#searchOrderBox .wrapper .o {
+  position: absolute;
+  left: 24rem;
+  top: 8rem;
 }
 #searchOrderBox form {
   padding: 4rem;
