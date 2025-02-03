@@ -523,7 +523,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   text-align: center;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
