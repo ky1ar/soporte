@@ -646,7 +646,7 @@ body {
 }
 #con-servicios .servicios {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   margin-top: 2rem;
 }
 #con-servicios .servicios .ser {
