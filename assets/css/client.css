@@ -483,7 +483,7 @@ body {
   background-position: 0 45%;
   padding: 1rem 0;
 }
-#searchOrderBox::before{
+#searchOrderBox::before {
   content: "";
   position: absolute;
   top: 0;
@@ -493,7 +493,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-#searchOrderBox *{
+#searchOrderBox * {
   z-index: 2;
 }
 #searchOrderBox .guide img {
@@ -524,6 +524,8 @@ body {
   gap: 0.5rem;
   text-align: center;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
