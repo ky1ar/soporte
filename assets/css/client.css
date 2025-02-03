@@ -420,6 +420,23 @@ body {
   margin: 0 auto;
   max-width: 100rem;
   padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+#pasos-consulta p {
+  margin: 0;
+}
+#pasos-consulta .t {
+  width: 17rem;
+}
+#pasos-consulta .t p:nth-of-type(1) {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#pasos-consulta .t p:nth-of-type(2) {
+  margin-top: 0.5rem;
 }
 #searchOrderBox {
   background-color: var(--gray);
