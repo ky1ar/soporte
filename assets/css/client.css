@@ -523,6 +523,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   text-align: center;
+  background-size: cover;
 }
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
