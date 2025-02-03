@@ -464,6 +464,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+  font-weight: bold;
 }
 #pasos-consulta .pasos .pas p:nth-of-type(2) {
   font-weight: 600;
