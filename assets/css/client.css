@@ -514,10 +514,8 @@ body {
 }
 #searchOrderBox form {
   padding: 4rem;
-  max-width: 36rem;
   align-items: center;
   border-radius: 0.75rem;
-  box-shadow: 0 0 0.25rem var(--graydark);
   background-image: url(../img/guia-fondo.png);
   display: flex;
   flex-direction: column;
@@ -526,6 +524,7 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  width: 100%;
 }
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
