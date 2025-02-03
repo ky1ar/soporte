@@ -621,6 +621,13 @@ body {
   color: #ed5d1f;
   font-weight: 700;
 }
+#con-servicios{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
 /***********************************************************************************/
 #trainingSection {
   background-color: var(--gray);
