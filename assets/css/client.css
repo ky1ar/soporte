@@ -543,8 +543,6 @@ body {
 }
 #searchOrderBox form input {
   border: none;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
   outline: none;
   font-size: 0.9rem;
   text-align: center;
