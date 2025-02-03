@@ -45,15 +45,14 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section id="searchOrderBox">
+        <p class="o">Introduce tu núnero de orden aquí</p>
         <div class="wrapper">
             <div class="cons">
                 <p class="d">Introduce tu número de documento aquí (DNI / RUC)</p>
-
                 <p>Consultar <br><span>Orden de Servicio</span></p>
                 <p>Introduce el número de orden y el documento tal cual se muestra en la orden de ingreso proporcionada.</p>
             </div>
             <form id="searchOrder">
-                <p class="o">Introduce tu núnero de orden aquí</p>
                 <input id="orderNumber" type="text" placeholder="Orden">
                 <input id="document" type="text" placeholder="Documento">
                 <div id="searchOrderMessage"></div>
