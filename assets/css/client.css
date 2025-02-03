@@ -518,7 +518,7 @@ body {
   align-items: center;
   border-radius: 0.75rem;
   box-shadow: 0 0 0.25rem var(--graydark);
-  background-color: var(--white);
+  background-image: url(../img/guia-fondo.png);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
