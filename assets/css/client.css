@@ -641,6 +641,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+#con-servicios .servicios .ser img{
+  width: 4rem;
+}
 /***********************************************************************************/
 #trainingSection {
   background-color: var(--gray);
