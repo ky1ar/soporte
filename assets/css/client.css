@@ -557,8 +557,12 @@ body {
   width: 6rem;
   height: 1rem;
 }
-#searchOrderBox form input:focus {
-  outline: 1px solid #bfbfbf;
+#searchOrderBox form input#document {
+  position: absolute;
+  width: 11rem;
+  top: 5.25rem;
+  left: 7rem;
+  height: 1rem;
 }
 #searchOrderBox form button {
   width: 9rem;
@@ -573,6 +577,7 @@ body {
   font-family: "DM Sans", sans-serif;
   border: none;
   background-color: var(--primary);
+  color: var(--white);
 }
 #searchOrderBox form button:focus {
   outline: 1px solid #bfbfbf;
