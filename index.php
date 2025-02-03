@@ -7,6 +7,7 @@ require_once 'includes/common/header.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/home.css">
     <!-- Google tag (gtag.js) -->
@@ -116,21 +117,21 @@ require_once 'includes/common/header.php';
     <section class="home-contact">
         <h1>CONTÁCTANOS</h1>
         <div class="container-cards">
-            <div class="card-info">
+           <a href="mailto:soporte@krear3d.com" class="card-info">
                 <h1>Email</h1>
                 <img src="assets/img/home-email.png" alt="">
                 <p>soporte@krear3d.com</p>
-            </div>
-            <div class="card-info">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=51970539751" class="card-info">
                 <h1>WhatsApp</h1>
                 <img src="assets/img/whatsapp.png" alt="">
                 <p>+51 970 539 751</p>
-            </div>
-            <div class="card-info">
+            </a>
+            <a href="https://maps.app.goo.gl/SVhW83RMynodKTYw6" class="card-info">
                 <h1>Encuéntranos</h1>
                 <img src="assets/img/home-ubi.png" alt="">
                 <p>Calle Tutumo 116, Surco</p>
-            </div>
+            </a>
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
