@@ -424,6 +424,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 #pasos-consulta p {
   margin: 0;
@@ -462,6 +463,13 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+}
+#pasos-consulta .pasos .pas p:nth-of-type(2) {
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+#pasos-consulta .pasos .pas p:nth-of-type(3) {
+  line-height: 1.1;
 }
 #searchOrderBox {
   background-color: var(--gray);
