@@ -64,42 +64,42 @@ require_once 'includes/common/header.php';
         <h1>Precios del Servicio <span>Técnico K3D</span></h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ut tempore. Totam dignissimos facere dolor sunt quaerat.</p>
         <div class="servicios">
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s1.webp" alt="">
                 <p>Cambio de Pantalla LED</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s2.webp" alt="">
                 <p>Cambio de FEP</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s3.webp" alt="">
                 <p>Cambio de Boquilla</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s4.webp" alt="">
                 <p>Mantenimiento Preventivo</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s5.webp" alt="">
                 <p>Servicio de Armado</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s6.webp" alt="">
                 <p>Cambio de Placa Electronica Principal</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s7.webp" alt="">
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>
             </div>
-            <div>
+            <div class="ser">
                 <img src="./assets/img/con-s8.webp" alt="">
                 <p>Actualización de Firmware</p>
                 <<p>Desde S/100.00*</p>
