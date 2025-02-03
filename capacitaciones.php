@@ -17,7 +17,7 @@ require_once 'includes/common/header.php';
             <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
         <div class="car-prices">
-            <div class="swiffy-slider slider-item-show3 slider-indicators-dark slider-indicators-outside slider-indicators-highlight slider-indicators-sm">
+            <div class="swiffy-slider slider-item-show3 slider-indicators-round slider-indicators-dark slider-indicators-outside slider-indicators-sm">
                 <ul class="slider-container">
                     <li class="slide-visible">
                         <div class="card">
