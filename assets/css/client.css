@@ -282,8 +282,11 @@ body {
 #frontSlider .car-prices .swiffy-slider {
   --swiffy-slider-item-gap: 2rem;
 }
-#frontSlider .car-prices .swiffy-slider ul {
+#frontSlider .car-prices .swiffy-slider .slider-container {
   padding: 1rem;
+}
+#frontSlider .car-prices .swiffy-slider .slider-indicators{
+  display: none;
 }
 #frontSlider .car-prices .card {
   display: flex;
@@ -379,6 +382,9 @@ body {
   }
   #frontSlider .car-prices .slider-nav-dark .slider-nav {
     display: none;
+  }
+  #frontSlider .car-prices .swiffy-slider .slider-indicators{
+    display: flex;
   }
   #frontSlider .car-prices .card img {
     height: 8rem;
