@@ -478,10 +478,9 @@ body {
   background-image: url(https://www.tiendakrear3d.com/wp-content/uploads/2024/11/PRIME-FON1.webp);
   background-size: cover;
   color: var(--white);
-  padding: 4rem 2rem;
   position: relative;
   background-position: 0 45%;
-  padding: 1rem 0;
+  padding: 3rem 0;
 }
 #searchOrderBox::before {
   content: "";
