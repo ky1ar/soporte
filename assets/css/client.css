@@ -532,8 +532,8 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 120rem;
-  height: 17rem;
+  width: 100%;
+  height: 18rem;
   position: relative;
 }
 #searchOrderBox form img {
