@@ -18,7 +18,7 @@ require_once 'includes/common/header.php';
         </div>
         <div class="car-prices">
             <div class="swiffy-slider slider-item-show3 slider-nav-autoplay slider-nav-dark slider-nav-outside slider-nav-visible slider-indicators-round slider-indicators-dark slider-indicators-outside slider-indicators-sm">
-                <ul class="slider-container">
+                <ul class="slider-container" data-slider-nav-autoplay-interval="4000">
                     <li class="slide-visible">
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
