@@ -48,6 +48,10 @@ require_once 'includes/common/header.php';
         <div class="wrapper">
             <p class="d">Introduce tu número de documento aquí (DNI / RUC)</p>
             <p class="o">Introduce tu núnero de orden aquí</p>
+            <div>
+                <p>Consultar <br><span>Orden de Servicio</span></p>
+                <p>Introduce el número de orden y el documento tal cual se muestra en la orden de ingreso proporcionada.</p>
+            </div>
             <form id="searchOrder">
                 <input id="orderNumber" type="text" placeholder="Número de Orden">
                 <input id="document" type="text" placeholder="Documento ( DNI/RUC )">
