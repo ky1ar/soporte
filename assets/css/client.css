@@ -681,6 +681,7 @@ body {
   }
   #pasos-consulta .pasos .pas{
     max-width: 14rem;
+    min-width: auto;
   }
 }
 
