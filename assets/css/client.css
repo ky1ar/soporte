@@ -2610,6 +2610,6 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #sup-servicios table thead tr th,
 #sup-servicios table tbody tr td {
-  border: 0.1rem solid white;
+  border: 0.15rem solid white;
   padding: 1rem;
 }
