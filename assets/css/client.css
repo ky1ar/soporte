@@ -770,7 +770,7 @@ body {
   #con-servicios .servicios .ser:nth-of-type(4) img,
   #con-servicios .servicios .ser:nth-of-type(5) img,
   #con-servicios .servicios .ser:nth-of-type(6) img {
-    height: 3rem;
+    height: 4rem;
   }
 }
 /***********************************************************************************/
