@@ -756,6 +756,10 @@ body {
   }
   #con-servicios .servicios{
     justify-content: space-between;
+    gap: 1rem;
+  }
+  #con-servicios .servicios .ser {
+    width: 9rem;
   }
 }
 /***********************************************************************************/
