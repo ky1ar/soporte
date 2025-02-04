@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
             <img class="imaSop" width="1920" height="630" src="assets/img/consulta-pc.webp">
         </div>
     </section>
-    
+
     <div id="sup-servicios">
         <?php if (isset($services) && count($services) > 0): ?>
             <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
                 if (isset($services) && count($services) > 0) {
                     foreach ($services as $service) {
                         echo "<tr>
-                        <td>{$service['descripcion']}</td>
+                        <td rowspan='4'>{$service['descripcion']}</td>
                         <td>{$service['tamaño']}</td>
                         <td>{$service['precio']}</td>
                         <td>{$service['criterios']}</td>
