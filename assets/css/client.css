@@ -2581,4 +2581,8 @@ section.i3d .cont-cards .card div:last-child a {
 #sup-servicios{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 100rem;
+  padding: 0 1rem;
 }
