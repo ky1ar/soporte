@@ -59,45 +59,32 @@ if (isset($_GET['id'])) {
                 </tr>
             </thead>
             <tbody>
-    <?php
-    if (isset($services) && count($services) > 0) {
-        $totalServices = count($services);
-        $first = true; 
-        foreach ($services as $service) {
-            echo "<tr>";
-
-            // Verifica si 'descripcion' no está vacío o NULL antes de mostrar
-            if (!empty($service['descripcion'])) {
-                if ($first) {
-                    echo "<td rowspan='$totalServices'>{$service['descripcion']}</td>";
-                    $first = false;
-                } else {
-                    echo "<td>{$service['descripcion']}</td>";
+                <?php
+                if (isset($services) && count($services) > 0) {
+                    $totalServices = count($services);
+                    $first = true; 
+                    foreach ($services as $service) {
+                        if ($first) {
+                            echo "<tr>
+                            <td rowspan='$totalServices'>{$service['descripcion']}</td>
+                            <td>{$service['tamaño']}</td>
+                            <td>{$service['precio']}</td>
+                            <td>{$service['criterios']}</td>
+                        </tr>";
+                            $first = false;
+                        } else {
+                            echo "<tr>
+                            <td>{$service['tamaño']}</td>
+                            <td>{$service['precio']}</td>
+                            <td>{$service['criterios']}</td>
+                        </tr>";
+                        }
+                    }
+                } elseif (isset($errorMessage)) {
+                    echo "<tr><td colspan='4'>$errorMessage</td></tr>";
                 }
-            }
-
-            // Verifica si 'tamaño' no está vacío o NULL antes de mostrar
-            if (!empty($service['tamaño'])) {
-                echo "<td>{$service['tamaño']}</td>";
-            }
-
-            // Verifica si 'precio' no está vacío o NULL antes de mostrar
-            if (!empty($service['precio'])) {
-                echo "<td>{$service['precio']}</td>";
-            }
-
-            // Verifica si 'criterios' no está vacío o NULL antes de mostrar
-            if (!empty($service['criterios'])) {
-                echo "<td>{$service['criterios']}</td>";
-            }
-
-            echo "</tr>";
-        }
-    } elseif (isset($errorMessage)) {
-        echo "<tr><td colspan='4'>$errorMessage</td></tr>";
-    }
-    ?>
-</tbody>
+                ?>
+            </tbody>
         </table>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
