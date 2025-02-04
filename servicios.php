@@ -24,7 +24,6 @@ require_once 'includes/common/header.php';
                 <td>Precio</td>
             </tr>
             <tr>
-                <td>Reemplazo de pantalla (precio según modelo)</td>
                 <td>Tamaño</td>
                 <td>Precio</td>
             </tr>
