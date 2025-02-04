@@ -700,9 +700,6 @@ body {
 }
 
 @media only screen and (max-width: 75rem) {
-  #searchOrderBox .o{
-    
-  }
   #searchOrderBox .wrapper{
     flex-direction: column;
   }
@@ -712,7 +709,9 @@ body {
   }
   #searchOrderBox .wrapper .cons p:nth-of-type(2) br{
     display: none;
-    
+  }
+  #searchOrderBox form{
+    background-image: url(../img/guia-fondo-movil.png.png);
   }
 }
 
