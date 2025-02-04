@@ -64,42 +64,42 @@ require_once 'includes/common/header.php';
         <h1 class="tit">Precios del Servicio <span>Técnico K3D</span></h1>
         <p class="subt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ut tempore. Totam dignissimos facere dolor sunt quaerat.</p>
         <div class="servicios">
-            <a class="ser" data-id="1">
+            <a class="ser" href="servicios.php?id=1">
                 <img src="./assets/img/con-s1.webp" alt="">
                 <p>Cambio de Pantalla LED</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="2">
+            <a class="ser" href="servicios.php?id=2">
                 <img src="./assets/img/con-s2.webp" alt="">
                 <p>Cambio de FEP</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="3">
+            <a class="ser" href="servicios.php?id=3">
                 <img src="./assets/img/con-s3.webp" alt="">
                 <p>Cambio de Boquilla</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="4">
+            <a class="ser" href="servicios.php?id=4">
                 <img src="./assets/img/con-s4.webp" alt="">
                 <p>Mantenimiento Preventivo</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="5">
+            <a class="ser" href="servicios.php?id=5">
                 <img src="./assets/img/con-s5.webp" alt="">
                 <p>Servicio de Armado</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="6">
+            <a class="ser" href="servicios.php?id=6">
                 <img src="./assets/img/con-s6.webp" alt="">
                 <p>Cambio de Placa Electronica Principal</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="7">
+            <a class="ser" href="servicios.php?id=7">
                 <img src="./assets/img/con-s7.webp" alt="">
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" data-id="8">
+            <a class="ser" href="servicios.php?id=8">
                 <img src="./assets/img/con-s8.webp" alt="">
                 <p>Actualización de Firmware</p>
                 <p>Desde S/100.00*</p>

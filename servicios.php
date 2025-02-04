@@ -2,7 +2,42 @@
 $currentPage = "Servicios";
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
+require_once 'includes/app/db.php'; // Conectar a la base de datos
+
+if (isset($_GET['id'])) {
+    $serviceId = $_GET['id']; // Obtener el ID del servicio desde la URL
+
+    // Realizar la consulta con el ID recibido
+    $sql = "
+    SELECT 
+        s.id AS servicio_id,
+        srv.nombre AS nombre_servicio,
+        s.intro,
+        s.descripcion,
+        s.tamaño,
+        s.precio,
+        s.criterios
+    FROM Servicios s
+    INNER JOIN Servicio srv ON s.id_servicio = srv.id
+    WHERE s.id_servicio = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $serviceId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $service = $result->fetch_assoc();
+    } else {
+        $errorMessage = "No se encontró el servicio.";
+    }
+
+    // Cerrar la consulta y la conexión
+    $stmt->close();
+    $conn = null;
+}
 ?>
+
 </head>
 
 <body>
@@ -24,7 +59,21 @@ require_once 'includes/common/header.php';
                 </tr>
             </thead>
             <tbody>
-                <!-- Las filas serán agregadas aquí por JavaScript -->
+                <?php
+                if (isset($service)) {
+                    echo "<tr>
+                        <td>{$service['servicio_id']}</td>
+                        <td>{$service['nombre_servicio']}</td>
+                        <td>{$service['intro']}</td>
+                        <td>{$service['descripcion']}</td>
+                        <td>{$service['tamaño']}</td>
+                        <td>{$service['precio']}</td>
+                        <td>{$service['criterios']}</td>
+                    </tr>";
+                } elseif (isset($errorMessage)) {
+                    echo "<tr><td colspan='7'>$errorMessage</td></tr>";
+                }
+                ?>
             </tbody>
         </table>
     </div>
