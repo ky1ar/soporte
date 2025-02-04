@@ -683,17 +683,19 @@ body {
     max-width: 14rem;
     min-width: auto;
   }
-  #searchOrderBox form input#orderNumber {
-    top: 0.6rem;
+  #searchOrderBox form {
+    height: 20rem;
   }
-  #searchOrderBox form input#document{
-    
+  #searchOrderBox form input#orderNumber {
+    top: 1.2rem;
+  }
+  #searchOrderBox form input#document {
+    top: 6.5rem;
+    left: 8rem;
   }
 }
 
 @media only screen and (max-width: 75rem) {
-  /* 1200px */
-  /* Estilos para pantallas de hasta 1200px */
 }
 
 @media only screen and (max-width: 62rem) {
