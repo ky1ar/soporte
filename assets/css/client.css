@@ -2597,6 +2597,7 @@ section.i3d .cont-cards .card div:last-child a {
   border: 0.1rem solid var(--primary);
   margin: 2rem auto;
   border-radius: 1rem;
+  border-collapse: collapse;
 }
 #sup-servicios table thead{
   background-color: var(--primary);
