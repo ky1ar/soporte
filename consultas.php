@@ -64,7 +64,7 @@ require_once 'includes/common/header.php';
         <h1 class="tit">Precios del Servicio <span>Técnico K3D</span></h1>
         <p class="subt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ut tempore. Totam dignissimos facere dolor sunt quaerat.</p>
         <div class="servicios">
-            <a class="ser" href="servicios.php?id=1">
+            <a class="ser" href="servicios?id=1">
                 <img src="./assets/img/con-s1.webp" alt="">
                 <p>Cambio de Pantalla LED</p>
                 <p>Desde S/100.00*</p>
