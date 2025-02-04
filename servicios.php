@@ -26,10 +26,12 @@ if (isset($_GET['id'])) {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    // Verificar si hay resultados
     if ($result->num_rows > 0) {
-        $service = $result->fetch_assoc();
+        // Obtener todas las filas en un array
+        $services = $result->fetch_all(MYSQLI_ASSOC);
     } else {
-        $errorMessage = "No se encontró el servicio.";
+        $errorMessage = "No se encontraron servicios.";
     }
 
     // Cerrar la consulta y la conexión
