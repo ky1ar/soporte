@@ -487,10 +487,7 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-
-  // Imprimir la fecha actual para depuración
-  console.log("Fecha actual: " + new Date().toLocaleString());
-
+  
   //version v1.1
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
