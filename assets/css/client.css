@@ -700,6 +700,20 @@ body {
 }
 
 @media only screen and (max-width: 75rem) {
+  #searchOrderBox .o{
+    
+  }
+  #searchOrderBox .wrapper{
+    flex-direction: column;
+  }
+  #searchOrderBox .wrapper .cons p:nth-of-type(2){
+    text-align: center;
+
+  }
+  #searchOrderBox .wrapper .cons p:nth-of-type(2) br{
+    display: none;
+    
+  }
 }
 
 @media only screen and (max-width: 62rem) {
