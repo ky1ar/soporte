@@ -757,7 +757,7 @@ body {
     padding: 0 2rem;
   }
   #con-servicios .servicios {
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 1rem;
   }
   #con-servicios .servicios .ser {
