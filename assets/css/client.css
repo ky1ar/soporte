@@ -747,8 +747,13 @@ body {
 }
 
 @media only screen and (max-width: 36rem) {
-  /* 576px */
-  /* Estilos para pantallas de hasta 576px */
+  #con-servicios .tit{
+    font-size: 1.2rem;
+  }
+  #con-servicios .subt{
+    width: auto;
+    padding: 0 2rem;
+  }
 }
 /***********************************************************************************/
 #trainingSection {
