@@ -24,8 +24,16 @@ require_once 'includes/common/header.php';
                 <td>Precio</td>
             </tr>
             <tr>
-                <td>Tamaño</td>
-                <td>Precio</td>
+                <td>Pequeño</td>
+                <td>S/. 80.00</td>
+            </tr>
+            <tr>
+                <td>Mediano</td>
+                <td>S/. 100.00</td>
+            </tr>
+            <tr>
+                <td>Grande</td>
+                <td>S/. 200.00</td>
             </tr>
         </table>
     </div>
