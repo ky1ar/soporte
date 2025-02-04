@@ -54,9 +54,6 @@ if (isset($_GET['id'])) {
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre del Servicio</th>
-                    <th>Introducción</th>
                     <th>Descripción</th>
                     <th>Tamaño</th>
                     <th>Precio</th>
