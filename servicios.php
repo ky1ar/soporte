@@ -19,7 +19,7 @@ require_once 'includes/common/header.php';
                 <th colspan="2">Costos</th>
             </tr>
             <tr>
-                <td rowspan="3">Reemplazo de pantalla (precio según modelo)</td>
+                <td rowspan="4">Reemplazo de pantalla (precio según modelo)</td>
                 <td>Tamaño</td>
                 <td>Precio</td>
             </tr>
