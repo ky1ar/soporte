@@ -675,29 +675,38 @@ body {
   height: 4rem;
 }
 
-@media only screen and (max-width: 100rem) { 
-  #pasos-consulta .pasos{
+@media only screen and (max-width: 100rem) {
+  #pasos-consulta .pasos {
     width: auto;
   }
-  #pasos-consulta .pasos .pas{
+  #pasos-consulta .pasos .pas {
     max-width: 14rem;
     min-width: auto;
   }
 }
 
-@media only screen and (max-width: 75rem) { /* 1200px */
+@media only screen and (max-width: 75rem) {
+  /* 1200px */
   /* Estilos para pantallas de hasta 1200px */
 }
 
-@media only screen and (max-width: 62rem) { /* 992px */
-  /* Estilos para pantallas de hasta 992px */
+@media only screen and (max-width: 62rem) {
+  #pasos-consulta {
+    flex-direction: column;
+  }
+  #pasos-consulta .t {
+    width: auto;
+    text-align: center;
+  }
 }
 
-@media only screen and (max-width: 48rem) { /* 768px */
+@media only screen and (max-width: 48rem) {
+  /* 768px */
   /* Estilos para pantallas de hasta 768px */
 }
 
-@media only screen and (max-width: 36rem) { /* 576px */
+@media only screen and (max-width: 36rem) {
+  /* 576px */
   /* Estilos para pantallas de hasta 576px */
 }
 /***********************************************************************************/
