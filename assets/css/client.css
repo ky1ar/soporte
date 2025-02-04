@@ -701,8 +701,9 @@ body {
 }
 
 @media only screen and (max-width: 48rem) {
-  /* 768px */
-  /* Estilos para pantallas de hasta 768px */
+  #pasos-consulta .pasos{
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 36rem) {
