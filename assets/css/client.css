@@ -2605,8 +2605,11 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: var(--primary);
   color: var(--white);
 }
+#sup-servicios table tbody {
+  background-color: #ffedde;
+}
 #sup-servicios table thead tr th,
-#sup-servicios table tbody tr td{
-  border-right: 0.1rem solid white;
+#sup-servicios table tbody tr td {
+  border: 0.1rem solid white;
   padding: 1rem;
 }
