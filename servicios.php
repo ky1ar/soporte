@@ -61,13 +61,25 @@ if (isset($_GET['id'])) {
             <tbody>
                 <?php
                 if (isset($services) && count($services) > 0) {
+                    // Obtener el número total de filas para el rowspan
+                    $totalServices = count($services);
+                    $first = true; // Flag para la primera fila
                     foreach ($services as $service) {
-                        echo "<tr>
-                        <td>{$service['descripcion']}</td>
-                        <td>{$service['tamaño']}</td>
-                        <td>{$service['precio']}</td>
-                        <td>{$service['criterios']}</td>
-                    </tr>";
+                        if ($first) {
+                            echo "<tr>
+                            <td rowspan='$totalServices'>{$service['descripcion']}</td>
+                            <td>{$service['tamaño']}</td>
+                            <td>{$service['precio']}</td>
+                            <td>{$service['criterios']}</td>
+                        </tr>";
+                            $first = false; // Después de la primera fila, no usar rowspan
+                        } else {
+                            echo "<tr>
+                            <td>{$service['tamaño']}</td>
+                            <td>{$service['precio']}</td>
+                            <td>{$service['criterios']}</td>
+                        </tr>";
+                        }
                     }
                 } elseif (isset($errorMessage)) {
                     echo "<tr><td colspan='4'>$errorMessage</td></tr>";
