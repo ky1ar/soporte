@@ -2577,3 +2577,8 @@ section.i3d .cont-cards .card div:last-child a {
   width: 32rem;
   z-index: 2;
 }
+/*********************************** Servicios **********************************/
+#sup-servicios{
+  display: flex;
+  flex-direction: column;
+}

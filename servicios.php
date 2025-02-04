@@ -38,6 +38,12 @@ if (isset($_GET['id'])) {
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
+    <section id="frontSlider">
+        <div class="wrapper">
+            <img class="imaSop" width="1920" height="630" src="assets/img/consulta-pc.webp">
+        </div>
+    </section>
+    
     <div id="sup-servicios">
         <?php if (isset($services) && count($services) > 0): ?>
             <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
