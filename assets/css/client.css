@@ -694,6 +694,9 @@ body {
     top: 6.5rem;
     left: 8rem;
   }
+  #searchOrderBox .wrapper .cons .d{
+    bottom: 15rem;
+  }
 }
 
 @media only screen and (max-width: 75rem) {
