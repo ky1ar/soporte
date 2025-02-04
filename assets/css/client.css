@@ -688,6 +688,7 @@ body {
   }
   #searchOrderBox form input#orderNumber {
     top: 1.3rem;
+    right: 7rem;
   }
   #searchOrderBox form input#document {
     top: 6.5rem;
