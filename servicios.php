@@ -17,12 +17,16 @@ require_once 'includes/common/header.php';
             <tr>
                 <th>Descripción</th>
                 <th colspan="2">Costos</th>
-                <th></th>
             </tr>
             <tr>
-                <td>hola</td>
-                <td>asdsa</td>
-                <td>qwewqe</td>
+                <td rowspan="3">Reemplazo de pantalla (precio según modelo)</td>
+                <td>Tamaño</td>
+                <td>Precio</td>
+            </tr>
+            <tr>
+                <td>Reemplazo de pantalla (precio según modelo)</td>
+                <td>Tamaño</td>
+                <td>Precio</td>
             </tr>
         </table>
     </div>
