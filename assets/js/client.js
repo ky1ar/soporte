@@ -487,7 +487,7 @@ $(document).ready(function () {
     "noviembre",
     "diciembre",
   ];
-  
+
   //version v1.1
   calendarPrev.click(function () {
     let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
@@ -619,6 +619,7 @@ $(document).ready(function () {
   $(document).on("click", "#con-servicios .servicios .ser", function (e) {
     e.preventDefault();
     let serviceId = $(this).attr("data-id");
+    window.location.href = "/servicios?id_servicio=" + serviceId;
     $.ajax({
       url: "routes/getServicios",
       method: "POST",
