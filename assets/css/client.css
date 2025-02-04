@@ -674,7 +674,8 @@ body {
 #con-servicios .servicios .ser:nth-of-type(4) img,
 #con-servicios .servicios .ser:nth-of-type(5) img,
 #con-servicios .servicios .ser:nth-of-type(6) img {
-  height: 4rem;
+  height: 5rem;
+  padding: 0.5rem;
 }
 
 @media only screen and (max-width: 100rem) {
