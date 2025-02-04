@@ -519,7 +519,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 #searchOrderBox .wrapper .cons {
   margin-top: auto;
@@ -541,6 +541,9 @@ body {
 }
 #searchOrderBox .wrapper .cons p:nth-of-type(2) span {
   color: var(--primary);
+}
+#searchOrderBox .wrapper .cons p:nth-of-type(3) {
+  padding-right: 2rem;
 }
 #searchOrderBox form {
   padding: 4rem;
@@ -582,7 +585,7 @@ body {
 #searchOrderBox form input#orderNumber {
   position: absolute;
   top: 0.95rem;
-  right: 6.25rem;
+  right: 6.5rem;
   width: 8rem;
   height: 1.8rem;
   padding: 0.75rem;
