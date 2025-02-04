@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
                 if (isset($services) && count($services) > 0) {
                     foreach ($services as $service) {
                         echo "<tr>
-                        <td rowspan='4'>{$service['descripcion']}</td>
+                        <td>{$service['descripcion']}</td>
                         <td>{$service['tamaño']}</td>
                         <td>{$service['precio']}</td>
                         <td>{$service['criterios']}</td>
