@@ -657,6 +657,7 @@ body {
   justify-content: center;
   max-width: 11rem;
   text-align: center;
+  text-decoration: none;
 }
 #con-servicios .servicios .ser p:nth-of-type(1) {
   font-weight: bold;
