@@ -542,9 +542,6 @@ body {
 #searchOrderBox .wrapper .cons p:nth-of-type(2) span {
   color: var(--primary);
 }
-#searchOrderBox .wrapper .cons p:nth-of-type(3) {
-  padding-right: 2rem;
-}
 #searchOrderBox form {
   padding: 4rem;
   border-radius: 0.75rem;
