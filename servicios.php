@@ -28,6 +28,7 @@ require_once 'includes/common/header.php';
             </tbody>
         </table>
     </div>
+
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
 

@@ -1,4 +1,5 @@
 <?php
+// routes/getServicios.php
 require_once '../includes/app/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['serviceId'])) {
@@ -29,10 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['serviceId'])) {
             $response['data'] = $result->fetch_all(MYSQLI_ASSOC);
         } else {
             $response['success'] = false;
-            $response['message'] = 'No se encontraron servicios con ese ID.';
+            $response['message'] = 'No se encontraron servicios.';
         }
 
-        echo json_encode($response);
+        echo json_encode($response);  // Devolver los datos como JSON
     } catch (Exception $e) {
         echo json_encode(['error' => $e->getMessage()]);
     } finally {
@@ -44,3 +45,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['serviceId'])) {
 } else {
     echo json_encode(['error' => 'Solicitud inválida']);
 }
+
