@@ -72,7 +72,7 @@ if (isset($_GET['id'])) {
                             <td>{$service['precio']}</td>
                             <td>{$service['criterios']}</td>
                         </tr>";
-                            $first = false; // Después de la primera fila, no usar rowspan
+                            $first = false;
                         } else {
                             echo "<tr>
                             <td>{$service['tamaño']}</td>
