@@ -1,7 +1,8 @@
 <?php
 $pages = [
     ['Equipos', 'grid'],
-    ['Capacitaciones', 'training']
+    ['Capacitaciones', 'training'],
+    ['Servicios', 'servicios']
 ];
 
 $super = [
