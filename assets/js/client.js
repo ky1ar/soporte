@@ -617,40 +617,44 @@ $(document).ready(function () {
   });
 
   $(document).on("click", "#con-servicios .servicios .ser", function (e) {
-    e.preventDefault(); // Prevenir el comportamiento por defecto (redirección)
+    e.preventDefault(); // Prevenir el comportamiento por defecto (redirección automática)
+
     let serviceId = $(this).attr("data-id");
 
     // Realizar la solicitud AJAX para obtener los datos del servicio
     $.ajax({
-      url: "routes/getServicios", // Ruta que recibe el POST
-      method: "POST",
-      data: { serviceId: serviceId },
-      success: function (response) {
-        let jsonData = JSON.parse(response);
-        console.log(jsonData);
+        url: "routes/getServicios",  // Ruta que recibe el POST
+        method: "POST",
+        data: { serviceId: serviceId },
+        success: function (response) {
+            let jsonData = JSON.parse(response);
+            console.log(jsonData);
 
-        if (jsonData.success) {
-          // Si los datos fueron encontrados, vamos a inyectarlos en la tabla
-          // Llamamos a la función para actualizar la tabla
-          updateServiceTable(jsonData.data);
-        } else {
-          console.error("Error al cargar el servicio:", jsonData.message);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error(xhr.responseText);
-      },
+            if (jsonData.success) {
+                // Si los datos fueron encontrados, vamos a inyectarlos en la tabla
+                // Llamamos a la función para actualizar la tabla
+                updateServiceTable(jsonData.data);
+            } else {
+                console.error("Error al cargar el servicio:", jsonData.message);
+            }
+
+            // Redirigir después de obtener la respuesta
+            window.location.href = "/servicios?id_servicio=" + serviceId;  // Redirigir a la página de servicios
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+        },
     });
-  });
+});
 
-  // Función para actualizar la tabla en servicios.php
-  function updateServiceTable(data) {
-    let tableBody = $("#serviceTable tbody"); // Asegúrate de tener una tabla con id 'serviceTable'
+// Función para actualizar la tabla en servicios.php
+function updateServiceTable(data) {
+    let tableBody = $('#serviceTable tbody'); // Asegúrate de tener una tabla con id 'serviceTable'
     tableBody.empty(); // Limpiar la tabla antes de agregar nuevas filas
 
     // Recorrer cada fila de datos recibidos
     data.forEach(function (item) {
-      let row = `<tr>
+        let row = `<tr>
             <td>${item.servicio_id}</td>
             <td>${item.nombre_servicio}</td>
             <td>${item.intro}</td>
@@ -659,10 +663,11 @@ $(document).ready(function () {
             <td>${item.precio}</td>
             <td>${item.criterios}</td>
         </tr>`;
-
-      tableBody.append(row); // Agregar la nueva fila a la tabla
+        
+        tableBody.append(row); // Agregar la nueva fila a la tabla
     });
-  }
+}
+
 
   $(document).on("click", ".boxSchedule", function () {
     const selectedData = $("#selectedData");
