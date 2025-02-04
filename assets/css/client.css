@@ -2599,3 +2599,7 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 1rem;
   border-radius: 1rem;
 }
+#sup-servicios table thead{
+  background-color: var(--primary);
+  color: var(--white);
+}
