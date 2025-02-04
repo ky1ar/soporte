@@ -45,7 +45,14 @@ if (isset($_GET['id'])) {
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
+    
     <div id="sup-servicios">
+        <?php if (isset($service)): ?>
+            <h1 class="title"><?php echo $service['intro']; ?></h1>
+        <?php elseif (isset($errorMessage)): ?>
+            <h1 class="title"><?php echo $errorMessage; ?></h1>
+        <?php endif; ?>
+
         <table id="serviceTable">
             <thead>
                 <tr>

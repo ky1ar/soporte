@@ -616,31 +616,6 @@ $(document).ready(function () {
     });
   });
 
-  // $(document).on("click", "#con-servicios .servicios .ser", function (e) {
-  //   e.preventDefault(); // Prevenir el comportamiento por defecto (redirección inmediata)
-  //   let serviceId = $(this).attr("data-id");
-  //   $.ajax({
-  //     url: "routes/getServicios", // Ruta que recibe el POST
-  //     method: "POST",
-  //     data: { serviceId: serviceId },
-  //     success: function (response) {
-  //       let jsonData = JSON.parse(response);
-  //       console.log(jsonData);
-
-  //       if (jsonData.success) {
-  //         // Procesar la respuesta aquí si es necesario
-  //         // Redirigir a la página después de obtener los datos
-  //         window.location.href = "/servicios?id_servicio=" + serviceId;
-  //       } else {
-  //         console.error("Error al cargar el servicio:", jsonData.message);
-  //       }
-  //     },
-  //     error: function (xhr, status, error) {
-  //       console.error(xhr.responseText);
-  //     },
-  //   });
-  // });
-
   $(document).on("click", ".boxSchedule", function () {
     const selectedData = $("#selectedData");
     const dateAvailable = $("#dateAvailable");
