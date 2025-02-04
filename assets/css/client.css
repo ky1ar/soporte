@@ -694,26 +694,31 @@ body {
     top: 6.5rem;
     left: 8rem;
   }
-  #searchOrderBox .wrapper .cons .d{
+  #searchOrderBox .wrapper .cons .d {
     bottom: 15rem;
+  }
+  #con-servicios {
+    padding: 4rem 1rem 5rem 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
 @media only screen and (max-width: 75rem) {
-  #searchOrderBox .wrapper{
+  #searchOrderBox .wrapper {
     flex-direction: column;
   }
-  #searchOrderBox .wrapper .cons p:nth-of-type(2){
+  #searchOrderBox .wrapper .cons p:nth-of-type(2) {
     text-align: center;
-
   }
-  #searchOrderBox .wrapper .cons p:nth-of-type(2) br{
+  #searchOrderBox .wrapper .cons p:nth-of-type(2) br {
     display: none;
   }
-  #searchOrderBox form{
+  #searchOrderBox form {
     background-image: url(../img/guia-fondo-movil.png);
   }
-  #searchOrderBox form{
+  #searchOrderBox form {
     height: 23rem;
     width: 90%;
   }

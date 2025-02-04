@@ -102,7 +102,7 @@ require_once 'includes/common/header.php';
             <div class="ser">
                 <img src="./assets/img/con-s8.webp" alt="">
                 <p>Actualización de Firmware</p>
-                <<p>Desde S/100.00*</p>
+                <p>Desde S/100.00*</p>
             </div>
         </div>
     </section>
