@@ -754,6 +754,9 @@ body {
     width: auto;
     padding: 0 2rem;
   }
+  #con-servicios .servicios{
+    justify-content: space-between;
+  }
 }
 /***********************************************************************************/
 #trainingSection {
