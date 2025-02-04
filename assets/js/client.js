@@ -616,56 +616,30 @@ $(document).ready(function () {
     });
   });
 
-  $(document).on("click", "#con-servicios .servicios .ser", function (e) {
-    e.preventDefault(); // Prevenir la acción por defecto del enlace
+  // $(document).on("click", "#con-servicios .servicios .ser", function (e) {
+  //   e.preventDefault(); // Prevenir el comportamiento por defecto (redirección inmediata)
+  //   let serviceId = $(this).attr("data-id");
+  //   $.ajax({
+  //     url: "routes/getServicios", // Ruta que recibe el POST
+  //     method: "POST",
+  //     data: { serviceId: serviceId },
+  //     success: function (response) {
+  //       let jsonData = JSON.parse(response);
+  //       console.log(jsonData);
 
-    let serviceId = $(this).data("id"); // Obtener el ID del servicio
-
-    // Realizar la solicitud AJAX para obtener los datos del servicio
-    $.ajax({
-      url: "routes/getServicios", // Ruta que recibirá el servicio
-      method: "POST",
-      data: { serviceId: serviceId },
-      success: function (response) {
-        let jsonData = JSON.parse(response);
-        console.log(jsonData);
-
-        if (jsonData.success) {
-          // Si la respuesta es exitosa, pasar los datos a la tabla
-          updateServiceTable(jsonData.data);
-        } else {
-          console.error("Error al cargar el servicio:", jsonData.message);
-        }
-
-        // Redirigir a la página de servicios con el ID en la URL
-        window.location.href = "/servicios?id_servicio=" + serviceId;
-      },
-      error: function (xhr, status, error) {
-        console.error(xhr.responseText);
-      },
-    });
-  });
-
-  // Función para actualizar la tabla con los datos obtenidos
-  function updateServiceTable(data) {
-    let tableBody = $("#serviceTable tbody");
-    tableBody.empty(); // Limpiar la tabla antes de agregar los datos
-
-    // Recorrer los datos recibidos y crear las filas de la tabla
-    data.forEach(function (item) {
-      let row = `<tr>
-            <td>${item.servicio_id}</td>
-            <td>${item.nombre_servicio}</td>
-            <td>${item.intro}</td>
-            <td>${item.descripcion}</td>
-            <td>${item.tamaño}</td>
-            <td>${item.precio}</td>
-            <td>${item.criterios}</td>
-        </tr>`;
-
-      tableBody.append(row); // Añadir la fila a la tabla
-    });
-  }
+  //       if (jsonData.success) {
+  //         // Procesar la respuesta aquí si es necesario
+  //         // Redirigir a la página después de obtener los datos
+  //         window.location.href = "/servicios?id_servicio=" + serviceId;
+  //       } else {
+  //         console.error("Error al cargar el servicio:", jsonData.message);
+  //       }
+  //     },
+  //     error: function (xhr, status, error) {
+  //       console.error(xhr.responseText);
+  //     },
+  //   });
+  // });
 
   $(document).on("click", ".boxSchedule", function () {
     const selectedData = $("#selectedData");
