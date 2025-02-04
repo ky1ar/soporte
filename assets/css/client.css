@@ -700,7 +700,7 @@ body {
   #con-servicios {
     padding: 4rem 1rem 5rem 1rem;
   }
-  #con-servicios .servicios{
+  #con-servicios .servicios {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -747,19 +747,28 @@ body {
 }
 
 @media only screen and (max-width: 36rem) {
-  #con-servicios .tit{
+  #con-servicios .tit {
     font-size: 1.2rem;
   }
-  #con-servicios .subt{
+  #con-servicios .subt {
     width: auto;
     padding: 0 2rem;
   }
-  #con-servicios .servicios{
+  #con-servicios .servicios {
     justify-content: space-between;
     gap: 1rem;
   }
   #con-servicios .servicios .ser {
     width: 9rem;
+  }
+  #con-servicios .servicios .ser img {
+    height: 4rem;
+  }
+  #con-servicios .servicios .ser:nth-of-type(3) img,
+  #con-servicios .servicios .ser:nth-of-type(4) img,
+  #con-servicios .servicios .ser:nth-of-type(5) img,
+  #con-servicios .servicios .ser:nth-of-type(6) img {
+    height: 3rem;
   }
 }
 /***********************************************************************************/
