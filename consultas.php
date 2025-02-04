@@ -69,37 +69,37 @@ require_once 'includes/common/header.php';
                 <p>Cambio de Pantalla LED</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s2.webp" alt="">
                 <p>Cambio de FEP</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s3.webp" alt="">
                 <p>Cambio de Boquilla</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s4.webp" alt="">
                 <p>Mantenimiento Preventivo</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s5.webp" alt="">
                 <p>Servicio de Armado</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s6.webp" alt="">
                 <p>Cambio de Placa Electronica Principal</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s7.webp" alt="">
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="/servicios.php">
+            <a class="ser" href="/servicios">
                 <img src="./assets/img/con-s8.webp" alt="">
                 <p>Actualización de Firmware</p>
                 <p>Desde S/100.00*</p>
