@@ -45,15 +45,13 @@ if (isset($_GET['id'])) {
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    
+
     <div id="sup-servicios">
         <?php if (isset($service)): ?>
-            <h1 class="title"><?php echo $service['intro']; ?></h1>
-        <?php elseif (isset($errorMessage)): ?>
-            <h1 class="title"><?php echo $errorMessage; ?></h1>
+            <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
+            <p class="intro"><?php echo $service['intro']; ?></p>
         <?php endif; ?>
-
-        <table id="serviceTable">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -69,9 +67,6 @@ if (isset($_GET['id'])) {
                 <?php
                 if (isset($service)) {
                     echo "<tr>
-                        <td>{$service['servicio_id']}</td>
-                        <td>{$service['nombre_servicio']}</td>
-                        <td>{$service['intro']}</td>
                         <td>{$service['descripcion']}</td>
                         <td>{$service['tamaño']}</td>
                         <td>{$service['precio']}</td>
