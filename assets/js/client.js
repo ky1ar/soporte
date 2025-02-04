@@ -617,18 +617,22 @@ $(document).ready(function () {
   });
 
   $(document).on("click", "#con-servicios .servicios .ser", function (e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevenir el comportamiento por defecto (redirección)
     let serviceId = $(this).attr("data-id");
-    window.location.href = "/servicios?id_servicio=" + serviceId;
+
+    // Realizar la solicitud AJAX para obtener los datos del servicio
     $.ajax({
-      url: "routes/getServicios",
+      url: "routes/getServicios", // Ruta que recibe el POST
       method: "POST",
       data: { serviceId: serviceId },
       success: function (response) {
         let jsonData = JSON.parse(response);
         console.log(jsonData);
+
         if (jsonData.success) {
-          console.log("Servicio cargado con éxito:", jsonData);
+          // Si los datos fueron encontrados, vamos a inyectarlos en la tabla
+          // Llamamos a la función para actualizar la tabla
+          updateServiceTable(jsonData.data);
         } else {
           console.error("Error al cargar el servicio:", jsonData.message);
         }
@@ -638,6 +642,27 @@ $(document).ready(function () {
       },
     });
   });
+
+  // Función para actualizar la tabla en servicios.php
+  function updateServiceTable(data) {
+    let tableBody = $("#serviceTable tbody"); // Asegúrate de tener una tabla con id 'serviceTable'
+    tableBody.empty(); // Limpiar la tabla antes de agregar nuevas filas
+
+    // Recorrer cada fila de datos recibidos
+    data.forEach(function (item) {
+      let row = `<tr>
+            <td>${item.servicio_id}</td>
+            <td>${item.nombre_servicio}</td>
+            <td>${item.intro}</td>
+            <td>${item.descripcion}</td>
+            <td>${item.tamaño}</td>
+            <td>${item.precio}</td>
+            <td>${item.criterios}</td>
+        </tr>`;
+
+      tableBody.append(row); // Agregar la nueva fila a la tabla
+    });
+  }
 
   $(document).on("click", ".boxSchedule", function () {
     const selectedData = $("#selectedData");

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['serviceId'])) {
             $response['data'] = $result->fetch_all(MYSQLI_ASSOC);
         } else {
             $response['success'] = false;
-            $response['message'] = 'No se encontraron servicios.';
+            $response['message'] = 'No se encontraron servicios con ese ID.';
         }
 
         echo json_encode($response);
