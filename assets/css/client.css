@@ -501,7 +501,7 @@ body {
   max-width: 75rem;
   display: flex;
   justify-content: end;
-  margin: .5rem auto;
+  margin: 0.5rem auto;
   padding-right: 6rem;
   position: relative;
 }
@@ -682,6 +682,12 @@ body {
   #pasos-consulta .pasos .pas {
     max-width: 14rem;
     min-width: auto;
+  }
+  #searchOrderBox form input#orderNumber {
+    top: 0.6rem;
+  }
+  #searchOrderBox form input#document{
+    
   }
 }
 
