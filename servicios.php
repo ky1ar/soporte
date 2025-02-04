@@ -49,10 +49,12 @@ if (isset($_GET['id'])) {
     ?>
 
     <div id="sup-servicios">
-        <?php if (isset($service)): ?>
-            <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p class="intro"><?php echo $service['intro']; ?></p>
+        <?php if (isset($services) && count($services) > 0): ?>
+            <!-- Mostrar el nombre y la introducción del primer servicio, por ejemplo -->
+            <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
+            <p class="intro"><?php echo $services[0]['intro']; ?></p>
         <?php endif; ?>
+
         <table>
             <thead>
                 <tr>
@@ -64,15 +66,17 @@ if (isset($_GET['id'])) {
             </thead>
             <tbody>
                 <?php
-                if (isset($service)) {
-                    echo "<tr>
+                if (isset($services) && count($services) > 0) {
+                    foreach ($services as $service) {
+                        echo "<tr>
                         <td>{$service['descripcion']}</td>
                         <td>{$service['tamaño']}</td>
                         <td>{$service['precio']}</td>
                         <td>{$service['criterios']}</td>
                     </tr>";
+                    }
                 } elseif (isset($errorMessage)) {
-                    echo "<tr><td colspan='7'>$errorMessage</td></tr>";
+                    echo "<tr><td colspan='4'>$errorMessage</td></tr>";
                 }
                 ?>
             </tbody>
