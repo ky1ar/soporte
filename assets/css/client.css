@@ -545,16 +545,11 @@ body {
 #searchOrderBox form {
   padding: 4rem;
   border-radius: 0.75rem;
-  background-image: url(../img/guia-fondo.png);
+  background-color: var(--white);
   display: flex;
   gap: 0.5rem;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   height: 18rem;
-  position: relative;
 }
 #searchOrderBox form img {
   margin-bottom: 1.5rem;
