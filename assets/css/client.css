@@ -887,6 +887,16 @@ body {
   #con-servicios .servicios .ser:nth-of-type(6) img {
     height: 4rem;
   }
+  #searchOrderBox form div:nth-of-type(9){
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  #searchOrderBox form div:nth-of-type(9) span{
+    padding: 0;
+  }
+  #searchOrderBox form button{
+    margin: auto;
+  }
 }
 /***********************************************************************************/
 #trainingSection {
