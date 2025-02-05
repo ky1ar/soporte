@@ -638,7 +638,6 @@ body {
 #searchOrderBox form div:nth-of-type(8) {
   width: 50%;
   font-weight: bold;
-  margin-bottom: 1rem;
   justify-content: right;
 }
 #searchOrderBox form div:nth-of-type(8) span{
