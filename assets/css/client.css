@@ -549,7 +549,6 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--black);
-  gap: 0.5rem;
   width: 80rem;
   height: 20rem;
   position: relative;
