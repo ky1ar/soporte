@@ -521,6 +521,9 @@ body {
   align-items: center;
   gap: 2rem;
 }
+#searchOrderBox .wrapper .docu{
+  display: none;
+}
 #searchOrderBox .wrapper .cons {
   margin-top: auto;
   position: relative;
@@ -793,6 +796,12 @@ body {
     padding: 0;
     top: 8.7rem;
     right: 18.5rem;
+  }
+  #searchOrderBox .wrapper .docu{
+    display: flex;
+  }
+  #searchOrderBox .wrapper .cons .d{
+    display: none;
   }
   #searchOrderBox .wrapper .cons p:nth-of-type(2) {
     text-align: center;

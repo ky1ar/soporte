@@ -74,6 +74,9 @@ require_once 'includes/common/header.php';
                 </div>
                 <button type="submit">Consultar</button>
             </form>
+            <div class="docu">
+                Introduce tu número de documento aquí (DNI / RUC)
+            </div>
         </div>
     </section>
     <section id="con-servicios">
