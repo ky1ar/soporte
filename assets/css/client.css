@@ -863,7 +863,10 @@ body {
   }
 }
 
-@media only screen and (max-width: 39rem) {
+@media only screen and (max-width: 35rem) {
+  #pasos-consulta .pasos{
+      gap: 1.5rem;
+  }
   #con-servicios .tit {
     font-size: 1.2rem;
   }
