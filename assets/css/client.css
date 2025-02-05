@@ -599,6 +599,9 @@ body {
   justify-content: right;
   font-weight: bold;
 }
+#searchOrderBox form div:nth-of-type(3) span{
+  border-bottom: 0.1rem solid var(--black);
+}
 /* #searchOrderBox form input#orderNumber {
   position: absolute;
   top: 0.95rem;
