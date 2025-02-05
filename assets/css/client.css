@@ -552,6 +552,7 @@ body {
   gap: 0.5rem;
   width: 80rem;
   height: 20rem;
+  position: relative;
 }
 
 #searchOrderBox form input {
