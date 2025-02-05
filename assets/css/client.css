@@ -554,8 +554,15 @@ body {
   height: 20rem;
   position: relative;
 }
-#searchOrderBox form div{
+#searchOrderBox form div {
   display: flex;
+}
+#searchOrderBox form div:nth-of-type(1) {
+  margin-left: auto;
+}
+#searchOrderBox form div:nth-of-type(1) input {
+  padding: .5rem;
+  border: 0.15rem solid var(--primary);
 }
 #searchOrderBox form input {
   border: none;
