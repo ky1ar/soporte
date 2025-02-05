@@ -776,6 +776,12 @@ body {
 }
 
 @media only screen and (max-width: 75rem) {
+  #searchOrderBox{
+    padding: 3rem 0;
+  }
+  #searchOrderBox form{
+    width: 80%;
+  }
   #searchOrderBox .wrapper {
     flex-direction: column;
   }
