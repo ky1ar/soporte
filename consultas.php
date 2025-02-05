@@ -55,7 +55,7 @@ require_once 'includes/common/header.php';
             <form id="searchOrder">
                 <div>N°: <input id="orderNumber" type="text" placeholder="Orden"></div>
                 <hr>
-                <p>GUÍA DE INTERNAMIENTO</p>
+                <p class="g">GUÍA DE INTERNAMIENTO</p>
                 <hr>
                 <div>RUC/DNI: <input id="document" type="text" placeholder="Documento"></div>
                 <div>Celular: *********</div>

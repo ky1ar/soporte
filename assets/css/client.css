@@ -550,7 +550,6 @@ body {
   flex-direction: column;
   color: var(--black);
   width: 80rem;
-  height: 20rem;
   position: relative;
 }
 #searchOrderBox form div {
@@ -564,6 +563,11 @@ body {
 #searchOrderBox form div:nth-of-type(1) {
   margin-left: auto;
   font-size: 1rem;
+  font-weight: bold;
+}
+#searchOrderBox form .g{
+  margin: 0 auto;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 #searchOrderBox form div:nth-of-type(1) input {
