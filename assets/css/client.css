@@ -620,8 +620,7 @@ body {
 }
 #searchOrderBox form div:nth-of-type(5) span,
 #searchOrderBox form div:nth-of-type(6) span,
-#searchOrderBox form div:nth-of-type(7) span,
-#searchOrderBox form div:nth-of-type(8) span {
+#searchOrderBox form div:nth-of-type(7) span{
   border-bottom: 0.15rem solid var(--black);
   margin-left: 1rem;
   padding-right: 5rem;
@@ -632,11 +631,6 @@ body {
   margin-bottom: 1rem;
   justify-content: right;
 }
-#searchOrderBox form div:nth-of-type(6) span {
-  border-bottom: 0.15rem solid var(--black);
-  margin-left: 1rem;
-  padding-right: 5rem;
-}
 #searchOrderBox form div:nth-of-type(7) {
   width: 50%;
   font-weight: bold;
@@ -646,6 +640,9 @@ body {
   font-weight: bold;
   margin-bottom: 1rem;
   justify-content: right;
+}
+#searchOrderBox form div:nth-of-type(8) span{
+  padding-right: 10rem;
 }
 #searchOrderBox form button {
   width: 9rem;
