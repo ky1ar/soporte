@@ -642,7 +642,7 @@ body {
   justify-content: right;
 }
 #searchOrderBox form div:nth-of-type(8) span{
-  padding-right: 10rem;
+  padding-right: 9rem;
   border-bottom: 0.15rem solid var(--black);
   margin-left: 1rem;
 }
