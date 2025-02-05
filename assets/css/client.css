@@ -864,10 +864,10 @@ body {
 }
 
 @media only screen and (max-width: 38rem) {
-  #pasos-consulta .pasos{
-      gap: 1.5rem;
+  #pasos-consulta .pasos {
+    gap: 1.5rem;
   }
-  #pasos-consulta .t p:nth-of-type(1){
+  #pasos-consulta .t p:nth-of-type(1) {
     padding: 0 3rem;
   }
   #con-servicios .tit {
@@ -893,7 +893,7 @@ body {
   #con-servicios .servicios .ser:nth-of-type(6) img {
     height: 4rem;
   }
-  #searchOrderBox form{
+  #searchOrderBox form {
     width: 100%;
   }
   #searchOrderBox form div:nth-of-type(9) {
@@ -920,15 +920,39 @@ body {
     left: 1rem;
     right: auto;
   }
-  #searchOrderBox .wrapper .cons p:nth-of-type(3){
+  #searchOrderBox .wrapper .cons p:nth-of-type(3) {
     padding: 0 2rem;
   }
-  #searchOrderBox .wrapper .docu{
+  #searchOrderBox .wrapper .docu {
     margin-right: auto;
   }
   #searchOrderBox form div:nth-of-type(1) input,
-  #searchOrderBox form div:nth-of-type(2) input{
+  #searchOrderBox form div:nth-of-type(2) input {
     background-color: #ffdecb75;
+  }
+  @media only screen and (max-width: 100rem) {
+  }
+
+  @media only screen and (max-width: 75rem) {
+    #sup-servicios .intro {
+      width: 80%;
+      margin: 1rem auto;
+      text-align: center;
+    }
+    #sup-servicios table{
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 62rem) {
+    /* 992px */
+    /* Estilos para pantallas de hasta 992px */
+  }
+
+  @media only screen and (max-width: 48rem) {
+  }
+
+  @media only screen and (max-width: 36rem) {
   }
 }
 /***********************************************************************************/
