@@ -863,7 +863,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 36rem) {
+@media only screen and (max-width: 39rem) {
   #con-servicios .tit {
     font-size: 1.2rem;
   }
