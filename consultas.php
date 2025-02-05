@@ -53,8 +53,20 @@ require_once 'includes/common/header.php';
                 <p>Introduce el número de orden y el documento tal cual se muestra en la orden de ingreso proporcionada.</p>
             </div>
             <form id="searchOrder">
-                <input id="orderNumber" type="text" placeholder="Orden">
-                <input id="document" type="text" placeholder="Documento">
+                <div>N°: <input id="orderNumber" type="text" placeholder="Orden"></div>
+                <hr>
+                <p>GUÍA DE INTERNAMIENTO</p>
+                <hr>
+                <div>RUC/DNI: <input id="document" type="text" placeholder="Documento"></div>
+                <div>Celular: *********</div>
+                <div>Nombre: ***************************</div>
+                <hr>
+                <div>Marca: *********************</div>
+                <div>N° de serie: *********************</div>
+                <div>Modelo: **************************</div>
+                <div>Fecha de compra ** / ** / ****</div>
+                <hr>
+                <div>Fecha de ingreso ** / ** / ****</div>
                 <div id="searchOrderMessage"></div>
                 <button type="submit">Consultar</button>
             </form>
