@@ -930,30 +930,6 @@ body {
   #searchOrderBox form div:nth-of-type(2) input {
     background-color: #ffdecb75;
   }
-  @media only screen and (max-width: 100rem) {
-  }
-
-  @media only screen and (max-width: 75rem) {
-    #sup-servicios .intro {
-      width: 80%;
-      margin: 1rem auto;
-      text-align: center;
-    }
-    #sup-servicios table{
-      width: 80%;
-    }
-  }
-
-  @media only screen and (max-width: 62rem) {
-    /* 992px */
-    /* Estilos para pantallas de hasta 992px */
-  }
-
-  @media only screen and (max-width: 48rem) {
-  }
-
-  @media only screen and (max-width: 36rem) {
-  }
 }
 /***********************************************************************************/
 #trainingSection {
@@ -2797,4 +2773,30 @@ section.i3d .cont-cards .card div:last-child a {
 #sup-servicios table tbody tr td {
   border: 0.15rem solid white;
   padding: 1rem;
+}
+
+@media only screen and (max-width: 100rem) {
+}
+
+@media only screen and (max-width: 75rem) {
+  #sup-servicios .intro{
+    width: 80%;
+    text-align: center;
+  }
+  #sup-servicios table{
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 62rem) {
+}
+
+@media only screen and (max-width: 48rem) {
+  /* 768px */
+  /* Estilos para pantallas de hasta 768px */
+}
+
+@media only screen and (max-width: 36rem) {
+  /* 576px */
+  /* Estilos para pantallas de hasta 576px */
 }
