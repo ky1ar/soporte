@@ -542,6 +542,9 @@ body {
 #searchOrderBox .wrapper .cons p:nth-of-type(2) span {
   color: var(--primary);
 }
+#searchOrderBox .wrapper .cons p:nth-of-type(3){
+  max-width: 20rem;
+}
 #searchOrderBox form {
   padding: 1rem;
   border-radius: 0.75rem;
@@ -549,7 +552,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   color: var(--black);
-  width: 80rem;
+  width: 100rem;
   position: relative;
 }
 #searchOrderBox form .c1 {
