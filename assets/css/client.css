@@ -627,6 +627,7 @@ body {
   width: 50%;
   font-weight: bold;
   margin-bottom: 1rem;
+  justify-content: right
 }
 #searchOrderBox form div:nth-of-type(6) span {
   border-bottom: 0.15rem solid var(--black);
