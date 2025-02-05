@@ -887,6 +887,9 @@ body {
   #con-servicios .servicios .ser:nth-of-type(6) img {
     height: 4rem;
   }
+  #searchOrderBox form{
+    width: 100%;
+  }
   #searchOrderBox form div:nth-of-type(9) {
     width: 100%;
     margin-bottom: 1rem;
@@ -907,12 +910,16 @@ body {
     border-left: 0.15rem solid var(--primary);
   }
   #searchOrderBox .o {
-    top: 8rem;
-    left: 17%;
-    width: 8rem;
+    top: 8.5rem;
+    left: 1rem;
+    /* width: 8rem; */
+    right: auto;
   }
   #searchOrderBox .wrapper .cons p:nth-of-type(3){
     padding: 0 2rem;
+  }
+  #searchOrderBox .wrapper .docu{
+    margin-right: auto;
   }
 }
 /***********************************************************************************/
