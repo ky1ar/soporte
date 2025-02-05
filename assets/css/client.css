@@ -543,7 +543,7 @@ body {
   color: var(--primary);
 }
 #searchOrderBox form {
-  padding: 4rem;
+  padding: 1rem;
   border-radius: 0.75rem;
   background-color: var(--white);
   display: flex;
@@ -554,7 +554,9 @@ body {
   height: 20rem;
   position: relative;
 }
-
+#searchOrderBox form div{
+  display: flex;
+}
 #searchOrderBox form input {
   border: none;
   outline: none;
@@ -562,7 +564,7 @@ body {
   text-align: center;
   font-family: "DM Sans", sans-serif;
 }
-#searchOrderBox form input#orderNumber {
+/* #searchOrderBox form input#orderNumber {
   position: absolute;
   top: 0.95rem;
   right: 6rem;
@@ -578,7 +580,7 @@ body {
   left: 7rem;
   height: 1.5rem;
   border: 0.15rem solid var(--primary);
-}
+} */
 #searchOrderBox form button {
   width: 9rem;
   position: absolute;
