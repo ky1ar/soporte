@@ -502,7 +502,7 @@ body {
   display: flex;
   justify-content: end;
   margin: 1rem auto;
-  padding-right: 1rem;
+  padding-right: 12rem;
   position: relative;
 }
 #searchOrderBox .guide img {
