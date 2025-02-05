@@ -547,7 +547,7 @@ body {
   border-radius: 0.75rem;
   background-color: var(--white);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   color: var(--black);
   width: 80rem;
   position: relative;
@@ -565,7 +565,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
 }
-#searchOrderBox form .g{
+#searchOrderBox form .g {
   margin: 0 auto;
   font-size: 1.2rem;
   font-weight: bold;
@@ -583,7 +583,7 @@ body {
   text-align: center;
   font-family: "DM Sans", sans-serif;
 }
-#searchOrderBox form div:nth-of-type(2) input{
+#searchOrderBox form div:nth-of-type(2) input {
   border: 0.15rem solid var(--primary);
   padding: 0.25rem;
   margin: 0 1rem;
