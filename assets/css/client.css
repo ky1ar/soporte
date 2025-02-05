@@ -867,6 +867,9 @@ body {
   #pasos-consulta .pasos{
       gap: 1.5rem;
   }
+  #pasos-consulta .t p:nth-of-type(1){
+    padding: 0 2rem;
+  }
   #con-servicios .tit {
     font-size: 1.2rem;
   }
