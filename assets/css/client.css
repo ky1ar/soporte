@@ -556,13 +556,22 @@ body {
 }
 #searchOrderBox form div {
   display: flex;
+  align-items: center;
+}
+#searchOrderBox form hr {
+  width: 100%;
+  border: 0.15rem solid black;
 }
 #searchOrderBox form div:nth-of-type(1) {
   margin-left: auto;
+  font-size: 1rem;
+  font-weight: bold;
 }
 #searchOrderBox form div:nth-of-type(1) input {
-  padding: .5rem;
+  padding: 0.25rem;
   border: 0.15rem solid var(--primary);
+  width: 7rem;
+  margin: 0 1rem;
 }
 #searchOrderBox form input {
   border: none;
