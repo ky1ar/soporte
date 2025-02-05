@@ -554,11 +554,11 @@ body {
 }
 #searchOrderBox form .c1 {
   position: absolute;
-  width: 11rem;
+  width: 12rem;
   height: 2rem;
   border-top: 0.15rem solid var(--primary);
   border-right: 0.15rem solid var(--primary);
-  left: 0;
+  left: -0.5rem;
   top: 4.5rem;
 }
 #searchOrderBox form .c2 {
