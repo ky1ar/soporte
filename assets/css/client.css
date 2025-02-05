@@ -906,6 +906,11 @@ body {
     border-right: none;
     border-left: 0.15rem solid var(--primary);
   }
+  #searchOrderBox .o {
+    top: 8rem;
+    left: 17%;
+    width: 8rem;
+  }
 }
 /***********************************************************************************/
 #trainingSection {
