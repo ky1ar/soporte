@@ -58,12 +58,12 @@ require_once 'includes/common/header.php';
                 <p class="g">GUÍA DE INTERNAMIENTO</p>
                 <hr>
                 <div>RUC/DNI: <input id="document" type="text" placeholder="Documento"></div>
-                <div>Celular: <span>*********</</span>div>
+                <div>Celular: <span>*********</span></div>
                 <div>Nombre: <span>***************************</span><div>
                 <hr>
-                <div>Marca: <span>*********************</</span>div>
-                <div>N° de serie: <span>*********************</</span>div>
-                <div>Modelo: <span>*********************</</span>div>
+                <div>Marca: <span>*********************</span></div>
+                <div>N° de serie: <span>*********************</span></div>
+                <div>Modelo: <span>*********************</span></div>
                 <div>Fecha de compra <span>** / ** / ****</span></div>
                 <hr>
                 <div>Fecha de ingreso <span>** / ** / ****</span></div>
