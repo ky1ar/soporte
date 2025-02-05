@@ -741,17 +741,6 @@ body {
     max-width: 14rem;
     min-width: auto;
   }
-  #searchOrderBox form {
-    height: 20rem;
-  }
-  #searchOrderBox form input#orderNumber {
-    top: 1.3rem;
-    right: 7rem;
-  }
-  #searchOrderBox form input#document {
-    top: 6.5rem;
-    left: 8rem;
-  }
   #searchOrderBox .wrapper .cons .d {
     bottom: 15rem;
   }
@@ -774,13 +763,6 @@ body {
   }
   #searchOrderBox .wrapper .cons p:nth-of-type(2) br {
     display: none;
-  }
-  #searchOrderBox form {
-    background-image: url(../img/guia-fondo-movil.png);
-  }
-  #searchOrderBox form {
-    height: 23rem;
-    width: 90%;
   }
 }
 

@@ -68,6 +68,10 @@ require_once 'includes/common/header.php';
                 <hr>
                 <div>Fecha de ingreso <span>** / ** / ****</span></div>
                 <div id="searchOrderMessage"></div>
+                <div class="c1">
+                </div>
+                <div class="c2">
+                </div>
                 <button type="submit">Consultar</button>
             </form>
         </div>
