@@ -776,14 +776,23 @@ body {
 }
 
 @media only screen and (max-width: 75rem) {
-  #searchOrderBox{
+  #searchOrderBox {
     padding: 3rem 0;
+    flex-direction: column;
+    display: flex;
   }
-  #searchOrderBox form{
+  #searchOrderBox form {
     width: 80%;
   }
   #searchOrderBox .wrapper {
     flex-direction: column;
+  }
+  #searchOrderBox .o {
+    margin: 0;
+    position: absolute;
+    padding: 0;
+    top: 6.8rem;
+    right: 19rem;
   }
   #searchOrderBox .wrapper .cons p:nth-of-type(2) {
     text-align: center;
