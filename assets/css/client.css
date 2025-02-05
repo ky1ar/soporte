@@ -598,6 +598,7 @@ body {
   width: 50%;
   justify-content: right;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 #searchOrderBox form div:nth-of-type(3) span {
   border-bottom: 0.15rem solid var(--black);
@@ -617,9 +618,20 @@ body {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+#searchOrderBox form div:nth-of-type(5) span {
+  border-bottom: 0.15rem solid var(--black);
+  margin-left: 1rem;
+  padding-right: 5rem;
+}
 #searchOrderBox form div:nth-of-type(6) {
   width: 50%;
   font-weight: bold;
+  margin-bottom: 1rem;
+}
+#searchOrderBox form div:nth-of-type(6) span {
+  border-bottom: 0.15rem solid var(--black);
+  margin-left: 1rem;
+  padding-right: 5rem;
 }
 #searchOrderBox form button {
   width: 9rem;
