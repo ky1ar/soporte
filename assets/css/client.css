@@ -501,8 +501,8 @@ body {
   max-width: 75rem;
   display: flex;
   justify-content: end;
-  margin: 0.5rem auto;
-  padding-right: 6rem;
+  margin: 1rem auto;
+  padding-right: 1rem;
   position: relative;
 }
 #searchOrderBox .guide img {
@@ -552,15 +552,22 @@ body {
   width: 80rem;
   position: relative;
 }
-#searchOrderBox form .c1{
+#searchOrderBox form .c1 {
   position: absolute;
   width: 11rem;
-  /* background-color: var(--gray); */
   height: 2rem;
   border-top: 0.15rem solid var(--primary);
   border-right: 0.15rem solid var(--primary);
   left: 0;
   top: 4.5rem;
+}
+#searchOrderBox form .c2 {
+  position: absolute;
+  top: -1rem;
+  background-color: aqua;
+  height: 2rem;
+  right: 6rem;
+  border-left: 0.15rem solid var(--primary);
 }
 #searchOrderBox form div {
   display: flex;
@@ -631,7 +638,7 @@ body {
 #searchOrderBox form div:nth-of-type(5) span,
 #searchOrderBox form div:nth-of-type(6) span,
 #searchOrderBox form div:nth-of-type(7) span,
-#searchOrderBox form div:nth-of-type(9) span{
+#searchOrderBox form div:nth-of-type(9) span {
   border-bottom: 0.15rem solid var(--black);
   margin-left: 1rem;
   padding-right: 5rem;
@@ -651,7 +658,7 @@ body {
   font-weight: bold;
   justify-content: right;
 }
-#searchOrderBox form div:nth-of-type(8) span{
+#searchOrderBox form div:nth-of-type(8) span {
   padding-right: 9rem;
   border-bottom: 0.15rem solid var(--black);
   margin-left: 1rem;
@@ -660,7 +667,7 @@ body {
   width: 50%;
   font-weight: bold;
 }
-#searchOrderBox form div:nth-of-type(9) span{
+#searchOrderBox form div:nth-of-type(9) span {
   width: 50%;
   font-weight: bold;
 }
