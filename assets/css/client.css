@@ -519,7 +519,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 #searchOrderBox .wrapper .cons {
   margin-top: auto;
@@ -558,7 +558,7 @@ body {
   height: 2rem;
   border-top: 0.15rem solid var(--primary);
   border-right: 0.15rem solid var(--primary);
-  left: -0.5rem;
+  left: -1rem;
   top: 4.5rem;
 }
 #searchOrderBox form .c2 {
