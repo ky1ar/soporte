@@ -911,6 +911,9 @@ body {
     left: 17%;
     width: 8rem;
   }
+  #searchOrderBox .wrapper .cons p:nth-of-type(3){
+    padding: 0 2rem;
+  }
 }
 /***********************************************************************************/
 #trainingSection {
