@@ -817,9 +817,9 @@ body {
     margin-bottom: 2rem;
   }
   #searchOrderBox form .c1{
-    width: 11rem;
-    height: 12rem;
-    left: 15rem;
+    width: 3rem;
+    height: auto;
+    bottom: -1rem;
     top: 7rem;
   }
 }
@@ -831,10 +831,6 @@ body {
   #pasos-consulta .t {
     width: auto;
     text-align: center;
-  }
-  #searchOrderBox form .c1{
-    width: 3rem;
-    height: 14rem;
   }
 }
 
