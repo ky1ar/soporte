@@ -816,6 +816,12 @@ body {
     text-align: center;
     margin-bottom: 2rem;
   }
+  #searchOrderBox form .c1{
+    width: 11rem;
+    height: 12rem;
+    left: 15rem;
+    top: 7rem;
+  }
 }
 
 @media only screen and (max-width: 62rem) {
