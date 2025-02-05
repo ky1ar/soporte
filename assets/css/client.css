@@ -561,7 +561,7 @@ body {
 #searchOrderBox form .c1 {
   position: absolute;
   width: 12rem;
-  height: 2rem;
+  height: 1.7rem;
   border-top: 0.15rem solid var(--primary);
   border-right: 0.15rem solid var(--primary);
   left: -1rem;
@@ -775,6 +775,9 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+  }
+  #searchOrderBox form .c1{
+    height: 1.7rem;
   }
 }
 
