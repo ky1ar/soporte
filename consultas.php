@@ -59,7 +59,7 @@ require_once 'includes/common/header.php';
                 <hr>
                 <div>RUC/DNI: <input id="document" type="text" placeholder="Documento"></div>
                 <div>Celular: <span>*********</</span>div>
-                <div>Nombre: <span>***************************</</span>div>
+                <div>Nombre: <span>***************************</span><div>
                 <hr>
                 <div>Marca: <span>*********************</</span>div>
                 <div>N° de serie: <span>*********************</</span>div>
