@@ -45,7 +45,7 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section id="searchOrderBox">
-        <p class="o">Introduce tu núnero de orden aquí</p>
+        <p class="o">Introduce tu número de orden aquí</p>
         <div class="wrapper">
             <div class="cons">
                 <p class="d">Introduce tu número de documento aquí (DNI / RUC)</p>
