@@ -833,6 +833,15 @@ body {
     width: auto;
     text-align: center;
   }
+  #searchOrderBox form div:nth-of-type(8) span {
+    padding-right: 3rem;
+  }
+  #searchOrderBox form div:nth-of-type(5) span,
+  #searchOrderBox form div:nth-of-type(6) span,
+  #searchOrderBox form div:nth-of-type(7) span,
+  #searchOrderBox form div:nth-of-type(9) span {
+    padding-right: 1rem;
+  }
 }
 
 @media only screen and (max-width: 48rem) {
