@@ -617,6 +617,11 @@ body {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+#searchOrderBox form div:nth-of-type(6) {
+  width: 50%;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 #searchOrderBox form button {
   width: 9rem;
   border-radius: 0.5rem;
