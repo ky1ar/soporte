@@ -1350,6 +1350,7 @@ body {
   color: red;
   font-style: italic;
   padding-left: .5rem;
+  font-size: .7rem;
 }
 #scheduleForm .formButton .formSubmit {
   font-family: "DM Sans", sans-serif;
