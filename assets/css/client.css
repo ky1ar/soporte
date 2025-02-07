@@ -2775,7 +2775,9 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 1rem;
 }
 sup-servicios .advertencia{
-  
+  margin: 0 auto 3rem auto;
+  color: red;
+  font-style: italic;
 }
 @media only screen and (max-width: 100rem) {
 }
