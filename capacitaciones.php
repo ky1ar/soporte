@@ -53,7 +53,7 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-4.webp" alt="">
                             <div>
                                 <p>Capacitación de<br> Router CNC</p>
                                 <p>Duración: 03 horas</p>
@@ -64,7 +64,7 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-5.webp" alt="">
                             <div>
                                 <p>Capacitación de<br> Escáner 3D</p>
                                 <p>Duración: 03 horas</p>
@@ -75,7 +75,7 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-6.webp" alt="">
                             <div>
                                 <p>Capacitación de<br> Dron</p>
                                 <p>Duración: 01 hora</p>
@@ -86,7 +86,7 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-7.webp" alt="">
                             <div>
                                 <p>Capacitación de<br> Realidad Virtual</p>
                                 <p>Duración: 01 hora</p>
