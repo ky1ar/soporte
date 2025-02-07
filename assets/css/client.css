@@ -2725,7 +2725,6 @@ section.i3d .cont-cards .card div:last-child a {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
   position: fixed;
   top: 0;
   left: 0;
