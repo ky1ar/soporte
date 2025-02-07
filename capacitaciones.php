@@ -11,10 +11,7 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <div class="example-cap">
-        <div class="back-ex"></div>
-        <img src="assets/img/example-cap.webp" alt="">
-    </div>
+
     <section id="frontSlider">
         <div class="wrapper">
             <img class="imaCap" width="1920" height="630" src="assets/img/capacitaciones-pc.webp">
@@ -116,7 +113,10 @@ require_once 'includes/common/header.php';
             </div>
         </div>
     </section>
-
+    <div class="example-cap">
+        <div class="back-ex"></div>
+        <img src="assets/img/example-cap.webp" alt="">
+    </div>
     <section id="trainingSection">
         <div class="top">
             <h2>Agenda Aquí</h2>
