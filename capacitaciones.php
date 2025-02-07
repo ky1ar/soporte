@@ -78,7 +78,7 @@ require_once 'includes/common/header.php';
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
                                 <p>Capacitación de<br> Dron</p>
-                                <p>Duración: 03 horas</p>
+                                <p>Duración: 01 hora</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
                             </div>
@@ -89,7 +89,7 @@ require_once 'includes/common/header.php';
                             <img src="assets/img/pre-1.png" alt="">
                             <div>
                                 <p>Capacitación de<br> Realidad Virtual</p>
-                                <p>Duración: 03 horas</p>
+                                <p>Duración: 01 hora</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
                             </div>
