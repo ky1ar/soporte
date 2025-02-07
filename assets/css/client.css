@@ -988,14 +988,20 @@ body {
     min-width: 22rem;
   }
 }
-
-@media (max-width: 400px) {
+@media only screen and (max-width: 36rem) {
   #trainingSection .content {
     flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+    padding: 1rem;
   }
-
+  #calendarSelector{
+    padding: 0.25rem;
+  }
+  #calendarSelector .box li .boxDay{
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@media (max-width: 400px) {
   #trainingSection .left {
     width: 100%;
     margin-bottom: 2rem;
