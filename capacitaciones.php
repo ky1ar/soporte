@@ -261,6 +261,9 @@ require_once 'includes/common/header.php';
                                         </div>
                                     </li>
                                 </ul>
+                                <div class="aviso-pago">
+                                    Adjunta la constancia de pago o si eres cliente el comprobante de tu compra.
+                                </div>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">
                                     <div id="scheduleFormMessage"></div>

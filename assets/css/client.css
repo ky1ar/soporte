@@ -1346,6 +1346,10 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+#scheduleForm .aviso-pago{
+  color: red;
+  font-style: italic;
+}
 #scheduleForm .formButton .formSubmit {
   font-family: "DM Sans", sans-serif;
   background-color: #ed5d1f;
