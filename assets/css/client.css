@@ -1123,7 +1123,7 @@ body {
 
   #trainingSection .right {
     order: -1;
-    min-width: 22rem;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 36rem) {
@@ -1138,8 +1138,6 @@ body {
 
   #trainingSection .right {
     order: -1;
-    min-width: 18rem;
-    width: 100%;
   }
 }
 /***********************************************************************************/
