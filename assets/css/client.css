@@ -1131,13 +1131,6 @@ body {
     flex-direction: column;
     padding: 1rem;
   }
-  #calendarSelector {
-    padding: 0.25rem;
-  }
-  #calendarSelector .box li .boxDay {
-    width: 2rem;
-    height: 2rem;
-  }
   #trainingSection .left {
     width: 100%;
     margin-bottom: 2rem;
