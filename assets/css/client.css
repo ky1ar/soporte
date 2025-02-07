@@ -2769,6 +2769,9 @@ section.i3d .cont-cards .card div:last-child a {
 #sup-servicios table tbody {
   background-color: #ffedde;
 }
+#sup-servicios table tbody tr td:nth-of-type(3){
+  white-space: nowrap;
+}
 #sup-servicios table thead tr th,
 #sup-servicios table tbody tr td {
   border: 0.15rem solid white;
