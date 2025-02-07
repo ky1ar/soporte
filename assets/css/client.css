@@ -2774,7 +2774,9 @@ section.i3d .cont-cards .card div:last-child a {
   border: 0.15rem solid white;
   padding: 1rem;
 }
-
+sup-servicios .advertencia{
+  
+}
 @media only screen and (max-width: 100rem) {
 }
 

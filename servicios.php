@@ -86,6 +86,7 @@ if (isset($_GET['id'])) {
                 ?>
             </tbody>
         </table>
+        <p class="advertencia">Los costos no incluyen repuestos y están sujetos a variaciones sin previo aviso.</p>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
