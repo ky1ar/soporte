@@ -2733,8 +2733,6 @@ section.i3d .cont-cards .card div:last-child a {
   z-index: 2;
 }
 .example-cap img {
-  position: fixed;
-  width: 20rem;
   border-radius: 0.5rem;
   width: 32rem;
   z-index: 3;
