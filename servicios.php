@@ -4,8 +4,8 @@ require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 require_once 'includes/app/db.php';
 
-if (isset($_GET['id'])) {
-    $serviceId = $_GET['id'];
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $serviceId = intval($_GET['id']);
     $sql = "
     SELECT 
         s.id AS servicio_id,
