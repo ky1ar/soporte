@@ -4,15 +4,6 @@ require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 require_once 'includes/app/db.php';
 
-$serviceRoutes = [
-    'cambio-de-pantalla-lcdaa' => 1,
-    'cambio-de-fep' => 2,
-    'cambio-de-boquilla' => 3,
-    'mantenimiento-preventivo' => 4,
-    'servicio-de-armado' => 5,
-    'cambio-de-placa-electronica' => 6,
-    'cambio-de-fuente' => 7
-];
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $serviceId = intval($_GET['id']);
