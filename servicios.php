@@ -4,14 +4,9 @@ require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 require_once 'includes/app/db.php';
 
-
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $serviceId = intval($_GET['id']);
-} else {
-    die("Servicio no encontrado.");
-}
-
-$sql = "
+if (isset($_GET['id'])) {
+    $serviceId = $_GET['id'];
+    $sql = "
     SELECT 
         s.id AS servicio_id,
         srv.nombre AS nombre_servicio,
@@ -36,20 +31,18 @@ $sql = "
     FROM Servicios s
     INNER JOIN Servicio srv ON s.id_servicio = srv.id
     WHERE s.id_servicio = ?";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $serviceId);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $services = $result->fetch_all(MYSQLI_ASSOC);
-} else {
-    $errorMessage = "No se encontraron servicios.";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $serviceId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $services = $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        $errorMessage = "No se encontraron servicios.";
+    }
+    $stmt->close();
+    $conn = null;
 }
-
-$stmt->close();
-$conn = null;
 ?>
 </head>
 
