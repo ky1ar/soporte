@@ -13,6 +13,8 @@ php_flag html_errors on
 RewriteRule ^cambio-de-pantalla-lcd$ servicios.php?id=1 [L,QSA]
 RewriteRule ^cambio-de-fep$ servicios.php?id=2 [L,QSA]
 RewriteRule ^cambio-de-boquilla$ servicios.php?id=3 [L,QSA]
+RewriteRule ^cambio-de-fep$ servicios.php?id=2 [L,QSA]
+RewriteRule ^cambio-de-boquilla$ servicios.php?id=3 [L,QSA]
 
 # Redirigir cualquier otra ruta de servicio con ID dinámico
-RewriteRule ^([^/]+)$ servicios.php?name=$1 [L,QSA]
+# RewriteRule ^([^/]+)$ servicios.php?name=$1 [L,QSA]

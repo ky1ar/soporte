@@ -5,7 +5,7 @@ require_once 'includes/common/header.php';
 require_once 'includes/app/db.php';
 
 $serviceRoutes = [
-    'cambio-de-pantalla' => 1,
+    'cambio-de-pantalla-lcdaa' => 1,
     'cambio-de-fep' => 2,
     'cambio-de-boquilla' => 3,
     'mantenimiento-preventivo' => 4,
@@ -14,10 +14,7 @@ $serviceRoutes = [
     'cambio-de-fuente' => 7
 ];
 
-// Detectar si la URL contiene un nombre de servicio en lugar de un ID
-if (isset($_GET['name']) && array_key_exists($_GET['name'], $serviceRoutes)) {
-    $serviceId = $serviceRoutes[$_GET['name']];
-} elseif (isset($_GET['id']) && is_numeric($_GET['id'])) {
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $serviceId = intval($_GET['id']);
 } else {
     die("Servicio no encontrado.");

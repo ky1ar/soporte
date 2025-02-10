@@ -103,35 +103,35 @@ require_once 'includes/common/header.php';
         <div class="servicios">
             <a class="ser" href="/cambio-de-pantalla-lcd">
                 <img src="./assets/img/con-s1.webp" alt="">
-                <p>Cambio de Pantalla LED</p>
+                <p>Cambio de Pantalla LCD</p>
                 <p>Desde S/80.00*</p>
             </a>
-            <a class="ser" href="servicios?id=2">
+            <a class="ser" href="/cambio-de-fep">
                 <img src="./assets/img/con-s2.webp" alt="">
                 <p>Cambio de FEP</p>
                 <p>Desde S/40.00*</p>
             </a>
-            <a class="ser" href="servicios?id=3">
+            <a class="ser" href="/cambio-de-boquilla">
                 <img src="./assets/img/con-s3.webp" alt="">
                 <p>Cambio de Boquilla</p>
                 <p>Desde S/40.00*</p>
             </a>
-            <a class="ser" href="servicios?id=4">
+            <a class="ser" href="/mantenimiento-preventivo">
                 <img src="./assets/img/con-s4.webp" alt="">
                 <p>Mantenimiento Preventivo</p>
                 <p>Desde S/60.00*</p>
             </a>
-            <a class="ser" href="servicios?id=5">
+            <a class="ser" href="/servicio-de-armado">
                 <img src="./assets/img/con-s5.webp" alt="">
                 <p>Servicio de Armado</p>
                 <p>Desde S/80.00*</p>
             </a>
-            <a class="ser" href="servicios?id=6">
+            <a class="ser" href="/cambio-de-placa-electronica-principal">
                 <img src="./assets/img/con-s6.webp" alt="">
                 <p>Cambio de Placa Electronica Principal</p>
                 <p>Desde S/180.00*</p>
             </a>
-            <a class="ser" href="servicios?id=7">
+            <a class="ser" href="/cambio-de-fuente-poder">
                 <img src="./assets/img/con-s7.webp" alt="">
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>
