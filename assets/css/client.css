@@ -877,7 +877,7 @@ body {
   }
   #con-servicios .subt {
     width: auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
   #con-servicios .servicios {
     justify-content: space-evenly;
