@@ -131,7 +131,7 @@ require_once 'includes/common/header.php';
                 <p>Cambio de Placa Electronica Principal</p>
                 <p>Desde S/180.00*</p>
             </a>
-            <a class="ser" href="/cambio-de-fuente-poder">
+            <a class="ser" href="/cambio-de-fuente-de-poder">
                 <img src="./assets/img/con-s7.webp" alt="">
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>

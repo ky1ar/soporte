@@ -16,7 +16,7 @@ RewriteRule ^cambio-de-boquilla$ servicios.php?id=3 [L,QSA]
 RewriteRule ^mantenimiento-preventivo$ servicios.php?id=4 [L,QSA]
 RewriteRule ^servicio-de-armado$ servicios.php?id=5 [L,QSA]
 RewriteRule ^cambio-de-placa-electronica-principal$ servicios.php?id=6 [L,QSA]
-RewriteRule ^cambio-de-fuente-poder$ servicios.php?id=7 [L,QSA]
+RewriteRule ^cambio-de-fuente-de-poder$ servicios.php?id=7 [L,QSA]
 
 # Redirigir cualquier otra ruta de servicio con ID dinámico
 # RewriteRule ^([^/]+)$ servicios.php?name=$1 [L,QSA]
