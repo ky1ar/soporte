@@ -58,10 +58,10 @@ if (isset($_GET['id'])) {
     </section>
 
     <div id="sup-servicios">
-        <?php if (isset($services) && count($services) > 0): ?>
+        <?php if (isset($service)): ?>
             <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p><?php echo $service['cuestion1']; ?></p>
             <p><?php echo $service['desc']; ?></p>
+            <p><?php echo $service['cuestion1']; ?></p>
             <p><?php echo $service['dato1']; ?></p>
             <p><?php echo $service['dato2']; ?></p>
             <p><?php echo $service['dato3']; ?></p>
@@ -74,6 +74,12 @@ if (isset($_GET['id'])) {
             <p><?php echo $service['dato9']; ?></p>
             <p><?php echo $service['dato10']; ?></p>
             <p class="resumen"><?php echo $service['dato11']; ?></p>
+            <p><?php echo $service['descripcion']; ?></p>
+            <p><?php echo $service['tamaño']; ?></p>
+            <p><?php echo $service['precio']; ?></p>
+            <p><?php echo $service['criterios']; ?></p>
+        <?php elseif (isset($errorMessage)): ?>
+            <p><?php echo $errorMessage; ?></p>
         <?php endif; ?>
         <table>
             <thead>
@@ -88,7 +94,7 @@ if (isset($_GET['id'])) {
                 <?php
                 if (isset($services) && count($services) > 0) {
                     $totalServices = count($services);
-                    $first = true; 
+                    $first = true;
                     foreach ($services as $service) {
                         if ($first) {
                             echo "<tr>
