@@ -35,13 +35,15 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $serviceId);
     $stmt->execute();
     $result = $stmt->get_result();
+
     if ($result->num_rows > 0) {
-        $services = $result->fetch_all(MYSQLI_ASSOC);
+        $service = $result->fetch_assoc(); // Usar fetch_assoc() para un solo resultado
     } else {
         $errorMessage = "No se encontraron servicios.";
     }
+
     $stmt->close();
-    $conn = null;
+    $conn->close();
 }
 ?>
 </head>
