@@ -35,13 +35,15 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $serviceId);
     $stmt->execute();
     $result = $stmt->get_result();
+
     if ($result->num_rows > 0) {
-        $services = $result->fetch_all(MYSQLI_ASSOC);
+        $service = $result->fetch_assoc(); // Usar fetch_assoc() para un solo resultado
     } else {
         $errorMessage = "No se encontraron servicios.";
     }
+
     $stmt->close();
-    $conn = null;
+    $conn->close();
 }
 ?>
 </head>
@@ -75,6 +77,8 @@ if (isset($_GET['id'])) {
             <p><?php echo $service['dato9']; ?></p>
             <p><?php echo $service['dato10']; ?></p>
             <p class="resumen"><?php echo $service['dato11']; ?></p>
+        <?php elseif (isset($errorMessage)): ?>
+            <p><?php echo $errorMessage; ?></p>
         <?php endif; ?>
         <table>
             <thead>
