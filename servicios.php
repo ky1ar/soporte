@@ -6,11 +6,9 @@ require_once 'includes/app/db.php';
 
 if (isset($_GET['id'])) {
     $serviceId = $_GET['id'];
-    $sql = "
+    $sql_servicio = "  -- Consulta para la tabla 'Servicio' (srv)
     SELECT 
-        s.id AS servicio_id,
-        srv.nombre AS nombre_servicio,
-        srv.descripcion as intro,
+        srv.descripcion AS desc,
         srv.cuestion1,
         srv.dato1,
         srv.dato2,
@@ -23,31 +21,57 @@ if (isset($_GET['id'])) {
         srv.dato8,
         srv.dato9,
         srv.dato10,
-        srv.dato11,
+        srv.dato11
+    FROM Servicio srv
+    WHERE srv.id_servicio = ?";
+
+    $stmt_servicio = $conn->prepare($sql_servicio);
+
+    if ($stmt_servicio === false) {
+        die("Error en la consulta SQL de 'Servicio': " . $conn->error . "<br>Consulta: " . $sql_servicio);
+    }
+
+    $stmt_servicio->bind_param("i", $serviceId);
+    $stmt_servicio->execute();
+    $result_servicio = $stmt_servicio->get_result();
+
+    if ($result_servicio && $result_servicio->num_rows > 0) {
+        $servicio_data = $result_servicio->fetch_assoc(); // Datos para los párrafos <p>
+    } else {
+        $errorMessage = "No se encontraron detalles del servicio.";
+    }
+
+    $stmt_servicio->close();
+
+
+    $sql_servicios = "  -- Consulta para la tabla 'Servicios' (s) - para la tabla
+    SELECT 
+        s.id AS servicio_id,
         s.descripcion,
         s.tamaño,
         s.precio,
         s.criterios
     FROM Servicios s
-    INNER JOIN Servicio srv ON s.id_servicio = srv.id
     WHERE s.id_servicio = ?";
-    $stmt = $conn->prepare($sql);
 
-    if ($stmt === false) { // Verifica si prepare() tuvo éxito
-        die("Error en la consulta SQL: " . $conn->error . "<br>Consulta: " . $sql);
+    $stmt_servicios = $conn->prepare($sql_servicios);
+
+    if ($stmt_servicios === false) {
+        die("Error en la consulta SQL de 'Servicios': " . $conn->error . "<br>Consulta: " . $sql_servicios);
     }
 
-    $stmt->bind_param("i", $serviceId);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt_servicios->bind_param("i", $serviceId);
+    $stmt_servicios->execute();
+    $result_servicios = $stmt_servicios->get_result();
 
-    if ($result && $result->num_rows > 0) { // Verifica $result y num_rows
-        $service = $result->fetch_assoc();
-    } else {
-        $errorMessage = "No se encontraron servicios.";
+    $servicios_table_data = []; // Array para almacenar los datos de la tabla
+    if ($result_servicios && $result_servicios->num_rows > 0) {
+        while ($row = $result_servicios->fetch_assoc()) {
+            $servicios_table_data[] = $row;
+        }
     }
 
-    $stmt->close();
+    $stmt_servicios->close();
     $conn->close();
 }
 ?>
@@ -65,48 +89,47 @@ if (isset($_GET['id'])) {
     </section>
 
     <div id="sup-servicios">
-        <?php if (isset($service)): ?> <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p><?php echo $service['intro']; ?></p>
-            <p><?php echo $service['cuestion1']; ?></p>
-            <p><?php echo $service['dato1']; ?></p>
-            <p><?php echo $service['dato2']; ?></p>
-            <p><?php echo $service['dato3']; ?></p>
-            <p><?php echo $service['dato4']; ?></p>
-            <p><?php echo $service['dato5']; ?></p>
-            <p><?php echo $service['cuestion2']; ?></p>
-            <p><?php echo $service['dato6']; ?></p>
-            <p><?php echo $service['dato7']; ?></p>
-            <p><?php echo $service['dato8']; ?></p>
-            <p><?php echo $service['dato9']; ?></p>
-            <p><?php echo $service['dato10']; ?></p>
-            <p class="resumen"><?php echo $service['dato11']; ?></p>
-            <p><?php echo $service['descripcion']; ?></p>
-            <p><?php echo $service['tamaño']; ?></p>
-            <p><?php echo $service['precio']; ?></p>
-            <p><?php echo $service['criterios']; ?></p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Descripción</th>
-                        <th>Tamaño</th>
-                        <th>Precio</th>
-                        <th>Criterios</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><?php echo $service['descripcion']; ?></td>
-                        <td><?php echo $service['tamaño']; ?></td>
-                        <td><?php echo $service['precio']; ?></td>
-                        <td><?php echo $service['criterios']; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-
+    <?php if (isset($servicio_data)): ?>  <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
+            <p><?php echo $servicio_data['desc']; ?></p>
+            <p><?php echo $servicio_data['cuestion1']; ?></p>
+            <p><?php echo $servicio_data['dato1']; ?></p>
+            <p><?php echo $servicio_data['dato2']; ?></p>
+            <p><?php echo $servicio_data['dato3']; ?></p>
+            <p><?php echo $servicio_data['dato4']; ?></p>
+            <p><?php echo $servicio_data['dato5']; ?></p>
+            <p><?php echo $servicio_data['cuestion2']; ?></p>
+            <p><?php echo $servicio_data['dato6']; ?></p>
+            <p><?php echo $servicio_data['dato7']; ?></p>
+            <p><?php echo $servicio_data['dato8']; ?></p>
+            <p><?php echo $servicio_data['dato9']; ?></p>
+            <p><?php echo $servicio_data['dato10']; ?></p>
+            <p class="resumen"><?php echo $servicio_data['dato11']; ?></p>
         <?php elseif (isset($errorMessage)): ?>
             <p><?php echo $errorMessage; ?></p>
         <?php endif; ?>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Tamaño</th>
+                    <th>Precio</th>
+                    <th>Criterios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (isset($servicios_table_data) && count($servicios_table_data) > 0): ?>
+                    <?php foreach ($servicios_table_data as $row): ?>
+                        <tr>
+                            <td><?php echo $row['descripcion']; ?></td>
+                            <td><?php echo $row['tamaño']; ?></td>
+                            <td><?php echo $row['precio']; ?></td>
+                            <td><?php echo $row['criterios']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
         <p class="advertencia">Nota: Los costos no incluyen repuestos y están sujetos a variaciones sin previo aviso.</p>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
