@@ -32,6 +32,9 @@ if (isset($_GET['id'])) {
     INNER JOIN Servicio srv ON s.id_servicio = srv.id
     WHERE s.id_servicio = ?";
     $stmt = $conn->prepare($sql);
+    if ($stmt === false) {
+        die("Error en la consulta SQL: " . $conn->error); // Imprime el error y detiene la ejecución
+    }
     $stmt->bind_param("i", $serviceId);
     $stmt->execute();
     $result = $stmt->get_result();
