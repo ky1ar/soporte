@@ -34,112 +34,111 @@ require_once 'includes/common/header.php';
             <img src="assets/img/home-pc.webp">
         </div>
     </section>
-    <section class="s1">
-        <div class="section-item">
-            <p>Verifica el estado de tu equipo ingresado a soporte técnico a tiempo real.</p>
-            <a href="/consultas"><button>CONSULTAS</button></a>
+    <section id="pasos-consulta">
+        <div class="t">
+            <p>¿Cómo registrar un equipo <span>en Soporte Técnico?</span></p>
+            <p>Te presentamos el paso a paso para introducir tu equipo en nuestro servicio.</p>
         </div>
-        <div class="section-item">
-            <p>Ahorra tiempo y agenda tu mismo la capacitación en el horario que tengas disponible.</p>
-            <a href="/capacitaciones"><button>CAPACITACIONES</button></a>
-        </div>
-        <div class="section-item">
-            <p>Encuentra todo el contenido para que te vuelvas un experto.</p>
-            <a href="/wiki"><button>WIKI</button></a>
-        </div>
-        <div class="section-item">
-            <p>Descarga de forma gratuita todos los diseños de nuestras redes</p>
-            <a href="/stl"><button>STLs</button></a>
-        </div>
-        <div class="section-item">
-            <p>Accede a los programas más avanzados para tus equipos</p>
-            <a href="/slicers"><button>SLICERS</button></a>
-        </div>
-    </section>
-
-    <section class="body-s1">
-        <img style="width: 100%;" height="630" src="assets/img/banner2-marcas.webp">
-        <h1 class="title-qs">PREGUNTAS FRECUENTES</h1>
-        <div class="faq">
-            <div class="question">
-                <p class="question-text">¿Tienes fallas en tu equipo?</p>
-                <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
+        <div class="pasos">
+            <div class="pas">
+                <p>1</p>
+                <p>Contáctanos</p>
+                <p>Comunícate con nuestra área de soporte al +51 970 539 751 y describe el problema o inconveniente que presenta tu equipo.</p>
             </div>
-            <div class="content">
-                <ul>
-                    <li>Si tu equipo presenta fallas o problemas de configuración, debes comunicarte con nosotros por mensaje al WhatsApp <a href="https://wa.me/51970539751" target="_blank">+51 970 539 751</a> detallando los inconvenientes. No olvides indicar: marca, modelo, número de serie y comprobante de pago.</li>
-                    <li>Te daremos toda la asistencia necesaria para solucionar el problema de forma virtual y, de ser necesario, te pediremos que internes tu equipo en nuestro centro de soporte técnico oficial ubicado en <b>Calle Tutumo 116, Surco</b>.</li>
-                    <li>Al ingresar tu equipo, registraremos todos los datos como marca, modelo, número de serie, accesorios y podrás indicar el problema que encontraste. Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo en tiempo real y conocer en qué etapa se encuentra: <a href="https://soporte.krear3d.com/" target="_blank">https://soporte.krear3d.com/</a></li>
-                    <li>Si la falla es de fábrica, no te preocupes que estarás cubierto por la garantía y no tendrás que pagar nada. En caso de que se trate de un servicio de reparación o mantenimiento, te daremos todos los costos antes de iniciar.</li>
-                </ul>
+            <div class="pas">
+                <p>2</p>
+                <p>Interna tu equipo</p>
+                <p>Ingresa el producto a nuestros locales autorizados previa coordinación.</p>
             </div>
-
-
-        </div>
-
-        <div class="faq">
-            <div class="question">
-                <p class="question-text">¿Cuántos días demoran las reparaciones?</p>
-                <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
+            <div class="pas">
+                <p>3</p>
+                <p>Seguimiento</p>
+                <p>Ten a la mano el número de orden, tu DNI o RUC y podrás consultar el estado de tu equipo de forma rápida y sencilla.</p>
             </div>
-            <div class="content">
-                <p>En promedio las fallas de los equipos se solucionan en una semana, ya que contamos con un amplio stock de repuestos e insumos de todas las marcas que representamos. De ser un caso más complejo, la primera etapa clave que es el diagnóstico que puede demorar hasta 10 días y posteriormente la etapa final de la reparación otros 10 días hábiles.<br><br>
-                    <img class="icon-inf" src="assets/img/info_icon.png">Recuerda que, con tu DNI o RUC y el número de la orden, podrás consultar el estado de tu equipo a tiempo real, conocer qué técnico se está encargando, en qué etapa se encuentra: <a href="https://soporte.krear3d.com/consultas">https://soporte.krear3d.com/consultas</a>
-                </p>
-            </div>
-        </div>
-
-        <div class="faq">
-            <div class="question">
-                <p class="question-text">¿Cuándo no podrás aplicar la garantía?</p>
-                <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
-            </div>
-            <div class="content">
-                <p>Si no realizas una buena instalación o armado, puedes malograr tu equipo debido a una mala conexión, voltaje incorrecto, rotura de componentes, etc.
-                    <br><br>
-                    <img class="icon-inf" src="assets/img/info_icon.png">Recuerda que en Perú es 220V la alimentación común.
-                    <br><br>
-                    En caso de no manipularlo correctamente, produciendo daños, rayaduras, derrames de líquidos, etc. Ten cuidado con los equipos de resinas. Los componentes que se desgastan debido a la cantidad de horas que usas tu equipo, como boquillas, plataformas, pantallas, etc.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq">
-            <div class="question">
-                <p class="question-text">¿Qué recomendaciones debes seguir?</p>
-                <button class="collapsible" id="open"><img src="assets/img/row-down2.png" alt=""></button>
-            </div>
-            <div class="content">
-                <p>Revisa los manuales de usuario, tutoriales, guía de inicio y las instrucciones provistas con el producto, porque los equipos son dispositivos electrónicos sofisticados.
-                    <br><br>
-                    Debido a la alta precisión mecánica y piezas electrónicas, debes realizar un mantenimiento preventivo cada 3 meses para prevenir cualquier problema.
-                </p>
+            <div class="pas">
+                <p>4</p>
+                <p>¡Listo para entrega!</p>
+                <p>Nuestro equipo de soporte solucionará tu caso y podrás recogerlo en la fecha indicada.</p>
             </div>
         </div>
     </section>
-    <section class="home-contact">
-        <h1>CONTÁCTANOS</h1>
-        <div class="container-cards">
-            <a href="mailto:soporte@krear3d.com" class="card-info">
-                <h1>Email</h1>
-                <img src="assets/img/home-email.png" alt="">
-                <p>soporte@krear3d.com</p>
+    <section id="searchOrderBox">
+        <p class="o">Introduce tu número de orden aquí</p>
+        <div class="wrapper">
+            <div class="cons">
+                <p class="d">Introduce tu número de documento aquí (DNI / RUC)</p>
+                <p>Consultar <br><span>Orden de Servicio</span></p>
+                <p>Introduce el número de orden y el documento tal cual se muestra en la orden de ingreso proporcionada.</p>
+            </div>
+            <form id="searchOrder">
+                <div>N°: <input id="orderNumber" type="text" placeholder="Orden"></div>
+                <hr>
+                <p class="g">GUÍA DE INTERNAMIENTO</p>
+                <hr>
+                <div>RUC/DNI: <input id="document" type="text" placeholder="Documento"></div>
+                <div>Celular: <span>*********</span></div>
+                <div>Nombre: <span>***************************</span></div>
+                <hr>
+                <div>Marca: <span>*********************</span></div>
+                <div>N° de serie: <span>*********************</span></div>
+                <div>Modelo: <span>*********************</span></div>
+                <div>Fecha de compra <span>** / ** / ****</span></div>
+                <hr>
+                <div>Fecha de ingreso <span>** / ** / ****</span></div>
+                <div id="searchOrderMessage"></div>
+                <div class="c1">
+                </div>
+                <div class="c2">
+                </div>
+                <button type="submit">Consultar</button>
+            </form>
+            <div class="docu">
+                Introduce tu número de documento aquí (DNI / RUC)
+            </div>
+        </div>
+    </section>
+    <section id="con-servicios">
+        <h1 class="tit">Tarifario de Servicio <span>Técnico K3D</span></h1>
+        <p class="subt">Nos especializamos en brindarte el mejor servicio técnico para mantener tu equipo en óptimas condiciones. Desde mantenimiento preventivo hasta el reemplazo de piezas clave, nuestro equipo de expertos está listo para ayudarte.</p>
+        <div class="servicios">
+            <a class="ser" href="servicios?id=1">
+                <img src="./assets/img/con-s1.webp" alt="">
+                <p>Cambio de Pantalla LED</p>
+                <p>Desde S/80.00*</p>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=51970539751" class="card-info">
-                <h1>WhatsApp</h1>
-                <img src="assets/img/whatsapp.png" alt="">
-                <p>+51 970 539 751</p>
+            <a class="ser" href="servicios?id=2">
+                <img src="./assets/img/con-s2.webp" alt="">
+                <p>Cambio de FEP</p>
+                <p>Desde S/40.00*</p>
             </a>
-            <a href="https://maps.app.goo.gl/SVhW83RMynodKTYw6" class="card-info">
-                <h1>Encuéntranos</h1>
-                <img src="assets/img/home-ubi.png" alt="">
-                <p>Calle Tutumo 116, Surco</p>
+            <a class="ser" href="servicios?id=3">
+                <img src="./assets/img/con-s3.webp" alt="">
+                <p>Cambio de Boquilla</p>
+                <p>Desde S/40.00*</p>
+            </a>
+            <a class="ser" href="servicios?id=4">
+                <img src="./assets/img/con-s4.webp" alt="">
+                <p>Mantenimiento Preventivo</p>
+                <p>Desde S/60.00*</p>
+            </a>
+            <a class="ser" href="servicios?id=5">
+                <img src="./assets/img/con-s5.webp" alt="">
+                <p>Servicio de Armado</p>
+                <p>Desde S/80.00*</p>
+            </a>
+            <a class="ser" href="servicios?id=6">
+                <img src="./assets/img/con-s6.webp" alt="">
+                <p>Cambio de Placa Electronica Principal</p>
+                <p>Desde S/180.00*</p>
+            </a>
+            <a class="ser" href="servicios?id=7">
+                <img src="./assets/img/con-s7.webp" alt="">
+                <p>Cambio de Fuente de Poder</p>
+                <p>Desde S/100.00*</p>
             </a>
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
-
-    <script src="./assets/js/efects.js"></script>
 </body>
 
 </html>
