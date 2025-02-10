@@ -262,7 +262,8 @@ require_once 'includes/common/header.php';
                                     </li>
                                 </ul>
                                 <div class="aviso-pago">
-                                    Adjunta la constancia de pago o si eres cliente el comprobante de tu compra.
+                                    Adjunta la constancia de pago de la capacitación o si eres cliente el comprobante de compra de tu equipo.
+
                                 </div>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">
