@@ -62,17 +62,29 @@ if (isset($_GET['id'])) {
             <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
             <p><?php echo $services[0]['intro']; ?></p>
             <p class="cuest"><?php echo $services[0]['cuestion1']; ?></p>
-            <p><?php echo $services[0]['dato1']; ?></p>
-            <p><?php echo $services[0]['dato2']; ?></p>
-            <p><?php echo $services[0]['dato3']; ?></p>
-            <p><?php echo $services[0]['dato4']; ?></p>
-            <p><?php echo $services[0]['dato5']; ?></p>
+            <ul>
+                <?php
+                $dataFields = ['dato1', 'dato2', 'dato3', 'dato4', 'dato5'];
+
+                foreach ($dataFields as $field) {
+                    if (!empty($services[0][$field])) {
+                        echo "<li>{$services[0][$field]}</li>";
+                    }
+                }
+                ?>
+            </ul>
             <p class="cuest"><?php echo $services[0]['cuestion2']; ?></p>
-            <p><?php echo $services[0]['dato6']; ?></p>
-            <p><?php echo $services[0]['dato7']; ?></p>
-            <p><?php echo $services[0]['dato8']; ?></p>
-            <p><?php echo $services[0]['dato9']; ?></p>
-            <p><?php echo $services[0]['dato10']; ?></p>
+            <ul>
+                <?php
+                $dataFields = ['dato6', 'dato7', 'dato8', 'dato9', 'dato10'];
+
+                foreach ($dataFields as $field) {
+                    if (!empty($services[0][$field])) {
+                        echo "<li>{$services[0][$field]}</li>";
+                    }
+                }
+                ?>
+            </ul>
             <p><?php echo $services[0]['dato11']; ?></p>
         <?php endif; ?>
         <table>
