@@ -70,9 +70,9 @@
     <div class="bottom">
         <div class="wrapper">
             <ul>
-                <li><a href="https://www.tiendakrear3d.com/terminos/condiciones-garantia/">POLÍTICAS Y CONDICIONES</a></li>
-                <li><a href="https://www.tiendakrear3d.com/terminos/garantia-soporte/">POLÍTICAS DE GARANTÍA</a></li>
-                <li><a href="https://www.tiendakrear3d.com/terminos/politicas-de-envios-lima-y-provincias/">POLÍTICAS DE ENVÍOS</a></li>
+                <li><a target="_blank" href="https://www.tiendakrear3d.com/terminos/condiciones-garantia/">POLÍTICAS Y CONDICIONES</a></li>
+                <li><a target="_blank" href="https://www.tiendakrear3d.com/terminos/garantia-soporte/">POLÍTICAS DE GARANTÍA</a></li>
+                <li><a target="_blank" href="https://www.tiendakrear3d.com/terminos/politicas-de-envios-lima-y-provincias/">POLÍTICAS DE ENVÍOS</a></li>
             </ul>
 
             <span class="copyright">
