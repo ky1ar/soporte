@@ -1367,8 +1367,8 @@ body {
   border: none;
 }
 @media only screen and (max-width: 36rem) {
-  #scheduleForm{
-    padding: 1rem .5rem;
+  #scheduleForm {
+    padding: 1rem 0.5rem;
   }
 }
 #scheduleFormMessage {
@@ -2765,9 +2765,10 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0;
   padding: 0;
 }
-#sup-servicios .intro {
-  width: 60rem;
-  margin: 1rem auto;
+#sup-servicios p.cuest {
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+  font-weight: 1rem;
 }
 #sup-servicios table {
   width: 50rem;

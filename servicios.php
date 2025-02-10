@@ -61,13 +61,13 @@ if (isset($_GET['id'])) {
         <?php if (isset($services) && count($services) > 0): ?>
             <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
             <p><?php echo $services[0]['intro']; ?></p>
-            <p><?php echo $services[0]['cuestion1']; ?></p>
+            <p class="cuest"><?php echo $services[0]['cuestion1']; ?></p>
             <p><?php echo $services[0]['dato1']; ?></p>
             <p><?php echo $services[0]['dato2']; ?></p>
             <p><?php echo $services[0]['dato3']; ?></p>
             <p><?php echo $services[0]['dato4']; ?></p>
             <p><?php echo $services[0]['dato5']; ?></p>
-            <p><?php echo $services[0]['cuestion2']; ?></p>
+            <p class="cuest"><?php echo $services[0]['cuestion2']; ?></p>
             <p><?php echo $services[0]['dato6']; ?></p>
             <p><?php echo $services[0]['dato7']; ?></p>
             <p><?php echo $services[0]['dato8']; ?></p>
