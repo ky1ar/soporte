@@ -4,9 +4,26 @@ require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
 require_once 'includes/app/db.php';
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+$serviceRoutes = [
+    'cambio-de-pantalla' => 1,
+    'cambio-de-fep' => 2,
+    'cambio-de-boquilla' => 3,
+    'mantenimiento-preventivo' => 4,
+    'servicio-de-armado' => 5,
+    'cambio-de-placa-electronica' => 6,
+    'cambio-de-fuente' => 7
+];
+
+// Detectar si la URL contiene un nombre de servicio en lugar de un ID
+if (isset($_GET['name']) && array_key_exists($_GET['name'], $serviceRoutes)) {
+    $serviceId = $serviceRoutes[$_GET['name']];
+} elseif (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $serviceId = intval($_GET['id']);
-    $sql = "
+} else {
+    die("Servicio no encontrado.");
+}
+
+$sql = "
     SELECT 
         s.id AS servicio_id,
         srv.nombre AS nombre_servicio,
@@ -31,18 +48,20 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     FROM Servicios s
     INNER JOIN Servicio srv ON s.id_servicio = srv.id
     WHERE s.id_servicio = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $serviceId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $services = $result->fetch_all(MYSQLI_ASSOC);
-    } else {
-        $errorMessage = "No se encontraron servicios.";
-    }
-    $stmt->close();
-    $conn = null;
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $serviceId);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $services = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    $errorMessage = "No se encontraron servicios.";
 }
+
+$stmt->close();
+$conn = null;
 ?>
 </head>
 
