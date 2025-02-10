@@ -2761,10 +2761,9 @@ section.i3d .cont-cards .card div:last-child a {
   max-width: 100rem;
   padding: 0 1rem;
 }
-#sup-servicios .title {
-  text-align: center;
-  font-size: 1.5rem;
+#sup-servicios p {
   margin: 0;
+  padding: 0;
 }
 #sup-servicios .intro {
   width: 60rem;
