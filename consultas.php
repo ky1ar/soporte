@@ -83,37 +83,37 @@ require_once 'includes/common/header.php';
         <h1 class="tit">Tarifario de Servicio <span>Técnico K3D</span></h1>
         <p class="subt">Nos especializamos en brindarte el mejor servicio técnico para mantener tu equipo en óptimas condiciones. Desde mantenimiento preventivo hasta el reemplazo de piezas clave, nuestro equipo de expertos está listo para ayudarte.</p>
         <div class="servicios">
-            <a class="ser" href="servicios?id=1">
+            <a class="ser" href="servicios/cambio-de-pantalla-lcd?id=1">
                 <img src="./assets/img/con-s1.webp" alt="">
                 <p>Cambio de Pantalla LED</p>
                 <p>Desde S/80.00*</p>
             </a>
-            <a class="ser" href="servicios?id=2">
+            <a class="ser" href="servicios/cambio-de-fep?id=2">
                 <img src="./assets/img/con-s2.webp" alt="">
                 <p>Cambio de FEP</p>
                 <p>Desde S/40.00*</p>
             </a>
-            <a class="ser" href="servicios?id=3">
+            <a class="ser" href="servicios/cambio-de-boquilla?id=3">
                 <img src="./assets/img/con-s3.webp" alt="">
                 <p>Cambio de Boquilla</p>
                 <p>Desde S/40.00*</p>
             </a>
-            <a class="ser" href="servicios?id=4">
+            <a class="ser" href="servicios/mantenimiento-preventivo?id=4">
                 <img src="./assets/img/con-s4.webp" alt="">
                 <p>Mantenimiento Preventivo</p>
                 <p>Desde S/60.00*</p>
             </a>
-            <a class="ser" href="servicios?id=5">
+            <a class="ser" href="servicios/servicio-de-armado?id=5">
                 <img src="./assets/img/con-s5.webp" alt="">
                 <p>Servicio de Armado</p>
                 <p>Desde S/80.00*</p>
             </a>
-            <a class="ser" href="servicios?id=6">
+            <a class="ser" href="servicios/cambio-de-placa-electronica?id=6">
                 <img src="./assets/img/con-s6.webp" alt="">
                 <p>Cambio de Placa Electronica Principal</p>
                 <p>Desde S/180.00*</p>
             </a>
-            <a class="ser" href="servicios?id=7">
+            <a class="ser" href="servicios/cambio-de-fuente-de-poder?id=7">
                 <img src="./assets/img/con-s7.webp" alt="">
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>
