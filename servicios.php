@@ -32,12 +32,17 @@ if (isset($_GET['id'])) {
     INNER JOIN Servicio srv ON s.id_servicio = srv.id
     WHERE s.id_servicio = ?";
     $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) { // Verifica si prepare() tuvo éxito
+        die("Error en la consulta SQL: " . $conn->error . "<br>Consulta: " . $sql);
+    }
+
     $stmt->bind_param("i", $serviceId);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $service = $result->fetch_assoc(); // Usar fetch_assoc() para un solo resultado
+    if ($result && $result->num_rows > 0) { // Verifica $result y num_rows
+        $service = $result->fetch_assoc();
     } else {
         $errorMessage = "No se encontraron servicios.";
     }
@@ -60,11 +65,9 @@ if (isset($_GET['id'])) {
     </section>
 
     <div id="sup-servicios">
-        <?php if (isset($service)):  // Corregido: isset($service) 
-        ?>
-            <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p><?php echo $service['cuestion1']; ?></p>
+        <?php if (isset($service)): ?> <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
             <p><?php echo $service['intro']; ?></p>
+            <p><?php echo $service['cuestion1']; ?></p>
             <p><?php echo $service['dato1']; ?></p>
             <p><?php echo $service['dato2']; ?></p>
             <p><?php echo $service['dato3']; ?></p>
@@ -77,46 +80,33 @@ if (isset($_GET['id'])) {
             <p><?php echo $service['dato9']; ?></p>
             <p><?php echo $service['dato10']; ?></p>
             <p class="resumen"><?php echo $service['dato11']; ?></p>
+            <p><?php echo $service['descripcion']; ?></p>
+            <p><?php echo $service['tamaño']; ?></p>
+            <p><?php echo $service['precio']; ?></p>
+            <p><?php echo $service['criterios']; ?></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Tamaño</th>
+                        <th>Precio</th>
+                        <th>Criterios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo $service['descripcion']; ?></td>
+                        <td><?php echo $service['tamaño']; ?></td>
+                        <td><?php echo $service['precio']; ?></td>
+                        <td><?php echo $service['criterios']; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+
         <?php elseif (isset($errorMessage)): ?>
             <p><?php echo $errorMessage; ?></p>
         <?php endif; ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Descripción</th>
-                    <th>Tamaño</th>
-                    <th>Precio</th>
-                    <th>Criterios</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if (isset($services) && count($services) > 0) {
-                    $totalServices = count($services);
-                    $first = true;
-                    foreach ($services as $service) {
-                        if ($first) {
-                            echo "<tr>
-                            <td rowspan='$totalServices'>{$service['descripcion']}</td>
-                            <td>{$service['tamaño']}</td>
-                            <td>{$service['precio']}</td>
-                            <td>{$service['criterios']}</td>
-                        </tr>";
-                            $first = false;
-                        } else {
-                            echo "<tr>
-                            <td>{$service['tamaño']}</td>
-                            <td>{$service['precio']}</td>
-                            <td>{$service['criterios']}</td>
-                        </tr>";
-                        }
-                    }
-                } elseif (isset($errorMessage)) {
-                    echo "<tr><td colspan='4'>$errorMessage</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
         <p class="advertencia">Nota: Los costos no incluyen repuestos y están sujetos a variaciones sin previo aviso.</p>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
