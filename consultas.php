@@ -118,11 +118,6 @@ require_once 'includes/common/header.php';
                 <p>Cambio de Fuente de Poder</p>
                 <p>Desde S/100.00*</p>
             </a>
-            <a class="ser" href="servicios?id=8">
-                <img src="./assets/img/con-s8.webp" alt="">
-                <p>Actualización de Firmware</p>
-                <p>Desde S/100.00*</p>
-            </a>
         </div>
     </section>
     <?php require_once 'includes/common/footer.php'; ?>
