@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     SELECT 
         s.id AS servicio_id,
         srv.nombre AS nombre_servicio,
-        srv.descripcion as desc,
+        srv.descripcion as intro,
         srv.cuestion1,
         srv.dato1,
         srv.dato2,
@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
     <div id="sup-servicios">
         <?php if (isset($service)): ?>
             <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p><?php echo $service['desc']; ?></p>
+            <p><?php echo $service['intro']; ?></p>
             <p><?php echo $service['cuestion1']; ?></p>
             <p><?php echo $service['dato1']; ?></p>
             <p><?php echo $service['dato2']; ?></p>
