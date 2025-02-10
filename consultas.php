@@ -80,8 +80,8 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <section id="con-servicios">
-        <h1 class="tit">Precios del Servicio <span>Técnico K3D</span></h1>
-        <p class="subt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ut tempore. Totam dignissimos facere dolor sunt quaerat.</p>
+        <h1 class="tit">Tarifario de Servicio <span>Técnico K3D</span></h1>
+        <p class="subt">Nos especializamos en brindarte el mejor servicio técnico para mantener tu equipo en óptimas condiciones. Desde mantenimiento preventivo hasta el reemplazo de piezas clave, nuestro equipo de expertos está listo para ayudarte.</p>
         <div class="servicios">
             <a class="ser" href="servicios?id=1">
                 <img src="./assets/img/con-s1.webp" alt="">

@@ -10,7 +10,20 @@ if (isset($_GET['id'])) {
     SELECT 
         s.id AS servicio_id,
         srv.nombre AS nombre_servicio,
-        s.intro,
+        srv.descripcion as desc,
+        srv.cuestion1,
+        srv.dato1,
+        srv.dato2,
+        srv.dato3,
+        srv.dato4,
+        srv.dato5,
+        srv.cuestion2,
+        srv.dato6,
+        srv.dato7,
+        srv.dato8,
+        srv.dato9,
+        srv.dato10,
+        srv.dato11,
         s.descripcion,
         s.tamaño,
         s.precio,
@@ -46,8 +59,21 @@ if (isset($_GET['id'])) {
 
     <div id="sup-servicios">
         <?php if (isset($services) && count($services) > 0): ?>
-            <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
-            <p class="intro"><?php echo $services[0]['intro']; ?></p>
+            <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
+            <p><?php echo $service['cuestion1']; ?></p>
+            <p><?php echo $service['desc']; ?></p>
+            <p><?php echo $service['dato1']; ?></p>
+            <p><?php echo $service['dato2']; ?></p>
+            <p><?php echo $service['dato3']; ?></p>
+            <p><?php echo $service['dato4']; ?></p>
+            <p><?php echo $service['dato5']; ?></p>
+            <p><?php echo $service['cuestion2']; ?></p>
+            <p><?php echo $service['dato6']; ?></p>
+            <p><?php echo $service['dato7']; ?></p>
+            <p><?php echo $service['dato8']; ?></p>
+            <p><?php echo $service['dato9']; ?></p>
+            <p><?php echo $service['dato10']; ?></p>
+            <p class="resumen"><?php echo $service['dato11']; ?></p>
         <?php endif; ?>
         <table>
             <thead>
@@ -86,7 +112,7 @@ if (isset($_GET['id'])) {
                 ?>
             </tbody>
         </table>
-        <p class="advertencia">Los costos no incluyen repuestos y están sujetos a variaciones sin previo aviso*</p>
+        <p class="advertencia">Nota: Los costos no incluyen repuestos y están sujetos a variaciones sin previo aviso.</p>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
