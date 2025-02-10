@@ -77,7 +77,7 @@
 
             <span class="copyright">
                 Fabricaciones Digitales del Perú S.A. | RUC 20556316890<br>
-                Krear 3D © 2023. Todos los derechos reservados.
+                Krear 3D © <?php echo date('Y'); ?>. Todos los derechos reservados.
             </span>
         </div>
     </div>
