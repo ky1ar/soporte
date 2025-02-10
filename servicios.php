@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     SELECT 
         s.id AS servicio_id,
         srv.nombre AS nombre_servicio,
-        srv.descripcion as intro,
+        srv.descripcion AS intro,
         srv.cuestion1,
         srv.dato1,
         srv.dato2,
@@ -59,8 +59,8 @@ if (isset($_GET['id'])) {
 
     <div id="sup-servicios">
         <?php if (isset($services) && count($services) > 0): ?>
-            <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p><?php echo $service['intro']; ?></p>
+            <h1 class="title"><?php echo $services[0]['nombre_servicio']; ?></h1>
+            <p><?php echo $services[0]['intro']; ?></p>
         <?php endif; ?>
         <table>
             <thead>
@@ -75,7 +75,7 @@ if (isset($_GET['id'])) {
                 <?php
                 if (isset($services) && count($services) > 0) {
                     $totalServices = count($services);
-                    $first = true; 
+                    $first = true;
                     foreach ($services as $service) {
                         if ($first) {
                             echo "<tr>
