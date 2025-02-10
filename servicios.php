@@ -32,21 +32,16 @@ if (isset($_GET['id'])) {
     INNER JOIN Servicio srv ON s.id_servicio = srv.id
     WHERE s.id_servicio = ?";
     $stmt = $conn->prepare($sql);
-    if ($stmt === false) {
-        die("Error en la consulta SQL: " . $conn->error); // Imprime el error y detiene la ejecución
-    }
     $stmt->bind_param("i", $serviceId);
     $stmt->execute();
     $result = $stmt->get_result();
-
     if ($result->num_rows > 0) {
-        $service = $result->fetch_assoc(); // Usar fetch_assoc() para un solo resultado
+        $services = $result->fetch_all(MYSQLI_ASSOC);
     } else {
         $errorMessage = "No se encontraron servicios.";
     }
-
     $stmt->close();
-    $conn->close();
+    $conn = null;
 }
 ?>
 </head>
@@ -63,10 +58,11 @@ if (isset($_GET['id'])) {
     </section>
 
     <div id="sup-servicios">
-        <?php if (isset($service)): ?>
+        <?php if (isset($service)):  // Corregido: isset($service) 
+        ?>
             <h1 class="title"><?php echo $service['nombre_servicio']; ?></h1>
-            <p><?php echo $service['intro']; ?></p>
             <p><?php echo $service['cuestion1']; ?></p>
+            <p><?php echo $service['intro']; ?></p>
             <p><?php echo $service['dato1']; ?></p>
             <p><?php echo $service['dato2']; ?></p>
             <p><?php echo $service['dato3']; ?></p>
@@ -79,12 +75,6 @@ if (isset($_GET['id'])) {
             <p><?php echo $service['dato9']; ?></p>
             <p><?php echo $service['dato10']; ?></p>
             <p class="resumen"><?php echo $service['dato11']; ?></p>
-            <p><?php echo $service['descripcion']; ?></p>
-            <p><?php echo $service['tamaño']; ?></p>
-            <p><?php echo $service['precio']; ?></p>
-            <p><?php echo $service['criterios']; ?></p>
-        <?php elseif (isset($errorMessage)): ?>
-            <p><?php echo $errorMessage; ?></p>
         <?php endif; ?>
         <table>
             <thead>
