@@ -70,14 +70,14 @@
     <div class="bottom">
         <div class="wrapper">
             <ul>
-                <li><a href="/terminos/terminos-condiciones-y-garantia/">POLÍTICAS Y CONDICIONES</a></li>
-                <li><a href="/terminos/politicas-de-garantia-y-soporte-tecnico/">POLÍTICAS DE GARANTÍA</a></li>
-                <li><a href="/terminos/politicas-de-envios-lima-y-provincias/">POLÍTICAS DE ENVÍOS</a></li>
+                <li><a target="_blank" href="https://www.tiendakrear3d.com/terminos/condiciones-garantia/">POLÍTICAS Y CONDICIONES</a></li>
+                <li><a target="_blank" href="https://www.tiendakrear3d.com/terminos/garantia-soporte/">POLÍTICAS DE GARANTÍA</a></li>
+                <li><a target="_blank" href="https://www.tiendakrear3d.com/terminos/politicas-de-capacitaciones-virtuales/">POLÍTICAS DE CAPACITACIONES</a></li>
             </ul>
 
             <span class="copyright">
                 Fabricaciones Digitales del Perú S.A. | RUC 20556316890<br>
-                Krear 3D © 2023. Todos los derechos reservados.
+                Krear 3D © <?php echo date('Y'); ?>. Todos los derechos reservados.
             </span>
         </div>
     </div>

@@ -9,3 +9,11 @@ RewriteRule ^(.*)$ / [R=301,L]
 php_flag display_startup_errors on
 php_flag display_errors on
 php_flag html_errors on
+
+RewriteRule ^cambio-de-pantalla-lcd$ servicios.php?id=1 [L,QSA]
+RewriteRule ^cambio-de-fep$ servicios.php?id=2 [L,QSA]
+RewriteRule ^cambio-de-boquilla$ servicios.php?id=3 [L,QSA]
+RewriteRule ^mantenimiento-preventivo$ servicios.php?id=4 [L,QSA]
+RewriteRule ^servicio-de-armado$ servicios.php?id=5 [L,QSA]
+RewriteRule ^cambio-de-placa-electronica-principal$ servicios.php?id=6 [L,QSA]
+RewriteRule ^cambio-de-fuente-de-poder$ servicios.php?id=7 [L,QSA]

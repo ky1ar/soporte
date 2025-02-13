@@ -17,7 +17,7 @@ require_once 'includes/common/header.php';
         </div>
     </section>
 
-    <section id="searchOrderBox">
+    <section id="searchOrderBoxx">
         <div class="wrapper">
             <div class="guide"><img src="assets/img/guia-pre.webp" alt=""></div>
             <form id="searchOrder">

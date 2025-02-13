@@ -24,11 +24,6 @@ $(document).ready(function () {
     target.text(message).slideDown();
   }
 
-  // const lastDiv = $(".data-wiki .data div:last-child");
-  // if (lastDiv.text().includes("•")) {
-  //   lastDiv.css("padding-left", "1rem");
-  // }
-
   // Toggle menus
   var toggleMenus = document.querySelectorAll(".toggle-menu");
   toggleMenus.forEach(function (menu) {
@@ -48,7 +43,6 @@ $(document).ready(function () {
     });
   });
 
-  // Mobile menu toggle
   $(".btn-menu-movil").on("click", function () {
     var menu = $("section.menu-wiki-movil");
     var overlay = $(".overlay");
@@ -88,48 +82,6 @@ $(document).ready(function () {
     }
   });
 
-  // cargarSTLs();
-  // function cargarSTLs() {
-  //   $.ajax({
-  //     url: "routes/getSTL.php",
-  //     type: "GET",
-  //     dataType: "json",
-  //     success: function (response) {
-  //       if (response.success) {
-  //         var stlsData = response.data;
-  //         var stlsContainer = $("#stls-container");
-  //         stlsContainer.empty(); // Limpiar el contenedor actual
-
-  //         stlsData.forEach(function (stl, index) {
-  //           var sectionIndex = Math.floor(index / 3); // Determinar el índice de la sección
-  //           var section = stlsContainer.find(".stls").eq(sectionIndex);
-
-  //           if (section.length === 0) {
-  //             section = $('<section class="stls"></section>');
-  //             stlsContainer.append(section);
-  //           }
-
-  //           var cardHtml = `
-  //                       <div class="card-stl">
-  //                           <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-  //                           <h1>${stl.name}</h1>
-  //                           <p>${stl.info}</p>
-  //                           <a href="archivos-stl/${stl.archivo_stl}" download>
-  //                               <button>DESCARGAR</button>
-  //                           </a>
-  //                       </div>
-  //                   `;
-  //           section.append(cardHtml);
-  //         });
-  //       } else {
-  //         console.error("Error:", response.message);
-  //       }
-  //     },
-  //     error: function (xhr, status, error) {
-  //       console.error("Error en la solicitud AJAX:", error);
-  //     },
-  //   });
-  // }
   const stlsContainer = $("#stls-container");
   let currentPage = 1;
   let totalPages = 1;
@@ -182,21 +134,16 @@ $(document).ready(function () {
       },
     });
   }
-
-  // Manejador de eventos para el botón "Anterior"
   $("#prevPage").on("click", function () {
     if (currentPage > 1) {
       cargarSTLs(currentPage - 1);
     }
   });
-
-  // Manejador de eventos para el botón "Siguiente"
   $("#nextPage").on("click", function () {
     if (currentPage < totalPages) {
       cargarSTLs(currentPage + 1);
     }
   });
-  // Función para manejar el clic en los enlaces del menú
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
     "click",
     function (event) {
@@ -223,9 +170,7 @@ $(document).ready(function () {
     }
   );
 
-  // Simular clic en el primer elemento al cargar la página
   $(document).ready(function () {
-    // Obtener el segundo elemento (índice 1 en base 0)
     var listItemAtIndex = $(
       "section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li"
     ).eq(2);
@@ -543,9 +488,11 @@ $(document).ready(function () {
     "diciembre",
   ];
 
-  //version prueba
+  //version v1.1
   calendarPrev.click(function () {
-    let offsetMonth = currentDate.getMonth() - 1;
+    let offsetMonth = currentDate.getMonth() - 1; // Mes anterior
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+
     if (offsetMonth > today.getMonth()) {
       loadCalendar(-1);
       calendarNext.removeClass("disabled");
@@ -561,8 +508,10 @@ $(document).ready(function () {
   });
 
   calendarNext.click(function () {
-    let offsetMonth = currentDate.getMonth() + 1;
-    let maxMonth = today.getMonth() + 2;
+    let offsetMonth = currentDate.getMonth() + 1; // Mes siguiente
+    let offsetYear = currentDate.getFullYear(); // Año actual de currentDate
+    let maxMonth = today.getMonth() + 2; // Mes máximo para avanzar
+
     if (offsetMonth < maxMonth) {
       loadCalendar(1);
       calendarPrev.removeClass("disabled");
@@ -611,7 +560,7 @@ $(document).ready(function () {
       ("0" + (currentDate.getMonth() + 1)).slice(-2) +
       "-" +
       ("0" + currentDate.getDate()).slice(-2);
-    
+
     let splitDate = formatedDate.split("-");
     let month = splitDate[1];
     month = months[parseInt(month, 10) - 1];
@@ -623,7 +572,6 @@ $(document).ready(function () {
       method: "POST",
       data: { date: formatedDate, day: firstDayNum },
       success: function (response) {
-        console.log(response);
         calendarTable.html(response);
         monthName.text(month + " " + currentDate.getFullYear());
         loadingResponse.hide();

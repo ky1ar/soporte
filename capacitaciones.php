@@ -11,14 +11,14 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
+
     <section id="frontSlider">
         <div class="wrapper">
             <img class="imaCap" width="1920" height="630" src="assets/img/capacitaciones-pc.webp">
-            <!-- <p>Estamos encantados de que inicies tu travesía con nosotros. Prepara tu equipo, lleva a cabo las primeras pruebas y comencemos juntos.</p> -->
         </div>
         <div class="car-prices">
-            <div class="swiffy-slider slider-item-show3 slider-nav-dark slider-nav-outside slider-nav-visible">
-                <ul class="slider-container">
+            <div class="swiffy-slider slider-item-show3 slider-nav-autoplay slider-nav-dark slider-nav-outside slider-nav-visible slider-indicators-round slider-indicators-dark slider-indicators-outside slider-indicators-sm">
+                <ul class="slider-container" data-slider-nav-autoplay-interval="4000">
                     <li class="slide-visible">
                         <div class="card">
                             <img src="assets/img/pre-1.png" alt="">
@@ -45,7 +45,7 @@ require_once 'includes/common/header.php';
                         <div class="card">
                             <img src="assets/img/pre-3.png" alt="">
                             <div>
-                                <p>Capacitación de<br> Cortadoras Láser</p>
+                                <p>Capacitación de<br> Cortadora Láser</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -54,9 +54,9 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-4.webp" alt="">
                             <div>
-                                <p>Capacitación de<br> Routers CNC</p>
+                                <p>Capacitación de<br> Router CNC</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -65,9 +65,9 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-5.webp" alt="">
                             <div>
-                                <p>Capacitación de<br> Escáneres 3D</p>
+                                <p>Capacitación de<br> Escáner 3D</p>
                                 <p>Duración: 03 horas</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
@@ -76,10 +76,10 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-6.webp" alt="">
                             <div>
-                                <p>Capacitación de<br> Drones</p>
-                                <p>Duración: 03 horas</p>
+                                <p>Capacitación de<br> Dron</p>
+                                <p>Duración: 01 hora</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
                             </div>
@@ -87,10 +87,10 @@ require_once 'includes/common/header.php';
                     </li>
                     <li class="">
                         <div class="card">
-                            <img src="assets/img/pre-1.png" alt="">
+                            <img src="assets/img/pre-7.webp" alt="">
                             <div>
                                 <p>Capacitación de<br> Realidad Virtual</p>
-                                <p>Duración: 03 horas</p>
+                                <p>Duración: 01 hora</p>
                                 <p>S/50.00</p>
                                 <p>El costo es exonerado en caso el equipo sea comprado en nuestra empresa*</p>
                             </div>
@@ -100,11 +100,20 @@ require_once 'includes/common/header.php';
 
                 <button type="button" class="slider-nav"></button>
                 <button type="button" class="slider-nav slider-nav-next"></button>
+
+                <ul class="slider-indicators">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
         </div>
     </section>
     <div class="example-cap">
-        <div class="back-ex"></div>
         <img src="assets/img/example-cap.webp" alt="">
     </div>
     <section id="trainingSection">
@@ -252,6 +261,10 @@ require_once 'includes/common/header.php';
                                         </div>
                                     </li>
                                 </ul>
+                                <div class="aviso-pago">
+                                    Adjunta la constancia de pago de la capacitación o si eres cliente el comprobante de compra de tu equipo.
+
+                                </div>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">
                                     <div id="scheduleFormMessage"></div>
