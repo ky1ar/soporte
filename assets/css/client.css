@@ -445,6 +445,7 @@ body {
 }
 #pasos-consulta .pasos {
   display: flex;
+  max-width: 60rem;
   gap: 2rem;
 }
 #pasos-consulta .pasos .pas {
@@ -453,6 +454,7 @@ body {
   flex-direction: column;
   text-align: center;
   min-width: 14rem;
+  max-width: 20rem;
 }
 #pasos-consulta .pasos .pas p:nth-of-type(1) {
   background-color: var(--primary);
