@@ -445,7 +445,6 @@ body {
 }
 #pasos-consulta .pasos {
   display: flex;
-  max-width: 60rem;
   gap: 2rem;
 }
 #pasos-consulta .pasos .pas {
