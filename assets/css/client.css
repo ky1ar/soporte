@@ -480,7 +480,7 @@ body {
   color: var(--white);
   position: relative;
   background-position: 0 45%;
-  padding: 3rem 0;
+  padding: 1rem 0 3rem 0;
 }
 #searchOrderBox::before {
   content: "";
