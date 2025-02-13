@@ -37,7 +37,7 @@ require_once 'includes/common/header.php';
     <section id="pasos-consulta">
         <div class="t">
             <p>¿Cómo registrar un equipo <span>en Soporte Técnico?</span></p>
-            <p>Te presentamos el paso a paso para introducir tu equipo en nuestro servicio.</p>
+            <p>Te presentamos el paso a paso para ingresar tu equipo en nuestro servicio.</p>
         </div>
         <div class="pasos">
             <div class="pas">
