@@ -429,7 +429,7 @@ body {
   margin: 0;
 }
 #pasos-consulta .t {
-  width: 17rem;
+  width: 20rem;
 }
 #pasos-consulta .t p:nth-of-type(1) {
   font-size: 1.3rem;
@@ -445,7 +445,6 @@ body {
 }
 #pasos-consulta .pasos {
   display: flex;
-  max-width: 60rem;
   gap: 2rem;
 }
 #pasos-consulta .pasos .pas {
