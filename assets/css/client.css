@@ -419,7 +419,7 @@ body {
   width: 100%;
   margin: 3rem auto;
   max-width: 100rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -759,6 +759,9 @@ body {
 }
 
 @media only screen and (max-width: 100rem) {
+  #pasos-consulta{
+    padding: 0 1rem;
+  }
   #pasos-consulta .pasos {
     width: auto;
   }
