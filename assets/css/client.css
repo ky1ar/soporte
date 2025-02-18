@@ -3003,3 +3003,11 @@ section.i3d .cont-cards .card div:last-child a {
 .free-stls .cont form input:nth-of-type(5) {
   width: 100%;
 }
+.free-stls .cont form input:nth-of-type(6) {
+  width: 100%;
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+}
