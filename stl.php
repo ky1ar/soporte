@@ -15,6 +15,21 @@ require_once 'includes/common/header.php';
         <img src="assets/img/stl-pc.webp">
     </section>
 
+    <div class="free-stls">
+        <div class="in">
+            <h1>¿Te gustaría obtener más archivos STL?</h1>
+            <p>Si ya eres cliente y estás interesado en ampliar tu colección de archivos STL, regístrate ahora. Evaluaremos tu solicitud y te enviaremos un paquete de archivos STL gratuitos como un beneficio adicional a tu compra. ¡No esperes más, regístrate hoy mismo!</p>
+        </div>
+        <div class="cont">
+            <form action="">
+                <input type="text" max="50">
+                <input type="email" max="30">
+                <input type="text" max="8">
+                <input type="tel" max="9">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
     <!-- Contenedor para las tarjetas de STLs -->
     <div id="stls-container"></div>
     <!-- Controles de paginación -->
