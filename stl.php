@@ -21,13 +21,13 @@ require_once 'includes/common/header.php';
             <p>Si ya eres cliente y estás interesado en ampliar tu colección de archivos STL, regístrate ahora. Evaluaremos tu solicitud y te enviaremos un paquete de archivos STL gratuitos como un beneficio adicional a tu compra. ¡No esperes más, regístrate hoy mismo!</p>
         </div>
         <div class="cont">
-            <form action="https://formspree.io/f/xanqawjn" method="POST">
+            <form action="https://formspree.io/f/xanqawjn" method="POST" enctype="multipart/form-data">
                 <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
                 <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
                 <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
-                <input type="tel" maxlength="9" placeholder="Celular" name="caelular" required>
+                <input type="tel" maxlength="9" placeholder="Celular" name="celular" required>
                 <label for="comprobante">Adjunta tu comprobante de pago:</label>
-                <input type="file" name="comprobante" required>
+                <input type="file" name="comprobante" accept=".jpg, .jpeg, .png, .webp, .pdf" required>
                 <input type="submit" value="Enviar">
             </form>
         </div>
