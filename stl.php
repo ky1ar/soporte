@@ -22,10 +22,10 @@ require_once 'includes/common/header.php';
         </div>
         <div class="cont">
             <form action="https://formspree.io/f/xanqawjn" method="POST">
-                <input type="text" maxlength="50" placeholder="Nombre Completo" required>
-                <input type="email" maxlength="30" placeholder="Correo" required>
-                <input type="tel" maxlength="11" placeholder="RUC o DNI" required>
-                <input type="tel" maxlength="9" placeholder="Celular" required>
+                <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
+                <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
+                <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
+                <input type="tel" maxlength="9" placeholder="Celular" name="caelular" required>
                 <label for="comprobante">Adjunta tu comprobante de pago:</label>
                 <input type="file" name="comprobante" required>
                 <input type="submit" value="Enviar">
