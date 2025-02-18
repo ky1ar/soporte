@@ -2959,33 +2959,43 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0;
 }
 .free-stls .in,
-.free-stls .cont{
+.free-stls .cont {
   width: 50%;
 }
 
-.free-stls .in{
+.free-stls .in {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding-right: 5rem;
 }
 
-.free-stls .cont form{
+.free-stls .cont form {
   display: flex;
   flex-wrap: wrap;
   width: 25rem;
   margin: auto;
+  gap: 1rem 0;
 }
-
-.free-stls .cont form input:nth-of-type(1){
+.free-stls .cont form input:nth-of-type(1),
+.free-stls .cont form input:nth-of-type(2),
+.free-stls .cont form input:nth-of-type(3),
+.free-stls .cont form input:nth-of-type(4) {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--graydarkest);
+  outline: none;
+}
+.free-stls .cont form input:nth-of-type(1) {
   width: 100%;
 }
-.free-stls .cont form input:nth-of-type(2){
+.free-stls .cont form input:nth-of-type(2) {
   width: 100%;
 }
-.free-stls .cont form input:nth-of-type(3){
+.free-stls .cont form input:nth-of-type(3) {
   width: 49%;
 }
-.free-stls .cont form input:nth-of-type(4){
+.free-stls .cont form input:nth-of-type(4) {
   width: 49%;
 }
