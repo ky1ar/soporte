@@ -26,7 +26,8 @@ require_once 'includes/common/header.php';
                 <input type="email" maxlength="30" placeholder="Correo" required>
                 <input type="tel" maxlength="11" placeholder="RUC o DNI" required>
                 <input type="tel" maxlength="9" placeholder="Celular" required>
-                <input type="file" required>
+                <label for="comprobante">Adjunta tu comprobante de pago:</label>
+                <input type="file" name="comprobante" required>
                 <input type="submit" value="Enviar">
             </form>
         </div>
