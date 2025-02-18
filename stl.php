@@ -21,7 +21,7 @@ require_once 'includes/common/header.php';
             <p>Si ya eres cliente y estás interesado en ampliar tu colección de archivos STL, regístrate ahora. Evaluaremos tu solicitud y te enviaremos un paquete de archivos STL gratuitos como un beneficio adicional a tu compra. ¡No esperes más, regístrate hoy mismo!</p>
         </div>
         <div class="cont">
-            <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
+            <!-- <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
                 <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
                 <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
                 <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
@@ -29,7 +29,13 @@ require_once 'includes/common/header.php';
                 <label for="comprobante">Adjunta tu comprobante de pago:</label>
                 <input type="file" name="comprobante" accept=".jpg, .jpeg, .png, .webp, .pdf" required>
                 <input type="submit" value="Enviar">
+            </form> -->
+            <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
+                <label for="file">Sube un archivo:</label>
+                <input type="file" name="archivo" accept=".jpg, .jpeg, .png, .pdf" required>
+                <button type="submit">Enviar</button>
             </form>
+
         </div>
     </div>
     <div id="stls-container"></div>
