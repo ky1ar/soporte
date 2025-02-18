@@ -2962,3 +2962,9 @@ section.i3d .cont-cards .card div:last-child a {
 .free-stls .cont{
   width: 50%;
 }
+
+.free-stls .in{
+  display: flex;
+  gap: 1rem;
+  padding-right: 5rem;
+}
