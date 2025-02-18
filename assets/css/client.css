@@ -2952,8 +2952,12 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
 }
 .free-stls .in h1,
 .free-stls .in p {
   margin: 0;
+}
+.free-stls .in{
+  width: 50%;
 }
