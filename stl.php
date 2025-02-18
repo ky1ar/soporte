@@ -22,12 +22,14 @@ require_once 'includes/common/header.php';
         </div>
         <div class="cont">
             <form action="">
-                <input type="text" max="50">
-                <input type="email" max="30">
-                <input type="text" max="8">
-                <input type="tel" max="9">
+                <input type="text" maxlength="50" placeholder="Nombre Completo" required>
+                <input type="email" maxlength="30" placeholder="Correo" required>
+                <input type="text" maxlength="8" placeholder="RUC o DNI" required>
+                <input type="tel" maxlength="9" placeholder="Celular" required>
+                <input type="file" placeholder="Adjunta tu comprobante" required>
                 <input type="submit" value="Enviar">
             </form>
+
         </div>
     </div>
     <!-- Contenedor para las tarjetas de STLs -->
