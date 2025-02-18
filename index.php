@@ -120,7 +120,7 @@ require_once 'includes/common/header.php';
             <a class="ser" href="/mantenimiento-preventivo">
                 <img src="./assets/img/con-s4.webp" alt="">
                 <p>Mantenimiento Preventivo</p>
-                <p>Desde S/60.00*</p>
+                <p>Desde S/80.00*</p>
             </a>
             <a class="ser" href="/servicio-de-armado">
                 <img src="./assets/img/con-s5.webp" alt="">

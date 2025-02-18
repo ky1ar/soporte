@@ -759,7 +759,7 @@ body {
 }
 
 @media only screen and (max-width: 100rem) {
-  #pasos-consulta{
+  #pasos-consulta {
     padding: 0 1rem;
   }
   #pasos-consulta .pasos {
@@ -2942,4 +2942,79 @@ section.i3d .cont-cards .card div:last-child a {
 #searchOrderMessage {
   color: #ed5d1f;
   font-weight: 700;
+}
+
+.free-stls {
+  display: flex;
+  padding: 0 1rem;
+  max-width: 100rem;
+  width: 100%;
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: center;
+}
+.free-stls .in h1,
+.free-stls .in p {
+  margin: 0;
+  width: 80%;
+}
+.free-stls .in,
+.free-stls .cont {
+  width: 50%;
+}
+
+.free-stls .in {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.free-stls .cont form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
+  margin: auto;
+  gap: 1rem 0;
+  justify-content: space-between;
+}
+.free-stls .cont form input:nth-of-type(1),
+.free-stls .cont form input:nth-of-type(2),
+.free-stls .cont form input:nth-of-type(3),
+.free-stls .cont form input:nth-of-type(4) {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--graydarkest);
+  outline: none;
+}
+.free-stls .cont form input:nth-of-type(1) {
+  width: 100%;
+}
+.free-stls .cont form input:nth-of-type(2) {
+  width: 100%;
+}
+.free-stls .cont form input:nth-of-type(3) {
+  width: 49%;
+}
+.free-stls .cont form input:nth-of-type(4) {
+  width: 49%;
+}
+.free-stls .cont form input:nth-of-type(5) {
+  width: 100%;
+}
+.free-stls .cont form input:nth-of-type(6) {
+  width: 100%;
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+.free-stls .cont form label {
+  font-weight: 600;
+  margin-bottom: -0.5rem;
+}
+.free-stls .cont form input:nth-of-type(6):hover {
+  opacity: 0.85;
 }
