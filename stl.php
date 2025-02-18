@@ -21,7 +21,7 @@ require_once 'includes/common/header.php';
             <p>Si ya eres cliente y estás interesado en ampliar tu colección de archivos STL, regístrate ahora. Evaluaremos tu solicitud y te enviaremos un paquete de archivos STL gratuitos como un beneficio adicional a tu compra. ¡No esperes más, regístrate hoy mismo!</p>
         </div>
         <div class="cont">
-            <form action="https://formspree.io/f/xanqawjn" method="POST" enctype="multipart/form-data">
+            <form action="https://formsubmit.co/sistemas@krear3d.com" method="POST" enctype="multipart/form-data">
                 <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
                 <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
                 <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
