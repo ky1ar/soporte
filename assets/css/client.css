@@ -2958,6 +2958,7 @@ section.i3d .cont-cards .card div:last-child a {
 .free-stls .in p {
   margin: 0;
 }
-.free-stls .in{
+.free-stls .in,
+.free-stls .cont{
   width: 50%;
 }
