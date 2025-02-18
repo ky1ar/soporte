@@ -759,7 +759,7 @@ body {
 }
 
 @media only screen and (max-width: 100rem) {
-  #pasos-consulta{
+  #pasos-consulta {
     padding: 0 1rem;
   }
   #pasos-consulta .pasos {
@@ -2942,4 +2942,12 @@ section.i3d .cont-cards .card div:last-child a {
 #searchOrderMessage {
   color: #ed5d1f;
   font-weight: 700;
+}
+
+.free-stls {
+  display: flex;
+  padding: 0 1rem;
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
 }
