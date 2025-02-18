@@ -24,17 +24,14 @@ require_once 'includes/common/header.php';
             <form action="">
                 <input type="text" maxlength="50" placeholder="Nombre Completo" required>
                 <input type="email" maxlength="30" placeholder="Correo" required>
-                <input type="text" maxlength="8" placeholder="RUC o DNI" required>
+                <input type="tel" maxlength="11" placeholder="RUC o DNI" required>
                 <input type="tel" maxlength="9" placeholder="Celular" required>
                 <input type="file" required>
                 <input type="submit" value="Enviar">
             </form>
-
         </div>
     </div>
-    <!-- Contenedor para las tarjetas de STLs -->
     <div id="stls-container"></div>
-    <!-- Controles de paginación -->
     <div class="page-stls">
         <button id="prevPage"><img src="assets/img/next-page.png" alt=""></button>
         <span id="pageIndicator"></span>
