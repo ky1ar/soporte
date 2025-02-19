@@ -12,9 +12,8 @@ require_once 'includes/common/header.php';
     ?>
     <div class="container-banner-stls">
         <div class="free-stls">
-            <div class="in">
-                <h1>¿Te gustaría obtener más archivos STL?</h1>
-                <p>Si ya eres cliente y estás interesado en ampliar tu colección de archivos STL, regístrate ahora. Evaluaremos tu solicitud y te enviaremos un paquete de archivos STL gratuitos como un beneficio adicional a tu compra. ¡No esperes más, regístrate hoy mismo!</p>
+            <div class="ref">
+               <img src="" alt="">
             </div>
             <div class="cont">
                 <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
