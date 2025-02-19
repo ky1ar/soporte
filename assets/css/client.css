@@ -3013,6 +3013,11 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 1rem;
   font-weight: 600;
 }
+.container-banner-stls .free-stls .cont form .formi input {
+  border: none;
+  border-bottom: 0.12rem solid var(--graydarkest);
+  padding-bottom: 0.5rem;
+}
 .container-banner-stls .free-stls .cont form .formi input:nth-of-type(1) {
   width: 100%;
 }
