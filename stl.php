@@ -32,6 +32,69 @@ require_once 'includes/common/header.php';
             </div>
         </div>
     </div>
+    <div class="categorias-stl-mid">
+        <div class="swiffy-slider slider-item-show6 slider-nav-round slider-nav-dark slider-nav-sm slider-nav-outside-expand slider-nav-visible slider-nav-autohide slider-indicators-outside">
+            <ul class="slider-container">
+                <li class="slide-visible">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="slide-visible">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="slide-visible">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="slide-visible">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="slide-visible">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="slide-visible">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+                <li class="">
+                    <div id="categ">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </li>
+            </ul>
+
+            <button type="button" class="slider-nav"></button>
+            <button type="button" class="slider-nav slider-nav-next"></button>
+        </div>
+    </div>
     <section class="xbanner-stls">
         <img src="assets/img/stl-pc.webp">
     </section>
