@@ -2943,8 +2943,26 @@ section.i3d .cont-cards .card div:last-child a {
   color: #ed5d1f;
   font-weight: 700;
 }
-
-.free-stls {
+.container-banner-stls{
+  display: flex;
+  width: 100%;
+  position: relative;
+  
+}
+.container-banner-stls::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/img/stl-pc.webp);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5; /* Solo afecta al fondo */
+  z-index: 0;
+}
+.container-banner-stls .free-stls {
   display: flex;
   padding: 0 1rem;
   max-width: 100rem;
@@ -2953,24 +2971,24 @@ section.i3d .cont-cards .card div:last-child a {
   align-items: center;
   justify-content: center;
 }
-.free-stls .in h1,
-.free-stls .in p {
+.container-banner-stls .free-stls .in h1,
+.container-banner-stls .free-stls .in p {
   margin: 0;
   width: 80%;
 }
-.free-stls .in,
-.free-stls .cont {
+.container-banner-stls .free-stls .in,
+.container-banner-stls .free-stls .cont {
   width: 50%;
 }
 
-.free-stls .in {
+.container-banner-stls .free-stls .in {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
 }
 
-.free-stls .cont form {
+.container-banner-stls .free-stls .cont form {
   display: flex;
   flex-wrap: wrap;
   width: 25rem;
@@ -2978,31 +2996,31 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem 0;
   justify-content: space-between;
 }
-.free-stls .cont form input:nth-of-type(1),
-.free-stls .cont form input:nth-of-type(2),
-.free-stls .cont form input:nth-of-type(3),
-.free-stls .cont form input:nth-of-type(4) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(1),
+.container-banner-stls .free-stls .cont form input:nth-of-type(2),
+.container-banner-stls .free-stls .cont form input:nth-of-type(3),
+.container-banner-stls .free-stls .cont form input:nth-of-type(4) {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0.1rem solid var(--graydarkest);
   outline: none;
 }
-.free-stls .cont form input:nth-of-type(1) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(1) {
   width: 100%;
 }
-.free-stls .cont form input:nth-of-type(2) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(2) {
   width: 100%;
 }
-.free-stls .cont form input:nth-of-type(3) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(3) {
   width: 49%;
 }
-.free-stls .cont form input:nth-of-type(4) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(4) {
   width: 49%;
 }
-.free-stls .cont form input:nth-of-type(5) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(5) {
   width: 100%;
 }
-.free-stls .cont form input:nth-of-type(6) {
+.container-banner-stls .free-stls .cont form input:nth-of-type(6) {
   width: 100%;
   background-color: var(--primary);
   border: none;
@@ -3011,10 +3029,10 @@ section.i3d .cont-cards .card div:last-child a {
   color: var(--white);
   cursor: pointer;
 }
-.free-stls .cont form label {
+.container-banner-stls .free-stls .cont form label {
   font-weight: 600;
   margin-bottom: -0.5rem;
 }
-.free-stls .cont form input:nth-of-type(6):hover {
+.container-banner-stls .free-stls .cont form input:nth-of-type(6):hover {
   opacity: 0.85;
 }
