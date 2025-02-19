@@ -2986,6 +2986,7 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .cont .p1{
   color: var(--white);
   width: 25rem;
+  margin: 0;
 }
 .container-banner-stls .free-stls .cont form {
   display: flex;
