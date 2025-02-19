@@ -2972,10 +2972,6 @@ section.i3d .cont-cards .card div:last-child a {
   justify-content: space-between;
   z-index: 1;
 }
-.container-banner-stls .free-stls .ref,
-.container-banner-stls .free-stls .cont {
-  width: 50%;
-}
 .container-banner-stls .free-stls .ref {
   margin-top: auto;
 }
@@ -3006,10 +3002,10 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .container-banner-stls .free-stls .cont form .formi {
   background-color: var(--white);
-  padding: 2rem;
+  padding: 2.5rem 3rem;
   border-radius: 1rem;
   margin: 1rem 0;
-  gap: 1rem 0;
+  gap: 2rem 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
