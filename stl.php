@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
                 <p class="p1">Completa el formulario y obtén nuestro <b>pack de STLs GRATIS</b> y dale forma a tus ideas.</p>
                 <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
                     <div class="formi">
-                        <h1>Rellena este formulario</h1>
+                        <h1 class="t2">Rellena este formulario</h1>
                         <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
                         <input type="email" maxlength="30" placeholder="Correo Electrónico (Gmail*)" name="correo" required>
                         <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
