@@ -23,8 +23,8 @@ require_once 'includes/common/header.php';
                         <h1 class="t2">Rellena este formulario</h1>
                         <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
                         <input type="email" maxlength="30" placeholder="Correo Electrónico (Gmail*)" name="correo" required>
-                        <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
-                        <input type="tel" maxlength="9" placeholder="Celular" name="celular" required>
+                        <input type="tel" maxlength="11" placeholder="DNI/RUC" name="documento" required>
+                        <input type="tel" maxlength="9" placeholder="N° Celular" name="celular" required>
                         <input type="text" maxlength="11" placeholder="N° de Boleta o Factura" name="comprobante" required>
                     </div>
                     <input type="submit" value="Enviar">
