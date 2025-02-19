@@ -2981,6 +2981,7 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--white);
 }
 .container-banner-stls .free-stls .cont form {
   display: flex;
