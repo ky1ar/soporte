@@ -10,11 +10,6 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-
-    <section class="xbanner-stls">
-        <img src="assets/img/stl-pc.webp">
-    </section>
-
     <div class="free-stls">
         <div class="in">
             <h1>¿Te gustaría obtener más archivos STL?</h1>
@@ -32,6 +27,11 @@ require_once 'includes/common/header.php';
             </form>
         </div>
     </div>
+    <section class="xbanner-stls">
+        <img src="assets/img/stl-pc.webp">
+    </section>
+
+
     <div id="stls-container"></div>
     <div class="page-stls">
         <button id="prevPage"><img src="assets/img/next-page.png" alt=""></button>
