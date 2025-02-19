@@ -22,7 +22,7 @@ require_once 'includes/common/header.php';
                     <div class="formi">
                         <h1>Rellena este formulario</h1>
                         <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
-                        <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
+                        <input type="email" maxlength="30" placeholder="Correo Electrónico (Gmail*)" name="correo" required>
                         <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
                         <input type="tel" maxlength="9" placeholder="Celular" name="celular" required>
                         <label for="comprobante">Adjunta tu comprobante de pago:</label>
