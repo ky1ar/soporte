@@ -2943,14 +2943,13 @@ section.i3d .cont-cards .card div:last-child a {
   color: #ed5d1f;
   font-weight: 700;
 }
-.container-banner-stls{
+.container-banner-stls {
   display: flex;
   width: 100%;
   position: relative;
-  
 }
-.container-banner-stls::before{
-  content: '';
+.container-banner-stls::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -2969,25 +2968,32 @@ section.i3d .cont-cards .card div:last-child a {
   width: 100%;
   margin: 2rem auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   z-index: 1;
 }
 .container-banner-stls .free-stls .ref,
 .container-banner-stls .free-stls .cont {
   width: 50%;
 }
-.container-banner-stls .free-stls .cont{
+.container-banner-stls .free-stls .cont {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 30rem;
 }
 .container-banner-stls .free-stls .cont .t1,
-.container-banner-stls .free-stls .cont .p1{
+.container-banner-stls .free-stls .cont .p1 {
   color: var(--white);
-  width: 25rem;
   margin: 0;
   text-align: center;
+}
+.container-banner-stls .free-stls .cont .t1 {
+  font-size: 1.3rem;
+}
+.container-banner-stls .free-stls .cont .p1 {
+  font-size: 0.9rem;
+  width: 80%;
 }
 .container-banner-stls .free-stls .cont form {
   display: flex;
@@ -2996,7 +3002,9 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem 0;
   justify-content: space-between;
 }
-
+.container-banner-stls .free-stls .cont form .formi{
+  background-color: var(--white);
+}
 .container-banner-stls .free-stls .cont form input:nth-of-type(1) {
   width: 100%;
 }
