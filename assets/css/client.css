@@ -2997,16 +2997,17 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .container-banner-stls .free-stls .cont form {
   display: flex;
-  flex-wrap: wrap;
-  width: 25rem;
-  gap: 1rem 0;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .container-banner-stls .free-stls .cont form .formi {
   background-color: var(--white);
   padding: 2rem;
   border-radius: 1rem;
   margin: 1rem 0;
+  gap: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .container-banner-stls .free-stls .cont form .formi .t2 {
   font-size: 1rem;
