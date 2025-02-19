@@ -36,7 +36,6 @@ require_once 'includes/common/header.php';
         <img src="assets/img/stl-pc.webp">
     </section>
 
-
     <div id="stls-container"></div>
     <div class="page-stls">
         <button id="prevPage"><img src="assets/img/next-page.png" alt=""></button>
