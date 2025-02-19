@@ -13,7 +13,7 @@ require_once 'includes/common/header.php';
     <div class="container-banner-stls">
         <div class="free-stls">
             <div class="ref">
-               <img src="" alt="">
+               <img src="assets/img/first-banner-top-stls.webp" alt="">
             </div>
             <div class="cont">
                 <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
