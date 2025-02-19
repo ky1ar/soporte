@@ -13,11 +13,14 @@ require_once 'includes/common/header.php';
     <div class="container-banner-stls">
         <div class="free-stls">
             <div class="ref">
-               <img src="assets/img/first-banner-top-stls.webp" alt="">
+                <img src="assets/img/first-banner-top-stls.webp" alt="">
             </div>
             <div class="cont">
+                <h1>Tu primera impresión 3D empieza aquí</h1>
+                <p>Completa el formulario y obtén nuestro <b>pack de STLs GRATIS</b> y dale forma a tus ideas.</p>
                 <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
                     <div class="formi">
+                        <h1>Rellena este formulario</h1>
                         <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
                         <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
                         <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>

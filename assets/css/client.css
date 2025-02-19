@@ -2984,15 +2984,7 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem 0;
   justify-content: space-between;
 }
-.container-banner-stls .free-stls .cont form input:nth-of-type(1),
-.container-banner-stls .free-stls .cont form input:nth-of-type(2),
-.container-banner-stls .free-stls .cont form input:nth-of-type(3),
-.container-banner-stls .free-stls .cont form input:nth-of-type(4) {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 0.1rem solid var(--graydarkest);
-  outline: none;
-}
+
 .container-banner-stls .free-stls .cont form input:nth-of-type(1) {
   width: 100%;
 }
@@ -3007,20 +2999,4 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .container-banner-stls .free-stls .cont form input:nth-of-type(5) {
   width: 100%;
-}
-.container-banner-stls .free-stls .cont form input:nth-of-type(6) {
-  width: 100%;
-  background-color: var(--primary);
-  border: none;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  color: var(--white);
-  cursor: pointer;
-}
-.container-banner-stls .free-stls .cont form label {
-  font-weight: 600;
-  margin-bottom: -0.5rem;
-}
-.container-banner-stls .free-stls .cont form input:nth-of-type(6):hover {
-  opacity: 0.85;
 }
