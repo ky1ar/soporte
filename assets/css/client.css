@@ -3035,3 +3035,6 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .cont form .formi input:nth-of-type(5) {
   width: 100%;
 }
+.container-banner-stls .free-stls .cont form .formi input:nth-of-type(6) {
+  width: 49%;
+}
