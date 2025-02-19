@@ -3002,8 +3002,11 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem 0;
   justify-content: space-between;
 }
-.container-banner-stls .free-stls .cont form .formi{
+.container-banner-stls .free-stls .cont form .formi {
   background-color: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
 }
 .container-banner-stls .free-stls .cont form input:nth-of-type(1) {
   width: 100%;
