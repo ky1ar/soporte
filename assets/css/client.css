@@ -2991,7 +2991,6 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   flex-wrap: wrap;
   width: 25rem;
-  margin: auto;
   gap: 1rem 0;
   justify-content: space-between;
 }
