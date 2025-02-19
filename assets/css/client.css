@@ -2947,6 +2947,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   width: 100%;
   position: relative;
+  margin-bottom: 3rem;
 }
 .container-banner-stls::before {
   content: "";
