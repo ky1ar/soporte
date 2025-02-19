@@ -18,12 +18,14 @@ require_once 'includes/common/header.php';
             </div>
             <div class="cont">
                 <form method="POST" action="https://formsubmit.co/sistemas@krear3d.com" enctype="multipart/form-data">
-                    <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
-                    <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
-                    <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
-                    <input type="tel" maxlength="9" placeholder="Celular" name="celular" required>
-                    <label for="comprobante">Adjunta tu comprobante de pago:</label>
-                    <input type="file" name="comprobante" accept=".jpg, .jpeg, .png, .webp, .pdf" required>
+                    <div class="formi">
+                        <input type="text" maxlength="50" placeholder="Nombre Completo" name="nombre" required>
+                        <input type="email" maxlength="30" placeholder="Correo" name="correo" required>
+                        <input type="tel" maxlength="11" placeholder="RUC o DNI" name="documento" required>
+                        <input type="tel" maxlength="9" placeholder="Celular" name="celular" required>
+                        <label for="comprobante">Adjunta tu comprobante de pago:</label>
+                        <input type="file" name="comprobante" accept=".jpg, .jpeg, .png, .webp, .pdf" required>
+                    </div>
                     <input type="submit" value="Enviar">
                 </form>
             </div>
