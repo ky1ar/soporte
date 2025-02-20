@@ -2995,6 +2995,7 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .cont .p1 {
   font-size: 0.9rem;
   width: 80%;
+  font-weight: 300;
 }
 .container-banner-stls .free-stls .cont form {
   display: flex;
