@@ -3112,15 +3112,13 @@ section.i3d .cont-cards .card div:last-child a {
 }
 
 .categorias-stl-mid .slider-item-last-visible .slider-nav:not(.slider-nav-next)::before,
-.categorias-stl-mid .slider-item-first-visible .slider-nav-next::before {
+.categorias-stl-mid .slider-item-first-visible .slider-nav-next::before,
+.categorias-stl-mid .slider-item-last-visible .slider-nav-next::after {
   background-color: #4f4f4f !important;
 }
 .categorias-stl-mid .slider-item-last-visible .slider-nav:not(.slider-nav-next)::after,
 .categorias-stl-mid .slider-item-first-visible .slider-nav-next::after{
   background-color: var(--white);
-}
-.categorias-stl-mid .slider-item-last-visible .slider-nav-next::after {
-  background-color: red;
 }
 .categorias-stl-mid .slider-nav::after {
   width: 2rem;
