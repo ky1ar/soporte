@@ -7,7 +7,7 @@ $response = array();
 
 try {
     // Configuración de la paginación
-    $itemsPerPage = 8; // Cambiar según tu necesidad
+    $itemsPerPage = 4; // Cambiar según tu necesidad
     $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($currentPage - 1) * $itemsPerPage;
 
