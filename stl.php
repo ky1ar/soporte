@@ -108,13 +108,19 @@ require_once 'includes/common/header.php';
         <div class="swiffy-slider slider-indicators-round" data-slider-nav-autoplay-interval="3000">
             <ul class="slider-container">
                 <li>
-                    <img src="assets/img/banner-stls-s5.webp" alt="">
+                    <div class="sli">
+                        <img src="assets/img/banner-stls-s5.webp" alt="">
+                    </div>
                 </li>
                 <li>
-                    <img src="assets/img/banner-stls-s5.webp" alt="">
+                    <div class="sli">
+                        <img src="assets/img/banner-stls-s5.webp" alt="">
+                    </div>
                 </li>
                 <li>
-                    <img src="assets/img/banner-stls-s5.webp" alt="">
+                    <div class="sli">
+                        <img src="assets/img/banner-stls-s5.webp" alt="">
+                    </div>
                 </li>
             </ul>
             <ul class="slider-indicators">
