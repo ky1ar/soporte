@@ -2188,7 +2188,7 @@ section.stls .card-stl {
   border-radius: 1rem;
   flex-wrap: wrap;
 }
-section.stls .card-stl div{
+section.stls .card-stl div {
   width: 70%;
 }
 section.stls .card-stl:hover {
@@ -2217,21 +2217,8 @@ section.stls .card-stl a {
   width: 30%;
   background-color: var(--primary);
 }
-section.stls .card-stl button {
-  background-color: var(--primary);
-  padding: 0.5rem 1rem;
-  width: 10rem;
-  color: white;
-  border: none;
-  border-radius: 1rem;
-  margin: 0 auto;
-  cursor: pointer;
-  word-spacing: 0.2rem;
-  font-size: 0.8rem;
-}
-
-section.stls .card-stl button:hover {
-  opacity: 0.8;
+section.stls .card-stl a img {
+  filter: invert(1);
 }
 
 .page-stls {
