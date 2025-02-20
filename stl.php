@@ -105,7 +105,7 @@ require_once 'includes/common/header.php';
         </div>
     </div>
     <div class="s2-slider">
-        <div class="swiffy-slider slider-indicators-round" data-slider-nav-autoplay-interval="3000">
+        <div class="swiffy-slider slider-nav-autoplay slider-indicators-round" data-slider-nav-autoplay-interval="3000">
             <ul class="slider-container">
                 <li>
                     <img src="assets/img/banner-stls-s5.webp" alt="">
