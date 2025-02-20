@@ -3151,7 +3151,6 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .s2-slider .slider-container {
   border-radius: 1rem;
-  overflow: hidden;
 }
 .s2-slider .slider-indicators > .active {
   width: 2rem !important;
