@@ -2199,9 +2199,10 @@ section.stls .card-stl > img {
   border-radius: 1rem;
   object-fit: cover;
   object-position: center;
+  margin-bottom: 1rem;
 }
 section.stls .card-stl h1 {
-  margin-bottom: 0;
+  margin: 0;
   text-align: center;
   text-transform: uppercase;
 }
