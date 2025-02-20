@@ -2186,12 +2186,16 @@ section.contact-map iframe {
 section.stls {
   display: flex;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-between;
   height: auto;
   padding: 3rem;
-  gap: 4rem;
+  /* gap: 4rem; */
   z-index: 1;
   position: relative;
+  padding: 3rem 1rem;
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
 }
 section.stls .card-stl {
   background-color: #918c8c61;
