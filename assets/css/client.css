@@ -3107,7 +3107,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 2rem;
   height: 2rem;
   margin-left: 0.5rem;
-  background-color: var(--white);
+  background-color: var(--white) !important;
 }
 .categorias-stl-mid .slider-nav::before {
   border: 0.1rem solid #4f4f4f;
