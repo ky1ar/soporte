@@ -124,9 +124,6 @@ require_once 'includes/common/header.php';
             </ul>
         </div>
     </div>
-    <section class="xbanner-stls">
-        <img src="assets/img/stl-pc.webp">
-    </section>
 
     <div id="stls-container"></div>
     <div class="page-stls">
