@@ -2181,12 +2181,16 @@ section.stls {
 section.stls .card-stl {
   background-color: white;
   display: flex;
-  flex-direction: column;
   width: 18rem;
   height: 29rem;
   padding: 1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3sease;
   border-radius: 1rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+section.stls .card-stl div{
+  width: 70%;
 }
 section.stls .card-stl:hover {
   transform: scale(1.02);
@@ -2212,6 +2216,7 @@ section.stls .card-stl p {
 }
 section.stls .card-stl a {
   margin: auto;
+  width: 30%;
 }
 section.stls .card-stl button {
   background-color: var(--primary);

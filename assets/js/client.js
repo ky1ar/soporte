@@ -115,7 +115,7 @@ $(document).ready(function () {
                                 <h1>${stl.name}</h1>
                                 <p>${stl.info}</p>
                                 </div>
-                                <a href="archivos-stl/${stl.archivo_stl}" download><button>DESCARGAR</button></a>
+                                <a href="archivos-stl/${stl.archivo_stl}" download>D</a>
                             </div>
                         `;
             section.append(cardHtml);
