@@ -2211,6 +2211,7 @@ section.stls .card-stl p {
   text-align: center;
   font-size: 0.75rem;
   height: 3rem;
+  margin: 0;
 }
 section.stls .card-stl a {
   background-color: var(--primary);
