@@ -3099,3 +3099,6 @@ section.i3d .cont-cards .card div:last-child a {
   right: 2.5rem;
   top: -2rem;
 }
+.categorias-stl-mid .swiffy-slider{
+  --swiffy-slider-item-count: 7;
+}
