@@ -94,6 +94,12 @@ require_once 'includes/common/header.php';
                         <p>Star Wars</p>
                     </div>
                 </li>
+                <li class="slide-visible">
+                    <div class="categ">
+                        <img src="assets/img/cat-stls-sw.webp" alt="">
+                        <p>Star Wars</p>
+                    </div>
+                </li>
             </ul>
 
         </div>
