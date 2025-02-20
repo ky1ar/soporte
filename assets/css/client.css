@@ -3104,10 +3104,9 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .categorias-stl-mid .slider-item-last-visible .slider-nav-next, 
 .categorias-stl-mid .slider-item-first-visible .slider-nav {
-  visibility: visible !important;
-  background-color: var(--white);
+  visibility: visible;
 }
 .categorias-stl-mid .slider-item-first-visible .slider-nav::before{
-  background-color: var(--white);
+  background-color: var(--white) !important;
   border: 0.1rem solid red;
 }
