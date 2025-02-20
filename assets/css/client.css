@@ -2194,7 +2194,7 @@ section.stls .card-stl div{
 section.stls .card-stl:hover {
   transform: scale(1.02);
 }
-section.stls .card-stl img {
+section.stls .card-stl > img {
   width: 100%;
   height: 65%;
   border-radius: 1rem;
