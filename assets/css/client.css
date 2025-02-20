@@ -2204,7 +2204,7 @@ section.stls .card-stl {
   color: var(--white);
 }
 section.stls .card-stl div {
-  width: 70%;
+  width: 75%;
 }
 section.stls .card-stl:hover {
   transform: scale(1.02);
@@ -2219,7 +2219,8 @@ section.stls .card-stl > img {
 }
 section.stls .card-stl h1 {
   margin: 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-size: 1rem;
 }
 section.stls .card-stl p {
   line-height: 1.1;
