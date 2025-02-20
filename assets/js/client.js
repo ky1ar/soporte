@@ -111,11 +111,11 @@ $(document).ready(function () {
             const cardHtml = `
                             <div class="card-stl">
                                 <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                                <div>
                                 <h1>${stl.name}</h1>
                                 <p>${stl.info}</p>
-                                <a href="archivos-stl/${stl.archivo_stl}" download>
-                                    <button>DESCARGAR</button>
-                                </a>
+                                </div>
+                                <a href="archivos-stl/${stl.archivo_stl}" download><button>DESCARGAR</button></a>
                             </div>
                         `;
             section.append(cardHtml);
