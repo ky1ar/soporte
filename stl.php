@@ -33,6 +33,7 @@ require_once 'includes/common/header.php';
         </div>
     </div>
     <div class="categorias-stl-mid">
+        <h1 class="t">Categorias</h1>
         <div class="swiffy-slider slider-item-show6 slider-nav-round slider-nav-dark slider-nav-sm slider-nav-outside-expand slider-nav-visible slider-nav-autohide slider-indicators-outside">
             <ul class="slider-container">
                 <li class="slide-visible">
