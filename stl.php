@@ -128,7 +128,6 @@ require_once 'includes/common/header.php';
     <div id="stls-container"></div>
     <div class="page-stls">
         <button id="prevPage"><img src="assets/img/next-page.png" alt=""></button>
-        <span id="pageIndicator"></span>
         <button id="nextPage"><img src="assets/img/next-page.png" alt=""></button>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
