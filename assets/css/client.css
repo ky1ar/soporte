@@ -2167,7 +2167,7 @@ section.contact-map iframe {
 }
 
 /* vista de stls */
-.stls-container {
+#stls-container {
   background-image: url(/assets/img/banner-stls-fondo-ult.webp);
 }
 section.stls {
