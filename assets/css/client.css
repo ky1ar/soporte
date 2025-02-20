@@ -2184,7 +2184,7 @@ section.stls .card-stl {
   width: 18rem;
   height: 29rem;
   padding: 1rem;
-  transition: transform 0.3sease;
+  transition: transform 0.3s ease;
   border-radius: 1rem;
   flex-wrap: wrap;
 }
