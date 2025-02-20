@@ -3049,6 +3049,7 @@ section.i3d .cont-cards .card div:last-child a {
 
 .categorias-stl-mid{
   display: flex;
+  flex-direction: column;
   padding: 0 1rem;
   max-width: 100rem;
   width: 100%;
