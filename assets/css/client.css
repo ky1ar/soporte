@@ -3072,25 +3072,30 @@ section.i3d .cont-cards .card div:last-child a {
 .categorias-stl-mid .swiffy-slider .slider-container li .categ img {
   border-radius: 1rem;
 }
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(1) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(1) .categ {
   background-color: rgb(200, 38, 221);
 }
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(2) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(2) .categ {
   background-color: rgb(48, 209, 43);
 }
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(3) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(3) .categ {
   background-color: rgb(36, 203, 245);
 }
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(4) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(4) .categ {
   background-color: rgb(255, 125, 39);
 }
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(5) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(5) .categ {
   background-color: rgb(226, 29, 29);
 }
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(6) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(6) .categ {
   background-color: rgb(17, 82, 204);
 }
 .categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(7) .categ,
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(8) .categ{
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(8) .categ {
   background-color: rgb(233, 199, 48);
+}
+.categorias-stl-mid .swiffy-slider .buttons {
+  position: absolute;
+  right: 2.5rem;
+  top: -2rem;
 }
