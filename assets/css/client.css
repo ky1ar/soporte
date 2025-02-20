@@ -2214,8 +2214,8 @@ section.stls .card-stl p {
   height: 3rem;
 }
 section.stls .card-stl a {
-  margin: auto;
   width: 30%;
+  background-color: var(--primary);
 }
 section.stls .card-stl button {
   background-color: var(--primary);
