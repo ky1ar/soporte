@@ -115,7 +115,7 @@ $(document).ready(function () {
                                 <h1>${stl.name}</h1>
                                 <p>${stl.info}</p>
                                 </div>
-                                <a href="archivos-stl/${stl.archivo_stl}" download>D</a>
+                                <a href="archivos-stl/${stl.archivo_stl}" download><img src="/assets/img/flecha-abajo-icon.webp" alt=""></a>
                             </div>
                         `;
             section.append(cardHtml);

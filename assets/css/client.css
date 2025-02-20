@@ -2187,7 +2187,6 @@ section.stls .card-stl {
   transition: transform 0.3sease;
   border-radius: 1rem;
   flex-wrap: wrap;
-  flex-direction: row;
 }
 section.stls .card-stl div{
   width: 70%;
