@@ -2190,6 +2190,7 @@ section.stls {
   height: auto;
   padding: 3rem;
   gap: 4rem;
+  z-index: 1;
 }
 section.stls .card-stl {
   background-color: #918c8c61;
