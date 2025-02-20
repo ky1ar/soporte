@@ -3102,3 +3102,8 @@ section.i3d .cont-cards .card div:last-child a {
 .categorias-stl-mid .swiffy-slider{
   --swiffy-slider-item-count: 7;
 }
+.categorias-stl-mid .slider-item-last-visible .slider-nav-next, 
+.categorias-stl-mid .slider-item-first-visible .slider-nav-prev {
+  visibility: visible !important;
+  background-color: var(--white);
+}
