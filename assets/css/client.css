@@ -2194,6 +2194,9 @@ section.stls .card-stl:hover {
 section.stls .card-stl img {
   width: 100%;
   height: 65%;
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: center;
 }
 section.stls .card-stl h1 {
   margin-bottom: 0;
