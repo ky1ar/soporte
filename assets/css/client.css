@@ -2179,13 +2179,14 @@ section.stls {
   gap: 4rem;
 }
 section.stls .card-stl {
-  background-color: white;
+  background-color: #918c8c61;
   display: flex;
   width: 18rem;
   padding: 1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3sease;
   border-radius: 1rem;
   flex-wrap: wrap;
+  color: var(--white);
 }
 section.stls .card-stl div {
   width: 70%;
