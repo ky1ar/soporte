@@ -38,56 +38,50 @@ require_once 'includes/common/header.php';
             <ul class="slider-container">
                 <li class="slide-visible">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-anime.webp" alt="">
+                        <p>Animes</p>
                     </div>
                 </li>
                 <li class="slide-visible">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-chibi.webp" alt="">
+                        <p>Chibi</p>
                     </div>
                 </li>
                 <li class="slide-visible">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-funkos.webp" alt="">
+                        <p>Funkos</p>
                     </div>
                 </li>
                 <li class="slide-visible">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-flex.webp" alt="">
+                        <p>Flexibles</p>
                     </div>
                 </li>
                 <li class="slide-visible">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-marvel.webp" alt="">
+                        <p>Marvel</p>
                     </div>
                 </li>
                 <li class="slide-visible">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-dc.webp" alt="">
+                        <p>DC Comics</p>
                     </div>
                 </li>
                 <li class="">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-sw.webp" alt="">
+                        <p>Star Wars</p>
                     </div>
                 </li>
                 <li class="">
                     <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                </li>
-                <li class="">
-                    <div id="categ">
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="assets/img/cat-stls-sw.webp" alt="">
+                        <p>Star Wars</p>
                     </div>
                 </li>
             </ul>
