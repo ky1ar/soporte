@@ -3103,6 +3103,10 @@ section.i3d .cont-cards .card div:last-child a {
 .categorias-stl-mid .swiffy-slider {
   --swiffy-slider-item-count: 7;
 }
+.categorias-stl-mid .slider-nav{
+  -webkit-filter: none;
+  filter: none;
+}
 .categorias-stl-mid .slider-nav::after {
   width: 2rem;
   height: 2rem;
