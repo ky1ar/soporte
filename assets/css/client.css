@@ -3002,7 +3002,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .container-banner-stls .free-stls .cont form .formi {
   background-color: var(--white);
-  padding: 2.5rem 3rem;
+  padding: 2rem 3rem;
   border-radius: 1rem;
   margin: 1rem 0;
   gap: 2rem 0;
