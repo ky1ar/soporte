@@ -3115,7 +3115,7 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: var(--white);
 }
 .categorias-stl-mid .slider-item-last-visible .slider-nav-next::after {
-  background-color: var(--white);
+  background-color: #4f4f4f;
 }
 .categorias-stl-mid .slider-nav::after {
   width: 2rem;
