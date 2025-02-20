@@ -104,6 +104,26 @@ require_once 'includes/common/header.php';
 
         </div>
     </div>
+    <div class="s2-slider">
+        <div class="swiffy-slider slider-indicators-round" data-slider-nav-autoplay-interval="3000">
+            <ul class="slider-container">
+                <li>
+                    <img src="assets/img/banner-stls-s5.webp" alt="">
+                </li>
+                <li>
+                    <img src="assets/img/banner-stls-s5.webp" alt="">
+                </li>
+                <li>
+                    <img src="assets/img/banner-stls-s5.webp" alt="">
+                </li>
+            </ul>
+            <ul class="slider-indicators">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
     <section class="xbanner-stls">
         <img src="assets/img/stl-pc.webp">
     </section>
