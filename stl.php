@@ -35,6 +35,10 @@ require_once 'includes/common/header.php';
     <div class="categorias-stl-mid">
         <h1 class="t">Categorias</h1>
         <div class="swiffy-slider slider-item-show6 slider-nav-round slider-nav-dark slider-nav-sm slider-nav-outside-expand slider-nav-visible slider-nav-autohide slider-indicators-outside">
+            <div class="buttons">
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+            </div>
             <ul class="slider-container">
                 <li class="slide-visible">
                     <div class="categ">
@@ -86,8 +90,6 @@ require_once 'includes/common/header.php';
                 </li>
             </ul>
 
-            <button type="button" class="slider-nav"></button>
-            <button type="button" class="slider-nav slider-nav-next"></button>
         </div>
     </div>
     <section class="xbanner-stls">
