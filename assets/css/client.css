@@ -2213,11 +2213,19 @@ section.stls .card-stl p {
   height: 3rem;
 }
 section.stls .card-stl a {
-  width: 30%;
   background-color: var(--primary);
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: fit-content;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: auto 0 auto auto;
 }
 section.stls .card-stl a img {
   filter: invert(1);
+  height: 2rem;
 }
 
 .page-stls {
