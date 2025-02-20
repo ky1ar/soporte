@@ -3093,7 +3093,9 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: rgb(17, 82, 204);
 }
 .categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(7) .categ,
-.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(8) .categ {
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(8) .categ,
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(9) .categ,
+.categorias-stl-mid .swiffy-slider .slider-container li:nth-of-type(10) .categ{
   background-color: rgb(233, 199, 48);
 }
 .categorias-stl-mid .swiffy-slider .buttons {
