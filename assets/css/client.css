@@ -2167,19 +2167,9 @@ section.contact-map iframe {
 }
 
 /* vista de stls */
-.stls-container
-section.xbanner-stls {
-  padding: 0 1rem;
-  margin-bottom: 3rem;
-  max-width: 100rem;
-  margin: 0 auto 3rem auto;
+.stls-container {
+  background-image: url(/assets/img/banner-stls-fondo-ult.webp);
 }
-
-section.xbanner-stls img {
-  border-radius: 1rem;
-  width: 100%;
-}
-
 section.stls {
   display: flex;
   align-items: center;
@@ -2187,12 +2177,6 @@ section.stls {
   height: auto;
   padding: 3rem;
   gap: 4rem;
-}
-section.stls:nth-child(odd) {
-  background-color: var(--gray);
-}
-section.stls:nth-child(even) {
-  background-color: var(--white);
 }
 section.stls .card-stl {
   background-color: white;
@@ -3151,7 +3135,7 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 1rem auto 3rem auto;
 }
 .s2-slider .slider-container,
-.s2-slider .slider-container li img{
+.s2-slider .slider-container li img {
   border-radius: 1rem;
 }
 .s2-slider .slider-indicators > .active {
