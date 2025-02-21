@@ -337,9 +337,9 @@ body {
   }
   #frontSlider .car-prices .slider-nav::after,
   #frontSlider .car-prices .slider-nav::before {
-    width: 2rem !important;
-    height: 2rem !important;
-    padding: 0.3rem !important;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.3rem;
   }
   #frontSlider .car-prices .slider-nav-outside .slider-container,
   #frontSlider .car-prices .slider-nav-outside-expand .slider-container {
@@ -3132,6 +3132,8 @@ section.i3d .cont-cards .card div:last-child a {
   border: 0.1rem solid #4f4f4f;
   background-color: #4f4f4f;
   border-radius: 2rem;
+  width: 3rem;
+  height: 3rem;
 }
 .categorias-stl-mid .slider-item-last-visible .slider-nav-next,
 .categorias-stl-mid .slider-item-first-visible .slider-nav {
