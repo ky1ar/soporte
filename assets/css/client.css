@@ -3081,7 +3081,6 @@ section.i3d .cont-cards .card div:last-child a {
   width: 49%;
 }
 .container-banner-stls .free-stls .cont form #mensajeregistroFormStls {
-  display: none;
   width: 100%;
   background-color: #1abd1a;
   color: var(--white);
