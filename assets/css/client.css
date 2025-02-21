@@ -3173,23 +3173,41 @@ section.i3d .cont-cards .card div:last-child a {
   border-radius: 1rem !important;
 }
 @media only screen and (max-width: 100rem) {
-  .container-banner-stls .free-stls{
+  .container-banner-stls .free-stls {
     gap: 1rem;
   }
 }
 
-@media only screen and (max-width: 75rem) { /* 1200px */
-  /* Estilos para pantallas de hasta 1200px */
+@media only screen and (max-width: 75rem) {
+  /* 1200px */
+  .container-banner-stls .free-stls {
+    position: relative;
+  }
+  .container-banner-stls .free-stls .ref {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+  }
+  .container-banner-stls .free-stls .ref img {
+    filter: brightness(0.6);
+  }
+  .container-banner-stls .free-stls .cont {
+    margin: 4rem auto;
+    z-index: 1;
+  }
 }
 
-@media only screen and (max-width: 62rem) { /* 992px */
+@media only screen and (max-width: 62rem) {
+  /* 992px */
   /* Estilos para pantallas de hasta 992px */
 }
 
-@media only screen and (max-width: 48rem) { /* 768px */
+@media only screen and (max-width: 48rem) {
+  /* 768px */
   /* Estilos para pantallas de hasta 768px */
 }
 
-@media only screen and (max-width: 36rem) { /* 576px */
+@media only screen and (max-width: 36rem) {
+  /* 576px */
   /* Estilos para pantallas de hasta 576px */
 }
