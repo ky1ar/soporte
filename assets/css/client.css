@@ -3218,7 +3218,7 @@ section.i3d .cont-cards .card div:last-child a {
   .categorias-stl-mid .swiffy-slider {
     --swiffy-slider-item-count: 4;
   }
-  .categorias-stl-mid  .slider-nav-outside-expand .slider-container {
+  .categorias-stl-mid .slider-nav-outside-expand .slider-container {
     margin: 0 !important;
   }
   .categorias-stl-mid
@@ -3270,5 +3270,7 @@ section.i3d .cont-cards .card div:last-child a {
   .categorias-stl-mid .swiffy-slider {
     --swiffy-slider-item-count: 2;
   }
-  
+  .categorias-stl-mid .slider-nav-outside-expand .slider-container li {
+    scroll-snap-align: start;
+  }
 }
