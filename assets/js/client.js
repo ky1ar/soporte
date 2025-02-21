@@ -62,22 +62,52 @@ $(document).ready(function () {
     }
   });
 
+  // $(document).ready(function () {
+  //   $("#registroFormStls").submit(function (event) {
+  //     event.preventDefault();
+  //     $.ajax({
+  //       type: "POST",
+  //       url: "routes/registerUserStl.php",
+  //       data: $(this).serialize(),
+  //       dataType: "json",
+  //       success: function (response) {
+  //         $("#mensajeregistroFormStls")
+  //           .html(response.mensaje)
+  //           .stop(true, true)
+  //           .fadeIn("fast")
+  //           .delay(2000)
+  //           .fadeOut("slow");
+
+  //         if (response.exito) {
+  //           $("#registroFormStls")[0].reset();
+  //         }
+  //       },
+  //     });
+  //   });
+  // });
   $(document).ready(function () {
-    $("#registroFormStls").submit(function (event) {
-      event.preventDefault();
+    $("#registroFormStls").on("submit", function (e) {
+      e.preventDefault(); // Evita la recarga de la página
+
+      let nombre = $("input[name='nombre']").val().trim();
+      let correo = $("input[name='correo']").val().trim();
+      let documento = $("input[name='documento']").val().trim();
+      let celular = $("input[name='celular']").val().trim();
+      let comprobante = $("input[name='comprobante']").val().trim();
+      let mensajeDiv = $("#mensajeregistroFormStls");
+
       $.ajax({
+        url: "registro.php",
         type: "POST",
-        url: "routes/registerUserStl.php",
-        data: $(this).serialize(),
+        data: { nombre, correo, documento, celular, comprobante },
         dataType: "json",
         success: function (response) {
-          $("#mensajeregistroFormStls")
-            .html(response.mensaje) // Inserta el mensaje dinámicamente
+          mensajeDiv
             .stop(true, true)
+            .html(response.mensaje)
             .fadeIn("fast")
             .delay(2000)
             .fadeOut("slow");
-
           if (response.exito) {
             $("#registroFormStls")[0].reset();
           }
@@ -85,6 +115,7 @@ $(document).ready(function () {
       });
     });
   });
+
   $(document).on("click", function (event) {
     var menu = $("section.menu-wiki-movil");
     var btnMenu = $(".btn-menu-movil");
