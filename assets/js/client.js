@@ -71,9 +71,8 @@ $(document).ready(function () {
         data: $(this).serialize(),
         dataType: "json",
         success: function (response) {
-          $("#mensaje").html(response.mensaje);
           if (response.exito) {
-            $("#registroFormStls")[0].reset();
+            location.reload();
           }
         },
       });
