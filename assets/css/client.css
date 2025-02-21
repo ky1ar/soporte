@@ -3025,6 +3025,7 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .cont form .formi .t2 {
   font-size: 1rem;
   font-weight: 600;
+  margin: 0 0 -5rem 0;
 }
 .container-banner-stls .free-stls .cont form .formi input {
   border: none;
