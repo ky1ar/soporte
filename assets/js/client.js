@@ -97,7 +97,7 @@ $(document).ready(function () {
       let mensajeDiv = $("#mensajeregistroFormStls");
 
       $.ajax({
-        url: "registro.php",
+        url: "routes/registerUserStl.php",
         type: "POST",
         data: { nombre, correo, documento, celular, comprobante },
         dataType: "json",
