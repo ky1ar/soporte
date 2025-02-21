@@ -71,7 +71,7 @@ $(document).ready(function () {
         data: $(this).serialize(),
         dataType: "json",
         success: function (response) {
-          $("#mensajeregistroFormStls").html(response.mensaje);
+          $("#mensajeregistroFormStls").fadeIn().delay(2000).fadeOut("slow");
           if (response.exito) {
             $("#registroFormStls")[0].reset();
           }
