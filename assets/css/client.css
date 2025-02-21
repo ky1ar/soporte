@@ -2248,8 +2248,12 @@ section.stls .card-stl a img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem auto;
   z-index: 1;
+  padding: 3rem 1rem;
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 .page-stls button:nth-of-type(1) {
   border-radius: 0.5rem 0 0 0.5rem;
