@@ -2255,6 +2255,9 @@ section.stls .card-stl a img {
   position: relative;
   color: var(--white);
 }
+.page-stls > h1{
+  font-size: 1.2rem;
+}
 .page-stls button:nth-of-type(1) {
   background-color: var(--primary);
   border: none;
