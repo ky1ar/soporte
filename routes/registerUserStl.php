@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $destinatario = "adrianndc2023@gmail.com"; // 🔹 Reemplaza con el correo que debe recibir la notificación
-        $asunto = "Solcitud de Acceso al Drive de STLs";
+        $asunto = "Solicitud de Acceso al Drive de STLs";
         $mensaje = "
         <html>
         <head><title>Nueva Solicitud</title></head>
