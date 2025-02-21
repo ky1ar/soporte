@@ -48,19 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <html>
         <head><title>Nueva Solicitud</title></head>
         <body>
-            <h3>Se ha registrado un nuevo usuario:</h3>
-            <p><strong>Nombre:</strong> $nombre</p>
-            <p><strong>Correo:</strong> $correo</p>
-            <p><strong>DNI/RUC:</strong> $documento</p>
-            <p><strong>Celular:</strong> $celular</p>
-            <p><strong>Comprobante:</strong> $comprobante</p>
+            <h4>Se ha registrado un nuevo usuario:</h4>
+            <p>Nombre: <strong><?php echo $nombre; ?></strong></p>
+            <p>Correo: <strong><?php echo $correo; ?></strong></p>
+            <p>DNI/RUC: <strong><?php echo $documento; ?></strong></p>
+            <p>Celular: <strong><?php echo $celular; ?></strong></p>
+            <p>Comprobante: <strong><?php echo $comprobante; ?></strong></p>
         </body>
         </html>
         ";
 
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: sistemas@krear3d.com" . "\r\n"; // Cambia por un correo válido de tu dominio
+        $headers .= "From: web@soporte.krear3d.com" . "\r\n";
 
         if (mail($destinatario, $asunto, $mensaje, $headers)) {
             echo json_encode(["exito" => true, "mensaje" => "Registro exitoso y correo enviado"]);
