@@ -3235,8 +3235,9 @@ section.i3d .cont-cards .card div:last-child a {
 }
 
 @media only screen and (max-width: 48rem) {
-  /* 768px */
-  /* Estilos para pantallas de hasta 768px */
+  .categorias-stl-mid .swiffy-slider{
+    --swiffy-slider-item-count: 2;
+  }
 }
 
 @media only screen and (max-width: 36rem) {
