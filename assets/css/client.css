@@ -2333,8 +2333,12 @@ section.stls .card-stl a img {
   }
 }
 @media only screen and (max-width: 576px) {
+  section.stls .card-stl{
+    width: auto;
+  }
 }
 @media only screen and (max-width: 416px) {
+  
 }
 
 /* vista de wiki */
@@ -3291,5 +3295,8 @@ section.i3d .cont-cards .card div:last-child a {
   }
   .categorias-stl-mid .slider-nav-outside-expand .slider-container li {
     scroll-snap-align: start;
+  }
+  .s2-slider {
+    margin: 1rem auto 2rem auto;
   }
 }
