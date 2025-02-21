@@ -2192,6 +2192,7 @@ section.stls {
   max-width: 100rem;
   width: 100%;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 section.stls .card-stl {
   background-color: #918c8c61;
@@ -2308,12 +2309,27 @@ section.stls .card-stl a img {
   section.stls {
     flex-wrap: wrap;
   }
+  section.stls .card-stl {
+    width: 24%;
+  }
 }
 @media only screen and (max-width: 992px) {
+  section.stls {
+    gap: 3rem 0;
+  }
+  section.stls .card-stl {
+    width: 45%;
+  }
 }
 @media only screen and (max-width: 768px) {
   section.xbanner-stls img {
     content: url(../img/stl-movil.webp);
+  }
+  section.stls{
+    gap: 1rem 0;
+  }
+  section.stls .card-stl {
+    width: 49%;
   }
 }
 @media only screen and (max-width: 576px) {
