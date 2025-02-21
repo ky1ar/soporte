@@ -3081,6 +3081,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 49%;
 }
 .container-banner-stls .free-stls .cont form #mensajeregistroFormStls {
+  display: none; /* Oculto por defecto */
   width: 100%;
   background-color: #1abd1a;
   color: var(--white);
@@ -3089,6 +3090,7 @@ section.i3d .cont-cards .card div:last-child a {
   text-align: center;
   font-size: 1rem;
 }
+
 .container-banner-stls .free-stls .cont form input[type="submit"] {
   display: flex;
   width: fit-content;
