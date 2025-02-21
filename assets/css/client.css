@@ -3225,7 +3225,12 @@ section.i3d .cont-cards .card div:last-child a {
     .swiffy-slider
     .buttons
     .slider-nav:not(.slider-nav-next) {
-    margin-left: -2rem;
+    margin-left: -3.5rem;
+  }
+  .categorias-stl-mid
+    .slider-nav-sm.slider-nav-outside-expand
+    .slider-nav.slider-nav-next {
+    margin-right: -2.25rem;
   }
 }
 
