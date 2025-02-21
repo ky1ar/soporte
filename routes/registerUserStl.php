@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(["exito" => false, "mensaje" => "El DNI/RUC debe contener solo números"]);
         exit;
     }
-
     if (!ctype_digit($celular)) {
         echo json_encode(["exito" => false, "mensaje" => "Ingresa un número de celular válido"]);
         exit;
     }
-    // Verificar si el correo o DNI ya existen en la base de datos
+
+    // Verificar si el correo o DNI ya existen
     $sql = "SELECT id FROM Users_stls WHERE correo = ? OR documento = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $correo, $documento);
@@ -36,13 +36,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->close();
 
-    // Insertar el registro si las validaciones pasaron
+    // Insertar usuario en la BD
     $sql = "INSERT INTO Users_stls (nombre, correo, documento, celular, comprobante) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssis", $nombre, $correo, $documento, $celular, $comprobante);
 
     if ($stmt->execute()) {
-        echo json_encode(["exito" => true, "mensaje" => "Registro exitoso"]);
+        $destinatario = "adrianndc2023@gmail.com"; // 🔹 Reemplaza con el correo que debe recibir la notificación
+        $asunto = "Solcitud de Acceso al Drive de STLs";
+        $mensaje = "
+        <html>
+        <head><title>Nueva Solicitud</title></head>
+        <body>
+            <h3>Se ha registrado un nuevo usuario:</h3>
+            <p><strong>Nombre:</strong> $nombre</p>
+            <p><strong>Correo:</strong> $correo</p>
+            <p><strong>DNI/RUC:</strong> $documento</p>
+            <p><strong>Celular:</strong> $celular</p>
+            <p><strong>Comprobante:</strong> $comprobante</p>
+        </body>
+        </html>
+        ";
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: sistemas@krear3d.com" . "\r\n"; // Cambia por un correo válido de tu dominio
+
+        if (mail($destinatario, $asunto, $mensaje, $headers)) {
+            echo json_encode(["exito" => true, "mensaje" => "Registro exitoso y correo enviado"]);
+        } else {
+            echo json_encode(["exito" => true, "mensaje" => "Registro exitoso, pero fallo en el envío de correo"]);
+        }
     } else {
         echo json_encode(["exito" => false, "mensaje" => "Error al registrar"]);
     }
