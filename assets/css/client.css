@@ -2288,7 +2288,6 @@ section.stls .card-stl a img {
   height: 3rem;
   cursor: pointer;
   border-radius: 2rem;
-  margin-right: 1rem;
   border: 0.1rem solid var(--primary);
   background-color: transparent;
 }
