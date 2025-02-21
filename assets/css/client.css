@@ -3293,6 +3293,7 @@ section.i3d .cont-cards .card div:last-child a {
   }
   .container-banner-stls .free-stls .cont form input[type="submit"] {
     margin: auto;
+    padding: 0.75rem 3rem;
   }
   .container-banner-stls .free-stls .cont form .formi input:nth-of-type(3),
   .container-banner-stls .free-stls .cont form .formi input:nth-of-type(4),
