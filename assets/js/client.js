@@ -62,44 +62,16 @@ $(document).ready(function () {
     }
   });
 
-  // $(document).ready(function () {
-  //   $("#registroFormStls").submit(function (event) {
-  //     event.preventDefault();
-  //     $.ajax({
-  //       type: "POST",
-  //       url: "routes/registerUserStl.php",
-  //       data: $(this).serialize(),
-  //       dataType: "json",
-  //       success: function (response) {
-  //         $("#mensajeregistroFormStls")
-  //           .html(response.mensaje)
-  //           .stop(true, true)
-  //           .fadeIn("fast")
-  //           .delay(2000)
-  //           .fadeOut("slow");
-
-  //         if (response.exito) {
-  //           $("#registroFormStls")[0].reset();
-  //         }
-  //       },
-  //     });
-  //   });
-  // });
   $(document).ready(function () {
     $("#registroFormStls").on("submit", function (e) {
       e.preventDefault();
 
-      let nombre = $("input[name='nombre']").val().trim();
-      let correo = $("input[name='correo']").val().trim();
-      let documento = $("input[name='documento']").val().trim();
-      let celular = $("input[name='celular']").val().trim();
-      let comprobante = $("input[name='comprobante']").val().trim();
       let mensajeDiv = $("#mensajeregistroFormStls");
 
       $.ajax({
         url: "routes/registerUserStl.php",
         type: "POST",
-        data: { nombre, correo, documento, celular, comprobante },
+        data: $(this).serialize(),
         dataType: "json",
         success: function (response) {
           let bgColor = response.exito ? "#1abd1a" : "#e62121";
