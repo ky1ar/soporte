@@ -3160,12 +3160,11 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: var(--white) !important;
 }
 .categorias-stl-mid
-  .swiffy-slider
-  .buttons
   .slider-nav-sm.slider-nav-outside-expand
   .slider-nav.slider-nav-next {
   margin-right: -3rem;
 }
+
 .s2-slider {
   display: flex;
   padding: 0 1rem;
