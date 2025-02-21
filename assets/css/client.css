@@ -337,9 +337,9 @@ body {
   }
   #frontSlider .car-prices .slider-nav::after,
   #frontSlider .car-prices .slider-nav::before {
-    width: 2rem;
-    height: 2rem;
-    padding: 0.3rem;
+    width: 2rem !important;
+    height: 2rem !important;
+    padding: 0.3rem !important;
   }
   #frontSlider .car-prices .slider-nav-outside .slider-container,
   #frontSlider .car-prices .slider-nav-outside-expand .slider-container {
