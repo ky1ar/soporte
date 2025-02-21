@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <html>
         <head><title>Nueva Solicitud</title></head>
         <body>
-            <h4>Se ha registrado un nuevo usuario:</h4>
-            <p>Nombre: <strong><?php echo $nombre; ?></strong></p>
-            <p>Correo: <strong><?php echo $correo; ?></strong></p>
-            <p>DNI/RUC: <strong><?php echo $documento; ?></strong></p>
-            <p>Celular: <strong><?php echo $celular; ?></strong></p>
-            <p>Comprobante: <strong><?php echo $comprobante; ?></strong></p>
+            <h3>Se ha registrado un nuevo usuario:</h3>
+            <p><strong>Nombre:</strong> $nombre</p>
+            <p><strong>Correo:</strong> $correo</p>
+            <p><strong>DNI/RUC:</strong> $documento</p>
+            <p><strong>Celular:</strong> $celular</p>
+            <p><strong>Comprobante:</strong> $comprobante</p>
         </body>
         </html>
         ";
