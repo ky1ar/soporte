@@ -2166,11 +2166,10 @@ section.contact-map iframe {
   }
 }
 
-/* vista de stls */
-#stls-container {
+.sf-stls {
   position: relative;
 }
-#stls-container::before {
+.sf-stls::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2181,7 +2180,6 @@ section.contact-map iframe {
   background-position: center;
   background-size: cover;
   filter: brightness(0.5);
-  z-index: 0;
 }
 section.stls {
   display: flex;
