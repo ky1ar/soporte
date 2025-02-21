@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: Soporte Krear3D <web@soporte.krear3d.com>" . "\r\n";
+        $headers .= "From: web@soporte.krear3d.com" . "\r\n";
 
         if (mail($destinatario, $asunto, $mensaje, $headers)) {
             echo json_encode(["exito" => true, "mensaje" => "Registro exitoso y correo enviado"]);
