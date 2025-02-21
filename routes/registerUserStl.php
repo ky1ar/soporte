@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!ctype_digit($celular)) {
-        echo json_encode(["exito" => false, "mensaje" => "Ingresa un numero de celular válido"]);
+        echo json_encode(["exito" => false, "mensaje" => "Ingresa un número de celular válido"]);
         exit;
     }
     // Verificar si el correo o DNI ya existen en la base de datos
