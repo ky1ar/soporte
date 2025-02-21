@@ -3232,14 +3232,14 @@ section.i3d .cont-cards .card div:last-child a {
     .slider-nav.slider-nav-next {
     margin-right: -2.25rem;
   }
+  .categorias-stl-mid .t {
+    margin: 0 0 1.5rem 0;
+  }
 }
 
 @media only screen and (max-width: 48rem) {
   .categorias-stl-mid .swiffy-slider {
     --swiffy-slider-item-count: 3;
-  }
-  .categorias-stl-mid .t {
-    margin: 0 0 1.5rem 0;
   }
 }
 
