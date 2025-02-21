@@ -26,6 +26,7 @@ require_once 'includes/common/header.php';
                         <input type="tel" maxlength="11" placeholder="DNI/RUC" name="documento" required>
                         <input type="tel" maxlength="9" placeholder="N° Celular" name="celular" required>
                         <input type="text" maxlength="11" placeholder="N° de Boleta o Factura" name="comprobante" required>
+                        <div id="mensajeregistroFormStls"></div>
                     </div>
                     <input type="submit" value="Registrarse">
                 </form>

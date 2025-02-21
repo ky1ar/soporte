@@ -71,6 +71,7 @@ $(document).ready(function () {
         data: $(this).serialize(),
         dataType: "json",
         success: function (response) {
+          $("#mensajeregistroFormStls").html(response.mensaje);
           if (response.exito) {
             location.reload();
           }
