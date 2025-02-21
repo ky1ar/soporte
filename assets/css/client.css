@@ -2196,7 +2196,7 @@ section.stls {
 section.stls .card-stl {
   background-color: #918c8c61;
   display: flex;
-  width: 24%;
+  width: 20%;
   padding: 1rem;
   transition: transform 0.3s ease;
   border-radius: 1rem;
@@ -2300,6 +2300,9 @@ section.stls .card-stl a img {
 }
 
 @media only screen and (max-width: 1600px) {
+  section.stls .card-stl {
+    width: 22%;
+  }
 }
 @media only screen and (max-width: 1200px) {
   section.stls {
