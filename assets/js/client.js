@@ -73,7 +73,7 @@ $(document).ready(function () {
         success: function (response) {
           $("#mensaje").html(response.mensaje);
           if (response.exito) {
-            $("#registroForm")[0].reset();
+            $("#registroFormStls")[0].reset();
           }
         },
       });
