@@ -98,17 +98,17 @@ require_once 'includes/common/header.php';
                 <li>
                     <img src="assets/img/banner-stls-s5.webp" alt="">
                 </li>
-                <li>
+                <!-- <li>
                     <img src="assets/img/banner-stls-s5.webp" alt="">
                 </li>
                 <li>
                     <img src="assets/img/banner-stls-s5.webp" alt="">
-                </li>
+                </li> -->
             </ul>
             <ul class="slider-indicators">
                 <li class="active"></li>
-                <li></li>
-                <li></li>
+                <!-- <li></li>
+                <li></li> -->
             </ul>
         </div>
     </div>
