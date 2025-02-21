@@ -8,12 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $celular = trim($_POST["celular"]);
     $comprobante = trim($_POST["comprobante"]);
 
-    // Validar que el correo sea @gmail.com
     if (!preg_match("/@gmail\.com$/", $correo)) {
         echo json_encode(["exito" => false, "mensaje" => "El correo debe ser de Gmail (@gmail.com)"]);
         exit;
     }
+    if (!ctype_digit($documento)) {
+        echo json_encode(["exito" => false, "mensaje" => "El DNI/RUC debe contener solo números"]);
+        exit;
+    }
 
+    if (!ctype_digit($celular)) {
+        echo json_encode(["exito" => false, "mensaje" => "Ingresa un numero de celular válido"]);
+        exit;
+    }
     // Verificar si el correo o DNI ya existen en la base de datos
     $sql = "SELECT id FROM Users_stls WHERE correo = ? OR documento = ?";
     $stmt = $conn->prepare($sql);
@@ -45,4 +52,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(["exito" => false, "mensaje" => "Método no permitido"]);
 }
-?>
