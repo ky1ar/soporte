@@ -3182,6 +3182,7 @@ section.i3d .cont-cards .card div:last-child a {
   /* 1200px */
   .container-banner-stls .free-stls {
     position: relative;
+    overflow: hidden;
   }
   .container-banner-stls .free-stls .ref {
     position: absolute;
