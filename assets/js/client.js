@@ -87,7 +87,7 @@ $(document).ready(function () {
   // });
   $(document).ready(function () {
     $("#registroFormStls").on("submit", function (e) {
-      e.preventDefault(); // Evita la recarga de la página
+      e.preventDefault();
 
       let nombre = $("input[name='nombre']").val().trim();
       let correo = $("input[name='correo']").val().trim();
@@ -97,17 +97,21 @@ $(document).ready(function () {
       let mensajeDiv = $("#mensajeregistroFormStls");
 
       $.ajax({
-        url: "routes/registerUserStl.php",
+        url: "registro.php",
         type: "POST",
         data: { nombre, correo, documento, celular, comprobante },
         dataType: "json",
         success: function (response) {
+          let bgColor = response.exito ? "#1abd1a" : "#e62121";
+
           mensajeDiv
             .stop(true, true)
             .html(response.mensaje)
+            .css("background-color", bgColor)
             .fadeIn("fast")
             .delay(2000)
             .fadeOut("slow");
+
           if (response.exito) {
             $("#registroFormStls")[0].reset();
           }
