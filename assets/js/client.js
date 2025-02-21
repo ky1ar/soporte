@@ -71,7 +71,12 @@ $(document).ready(function () {
         data: $(this).serialize(),
         dataType: "json",
         success: function (response) {
-          $("#mensajeregistroFormStls").stop(true, true).fadeIn("fast").delay(2000).fadeOut("slow");
+          $("#mensajeregistroFormStls")
+            .html(response.mensaje) // Inserta el mensaje dinámicamente
+            .stop(true, true)
+            .fadeIn("fast")
+            .delay(2000)
+            .fadeOut("slow");
 
           if (response.exito) {
             $("#registroFormStls")[0].reset();
