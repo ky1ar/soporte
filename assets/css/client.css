@@ -2266,7 +2266,7 @@ section.stls .card-stl a img {
   margin-left: auto;
   border-radius: 2rem;
   margin-right: 1rem;
-  border: 0.1rem solid var(--primary);
+  border: 0.15rem solid var(--primary);
   background-color: transparent;
 }
 .page-stls button:nth-of-type(1) img {
@@ -2288,7 +2288,7 @@ section.stls .card-stl a img {
   height: 3rem;
   cursor: pointer;
   border-radius: 2rem;
-  border: 0.1rem solid var(--primary);
+  border: 0.15rem solid var(--primary);
   background-color: transparent;
 }
 .page-stls button:hover {
