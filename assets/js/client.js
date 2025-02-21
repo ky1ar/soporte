@@ -62,6 +62,23 @@ $(document).ready(function () {
     }
   });
 
+  $(document).ready(function () {
+    $("#registroFormStls").submit(function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "routes/registerUserStl.php",
+        data: $(this).serialize(),
+        dataType: "json",
+        success: function (response) {
+          $("#mensaje").html(response.mensaje);
+          if (response.exito) {
+            $("#registroForm")[0].reset();
+          }
+        },
+      });
+    });
+  });
   $(document).on("click", function (event) {
     var menu = $("section.menu-wiki-movil");
     var btnMenu = $(".btn-menu-movil");
