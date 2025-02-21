@@ -1556,6 +1556,19 @@ footer .item ul.social-icons li img {
   footer .top .wrapper .item:first-child {
     margin: auto;
   }
+  footer .bottom .wrapper {
+    justify-content: center;
+    flex-direction: column;
+  }
+  footer .bottom ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  footer .copyright{
+    text-align: center;
+  }
 }
 /*********************************** FOOTER **********************************/
 #ky1-ord {
@@ -2333,12 +2346,11 @@ section.stls .card-stl a img {
   }
 }
 @media only screen and (max-width: 576px) {
-  section.stls .card-stl{
+  section.stls .card-stl {
     width: auto;
   }
 }
 @media only screen and (max-width: 416px) {
-  
 }
 
 /* vista de wiki */
