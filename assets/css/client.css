@@ -3200,6 +3200,9 @@ section.i3d .cont-cards .card div:last-child a {
     margin: 4rem auto;
     z-index: 1;
   }
+  .categorias-stl-mid .swiffy-slider{
+    --swiffy-slider-item-count: 6;
+  }
 }
 
 @media only screen and (max-width: 62rem) {
