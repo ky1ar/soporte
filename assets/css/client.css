@@ -3202,9 +3202,8 @@ section.i3d .cont-cards .card div:last-child a {
   }
   .categorias-stl-mid .swiffy-slider{
     --swiffy-slider-item-count: 6;
-  }
-  .categorias-stl-mid ..swiffy-slider{
     --swiffy-slider-snap-align: none;
+
   }
 }
 
