@@ -113,47 +113,44 @@ $(document).ready(function () {
   });
 
   const stlsContainer = $("#stls-container");
-  let currentPage = 1;
-  let totalPages = 1;
 
-  cargarSTLs(currentPage);
+  function getItemsPerPage() {
+    return window.innerWidth < 576 ? 1 : 4; // 1 en móviles, 4 en pantallas más grandes
+  }
 
   function cargarSTLs(page) {
+    const itemsPerPage = getItemsPerPage();
+
     $.ajax({
       url: "routes/getSTL.php",
       type: "GET",
       dataType: "json",
-      data: { page: page },
+      data: { page: page, itemsPerPage: itemsPerPage },
       success: function (response) {
         if (response.success) {
           const stlsData = response.data;
           stlsContainer.empty(); // Limpiar el contenedor actual
 
-          stlsData.forEach((stl, index) => {
-            if (index % 4 === 0) {
-              // Insertar nueva sección stls
-              stlsContainer.append('<section class="stls"></section>');
-            }
-
-            // Obtener la última sección stls
-            const section = stlsContainer.find(".stls").last();
-
+          stlsData.forEach((stl) => {
             const cardHtml = `
-                            <div class="card-stl">
-                                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-                                <div>
-                                <h1>${stl.name}</h1>
-                                <p>${stl.info}</p>
-                                </div>
-                                <a href="archivos-stl/${stl.archivo_stl}" download><img src="/assets/img/flecha-abajo-icon.webp" alt=""></a>
-                            </div>
-                        `;
-            section.append(cardHtml);
+              <div class="card-stl">
+                  <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                  <div>
+                      <h1>${stl.name}</h1>
+                      <p>${stl.info}</p>
+                  </div>
+                  <a href="archivos-stl/${stl.archivo_stl}" download>
+                      <img src="/assets/img/flecha-abajo-icon.webp" alt="">
+                  </a>
+              </div>
+            `;
+
+            stlsContainer.append(cardHtml);
           });
 
           // Actualizar el indicador de página
           currentPage = page;
-          totalPages = Math.ceil(stlsData.length / 3); // Cambio en la paginación
+          totalPages = Math.ceil(stlsData.length / itemsPerPage);
           $("#pageIndicator").text(`Página ${currentPage}`);
         } else {
           console.error("Error:", response.message);
@@ -164,16 +161,27 @@ $(document).ready(function () {
       },
     });
   }
+
+  // Función para actualizar paginación al cambiar el tamaño de la pantalla
+  window.addEventListener("resize", function () {
+    cargarSTLs(1); // Recargar desde la primera página al cambiar de tamaño
+  });
+
+  // Botones de paginación
   $("#prevPage").on("click", function () {
     if (currentPage > 1) {
       cargarSTLs(currentPage - 1);
     }
   });
+
   $("#nextPage").on("click", function () {
     if (currentPage < totalPages) {
       cargarSTLs(currentPage + 1);
     }
   });
+
+  // Cargar la primera página al iniciar
+  cargarSTLs(1);
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
     "click",
     function (event) {

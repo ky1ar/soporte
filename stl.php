@@ -102,8 +102,6 @@ require_once 'includes/common/header.php';
             </ul>
             <ul class="slider-indicators">
                 <li class="active"></li>
-                <!-- <li></li>
-                <li></li> -->
             </ul>
         </div>
     </div>
