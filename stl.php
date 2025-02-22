@@ -17,7 +17,7 @@ require_once 'includes/common/header.php';
             </div>
             <div class="cont">
                 <h1 class="t1">Tu primera impresión 3D empieza aquí</h1>
-                <p class="p1">Completa el formulario y obtén nuestro pack de STLs GRATIS para darle forma a tus ideas, <b>aplicable solo a clientes que hayan comprado una impresora.</b></p>
+                <p class="p1">Completa el formulario y obtén nuestro pack de STLs GRATIS para darle forma a tus ideas, <b>aplicable solo a clientes que hayan comprado una impresora 3D.</b></p>
                 <form method="POST" id="registroFormStls">
                     <div class="formi">
                         <h1 class="t2">Rellena este formulario</h1>
