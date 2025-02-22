@@ -6,7 +6,8 @@ header('Content-Type: application/json');
 $response = array();
 
 try {
-    $itemsPerPage = 1; // Cambiar según tu necesidad
+    // Configuración de la paginación
+    $itemsPerPage = 4; // Cambiar según tu necesidad
     $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($currentPage - 1) * $itemsPerPage;
 
