@@ -2194,7 +2194,7 @@ section.contact-map iframe {
   background-size: cover;
   filter: brightness(0.5);
 }
-section.stls {
+#stls-container{
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -2207,7 +2207,7 @@ section.stls {
   margin: 0 auto;
   flex-wrap: wrap;
 }
-section.stls .card-stl {
+#stls-container .card-stl {
   background-color: #918c8c61;
   display: flex;
   width: 20%;
@@ -2217,13 +2217,13 @@ section.stls .card-stl {
   flex-wrap: wrap;
   color: var(--white);
 }
-section.stls .card-stl div {
+#stls-container .card-stl div {
   width: 75%;
 }
-section.stls .card-stl:hover {
+#stls-container .card-stl:hover {
   transform: scale(1.02);
 }
-section.stls .card-stl > img {
+#stls-container .card-stl > img {
   width: 100%;
   height: 15rem;
   border-radius: 1rem;
@@ -2231,17 +2231,17 @@ section.stls .card-stl > img {
   object-position: center;
   margin-bottom: 1rem;
 }
-section.stls .card-stl h1 {
+#stls-container .card-stl h1 {
   margin: 0;
   text-transform: capitalize;
   font-size: 1rem;
 }
-section.stls .card-stl p {
+#stls-container .card-stl p {
   line-height: 1.1;
   font-size: 0.75rem;
   margin: 0;
 }
-section.stls .card-stl a {
+#stls-container .card-stl a {
   background-color: var(--primary);
   height: fit-content;
   align-items: center;
@@ -2252,7 +2252,7 @@ section.stls .card-stl a {
   padding: 0.5rem;
   margin: auto 0 auto auto;
 }
-section.stls .card-stl a img {
+#stls-container .card-stl a img {
   filter: invert(1);
   height: 2rem;
 }
@@ -2314,23 +2314,23 @@ section.stls .card-stl a img {
 }
 
 @media only screen and (max-width: 1600px) {
-  section.stls .card-stl {
+  #stls-container .card-stl {
     width: 22%;
   }
 }
 @media only screen and (max-width: 1200px) {
-  section.stls {
+  #stls-container {
     flex-wrap: wrap;
   }
-  section.stls .card-stl {
+  #stls-container .card-stl {
     width: 24%;
   }
 }
 @media only screen and (max-width: 992px) {
-  section.stls {
+  #stls-container {
     gap: 3rem 0;
   }
-  section.stls .card-stl {
+  #stls-container .card-stl {
     width: 45%;
   }
 }
@@ -2338,15 +2338,15 @@ section.stls .card-stl a img {
   section.xbanner-stls img {
     content: url(../img/stl-movil.webp);
   }
-  section.stls {
+  #stls-container {
     gap: 1rem 0;
   }
-  section.stls .card-stl {
+  #stls-container .card-stl {
     width: 49%;
   }
 }
 @media only screen and (max-width: 576px) {
-  section.stls .card-stl {
+  #stls-container .card-stl {
     width: auto;
   }
 }

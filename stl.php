@@ -111,9 +111,8 @@ require_once 'includes/common/header.php';
             <h1>STL's Gratuitos</h1>
             <button id="prevPage"><img src="assets/img/next-page.png" alt=""></button>
             <button id="nextPage"><img src="assets/img/next-page.png" alt=""></button>
-            <div id="stls-container"></div>
         </div>
-
+        <div id="stls-container"></div>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
