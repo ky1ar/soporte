@@ -3319,7 +3319,7 @@ section.i3d .cont-cards .card div:last-child a {
     margin: 0;
   }
   .categorias-stl-mid .swiffy-slider {
-    --swiffy-slider-item-count: 2;
+    --swiffy-slider-item-count: 3;
   }
   .categorias-stl-mid .slider-nav-outside-expand .slider-container li {
     scroll-snap-align: start;
