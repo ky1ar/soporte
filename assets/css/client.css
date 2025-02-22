@@ -3017,7 +3017,7 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .ref {
   margin-top: auto;
 }
-.container-banner-stls .free-stls .ref img{
+.container-banner-stls .free-stls .ref img {
   width: 50rem;
 }
 .container-banner-stls .free-stls .cont {
@@ -3036,7 +3036,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .container-banner-stls .free-stls .cont .t1 {
   font-size: 1.3rem;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 .container-banner-stls .free-stls .cont .p1 {
   font-size: 0.9rem;
@@ -3326,5 +3326,8 @@ section.i3d .cont-cards .card div:last-child a {
   }
   .s2-slider {
     margin: 1rem auto 2rem auto;
+  }
+  .categorias-stl-mid .swiffy-slider .slider-container li .categ p {
+    margin: 0.5rem 0 0 0;
   }
 }
