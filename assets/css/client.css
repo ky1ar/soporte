@@ -3018,6 +3018,9 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .ref {
   margin-top: auto;
 }
+.container-banner-stls .free-stls .ref img{
+  width: 50rem;
+}
 .container-banner-stls .free-stls .cont {
   display: flex;
   flex-direction: column;
