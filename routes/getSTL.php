@@ -6,9 +6,9 @@ header('Content-Type: application/json');
 $response = array();
 
 try {
-    // Configuración de la paginación según el parámetro recibido
-    $itemsPerPage = isset($_GET['itemsPerPage']) ? intval($_GET['itemsPerPage']) : 4; 
-    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    // Configuración de la paginación
+    $itemsPerPage = 4; // Cambiar según tu necesidad
+    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($currentPage - 1) * $itemsPerPage;
 
     // Consulta para obtener los datos paginados
@@ -41,5 +41,4 @@ try {
 }
 
 echo json_encode($response);
-
 ?>
