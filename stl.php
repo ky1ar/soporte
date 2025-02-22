@@ -16,7 +16,7 @@ require_once 'includes/common/header.php';
                 <img src="assets/img/first-banner-top-stls.webp" alt="">
             </div>
             <div class="cont">
-                <h1 class="t1">Tus primera impresión 3D empieza aquí</h1>
+                <h1 class="t1">Tu primera impresión 3D empieza aquí</h1>
                 <p class="p1">Completa el formulario y obtén nuestro pack de STLs GRATIS para darle forma a tus ideas, <b>aplicable solo a clientes que hayan comprado una impresora.</b></p>
                 <form method="POST" id="registroFormStls">
                     <div class="formi">
