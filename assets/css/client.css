@@ -3002,7 +3002,6 @@ section.i3d .cont-cards .card div:last-child a {
   background-image: url(/assets/img/banner-top-stls.webp);
   background-position: center;
   background-size: cover;
-  filter: brightness(0.8);
   z-index: 0;
 }
 .container-banner-stls .free-stls {
