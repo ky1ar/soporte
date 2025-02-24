@@ -28,7 +28,7 @@ require_once 'includes/common/header.php';
                         <input type="text" maxlength="11" placeholder="N° de Boleta o Factura (B002-012345)*" name="comprobante" required>
                         <div id="mensajeregistroFormStls"></div>
                     </div>
-                    <input type="submit" value="Registrarse">
+                    <input type="submit" value="Regístrate">
                 </form>
             </div>
         </div>
