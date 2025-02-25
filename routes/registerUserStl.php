@@ -44,19 +44,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         $destinatario = "adrianndc2023@gmail.com"; // 🔹 Reemplaza con el correo que debe recibir la notificación
         $asunto = "Solicitud de Acceso al Drive de STLs";
-        $mensaje = "
+        $mensaje = '
         <html>
-        <head><title>Nueva Solicitud</title></head>
         <body>
-            <h3>Se ha registrado un nuevo usuario:</h3>
-            <p><strong>Nombre:</strong> $nombre</p>
-            <p><strong>Correo:</strong> $correo</p>
-            <p><strong>DNI/RUC:</strong> $documento</p>
-            <p><strong>Celular:</strong> $celular</p>
-            <p><strong>Comprobante:</strong> $comprobante</p>
+            <div style="background-color: rgb(231, 231, 231); width: 480px; margin: auto; border-radius: 16px; padding: 16px;">
+                <h3 style="text-align: center;">Datos del Nuevo Usuario Registrado</h3>
+                <p><strong>Nombre:</strong> ' . $nombre . '</p>
+                <p><strong>Correo:</strong> ' . $correo . '</p>
+                <p><strong>DNI/RUC:</strong> ' . $documento . '</p>
+                <p><strong>Celular:</strong> ' . $celular . '</p>
+                <p><strong>Comprobante:</strong> ' . $comprobante . '</p>
+            </div>
         </body>
-        </html>
-        ";
+        </html>';
 
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
