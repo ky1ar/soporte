@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssis", $nombre, $correo, $documento, $celular, $comprobante);
 
     if ($stmt->execute()) {
-        $destinatario = "adrianndc2023@gmail.com"; // 🔹 Reemplaza con el correo que debe recibir la notificación
+        $destinatario = "sistemas@krear3d.com";
         $asunto = "Solicitud de Acceso al Drive de STLs";
         $mensaje = '
         <html>
