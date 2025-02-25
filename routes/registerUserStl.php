@@ -42,9 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssis", $nombre, $correo, $documento, $celular, $comprobante);
 
     if ($stmt->execute()) {
-        $destinatario = "sistemas@krear3d.com";
-        $asunto = "Solicitud de Acceso al Drive de STLs";
-        $mensaje = '
+        // 🟢 1️⃣ Correo para sistemas@krear3d.com
+        $destinatario_sistemas = "sistemas@krear3d.com";
+        $asunto_sistemas = "Solicitud de Acceso al Drive de STLs";
+        $mensaje_sistemas = '
         <html>
         <body>
             <div style="background-color: rgb(231, 231, 231); width: 480px; margin: auto; border-radius: 16px; padding: 16px;">
@@ -58,16 +59,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </body>
         </html>';
 
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: Soporte Krear 3D <web@soporte.krear3d.com>" . "\r\n";
-        $headers .= "Cc: $correo" . "\r\n";  
+        $headers_sistemas = "MIME-Version: 1.0" . "\r\n";
+        $headers_sistemas .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers_sistemas .= "From: Soporte Krear3D <web@soporte.krear3d.com>" . "\r\n";
 
-        if (mail($destinatario, $asunto, $mensaje, $headers)) {
-            echo json_encode(["exito" => true, "mensaje" => "Registro exitoso y correo enviado"]);
-        } else {
-            echo json_encode(["exito" => true, "mensaje" => "Registro exitoso, pero fallo en el envío de correo"]);
-        }
+        mail($destinatario_sistemas, $asunto_sistemas, $mensaje_sistemas, $headers_sistemas);
+
+        // 🟢 2️⃣ Correo para el usuario registrado ($correo)
+        $destinatario_usuario = $correo;
+        $asunto_usuario = "Bienvenido a Krear3D - Acceso al Drive de STLs";
+        $mensaje_usuario = '
+        <html>
+        <body>
+            <div style="background-color: rgb(210, 250, 210); width: 480px; margin: auto; border-radius: 16px; padding: 16px;">
+                <h3 style="text-align: center;">¡Bienvenido a Krear3D!</h3>
+                <p>Hola <strong>' . $nombre . '</strong>,</p>
+                <p>Gracias por registrarte para acceder a nuestros archivos STLs.</p>
+                <p>Tu solicitud será revisada y pronto recibirás una confirmación.</p>
+                <p>Si tienes dudas, contáctanos en <strong>soporte@krear3d.com</strong>.</p>
+                <p style="text-align: center;">¡Gracias por confiar en nosotros!</p>
+            </div>
+        </body>
+        </html>';
+
+        $headers_usuario = "MIME-Version: 1.0" . "\r\n";
+        $headers_usuario .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers_usuario .= "From: Soporte Krear3D <web@soporte.krear3d.com>" . "\r\n";
+
+        mail($destinatario_usuario, $asunto_usuario, $mensaje_usuario, $headers_usuario);
+
+        echo json_encode(["exito" => true, "mensaje" => "Registro exitoso y correos enviados"]);
     } else {
         echo json_encode(["exito" => false, "mensaje" => "Error al registrar"]);
     }
@@ -77,3 +98,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(["exito" => false, "mensaje" => "Método no permitido"]);
 }
+
