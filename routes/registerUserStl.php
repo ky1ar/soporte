@@ -68,48 +68,88 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $asunto_usuario = "Gracias por Registrarte al Pack de 100 STLs K3D";
         $mensaje_usuario = '
         <html>
-        <body>
-            <div class="plant-silv" style="background-color: rgb(241, 241, 241); width: 960px; margin: auto; border-radius: 16px; display: flex; align-items: center; flex-direction: column; overflow: hidden;">
-            <div class="top" style="background-color: #ea7134; width: 100%; display: flex;">
-                <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/01/logo-bn11.png" alt="" style="width: 192px; margin: 32px auto;" />
-            </div>
-            <div class="sec1" style="display: flex; align-items: center; justify-content: center; padding-top: 16px;">
-                <div class="txt" style="width: 272px;">
-                <h1 style="margin: 0; font-weight: 500;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
-                <p class="p1" style="margin: 8px 0;">Estamos revisando tu solicitud y si todo<br />
-                    esta en orden, pronto tendrás acceso<br />
-                    al <span style="color: #ea7134;"><b>Pack de 100 STLs K3D.</b></span></p>
-                <p class="p2" style="margin: 8px 0 0 0; white-space: nowrap;"><b>Recibirás la invitación a tu correo registrado:</b></p>
-                <p class="email" style="margin: 0;">' . $correo . '</p>
-                </div>
-                <div class="part2" style="z-index: 1;">
-                <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/pack-stls-plant-k1.png" alt="" style="width: 352px; margin-bottom: -48px;" />
-                </div>
-            </div>
-            <div class="sec2" style="background-color: white; align-items: center; justify-content: center; width: 100%; position: relative;">
-                <div class="clip1" style="width: 128px; height: 80px; border-radius: 0 16px 16px 0; background-color: #ea7134; position: absolute; top: 50%; transform: translateY(-50%);"></div>
-                <div class="cont" style="display: flex; align-items: center; justify-content: center; gap: 48px; padding: 32px 0;">
-                <div class="adv">
-                    <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/plant-stls-adv-x1.png" alt="" style="width: 160px;" />
-                </div>
-                <div class="txt" style="margin-top: -32px;">
-                    <p style="margin: 8px 0;">Si no recibes el correo en un <b>plazo de 48 horas</b>, es posible<br />
-                    que se encuentre un error en el ingreso de tus datos.</p>
-                    <b>Te recomendamos revisarlos y registrarte nuevamente.</b>
-                </div>
-                </div>
-                <div class="clip2" style="width: 128px; height: 80px; border-radius: 16px 0 0 16px; background-color: #ea7134; position: absolute; top: 50%; transform: translateY(-50%); right: 0;"></div>
-            </div>
-            <div class="sec3" style="background-color: #182d36; width: 100%; color: white; text-align: center; padding: 32px;">
-                <p style="margin: 0 0 8px 0;">Si tienes una duda o consulta, contáctanos por nuestras redes sociales:</p>
-                <div class="redes" style="display: flex; align-items: center; justify-content: center;">
-                <a href="https://www.facebook.com/krear3d/" target="_blank" style="text-decoration: none; color: white;"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2024/06/facebook_x.png" alt="" style="width: 24px; margin-right: 8px;" /></a>
-                <a href="https://www.instagram.com/krear3d_peru/" target="_blank" style="text-decoration: none; color: white;"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2024/06/instagram_x.png" alt="" style="width: 24px; margin-right: 8px;" /></a>
-                <a href="https://www.tiktok.com/@krear3d_peru" target="_blank" style="text-decoration: none; color: white;"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/logo-white-tiktok.png" alt="" style="width: 24px; margin-right: 8px;" /></a>
-                <b>@krear3dperu</b>&nbsp;o correo:&nbsp;<b><a href="mailto:marketing@krear3d.com" style="text-decoration: none; color: white;">marketing@krear3d.com</a></b>
-                </div>
-            </div>
-            </div>
+        <body style="margin: 0; padding: 0; background-color: rgb(241, 241, 241);">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td align="center">
+                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f1f1; border-radius: 16px;">
+                    <!-- Logo -->
+                    <tr>
+                    <td align="center" bgcolor="#ea7134" style="padding: 32px 0;">
+                        <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/01/logo-bn11.png" width="192" alt="Logo" />
+                    </td>
+                    </tr>
+                    <!-- Sección de bienvenida -->
+                    <tr>
+                    <td align="center" style="padding: 16px;">
+                        <table role="presentation" width="80%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td valign="middle" width="50%" align="left">
+                            <h1 style="margin: 0; font-weight: 500; font-size: 24px;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
+                            <p style="margin: 8px 0;">Estamos revisando tu solicitud y si todo<br />
+                                está en orden, pronto tendrás acceso<br />
+                                al <span style="color: #ea7134;"><b>Pack de 100 STLs K3D.</b></span></p>
+                            <p style="margin: 8px 0;"><b>Recibirás la invitación a tu correo registrado:</b></p>
+                            <p style="margin: 0;">' . $correo . '</p>
+                            </td>
+                            <td valign="middle" width="50%" align="right">
+                            <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/pack-stls-plant-k1.png" width="352" alt="Pack STLs" />
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+                    </tr>
+                <!-- Sección con los clips -->
+                <tr>
+                    <td align="center">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                        <td width="128" height="40" align="center">
+                            <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/plant-clip-x1.png" width="128" height="" alt="" style="display: block;">
+                        </td>
+                        <td bgcolor="#ffffff" align="center" style="padding: 32px;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td align="center">
+                                <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/plant-stls-adv-x1.png" width="160" alt="Advertencia" />
+                                </td>
+                                <td style="padding-left: 24px;">
+                                <p style="margin: 8px 0;">Si no recibes el correo en un <b>plazo de 48 horas</b>, es posible<br />
+                                    que se encuentre un error en el ingreso de tus datos.</p>
+                                <b>Te recomendamos revisarlos y registrarte nuevamente.</b>
+                                </td>
+                            </tr>
+                            </table>
+                        </td>
+                        <td width="128" height="40" align="center">
+                            <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/plant-clip-x2.png" width="128" height="" alt="" style="display: block;">
+                        </td>
+                        </tr>
+                    </table>
+                    </td>
+                </tr>
+
+                    <!-- Pie con redes sociales -->
+                    <tr>
+                    <td bgcolor="#182d36" align="center" style="color: white; padding: 32px;">
+                        <p style="margin: 0 0 8px 0;">Si tienes una duda o consulta, contáctanos por nuestras redes sociales:</p>
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><a href="https://www.facebook.com/krear3d/" target="_blank"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2024/06/facebook_x.png" width="24" alt="Facebook" /></a></td>
+                            <td width="8"></td>
+                            <td><a href="https://www.instagram.com/krear3d_peru/" target="_blank"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2024/06/instagram_x.png" width="24" alt="Instagram" /></a></td>
+                            <td width="8"></td>
+                            <td><a href="https://www.tiktok.com/@krear3d_peru" target="_blank"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/logo-white-tiktok.png" width="24" alt="TikTok" /></a></td>
+                            <td width="8"></td>
+                            <td><b>@krear3dperu</b>&nbsp;o correo:&nbsp;<b><a href="mailto:marketing@krear3d.com" style="color: white;">marketing@krear3d.com</a></b></td>
+                        </tr>
+                        </table>
+                    </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            </table>
         </body>
         </html>';
 
