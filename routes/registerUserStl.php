@@ -86,10 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <tr>
                             <td valign="middle" width="50%" align="left">
                             <h1 style="margin: 0 0 14px 0; font-weight: 500; font-size: 24px; line-height: 1;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
-                            <p style="margin: 0 0 16px 0;">Estamos revisando tu solicitud y si todo<br />
+                            <p style="margin: 0 0 16px 0; line-height: 1.2;">Estamos revisando tu solicitud y si todo<br />
                                 está en orden, pronto tendrás acceso<br />
                                 al <span style="color: #ea7134;"><b>Pack de 100 STLs K3D.</b></span></p>
-                            <p style="margin: 0;"><b>Recibirás la invitación a tu correo registrado:</b></p>
+                            <p style="margin: 0; line-height: 1.2;"><b>Recibirás la invitación a tu correo registrado:</b></p>
                             <p style="margin: 0;">' . $correo . '</p>
                             </td>
                             <td valign="middle" width="50%" align="right">
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/plant-stls-adv-x1.png" width="160" alt="Advertencia" />
                                 </td>
                                 <td style="padding-left: 24px;">
-                                <p style="margin: 8px 0;">Si no recibes el correo en un <b>plazo de 48 horas</b>, es posible<br />
+                                <p style="margin: 8px 0; line-height: 1.2;">Si no recibes el correo en un <b>plazo de 48 horas</b>, es posible<br />
                                     que se encuentre un error en el ingreso de tus datos.</p>
                                 <b>Te recomendamos revisarlos y registrarte nuevamente.</b>
                                 </td>
