@@ -68,11 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $asunto_usuario = "Gracias por Registrarte al Pack de 100 STLs K3D";
         $mensaje_usuario = '
         <html>
-        <body style="margin: 0; padding: 0; background-color: rgb(241, 241, 241);">
+        <body style="margin: 0; padding: 0; background-color: rgb(240, 240, 240); style="font-family: Arial, Helvetica, sans-serif;"">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
             <tr>
                 <td align="center">
-                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f1f1; border-radius: 16px;">
+                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" style="background-color: #fdfdfdc9; margin-top: 30px;border-radius: 20px; overflow: hidden;">
                     <!-- Logo -->
                     <tr>
                     <td align="center" bgcolor="#ea7134" style="padding: 32px 0;">
@@ -81,15 +81,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </tr>
                     <!-- Sección de bienvenida -->
                     <tr>
-                    <td align="center" style="padding: 16px;">
-                        <table role="presentation" width="80%" cellspacing="0" cellpadding="0" border="0">
+                    <td align="center" style="padding: 10px 0 0 0;">
+                        <table role="presentation" width="50%" cellspacing="0" cellpadding="0" border="0">
                         <tr>
                             <td valign="middle" width="50%" align="left">
-                            <h1 style="margin: 0; font-weight: 500; font-size: 24px;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
-                            <p style="margin: 8px 0;">Estamos revisando tu solicitud y si todo<br />
+                            <h1 style="margin: 0; font-weight: 500; font-size: 24px; line-height: 1;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
+                            <p style="margin: 0 0 16px 0;">Estamos revisando tu solicitud y si todo<br />
                                 está en orden, pronto tendrás acceso<br />
                                 al <span style="color: #ea7134;"><b>Pack de 100 STLs K3D.</b></span></p>
-                            <p style="margin: 8px 0;"><b>Recibirás la invitación a tu correo registrado:</b></p>
+                            <p style="margin: 0;"><b>Recibirás la invitación a tu correo registrado:</b></p>
                             <p style="margin: 0;">' . $correo . '</p>
                             </td>
                             <td valign="middle" width="50%" align="right">
