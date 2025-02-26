@@ -3011,7 +3011,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 100%;
   margin: 0 auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   z-index: 1;
 }
 .container-banner-stls .free-stls .ref {
@@ -3049,7 +3049,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 .container-banner-stls .free-stls .cont form .formi {
   background-color: var(--white);
-  padding: 2rem 3rem;
+  padding: 2.5rem 3rem;
   border-radius: 1rem;
   margin: 1rem 0;
   gap: 2rem 0;
@@ -3060,7 +3060,7 @@ section.i3d .cont-cards .card div:last-child a {
 .container-banner-stls .free-stls .cont form .formi .t2 {
   font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 -5rem 0;
+  margin: 0;
 }
 .container-banner-stls .free-stls .cont form .formi input {
   border: none;
@@ -3282,7 +3282,7 @@ section.i3d .cont-cards .card div:last-child a {
     margin: 0 0 1.25rem 0;
   }
   .s2-slider .slider-container li img {
-    content: url("/assets/img/banner-stls-s5-movil.webp");
+    content: url("/assets/img/banner-stls-movil-v2.webp");
   }
 }
 
