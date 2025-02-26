@@ -85,7 +85,7 @@ require_once 'includes/common/header.php';
                 </li>
                 <li class="">
                     <div class="categ">
-                        <img src="assets/img/gatoangel.webp" alt="">
+                        <img src="assets/img/decorativo-stls.webp" alt="">
                         <p>Decorativo</p>
                     </div>
                 </li>
