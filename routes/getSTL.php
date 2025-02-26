@@ -6,10 +6,16 @@ header('Content-Type: application/json');
 $response = array();
 
 try {
-    // Configuración de la paginación
-    $itemsPerPage = 8; // Cambiar según tu necesidad
-    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+    // Obtener itemsPerPage de la solicitud (default: 4)
+    $itemsPerPage = isset($_GET['itemsPerPage']) ? intval($_GET['itemsPerPage']) : 4;
+    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
     $offset = ($currentPage - 1) * $itemsPerPage;
+
+    // Obtener el total de STL en la base de datos
+    $totalQuery = "SELECT COUNT(*) as total FROM STL";
+    $totalResult = $conn->query($totalQuery);
+    $totalRow = $totalResult->fetch_assoc();
+    $totalItems = $totalRow['total'];
 
     // Consulta para obtener los datos paginados
     $sql = "SELECT * FROM STL ORDER BY registro DESC LIMIT ? OFFSET ?";
@@ -20,16 +26,13 @@ try {
         $result = $stmt->get_result();
         $data = $result->fetch_all(MYSQLI_ASSOC);
 
-        if (!empty($data)) {
-            $response['success'] = true;
-            $response['data'] = $data;
-        } else {
-            $response['success'] = false;
-            $response['message'] = "No se encontraron datos en la tabla STL.";
-        }
+        $response['success'] = true;
+        $response['data'] = $data;
+        $response['totalItems'] = $totalItems;
+        $response['itemsPerPage'] = $itemsPerPage;
     } else {
         $response['success'] = false;
-        $response['message'] = 'Error en la ejecución de la consulta: ' . $stmt->error;
+        $response['message'] = 'Error en la consulta: ' . $stmt->error;
     }
 
     $stmt->close();

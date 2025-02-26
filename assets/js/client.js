@@ -62,6 +62,36 @@ $(document).ready(function () {
     }
   });
 
+  $(document).ready(function () {
+    $("#registroFormStls").on("submit", function (e) {
+      e.preventDefault();
+
+      let mensajeDiv = $("#mensajeregistroFormStls");
+
+      $.ajax({
+        url: "routes/registerUserStl.php",
+        type: "POST",
+        data: $(this).serialize(),
+        dataType: "json",
+        success: function (response) {
+          let bgColor = response.exito ? "#1abd1a" : "#e62121";
+
+          mensajeDiv
+            .stop(true, true)
+            .html(response.mensaje)
+            .css("background-color", bgColor)
+            .fadeIn("fast")
+            .delay(2000)
+            .fadeOut("slow");
+
+          if (response.exito) {
+            $("#registroFormStls")[0].reset();
+          }
+        },
+      });
+    });
+  });
+
   $(document).on("click", function (event) {
     var menu = $("section.menu-wiki-movil");
     var btnMenu = $(".btn-menu-movil");
@@ -86,45 +116,44 @@ $(document).ready(function () {
   let currentPage = 1;
   let totalPages = 1;
 
-  cargarSTLs(currentPage);
+  function getItemsPerPage() {
+    return window.innerWidth < 576 ? 1 : 4; // 1 STL por página en móviles, 4 en pantallas más grandes
+  }
 
   function cargarSTLs(page) {
+    const itemsPerPage = getItemsPerPage();
+
     $.ajax({
       url: "routes/getSTL.php",
       type: "GET",
       dataType: "json",
-      data: { page: page },
+      data: { page: page, itemsPerPage: itemsPerPage },
       success: function (response) {
         if (response.success) {
           const stlsData = response.data;
+          const totalItems = response.totalItems;
+          totalPages = Math.ceil(totalItems / itemsPerPage);
+
           stlsContainer.empty(); // Limpiar el contenedor actual
 
-          stlsData.forEach((stl, index) => {
-            if (index % 4 === 0) {
-              // Insertar nueva sección stls
-              stlsContainer.append('<section class="stls"></section>');
-            }
-
-            // Obtener la última sección stls
-            const section = stlsContainer.find(".stls").last();
-
+          stlsData.forEach((stl) => {
             const cardHtml = `
-                            <div class="card-stl">
-                                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
-                                <h1>${stl.name}</h1>
-                                <p>${stl.info}</p>
-                                <a href="archivos-stl/${stl.archivo_stl}" download>
-                                    <button>DESCARGAR</button>
-                                </a>
-                            </div>
-                        `;
-            section.append(cardHtml);
+            <div class="card-stl">
+                <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
+                <div>
+                    <h1>${stl.name}</h1>
+                    <p>${stl.info}</p>
+                </div>
+                <a href="archivos-stl/${stl.archivo_stl}" download>
+                    <img src="/assets/img/flecha-abajo-icon.webp" alt="">
+                </a>
+            </div>
+          `;
+            stlsContainer.append(cardHtml);
           });
 
           // Actualizar el indicador de página
-          currentPage = page;
-          totalPages = Math.ceil(stlsData.length / 3); // Cambio en la paginación
-          $("#pageIndicator").text(`Página ${currentPage}`);
+          $("#pageIndicator").text(`Página ${currentPage} de ${totalPages}`);
         } else {
           console.error("Error:", response.message);
         }
@@ -134,16 +163,29 @@ $(document).ready(function () {
       },
     });
   }
+
+  // Escuchar cambios de tamaño y recargar la primera página
+  window.addEventListener("resize", function () {
+    cargarSTLs(1);
+  });
+
+  // Botones de paginación
   $("#prevPage").on("click", function () {
     if (currentPage > 1) {
-      cargarSTLs(currentPage - 1);
+      currentPage--;
+      cargarSTLs(currentPage);
     }
   });
+
   $("#nextPage").on("click", function () {
     if (currentPage < totalPages) {
-      cargarSTLs(currentPage + 1);
+      currentPage++;
+      cargarSTLs(currentPage);
     }
   });
+
+  // Cargar la primera página al iniciar
+  cargarSTLs(1);
   $("section.menu-wiki-movil ul li ul li, section.menu-wiki ul li ul li").on(
     "click",
     function (event) {
