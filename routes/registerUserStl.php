@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
             <tr>
                 <td align="center">
-                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" bgcolor="#f1f1f1" style="background-color: #fbf9f9; margin-top: 30px;border-radius: 20px; overflow: hidden;">
+                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" style="background-color: #fbf9f9; margin-top: 30px;border-radius: 20px; overflow: hidden;">
                     <!-- Logo -->
                     <tr>
                     <td align="center" bgcolor="#ea7134" style="padding: 32px 0;">
