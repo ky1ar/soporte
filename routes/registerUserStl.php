@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <table role="presentation" width="50%" cellspacing="0" cellpadding="0" border="0">
                         <tr>
                             <td valign="middle" width="50%" align="left">
-                            <h1 style="margin: 0; font-weight: 500; font-size: 24px; line-height: 1;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
+                            <h1 style="margin: 0 0 14px 0; font-weight: 500; font-size: 24px; line-height: 1;">¡GRACIAS POR <span style="font-size: 36.8px;"><b>REGISTRARTE!</b></span></h1>
                             <p style="margin: 0 0 16px 0;">Estamos revisando tu solicitud y si todo<br />
                                 está en orden, pronto tendrás acceso<br />
                                 al <span style="color: #ea7134;"><b>Pack de 100 STLs K3D.</b></span></p>
@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td width="8"></td>
                             <td><a href="https://www.instagram.com/krear3d_peru/" target="_blank"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2024/06/instagram_x.png" width="24" alt="Instagram" /></a></td>
                             <td width="8"></td>
-                            <td><a href="https://www.tiktok.com/@krear3d_peru" target="_blank"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/logo-white-tiktok.png" width="24" alt="TikTok" /></a></td>
+                            <td><a href="https://www.tiktok.com/@krear3d_peru" target="_blank"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/02/logo-tiktok-v2.png" width="24" alt="TikTok" /></a></td>
                             <td width="8"></td>
                             <td><b>@krear3dperu</b>&nbsp;o correo:&nbsp;<b><a href="mailto:marketing@krear3d.com" style="color: white;">marketing@krear3d.com</a></b></td>
                         </tr>
