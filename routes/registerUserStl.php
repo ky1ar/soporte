@@ -159,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         mail($destinatario_usuario, $asunto_usuario, $mensaje_usuario, $headers_usuario);
 
-        echo json_encode(["exito" => true, "mensaje" => "Registro exitoso y correos enviados"]);
+        echo json_encode(["exito" => true, "mensaje" => "Registro Exitoso"]);
     } else {
         echo json_encode(["exito" => false, "mensaje" => "Error al registrar"]);
     }
