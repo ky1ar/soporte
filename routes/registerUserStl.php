@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssis", $nombre, $correo, $documento, $celular, $comprobante);
 
     if ($stmt->execute()) {
-        $destinatario_sistemas = "sistemas@krear3d.com";
+        $destinatario_sistemas = "marketing@krear3d.com";
         $asunto_sistemas = "Solicitud de Acceso al Drive de STLs";
         $mensaje_sistemas = '
         <html>
