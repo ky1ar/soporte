@@ -68,11 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $asunto_usuario = "Gracias por Registrarte al Pack de 100 STLs K3D";
         $mensaje_usuario = '
         <html>
-        <body style="margin: 0; padding: 0; background-color: #f1f1f1; style="font-family: Arial, Helvetica, sans-serif;"">
+        <body style="margin: 0; padding: 0; background-color: rgb(240, 240, 240); style="font-family: Arial, Helvetica, sans-serif;"">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
             <tr>
                 <td align="center">
-                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" style="background-color: #fbf9f9; margin-top: 30px;border-radius: 20px; overflow: hidden;">
+                <table role="presentation" width="960" cellspacing="0" cellpadding="0" border="0" bgcolor="#f1f1f1" style="background-color: #fbf9f9; margin-top: 30px;border-radius: 20px; overflow: hidden;">
                     <!-- Logo -->
                     <tr>
                     <td align="center" bgcolor="#ea7134" style="padding: 32px 0;">
