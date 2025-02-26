@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $asunto_usuario = "Gracias por Registrarte al Pack de 100 STLs K3D";
         $mensaje_usuario = '
         <html>
-        <body style="margin: 0; padding: 0; background-color: rgb(240, 240, 240); style="font-family: Arial, Helvetica, sans-serif;"">
+        <body style="margin: 0; padding: 0; background-color: #f1f1f1; style="font-family: Arial, Helvetica, sans-serif;"">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
             <tr>
                 <td align="center">
