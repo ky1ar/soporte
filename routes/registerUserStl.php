@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $headers_usuario = "MIME-Version: 1.0" . "\r\n";
         $headers_usuario .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers_usuario .= "From: Soporte Krear 3D <web@soporte.krear3d.com>" . "\r\n";
+        $headers_usuario .= "From: Marketing Krear 3D <web@soporte.krear3d.com>" . "\r\n";
 
         mail($destinatario_usuario, $asunto_usuario, $mensaje_usuario, $headers_usuario);
 
