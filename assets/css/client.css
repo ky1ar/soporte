@@ -1371,6 +1371,7 @@ body {
 }
 #scheduleForm .tyc label a{
   color: var(--primary);
+  font-weight: 500;
 }
 #scheduleForm .formButton .formSubmit {
   font-family: "DM Sans", sans-serif;
