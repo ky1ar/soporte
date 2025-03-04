@@ -263,7 +263,10 @@ require_once 'includes/common/header.php';
                                 </ul>
                                 <div class="aviso-pago">
                                     Adjunta la constancia de pago de la capacitación o si eres cliente el comprobante de compra de tu equipo.
-
+                                </div>
+                                <div class="tyc">
+                                    <input type="checkbox" id="tyc" name="tyc" value="true">
+                                    <label for="tyc">He leído y acepto las <a href="">Políticas de Capacitaciones</a> de Krear 3D</label>
                                 </div>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">
