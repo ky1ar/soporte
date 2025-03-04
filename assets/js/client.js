@@ -723,7 +723,8 @@ $(document).ready(function () {
       !validateEmail(email) ||
       !validatePhone(phone) ||
       !validateMachineId(machine) ||
-      !validateInvoice(invoice)
+      !validateInvoice(invoice) ||
+      !validatePolicies()
     ) {
       return;
     }
@@ -769,7 +770,19 @@ $(document).ready(function () {
 
     return true;
   }
+  function validatePolicies() {
+    let tyc = $("#tyc");
 
+    if (!tyc.is(":checked")) {
+      message(
+        scheduleFormMessage,
+        "Debes aceptar las políticas de capacitaciones."
+      );
+      return false;
+    }
+
+    return true;
+  }
   function validateClient(client) {
     if (client.trim() === "") {
       message(scheduleFormMessage, "El campo del nombre no puede estar vacío");

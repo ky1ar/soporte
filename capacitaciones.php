@@ -128,9 +128,16 @@ require_once 'includes/common/header.php';
                         <span><img width="22" height="22" src="assets/img/register.svg" alt=""></span>
                         <div>
                             <div class="ex-body">
-                                <h3>Agenda tu capacitación</h3><button id="showExampleBtn">Ver Ejemplo</button>
+                                <h3>Agenda tu capacitación</h3><button id="showExampleBtn">Ejemplo</button>
                             </div>
                             <p>Elige la fecha y hora que mejor te convenga.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span><img width="24" height="24" src="assets/img/icon-comprobante-v1.webp" alt=""></span>
+                        <div>
+                            <h3>Adjunta tu comprobante</h3>
+                            <p>Registra tus datos y adjunta la constancia de pago de la capacitación, o si eres cliente el comprobante de compra de tu equipo.</p>
                         </div>
                     </div>
                     <div class="step">
@@ -261,9 +268,9 @@ require_once 'includes/common/header.php';
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="aviso-pago">
-                                    Adjunta la constancia de pago de la capacitación o si eres cliente el comprobante de compra de tu equipo.
-
+                                <div class="tyc">
+                                    <input type="checkbox" id="tyc" name="tyc" value="true">
+                                    <label for="tyc">He leído y acepto las <a href="https://www.tiendakrear3d.com/terminos/politicas-de-capacitaciones-virtuales/" target="_blank">Políticas de Capacitaciones</a> de Krear 3D</label>
                                 </div>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">

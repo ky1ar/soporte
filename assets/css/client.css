@@ -981,7 +981,7 @@ body {
 #trainingSection .left {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   flex: 1;
 }
 #trainingSection .left .title {
@@ -1011,7 +1011,7 @@ body {
 #trainingSection .left .step h3 {
   text-transform: uppercase;
   font-weight: 900;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   margin-top: 0;
   font-size: 1rem;
 }
@@ -1024,9 +1024,8 @@ body {
   border-radius: 1rem;
   color: white;
   font-size: 0.9rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
   padding: 0 1rem;
-  transform: translateY(-0.3rem);
   cursor: pointer;
 }
 #trainingSection .left .step div div.ex-body button:hover {
@@ -1034,6 +1033,7 @@ body {
 }
 #trainingSection .left .step p {
   margin: 0;
+  padding-right: 1rem;
 }
 
 /***********************************************************************************/
@@ -1357,11 +1357,15 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-#scheduleForm .aviso-pago {
-  color: red;
-  font-style: italic;
-  padding-left: 0.5rem;
-  font-size: 0.7rem;
+#scheduleForm .tyc {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  gap: 0.5rem;
+}
+#scheduleForm .tyc label a{
+  color: var(--primary);
+  font-weight: 500;
 }
 #scheduleForm .formButton .formSubmit {
   font-family: "DM Sans", sans-serif;
@@ -2194,7 +2198,7 @@ section.contact-map iframe {
   background-size: cover;
   filter: brightness(0.5);
 }
-#stls-container{
+#stls-container {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
