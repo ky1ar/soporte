@@ -1357,12 +1357,6 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-#scheduleForm .aviso-pago {
-  color: var(--black);
-  font-style: italic;
-  padding-left: 0.5rem;
-  font-size: 0.7rem;
-}
 #scheduleForm .tyc {
   display: flex;
   align-items: center;
