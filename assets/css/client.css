@@ -1363,6 +1363,15 @@ body {
   padding-left: 0.5rem;
   font-size: 0.7rem;
 }
+#scheduleForm .tyc {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  gap: 0.5rem;
+}
+#scheduleForm .tyc label a{
+  color: var(--primary);
+}
 #scheduleForm .formButton .formSubmit {
   font-family: "DM Sans", sans-serif;
   background-color: #ed5d1f;
@@ -2194,7 +2203,7 @@ section.contact-map iframe {
   background-size: cover;
   filter: brightness(0.5);
 }
-#stls-container{
+#stls-container {
   display: flex;
   align-items: stretch;
   justify-content: space-between;

@@ -266,7 +266,7 @@ require_once 'includes/common/header.php';
                                 </div>
                                 <div class="tyc">
                                     <input type="checkbox" id="tyc" name="tyc" value="true">
-                                    <label for="tyc">He leído y acepto las <a href="">Políticas de Capacitaciones</a> de Krear 3D</label>
+                                    <label for="tyc">He leído y acepto las <a href="https://www.tiendakrear3d.com/terminos/politicas-de-capacitaciones-virtuales/" target="_blank">Políticas de Capacitaciones</a> de Krear 3D</label>
                                 </div>
                                 <div class="formButton">
                                     <input type="hidden" id="picked">
