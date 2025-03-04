@@ -137,7 +137,7 @@ require_once 'includes/common/header.php';
                         <span><img width="22" height="22" src="assets/img/icon-comprobante-v1.webp" alt=""></span>
                         <div>
                             <h3>Adjunta tu comprobante</h3>
-                            <p>Registra tus datos y adjunta la constancia de pago de la capacitación o si eres cliente el comprobante de compra de tu equipo.</p>
+                            <p>Registra tus datos y adjunta la constancia de pago de la capacitación, o si eres cliente el comprobante de compra de tu equipo.</p>
                         </div>
                     </div>
                     <div class="step">
