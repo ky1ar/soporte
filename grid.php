@@ -341,7 +341,7 @@ if (isset($_SESSION['user_id'])) {
                                                                 <?php if ($s_levels == 3 || $s_levels == 4) : ?>
                                                                     <select name="worker" class="ky1-wrk">
                                                                         <?php
-                                                                        $sqlU = "SELECT w.id, w.name FROM Users w WHERE w.levels = 2 OR w.levels = 3 ORDER BY w.name ";
+                                                                        $sqlU = "SELECT w.id, w.name FROM Users w WHERE (w.levels = 2 OR w.levels = 3) AND w.id IN (1, 2, 324, 638, 792) ORDER BY w.name";
                                                                         $resultU = $conn->query($sqlU);
                                                                         $p = 1;
                                                                         while ($rowU = $resultU->fetch_assoc()) : ?>
