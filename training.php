@@ -162,7 +162,7 @@ if (isset($_SESSION['user_id'])) {
                         <div class="editableWorker">
                             <img src="assets/img/worker.svg" alt="">
                             <select class="id_worker" id="trainingWorker">
-                                <?php $sql = "SELECT id, name FROM Users WHERE levels = 2 OR levels = 3 ORDER BY name";
+                                <?php $sql = "SELECT id, name FROM UsersWHERE (levels = 2 OR levels = 3) AND id IN (1, 2, 324, 638, 792) ORDER BY name";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
