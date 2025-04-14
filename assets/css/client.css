@@ -3335,3 +3335,9 @@ section.i3d .cont-cards .card div:last-child a {
     margin: 0.5rem 0 0 0;
   }
 }
+
+
+/* viewPedidos */
+#viewPedidos{
+  display: flex;
+}
