@@ -19,6 +19,8 @@ require_once 'includes/common/header.php';
     <div class="wrapper">
         <div id="formPedidos">
             <h1>Consultar Pedidos</h1>
+            <p>Consulta el estado de tus pedidos ingresando tu número de documento (RUC o DNI) en el siguiente formulario.</p>
+
             <form action="">
                 <label for="name">Documento</label>
                 <input type="text" name="name" placeholder="Ingrese RUC o DNI">
