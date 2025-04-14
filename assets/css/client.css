@@ -3343,7 +3343,7 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0 auto 3rem auto;
   padding: 1rem;
   border-radius: 1rem;
-  border: 0.1rem solid var(--primary);
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
 }
 #formPedidos form {
   display: flex;
