@@ -3351,8 +3351,8 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
   text-align: left;
 }
-#formPedidos form h1,
-#formPedidos form p{
+#formPedidos h1,
+#formPedidos p{
   margin: 0;
   text-align: center;
 }
