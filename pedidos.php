@@ -20,9 +20,9 @@ require_once 'includes/common/header.php';
         <div id="formPedidos">
             <h1 class="t">Consultar Pedidos</h1>
             <img src="/assets/img/icon-cons-14.webp" alt="">
-            <p class="par">Consulta el estado de tus pedidos ingresando tu número de documento (RUC o DNI) en el siguiente formulario.</p>
+            <p class="par">Consulta el estado de tus pedidos ingresando tu número de documento (DNI o RUC) en el siguiente formulario.</p>
 
-            <form action="">
+            <form action="" method="POST">
                 <label for="name">Documento:</label>
                 <input type="text" name="name" placeholder="Ingrese DNI o RUC">
                 <button>Consultar</button>
