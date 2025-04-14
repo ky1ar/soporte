@@ -3385,7 +3385,14 @@ section.i3d .cont-cards .card div:last-child a {
   color: var(--white);
   border-radius: 0.5rem;
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: filter 0.3s ease;
 }
+
+#formPedidos form button:hover {
+  filter: brightness(0.9);
+}
+
 /* viewPedidos */
 #viewPedidos {
   display: flex;
