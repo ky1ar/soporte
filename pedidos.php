@@ -25,8 +25,17 @@ require_once 'includes/common/header.php';
             </div>
             <div class="forms">
                 <div id="formShalom" class="formulario active shalom">
-                    <h2>Formulario Archivo 1</h2>
-                    <p>Contenido del formulario 1.</p>
+                    <form id="rastreoForm">
+                        <label>Número de Orden:</label>
+                        <input type="text" name="numero" required><br><br>
+
+                        <label>Código:</label>
+                        <input type="text" name="codigo" required><br><br>
+
+                        <button type="submit">Buscar</button>
+                    </form>
+
+                    <div id="resultado" style="margin-top: 20px;"></div>
                 </div>
 
                 <div id="formOlva" class="formulario olva">
