@@ -3336,10 +3336,15 @@ section.i3d .cont-cards .card div:last-child a {
   }
 }
 /* formulario de pedidos */
-#formPedidos{
+#formPedidos {
   display: flex;
 }
-
+#formPedidos .form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
 
 /* viewPedidos */
 #viewPedidos {
