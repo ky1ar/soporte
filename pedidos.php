@@ -25,6 +25,7 @@ require_once 'includes/common/header.php';
             <form action="">
                 <label for="name">Documento:</label>
                 <input type="text" name="name" placeholder="Ingrese DNI o RUC">
+                <button>Consultar</button>
             </form>
         </div>
         <!-- <div id="viewPedidos">
