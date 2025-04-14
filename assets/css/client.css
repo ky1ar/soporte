@@ -1363,7 +1363,7 @@ body {
   margin: 0.5rem 0;
   gap: 0.5rem;
 }
-#scheduleForm .tyc label a{
+#scheduleForm .tyc label a {
   color: var(--primary);
   font-weight: 500;
 }
@@ -3336,8 +3336,29 @@ section.i3d .cont-cards .card div:last-child a {
   }
 }
 
-
 /* viewPedidos */
-#viewPedidos{
+#viewPedidos {
   display: flex;
+}
+#viewPedidos .menu {
+  display: flex;
+  justify-content: center;
+}
+#viewPedidos .menu button {
+  padding: 12px 24px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+#viewPedidos .forms .formulario {
+  display: none;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fafafa;
+}
+#viewPedidos .forms .formulario.active {
+  display: block;
 }
