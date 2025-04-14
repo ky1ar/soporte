@@ -6,8 +6,8 @@ $pages = [
     ['Wiki', 'wiki'],
     ['Slicers', 'slicers'],
     ['STLs', 'stl'],
-    ['Mis Pedidos', 'pedidos'],
     ['Contacto', 'contacto'],
+    ['Pedidos', 'pedidos'],
     // ['Conocimiento', 'conocimiento'],
     // ['Cursos', 'cursos']
 ];
@@ -19,11 +19,11 @@ $pages = [
         <ul>
             <?php foreach ($pages as $page): ?>
                 <li>
-                    <a href="/<?php echo $page[1] ?>" class="<?php echo $currentPage == $page[0] ? 'active' : '' ?>">
+                    <a href="/<?php echo $page[1] ?>" class="<?php echo $currentPage == $page[0] ? 'active':''?>">
                         <?php echo $page[0] ?>
                     </a>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach;?>
         </ul>
     </div>
 </header>
