@@ -3339,7 +3339,7 @@ section.i3d .cont-cards .card div:last-child a {
 #formPedidos {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 25rem;
   margin: 0 auto 3rem auto;
   padding: 1rem;
   border-radius: 1rem;
@@ -3351,7 +3351,11 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
   text-align: left;
 }
-
+#formPedidos form h1,
+#formPedidos form p{
+  margin: 0;
+  text-align: center;
+}
 /* viewPedidos */
 #viewPedidos {
   display: flex;
