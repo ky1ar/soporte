@@ -16,7 +16,11 @@ require_once 'includes/common/header.php';
             <img class="imaSop" width="1920" height="630" src="assets/img/consulta-pc.webp">
         </div>
     </section>
-    <h1>hola</h1>
+    <div class="wrapper">
+        <div id="viewPedidos">
+            Hola
+        </div>
+    </div>
     <?php require_once 'includes/common/footer.php'; ?>
 </body>
 
