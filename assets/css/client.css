@@ -3349,6 +3349,7 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: #ddd;
   border: none;
   cursor: pointer;
+  flex: 1;
 }
 #viewPedidos .menu button:nth-of-type(1){
   background-color: #ff4343;
