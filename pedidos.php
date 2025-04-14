@@ -19,6 +19,7 @@ require_once 'includes/common/header.php';
     <div class="wrapper">
         <div id="formPedidos">
             <h1 class="t">Consultar Pedidos</h1>
+            <img src="/assets/img/icon-cons-14.webp" alt="">
             <p class="par">Consulta el estado de tus pedidos ingresando tu número de documento (RUC o DNI) en el siguiente formulario.</p>
 
             <form action="">
