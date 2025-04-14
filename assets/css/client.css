@@ -3352,9 +3352,17 @@ section.i3d .cont-cards .card div:last-child a {
   text-align: left;
 }
 #formPedidos h1,
-#formPedidos p{
+#formPedidos p {
   margin: 0;
   text-align: center;
+}
+#formPedidos .t {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#formPedidos .par {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
 /* viewPedidos */
 #viewPedidos {

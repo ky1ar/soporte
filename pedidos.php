@@ -18,8 +18,8 @@ require_once 'includes/common/header.php';
     </section>
     <div class="wrapper">
         <div id="formPedidos">
-            <h1>Consultar Pedidos</h1>
-            <p>Consulta el estado de tus pedidos ingresando tu número de documento (RUC o DNI) en el siguiente formulario.</p>
+            <h1 class="t">Consultar Pedidos</h1>
+            <p class="par">Consulta el estado de tus pedidos ingresando tu número de documento (RUC o DNI) en el siguiente formulario.</p>
 
             <form action="">
                 <label for="name">Documento</label>
