@@ -3356,12 +3356,12 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0;
   text-align: center;
 }
-#formPedidos img{
+#formPedidos img {
   width: 4rem;
+  margin: 2rem auto;
 }
 #formPedidos .t {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 #formPedidos .par {
   font-size: 0.9rem;
