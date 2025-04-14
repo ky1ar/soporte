@@ -3356,6 +3356,9 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0;
   text-align: center;
 }
+#formPedidos img{
+  width: 4rem;
+}
 #formPedidos .t {
   font-size: 1.5rem;
   margin-bottom: 1rem;
