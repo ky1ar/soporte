@@ -24,17 +24,17 @@ require_once 'includes/common/header.php';
                 <button onclick="mostrarFormSh(3)"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt=""></button>
             </div>
             <div class="forms">
-                <div id="formShalom" class="formulario active">
+                <div id="formShalom" class="formulario active shalom">
                     <h2>Formulario Archivo 1</h2>
                     <p>Contenido del formulario 1.</p>
                 </div>
 
-                <div id="formOlva" class="formulario">
+                <div id="formOlva" class="formulario olva">
                     <h2>Formulario Archivo 2</h2>
                     <p>Contenido del formulario 2.</p>
                 </div>
 
-                <div id="formMarvisur" class="formulario">
+                <div id="formMarvisur" class="formulario marvi">
                     <h2>Formulario Archivo 3</h2>
                     <p>Contenido del formulario 3.</p>
                 </div>
