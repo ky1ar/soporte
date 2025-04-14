@@ -18,7 +18,29 @@ require_once 'includes/common/header.php';
     </section>
     <div class="wrapper">
         <div id="viewPedidos">
-            Hola
+            <div class="content">
+                <div class="menu">
+                    <button onclick="mostrarFormSh(1)" class="active"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt=""></button>
+                    <button onclick="mostrarFormSh(2)"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png" alt=""></button>
+                    <button onclick="mostrarFormSh(3)"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt=""></button>
+                </div>
+            </div>
+            <div class="forms">
+                <div id="formShalom" class="formulario active">
+                    <h2>Formulario Archivo 1</h2>
+                    <p>Contenido del formulario 1.</p>
+                </div>
+
+                <div id="formOlva" class="formulario">
+                    <h2>Formulario Archivo 2</h2>
+                    <p>Contenido del formulario 2.</p>
+                </div>
+
+                <div id="formMarvisur" class="formulario">
+                    <h2>Formulario Archivo 3</h2>
+                    <p>Contenido del formulario 3.</p>
+                </div>
+            </div>
         </div>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
