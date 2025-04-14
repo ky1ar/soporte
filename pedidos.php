@@ -19,11 +19,11 @@ require_once 'includes/common/header.php';
     <div class="wrapper">
         <div id="formPedidos">
             <form action="">
-                <label for="name"></label>
-                <input type="text" name="name">
+                <label for="name">Documento</label>
+                <input type="text" name="name" placeholder="Ingrese RUC o DNI">
             </form>
         </div>
-        <!-- <div id="viewPedidos">
+        <div id="viewPedidos">
             <div class="menu">
                 <button onclick="mostrarFormSh(1)" class="active"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt=""></button>
                 <button onclick="mostrarFormSh(2)"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png" alt=""></button>
@@ -54,7 +54,7 @@ require_once 'includes/common/header.php';
                     <p>Contenido del formulario 3.</p>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
     <script src="/assets/js/pedidos.js"></script>
