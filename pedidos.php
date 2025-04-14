@@ -42,6 +42,7 @@ require_once 'includes/common/header.php';
         </div>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
+    <script src="/assets/js/pedidos.js"></script>
 </body>
 
 </html>
