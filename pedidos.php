@@ -22,7 +22,7 @@ require_once 'includes/common/header.php';
             <p class="par">Consulta el estado de tus pedidos ingresando tu número de documento (RUC o DNI) en el siguiente formulario.</p>
 
             <form action="">
-                <label for="name">Documento</label>
+                <label for="name">Documento:</label>
                 <input type="text" name="name" placeholder="Ingrese RUC o DNI">
             </form>
         </div>
