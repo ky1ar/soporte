@@ -19,7 +19,7 @@ $("#viewPedidos .shalom #rastreoForm").on("submit", function (e) {
   const $resultado = $("#viewPedidos .shalom #resultado");
 
   $.ajax({
-    url: "consultar.php",
+    url: "routes/scrapShalom.php",
     method: "POST",
     data: $form.serialize(),
     dataType: "json",
