@@ -3341,7 +3341,7 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
   width: 25rem;
   margin: 0 auto 3rem auto;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
 }
@@ -3372,14 +3372,19 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 1rem;
 }
 #formPedidos form input {
-  margin-top: 1rem;
+  margin: 1rem 0;
   border-radius: 0.5rem;
   padding: 0.5rem;
   border: 0.15rem solid #c3c3c375;
   outline: none;
 }
-#formPedidos form button{
-  
+#formPedidos form button {
+  border: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
 }
 /* viewPedidos */
 #viewPedidos {
