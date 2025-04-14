@@ -3354,9 +3354,6 @@ section.i3d .cont-cards .card div:last-child a {
   cursor: pointer;
   flex: 1;
 }
-#viewPedidos .menu button.active {
-  border-radius: 0.5rem 0.5rem 0 0;
-}
 #viewPedidos .menu button img {
   width: 12rem;
 }
@@ -3372,11 +3369,24 @@ section.i3d .cont-cards .card div:last-child a {
 #viewPedidos .forms .formulario.marvi {
   background-color: #ffae6d;
 }
+#viewPedidos .forms {
+  position: relative;
+  overflow: hidden;
+}
 #viewPedidos .forms .formulario {
   display: none;
   padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 100%;
   width: 100%;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  z-index: 0;
 }
 #viewPedidos .forms .formulario.active {
   display: block;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
 }
