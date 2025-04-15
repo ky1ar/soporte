@@ -3606,6 +3606,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #orderInfo .content .loaders {
   position: absolute;
+  top: 0;
   height: -webkit-fill-available;
   width: 36rem;
   display: flex;
