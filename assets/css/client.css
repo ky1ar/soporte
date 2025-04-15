@@ -3596,7 +3596,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 
 }
 #orderInfo .content .info p,
