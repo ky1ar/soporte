@@ -122,7 +122,8 @@ $(document).on(
         if (response.success && response.data) {
           const rastreoData = response.data.rastreo; // Datos de rastreo
           const estadosData = response.data.estados; // Datos de estados
-          const mensajeEstado = response.message;
+          const mensajeEstado = response.message; // Aquí accedes al mensaje que da el estado del envío
+
           const origen = rastreoData?.origen
             ? `${rastreoData.origen.nombre || "—"}, ${
                 rastreoData.origen.distrito || "—"
@@ -130,6 +131,7 @@ $(document).on(
                 rastreoData.origen.departamento || "—"
               }`
             : "—";
+
           const destino = rastreoData?.destino
             ? `${rastreoData.destino.nombre || "—"}, ${
                 rastreoData.destino.distrito || "—"
@@ -143,7 +145,9 @@ $(document).on(
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
-          $orderInfo.find(".content .head .estado-actual").text(mensajeEstado); 
+
+          // Aquí es donde se coloca el mensaje de estado
+          $orderInfo.find(".content .head .estado-actual").text(mensajeEstado);
         } else {
           alert("No se pudo obtener la información del envío.");
         }

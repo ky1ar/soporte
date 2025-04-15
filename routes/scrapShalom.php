@@ -81,13 +81,16 @@ if ($stateResponse['httpCode'] == 200) {
     exit;
 }
 
+// Obtener el mensaje del estado
+$estadoMensaje = $trackData['message'] ?? "Sin información sobre el estado";
+
 // Combinar ambos resultados
 $result = [
     'success' => true,
     'message' => 'Información obtenida con éxito',
     'data' => [
         'rastreo' => $trackData['data'] ?? null,
-        'mensaje_estado' => $trackData['message'] ?? null,
+        'mensaje_estado' => $estadoMensaje, // Usamos el mensaje del estado aquí
         'estados' => $stateData['data'] ?? null
     ]
 ];
