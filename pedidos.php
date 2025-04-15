@@ -38,11 +38,11 @@ require_once 'includes/common/header.php';
                 <h1 class="title">Enviado con <span>Shalom</span></h1>
                 <div class="status">
                     <div class="fases">
-                        <span class="st1"></span>
+                        <span class="st one"></span>
                         <span class="bar"></span>
-                        <span class="st2"></span>
+                        <span class="st two"></span>
                         <span class="bar"></span>
-                        <span class="st3"></span>
+                        <span class="st tree"></span>
                     </div>
                     <div class="names">
                         <span>Comprado</span>

@@ -3562,5 +3562,11 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
 }
 #orderInfo .content .status .fases{
+  display: flex;
   width: 100%;
+}
+#orderInfo .content .status .fases .st{
+  width: 1rem;
+  height: 1rem;
+  background-color: #32e04f;
 }
