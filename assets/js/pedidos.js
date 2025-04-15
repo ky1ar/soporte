@@ -113,17 +113,12 @@ $(document).on(
     $.ajax({
       url: "routes/scrapShalom.php",
       method: "POST",
-      data: {
-        numero: code1,
-        codigo: code2,
-      },
+      data: { numero: code1, codigo: code2 },
       dataType: "json",
       success: function (response) {
         if (response.success && response.data) {
-          const rastreoData = response.data.rastreo; // Datos de rastreo
-          const estadosData = response.data.estados; // Datos de estados
-          const mensajeEstado = response.data.mensaje_estado; // Aquí accedes al mensaje que da el estado del envío
-
+          const rastreoData = response.data.rastreo;
+          const mensajeEstado = response.data.mensaje_estado;
           const origen = rastreoData?.origen
             ? `${rastreoData.origen.nombre || "—"}, ${
                 rastreoData.origen.distrito || "—"
@@ -131,7 +126,6 @@ $(document).on(
                 rastreoData.origen.departamento || "—"
               }`
             : "—";
-
           const destino = rastreoData?.destino
             ? `${rastreoData.destino.nombre || "—"}, ${
                 rastreoData.destino.distrito || "—"
@@ -139,14 +133,11 @@ $(document).on(
                 rastreoData.destino.departamento || "—"
               }`
             : "—";
-
           const $orderInfo = $("#orderInfo");
           $orderInfo.find(".content .head .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
-
-          // Aquí es donde se coloca el mensaje de estado
           $orderInfo.find(".content .head .estado-actual").text(mensajeEstado);
         } else {
           alert("No se pudo obtener la información del envío.");
