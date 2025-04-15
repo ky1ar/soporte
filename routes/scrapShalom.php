@@ -60,9 +60,18 @@ if ($trackResponse['httpCode'] == 200) {
     exit;
 }
 
-// Solicitud a la API para obtener los estados del pedido
+// Extraer el ose_id para la solicitud de estados
+$ose_id = $trackData['data']['ose_id'] ?? null;
+
+if ($ose_id === null) {
+    echo json_encode(['success' => false, 'message' => 'No se pudo obtener el ose_id']);
+    exit;
+}
+
+// Solicitud a la API para obtener los estados del pedido usando ose_id
 $stateUrl = 'https://servicesweb.shalomcontrol.com/api/v1/web/rastrea/estados';
-$stateResponse = makeCurlRequest($stateUrl, $data);
+$stateData = ['ose_id' => $ose_id]; // Incluir el ose_id en los datos
+$stateResponse = makeCurlRequest($stateUrl, $stateData);
 
 // Verificar si la respuesta es exitosa
 if ($stateResponse['httpCode'] == 200) {
