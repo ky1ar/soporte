@@ -31,7 +31,20 @@ require_once 'includes/common/header.php';
             </div>
             <div id="listOrdersShipping">
                 <div class="order">
-
+                    <div class="head">
+                        <p class="order">S232399</p>
+                    </div>
+                    <div class="cont">
+                        <div class="info">
+                            <p class="fecha">Llega el 2 de mayo</p>
+                            <p class="status">Enviado</p>
+                            <p class="details">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ex. Adipisci perferendis commodi tenetur esse laudantium obcaecati quibusdam fugiat a provident consequuntur? Ipsa officia optio eaque veritatis quasi, expedita laboriosam.</p>
+                        </div>
+                        <div class="actions">
+                            <button>Rastrear</button>
+                            <button>Obtener Ayuda</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
