@@ -1,0 +1,43 @@
+<?php
+require_once '../includes/app/db.php';
+
+header('Content-Type: application/json');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['documento'])) {
+    $documento = trim($_POST['documento']);
+
+    if (strlen($documento) !== 8 && strlen($documento) !== 11) {
+        echo json_encode(['status' => 'error', 'message' => 'No tiene ningún registro']);
+        exit;
+    }
+
+    $query = "
+        SELECT o.*
+        FROM Orders_Shipping o
+        INNER JOIN Users_Shipping u ON o.id_user = u.id_user
+        WHERE u.documento = ?
+    ";
+
+    if ($stmt = $conn->prepare($query)) {
+        $stmt->bind_param("s", $documento);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $orders = [];
+        while ($row = $result->fetch_assoc()) {
+            $orders[] = $row;
+        }
+
+        if (!empty($orders)) {
+            echo json_encode(['status' => 'success', 'orders' => $orders]);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'No tiene ningún registro']);
+        }
+
+        $stmt->close();
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Error en la preparación de la consulta']);
+    }
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Solicitud no válida']);
+}
