@@ -3540,7 +3540,9 @@ section.i3d .cont-cards .card div:last-child a {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo oscurecido */
   display: none; /* Oculto por defecto */
-  z-index: 2;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  z-index: 9999;
 }
 
 #orderInfo .content {
