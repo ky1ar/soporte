@@ -3341,6 +3341,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   margin: 2rem 0 5rem 0;
   gap: 2rem;
+  align-items: start;
 }
 .containerShip p,
 .containerShip h1 {
@@ -3350,7 +3351,7 @@ section.i3d .cont-cards .card div:last-child a {
 #formPedidos {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 0 auto;
   width: 25%;
   padding: 2rem;
   border-radius: 1rem;
