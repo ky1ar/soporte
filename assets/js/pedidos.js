@@ -105,7 +105,7 @@ $(document).ready(function () {
 
 $(document).on(
   "click",
-  "#listOrdersShipping .order .cont .actions .btn",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="1"]',
   function () {
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
