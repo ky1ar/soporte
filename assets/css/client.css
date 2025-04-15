@@ -3340,6 +3340,7 @@ section.i3d .cont-cards .card div:last-child a {
 .containerShip {
   display: flex;
   margin: 2rem 0 5rem 0;
+  gap: 2rem;
 }
 .containerShip p,
 .containerShip h1 {
@@ -3350,7 +3351,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 25rem;
+  width: 25%;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
@@ -3405,8 +3406,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 
 #listOrdersShipping {
-  display: flex;
-  width: 100%;
+  width: 75%;
   border: 0.1rem solid var(--newgray);
   border-radius: 1rem;
   padding: 2rem;
