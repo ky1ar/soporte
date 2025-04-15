@@ -51,11 +51,31 @@ require_once 'includes/common/header.php';
                     </div>
                 </div>
                 <div class="info">
-                    <p class="cod">Codigos de Tracking: <span>44283715 / DHJD</span></p>
+                    <p class="cod">Tracking: <span>44283715 / DHJD</span></p>
                     <div class="dat1">
                         <p>Origen: <span>Lima</span></p>
                         <p>Destino: <span>Piura</span></p>
                     </div>
+                    <div class="line">
+                        <div class="fas">
+                            <p class="status">Entregado</p>
+                            <p class="date">10-04-2025</p>
+                        </div>
+                        <div class="fas">
+                            <p class="status">En ruta</p>
+                            <p class="date">05-04-2025</p>
+                        </div>
+                        <div class="fas">
+                            <p class="status">En agencia</p>
+                            <p class="date">03-04-2025</p>
+                        </div>
+                        <div class="fas">
+                            <p class="status">Comprado</p>
+                            <p class="date">02-04-2025</p>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
