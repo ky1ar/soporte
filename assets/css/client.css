@@ -3470,7 +3470,7 @@ section.i3d .cont-cards .card div:last-child a {
   transition: transform 0.3s ease
 }
 #listOrdersShipping .order .cont .actions button:hover{
-  transform: scale(1.01);
+  font-size: 1rem;
 }
 #listOrdersShipping .order .cont .actions button:nth-of-type(1) {
   background-color: #40c794;
