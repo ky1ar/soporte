@@ -110,7 +110,7 @@ $(document).on(
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
     const $orderInfo = $("#orderInfo");
-    $orderInfo.find('.content').append('<div class="loader"></div>');
+    $orderInfo.append('<span class="loader"></span>');
 
     $.ajax({
       url: "routes/scrapShalom.php",
