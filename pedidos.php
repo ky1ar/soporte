@@ -53,8 +53,8 @@ require_once 'includes/common/header.php';
                 <div class="info">
                     <p class="cod">Tracking: <span>44283715 / DHJD</span></p>
                     <div class="dat1">
-                        <p>Origen: <span></span></p>
-                        <p>Destino: <span></span></p>
+                        <p class="ori">Origen: <span></span></p>
+                        <p class="des">Destino: <span></span></p>
                     </div>
                     <div class="line">
                         <div class="fas">

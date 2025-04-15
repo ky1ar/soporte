@@ -109,7 +109,6 @@ $(document).on(
   function () {
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
-    const agencyId = $(this).data("agency");
 
     $.ajax({
       url: "routes/scrapShalom.php", // Cambia esto por tu archivo PHP real
@@ -131,16 +130,8 @@ $(document).on(
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
 
           // Actualizar Origen y Destino
-          $orderInfo.find(".info .dat1 p:nth-child(1) span").text(origen);
-          $orderInfo.find(".info .dat1 p:nth-child(2) span").text(destino);
-
-          // Actualizar Agencia
-          let agenciaNombre = "Agencia";
-          if (agencyId == 1) agenciaNombre = "Shalom";
-          else if (agencyId == 2) agenciaNombre = "Olva";
-          else if (agencyId == 3) agenciaNombre = "Marvisur";
-
-          $orderInfo.find(".content .title span").text(agenciaNombre);
+          $orderInfo.find(".info .dat1 .ori span").text(origen);
+          $orderInfo.find(".info .dat1 .des span").text(destino);
         } else {
           alert("No se pudo obtener la información del envío.");
         }
