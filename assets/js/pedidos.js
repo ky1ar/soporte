@@ -144,7 +144,7 @@ $(document).on(
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
           $orderInfo
-            .find(".content .head .estado-actual span")
+            .find(".content .head .estado-actual")
             .text(mensajeEstado);
         } else {
           alert("No se pudo obtener la información del envío.");
