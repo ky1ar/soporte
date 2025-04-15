@@ -102,3 +102,52 @@ $(document).ready(function () {
     }
   });
 });
+
+$(document).on(
+  "click",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="1"]',
+  function () {
+    const code1 = $(this).data("code1");
+    const code2 = $(this).data("code2");
+    const agencyId = $(this).data("agency");
+
+    $.ajax({
+      url: "routes/scrapShalom.php", // Cambia esto por tu archivo PHP real
+      method: "POST",
+      data: {
+        numero: code1,
+        codigo: code2,
+      },
+      dataType: "json",
+      success: function (response) {
+        if (response.success && response.data) {
+          const data = response.data;
+          const origen = data.origen?.departamento || "—";
+          const destino = data.destino?.departamento || "—";
+
+          const $orderInfo = $("#orderInfo");
+
+          // Actualizar Tracking
+          $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
+
+          // Actualizar Origen y Destino
+          $orderInfo.find(".info .dat1 p:nth-child(1) span").text(origen);
+          $orderInfo.find(".info .dat1 p:nth-child(2) span").text(destino);
+
+          // Actualizar Agencia
+          let agenciaNombre = "Agencia";
+          if (agencyId == 1) agenciaNombre = "Shalom";
+          else if (agencyId == 2) agenciaNombre = "Olva";
+          else if (agencyId == 3) agenciaNombre = "Marvisur";
+
+          $orderInfo.find(".content .title span").text(agenciaNombre);
+        } else {
+          alert("No se pudo obtener la información del envío.");
+        }
+      },
+      error: function () {
+        alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+    });
+  }
+);
