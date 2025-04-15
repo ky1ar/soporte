@@ -31,7 +31,6 @@ require_once 'includes/common/header.php';
             </div>
             <div id="listOrdersShipping">
                 <h1 class="title">Mis Pedidos</h1>
-                <!-- Aquí se agregarán las órdenes generadas por el JS mediante AJAX -->
             </div>
         </div>
         <!-- <div id="viewPedidos">
