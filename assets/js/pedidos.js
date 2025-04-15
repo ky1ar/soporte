@@ -73,7 +73,7 @@ $(document).ready(function () {
                                   </div>
                                   <div class="actions">
                                       <!-- Botón de Rastrear con los atributos data-code1 y data-code2 -->
-                                      <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}">Rastrear</button>
+                                      <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>
                                       <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
                                   </div>
                               </div>
