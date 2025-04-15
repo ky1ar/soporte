@@ -3593,7 +3593,15 @@ section.i3d .cont-cards .card div:last-child a {
   font-weight: 500;
 }
 #orderInfo .content .info{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 1rem;
+
+}
+#orderInfo .content .info p,
+#orderInfo .content .info h1{
+  margin: 0;
 }
 #orderInfo .content .info .cod {
   font-size: 0.9rem;
