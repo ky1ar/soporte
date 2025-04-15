@@ -3540,19 +3540,27 @@ section.i3d .cont-cards .card div:last-child a {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+  z-index: 2;
 }
 
 #orderInfo .content {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50%;
-  height: 50%;
+  width: 40rem;
   background-color: var(--white);
   border-radius: 1rem;
   padding: 1rem;
   transform: translate(-50%, -50%);
+}
+#orderInfo .content .title{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+#orderInfo .content .status{
+  display: flex;
+  flex-direction: column;
+}
+#orderInfo .content .status .fases{
+  width: 100%;
 }
