@@ -3557,7 +3557,7 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 1.2rem;
   font-weight: 500;
 }
-#orderInfo .content .title span{
+#orderInfo .content .title span {
   font-weight: 600;
 }
 #orderInfo .content .status {
@@ -3592,30 +3592,29 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 0.9rem;
   font-weight: 500;
 }
-#orderInfo .content .info{
+#orderInfo .content .info {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
-
 }
 #orderInfo .content .info p,
-#orderInfo .content .info h1{
+#orderInfo .content .info h1 {
   margin: 0;
-}
-#orderInfo .content .info .cod {
   font-size: 0.9rem;
 }
-#orderInfo .content .info .cod span {
+#orderInfo .content .info .cod span,
+#orderInfo .content .info .dat1 p span,
+#orderInfo .content .info .line .fas .status {
   font-weight: 600;
 }
 #orderInfo .content .info .dat1 {
   display: flex;
   gap: 1rem;
 }
-#orderInfo .content .info .dat1 p{
-  font-size: .9rem;
-}
-#orderInfo .content .info .dat1 p span{
-  font-weight: 600;
+#orderInfo .content .info .line {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.9rem;
 }
