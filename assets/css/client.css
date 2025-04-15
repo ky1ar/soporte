@@ -3416,10 +3416,12 @@ section.i3d .cont-cards .card div:last-child a {
 #listOrdersShipping .order .head .orderNum{
   padding: 1rem;
   background-color: var(--primary);
-  font-weight: 500;
   margin: 0;
   font-size: 1rem;
   color: var(--white);
+}
+#listOrdersShipping .order .head .orderNum span{
+  font-weight: 600;
 }
 #viewPedidos {
   display: flex;
