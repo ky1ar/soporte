@@ -44,9 +44,22 @@
 // });
 
 $(document).ready(function () {
+  // Manejador para el formulario de consulta
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
     const documento = $("#documento").val().trim();
+    // Llamada AJAX para obtener los pedidos
+    obtenerPedidos(documento);
+  });
+
+  // Manejador para el botón de "Actualizar Lista"
+  $("#btnActualizar").on("click", function () {
+    const documento = $("#documento").val().trim(); // Utiliza el documento actual
+    obtenerPedidos(documento); // Actualiza la lista de pedidos
+  });
+
+  // Función que realiza la llamada AJAX y actualiza la lista de pedidos
+  function obtenerPedidos(documento) {
     $.ajax({
       url: "routes/getOrdersShipping.php",
       type: "POST",
@@ -58,29 +71,30 @@ $(document).ready(function () {
         } else if (response.status === "success") {
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>'); // Título principal
+
+          // Agregar el botón de "Actualizar Lista" justo debajo del título
+          container.append('<button id="btnActualizar" class="btn">Actualizar Lista</button>');
+
           response.orders.forEach((order) => {
             container.append(`
-                          <div class="order">
-                              <div class="head">
-                                  <p class="orderNum">Orden: <span>${order.orden}</span></p>
-                                  <p class="agencia">Agencia: <span>${order.nombre_agencia}</span></p>
-                              </div>
-                              <div class="cont">
-                                  <div class="info">
-                                      <p class="fecha">Llega el 2 de mayo</p>
-                                      <p class="status">${order.nombre_status}</p>
-                                      <p class="details">${order.details}</p>
-                                  </div>
-                                  <div class="actions">
-                                      <!-- Botón de Rastrear con los atributos data-code1 y data-code2 -->
-                                      <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}">Rastrear</button>
-                                      <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
-                                  </div>
-                              </div>
-                          </div>
-                      `);
+              <div class="order">
+                <div class="head">
+                  <p class="orderNum">Orden: <span>${order.orden}</span></p>
+                  <p class="agencia">Agencia: <span>${order.nombre_agencia}</span></p>
+                </div>
+                <div class="cont">
+                  <div class="info">
+                    <p class="status">${order.nombre_status}</p>
+                    <p class="details">${order.details}</p>
+                  </div>
+                  <div class="actions">
+                    <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}">Rastrear</button>
+                    <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
+                  </div>
+                </div>
+              </div>
+            `);
           });
-          $("#formPedidos").hide();
           container.fadeIn().css("display", "flex");
         }
       },
@@ -88,5 +102,6 @@ $(document).ready(function () {
         alert("Hubo un error en la solicitud");
       },
     });
-  });
+  }
 });
+
