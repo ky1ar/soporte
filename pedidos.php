@@ -29,7 +29,7 @@ require_once 'includes/common/header.php';
                     <button>Consultar</button>
                 </form>
             </div>
-            <div id="listOrdersShipping" style="display:none;">
+            <div id="listOrdersShipping">
                 <h1 class="title">Mis Pedidos</h1>
                 <!-- Aquí se agregarán las órdenes generadas por el JS mediante AJAX -->
             </div>
