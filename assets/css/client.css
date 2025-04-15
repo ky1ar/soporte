@@ -3606,10 +3606,12 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #orderInfo .loader {
   position: relative;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 255, 191);
+  background-color: red;
 }
 #orderInfo .loader::before {
   content: "";
