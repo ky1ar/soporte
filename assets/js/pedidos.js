@@ -121,8 +121,17 @@ $(document).on(
       success: function (response) {
         if (response.success && response.data) {
           const data = response.data;
-          const origen = data.origen?.departamento || "—";
-          const destino = data.destino?.departamento || "—";
+          const origen = data.origen
+            ? `${data.origen.nombre || "—"}, ${data.origen.distrito || "—"}, ${
+                data.origen.departamento || "—"
+              }`
+            : "—";
+
+          const destino = data.destino
+            ? `${data.destino.nombre || "—"}, ${
+                data.destino.distrito || "—"
+              }, ${data.destino.departamento || "—"}`
+            : "—";
 
           const $orderInfo = $("#orderInfo");
 
