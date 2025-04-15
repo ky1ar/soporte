@@ -3413,6 +3413,11 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
   gap: 2rem;
 }
+#listOrdersShipping .title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.6rem;
+}
 #listOrdersShipping .order {
   border: 0.1rem solid var(--primary);
   border-radius: 1rem;
