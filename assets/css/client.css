@@ -3397,6 +3397,7 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 0.9rem;
   cursor: pointer;
   transition: filter 0.3s ease;
+  outline: none;
 }
 
 #formPedidos form button:hover {
