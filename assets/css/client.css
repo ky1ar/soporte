@@ -3431,7 +3431,7 @@ section.i3d .cont-cards .card div:last-child a {
   justify-content: space-between;
 }
 #listOrdersShipping .order .head .agencia {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--white);
   font-weight: 600;
 }
