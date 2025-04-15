@@ -110,7 +110,9 @@ $(document).on(
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
     const $orderInfo = $("#orderInfo");
-    $orderInfo.find('.content').append('<span class="loader"></span>');
+
+    // Mostrar el loader
+    $orderInfo.find(".content .loaders").css("display", "flex");
 
     $.ajax({
       url: "routes/scrapShalom.php",
@@ -149,7 +151,8 @@ $(document).on(
         alert("Error al consultar la guía. Intenta nuevamente.");
       },
       complete: function () {
-        $orderInfo.find(".loader").remove();
+        // Ocultar el loader cuando la petición se haya completado
+        $orderInfo.find(".loaders").css("display", "none");
       },
     });
   }

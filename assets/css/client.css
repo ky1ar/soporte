@@ -3613,6 +3613,7 @@ section.i3d .cont-cards .card div:last-child a {
   align-items: center;
   background-color: white;
   margin-bottom: 2rem;
+  display: none;
 }
 #orderInfo .content .loaders::before {
   content: "";
