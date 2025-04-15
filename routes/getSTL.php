@@ -6,9 +6,9 @@ header('Content-Type: application/json');
 $response = array();
 
 try {
-    // Obtener itemsPerPage de la solicitud (default: 4)
-    $itemsPerPage = isset($_GET['itemsPerPage']) ? intval($_GET['itemsPerPage']) : 4;
-    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    // Obtener itemsPerPage y page desde POST (ya no desde GET)
+    $itemsPerPage = isset($_POST['itemsPerPage']) ? intval($_POST['itemsPerPage']) : 4;
+    $currentPage = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $offset = ($currentPage - 1) * $itemsPerPage;
 
     // Obtener el total de STL en la base de datos
