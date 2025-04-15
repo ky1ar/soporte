@@ -3635,7 +3635,8 @@ section.i3d .cont-cards .card div:last-child a {
 #orderInfo .content .info .line .fas .status img {
   width: 2rem;
 }
-#orderInfo .content .info .line .fas .dash{
-  height: .1rem;
-  background-color: #000;
+#orderInfo .content .info .line .fas .dash {
+  width: 15rem;
+  border-top: 0.1rem dashed;
+  border: 0.01rem dashed #a1a1a1;
 }
