@@ -89,3 +89,19 @@ $(document).ready(function () {
     });
   });
 });
+
+$(document).ready(function () {
+  // Mostrar el modal al dar clic en el botón "Rastrear"
+  $("#listOrdersShipping").on("click", ".actions .btn", function () {
+    $("#orderInfo").fadeIn();
+    $("body").addClass("modal-open");
+  });
+
+  // Cerrar el modal si se hace clic fuera de .content
+  $("#orderInfo").on("click", function (e) {
+    if (!$(e.target).closest(".content").length) {
+      $("#orderInfo").fadeOut();
+      $("body").removeClass("modal-open");
+    }
+  });
+});

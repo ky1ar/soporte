@@ -3538,20 +3538,18 @@ section.i3d .cont-cards .card div:last-child a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro con opacidad */
-  display: flex;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo opaco */
+  display: none; /* Oculto por defecto */
   justify-content: center;
-  z-index: 9999; /* Asegura que quede por encima de todo */
+  align-items: center;
+  z-index: 9999;
 }
 
 #orderInfo .content {
+  background-color: #fff;
   width: 50%;
   height: 50%;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00000033;
 }
