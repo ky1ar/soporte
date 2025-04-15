@@ -3544,7 +3544,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0;
+  margin: 2rem 0 1rem 0;
 }
 #orderInfo .content .status .fases .st {
   width: 1.5rem;
