@@ -3463,6 +3463,7 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 1rem;
   border-radius: 2rem;
   color: var(--white);
+  cursor: pointer;
 }
 #listOrdersShipping .order .cont .actions button:nth-of-type(1) {
   background-color: #40c794;
