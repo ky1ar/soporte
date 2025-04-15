@@ -3432,6 +3432,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   padding: 1rem;
   background-color: var(--white);
+  gap: 2rem;
 }
 #listOrdersShipping .order .cont .info {
   display: flex;
@@ -3454,7 +3455,7 @@ section.i3d .cont-cards .card div:last-child a {
 #listOrdersShipping .order .cont .actions {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: 20%;
   gap: 1rem;
   justify-content: center;
 }
