@@ -30,6 +30,7 @@ require_once 'includes/common/header.php';
                 </form>
             </div>
             <div id="listOrdersShipping">
+                <h1>Mis Pedidos</h1>
                 <div class="order">
                     <div class="head">
                         <p class="orderNum">Orden: <span>S232399</span></p>
