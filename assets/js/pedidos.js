@@ -1,58 +1,100 @@
-function mostrarFormSh(num) {
-  const formularios = ["formShalom", "formOlva", "formMarvisur"];
-  document
-    .querySelectorAll("#viewPedidos .forms .formulario")
-    .forEach((div) => div.classList.remove("active"));
-  document
-    .querySelectorAll("#viewPedidos .menu button")
-    .forEach((btn) => btn.classList.remove("active"));
-  document.getElementById(formularios[num - 1]).classList.add("active");
-  document
-    .querySelectorAll("#viewPedidos .menu button")
-    [num - 1].classList.add("active");
-}
+// $("#viewPedidos .shalom #rastreoForm").on("submit", function (e) {
+//   e.preventDefault();
 
-$("#viewPedidos .shalom #rastreoForm").on("submit", function (e) {
-  e.preventDefault();
+//   const $form = $(this);
+//   const $resultado = $("#viewPedidos .shalom #resultado");
 
-  const $form = $(this);
-  const $resultado = $("#viewPedidos .shalom #resultado");
+//   $.ajax({
+//     url: "routes/scrapShalom.php",
+//     method: "POST",
+//     data: $form.serialize(),
+//     dataType: "json",
+//     success: function (response) {
+//       if (response.success) {
+//         const data = response.data;
+//         $resultado.html(`
+//             <p><strong>Número de orden:</strong> ${data.numero_orden}</p>
+//             <p><strong>Código de orden:</strong> ${data.codigo_orden}</p>
+//             <p><strong>Remitente:</strong> ${data.remitente.nombre}</p>
+//             <p><strong>Destinatario:</strong> ${data.destinatario.nombre}</p>
+//             <p><strong>Dirección entrega:</strong> ${data.direccion_entrega}</p>
+//             <p><strong>Estado de entrega:</strong> ${
+//               data.entregado ? "Entregado" : "En tránsito"
+//             }</p>
+//             <p><strong>Origen:</strong> ${data.origen.departamento} - ${
+//           data.origen.distrito
+//         }</p>
+//             <p><strong>Destino:</strong> ${data.destino.departamento} - ${
+//           data.destino.distrito
+//         }</p>
+//             <p><strong>Contenido:</strong> ${data.contenido}</p>
+//             <p><strong>Monto:</strong> S/. ${data.monto}</p>
+//             <p><strong>Tiempo estimado:</strong> ${data.tiempo_llegada}</p>
+//           `);
+//       } else {
+//         $resultado.html(`<p style="color:red;">${response.message}</p>`);
+//       }
+//     },
+//     error: function () {
+//       $resultado.html(
+//         `<p style="color:red;">Error en la consulta. Inténtalo de nuevo.</p>`
+//       );
+//     },
+//   });
+// });
 
-  $.ajax({
-    url: "routes/scrapShalom.php",
-    method: "POST",
-    data: $form.serialize(),
-    dataType: "json",
-    success: function (response) {
-      if (response.success) {
-        const data = response.data;
-        $resultado.html(`
-            <p><strong>Número de orden:</strong> ${data.numero_orden}</p>
-            <p><strong>Código de orden:</strong> ${data.codigo_orden}</p>
-            <p><strong>Remitente:</strong> ${data.remitente.nombre}</p>
-            <p><strong>Destinatario:</strong> ${data.destinatario.nombre}</p>
-            <p><strong>Dirección entrega:</strong> ${data.direccion_entrega}</p>
-            <p><strong>Estado de entrega:</strong> ${
-              data.entregado ? "Entregado" : "En tránsito"
-            }</p>
-            <p><strong>Origen:</strong> ${data.origen.departamento} - ${
-          data.origen.distrito
-        }</p>
-            <p><strong>Destino:</strong> ${data.destino.departamento} - ${
-          data.destino.distrito
-        }</p>
-            <p><strong>Contenido:</strong> ${data.contenido}</p>
-            <p><strong>Monto:</strong> S/. ${data.monto}</p>
-            <p><strong>Tiempo estimado:</strong> ${data.tiempo_llegada}</p>
-          `);
-      } else {
-        $resultado.html(`<p style="color:red;">${response.message}</p>`);
-      }
-    },
-    error: function () {
-      $resultado.html(
-        `<p style="color:red;">Error en la consulta. Inténtalo de nuevo.</p>`
-      );
-    },
+$(document).ready(function () {
+  $("#formConsulta").on("submit", function (e) {
+    e.preventDefault();
+
+    const documento = $("#documento").val().trim();
+
+    // Iniciar el AJAX usando jQuery
+    $.ajax({
+      url: "/ruta-a-tu-php/getOrdersShipping.php", // Cambia la ruta según corresponda
+      type: "POST",
+      data: { documento: documento },
+      dataType: "json",
+      success: function (response) {
+        if (response.status === "error") {
+          // En caso de error, mostrar el mensaje del servidor
+          alert(response.message);
+        } else if (response.status === "success") {
+          // Si la validación es exitosa y hay datos de pedidos
+          const container = $("#listOrdersShipping");
+          container.html('<h1 class="title">Mis Pedidos</h1>'); // Título principal
+
+          // Mostrar cada pedido recibido
+          response.orders.forEach((order) => {
+            container.append(`
+                          <div class="order">
+                              <div class="head">
+                                  <p class="orderNum">Orden: <span>${order.orden}</span></p>
+                                  <p class="agencia">Agencia: <span>${order.nombre_agencia}</span></p>
+                              </div>
+                              <div class="cont">
+                                  <div class="info">
+                                      <p class="status">${order.nombre_status}</p>
+                                      <p class="details">${order.details}</p>
+                                  </div>
+                                  <div class="actions">
+                                      <!-- Botón de Rastrear con los atributos data-code1 y data-code2 -->
+                                      <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}">Rastrear</button>
+                                      <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `);
+          });
+
+          // Ocultar el formulario de consulta y mostrar la lista de pedidos
+          $("#formPedidos").hide();
+          container.show();
+        }
+      },
+      error: function () {
+        alert("Hubo un error en la solicitud");
+      },
+    });
   });
 });

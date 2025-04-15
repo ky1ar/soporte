@@ -25,29 +25,13 @@ require_once 'includes/common/header.php';
 
                 <form action="" method="POST">
                     <label for="name">Documento:</label>
-                    <input type="text" name="name" placeholder="Ingrese DNI o RUC">
+                    <input type="text" name="name" id="documento" placeholder="Ingrese DNI o RUC">
                     <button>Consultar</button>
                 </form>
             </div>
-            <div id="listOrdersShipping">
+            <div id="listOrdersShipping" style="display:none;">
                 <h1 class="title">Mis Pedidos</h1>
-                <div class="order">
-                    <div class="head">
-                        <p class="orderNum">Orden: <span>S232399</span></p>
-                        <p class="agencia">Agencia: <span>Shalom</span></p>
-                    </div>
-                    <div class="cont">
-                        <div class="info">
-                            <p class="fecha">Llega el 2 de mayo</p>
-                            <p class="status">Enviado</p>
-                            <p class="details">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ex. Adipisci perferendis commodi tenetur esse laudantium obcaecati quibusdam fugiat a provident consequuntur? Ipsa officia optio eaque veritatis quasi, expedita laboriosam.</p>
-                        </div>
-                        <div class="actions">
-                            <button class="btn">Rastrear</button>
-                            <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20S23433" target="_blank" class="btn">Obtener Ayuda </a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Aquí se agregarán las órdenes generadas por el JS mediante AJAX -->
             </div>
         </div>
         <!-- <div id="viewPedidos">
