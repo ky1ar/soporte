@@ -33,6 +33,11 @@ require_once 'includes/common/header.php';
                 <h1 class="title">Mis Pedidos</h1>
             </div>
         </div>
+        <div id="orderInfo">
+            <div class="content">
+                info
+            </div>
+        </div>
         <!-- <div id="viewPedidos">
             <div class="menu">
                 <button onclick="mostrarFormSh(1)" class="active"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt=""></button>
