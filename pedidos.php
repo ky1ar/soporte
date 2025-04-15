@@ -41,8 +41,8 @@ require_once 'includes/common/header.php';
                             <p class="details">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ex. Adipisci perferendis commodi tenetur esse laudantium obcaecati quibusdam fugiat a provident consequuntur? Ipsa officia optio eaque veritatis quasi, expedita laboriosam.</p>
                         </div>
                         <div class="actions">
-                            <button>Rastrear</button>
-                            <button>Obtener Ayuda</button>
+                            <button class="btn">Rastrear</button>
+                            <button class="btn">Obtener Ayuda</button>
                         </div>
                     </div>
                 </div>

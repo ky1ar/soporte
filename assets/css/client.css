@@ -3461,17 +3461,17 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem;
   justify-content: center;
 }
-#listOrdersShipping .order .cont .actions button {
+#listOrdersShipping .order .cont .actions .btn {
   border: none;
   padding: 1rem;
   border-radius: 2rem;
   color: var(--white);
   cursor: pointer;
 }
-#listOrdersShipping .order .cont .actions button:nth-of-type(1) {
+#listOrdersShipping .order .cont .actions .btn:nth-of-type(1) {
   background-color: #40c794;
 }
-#listOrdersShipping .order .cont .actions button:nth-of-type(2) {
+#listOrdersShipping .order .cont .actions .btn:nth-of-type(2) {
   background-color: var(--secondary);
 }
 #viewPedidos {
