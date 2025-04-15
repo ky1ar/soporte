@@ -95,6 +95,7 @@ $(document).ready(function () {
           </div>
           <div class="cont">
             <div class="info">
+              <p class="fecha">Llega el 2 de mayo</p>
               <p class="status">${order.nombre_status}</p>
               <p class="details">${order.details}</p>
             </div>
