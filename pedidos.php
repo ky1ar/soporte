@@ -42,7 +42,7 @@ require_once 'includes/common/header.php';
                         </div>
                         <div class="actions">
                             <button class="btn">Rastrear</button>
-                            <a class="btn" href="https://wa.me/51910900581?text=Hola,%20Quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20numero%20de%20orden%3A%20S23433" target="_blank" class="btn">Obtener Ayuda </a>
+                            <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20S23433" target="_blank" class="btn">Obtener Ayuda </a>
                         </div>
                     </div>
                 </div>
