@@ -122,7 +122,7 @@ $(document).on(
         if (response.success && response.data) {
           const rastreoData = response.data.rastreo; // Datos de rastreo
           const estadosData = response.data.estados; // Datos de estados
-          const mensajeEstado = response.message; // Aquí accedes al mensaje que da el estado del envío
+          const mensajeEstado = response.mensaje_estado; // Aquí accedes al mensaje que da el estado del envío
 
           const origen = rastreoData?.origen
             ? `${rastreoData.origen.nombre || "—"}, ${
