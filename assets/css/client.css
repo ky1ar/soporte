@@ -3513,6 +3513,10 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 2rem;
   transform: translate(-50%, -50%);
 }
+#orderInfo .content .head{
+  display: flex;
+  justify-content: space-between;
+}
 #orderInfo .content .head .title {
   font-size: 1.2rem;
   font-weight: 500;

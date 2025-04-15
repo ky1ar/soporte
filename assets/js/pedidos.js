@@ -121,8 +121,7 @@ $(document).on(
       success: function (response) {
         if (response.success && response.data) {
           const rastreoData = response.data.rastreo; // Datos de rastreo
-
-          // Procesar los datos de origen y destino
+          const estadosData = response.data.estados; // Datos de estados
           const origen = rastreoData?.origen
             ? `${rastreoData.origen.nombre || "—"}, ${
                 rastreoData.origen.distrito || "—"
@@ -138,12 +137,15 @@ $(document).on(
               }`
             : "—";
 
-          // Actualizar la interfaz con los datos obtenidos
+          const mensajeEstado = estadosData?.message || "—";
           const $orderInfo = $("#orderInfo");
           $orderInfo.find(".content .head .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
+          $orderInfo
+            .find(".content .head .estado-actual span")
+            .text(mensajeEstado);
         } else {
           alert("No se pudo obtener la información del envío.");
         }
