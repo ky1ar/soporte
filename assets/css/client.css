@@ -3607,7 +3607,7 @@ section.i3d .cont-cards .card div:last-child a {
 #orderInfo .loader {
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
