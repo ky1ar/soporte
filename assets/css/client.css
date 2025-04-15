@@ -3353,7 +3353,6 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
-  display: none;
 }
 #formPedidos form {
   display: flex;
@@ -3412,6 +3411,7 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: var(--gray);
   flex-direction: column;
   gap: 2rem;
+  display: none;
 }
 #listOrdersShipping .title {
   font-weight: 600;

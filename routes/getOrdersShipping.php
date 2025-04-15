@@ -12,9 +12,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['documento'])) {
     }
 
     $query = "
-        SELECT o.*
+        SELECT 
+            o.id_order,
+            u.nombre AS nombre_usuario,
+            o.orden,
+            a.agencia_name AS nombre_agencia,
+            o.code1,
+            o.code2,
+            s.status AS nombre_status,
+            o.details
         FROM Orders_Shipping o
         INNER JOIN Users_Shipping u ON o.id_user = u.id_user
+        LEFT JOIN Agency_Shipping a ON o.agencia = a.id_agencia
+        LEFT JOIN Status_Shipping s ON o.status = s.id_status
         WHERE u.documento = ?
     ";
 
