@@ -87,6 +87,7 @@ $result = [
     'message' => 'Información obtenida con éxito',
     'data' => [
         'rastreo' => $trackData['data'] ?? null,
+        'mensaje_estado' => $trackData['message'] ?? null,
         'estados' => $stateData['data'] ?? null
     ]
 ];

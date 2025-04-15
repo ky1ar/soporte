@@ -137,15 +137,13 @@ $(document).on(
               }`
             : "—";
 
-          const mensajeEstado = estadosData?.message || "—";
+          const mensajeEstado = respuesta.data.mensaje_estado;
           const $orderInfo = $("#orderInfo");
           $orderInfo.find(".content .head .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
-          $orderInfo
-            .find(".content .head .estado-actual")
-            .text(mensajeEstado);
+          $orderInfo.find(".content .head .estado-actual").text(mensajeEstado);
         } else {
           alert("No se pudo obtener la información del envío.");
         }
