@@ -3428,10 +3428,12 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   padding: 1rem;
   background-color: var(--primary);
+  justify-content: space-between;
 }
 #listOrdersShipping .order .head .agencia {
   font-size: 0.9rem;
   color: var(--white);
+  font-weight: 600;
 }
 #listOrdersShipping .order .head .orderNum {
   margin: 0;
