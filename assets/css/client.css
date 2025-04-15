@@ -3341,6 +3341,10 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   margin: 2rem 0 5rem 0;
 }
+.containerShip p,
+.containerShip h1{
+  margin: 0;
+}
 /* PEDIDOS */
 #formPedidos {
   display: flex;
@@ -3405,6 +3409,7 @@ section.i3d .cont-cards .card div:last-child a {
   border: 0.1rem solid var(--newgray);
   border-radius: 1rem;
   padding: 1rem;
+  background-color: var(--gray);
 }
 #listOrdersShipping .order {
   border: 0.1rem solid var(--primary);
