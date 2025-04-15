@@ -32,7 +32,7 @@ require_once 'includes/common/header.php';
             <div id="listOrdersShipping">
                 <div class="order">
                     <div class="head">
-                        <p class="order">S232399</p>
+                        <p class="orderNum">S232399</p>
                     </div>
                     <div class="cont">
                         <div class="info">
