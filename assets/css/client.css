@@ -3515,6 +3515,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #orderInfo .content .head {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 #orderInfo .content .head .title {
@@ -3524,6 +3525,15 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #orderInfo .content .head .title span {
   font-weight: 600;
+}
+#orderInfo .content .head .estado-actual {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--primary);
+  border-radius: 2rem;
+  color: var(--white);
+  padding: 0.5rem 1rem;
 }
 #orderInfo .content .status {
   display: flex;
