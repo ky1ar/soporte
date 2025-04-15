@@ -3430,11 +3430,8 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: var(--primary);
   gap: 1rem;
 }
+#listOrdersShipping .order .head .orderNum,
 #listOrdersShipping .order .head .agencia {
-  font-size: 1rem;
-  color: var(--white);
-}
-#listOrdersShipping .order .head .orderNum {
   margin: 0;
   font-size: 1.1rem;
   color: var(--white);
