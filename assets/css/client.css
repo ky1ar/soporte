@@ -3424,7 +3424,14 @@ section.i3d .cont-cards .card div:last-child a {
   width: 100%;
   overflow: hidden;
 }
-
+#listOrdersShipping .order .head{
+  display: flex;
+  justify-content: space-evenly;
+}
+#listOrdersShipping .order .head .agencia{
+  font-size: .9rem;
+  color: var(--white);
+}
 #listOrdersShipping .order .head .orderNum {
   padding: 1rem;
   background-color: var(--primary);
