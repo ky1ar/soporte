@@ -25,6 +25,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
   --graydark: #e6e6e6;
   --graydarkest: #cccccc;
   --black: #0f2027;
+  --newgray: #c3c3c375;
 }
 *,
 *:before,
@@ -3336,10 +3337,10 @@ section.i3d .cont-cards .card div:last-child a {
   }
 }
 
-.containerShip{
+.containerShip {
   display: flex;
 }
-/* formulario de pedidos */
+/* PEDIDOS */
 #formPedidos {
   display: flex;
   flex-direction: column;
@@ -3380,7 +3381,7 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 1rem 0;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  border: 0.15rem solid #c3c3c375;
+  border: 0.15rem solid var(--newgray);
   outline: none;
 }
 #formPedidos form button {
@@ -3398,7 +3399,13 @@ section.i3d .cont-cards .card div:last-child a {
   filter: brightness(0.9);
 }
 
-/* viewPedidos */
+#listOrdersShipping {
+  display: flex;
+  width: 100%;
+  border: 0.1rem solid var(--newgray);
+  border-radius: 1rem;
+  padding: 1rem;
+}
 #viewPedidos {
   display: flex;
   flex-direction: column;
