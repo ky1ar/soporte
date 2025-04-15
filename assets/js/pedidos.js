@@ -80,7 +80,7 @@ $(document).ready(function () {
                       `);
           });
           $("#formPedidos").hide();
-          container.show();
+          container.fadeIn().css("display", "flex");
         }
       },
       error: function () {
