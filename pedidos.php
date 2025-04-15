@@ -50,6 +50,13 @@ require_once 'includes/common/header.php';
                         <span>Entregado</span>
                     </div>
                 </div>
+                <div class="info">
+                    <p class="cod">Codigos de Tracking: <span>44283715 / DHJD</span></p>
+                    <div class="dat1">
+                        <p>Origen: <span>Lima</span></p>
+                        <p>Destino: <span>Piura</span></p>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- <div id="viewPedidos">
