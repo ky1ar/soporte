@@ -3408,7 +3408,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 100%;
   border: 0.1rem solid var(--newgray);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   background-color: var(--gray);
   flex-direction: column;
   gap: 2rem;
