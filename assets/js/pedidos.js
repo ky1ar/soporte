@@ -130,8 +130,8 @@ $(document).on(
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
 
           // Actualizar Origen y Destino
-          $orderInfo.find(".info .dat1 .ori span").text(origen);
-          $orderInfo.find(".info .dat1 .des span").text(destino);
+          $orderInfo.find(".info .dat1 p.ori span").text(origen);
+          $orderInfo.find(".info .dat1 p.des span").text(destino);
         } else {
           alert("No se pudo obtener la información del envío.");
         }
