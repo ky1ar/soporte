@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     // Iniciar el AJAX usando jQuery
     $.ajax({
-      url: "/ruta-a-tu-php/getOrdersShipping.php", // Cambia la ruta según corresponda
+      url: "routes/getOrdersShipping.php", // Cambia la ruta según corresponda
       type: "POST",
       data: { documento: documento },
       dataType: "json",
