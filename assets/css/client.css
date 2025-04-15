@@ -3538,10 +3538,10 @@ section.i3d .cont-cards .card div:last-child a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo opaco */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscurecido */
   display: none; /* Oculto por defecto */
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
   z-index: 9999;
 }
 
@@ -3552,4 +3552,8 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #00000033;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
