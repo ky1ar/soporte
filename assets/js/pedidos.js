@@ -111,7 +111,7 @@ $(document).on(
     const code2 = $(this).data("code2");
 
     $.ajax({
-      url: "routes/scrapShalom.php", // Cambia esto por tu archivo PHP real
+      url: "routes/scrapShalom.php",
       method: "POST",
       data: {
         numero: code1,
@@ -126,7 +126,6 @@ $(document).on(
                 data.origen.departamento || "—"
               }`
             : "—";
-
           const destino = data.destino
             ? `${data.destino.nombre || "—"}, ${
                 data.destino.distrito || "—"
@@ -134,11 +133,8 @@ $(document).on(
             : "—";
 
           const $orderInfo = $("#orderInfo");
-
-          // Actualizar Tracking
+          $orderInfo.find(".content .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
-
-          // Actualizar Origen y Destino
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
         } else {

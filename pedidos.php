@@ -35,7 +35,7 @@ require_once 'includes/common/header.php';
         </div>
         <div id="orderInfo">
             <div class="content">
-                <h1 class="title">Enviado con <span>Shalom</span></h1>
+                <h1 class="title">Enviado con <span></span></h1>
                 <div class="status">
                     <div class="fases">
                         <span class="st one"></span>
