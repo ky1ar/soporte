@@ -3513,7 +3513,7 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 2rem;
   transform: translate(-50%, -50%);
 }
-#orderInfo .content .head{
+#orderInfo .content .head {
   display: flex;
   justify-content: space-between;
 }
@@ -3603,4 +3603,23 @@ section.i3d .cont-cards .card div:last-child a {
   width: 15rem;
   border-top: 0.1rem dashed;
   border: 0.01rem dashed #a1a1a1;
+}
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
 }

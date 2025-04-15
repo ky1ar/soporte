@@ -109,6 +109,8 @@ $(document).on(
   function () {
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
+    const $orderInfo = $("#orderInfo");
+    $orderInfo.append('<span class="loader"></span>');
 
     $.ajax({
       url: "routes/scrapShalom.php",
@@ -133,7 +135,7 @@ $(document).on(
                 rastreoData.destino.departamento || "—"
               }`
             : "—";
-          const $orderInfo = $("#orderInfo");
+
           $orderInfo.find(".content .head .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
@@ -145,6 +147,9 @@ $(document).on(
       },
       error: function () {
         alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+      complete: function () {
+        $orderInfo.find(".loader").remove();
       },
     });
   }
