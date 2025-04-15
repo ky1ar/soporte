@@ -3557,6 +3557,9 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 1.2rem;
   font-weight: 500;
 }
+#orderInfo .content .title span{
+  font-weight: 600;
+}
 #orderInfo .content .status {
   display: flex;
   flex-direction: column;
