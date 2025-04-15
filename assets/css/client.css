@@ -3428,7 +3428,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   padding: 1rem;
   background-color: var(--primary);
-  justify-content: space-between;
+  gap: 1rem;
 }
 #listOrdersShipping .order .head .agencia {
   font-size: 1rem;

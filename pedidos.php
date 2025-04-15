@@ -34,7 +34,7 @@ require_once 'includes/common/header.php';
                 <div class="order">
                     <div class="head">
                         <p class="orderNum">Orden: <span>S232399</span></p>
-                        <p class="agencia">Shalom</p>
+                        <p class="agencia">Agencia: <span>Shalom</span></p>
                     </div>
                     <div class="cont">
                         <div class="info">
