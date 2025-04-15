@@ -140,7 +140,7 @@ $(document).on(
 
           // Actualizar la interfaz con los datos obtenidos
           const $orderInfo = $("#orderInfo");
-          $orderInfo.find(".content .title span").text("Shalom");
+          $orderInfo.find(".content .head .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);

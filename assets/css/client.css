@@ -3513,12 +3513,12 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 2rem;
   transform: translate(-50%, -50%);
 }
-#orderInfo .content .title {
+#orderInfo .content .head .title {
   font-size: 1.2rem;
   font-weight: 500;
   margin: 0;
 }
-#orderInfo .content .title span {
+#orderInfo .content .head .title span {
   font-weight: 600;
 }
 #orderInfo .content .status {
