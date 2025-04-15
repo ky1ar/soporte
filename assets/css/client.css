@@ -3556,6 +3556,3 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 1rem;
   transform: translate(-50%, -50%);
 }
-body.modal-open {
-  overflow: hidden;
-}
