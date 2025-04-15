@@ -3553,20 +3553,28 @@ section.i3d .cont-cards .card div:last-child a {
   padding: 1rem;
   transform: translate(-50%, -50%);
 }
-#orderInfo .content .title{
+#orderInfo .content .title {
   font-size: 1.2rem;
   font-weight: 500;
 }
-#orderInfo .content .status{
+#orderInfo .content .status {
   display: flex;
   flex-direction: column;
 }
-#orderInfo .content .status .fases{
+#orderInfo .content .status .fases {
   display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-#orderInfo .content .status .fases .st{
-  width: 1rem;
+#orderInfo .content .status .fases .st {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #50d366;
+  border-radius: 1rem;
+}
+#orderInfo .content .status .fases .bar {
   height: 1rem;
-  background-color: #32e04f;
+  width: 10rem;
+  background-color: #50d366;
 }
