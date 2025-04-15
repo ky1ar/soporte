@@ -46,25 +46,18 @@
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
-
     const documento = $("#documento").val().trim();
-
-    // Iniciar el AJAX usando jQuery
     $.ajax({
-      url: "routes/getOrdersShipping.php", // Cambia la ruta según corresponda
+      url: "routes/getOrdersShipping.php",
       type: "POST",
       data: { documento: documento },
       dataType: "json",
       success: function (response) {
         if (response.status === "error") {
-          // En caso de error, mostrar el mensaje del servidor
           alert(response.message);
         } else if (response.status === "success") {
-          // Si la validación es exitosa y hay datos de pedidos
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>'); // Título principal
-
-          // Mostrar cada pedido recibido
           response.orders.forEach((order) => {
             container.append(`
                           <div class="order">
@@ -86,8 +79,6 @@ $(document).ready(function () {
                           </div>
                       `);
           });
-
-          // Ocultar el formulario de consulta y mostrar la lista de pedidos
           $("#formPedidos").hide();
           container.show();
         }
