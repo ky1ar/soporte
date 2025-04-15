@@ -120,18 +120,25 @@ $(document).on(
       dataType: "json",
       success: function (response) {
         if (response.success && response.data) {
-          const data = response.data;
-          const origen = data.origen
-            ? `${data.origen.nombre || "—"}, ${data.origen.distrito || "—"}, ${
-                data.origen.departamento || "—"
+          const rastreoData = response.data.rastreo; // Datos de rastreo
+
+          // Procesar los datos de origen y destino
+          const origen = rastreoData?.origen
+            ? `${rastreoData.origen.nombre || "—"}, ${
+                rastreoData.origen.distrito || "—"
+              }, ${rastreoData.origen.provincia || "—"}, ${
+                rastreoData.origen.departamento || "—"
               }`
             : "—";
-          const destino = data.destino
-            ? `${data.destino.nombre || "—"}, ${
-                data.destino.distrito || "—"
-              }, ${data.destino.departamento || "—"}`
+          const destino = rastreoData?.destino
+            ? `${rastreoData.destino.nombre || "—"}, ${
+                rastreoData.destino.distrito || "—"
+              }, ${rastreoData.destino.provincia || "—"}, ${
+                rastreoData.destino.departamento || "—"
+              }`
             : "—";
 
+          // Actualizar la interfaz con los datos obtenidos
           const $orderInfo = $("#orderInfo");
           $orderInfo.find(".content .title span").text("Shalom");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
