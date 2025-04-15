@@ -58,19 +58,19 @@ require_once 'includes/common/header.php';
                     </div>
                     <div class="line">
                         <div class="fas">
-                            <p class="status">Entregado</p>
+                            <p class="status"><img src="assets/img/sh-entregado.webp" alt=""> Entregado</p>
                             <p class="date">10-04-2025</p>
                         </div>
                         <div class="fas">
-                            <p class="status">En ruta</p>
+                            <p class="status"><img src="assets/img/sh-envio.webp" alt=""> En ruta</p>
                             <p class="date">05-04-2025</p>
                         </div>
                         <div class="fas">
-                            <p class="status">En agencia</p>
+                            <p class="status"><img src="assets/img/sh-agencia.webp" alt=""> En agencia</p>
                             <p class="date">03-04-2025</p>
                         </div>
                         <div class="fas">
-                            <p class="status">Comprado</p>
+                            <p class="status"><img src="assets/img/sh-compra.webp" alt=""> Comprado</p>
                             <p class="date">02-04-2025</p>
                         </div>
 

@@ -3618,3 +3618,10 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem;
   font-size: 0.9rem;
 }
+#orderInfo .content .info .line .fas .status{
+  display: flex;
+  gap: 1rem;
+}
+#orderInfo .content .info .line .fas .status img{
+  width: 2rem;
+}
