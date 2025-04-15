@@ -3342,7 +3342,7 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 2rem 0 5rem 0;
 }
 .containerShip p,
-.containerShip h1{
+.containerShip h1 {
   margin: 0;
 }
 /* PEDIDOS */
@@ -3418,15 +3418,25 @@ section.i3d .cont-cards .card div:last-child a {
   overflow: hidden;
 }
 
-#listOrdersShipping .order .head .orderNum{
+#listOrdersShipping .order .head .orderNum {
   padding: 1rem;
   background-color: var(--primary);
   margin: 0;
   font-size: 1.1rem;
   color: var(--white);
 }
-#listOrdersShipping .order .head .orderNum span{
+#listOrdersShipping .order .head .orderNum span {
   font-weight: 600;
+}
+#listOrdersShipping .order .cont {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--white);
+}
+#listOrdersShipping .order .cont .info .fecha {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary);
 }
 #viewPedidos {
   display: flex;
