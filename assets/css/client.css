@@ -3604,7 +3604,7 @@ section.i3d .cont-cards .card div:last-child a {
   border-top: 0.1rem dashed;
   border: 0.01rem dashed #a1a1a1;
 }
-#orderInfo .loader {
+#orderInfo .content .loader {
   position: absolute;
   height: -webkit-fill-available;
   width: 36rem;
@@ -3614,7 +3614,7 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: white;
   margin-bottom: 2rem;
 }
-#orderInfo .loader::before {
+#orderInfo .content .loader::before {
   content: "";
   position: absolute;
   width: 5rem;
