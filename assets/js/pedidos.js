@@ -122,7 +122,7 @@ $(document).on(
         if (response.success && response.data) {
           const rastreoData = response.data.rastreo; // Datos de rastreo
           const estadosData = response.data.estados; // Datos de estados
-          const mensajeEstado = response.data.mensaje_estado; 
+          const mensajeEstado = response.message;
           const origen = rastreoData?.origen
             ? `${rastreoData.origen.nombre || "—"}, ${
                 rastreoData.origen.distrito || "—"
