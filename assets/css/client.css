@@ -3575,7 +3575,7 @@ section.i3d .cont-cards .card div:last-child a {
   border-radius: 1rem;
 }
 #orderInfo .content .status .fases .bar {
-  height: .5rem;
+  height: 0.5rem;
   width: 15rem;
   background-color: #50d366;
   margin: 0 -0.5rem;
@@ -3588,4 +3588,20 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 11.5rem;
   font-size: 0.9rem;
   font-weight: 500;
+}
+#orderInfo .content .info .cod {
+  font-size: 0.9rem;
+}
+#orderInfo .content .info .cod span {
+  font-weight: 600;
+}
+#orderInfo .content .info .dat1 {
+  display: flex;
+  gap: 1rem;
+}
+#orderInfo .content .info .dat1 p{
+  font-size: .9rem;
+}
+#orderInfo .content .info .dat1 p span{
+  font-weight: 600;
 }
