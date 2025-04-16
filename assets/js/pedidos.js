@@ -37,6 +37,7 @@ $(document).ready(function () {
                               </div>
                               <div class="cont">
                                   <div class="info">
+                                      <p class="fecha">29 de abril</p>
                                       <p class="status">${order.nombre_status}</p>
                                       <p class="name">Nombre: ${order.nombre_usuario}</p>
                                       <p class="name">Documento: ${order.documento}</p>
