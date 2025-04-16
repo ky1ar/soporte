@@ -3474,6 +3474,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   flex-direction: column;
   width: 80%;
+  justify-content: center;
 }
 #listOrdersShipping .order .cont .info .fecha {
   font-size: 1.1rem;
