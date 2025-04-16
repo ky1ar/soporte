@@ -56,7 +56,7 @@ $(document).ready(function () {
                     <p class="doc">Documento: <span>${order.documento}</span></p>
                   </div>
                   <div class="actions">
-                    <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>
+                    <button class="btn op" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>
                     <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  $("#listOrdersShipping").on("click", ".actions .btn", function () {
+  $("#listOrdersShipping").on("click", ".actions .btn.op", function () {
     $("#orderInfo").css("display", "flex").hide().fadeIn();
   });
   $("#orderInfo").on("click", function (e) {
