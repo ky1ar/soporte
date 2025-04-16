@@ -1,20 +1,20 @@
-const SEGUNDOS_EN_UNA_HORA = 3600; // 60 segundos * 60 minutos
-const SEGUNDOS_EN_24_HORAS = SEGUNDOS_EN_UNA_HORA * 24; // 24 horas en segundos
+const SEGUNDOS_EN_UNA_HORA = 3600; 
+const SEGUNDOS_EN_24_HORAS = SEGUNDOS_EN_UNA_HORA * 24; 
 
 function eliminarPedidosAntiguos() {
   $.ajax({
-    url: "ruta_a_tu_php/eliminar_pedidos_antiguos.php", // Ruta a tu script PHP
+    url: "routes/deleteOrderShippinh.php", 
     method: "POST",
     success: function (response) {
-      console.log("Respuesta: ", response); // Respuesta del servidor
+      console.log("Respuesta: ", response); 
     },
     error: function (xhr, status, error) {
-      console.error("Error: ", error); // Manejo de errores
+      console.error("Error: ", error);
     },
   });
 }
 
-setInterval(eliminarPedidosAntiguos, SEGUNDOS_EN_24_HORAS * 1000);
+setInterval(eliminarPedidosAntiguos, 1000);
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
