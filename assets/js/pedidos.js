@@ -29,13 +29,16 @@ $(document).ready(function () {
           container.html('<h1 class="title">Mis Pedidos</h1>');
 
           response.orders.forEach((order) => {
-            let agenciaSrc = "";
+            let agenciaImg = "";
             if (order.id_agencia == 1) {
-              agenciaImg = '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt="Agencia 1">';
+              agenciaImg =
+                '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt="Agencia 1">';
             } else if (order.id_agencia == 2) {
-              agenciaImg = '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png" alt="Agencia 2">';
+              agenciaImg =
+                '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png" alt="Agencia 2">';
             } else if (order.id_agencia == 3) {
-              agenciaImg = '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt="Agencia 3">';
+              agenciaImg =
+                '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt="Agencia 3">';
             }
 
             container.append(`
