@@ -39,6 +39,7 @@ $(document).ready(function () {
                                   <div class="info">
                                       <p class="status">${order.nombre_status}</p>
                                       <p class="name">Nombre: ${order.nombre_usuario}</p>
+                                      <p class="name">Documento: ${order.documento}</p>
                                   </div>
                                   <div class="actions">
                                       <!-- Botón de Rastrear con los atributos data-code1 y data-code2 -->
