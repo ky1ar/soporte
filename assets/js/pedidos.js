@@ -190,40 +190,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#registerTrackings .form #document").on("blur", function () {
     const doc = $(this).val().trim();
-
-    if (doc) {
-      // Usando un proxy para manejar CORS
-      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-      const targetUrl = `https://devintranet.krear3d.com/api/user/name/${doc}`;
-
-      fetch(proxyUrl + targetUrl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          // Puede que necesites agregar otros encabezados dependiendo de tu caso.
-          "X-Requested-With": "XMLHttpRequest",
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (data.success && data.data?.name) {
-            $("#registerTrackings .form #name").val(data.data.name);
-            console.log("Nombre cargado:", data.data.name);
-          } else {
-            console.log(
-              "No se encontró el nombre o hubo un error en la respuesta."
-            );
-          }
-        })
-        .catch((error) => {
-          console.error("Error al consultar el nombre del usuario:", error);
-        });
-    }
+    console.log("Valor del documento:", doc);
   });
 });
 
