@@ -3696,6 +3696,10 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 1.4rem;
   margin: 0 auto 2rem auto;
 }
+#registerTrackings .form .order,
+#registerTrackings .form .doc{
+  width: 50%;
+}
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input{
   border: 0.1rem solid var(--newgray);
