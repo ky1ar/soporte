@@ -3712,6 +3712,9 @@ section.i3d .cont-cards .card div:last-child a {
 #registerTrackings .form .agen{
   width: 20%;
 }
+#registerTrackings .form .track input{
+  width: 39%;
+}
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
 #registerTrackings .form .name input,
