@@ -3704,6 +3704,7 @@ section.i3d .cont-cards .card div:last-child a {
 #registerTrackings .form .name,
 #registerTrackings .form .phone {
   width: 49%;
+  margin-bottom: 1rem;
 }
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
