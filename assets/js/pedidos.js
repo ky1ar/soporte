@@ -190,9 +190,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#registerTrackings .form #document").on("blur", function () {
     const doc = $(this).val().trim();
-
+    
     if (doc) {
-      // Hacer la solicitud GET al API
       fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
         method: "GET",
         headers: {
@@ -206,7 +205,7 @@ $(document).ready(function () {
           return response.json();
         })
         .then((data) => {
-          // Mostrar los resultados en la consola
+          // Mostrar el resultado de la API en consola
           console.log("Resultado de la API:", data);
         })
         .catch((error) => {
@@ -217,6 +216,8 @@ $(document).ready(function () {
     }
   });
 });
+
+
 
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
