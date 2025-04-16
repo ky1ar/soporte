@@ -40,12 +40,6 @@ $(document).ready(function () {
               agenciaImg =
                 '<img class="a3" src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt="Agencia 3">';
             }
-
-            const mensajeWA = `Hola ${order.nombre_usuario}. Tu orden ${order.orden} ha sido enviada con ${order.nombre_agencia}. Tu tracking es ${[order.code1, order.code2].filter(Boolean).join(" / ")}. Puedes hacerle seguimiento aquí: https://asoporte.krear3d.com/pedidos`;
-
-            const urlWA = `https://wa.me/51908944969?text=${encodeURIComponent(
-              mensajeWA
-            )}`;
             container.append(`
               <div class="order">
                 <div class="head">
@@ -62,7 +56,7 @@ $(document).ready(function () {
                   </div>
                   <div class="actions">
                     <button class="btn op" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>
-                    <a class="btn" href="${urlWA}" target="_blank">Obtener Ayuda</a>
+                    <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
                   </div>
                 </div>
               </div>
