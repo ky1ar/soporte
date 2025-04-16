@@ -1,5 +1,6 @@
-const SEGUNDOS_EN_UNA_HORA = 3600; 
-const SEGUNDOS_EN_24_HORAS = SEGUNDOS_EN_UNA_HORA * 24; 
+const hora = 3600; 
+const dia = SEGUNDOS_EN_UNA_HORA * 24; 
+const semana = SEGUNDOS_EN_24_HORAS * 7; 
 
 function eliminarPedidosAntiguos() {
   $.ajax({
@@ -14,7 +15,7 @@ function eliminarPedidosAntiguos() {
   });
 }
 
-setInterval(eliminarPedidosAntiguos, 5000);
+setInterval(eliminarPedidosAntiguos, semana * 1000);
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
