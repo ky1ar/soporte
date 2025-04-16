@@ -3612,6 +3612,10 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   gap: 1rem;
 }
+#orderInfo .content .info .dat1 .ori,
+#orderInfo .content .info .dat1 .des{
+  
+}
 #orderInfo .content .info .line {
   display: flex;
   flex-direction: column;

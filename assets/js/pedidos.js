@@ -106,29 +106,25 @@ $(document).on(
         if (response.success && response.data) {
           const estadosData = response.data.estados;
 
-          // Estado "Entregado"
-          const fechaEntregado = estadosData.entregado?.fecha;
-          if (fechaEntregado) {
-            $orderInfo.find(".line .fas.entregado .date").text(fechaEntregado);
-          } else {
-            $orderInfo.find(".line .fas.entregado").hide();
+          function mostrarEstado(selector, estado) {
+            const fecha = estado?.fecha;
+            if (fecha) {
+              // Si tiene fecha, mostramos y actualizamos el texto
+              $(selector).find(".date").text(fecha);
+            } else {
+              // Si no tiene fecha (null o undefined), eliminamos el elemento
+              $(selector).remove();
+            }
           }
+
+          // Estado "Entregado"
+          mostrarEstado(".line .fas.entregado", estadosData.entregado);
 
           // Estado "En ruta" (Transito)
-          const fechaTransito = estadosData.transito?.fecha;
-          if (fechaTransito) {
-            $orderInfo.find(".line .fas.ruta .date").text(fechaTransito);
-          } else {
-            $orderInfo.find(".line .fas.ruta").hide();
-          }
+          mostrarEstado(".line .fas.ruta", estadosData.transito);
 
           // Estado "En agencia" (Origen)
-          const fechaOrigen = estadosData.origen?.fecha;
-          if (fechaOrigen) {
-            $orderInfo.find(".line .fas.agencia .date").text(fechaOrigen);
-          } else {
-            $orderInfo.find(".line .fas.agencia").hide();
-          }
+          mostrarEstado(".line .fas.agencia", estadosData.origen);
 
           const rastreoData = response.data.rastreo;
           const mensajeEstado = response.data.mensaje_estado;
