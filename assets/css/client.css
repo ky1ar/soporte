@@ -3742,3 +3742,13 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0;
   font-weight: 500;
 }
+#registerTrackings .form .ins {
+  width: 100%;
+  margin: 2rem 0 0 0;
+  border: 0;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+}

@@ -42,7 +42,7 @@ require_once 'includes/common/header.php';
                     <input type="text" id="code1" name="code1" placeholder="Code1" required>
                     <input type="text" id="code2" name="code2" placeholder="Code2" required>
                 </div>
-                <input type="submit" value="Submit">
+                <button class="ins">Agregar Registro</button>
             </form>
 
         </div>
