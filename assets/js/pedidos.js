@@ -163,9 +163,9 @@ $(document).on(
 
 $(document).ready(function () {
   const placeholders = {
-      '1': { code1: 'Shalom - Código Principal', code2: 'Shalom - Código Secundario' },
-      '2': { code1: 'Olva - Tracking Principal', code2: 'Olva - Referencia' },
-      '3': { code1: 'Marvisur - Guía', code2: 'Marvisur - Código Extra' }
+      '1': { code1: 'N° de Orden', code2: 'Código de Orden' },
+      '2': { code1: 'N° de Tracking', code2: 'Olva - Referencia' },
+      '3': { code1: 'V001', code2: '0000001' }
   };
 
   $('#registerTrackings .form #agency').on('change', function () {
