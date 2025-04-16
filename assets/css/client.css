@@ -3691,6 +3691,7 @@ section.i3d .cont-cards .card div:last-child a {
   box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
   padding: 2rem;
   border-radius: 1rem;
+  justify-content: space-between;
 }
 #registerTrackings .form .title {
   font-size: 1.4rem;
@@ -3700,7 +3701,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #registerTrackings .form .order,
 #registerTrackings .form .doc {
-  width: 50%;
+  width: 49%;
 }
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input {
