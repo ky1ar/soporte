@@ -3672,3 +3672,7 @@ section.i3d .cont-cards .card div:last-child a {
     transform: rotate(360deg); /* Rota 360 grados */
   }
 }
+
+#registerTrackings{
+  display: flex;
+}
