@@ -1,7 +1,3 @@
-const hora = 3600; 
-const dia = hora * 24; 
-const semana = dia * 7; 
-
 function eliminarPedidosAntiguos() {
   $.ajax({
     url: "routes/deleteOrderShipping.php", 
@@ -15,7 +11,14 @@ function eliminarPedidosAntiguos() {
   });
 }
 
-setInterval(eliminarPedidosAntiguos, 10000);
+// Verificamos si la acción ya fue ejecutada en esta sesión
+if (!localStorage.getItem('pedidoEliminado')) {
+  setTimeout(function() {
+    eliminarPedidosAntiguos();
+    // Guardamos en localStorage que la acción ya fue ejecutada
+    localStorage.setItem('pedidoEliminado', 'true');
+  }, 3000); // Se ejecutará después de 3 segundos
+}
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
