@@ -192,15 +192,12 @@ $(document).ready(function () {
     const doc = $(this).val().trim();
 
     if (doc) {
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://devintranet.krear3d.com/api/user/name/${doc}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -208,7 +205,7 @@ $(document).ready(function () {
           return response.json();
         })
         .then((data) => {
-          if (data.success && data.data && data.data.name) {
+          if (data.success && data.data?.name) {
             $("#registerTrackings .form #name").val(data.data.name);
             console.log("Nombre cargado:", data.data.name);
           } else {
