@@ -162,44 +162,29 @@ $(document).on(
 
 $(document).ready(function () {
   const placeholders = {
-    1: { code1: "N° de Orden", code2: "Código de Orden" },
-    2: { code1: "N° de Tracking", code2: "" },
-    3: { code1: "V001", code2: "0000001" },
+    1: ["N° de Orden", "Código de Orden"],
+    2: ["N° de Tracking", ""],
+    3: ["V001", "0000001"],
   };
 
-  function setCode2AsSelect() {
-    const selectHTML = `
-            <select id="code2" name="code2" required>
-                <option value="25">25</option>
-                <option value="24">24</option>
-                <option value="23">23</option>
-                <option value="22">22</option>
-            </select>
-        `;
-    $("#registerTrackings .form .track #code2").replaceWith(selectHTML);
-  }
+  $("#registerTrackings .form #agency")
+    .on("change", function () {
+      const val = $(this).val();
+      const [ph1, ph2] = placeholders[val] || ["", ""];
 
-  function setCode2AsInput(placeholder) {
-    const inputHTML = `<input type="text" id="code2" name="code2" placeholder="${placeholder}" required>`;
-    $("#registerTrackings .form .track #code2").replaceWith(inputHTML);
-  }
+      $("#registerTrackings .form .track #code1").attr("placeholder", ph1);
 
-  $("#registerTrackings .form #agency").on("change", function () {
-    const selected = $(this).val();
+      const code2Field =
+        val === "2"
+          ? `<select id="code2" name="code2" required>
+                 <option value="25">25</option>
+                 <option value="24">24</option>
+                 <option value="23">23</option>
+                 <option value="22">22</option>
+             </select>`
+          : `<input type="text" id="code2" name="code2" placeholder="${ph2}" required>`;
 
-    if (placeholders[selected]) {
-      $("#registerTrackings .form .track #code1").attr(
-        "placeholder",
-        placeholders[selected].code1
-      );
-
-      if (selected === "2") {
-        setCode2AsSelect();
-      } else {
-        setCode2AsInput(placeholders[selected].code2);
-      }
-    }
-  });
-
-  $("#registerTrackings .form #agency").trigger("change");
+      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+    })
+    .trigger("change");
 });
