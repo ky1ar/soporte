@@ -10,8 +10,6 @@ function eliminarPedidosAntiguos() {
     },
   });
 }
-
-// Ejecutar directamente la función al cargar la página sin verificar localStorage
 eliminarPedidosAntiguos();
 
 
@@ -29,7 +27,7 @@ $(document).ready(function () {
           alert(response.message);
         } else if (response.status === "success") {
           const container = $("#listOrdersShipping");
-          container.html('<h1 class="title">Mis Pedidos</h1>'); // Título principal
+          container.html('<h1 class="title">Mis Pedidos</h1>');
           response.orders.forEach((order) => {
             container.append(`
                           <div class="order">
@@ -40,6 +38,7 @@ $(document).ready(function () {
                               <div class="cont">
                                   <div class="info">
                                       <p class="status">${order.nombre_status}</p>
+                                      <p class="name">Nombre: ${order.nombre_usuario}</p>
                                   </div>
                                   <div class="actions">
                                       <!-- Botón de Rastrear con los atributos data-code1 y data-code2 -->

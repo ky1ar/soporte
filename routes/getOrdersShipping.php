@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['documento'])) {
         SELECT 
             o.id_order,
             u.nombre AS nombre_usuario,
+            u.documento,
             o.orden,
             o.agencia AS id_agencia,
             a.agencia_name AS nombre_agencia,
