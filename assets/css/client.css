@@ -3684,6 +3684,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #registerTrackings .title {
   font-size: 1.4rem;
+  margin: 0;
 }
 #registerTrackings .form {
   display: flex;
