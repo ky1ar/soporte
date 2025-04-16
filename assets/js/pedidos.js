@@ -186,7 +186,23 @@ $(document).ready(function () {
     })
     .trigger("change");
 });
+
 $(document).ready(function () {
+  // Autocompletar nombre desde API al salir del campo documento
+  $("#registerTrackings .form #document").on("blur", function () {
+    const documentValue = $(this).val().trim();
+
+    if (documentValue) {
+      $.get(`https://devintranet.krear3d.com/api/user/name/${documentValue}`, function (response) {
+        if (response.success && response.data && response.data.name) {
+          $("#registerTrackings .form #name").val(response.data.name);
+          console.log("Nombre cargado desde API:", response.data.name);
+        } else {
+          console.log("No se encontró información del usuario.");
+        }
+      });
+    }
+  });
   $("#registerTrackings .form .ins").on("click", function (e) {
     e.preventDefault();
 
