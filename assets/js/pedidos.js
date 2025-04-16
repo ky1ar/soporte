@@ -195,27 +195,56 @@ $(document).ready(function () {
       fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
         method: "GET",
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.success && data.data?.name) {
-          $("#registerTrackings .form #name").val(data.data.name);
-          console.log("Nombre cargado:", data.data.name);
-        }
-      })
-      .catch(error => {
-        console.log("Error al consultar el nombre del usuario:", error);
-      });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success && data.data && data.data.name) {
+            $("#registerTrackings .form #name").val(data.data.name);
+            console.log("Nombre cargado:", data.data.name);
+          } else {
+            console.log(
+              "No se encontró el nombre o hubo un error en la respuesta."
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("Error al consultar el nombre del usuario:", error);
+        });
     }
   });
 });
 
+$(document).ready(function () {
+  $("#registerTrackings .form .ins").on("click", function (e) {
+    e.preventDefault();
 
+    const form = $("#registerTrackings .form")[0];
 
+    if (!form.checkValidity()) {
+      console.log("Faltan datos requeridos");
+      form.reportValidity();
+      return;
+    }
+
+    const data = {
+      order_number: $("#registerTrackings .form #order_number").val(),
+      agency: $("#registerTrackings .form #agency").val(),
+      code1: $("#registerTrackings .form #code1").val(),
+      code2: $("#registerTrackings .form #code2").val(),
+      client: {
+        document: $("#registerTrackings .form #document").val(),
+        name: $("#registerTrackings .form #name").val(),
+        phone: $("#registerTrackings .form #phone").val(),
+      },
+    };
+
+    console.log(JSON.stringify(data, null, 2));
+  });
+});
