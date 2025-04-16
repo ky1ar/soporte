@@ -3613,7 +3613,7 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem;
 }
 #orderInfo .content .info .dat1 .ori,
-#orderInfo .content .info .dat1 .des{
+#orderInfo .content .info .dat1 .des {
   width: 50%;
 }
 #orderInfo .content .info .line {
@@ -3673,6 +3673,18 @@ section.i3d .cont-cards .card div:last-child a {
   }
 }
 
-#registerTrackings{
+#registerTrackings {
   display: flex;
+  font-size: 0.9rem;
+  align-items: center;
+  justify-content: center;
+}
+#registerTrackings .form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
+  background-color: var(--white);
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
+  padding: 2rem;
+  border-radius: 1rem;
 }
