@@ -3718,9 +3718,6 @@ section.i3d .cont-cards .card div:last-child a {
 #registerTrackings .form .track{
   width: 78%;
 }
-#registerTrackings .form .track input{
-  width: 39%;
-}
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
 #registerTrackings .form .name input,
@@ -3733,6 +3730,9 @@ section.i3d .cont-cards .card div:last-child a {
   outline: none;
   width: 100%;
   font-size: .9rem;
+}
+#registerTrackings .form .track input{
+  width: 39%;
 }
 #registerTrackings .form .agen-tit{
   font-size: 1rem;
