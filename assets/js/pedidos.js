@@ -1,47 +1,20 @@
-// $("#viewPedidos .shalom #rastreoForm").on("submit", function (e) {
-//   e.preventDefault();
+const SEGUNDOS_EN_UNA_HORA = 3600; // 60 segundos * 60 minutos
+const SEGUNDOS_EN_24_HORAS = SEGUNDOS_EN_UNA_HORA * 24; // 24 horas en segundos
 
-//   const $form = $(this);
-//   const $resultado = $("#viewPedidos .shalom #resultado");
+function eliminarPedidosAntiguos() {
+  $.ajax({
+    url: "ruta_a_tu_php/eliminar_pedidos_antiguos.php", // Ruta a tu script PHP
+    method: "POST",
+    success: function (response) {
+      console.log("Respuesta: ", response); // Respuesta del servidor
+    },
+    error: function (xhr, status, error) {
+      console.error("Error: ", error); // Manejo de errores
+    },
+  });
+}
 
-//   $.ajax({
-//     url: "routes/scrapShalom.php",
-//     method: "POST",
-//     data: $form.serialize(),
-//     dataType: "json",
-//     success: function (response) {
-//       if (response.success) {
-//         const data = response.data;
-//         $resultado.html(`
-//             <p><strong>Número de orden:</strong> ${data.numero_orden}</p>
-//             <p><strong>Código de orden:</strong> ${data.codigo_orden}</p>
-//             <p><strong>Remitente:</strong> ${data.remitente.nombre}</p>
-//             <p><strong>Destinatario:</strong> ${data.destinatario.nombre}</p>
-//             <p><strong>Dirección entrega:</strong> ${data.direccion_entrega}</p>
-//             <p><strong>Estado de entrega:</strong> ${
-//               data.entregado ? "Entregado" : "En tránsito"
-//             }</p>
-//             <p><strong>Origen:</strong> ${data.origen.departamento} - ${
-//           data.origen.distrito
-//         }</p>
-//             <p><strong>Destino:</strong> ${data.destino.departamento} - ${
-//           data.destino.distrito
-//         }</p>
-//             <p><strong>Contenido:</strong> ${data.contenido}</p>
-//             <p><strong>Monto:</strong> S/. ${data.monto}</p>
-//             <p><strong>Tiempo estimado:</strong> ${data.tiempo_llegada}</p>
-//           `);
-//       } else {
-//         $resultado.html(`<p style="color:red;">${response.message}</p>`);
-//       }
-//     },
-//     error: function () {
-//       $resultado.html(
-//         `<p style="color:red;">Error en la consulta. Inténtalo de nuevo.</p>`
-//       );
-//     },
-//   });
-// });
+setInterval(eliminarPedidosAntiguos, SEGUNDOS_EN_24_HORAS * 1000);
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
