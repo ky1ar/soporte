@@ -3483,13 +3483,15 @@ section.i3d .cont-cards .card div:last-child a {
 #listOrdersShipping .order .cont .info .status {
   font-weight: 500;
   font-size: 1rem;
+  margin-bottom: 1rem;
 }
-#listOrdersShipping .order .cont .info .name{
-  font-size: 0.9rem;
-  margin-top: 1rem;
-}
+#listOrdersShipping .order .cont .info .name,
 #listOrdersShipping .order .cont .info .doc{
-  font-size: .9rem;
+  font-size: 0.9rem;
+}
+#listOrdersShipping .order .cont .info .name span,
+#listOrdersShipping .order .cont .info .doc span{ 
+  font-weight: 600;
 }
 #listOrdersShipping .order .cont .actions {
   display: flex;
