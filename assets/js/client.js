@@ -164,23 +164,28 @@ $(document).ready(function () {
     });
   }
 
-  // Escuchar cambios de tamaño y recargar la primera página
-  window.addEventListener("resize", function () {
-    cargarSTLs(1);
-  });
+  $(document).ready(function () {
+    // Verificar si estamos en la página /stl
+    if (window.location.pathname === "/stl") {
+      // Escuchar cambios de tamaño y recargar la primera página
+      window.addEventListener("resize", function () {
+        cargarSTLs(1);
+      });
 
-  // Botones de paginación
-  $("#prevPage").on("click", function () {
-    if (currentPage > 1) {
-      currentPage--;
-      cargarSTLs(currentPage);
-    }
-  });
+      // Botones de paginación
+      $("#prevPage").on("click", function () {
+        if (currentPage > 1) {
+          currentPage--;
+          cargarSTLs(currentPage);
+        }
+      });
 
-  $("#nextPage").on("click", function () {
-    if (currentPage < totalPages) {
-      currentPage++;
-      cargarSTLs(currentPage);
+      $("#nextPage").on("click", function () {
+        if (currentPage < totalPages) {
+          currentPage++;
+          cargarSTLs(currentPage);
+        }
+      });
     }
   });
 
