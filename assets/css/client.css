@@ -3693,6 +3693,9 @@ section.i3d .cont-cards .card div:last-child a {
   border-radius: 1rem;
   justify-content: space-between;
 }
+#registerTrackings .form div{
+  display: flex;
+}
 #registerTrackings .form .title {
   font-size: 1.4rem;
   width: 100%;
@@ -3711,6 +3714,9 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #registerTrackings .form .agen{
   width: 20%;
+}
+#registerTrackings .form .track{
+  width: 78%;
 }
 #registerTrackings .form .track input{
   width: 39%;
