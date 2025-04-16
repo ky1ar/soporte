@@ -39,8 +39,8 @@ require_once 'includes/common/header.php';
                     </select>
                 </div>
                 <div class="track">
-                    <input type="text" id="code1" name="code1" placeholder="Code1" required>
-                    <input type="text" id="code2" name="code2" placeholder="Code2" required>
+                    <input type="text" id="code1" name="code1" required>
+                    <input type="text" id="code2" name="code2" required>
                 </div>
                 <button class="ins">Agregar Registro</button>
             </form>
