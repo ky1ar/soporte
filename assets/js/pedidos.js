@@ -11,14 +11,8 @@ function eliminarPedidosAntiguos() {
   });
 }
 
-// Verificamos si la acción ya fue ejecutada en esta sesión
-if (!localStorage.getItem('pedidoEliminado')) {
-  // Ejecutamos inmediatamente al cargar la página
-  eliminarPedidosAntiguos();
-
-  // Guardamos en localStorage que la acción ya fue ejecutada
-  localStorage.setItem('pedidoEliminado', 'true');
-}
+// Ejecutar directamente la función al cargar la página sin verificar localStorage
+eliminarPedidosAntiguos();
 
 
 $(document).ready(function () {
