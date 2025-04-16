@@ -104,6 +104,40 @@ $(document).on(
       dataType: "json",
       success: function (response) {
         if (response.success && response.data) {
+          const estadosData = response.data.estados;
+
+          // Estado "Entregado"
+          const fechaEntregado = estadosData.entregado?.fecha;
+          if (fechaEntregado) {
+            $orderInfo.find(".line .fas.entregado .date").text(fechaEntregado);
+          } else {
+            $orderInfo.find(".line .fas.entregado").hide();
+          }
+
+          // Estado "En ruta" (Transito)
+          const fechaTransito = estadosData.transito?.fecha;
+          if (fechaTransito) {
+            $orderInfo.find(".line .fas.ruta .date").text(fechaTransito);
+          } else {
+            $orderInfo.find(".line .fas.ruta").hide();
+          }
+
+          // Estado "En agencia" (Origen)
+          const fechaOrigen = estadosData.origen?.fecha;
+          if (fechaOrigen) {
+            $orderInfo.find(".line .fas.agencia .date").text(fechaOrigen);
+          } else {
+            $orderInfo.find(".line .fas.agencia").hide();
+          }
+
+          // Estado "Comprado" (Registrado)
+          const fechaRegistrado = estadosData.registrado?.fecha;
+          if (fechaRegistrado) {
+            $orderInfo.find(".line .fas.compra .date").text(fechaRegistrado);
+          } else {
+            $orderInfo.find(".line .fas.compra").hide();
+          }
+
           const rastreoData = response.data.rastreo;
           const mensajeEstado = response.data.mensaje_estado;
           const origen = rastreoData?.origen
