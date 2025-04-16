@@ -2,8 +2,7 @@ function eliminarPedidosAntiguos() {
   $.ajax({
     url: "routes/deleteOrderShipping.php",
     method: "POST",
-    success: function (response) {
-    },
+    success: function (response) {},
     error: function (xhr, status, error) {
       console.error("Error: ", error);
     },
@@ -188,23 +187,30 @@ $(document).ready(function () {
     .trigger("change");
 });
 
-
 $(document).ready(function () {
-  $('#registerTrackings .form .ins').on('click', function (e) {
-      e.preventDefault();
+  $("#registerTrackings .form .ins").on("click", function (e) {
+    e.preventDefault();
 
-      const data = {
-          order_number: $('#registerTrackings .form #order_number').val(),
-          agency: $('#registerTrackings .form #agency').val(),
-          code1: $('#registerTrackings .form #code1').val(),
-          code2: $('#registerTrackings .form #code2').val(),
-          client: {
-              document: $('#registerTrackings .form #document').val(),
-              name: $('#registerTrackings .form #name').val(),
-              phone: $('#registerTrackings .form #phone').val()
-          }
-      };
+    const form = $("#registerTrackings .form")[0];
 
-      console.log(JSON.stringify(data, null, 2));
+    if (!form.checkValidity()) {
+      console.error("Faltan datos requeridos");
+      form.reportValidity(); // Muestra los mensajes nativos del navegador
+      return;
+    }
+
+    const data = {
+      order_number: $("#registerTrackings .form #order_number").val(),
+      agency: $("#registerTrackings .form #agency").val(),
+      code1: $("#registerTrackings .form #code1").val(),
+      code2: $("#registerTrackings .form #code2").val(),
+      client: {
+        document: $("#registerTrackings .form #document").val(),
+        name: $("#registerTrackings .form #name").val(),
+        phone: $("#registerTrackings .form #phone").val(),
+      },
+    };
+
+    console.log(JSON.stringify(data, null, 2));
   });
 });
