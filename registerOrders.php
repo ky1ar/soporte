@@ -36,18 +36,14 @@ require_once 'includes/common/header.php';
             <label for="client_id">Client ID:</label>
             <input type="number" id="client_id" name="client_id" value="756" required><br><br>
 
-            <fieldset>
-                <legend>Client Information</legend>
+            <label for="client_document">Document:</label>
+            <input type="text" id="client_document" name="client[document]" value="01234567" required><br><br>
 
-                <label for="client_document">Document:</label>
-                <input type="text" id="client_document" name="client[document]" value="01234567" required><br><br>
+            <label for="client_name">Name:</label>
+            <input type="text" id="client_name" name="client[name]" value="Kenny Muñoz Serafin" required><br><br>
 
-                <label for="client_name">Name:</label>
-                <input type="text" id="client_name" name="client[name]" value="Kenny Muñoz Serafin" required><br><br>
-
-                <label for="client_phone">Phone:</label>
-                <input type="text" id="client_phone" name="client[phone]" value="946887982" required><br><br>
-            </fieldset>
+            <label for="client_phone">Phone:</label>
+            <input type="text" id="client_phone" name="client[phone]" value="946887982" required><br><br>
 
             <input type="submit" value="Submit">
         </form>
