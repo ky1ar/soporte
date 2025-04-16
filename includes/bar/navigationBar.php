@@ -7,7 +7,7 @@ $pages = [
     ['Slicers', 'slicers'],
     ['STLs', 'stl'],
     ['Contacto', 'contacto'],
-    ['Pedidos', 'pedidos'],
+    ['Pedidos', 'pedidos']
     // ['Conocimiento', 'conocimiento'],
     // ['Cursos', 'cursos']
 ];
