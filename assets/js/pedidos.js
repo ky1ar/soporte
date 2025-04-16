@@ -41,11 +41,8 @@ $(document).ready(function () {
                 '<img class="a3" src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt="Agencia 3">';
             }
 
-            const mensajeWA = `Hola ${order.nombre_usuario}. Tu orden ${
-              order.orden
-            } ha sido enviada con ${order.nombre_agencia}. Tu tracking es ${
-              order.code1 || order.code2
-            }. Puedes hacerle seguimiento aquí: https://asoporte.krear3d.com/pedidos`;
+            const mensajeWA = `Hola ${order.nombre_usuario}. Tu orden ${order.orden} ha sido enviada con ${order.nombre_agencia}. Tu tracking es ${[order.code1, order.code2].filter(Boolean).join(" / ")}. Puedes hacerle seguimiento aquí: https://asoporte.krear3d.com/pedidos`;
+
             const urlWA = `https://wa.me/51908944969?text=${encodeURIComponent(
               mensajeWA
             )}`;
