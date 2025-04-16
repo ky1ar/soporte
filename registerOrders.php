@@ -27,7 +27,7 @@ require_once 'includes/common/header.php';
                 </div>
                 <div class="phone">
                     <p>Agencia:</p>
-                    <input type="text" id="phone" name="phone" placeholder="999 888 777" required>
+                    <input type="text" id="phone" name="phone" placeholder="Celular" required>
                 </div>
                 <div class="agen">
                     <select name="agency" id="agency" required>
