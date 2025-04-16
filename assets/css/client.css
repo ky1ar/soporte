@@ -3352,7 +3352,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 25%;
+  width: 25rem;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
@@ -3409,7 +3409,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 
 #listOrdersShipping {
-  width: 75%;
+  width: calc(100% - 25rem);
   border: 0.1rem solid var(--newgray);
   border-radius: 1rem;
   padding: 2rem;
@@ -3486,11 +3486,11 @@ section.i3d .cont-cards .card div:last-child a {
   margin-bottom: 1rem;
 }
 #listOrdersShipping .order .cont .info .name,
-#listOrdersShipping .order .cont .info .doc{
+#listOrdersShipping .order .cont .info .doc {
   font-size: 0.9rem;
 }
 #listOrdersShipping .order .cont .info .name span,
-#listOrdersShipping .order .cont .info .doc span{ 
+#listOrdersShipping .order .cont .info .doc span {
   font-weight: 600;
 }
 #listOrdersShipping .order .cont .actions {
