@@ -188,3 +188,24 @@ $(document).ready(function () {
     })
     .trigger("change");
 });
+
+
+$(document).ready(function () {
+  $('#registerTrackings .form .ins').on('click', function (e) {
+      e.preventDefault();
+
+      const data = {
+          order_number: $('#registerTrackings .form #order_number').val(),
+          agency: $('#registerTrackings .form #agency').val(),
+          code1: $('#registerTrackings .form #code1').val(),
+          code2: $('#registerTrackings .form #code2').val(),
+          client: {
+              document: $('#registerTrackings .form #document').val(),
+              name: $('#registerTrackings .form #name').val(),
+              phone: $('#registerTrackings .form #phone').val()
+          }
+      };
+
+      console.log(JSON.stringify(data, null, 2));
+  });
+});
