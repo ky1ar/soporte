@@ -13,12 +13,13 @@ function eliminarPedidosAntiguos() {
 
 // Verificamos si la acción ya fue ejecutada en esta sesión
 if (!localStorage.getItem('pedidoEliminado')) {
-  setTimeout(function() {
-    eliminarPedidosAntiguos();
-    // Guardamos en localStorage que la acción ya fue ejecutada
-    localStorage.setItem('pedidoEliminado', 'true');
-  }, 3000); // Se ejecutará después de 3 segundos
+  // Ejecutamos inmediatamente al cargar la página
+  eliminarPedidosAntiguos();
+
+  // Guardamos en localStorage que la acción ya fue ejecutada
+  localStorage.setItem('pedidoEliminado', 'true');
 }
+
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
