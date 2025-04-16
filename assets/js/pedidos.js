@@ -53,7 +53,7 @@ $(document).ready(function () {
                     <p class="fecha">29 de abril</p>
                     <p class="status">${order.nombre_status}</p>
                     <p class="name">Nombre: ${order.nombre_usuario}</p>
-                    <p class="name">Documento: ${order.documento}</p>
+                    <p class="doc">Documento: ${order.documento}</p>
                   </div>
                   <div class="actions">
                     <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>

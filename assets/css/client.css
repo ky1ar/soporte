@@ -3484,9 +3484,12 @@ section.i3d .cont-cards .card div:last-child a {
   font-weight: 500;
   font-size: 1rem;
 }
-#listOrdersShipping .order .cont .info .details {
+#listOrdersShipping .order .cont .info .name{
   font-size: 0.9rem;
   margin-top: 1rem;
+}
+#listOrdersShipping .order .cont .info .doc{
+  font-size: .9rem;
 }
 #listOrdersShipping .order .cont .actions {
   display: flex;
