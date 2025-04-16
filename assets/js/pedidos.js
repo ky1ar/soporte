@@ -130,14 +130,6 @@ $(document).on(
             $orderInfo.find(".line .fas.agencia").hide();
           }
 
-          // Estado "Comprado" (Registrado)
-          const fechaRegistrado = estadosData.registrado?.fecha;
-          if (fechaRegistrado) {
-            $orderInfo.find(".line .fas.compra .date").text(fechaRegistrado);
-          } else {
-            $orderInfo.find(".line .fas.compra").hide();
-          }
-
           const rastreoData = response.data.rastreo;
           const mensajeEstado = response.data.mensaje_estado;
           const origen = rastreoData?.origen
