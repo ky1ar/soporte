@@ -159,3 +159,23 @@ $(document).on(
     });
   }
 );
+
+
+$(document).ready(function () {
+  const placeholders = {
+      '1': { code1: 'Shalom - Código Principal', code2: 'Shalom - Código Secundario' },
+      '2': { code1: 'Olva - Tracking Principal', code2: 'Olva - Referencia' },
+      '3': { code1: 'Marvisur - Guía', code2: 'Marvisur - Código Extra' }
+  };
+
+  $('#registerTrackings .form #agency').on('change', function () {
+      const selected = $(this).val();
+      if (placeholders[selected]) {
+          $('#registerTrackings .form .track #code1').attr('placeholder', placeholders[selected].code1);
+          $('#registerTrackings .form .track #code2').attr('placeholder', placeholders[selected].code2);
+      }
+  });
+
+  // Ejecutar una vez al cargar para inicializar correctamente
+  $('#registerTrackings .form #agency').trigger('change');
+});
