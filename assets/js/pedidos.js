@@ -1,9 +1,9 @@
 function eliminarPedidosAntiguos() {
   $.ajax({
-    url: "routes/deleteOrderShipping.php", 
+    url: "routes/deleteOrderShipping.php",
     method: "POST",
     success: function (response) {
-      console.log("Respuesta: ", response); 
+      console.log("Respuesta: ", response);
     },
     error: function (xhr, status, error) {
       console.error("Error: ", error);
@@ -11,7 +11,6 @@ function eliminarPedidosAntiguos() {
   });
 }
 eliminarPedidosAntiguos();
-
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
@@ -28,29 +27,39 @@ $(document).ready(function () {
         } else if (response.status === "success") {
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>');
+
           response.orders.forEach((order) => {
+            let agenciaSrc = "";
+            if (order.id_agencia == 1) {
+              agenciaImg = '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt="Agencia 1">';
+            } else if (order.id_agencia == 2) {
+              agenciaImg = '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png" alt="Agencia 2">';
+            } else if (order.id_agencia == 3) {
+              agenciaImg = '<img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt="Agencia 3">';
+            }
+
             container.append(`
-                          <div class="order">
-                              <div class="head">
-                                  <p class="orderNum">Orden: <span>${order.orden}</span></p>
-                                  <p class="agencia">Agencia: <span>${order.nombre_agencia}</span></p>
-                              </div>
-                              <div class="cont">
-                                  <div class="info">
-                                      <p class="fecha">29 de abril</p>
-                                      <p class="status">${order.nombre_status}</p>
-                                      <p class="name">Nombre: ${order.nombre_usuario}</p>
-                                      <p class="name">Documento: ${order.documento}</p>
-                                  </div>
-                                  <div class="actions">
-                                      <!-- Botón de Rastrear con los atributos data-code1 y data-code2 -->
-                                      <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>
-                                      <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
-                                  </div>
-                              </div>
-                          </div>
-                      `);
+              <div class="order">
+                <div class="head">
+                  <p class="orderNum">Orden: <span>${order.orden}</span></p>
+                  <div class="agencia">${agenciaSrc}</div>
+                </div>
+                <div class="cont">
+                  <div class="info">
+                    <p class="fecha">29 de abril</p>
+                    <p class="status">${order.nombre_status}</p>
+                    <p class="name">Nombre: ${order.nombre_usuario}</p>
+                    <p class="name">Documento: ${order.documento}</p>
+                  </div>
+                  <div class="actions">
+                    <button class="btn" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.id_agencia}">Rastrear</button>
+                    <a class="btn" href="https://wa.me/51910900581?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.orden}" target="_blank">Obtener Ayuda</a>
+                  </div>
+                </div>
+              </div>
+            `);
           });
+
           container.fadeIn().css("display", "flex");
         }
       },
