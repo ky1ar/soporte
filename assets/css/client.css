@@ -3435,14 +3435,12 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: var(--primary);
   gap: 1rem;
 }
-#listOrdersShipping .order .head .orderNum,
-#listOrdersShipping .order .head .agencia {
+#listOrdersShipping .order .head .orderNum {
   margin: 0;
   font-size: 1.05rem;
   color: var(--white);
 }
-#listOrdersShipping .order .head .orderNum span,
-#listOrdersShipping .order .head .agencia span {
+#listOrdersShipping .order .head .orderNum span {
   font-weight: 600;
 }
 #listOrdersShipping .order .cont {
