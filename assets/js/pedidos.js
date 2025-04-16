@@ -192,7 +192,7 @@ $(document).ready(function () {
     const doc = $(this).val().trim();
 
     if (doc) {
-      fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
+      fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -208,23 +208,27 @@ $(document).ready(function () {
           // Mostrar el resultado de la API en consola
           console.log("Resultado de la API:", data);
 
-          // Asignar el nombre recibido al campo #name
-          if (data.success && data.data?.name) {
-            $("#registerTrackings .form #name").val(data.data.name);
+          // Asignar el nombre y el teléfono recibido a los campos correspondientes
+          if (data.success && data.data) {
+            if (data.data.name) {
+              $("#registerTrackings .form #name").val(data.data.name);
+            }
+            if (data.data.phone) {
+              $("#registerTrackings .form #phone").val(data.data.phone);
+            }
           } else {
-            console.log(
-              "No se encontró el nombre o hubo un error en la respuesta."
-            );
+            console.log("No se encontró el nombre o el teléfono, o hubo un error en la respuesta.");
           }
         })
         .catch((error) => {
-          console.error("Error al consultar el nombre del usuario:", error);
+          console.error("Error al consultar los datos del usuario:", error);
         });
     } else {
       console.log("No se proporcionó un valor para el documento.");
     }
   });
 });
+
 
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
