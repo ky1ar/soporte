@@ -3443,6 +3443,12 @@ section.i3d .cont-cards .card div:last-child a {
 #listOrdersShipping .order .head .orderNum span {
   font-weight: 600;
 }
+#listOrdersShipping .order .head .agencia{
+  display: flex;
+}
+#listOrdersShipping .order .head .agencia img{
+  width: 4rem;
+}
 #listOrdersShipping .order .cont {
   display: flex;
   padding: 1rem;
