@@ -3701,13 +3701,13 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #registerTrackings .form .order,
 #registerTrackings .form .doc,
-#registerTrackings .form .order,
+#registerTrackings .form .name,
 #registerTrackings .form .phone {
   width: 49%;
 }
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
-#registerTrackings .form .order input
+#registerTrackings .form .name input
 #registerTrackings .form .phone input {
   border: 0.1rem solid var(--newgray);
   padding: 0.5rem;
