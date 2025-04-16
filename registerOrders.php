@@ -25,6 +25,7 @@ require_once 'includes/common/header.php';
                     <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" required>
                 </div>
                 <div>
+                    <p>Agencia:</p>
                     <input type="text" id="phone" name="phone" placeholder="999 888 777" required>
                 </div>
                 <div>
