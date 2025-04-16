@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['documento'])) {
             a.agencia_name AS nombre_agencia,
             o.code1,
             o.code2,
-            s.status AS nombre_status,
+            s.status AS nombre_status
         FROM Orders_Shipping o
         INNER JOIN Users_Shipping u ON o.id_user = u.id_user
         LEFT JOIN Agency_Shipping a ON o.agencia = a.id_agencia
