@@ -3437,7 +3437,7 @@ section.i3d .cont-cards .card div:last-child a {
   justify-content: space-between;
   align-items: center;
 }
-#listOrdersShipping .order .head .orderNum
+#listOrdersShipping .order .head .orderNum,
 #listOrdersShipping .order .head .track {
   margin: 0;
   font-size: 1.05rem;
