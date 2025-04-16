@@ -218,30 +218,4 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function () {
-  $("#registerTrackings .form .ins").on("click", function (e) {
-    e.preventDefault();
 
-    const form = $("#registerTrackings .form")[0];
-
-    if (!form.checkValidity()) {
-      console.log("Faltan datos requeridos");
-      form.reportValidity();
-      return;
-    }
-
-    const data = {
-      order_number: $("#registerTrackings .form #order_number").val(),
-      agency: $("#registerTrackings .form #agency").val(),
-      code1: $("#registerTrackings .form #code1").val(),
-      code2: $("#registerTrackings .form #code2").val(),
-      client: {
-        document: $("#registerTrackings .form #document").val(),
-        name: $("#registerTrackings .form #name").val(),
-        phone: $("#registerTrackings .form #phone").val(),
-      },
-    };
-
-    console.log(JSON.stringify(data, null, 2));
-  });
-});
