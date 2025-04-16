@@ -186,7 +186,6 @@ $(document).ready(function () {
     })
     .trigger("change");
 });
-
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
     e.preventDefault();
@@ -194,8 +193,8 @@ $(document).ready(function () {
     const form = $("#registerTrackings .form")[0];
 
     if (!form.checkValidity()) {
-      console.error("Faltan datos requeridos");
-      form.reportValidity(); // Muestra los mensajes nativos del navegador
+      console.log("Faltan datos requeridos");
+      form.reportValidity();
       return;
     }
 
