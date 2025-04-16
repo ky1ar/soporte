@@ -15,7 +15,7 @@ function eliminarPedidosAntiguos() {
   });
 }
 
-setInterval(eliminarPedidosAntiguos, semana * 1000);
+setInterval(eliminarPedidosAntiguos, 5000);
 
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
