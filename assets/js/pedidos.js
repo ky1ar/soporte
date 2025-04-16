@@ -45,7 +45,7 @@ $(document).ready(function () {
               <div class="order">
                 <div class="head">
                   <p class="orderNum">Orden: <span>${order.orden}</span></p>
-                  <p class="track">Tracking: <span>${order.code1}/${order.code2}</span></p>
+                  <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
                   <div class="agencia">${agenciaImg}</div>
                 </div>
                 <div class="cont">
