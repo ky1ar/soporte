@@ -192,10 +192,16 @@ $(document).ready(function () {
     const doc = $(this).val().trim();
 
     if (doc) {
-      fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
+      // Usando un proxy para manejar CORS
+      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+      const targetUrl = `https://devintranet.krear3d.com/api/user/name/${doc}`;
+
+      fetch(proxyUrl + targetUrl, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          // Puede que necesites agregar otros encabezados dependiendo de tu caso.
+          "X-Requested-With": "XMLHttpRequest",
         },
       })
         .then((response) => {
@@ -220,6 +226,7 @@ $(document).ready(function () {
     }
   });
 });
+
 
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
