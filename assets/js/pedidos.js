@@ -188,14 +188,10 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  let previousDoc = "";
-
-  $("#registerTrackings .form #document").on("input", function () {
+  $("#registerTrackings .form #document").on("blur", function () {
     const doc = $(this).val().trim();
 
-    if (doc && doc !== previousDoc) {
-      previousDoc = doc;
-
+    if (doc) {
       fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`, {
         method: "GET",
         headers: {
@@ -209,8 +205,10 @@ $(document).ready(function () {
           return response.json();
         })
         .then((data) => {
+          // Mostrar el resultado de la API en consola
           console.log("Resultado de la API:", data);
 
+          // Asignar el nombre y el teléfono recibido a los campos correspondientes
           if (data.success && data.data) {
             if (data.data.name) {
               $("#registerTrackings .form #name").val(data.data.name);
@@ -225,12 +223,11 @@ $(document).ready(function () {
         .catch((error) => {
           console.error("Error al consultar los datos del usuario:", error);
         });
-    } else if (!doc) {
+    } else {
       console.log("No se proporcionó un valor para el documento.");
     }
   });
 });
-
 
 
 $(document).ready(function () {
