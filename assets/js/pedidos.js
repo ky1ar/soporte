@@ -3,7 +3,6 @@ function eliminarPedidosAntiguos() {
     url: "routes/deleteOrderShipping.php",
     method: "POST",
     success: function (response) {
-      console.log("Respuesta: ", response);
     },
     error: function (xhr, status, error) {
       console.error("Error: ", error);
