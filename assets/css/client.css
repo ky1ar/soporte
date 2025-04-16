@@ -3720,3 +3720,8 @@ section.i3d .cont-cards .card div:last-child a {
   width: 100%;
   font-size: .9rem;
 }
+#registerTrackings .form .agen-tit{
+  font-size: 1rem;
+  font-weight: 1rem;
+  width: 100%;
+}

@@ -28,8 +28,10 @@ require_once 'includes/common/header.php';
                 <div class="phone">
                     <input type="text" id="phone" name="phone" placeholder="Celular" required>
                 </div>
+                <div class="agen-tit">
+                    <p>Agencia</p>
+                </div>
                 <div class="agen">
-                    <p>Agencia:</p>
                     <select name="agency" id="agency" required>
                         <option value="1">Shalom</option>
                         <option value="2">Olva</option>
