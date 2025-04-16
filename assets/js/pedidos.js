@@ -192,12 +192,15 @@ $(document).ready(function () {
     const doc = $(this).val().trim();
 
     if (doc) {
-      fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        `https://cors-anywhere.herokuapp.com/https://devintranet.krear3d.com/api/user/name/${doc}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
