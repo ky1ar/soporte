@@ -190,9 +190,34 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#registerTrackings .form #document").on("blur", function () {
     const doc = $(this).val().trim();
-    console.log("Valor del documento:", doc);
+    
+    if (doc) {
+      // Llamada a la API con el valor del campo 'document'
+      fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Mostrar el resultado de la API en consola
+          console.log("Resultado de la API:", data);
+        })
+        .catch((error) => {
+          console.error("Error al consultar el nombre del usuario:", error);
+        });
+    } else {
+      console.log("No se proporcionó un valor para el documento.");
+    }
   });
 });
+
 
 
 $(document).ready(function () {
