@@ -16,27 +16,27 @@ require_once 'includes/common/header.php';
             <form action="#" method="POST" class="form">
                 <h1 class="title">Registro de Tracking</h1>
 
-                <div>
+                <div class="order">
                     <input type="text" id="order_number" name="order_number" placeholder="N° Orden" required>
                 </div>
-                <div>
+                <div class="doc">
                     <input type="text" id="document" name="document" placeholder="DNI o RUC" required>
                 </div>
-                <div>
+                <div class="name">
                     <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" required>
                 </div>
-                <div>
+                <div class="phone">
                     <p>Agencia:</p>
                     <input type="text" id="phone" name="phone" placeholder="999 888 777" required>
                 </div>
-                <div>
+                <div class="agen">
                     <select name="agency" id="agency" required>
                         <option value="1">Shalom</option>
                         <option value="2">Olva</option>
                         <option value="3">Marvisur</option>
                     </select>
                 </div>
-                <div>
+                <div class="track">
                     <p>Tracking:</p>
                     <input type="text" id="code1" name="code1" placeholder="Code1" required>
                     <input type="text" id="code2" name="code2" placeholder="Code2" required>
