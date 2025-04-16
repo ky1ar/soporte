@@ -106,25 +106,37 @@ $(document).on(
         if (response.success && response.data) {
           const estadosData = response.data.estados;
 
-          function mostrarEstado(selector, estado) {
-            const fecha = estado?.fecha;
-            if (fecha) {
-              // Si tiene fecha, mostramos y actualizamos el texto
-              $(selector).find(".date").text(fecha);
-            } else {
-              // Si no tiene fecha (null o undefined), eliminamos el elemento
-              $(selector).remove();
-            }
+          // Estado "Entregado"
+          const fechaEntregado = estadosData.entregado?.fecha;
+          if (fechaEntregado) {
+            $orderInfo.find(".line .fas.entregado .date").text(fechaEntregado);
+          } else {
+            $orderInfo.find(".line .fas.entregado").hide();
           }
 
-          // Estado "Entregado"
-          mostrarEstado(".line .fas.entregado", estadosData.entregado);
-
           // Estado "En ruta" (Transito)
-          mostrarEstado(".line .fas.ruta", estadosData.transito);
+          const fechaTransito = estadosData.transito?.fecha;
+          if (fechaTransito) {
+            $orderInfo.find(".line .fas.ruta .date").text(fechaTransito);
+          } else {
+            $orderInfo.find(".line .fas.ruta").hide();
+          }
 
           // Estado "En agencia" (Origen)
-          mostrarEstado(".line .fas.agencia", estadosData.origen);
+          const fechaOrigen = estadosData.origen?.fecha;
+          if (fechaOrigen) {
+            $orderInfo.find(".line .fas.agencia .date").text(fechaOrigen);
+          } else {
+            $orderInfo.find(".line .fas.agencia").hide();
+          }
+
+          // Estado "Comprado" (Registrado)
+          const fechaRegistrado = estadosData.registrado?.fecha;
+          if (fechaRegistrado) {
+            $orderInfo.find(".line .fas.compra .date").text(fechaRegistrado);
+          } else {
+            $orderInfo.find(".line .fas.compra").hide();
+          }
 
           const rastreoData = response.data.rastreo;
           const mensajeEstado = response.data.mensaje_estado;
