@@ -3,7 +3,7 @@ const SEGUNDOS_EN_24_HORAS = SEGUNDOS_EN_UNA_HORA * 24;
 
 function eliminarPedidosAntiguos() {
   $.ajax({
-    url: "routes/deleteOrderShippinh.php", 
+    url: "routes/deleteOrderShipping.php", 
     method: "POST",
     success: function (response) {
       console.log("Respuesta: ", response); 
