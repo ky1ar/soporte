@@ -45,7 +45,7 @@ $(document).ready(function () {
               <div class="order">
                 <div class="head">
                   <p class="orderNum">Orden: <span>${order.orden}</span></p>
-                  <div class="agencia">${agenciaSrc}</div>
+                  <div class="agencia">${agenciaImg}</div>
                 </div>
                 <div class="cont">
                   <div class="info">
