@@ -13,7 +13,7 @@ require_once 'includes/common/header.php';
     ?>
     <div class="wrapper">
         <div id="registerTrackings">
-            <h1>Registro de Tracking</h1>
+            <h1 class="title">Registro de Tracking</h1>
             <form action="#" method="POST" class="form">
                 <label for="order_number">Order Number:</label>
                 <input type="text" id="order_number" name="order_number" required><br><br>
