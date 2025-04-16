@@ -1,6 +1,6 @@
 const hora = 3600; 
-const dia = SEGUNDOS_EN_UNA_HORA * 24; 
-const semana = SEGUNDOS_EN_24_HORAS * 7; 
+const dia = hora * 24; 
+const semana = dia * 7; 
 
 function eliminarPedidosAntiguos() {
   $.ajax({
