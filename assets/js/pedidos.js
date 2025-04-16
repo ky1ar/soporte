@@ -190,7 +190,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#registerTrackings .form #document").on("blur", function () {
     const doc = $(this).val().trim();
-    
+
     if (doc) {
       fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
         method: "GET",
@@ -207,6 +207,15 @@ $(document).ready(function () {
         .then((data) => {
           // Mostrar el resultado de la API en consola
           console.log("Resultado de la API:", data);
+
+          // Asignar el nombre recibido al campo #name
+          if (data.success && data.data?.name) {
+            $("#registerTrackings .form #name").val(data.data.name);
+          } else {
+            console.log(
+              "No se encontró el nombre o hubo un error en la respuesta."
+            );
+          }
         })
         .catch((error) => {
           console.error("Error al consultar el nombre del usuario:", error);
@@ -216,8 +225,6 @@ $(document).ready(function () {
     }
   });
 });
-
-
 
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
