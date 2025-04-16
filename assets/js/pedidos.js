@@ -176,7 +176,7 @@ $(document).ready(function () {
 
       const code2Field =
         val === "2"
-          ? `<select id="code2" name="code2" required>
+          ? `<select class="sp" id="code2" name="code2" required>
                  <option value="25">25</option>
                  <option value="24">24</option>
                  <option value="23">23</option>
