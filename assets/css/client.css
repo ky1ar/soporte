@@ -3509,7 +3509,7 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: #40c794;
 }
 #listOrdersShipping .order .cont .actions .btn:nth-child(2) {
-  background-color: var(--secondary);
+  background-color: #fdad3a;
 }
 #orderInfo {
   position: fixed;
