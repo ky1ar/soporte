@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['documento'])) {
         LEFT JOIN Agency_Shipping a ON o.agencia = a.id_agencia
         LEFT JOIN Status_Shipping s ON o.status = s.id_status
         WHERE u.documento = ?
+        ORDER BY o.fecha_creacion DESC
     ";
 
     if ($stmt = $conn->prepare($query)) {
