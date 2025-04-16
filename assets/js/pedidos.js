@@ -217,7 +217,9 @@ $(document).ready(function () {
               $("#registerTrackings .form #phone").val(data.data.phone);
             }
           } else {
-            console.log("No se encontró el nombre o el teléfono, o hubo un error en la respuesta.");
+            console.log(
+              "No se encontró el nombre o el teléfono, o hubo un error en la respuesta."
+            );
           }
         })
         .catch((error) => {
@@ -228,7 +230,6 @@ $(document).ready(function () {
     }
   });
 });
-
 
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
