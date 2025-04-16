@@ -192,21 +192,22 @@ $(document).ready(function () {
     const doc = $(this).val().trim();
 
     if (doc) {
-      $.ajax({
-        url: "https://devintranet.krear3d.com/api/user/name",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({ document: doc }),
-        success: function (res) {
-          if (res.success && res.data?.name) {
-            $("#registerTrackings .form #name").val(res.data.name);
-            console.log("Nombre cargado:", res.data.name);
+      fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success && data.data?.name) {
+            $("#registerTrackings .form #name").val(data.data.name);
+            console.log("Nombre cargado:", data.data.name);
           }
-        },
-        error: function () {
-          console.log("Error al consultar el nombre del usuario.");
-        },
-      });
+        })
+        .catch((error) => {
+          console.log("Error al consultar el nombre del usuario:", error);
+        });
     }
   });
 });
