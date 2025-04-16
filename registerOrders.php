@@ -13,8 +13,9 @@ require_once 'includes/common/header.php';
     ?>
     <div class="wrapper">
         <div id="registerTrackings">
-            <h1 class="title">Registro de Tracking</h1>
             <form action="#" method="POST" class="form">
+                <h1 class="title">Registro de Tracking</h1>
+
                 <div>
                     <input type="text" id="order_number" name="order_number" placeholder="N° Orden" required>
                 </div>
