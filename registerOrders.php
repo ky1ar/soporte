@@ -17,7 +17,7 @@ require_once 'includes/common/header.php';
         </div>
     </section>
     <div class="registerTrackings">
-        <form action="#" method="POST">
+        <form action="#" method="POST" class="form">
             <label for="order_number">Order Number:</label>
             <input type="text" id="order_number" name="order_number" value="S432432" required><br><br>
 
