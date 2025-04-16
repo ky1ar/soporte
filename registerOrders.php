@@ -15,33 +15,30 @@ require_once 'includes/common/header.php';
         <div id="registerTrackings">
             <h1 class="title">Registro de Tracking</h1>
             <form action="#" method="POST" class="form">
-                <label for="order_number">N° Orden:</label>
-                <input type="text" id="order_number" name="order_number" required>
-
-                <label for="agency_id">Agency ID:</label>
-                <input type="number" id="agency_id" name="agency_id" required>
-
-                <label for="admin_id">Admin ID:</label>
-                <input type="number" id="admin_id" name="admin_id" required>
-
-                <label for="code1">Code 1:</label>
-                <input type="text" id="code1" name="code1" required>
-
-                <label for="code2">Code 2:</label>
-                <input type="text" id="code2" name="code2" required>
-
-                <label for="client_id">Client ID:</label>
-                <input type="number" id="client_id" name="client_id" required>
-
-                <label for="client_document">Document:</label>
-                <input type="text" id="client_document" name="client[document]" required>
-
-                <label for="client_name">Name:</label>
-                <input type="text" id="client_name" name="client[name]" required>
-
-                <label for="client_phone">Phone:</label>
-                <input type="text" id="client_phone" name="client[phone]" required>
-
+                <div>
+                    <input type="text" id="order_number" name="order_number" placeholder="N° Orden" required>
+                </div>
+                <div>
+                    <input type="text" id="document" name="document" placeholder="DNI o RUC" required>
+                </div>
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" required>
+                </div>
+                <div>
+                    <input type="text" id="phone" name="phone" placeholder="999 888 777" required>
+                </div>
+                <div>
+                    <select name="agency" id="agency" required>
+                        <option value="1">Shalom</option>
+                        <option value="2">Olva</option>
+                        <option value="3">Marvisur</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Tracking:</p>
+                    <input type="text" id="code1" name="code1" placeholder="Code1" required>
+                    <input type="text" id="code2" name="code2" placeholder="Code2" required>
+                </div>
                 <input type="submit" value="Submit">
             </form>
 
