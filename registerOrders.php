@@ -1,5 +1,4 @@
 <?php
-$currentPage = "Pedidos";
 require_once 'includes/app/db.php';
 require_once 'includes/app/globals.php';
 require_once 'includes/common/header.php';
@@ -11,12 +10,7 @@ require_once 'includes/common/header.php';
     require_once 'includes/bar/topBar.php';
     require_once 'includes/bar/navigationBar.php';
     ?>
-    <section id="frontSlider">
-        <div class="wrapper">
-            <img class="imaSop" width="1920" height="630" src="assets/img/consulta-pc.webp">
-        </div>
-    </section>
-    <div class="registerTrackings">
+    <div id="registerTrackings">
         <form action="#" method="POST" class="form">
             <label for="order_number">Order Number:</label>
             <input type="text" id="order_number" name="order_number" required><br><br>
