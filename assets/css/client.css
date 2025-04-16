@@ -3693,7 +3693,7 @@ section.i3d .cont-cards .card div:last-child a {
   border-radius: 1rem;
   justify-content: space-between;
 }
-#registerTrackings .form div{
+#registerTrackings .form div {
   display: flex;
 }
 #registerTrackings .form .title {
@@ -3703,38 +3703,39 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0 0 2rem 0;
 }
 #registerTrackings .form .order,
-#registerTrackings .form .phone{
+#registerTrackings .form .phone {
   width: 40%;
   margin-bottom: 1rem;
 }
 #registerTrackings .form .doc,
-#registerTrackings .form .name{
+#registerTrackings .form .name {
   width: 58%;
   margin-bottom: 1rem;
 }
-#registerTrackings .form .agen{
-  width: 20%;
+#registerTrackings .form .agen {
+  width: 28%;
 }
-#registerTrackings .form .track{
-  width: 78%;
+#registerTrackings .form .track {
+  width: 70%;
+  justify-content: space-between;
 }
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
 #registerTrackings .form .name input,
 #registerTrackings .form .phone input,
 #registerTrackings .form .agen select,
-#registerTrackings .form .track input{
+#registerTrackings .form .track input {
   border: 0.1rem solid var(--newgray);
   padding: 0.5rem;
   border-radius: 0.5rem;
   outline: none;
   width: 100%;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
-#registerTrackings .form .track input{
+#registerTrackings .form .track input {
   width: 39%;
 }
-#registerTrackings .form .agen-tit{
+#registerTrackings .form .agen-tit {
   font-size: 1rem;
   font-weight: 1rem;
   width: 100%;
