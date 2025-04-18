@@ -252,32 +252,28 @@ $(document).on(
 
 $(document).on(
   "click",
-  '#listOrdersShipping .order .cont .actions .btn[data-agency="2"]', // Cambié "data-agency" a 2 para Olva
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="2"]',
   function () {
-    const code1 = $(this).data("code1"); // Este es el tracking number
-    const code2 = $(this).data("code2"); // Este es el emission number
+    const code1 = $(this).data("code1");
+    const code2 = $(this).data("code2");
     const $orderInfo = $("#orderInfo");
 
-    // Mostrar el loader
     $orderInfo.find(".content .loaders").css("display", "flex");
-
     $.ajax({
-      url: "routes/scrapOlva.php", // Asegúrate de que la URL sea correcta para tu archivo PHP
+      url: "routes/scrapOlva.php",
       method: "POST",
       data: { numero: code1, codigo: code2 },
       dataType: "json",
       success: function (response) {
         if (response.success && response.data) {
-          const generalData = response.data.general; // Datos generales
-          const detallesData = response.data.details; // Detalles de rastreo
+          const generalData = response.data.general;
+          const detallesData = response.data.details;
 
-          // Función para actualizar los estados (solo con fecha)
           function actualizarEstado(selector, estado) {
-            const fecha = estado?.fecha_creacion; // Solo tomamos la fecha sin la hora
+            const fecha = estado?.fecha_creacion;
             const elemento = $orderInfo.find(selector);
 
             if (fecha) {
-              // Convertir la fecha de formato "YYYY-MM-DD" a "DD-MM-YYYY"
               const [year, month, day] = fecha.split("-");
               const formattedDate = `${day}-${month}-${year}`;
               elemento.find(".date").text(formattedDate);
@@ -287,27 +283,33 @@ $(document).on(
             }
           }
 
-          // Actualización de los estados según la respuesta de los detalles
           detallesData.forEach((estado) => {
             if (estado.estado_tracking === "ENTREGADO") {
               actualizarEstado(".line .fas.entregado", estado);
-            } else if (estado.estado_tracking === "TRACKING EN TRANSPORTE") {
-              actualizarEstado(".line .fas.ruta", estado);
-            } else if (estado.estado_tracking === "RECEPCION GUIA") {
+            } else if (estado.estado_tracking === "ASIGNADO") {
+              const estadoAsignado = detallesData.reduce((max, current) => {
+                return new Date(max.fecha_creacion) >
+                  new Date(current.fecha_creacion)
+                  ? max
+                  : current;
+              });
+              actualizarEstado(".line .fas.ruta", estadoAsignado);
+            } else if (estado.estado_tracking === "RECEPCION TIENDA") {
               actualizarEstado(".line .fas.agencia", estado);
             }
           });
 
-          // Mostrar datos generales del envío
           const origen = `${generalData.origen || "—"}`;
           const destino = `${generalData.destino || "—"}`;
 
           // Actualizar la información en el panel
           $orderInfo.find(".content .head .title span").text("Olva");
-          $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
+          $orderInfo.find(".info .cod span").text(`${code1} - ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
-          $orderInfo.find(".content .head .estado-actual").text(generalData.nombre_estado_tracking); // Estado final de rastreo
+          $orderInfo
+            .find(".content .head .estado-actual")
+            .text(generalData.nombre_estado_tracking);
         } else {
           alert("No se pudo obtener la información del envío.");
         }
