@@ -109,11 +109,12 @@ $(document).on(
             const elemento = $orderInfo.find(selector);
 
             if (fecha) {
-              // Si tiene fecha, actualizamos el texto y nos aseguramos de que sea visible
-              elemento.find(".date").text(fecha);
-              elemento.show(); // Aseguramos que se muestre
+              const [datePart, timePart] = fecha.split(" ");
+              const [year, month, day] = datePart.split("-");
+              const formattedDate = `${day}-${month}-${year} ${timePart}`;
+              elemento.find(".date").text(formattedDate);
+              elemento.show();
             } else {
-              // Si no tiene fecha, eliminamos el elemento (lo ocultamos)
               elemento.hide();
             }
           }
@@ -205,10 +206,6 @@ $(document).ready(function () {
           return response.json();
         })
         .then((data) => {
-          // Mostrar el resultado de la API en consola
-          console.log("Resultado de la API:", data);
-
-          // Asignar el nombre y el teléfono recibido a los campos correspondientes
           if (data.success && data.data) {
             if (data.data.name) {
               $("#registerTrackings .form #name").val(data.data.name);
