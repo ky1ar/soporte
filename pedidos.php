@@ -76,48 +76,11 @@ require_once 'includes/common/header.php';
                             <span class="dash"></span>
                             <p class="date"></p>
                         </div>
-                        <div class="fas compra">
-                            <p class="status"><img src="assets/img/sh-compra.webp" alt=""> Comprado</p>
-                            <span class="dash"></span>
-                            <p class="date">02-04-2025</p>
-                        </div>
                     </div>
 
                 </div>
             </div>
         </div>
-        <!-- <div id="viewPedidos">
-            <div class="menu">
-                <button onclick="mostrarFormSh(1)" class="active"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png" alt=""></button>
-                <button onclick="mostrarFormSh(2)"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png" alt=""></button>
-                <button onclick="mostrarFormSh(3)"><img src="https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png" alt=""></button>
-            </div>
-            <div class="forms">
-                <div id="formShalom" class="formulario active shalom">
-                    <form id="rastreoForm">
-                        <label>Número de Orden:</label>
-                        <input type="text" name="numero" required><br><br>
-
-                        <label>Código:</label>
-                        <input type="text" name="codigo" required><br><br>
-
-                        <button type="submit">Buscar</button>
-                    </form>
-
-                    <div id="resultado" style="margin-top: 20px;"></div>
-                </div>
-
-                <div id="formOlva" class="formulario olva">
-                    <h2>Formulario Archivo 2</h2>
-                    <p>Contenido del formulario 2.</p>
-                </div>
-
-                <div id="formMarvisur" class="formulario marvi">
-                    <h2>Formulario Archivo 3</h2>
-                    <p>Contenido del formulario 3.</p>
-                </div>
-            </div>
-        </div> -->
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
     <script src="/assets/js/pedidos.js"></script>
