@@ -374,8 +374,9 @@ $(document).on(
           if (estados.recepcion)
             actualizarEstado(".line .fas.agencia", estados.recepcion.FECEVENTO);
 
+          // Aquí se obtienen los valores de origen y destino de ID: 0
           const { DEPORIGEN: origen = "—", DEPDESTINO: destino = "—" } =
-            detallesData[0];
+            detallesData.find((item) => item.ID === 0) || {};  // Asegúrate de encontrar el registro con ID: 0
 
           $orderInfo.find(".content .head .title span").text("Marvisur");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
