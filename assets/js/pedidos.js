@@ -1,15 +1,104 @@
-function eliminarPedidosAntiguos() {
-  $.ajax({
-    url: "routes/deleteOrderShipping.php",
-    method: "POST",
-    success: function (response) {},
-    error: function (xhr, status, error) {
-      console.error("Error: ", error);
-    },
-  });
-}
-eliminarPedidosAntiguos();
+// Agencias en formulario
+$(document).ready(function () {
+  const placeholders = {
+    1: ["N° de Orden", "Código de Orden"],
+    2: ["N° de Tracking", ""],
+    3: ["V001", "0000001"],
+  };
 
+  $("#registerTrackings .form #agency")
+    .on("change", function () {
+      const val = $(this).val();
+      const [ph1, ph2] = placeholders[val] || ["", ""];
+
+      $("#registerTrackings .form .track #code1").attr("placeholder", ph1);
+
+      const code2Field =
+        val === "2"
+          ? `<select class="sp" id="code2" name="code2" required>
+                 <option value="25">25</option>
+                 <option value="24">24</option>
+                 <option value="23">23</option>
+                 <option value="22">22</option>
+             </select>`
+          : `<input type="text" id="code2" name="code2" placeholder="${ph2}" required>`;
+
+      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+    })
+    .trigger("change");
+});
+
+// endpoint de documento
+$(document).ready(function () {
+  $("#registerTrackings .form #document").on("blur", function () {
+    const doc = $(this).val().trim();
+
+    if (doc) {
+      fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success && data.data) {
+            if (data.data.name) {
+              $("#registerTrackings .form #name").val(data.data.name);
+            }
+            if (data.data.phone) {
+              $("#registerTrackings .form #phone").val(data.data.phone);
+            }
+          } else {
+            console.log(
+              "No se encontró el nombre o el teléfono, o hubo un error en la respuesta."
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("Error al consultar los datos del usuario:", error);
+        });
+    } else {
+      console.log("No se proporcionó un valor para el documento.");
+    }
+  });
+});
+
+// envio en JSON
+$(document).ready(function () {
+  $("#registerTrackings .form .ins").on("click", function (e) {
+    e.preventDefault();
+
+    const form = $("#registerTrackings .form")[0];
+
+    if (!form.checkValidity()) {
+      console.log("Faltan datos requeridos");
+      form.reportValidity();
+      return;
+    }
+
+    const data = {
+      order_number: $("#registerTrackings .form #order_number").val(),
+      agency: $("#registerTrackings .form #agency").val(),
+      code1: $("#registerTrackings .form #code1").val(),
+      code2: $("#registerTrackings .form #code2").val(),
+      client: {
+        document: $("#registerTrackings .form #document").val(),
+        name: $("#registerTrackings .form #name").val(),
+        phone: $("#registerTrackings .form #phone").val(),
+      },
+    };
+
+    console.log(JSON.stringify(data, null, 2));
+  });
+});
+
+// Lista de Pedidos
 $(document).ready(function () {
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
@@ -71,6 +160,7 @@ $(document).ready(function () {
   });
 });
 
+// Modal de Tracking
 $(document).ready(function () {
   $("#listOrdersShipping").on("click", ".actions .btn.op", function () {
     $("#orderInfo").css("display", "flex").hide().fadeIn();
@@ -84,6 +174,7 @@ $(document).ready(function () {
   });
 });
 
+// Scrap Shalom
 $(document).on(
   "click",
   '#listOrdersShipping .order .cont .actions .btn[data-agency="1"]',
@@ -159,99 +250,75 @@ $(document).on(
   }
 );
 
-$(document).ready(function () {
-  const placeholders = {
-    1: ["N° de Orden", "Código de Orden"],
-    2: ["N° de Tracking", ""],
-    3: ["V001", "0000001"],
-  };
+$(document).on(
+  "click",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="2"]', // Cambié "data-agency" a 2 para Olva
+  function () {
+    const code1 = $(this).data("code1"); // Este es el tracking number
+    const code2 = $(this).data("code2"); // Este es el emission number
+    const $orderInfo = $("#orderInfo");
 
-  $("#registerTrackings .form #agency")
-    .on("change", function () {
-      const val = $(this).val();
-      const [ph1, ph2] = placeholders[val] || ["", ""];
+    // Mostrar el loader
+    $orderInfo.find(".content .loaders").css("display", "flex");
 
-      $("#registerTrackings .form .track #code1").attr("placeholder", ph1);
+    $.ajax({
+      url: "routes/scrapOlva.php", // Asegúrate de que la URL sea correcta para tu archivo PHP
+      method: "POST",
+      data: { numero: code1, codigo: code2 },
+      dataType: "json",
+      success: function (response) {
+        if (response.success && response.data) {
+          const generalData = response.data.general; // Datos generales
+          const detallesData = response.data.details; // Detalles de rastreo
 
-      const code2Field =
-        val === "2"
-          ? `<select class="sp" id="code2" name="code2" required>
-                 <option value="25">25</option>
-                 <option value="24">24</option>
-                 <option value="23">23</option>
-                 <option value="22">22</option>
-             </select>`
-          : `<input type="text" id="code2" name="code2" placeholder="${ph2}" required>`;
+          // Función para actualizar los estados (solo con fecha)
+          function actualizarEstado(selector, estado) {
+            const fecha = estado?.fecha_creacion; // Solo tomamos la fecha sin la hora
+            const elemento = $orderInfo.find(selector);
 
-      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
-    })
-    .trigger("change");
-});
-
-$(document).ready(function () {
-  $("#registerTrackings .form #document").on("blur", function () {
-    const doc = $(this).val().trim();
-
-    if (doc) {
-      fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (data.success && data.data) {
-            if (data.data.name) {
-              $("#registerTrackings .form #name").val(data.data.name);
+            if (fecha) {
+              // Convertir la fecha de formato "YYYY-MM-DD" a "DD-MM-YYYY"
+              const [year, month, day] = fecha.split("-");
+              const formattedDate = `${day}-${month}-${year}`;
+              elemento.find(".date").text(formattedDate);
+              elemento.show();
+            } else {
+              elemento.hide();
             }
-            if (data.data.phone) {
-              $("#registerTrackings .form #phone").val(data.data.phone);
-            }
-          } else {
-            console.log(
-              "No se encontró el nombre o el teléfono, o hubo un error en la respuesta."
-            );
           }
-        })
-        .catch((error) => {
-          console.error("Error al consultar los datos del usuario:", error);
-        });
-    } else {
-      console.log("No se proporcionó un valor para el documento.");
-    }
-  });
-});
 
-$(document).ready(function () {
-  $("#registerTrackings .form .ins").on("click", function (e) {
-    e.preventDefault();
+          // Actualización de los estados según la respuesta de los detalles
+          detallesData.forEach((estado) => {
+            if (estado.estado_tracking === "ENTREGADO") {
+              actualizarEstado(".line .fas.entregado", estado);
+            } else if (estado.estado_tracking === "TRACKING EN TRANSPORTE") {
+              actualizarEstado(".line .fas.ruta", estado);
+            } else if (estado.estado_tracking === "RECEPCION GUIA") {
+              actualizarEstado(".line .fas.agencia", estado);
+            }
+          });
 
-    const form = $("#registerTrackings .form")[0];
+          // Mostrar datos generales del envío
+          const origen = `${generalData.origen || "—"}`;
+          const destino = `${generalData.destino || "—"}`;
 
-    if (!form.checkValidity()) {
-      console.log("Faltan datos requeridos");
-      form.reportValidity();
-      return;
-    }
-
-    const data = {
-      order_number: $("#registerTrackings .form #order_number").val(),
-      agency: $("#registerTrackings .form #agency").val(),
-      code1: $("#registerTrackings .form #code1").val(),
-      code2: $("#registerTrackings .form #code2").val(),
-      client: {
-        document: $("#registerTrackings .form #document").val(),
-        name: $("#registerTrackings .form #name").val(),
-        phone: $("#registerTrackings .form #phone").val(),
+          // Actualizar la información en el panel
+          $orderInfo.find(".content .head .title span").text("Olva");
+          $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
+          $orderInfo.find(".info .dat1 .ori span").text(origen);
+          $orderInfo.find(".info .dat1 .des span").text(destino);
+          $orderInfo.find(".content .head .estado-actual").text(generalData.nombre_estado_tracking); // Estado final de rastreo
+        } else {
+          alert("No se pudo obtener la información del envío.");
+        }
       },
-    };
-
-    console.log(JSON.stringify(data, null, 2));
-  });
-});
+      error: function () {
+        alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+      complete: function () {
+        // Ocultar el loader cuando la petición se haya completado
+        $orderInfo.find(".loaders").css("display", "none");
+      },
+    });
+  }
+);
