@@ -356,27 +356,28 @@ $(document).on(
             }
           };
 
-          const estados = {
-            entregado: detallesData.find((e) => e.COMENTARIO === "ENTREGADO"),
-            enRuta: detallesData
-              .filter((e) => e.COMENTARIO === "EN RUTA")
-              .sort((a, b) => new Date(b.FECEVENTO) - new Date(a.FECEVENTO))[0],
-            recepcion: detallesData.find((e) => e.COMENTARIO === "RECEPCION"),
-          };
+          const estados = ["ENTREGADO", "EN RUTA", "RECEPCION"].reduce(
+            (acc, comentario) => {
+              const estado = detallesData.find(
+                (e) => e.COMENTARIO === comentario
+              );
+              if (estado) {
+                acc[comentario.toLowerCase()] = estado.FECEVENTO;
+              }
+              return acc;
+            },
+            {}
+          );
 
           if (estados.entregado)
-            actualizarEstado(
-              ".line .fas.entregado",
-              estados.entregado.FECEVENTO
-            );
+            actualizarEstado(".line .fas.entregado", estados.entregado);
           if (estados.enRuta)
-            actualizarEstado(".line .fas.ruta", estados.enRuta.FECEVENTO);
+            actualizarEstado(".line .fas.ruta", estados.enRuta);
           if (estados.recepcion)
-            actualizarEstado(".line .fas.agencia", estados.recepcion.FECEVENTO);
+            actualizarEstado(".line .fas.agencia", estados.recepcion);
 
-          // Aquí se obtienen los valores de origen y destino de ID: 0
           const { DEPORIGEN: origen = "—", DEPDESTINO: destino = "—" } =
-            detallesData.find((item) => item.ID === 0) || {};  // Asegúrate de encontrar el registro con ID: 0
+            detallesData.find((item) => item.ID === 0) || {};
 
           $orderInfo.find(".content .head .title span").text("Marvisur");
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
