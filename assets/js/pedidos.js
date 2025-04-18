@@ -302,7 +302,6 @@ $(document).on(
           const origen = `${generalData.origen || "—"}`;
           const destino = `${generalData.destino || "—"}`;
 
-          // Actualizar la información en el panel
           $orderInfo.find(".content .head .title span").text("Olva");
           $orderInfo.find(".info .cod span").text(`${code1} - ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
@@ -318,7 +317,81 @@ $(document).on(
         alert("Error al consultar la guía. Intenta nuevamente.");
       },
       complete: function () {
-        // Ocultar el loader cuando la petición se haya completado
+        $orderInfo.find(".loaders").css("display", "none");
+      },
+    });
+  }
+);
+
+$(document).on(
+  "click",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="3"]',
+  function () {
+    const code1 = $(this).data("code1");
+    const code2 = $(this).data("code2");
+    const $orderInfo = $("#orderInfo");
+
+    $orderInfo.find(".content .loaders").css("display", "flex");
+
+    $.ajax({
+      url: "routes/scrapMarvisur.php",
+      method: "POST",
+      data: { serie: code1, numero: code2 },
+      dataType: "json",
+      success: function (response) {
+        if (response.success && response.data) {
+          const detallesData = response.data.Table;
+
+          const actualizarEstado = (selector, fecha) => {
+            const elemento = $orderInfo.find(selector);
+            if (fecha) {
+              const [datePart, timePart] = fecha.split("T");
+              const [year, month, day] = datePart.split("-");
+              elemento
+                .find(".date")
+                .text(`${day}-${month}-${year} ${timePart}`);
+              elemento.show();
+            } else {
+              elemento.hide();
+            }
+          };
+
+          const estados = {
+            entregado: detallesData.find((e) => e.COMENTARIO === "ENTREGADO"),
+            enRuta: detallesData
+              .filter((e) => e.COMENTARIO === "EN RUTA")
+              .sort((a, b) => new Date(b.FECEVENTO) - new Date(a.FECEVENTO))[0],
+            recepcion: detallesData.find((e) => e.COMENTARIO === "RECEPCION"),
+          };
+
+          if (estados.entregado)
+            actualizarEstado(
+              ".line .fas.entregado",
+              estados.entregado.FECEVENTO
+            );
+          if (estados.enRuta)
+            actualizarEstado(".line .fas.ruta", estados.enRuta.FECEVENTO);
+          if (estados.recepcion)
+            actualizarEstado(".line .fas.agencia", estados.recepcion.FECEVENTO);
+
+          const { DEPORIGEN: origen = "—", DEPDESTINO: destino = "—" } =
+            detallesData[0];
+
+          $orderInfo.find(".content .head .title span").text("Marvisur");
+          $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
+          $orderInfo.find(".info .dat1 .ori span").text(origen);
+          $orderInfo.find(".info .dat1 .des span").text(destino);
+          $orderInfo
+            .find(".content .head .estado-actual")
+            .text(detallesData[detallesData.length - 1].EVENTO);
+        } else {
+          alert("No se pudo obtener la información del envío.");
+        }
+      },
+      error: function () {
+        alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+      complete: function () {
         $orderInfo.find(".loaders").css("display", "none");
       },
     });
