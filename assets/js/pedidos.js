@@ -342,7 +342,6 @@ $(document).on(
         if (response.success && response.data) {
           const detallesData = response.data.Table;
 
-          // Función para actualizar el estado
           const actualizarEstado = (selector, fecha) => {
             const elemento = $orderInfo.find(selector);
             if (fecha) {
@@ -357,18 +356,27 @@ $(document).on(
             }
           };
 
-          // Buscar y actualizar los estados
+          // Inicializamos variables para guardar los comentarios encontrados
+          let estadoActualComentario = null;
+
           detallesData.forEach((estado) => {
             if (estado.COMENTARIO === "ENTREGADO") {
               actualizarEstado(".line .fas.entregado", estado.FECEVENTO);
+              estadoActualComentario = "ENTREGADO";
             } else if (estado.COMENTARIO === "EN RUTA") {
               actualizarEstado(".line .fas.ruta", estado.FECEVENTO);
+              // Solo actualizamos si no se encontró un estado de mayor prioridad antes
+              if (estadoActualComentario !== "ENTREGADO") {
+                estadoActualComentario = "EN RUTA";
+              }
             } else if (estado.COMENTARIO === "RECEPCION") {
               actualizarEstado(".line .fas.agencia", estado.FECEVENTO);
+              if (!estadoActualComentario) {
+                estadoActualComentario = "RECEPCION";
+              }
             }
           });
 
-          // Obtener la información de origen y destino
           const { DEPORIGEN: origen = "—", DEPDESTINO: destino = "—" } =
             detallesData.find((item) => item.ID === 0) || {};
 
@@ -376,9 +384,17 @@ $(document).on(
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
-          $orderInfo
-            .find(".content .head .estado-actual")
-            .text(detallesData[detallesData.length - 1].EVENTO);
+
+          // Mostramos el estado actual según lo encontrado
+          if (estadoActualComentario) {
+            $orderInfo
+              .find(".content .head .estado-actual")
+              .text(estadoActualComentario);
+          } else {
+            $orderInfo
+              .find(".content .head .estado-actual")
+              .text("SIN INFORMACIÓN");
+          }
         } else {
           alert("No se pudo obtener la información del envío.");
         }
@@ -392,4 +408,3 @@ $(document).on(
     });
   }
 );
-
