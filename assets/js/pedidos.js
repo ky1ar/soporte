@@ -342,6 +342,7 @@ $(document).on(
         if (response.success && response.data) {
           const detallesData = response.data.Table;
 
+          // Función para actualizar el estado
           const actualizarEstado = (selector, fecha) => {
             const elemento = $orderInfo.find(selector);
             if (fecha) {
@@ -356,11 +357,20 @@ $(document).on(
             }
           };
 
+          // Depurar la respuesta para asegurarnos de que los estados se están recogiendo correctamente
+          console.log("Detalles Data:", detallesData);
+
+          // Reducir para obtener los estados relevantes
           const estados = ["ENTREGADO", "EN RUTA", "RECEPCION"].reduce(
             (acc, comentario) => {
+              // Asegurarse de que se manejen las mayúsculas y minúsculas
               const estado = detallesData.find(
-                (e) => e.COMENTARIO === comentario
+                (e) => e.COMENTARIO.toUpperCase() === comentario.toUpperCase()
               );
+
+              console.log(`Buscando estado para: ${comentario}`);
+              console.log("Estado encontrado:", estado);
+
               if (estado) {
                 acc[comentario.toLowerCase()] = estado.FECEVENTO;
               }
@@ -369,6 +379,7 @@ $(document).on(
             {}
           );
 
+          // Mostrar el estado correspondiente
           if (estados.entregado)
             actualizarEstado(".line .fas.entregado", estados.entregado);
           if (estados.enRuta)
