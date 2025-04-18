@@ -357,36 +357,18 @@ $(document).on(
             }
           };
 
-          // Depurar la respuesta para asegurarnos de que los estados se están recogiendo correctamente
-          console.log("Detalles Data:", detallesData);
+          // Buscar y actualizar los estados
+          detallesData.forEach((estado) => {
+            if (estado.COMENTARIO === "ENTREGADO") {
+              actualizarEstado(".line .fas.entregado", estado.FECEVENTO);
+            } else if (estado.COMENTARIO === "EN RUTA") {
+              actualizarEstado(".line .fas.ruta", estado.FECEVENTO);
+            } else if (estado.COMENTARIO === "RECEPCION") {
+              actualizarEstado(".line .fas.agencia", estado.FECEVENTO);
+            }
+          });
 
-          // Reducir para obtener los estados relevantes
-          const estados = ["ENTREGADO", "EN RUTA", "RECEPCION"].reduce(
-            (acc, comentario) => {
-              // Asegurarse de que se manejen las mayúsculas y minúsculas
-              const estado = detallesData.find(
-                (e) => e.COMENTARIO.toUpperCase() === comentario.toUpperCase()
-              );
-
-              console.log(`Buscando estado para: ${comentario}`);
-              console.log("Estado encontrado:", estado);
-
-              if (estado) {
-                acc[comentario.toLowerCase()] = estado.FECEVENTO;
-              }
-              return acc;
-            },
-            {}
-          );
-
-          // Mostrar el estado correspondiente
-          if (estados.entregado)
-            actualizarEstado(".line .fas.entregado", estados.entregado);
-          if (estados.enRuta)
-            actualizarEstado(".line .fas.ruta", estados.enRuta);
-          if (estados.recepcion)
-            actualizarEstado(".line .fas.agencia", estados.recepcion);
-
+          // Obtener la información de origen y destino
           const { DEPORIGEN: origen = "—", DEPDESTINO: destino = "—" } =
             detallesData.find((item) => item.ID === 0) || {};
 
@@ -410,3 +392,4 @@ $(document).on(
     });
   }
 );
+
