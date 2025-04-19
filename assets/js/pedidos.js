@@ -136,8 +136,8 @@ $(document).ready(function () {
                 </div>
                 <div class="cont">
                   <div class="info">
-                    <p class="fecha">${order.fecha_estado_actual ? order.fecha_estado_actual : 'Sin fecha'}</p>
-                    <p class="status">${order.estado_actual ? order.estado_actual : order.nombre_status}</p>
+                    <p class="fecha">29 de abril</p>
+                    <p class="status">${order.nombre_status}</p>
                     <p class="name">Nombre: <span>${order.nombre_usuario}</span></p>
                     <p class="doc">Documento: <span>${order.documento}</span></p>
                   </div>
