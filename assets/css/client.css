@@ -3433,7 +3433,6 @@ section.i3d .cont-cards .card div:last-child a {
   align-items: center;
   border-bottom: 0.1rem solid var(--newgray);
   background-color: #d5d5d557;
-  
 }
 #listOrdersShipping .order .head .orderNum,
 #listOrdersShipping .order .head .track {
@@ -3530,7 +3529,7 @@ section.i3d .cont-cards .card div:last-child a {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40rem;
+  width: 35rem;
   background-color: var(--white);
   border-radius: 1rem;
   padding: 2rem;
@@ -3577,16 +3576,15 @@ section.i3d .cont-cards .card div:last-child a {
 }
 #orderInfo .content .status .fases .bar {
   height: 0.5rem;
-  width: 15rem;
+  width: 50%;
   background-color: #50d366;
   margin: 0 -0.5rem;
 }
 #orderInfo .content .status .names {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 11.5rem;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -3637,7 +3635,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 2.5rem;
 }
 #orderInfo .content .info .line .fas .dash {
-  width: 10rem;
+  width: 6rem;
   border-top: 0.1rem dashed;
   border: 0.01rem dashed #a1a1a1;
 }
