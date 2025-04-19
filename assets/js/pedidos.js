@@ -180,7 +180,7 @@ function actualizarFases() {
   // Contar solo las fases visibles
   const $fasesVisibles = $line.find(".fas:not([style*='display: none'])");
   const count = $fasesVisibles.length;
-  
+  console.log("contador: " + count);
   // Cambiar color según la cantidad de fases visibles
   if (count >= 1) {
     $line.find(".st.one").css("background-color", "#50d366"); // Primera fase
