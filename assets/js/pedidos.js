@@ -174,34 +174,25 @@ $(document).ready(function () {
   });
 });
 
+// Actualizar Fases
 function actualizarFases() {
   const $line = $("#orderInfo .content .info .line");
-
-  // Contar solo las fases visibles
   const $fasesVisibles = $line.find(".fas:not([style*='display: none'])");
   const count = $fasesVisibles.length;
-  console.log("contador: " + count);
-
-  // Limpiar las clases activas previas
   $("#orderInfo .content .status .fases .st").removeClass("activo");
   $("#orderInfo .content .status .fases .bar").removeClass("activo");
-
-  // Cambiar color según la cantidad de fases visibles
   if (count >= 1) {
-    $("#orderInfo .content .status .fases .st.one").addClass("activo"); // Primera fase
+    $("#orderInfo .content .status .fases .st.one").addClass("activo");
   }
   if (count >= 2) {
-    $("#orderInfo .content .status .fases .bar.one").addClass("activo"); // Primer separador
-    $("#orderInfo .content .status .fases .st.two").addClass("activo"); // Segunda fase
+    $("#orderInfo .content .status .fases .bar.one").addClass("activo");
+    $("#orderInfo .content .status .fases .st.two").addClass("activo");
   }
   if (count >= 3) {
-    $("#orderInfo .content .status .fases .bar.two").addClass("activo"); // Segundo separador
-    $("#orderInfo .content .status .fases .st.tree").addClass("activo"); // Tercer fase
+    $("#orderInfo .content .status .fases .bar.two").addClass("activo");
+    $("#orderInfo .content .status .fases .st.tree").addClass("activo");
   }
 }
-
-
-
 
 // Utilidades generales para Scrap
 function actualizarEstado($container, selector, fecha, formato = "YMDHMS") {

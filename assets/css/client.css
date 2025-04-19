@@ -3581,13 +3581,11 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 0 -0.5rem;
 }
 /* Color verde cuando la fase esté activa */
-#orderInfo .content .status .fases .st.activo {
-  background-color: #50d366 !important;
+#orderInfo .content .status .fases .st.activo,
+#orderInfo .content .status .fases .bar.activo {
+  background-color: #50d366;
 }
 
-#orderInfo .content .status .fases .bar.activo {
-  background-color: #50d366 !important;
-}
 #orderInfo .content .status .names {
   display: flex;
   width: 100%;
