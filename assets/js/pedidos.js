@@ -175,19 +175,19 @@ $(document).ready(function () {
 });
 
 function actualizarFases() {
-  const $fases = $("#orderInfo .content .status .fases");
-  $fases.find(".st, .bar").css("background-color", "#ccc");
-  const count = $fases.find(".st").length;
+  const $line = $("#orderInfo .content .info .line");
+  $line.find(".st, .bar").css("background-color", "#ccc");
+  const count = $line.find(".fas").length;
   if (count >= 1) {
-    $fases.find(".st.one").css("background-color", "#50d366");
+    $line.find(".st.one").css("background-color", "#50d366");
   }
   if (count >= 2) {
-    $fases.find(".bar").eq(0).css("background-color", "#50d366");
-    $fases.find(".st.two").css("background-color", "#50d366");
+    $line.find(".bar").eq(0).css("background-color", "#50d366");
+    $line.find(".st.two").css("background-color", "#50d366");
   }
   if (count >= 3) {
-    $fases.find(".bar").eq(1).css("background-color", "#50d366");
-    $fases.find(".st.tree").css("background-color", "#50d366");
+    $line.find(".bar").eq(1).css("background-color", "#50d366");
+    $line.find(".st.tree").css("background-color", "#50d366");
   }
 }
 
