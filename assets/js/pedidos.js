@@ -176,8 +176,15 @@ $(document).ready(function () {
 
 function actualizarFases() {
   const $line = $("#orderInfo .content .info .line");
+
+  // Resetear todo a gris
   $line.find(".st, .bar").css("background-color", "#ccc");
-  const count = $line.find(".fas").length;
+
+  // Contar solo las fases visibles
+  const $fasesVisibles = $line.find(".fas:visible");
+  const count = $fasesVisibles.length;
+
+  // Pintar en verde según cantidad de fases visibles
   if (count >= 1) {
     $line.find(".st.one").css("background-color", "#50d366");
   }
@@ -190,6 +197,7 @@ function actualizarFases() {
     $line.find(".st.tree").css("background-color", "#50d366");
   }
 }
+
 
 // Utilidades generales para Scrap
 function actualizarEstado($container, selector, fecha, formato = "YMDHMS") {
