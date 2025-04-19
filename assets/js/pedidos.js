@@ -307,7 +307,7 @@ $(document).on(
             destino,
             response.data.mensaje_estado
           );
-          actualizarFases(response.data.mensaje_estado);
+          actualizarFases();
         }
 
         if (agencia === 2) {
@@ -353,7 +353,7 @@ $(document).on(
             generalData.destino,
             generalData.nombre_estado_tracking
           );
-          actualizarFases(generalData.nombre_estado_tracking);
+          actualizarFases();
         }
 
         if (agencia === 3) {
@@ -395,7 +395,7 @@ $(document).on(
             destino,
             estadoActualComentario
           );
-          actualizarFases(estadoActualComentario);
+          actualizarFases();
         }
       },
       error: function () {
