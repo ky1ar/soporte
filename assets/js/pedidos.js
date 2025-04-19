@@ -174,21 +174,20 @@ $(document).ready(function () {
   });
 });
 
-// Fases
-function actualizarFases(estado) {
+function actualizarFases() {
   const $fases = $("#orderInfo .content .status .fases");
-
-  // Reset a gris
   $fases.find(".st, .bar").css("background-color", "#ccc");
-
-  if (estado === "RECEPCION" || estado === "ASIGNADO" || estado === "ORIGEN") {
+  const count = $fases.find(".st").length;
+  if (count >= 1) {
     $fases.find(".st.one").css("background-color", "#50d366");
-  } else if (estado === "EN RUTA" || estado === "TRANSITO") {
-    $fases
-      .find(".st.one, .st.two, .bar:first")
-      .css("background-color", "#50d366");
-  } else if (estado === "ENTREGADO") {
-    $fases.find(".st, .bar").css("background-color", "#50d366");
+  }
+  if (count >= 2) {
+    $fases.find(".bar").eq(0).css("background-color", "#50d366");
+    $fases.find(".st.two").css("background-color", "#50d366");
+  }
+  if (count >= 3) {
+    $fases.find(".bar").eq(1).css("background-color", "#50d366");
+    $fases.find(".st.tree").css("background-color", "#50d366");
   }
 }
 
