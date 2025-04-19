@@ -49,8 +49,8 @@ require_once 'includes/common/header.php';
                         <span class="st tree"></span>
                     </div>
                     <div class="names">
-                        <span>Comprado</span>
-                        <span>Enviado</span>
+                        <span>Agencia</span>
+                        <span>En ruta</span>
                         <span>Entregado</span>
                     </div>
                 </div>
