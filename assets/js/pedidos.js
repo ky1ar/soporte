@@ -183,15 +183,15 @@ function actualizarFases() {
   console.log("contador: " + count);
   // Cambiar color según la cantidad de fases visibles
   if (count >= 1) {
-    $line.find(".st.one").css("background-color", "#50d366"); // Primera fase
+    $line.find(".st.one").css("background-color", "#50d366 !important"); // Primera fase
   }
   if (count >= 2) {
-    $line.find(".bar.one").css("background-color", "#50d366"); // Primer separador
-    $line.find(".st.two").css("background-color", "#50d366"); // Segunda fase
+    $line.find(".bar.one").css("background-color", "#50d366 !important"); // Primer separador
+    $line.find(".st.two").css("background-color", "#50d366 !important"); // Segunda fase
   }
   if (count >= 3) {
-    $line.find(".bar.two").css("background-color", "#50d366"); // Segundo separador
-    $line.find(".st.tree").css("background-color", "#50d366"); // Tercer fase
+    $line.find(".bar.two").css("background-color", "#50d366 !important"); // Segundo separador
+    $line.find(".st.tree").css("background-color", "#50d366 !important"); // Tercer fase
   }
 }
 
