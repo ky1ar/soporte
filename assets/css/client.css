@@ -3416,7 +3416,7 @@ section.i3d .cont-cards .card div:last-child a {
   display: none;
 }
 #listOrdersShipping .title {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 #listOrdersShipping .order {
@@ -3511,7 +3511,7 @@ section.i3d .cont-cards .card div:last-child a {
   background-color: #40c794;
 }
 #listOrdersShipping .order .cont .actions .btn:nth-child(2) {
-  background-color: #fdad3a;
+  background-color: #919191;
 }
 #orderInfo {
   position: fixed;
