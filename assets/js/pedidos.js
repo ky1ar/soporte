@@ -174,7 +174,25 @@ $(document).ready(function () {
   });
 });
 
-// Utilidades generales
+// Fases
+function actualizarFases(estado) {
+  const $fases = $("#orderInfo .content .status .fases");
+
+  // Reset a gris
+  $fases.find(".st, .bar").css("background-color", "#ccc");
+
+  if (estado === "RECEPCION" || estado === "ASIGNADO" || estado === "ORIGEN") {
+    $fases.find(".st.one").css("background-color", "#50d366");
+  } else if (estado === "EN RUTA" || estado === "TRANSITO") {
+    $fases
+      .find(".st.one, .st.two, .bar:first")
+      .css("background-color", "#50d366");
+  } else if (estado === "ENTREGADO") {
+    $fases.find(".st, .bar").css("background-color", "#50d366");
+  }
+}
+
+// Utilidades generales para Scrap
 function actualizarEstado($container, selector, fecha, formato = "YMDHMS") {
   const elemento = $container.find(selector);
   if (fecha) {
@@ -199,116 +217,196 @@ function formatearFecha(fecha, formato) {
   return fecha;
 }
 
-function actualizarInfoBasica($container, agencia, code1, code2, origen, destino, estadoActual) {
+function actualizarInfoBasica(
+  $container,
+  agencia,
+  code1,
+  code2,
+  origen,
+  destino,
+  estadoActual
+) {
   $container.find(".content .head .title span").text(agencia);
   $container.find(".info .cod span").text(`${code1} / ${code2}`);
   $container.find(".info .dat1 .ori span").text(origen || "—");
   $container.find(".info .dat1 .des span").text(destino || "—");
-  $container.find(".content .head .estado-actual").text(estadoActual || "SIN INFORMACIÓN");
+  $container
+    .find(".content .head .estado-actual")
+    .text(estadoActual || "SIN INFORMACIÓN");
 }
 
-// Click generalizado
-$(document).on("click", "#listOrdersShipping .order .cont .actions .btn", function () {
-  const agencia = $(this).data("agency");
-  const code1 = $(this).data("code1");
-  const code2 = $(this).data("code2");
-  const $orderInfo = $("#orderInfo");
+// Click generalizado de Scrap para todas las agencias
+$(document).on(
+  "click",
+  "#listOrdersShipping .order .cont .actions .btn",
+  function () {
+    const agencia = $(this).data("agency");
+    const code1 = $(this).data("code1");
+    const code2 = $(this).data("code2");
+    const $orderInfo = $("#orderInfo");
 
-  $orderInfo.find(".content .loaders").css("display", "flex");
+    $orderInfo.find(".content .loaders").css("display", "flex");
 
-  let url = "";
-  let requestData = {};
+    let url = "";
+    let requestData = {};
 
-  switch (agencia) {
-    case 1:
-      url = "routes/scrapShalom.php";
-      requestData = { numero: code1, codigo: code2 };
-      break;
-    case 2:
-      url = "routes/scrapOlva.php";
-      requestData = { numero: code1, codigo: code2 };
-      break;
-    case 3:
-      url = "routes/scrapMarvisur.php";
-      requestData = { serie: code1, numero: code2 };
-      break;
-    default:
-      alert("Agencia no soportada");
-      return;
-  }
-
-  $.ajax({
-    url,
-    method: "POST",
-    data: requestData,
-    dataType: "json",
-    success: function (response) {
-      if (!response.success || !response.data) {
-        alert("No se pudo obtener la información del envío.");
+    switch (agencia) {
+      case 1:
+        url = "routes/scrapShalom.php";
+        requestData = { numero: code1, codigo: code2 };
+        break;
+      case 2:
+        url = "routes/scrapOlva.php";
+        requestData = { numero: code1, codigo: code2 };
+        break;
+      case 3:
+        url = "routes/scrapMarvisur.php";
+        requestData = { serie: code1, numero: code2 };
+        break;
+      default:
+        alert("Agencia no soportada");
         return;
-      }
+    }
 
-      if (agencia === 1) {
-        const estadosData = response.data.estados;
-        actualizarEstado($orderInfo, ".line .fas.entregado", estadosData.entregado?.fecha);
-        actualizarEstado($orderInfo, ".line .fas.ruta", estadosData.transito?.fecha);
-        actualizarEstado($orderInfo, ".line .fas.agencia", estadosData.origen?.fecha);
+    $.ajax({
+      url,
+      method: "POST",
+      data: requestData,
+      dataType: "json",
+      success: function (response) {
+        if (!response.success || !response.data) {
+          alert("No se pudo obtener la información del envío.");
+          return;
+        }
 
-        const origen = response.data.rastreo?.origen?.nombre || "—";
-        const destino = response.data.rastreo?.destino?.nombre || "—";
-        actualizarInfoBasica($orderInfo, "Shalom", code1, code2, origen, destino, response.data.mensaje_estado);
-      }
+        if (agencia === 1) {
+          const estadosData = response.data.estados;
+          actualizarEstado(
+            $orderInfo,
+            ".line .fas.entregado",
+            estadosData.entregado?.fecha
+          );
+          actualizarEstado(
+            $orderInfo,
+            ".line .fas.ruta",
+            estadosData.transito?.fecha
+          );
+          actualizarEstado(
+            $orderInfo,
+            ".line .fas.agencia",
+            estadosData.origen?.fecha
+          );
 
-      if (agencia === 2) {
-        const generalData = response.data.general;
-        const detallesData = response.data.details;
+          const origen = response.data.rastreo?.origen?.nombre || "—";
+          const destino = response.data.rastreo?.destino?.nombre || "—";
+          actualizarInfoBasica(
+            $orderInfo,
+            "Shalom",
+            code1,
+            code2,
+            origen,
+            destino,
+            response.data.mensaje_estado
+          );
+          actualizarFases(response.data.mensaje_estado);
+        }
 
-        detallesData.forEach((estado) => {
-          if (estado.estado_tracking === "ENTREGADO") {
-            actualizarEstado($orderInfo, ".line .fas.entregado", estado.fecha_creacion, "YMD");
-          } else if (estado.estado_tracking === "ASIGNADO") {
-            const estadoAsignado = detallesData.reduce((max, current) =>
-              new Date(max.fecha_creacion) > new Date(current.fecha_creacion) ? max : current
-            );
-            actualizarEstado($orderInfo, ".line .fas.ruta", estadoAsignado.fecha_creacion, "YMD");
-          } else if (estado.estado_tracking === "RECEPCION TIENDA") {
-            actualizarEstado($orderInfo, ".line .fas.agencia", estado.fecha_creacion, "YMD");
-          }
-        });
+        if (agencia === 2) {
+          const generalData = response.data.general;
+          const detallesData = response.data.details;
 
-        actualizarInfoBasica($orderInfo, "Olva", code1, code2, generalData.origen, generalData.destino, generalData.nombre_estado_tracking);
-      }
+          detallesData.forEach((estado) => {
+            if (estado.estado_tracking === "ENTREGADO") {
+              actualizarEstado(
+                $orderInfo,
+                ".line .fas.entregado",
+                estado.fecha_creacion,
+                "YMD"
+              );
+            } else if (estado.estado_tracking === "ASIGNADO") {
+              const estadoAsignado = detallesData.reduce((max, current) =>
+                new Date(max.fecha_creacion) > new Date(current.fecha_creacion)
+                  ? max
+                  : current
+              );
+              actualizarEstado(
+                $orderInfo,
+                ".line .fas.ruta",
+                estadoAsignado.fecha_creacion,
+                "YMD"
+              );
+            } else if (estado.estado_tracking === "RECEPCION TIENDA") {
+              actualizarEstado(
+                $orderInfo,
+                ".line .fas.agencia",
+                estado.fecha_creacion,
+                "YMD"
+              );
+            }
+          });
 
-      if (agencia === 3) {
-        const detallesData = response.data.Table;
-        let estadoActualComentario = null;
+          actualizarInfoBasica(
+            $orderInfo,
+            "Olva",
+            code1,
+            code2,
+            generalData.origen,
+            generalData.destino,
+            generalData.nombre_estado_tracking
+          );
+          actualizarFases(generalData.nombre_estado_tracking);
+        }
 
-        detallesData.forEach((estado) => {
-          if (estado.COMENTARIO === "ENTREGADO") {
-            actualizarEstado($orderInfo, ".line .fas.entregado", estado.FECEVENTO);
-            estadoActualComentario = "ENTREGADO";
-          } else if (estado.COMENTARIO === "EN RUTA") {
-            actualizarEstado($orderInfo, ".line .fas.ruta", estado.FECEVENTO);
-            if (estadoActualComentario !== "ENTREGADO") estadoActualComentario = "EN RUTA";
-          } else if (estado.COMENTARIO === "RECEPCION") {
-            actualizarEstado($orderInfo, ".line .fas.agencia", estado.FECEVENTO);
-            if (!estadoActualComentario) estadoActualComentario = "RECEPCION";
-          }
-        });
+        if (agencia === 3) {
+          const detallesData = response.data.Table;
+          let estadoActualComentario = null;
 
-        const origen = detallesData.find(item => item.ID === 0)?.DEPORIGEN || "—";
-        const destino = detallesData.find(item => item.ID === 0)?.DEPDESTINO || "—";
-        actualizarInfoBasica($orderInfo, "Marvisur", code1, code2, origen, destino, estadoActualComentario);
-      }
-    },
-    error: function () {
-      alert("Error al consultar la guía. Intenta nuevamente.");
-    },
-    complete: function () {
-      $orderInfo.find(".loaders").css("display", "none");
-    },
-  });
-});
+          detallesData.forEach((estado) => {
+            if (estado.COMENTARIO === "ENTREGADO") {
+              actualizarEstado(
+                $orderInfo,
+                ".line .fas.entregado",
+                estado.FECEVENTO
+              );
+              estadoActualComentario = "ENTREGADO";
+            } else if (estado.COMENTARIO === "EN RUTA") {
+              actualizarEstado($orderInfo, ".line .fas.ruta", estado.FECEVENTO);
+              if (estadoActualComentario !== "ENTREGADO")
+                estadoActualComentario = "EN RUTA";
+            } else if (estado.COMENTARIO === "RECEPCION") {
+              actualizarEstado(
+                $orderInfo,
+                ".line .fas.agencia",
+                estado.FECEVENTO
+              );
+              if (!estadoActualComentario) estadoActualComentario = "RECEPCION";
+            }
+          });
 
+          const origen =
+            detallesData.find((item) => item.ID === 0)?.DEPORIGEN || "—";
+          const destino =
+            detallesData.find((item) => item.ID === 0)?.DEPDESTINO || "—";
+          actualizarInfoBasica(
+            $orderInfo,
+            "Marvisur",
+            code1,
+            code2,
+            origen,
+            destino,
+            estadoActualComentario
+          );
+          actualizarFases(estadoActualComentario);
+        }
+      },
+      error: function () {
+        alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+      complete: function () {
+        $orderInfo.find(".loaders").css("display", "none");
+      },
+    });
+  }
+);
 
 // Edt
