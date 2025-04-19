@@ -3420,7 +3420,7 @@ section.i3d .cont-cards .card div:last-child a {
   font-weight: 700;
 }
 #listOrdersShipping .order {
-  border: 0.1rem solid var(--secondary);
+  border: 0.1rem solid var(--newgray);
   border-radius: 1rem;
   width: 100%;
   overflow: hidden;
@@ -3428,16 +3428,16 @@ section.i3d .cont-cards .card div:last-child a {
 #listOrdersShipping .order .head {
   display: flex;
   padding: 1rem;
-  background-color: var(--secondary);
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 0.1rem solid var(--newgray);
 }
 #listOrdersShipping .order .head .orderNum,
 #listOrdersShipping .order .head .track {
   margin: 0;
   font-size: 1.05rem;
-  color: var(--white);
+  color: var(--black);
 }
 #listOrdersShipping .order .head .orderNum span,
 #listOrdersShipping .order .head .track span {
