@@ -174,6 +174,15 @@ $(document).ready(function () {
   });
 });
 
+function actualizarFases() {
+  const $line = $("#orderInfo .content .info .line");
+  const $fasesMostradas = $line.find(".fas").filter(function () {
+    return $(this).css("display") !== "none";
+  });
+  const count = $fasesMostradas.length;
+  console.log("Cantidad de .fas con display distinto a none:", count);
+}
+
 
 
 // Utilidades generales para Scrap
@@ -392,26 +401,5 @@ $(document).on(
     });
   }
 );
-function actualizarFases() {
-  const $line = $("#orderInfo .content .info .line");
-
-  // Resetear todo a gris
-  $line.find(".st, .bar").css("background-color", "#ccc");
-
-  // Contar solo las fases visibles
-  const $fasesVisibles = $line.find(".fas:visible");
-  const count = $fasesVisibles.length;
-  if (count >= 1) {
-    $line.find(".st.one").css("background-color", "#50d366");
-  }
-  if (count >= 2) {
-    $line.find(".bar").eq(0).css("background-color", "#50d366");
-    $line.find(".st.two").css("background-color", "#50d366");
-  }
-  if (count >= 3) {
-    $line.find(".bar").eq(1).css("background-color", "#50d366");
-    $line.find(".st.tree").css("background-color", "#50d366");
-  }
-}
 
 // Edt
