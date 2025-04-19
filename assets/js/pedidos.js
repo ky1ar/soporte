@@ -181,19 +181,29 @@ function actualizarFases() {
   const $fasesVisibles = $line.find(".fas:not([style*='display: none'])");
   const count = $fasesVisibles.length;
   console.log("contador: " + count);
+
   // Cambiar color según la cantidad de fases visibles
   if (count >= 1) {
-    $line.find(".st.one").css("background-color", "#50d366 !important"); // Primera fase
+    $line.find(".st.one").css("background-color", "#50d366"); // Primera fase
+    // Usar style.setProperty para agregar el !important
+    $line.find(".st.one")[0].style.setProperty('background-color', '#50d366', 'important');
   }
   if (count >= 2) {
-    $line.find(".bar.one").css("background-color", "#50d366 !important"); // Primer separador
-    $line.find(".st.two").css("background-color", "#50d366 !important"); // Segunda fase
+    $line.find(".bar.one").css("background-color", "#50d366"); // Primer separador
+    $line.find(".st.two").css("background-color", "#50d366"); // Segunda fase
+    // Agregar !important
+    $line.find(".bar.one")[0].style.setProperty('background-color', '#50d366', 'important');
+    $line.find(".st.two")[0].style.setProperty('background-color', '#50d366', 'important');
   }
   if (count >= 3) {
-    $line.find(".bar.two").css("background-color", "#50d366 !important"); // Segundo separador
-    $line.find(".st.tree").css("background-color", "#50d366 !important"); // Tercer fase
+    $line.find(".bar.two").css("background-color", "#50d366"); // Segundo separador
+    $line.find(".st.tree").css("background-color", "#50d366"); // Tercer fase
+    // Agregar !important
+    $line.find(".bar.two")[0].style.setProperty('background-color', '#50d366', 'important');
+    $line.find(".st.tree")[0].style.setProperty('background-color', '#50d366', 'important');
   }
 }
+
 
 // Utilidades generales para Scrap
 function actualizarEstado($container, selector, fecha, formato = "YMDHMS") {
