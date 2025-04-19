@@ -43,9 +43,9 @@ require_once 'includes/common/header.php';
                 <div class="status">
                     <div class="fases">
                         <span class="st one"></span>
-                        <span class="bar"></span>
+                        <span class="bar one"></span>
                         <span class="st two"></span>
-                        <span class="bar"></span>
+                        <span class="bar two"></span>
                         <span class="st tree"></span>
                     </div>
                     <div class="names">
