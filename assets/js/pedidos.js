@@ -184,17 +184,18 @@ function actualizarFases() {
 
   // Cambiar color según la cantidad de fases visibles
   if (count >= 1) {
-    $line.find(".st.one").css("background-color", "#50d366"); // Primera fase
+    $line.find(".fases .st.one").css("background-color", "#50d366"); // Primera fase
   }
   if (count >= 2) {
-    $line.find(".bar.one").css("background-color", "#50d366"); // Primer separador
-    $line.find(".st.two").css("background-color", "#50d366"); // Segunda fase
+    $line.find(".fases .bar.one").css("background-color", "#50d366"); // Primer separador
+    $line.find(".fases .st.two").css("background-color", "#50d366"); // Segunda fase
   }
   if (count >= 3) {
-    $line.find(".bar.two").css("background-color", "#50d366"); // Segundo separador
-    $line.find(".st.tree").css("background-color", "#50d366"); // Tercer fase
+    $line.find(".fases .bar.two").css("background-color", "#50d366"); // Segundo separador
+    $line.find(".fases .st.tree").css("background-color", "#50d366"); // Tercer fase
   }
 }
+
 
 
 // Utilidades generales para Scrap
