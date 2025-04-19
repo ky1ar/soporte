@@ -3354,7 +3354,7 @@ section.i3d .cont-cards .card div:last-child a {
   width: 23rem;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem #dddddd;
   position: sticky;
   top: 1rem;
 }
