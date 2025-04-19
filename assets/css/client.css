@@ -3571,13 +3571,13 @@ section.i3d .cont-cards .card div:last-child a {
 #orderInfo .content .status .fases .st {
   width: 1.5rem;
   height: 1.5rem;
-  background-color: #50d366;
+  background-color: #c5c5c5;
   border-radius: 1rem;
 }
 #orderInfo .content .status .fases .bar {
   height: 0.5rem;
   width: 50%;
-  background-color: #50d366;
+  background-color: #c5c5c5;
   margin: 0 -0.5rem;
 }
 #orderInfo .content .status .names {
