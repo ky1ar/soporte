@@ -3409,7 +3409,7 @@ section.i3d .cont-cards .card div:last-child a {
 }
 
 #listOrdersShipping {
-  width: calc(100% - 25rem);
+  width: calc(100% - 23rem);
   border: 0.1rem solid var(--newgray);
   border-radius: 1rem;
   padding: 2rem;
