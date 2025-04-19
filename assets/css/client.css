@@ -3431,7 +3431,8 @@ section.i3d .cont-cards .card div:last-child a {
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.1rem solid #d5d5d557;
+  border-bottom: 0.1rem solid var(--newgray);
+  background-color: #d5d5d557;
 }
 #listOrdersShipping .order .head .orderNum,
 #listOrdersShipping .order .head .track {
