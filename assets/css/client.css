@@ -3573,6 +3573,7 @@ section.i3d .cont-cards .card div:last-child a {
   height: 1.5rem;
   background-color: #c5c5c5;
   border-radius: 1rem;
+  z-index: 1;
 }
 #orderInfo .content .status .fases .bar {
   height: 0.5rem;
