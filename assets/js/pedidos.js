@@ -185,22 +185,14 @@ function actualizarFases() {
   // Cambiar color según la cantidad de fases visibles
   if (count >= 1) {
     $line.find(".st.one").css("background-color", "#50d366"); // Primera fase
-    // Usar style.setProperty para agregar el !important
-    $line.find(".st.one")[0].style.setProperty('background-color', '#50d366', 'important');
   }
   if (count >= 2) {
     $line.find(".bar.one").css("background-color", "#50d366"); // Primer separador
     $line.find(".st.two").css("background-color", "#50d366"); // Segunda fase
-    // Agregar !important
-    $line.find(".bar.one")[0].style.setProperty('background-color', '#50d366', 'important');
-    $line.find(".st.two")[0].style.setProperty('background-color', '#50d366', 'important');
   }
   if (count >= 3) {
     $line.find(".bar.two").css("background-color", "#50d366"); // Segundo separador
     $line.find(".st.tree").css("background-color", "#50d366"); // Tercer fase
-    // Agregar !important
-    $line.find(".bar.two")[0].style.setProperty('background-color', '#50d366', 'important');
-    $line.find(".st.tree")[0].style.setProperty('background-color', '#50d366', 'important');
   }
 }
 
