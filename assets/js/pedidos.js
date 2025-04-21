@@ -280,7 +280,7 @@ $(document).on(
           alert("No se pudo obtener la información del envío.");
           return;
         }
-
+        console.log(response.data);
         if (agencia === 1) {
           const estadosData = response.data.estados;
           actualizarEstado(
