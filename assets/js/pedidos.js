@@ -194,211 +194,143 @@ function actualizarFases() {
   }
 }
 
-// Utilidades generales para Scrap
-function actualizarEstado($container, selector, fecha, formato = "YMDHMS") {
-  const elemento = $container.find(selector);
-  if (fecha) {
-    const formattedDate = formatearFecha(fecha, formato);
-    elemento.find(".date").text(formattedDate);
-    elemento.show();
-  } else {
-    elemento.hide();
-  }
-}
-
-function formatearFecha(fecha, formato) {
-  if (!fecha) return "—";
-  if (formato === "YMDHMS") {
-    const [datePart, timePart] = fecha.split(/[T ]/);
-    const [year, month, day] = datePart.split("-");
-    return `${day}-${month}-${year} ${timePart || ""}`;
-  } else if (formato === "YMD") {
-    const [year, month, day] = fecha.split("-");
-    return `${day}-${month}-${year}`;
-  }
-  return fecha;
-}
-
-function actualizarInfoBasica(
-  $container,
-  agencia,
-  code1,
-  code2,
-  origen,
-  destino,
-  estadoActual
-) {
-  $container.find(".content .head .title span").text(agencia);
-  $container.find(".info .cod span").text(`${code1} / ${code2}`);
-  $container.find(".info .dat1 .ori span").text(origen || "—");
-  $container.find(".info .dat1 .des span").text(destino || "—");
-  $container
-    .find(".content .head .estado-actual")
-    .text(estadoActual || "SIN INFORMACIÓN");
-}
-
-// Click generalizado de Scrap para todas las agencias
+/// Scrap Shalom
 $(document).on(
   "click",
-  "#listOrdersShipping .order .cont .actions .btn",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="1"]',
   function () {
-    const agencia = $(this).data("agency");
+    const code1 = $(this).data("code1");
+    const code2 = $(this).data("code2");
+    const $orderInfo = $("#orderInfo");
+
+    // Mostrar el loader
+    $orderInfo.find(".content .loaders").css("display", "flex");
+
+    $.ajax({
+      url: "routes/scrapShalom.php",
+      method: "POST",
+      data: { numero: code1, codigo: code2 },
+      dataType: "json",
+      success: function (response) {
+        if (response.success && response.data) {
+          const estadosData = response.data.estados;
+
+          function actualizarEstado(selector, estado) {
+            const fecha = estado?.fecha;
+            const elemento = $orderInfo.find(selector);
+
+            if (fecha) {
+              const [datePart, timePart] = fecha.split(" ");
+              const [year, month, day] = datePart.split("-");
+              const formattedDate = `${day}-${month}-${year} ${timePart}`;
+              elemento.find(".date").text(formattedDate);
+              elemento.show();
+            } else {
+              elemento.hide();
+            }
+          }
+          actualizarEstado(".line .fas.entregado", estadosData.entregado);
+          actualizarEstado(".line .fas.ruta", estadosData.transito);
+          actualizarEstado(".line .fas.agencia", estadosData.origen);
+
+          const rastreoData = response.data.rastreo;
+          const mensajeEstado = response.data.mensaje_estado;
+          const origen = rastreoData?.origen
+            ? `${rastreoData.origen.nombre || "—"}, ${
+                rastreoData.origen.distrito || "—"
+              }, ${rastreoData.origen.provincia || "—"}, ${
+                rastreoData.origen.departamento || "—"
+              }`
+            : "—";
+          const destino = rastreoData?.destino
+            ? `${rastreoData.destino.nombre || "—"}, ${
+                rastreoData.destino.distrito || "—"
+              }, ${rastreoData.destino.provincia || "—"}, ${
+                rastreoData.destino.departamento || "—"
+              }`
+            : "—";
+
+          $orderInfo.find(".content .head .title span").text("Shalom");
+          $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
+          $orderInfo.find(".info .dat1 .ori span").text(origen);
+          $orderInfo.find(".info .dat1 .des span").text(destino);
+          $orderInfo.find(".content .head .estado-actual").text(mensajeEstado);
+        } else {
+          alert("No se pudo obtener la información del envío.");
+        }
+      },
+      error: function () {
+        alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+      complete: function () {
+        // Ocultar el loader cuando la petición se haya completado
+        $orderInfo.find(".loaders").css("display", "none");
+      },
+    });
+  }
+);
+
+$(document).on(
+  "click",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="2"]',
+  function () {
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
     const $orderInfo = $("#orderInfo");
 
     $orderInfo.find(".content .loaders").css("display", "flex");
-
-    let url = "";
-    let requestData = {};
-
-    switch (agencia) {
-      case 1:
-        url = "routes/scrapShalom.php";
-        requestData = { numero: code1, codigo: code2 };
-        break;
-      case 2:
-        url = "routes/scrapOlva.php";
-        requestData = { numero: code1, codigo: code2 };
-        break;
-      case 3:
-        url = "routes/scrapMarvisur.php";
-        requestData = { serie: code1, numero: code2 };
-        break;
-      default:
-        alert("Agencia no soportada");
-        return;
-    }
-
     $.ajax({
-      url,
+      url: "routes/scrapOlva.php",
       method: "POST",
-      data: requestData,
+      data: { numero: code1, codigo: code2 },
       dataType: "json",
       success: function (response) {
-        if (!response.success || !response.data) {
-          alert("No se pudo obtener la información del envío.");
-          return;
-        }
-        console.log(response.data);
-        if (agencia === 1) {
-          const estadosData = response.data.estados;
-          actualizarEstado(
-            $orderInfo,
-            ".line .fas.entregado",
-            estadosData.entregado?.fecha
-          );
-          actualizarEstado(
-            $orderInfo,
-            ".line .fas.ruta",
-            estadosData.transito?.fecha
-          );
-          actualizarEstado(
-            $orderInfo,
-            ".line .fas.agencia",
-            estadosData.origen?.fecha
-          );
-
-          const origen = response.data.rastreo?.origen?.nombre || "—";
-          const destino = response.data.rastreo?.destino?.nombre || "—";
-          actualizarInfoBasica(
-            $orderInfo,
-            "Shalom",
-            code1,
-            code2,
-            origen,
-            destino,
-            response.data.mensaje_estado
-          );
-          actualizarFases();
-        }
-
-        if (agencia === 2) {
+        if (response.success && response.data) {
           const generalData = response.data.general;
           const detallesData = response.data.details;
 
+          function actualizarEstado(selector, estado) {
+            const fecha = estado?.fecha_creacion;
+            const elemento = $orderInfo.find(selector);
+
+            if (fecha) {
+              const [year, month, day] = fecha.split("-");
+              const formattedDate = `${day}-${month}-${year}`;
+              elemento.find(".date").text(formattedDate);
+              elemento.show();
+            } else {
+              elemento.hide();
+            }
+          }
+
           detallesData.forEach((estado) => {
             if (estado.estado_tracking === "ENTREGADO") {
-              actualizarEstado(
-                $orderInfo,
-                ".line .fas.entregado",
-                estado.fecha_creacion,
-                "YMD"
-              );
+              actualizarEstado(".line .fas.entregado", estado);
             } else if (estado.estado_tracking === "ASIGNADO") {
-              const estadoAsignado = detallesData.reduce((max, current) =>
-                new Date(max.fecha_creacion) > new Date(current.fecha_creacion)
+              const estadoAsignado = detallesData.reduce((max, current) => {
+                return new Date(max.fecha_creacion) >
+                  new Date(current.fecha_creacion)
                   ? max
-                  : current
-              );
-              actualizarEstado(
-                $orderInfo,
-                ".line .fas.ruta",
-                estadoAsignado.fecha_creacion,
-                "YMD"
-              );
+                  : current;
+              });
+              actualizarEstado(".line .fas.ruta", estadoAsignado);
             } else if (estado.estado_tracking === "RECEPCION TIENDA") {
-              actualizarEstado(
-                $orderInfo,
-                ".line .fas.agencia",
-                estado.fecha_creacion,
-                "YMD"
-              );
+              actualizarEstado(".line .fas.agencia", estado);
             }
           });
 
-          actualizarInfoBasica(
-            $orderInfo,
-            "Olva",
-            code1,
-            code2,
-            generalData.origen,
-            generalData.destino,
-            generalData.nombre_estado_tracking
-          );
-          actualizarFases();
-        }
+          const origen = `${generalData.origen || "—"}`;
+          const destino = `${generalData.destino || "—"}`;
 
-        if (agencia === 3) {
-          const detallesData = response.data.Table;
-          let estadoActualComentario = null;
-
-          detallesData.forEach((estado) => {
-            if (estado.COMENTARIO === "ENTREGADO") {
-              actualizarEstado(
-                $orderInfo,
-                ".line .fas.entregado",
-                estado.FECEVENTO
-              );
-              estadoActualComentario = "ENTREGADO";
-            } else if (estado.COMENTARIO === "EN RUTA") {
-              actualizarEstado($orderInfo, ".line .fas.ruta", estado.FECEVENTO);
-              if (estadoActualComentario !== "ENTREGADO")
-                estadoActualComentario = "EN RUTA";
-            } else if (estado.COMENTARIO === "RECEPCION") {
-              actualizarEstado(
-                $orderInfo,
-                ".line .fas.agencia",
-                estado.FECEVENTO
-              );
-              if (!estadoActualComentario) estadoActualComentario = "RECEPCION";
-            }
-          });
-
-          const origen =
-            detallesData.find((item) => item.ID === 0)?.DEPORIGEN || "—";
-          const destino =
-            detallesData.find((item) => item.ID === 0)?.DEPDESTINO || "—";
-          actualizarInfoBasica(
-            $orderInfo,
-            "Marvisur",
-            code1,
-            code2,
-            origen,
-            destino,
-            estadoActualComentario
-          );
-          actualizarFases();
+          $orderInfo.find(".content .head .title span").text("Olva");
+          $orderInfo.find(".info .cod span").text(`${code1} - ${code2}`);
+          $orderInfo.find(".info .dat1 .ori span").text(origen);
+          $orderInfo.find(".info .dat1 .des span").text(destino);
+          $orderInfo
+            .find(".content .head .estado-actual")
+            .text(generalData.nombre_estado_tracking);
+        } else {
+          alert("No se pudo obtener la información del envío.");
         }
       },
       error: function () {
@@ -411,4 +343,88 @@ $(document).on(
   }
 );
 
-// Edt
+$(document).on(
+  "click",
+  '#listOrdersShipping .order .cont .actions .btn[data-agency="3"]',
+  function () {
+    const code1 = $(this).data("code1");
+    const code2 = $(this).data("code2");
+    const $orderInfo = $("#orderInfo");
+
+    $orderInfo.find(".content .loaders").css("display", "flex");
+
+    $.ajax({
+      url: "routes/scrapMarvisur.php",
+      method: "POST",
+      data: { serie: code1, numero: code2 },
+      dataType: "json",
+      success: function (response) {
+        if (response.success && response.data) {
+          const detallesData = response.data.Table;
+
+          const actualizarEstado = (selector, fecha) => {
+            const elemento = $orderInfo.find(selector);
+            if (fecha) {
+              const [datePart, timePart] = fecha.split("T");
+              const [year, month, day] = datePart.split("-");
+              elemento
+                .find(".date")
+                .text(`${day}-${month}-${year} ${timePart}`);
+              elemento.show();
+            } else {
+              elemento.hide();
+            }
+          };
+
+          // Inicializamos variables para guardar los comentarios encontrados
+          let estadoActualComentario = null;
+
+          detallesData.forEach((estado) => {
+            if (estado.COMENTARIO === "ENTREGADO") {
+              actualizarEstado(".line .fas.entregado", estado.FECEVENTO);
+              estadoActualComentario = "ENTREGADO";
+            } else if (estado.COMENTARIO === "EN RUTA") {
+              actualizarEstado(".line .fas.ruta", estado.FECEVENTO);
+              // Solo actualizamos si no se encontró un estado de mayor prioridad antes
+              if (estadoActualComentario !== "ENTREGADO") {
+                estadoActualComentario = "EN RUTA";
+              }
+            } else if (estado.COMENTARIO === "RECEPCION") {
+              actualizarEstado(".line .fas.agencia", estado.FECEVENTO);
+              if (!estadoActualComentario) {
+                estadoActualComentario = "RECEPCION";
+              }
+            }
+          });
+
+          const { DEPORIGEN: origen = "—", DEPDESTINO: destino = "—" } =
+            detallesData.find((item) => item.ID === 0) || {};
+
+          $orderInfo.find(".content .head .title span").text("Marvisur");
+          $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
+          $orderInfo.find(".info .dat1 .ori span").text(origen);
+          $orderInfo.find(".info .dat1 .des span").text(destino);
+
+          // Mostramos el estado actual según lo encontrado
+          if (estadoActualComentario) {
+            $orderInfo
+              .find(".content .head .estado-actual")
+              .text(estadoActualComentario);
+          } else {
+            $orderInfo
+              .find(".content .head .estado-actual")
+              .text("SIN INFORMACIÓN");
+          }
+        } else {
+          alert("No se pudo obtener la información del envío.");
+        }
+      },
+      error: function () {
+        alert("Error al consultar la guía. Intenta nuevamente.");
+      },
+      complete: function () {
+        $orderInfo.find(".loaders").css("display", "none");
+      },
+    });
+  }
+);
