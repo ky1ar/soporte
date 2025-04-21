@@ -179,6 +179,7 @@ function actualizarFases() {
   const $line = $("#orderInfo .content .info .line");
   const $fasesVisibles = $line.find(".fas:not([style*='display: none'])");
   const count = $fasesVisibles.length;
+  console.log(count);
   $("#orderInfo .content .status .fases .st").removeClass("activo");
   $("#orderInfo .content .status .fases .bar").removeClass("activo");
   if (count >= 1) {
