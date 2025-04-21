@@ -179,7 +179,6 @@ function actualizarFases() {
   const $line = $("#orderInfo .content .info .line");
   const $fasesVisibles = $line.find(".fas:not([style*='display: none'])");
   const count = $fasesVisibles.length;
-  console.log(count);
   $("#orderInfo .content .status .fases .st").removeClass("activo");
   $("#orderInfo .content .status .fases .bar").removeClass("activo");
   if (count >= 1) {
@@ -256,6 +255,7 @@ $(document).on(
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
           $orderInfo.find(".content .head .estado-actual").text(mensajeEstado);
+          actualizarFases();
         } else {
           alert("No se pudo obtener la información del envío.");
         }
@@ -330,6 +330,7 @@ $(document).on(
           $orderInfo
             .find(".content .head .estado-actual")
             .text(generalData.nombre_estado_tracking);
+          actualizarFases();
         } else {
           alert("No se pudo obtener la información del envío.");
         }
@@ -405,6 +406,7 @@ $(document).on(
           $orderInfo.find(".info .cod span").text(`${code1} / ${code2}`);
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
+          actualizarFases();
 
           // Mostramos el estado actual según lo encontrado
           if (estadoActualComentario) {
