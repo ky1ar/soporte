@@ -1,4 +1,3 @@
-// Agencias en formulario
 $(document).ready(function () {
   const config = {
     1: { p1: "N° de Orden", m1: 8, type2: "text", p2: "Código de Orden", m2: 4 },
@@ -6,47 +5,41 @@ $(document).ready(function () {
     3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 }
   };
 
-  $("#registerTrackings .form #agency").on("change", function () {
+  const $agency = $("#registerTrackings .form #agency");
+  const $form = $("#registerTrackings .form");
+  const $orderInput = $form.find("#order_number");
+  const $documentInput = $form.find("#document");
+  const $nameInput = $form.find("#name");
+  const $phoneInput = $form.find("#phone");
+
+  $agency.on("change", function () {
     const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
-    const $code1 = $("#registerTrackings .form .track #code1");
+    const $code1 = $form.find(".track #code1");
     $code1.attr({ placeholder: p1, maxlength: m1 }).val("");
 
     const code2Field = type2 === "select"
       ? `<select class="sp" id="code2" name="code2" required>${options.map(o => `<option value="${o}">${o}</option>`).join("")}</select>`
       : `<input type="text" id="code2" name="code2" placeholder="${p2 || ""}" maxlength="${m2 || 15}" required>`;
 
-    $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+    $form.find(".track #code2").replaceWith(code2Field);
   }).trigger("change");
-});
 
-
-// endpoint de documento
-$(document).ready(function () {
-  const form = $("#registerTrackings .form");
-  const orderInput = form.find("#order_number");
-  const documentInput = form.find("#document");
-  const nameInput = form.find("#name");
-  const phoneInput = form.find("#phone");
-
-  orderInput.on("blur", function () {
+  $orderInput.on("blur", function () {
     const orderNumber = $(this).val().trim();
     if (!orderNumber) return;
 
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-      .then((res) => {
-        if (!res.ok) return Promise.reject('Error en la respuesta');
-        return res.json();
-      })
+      .then((res) => res.ok ? res.json() : Promise.reject('Error en la respuesta'))
       .then((data) => {
         if (data && data.success && data.data.client) {
           const { document, name, phone, id: clientId } = data.data.client;
           const userOrderId = data.data.user_order_id;
 
-          documentInput.val(document);
-          nameInput.val(name);
-          phoneInput.val(phone);
+          $documentInput.val(document);
+          $nameInput.val(name);
+          $phoneInput.val(phone);
 
-          orderInput
+          $orderInput
             .attr("data-client-id", clientId)
             .attr("data-user-order-id", userOrderId);
         }
@@ -56,75 +49,70 @@ $(document).ready(function () {
       });
   });
 
-  documentInput.on("blur", function () {
+  $documentInput.on("blur", function () {
     const doc = $(this).val().trim();
     if (!doc) return;
 
     fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`)
-      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((res) => res.ok ? res.json() : Promise.reject())
       .then((data) => {
         if (data.success && data.data) {
           const { name, phone, id } = data.data;
 
-          nameInput.val(name);
-          phoneInput.val(phone);
+          $nameInput.val(name);
+          $phoneInput.val(phone);
 
           if (id) {
-            orderInput.attr("data-client-id", id);
+            $orderInput.attr("data-client-id", id);
           } else {
-            orderInput.removeAttr("data-client-id");
+            $orderInput.removeAttr("data-client-id");
           }
         }
       });
   });
 
-  form.find(".ins").on("click", function (e) {
+  $form.find(".ins").on("click", function (e) {
     e.preventDefault();
 
-    const nativeForm = form[0];
+    const nativeForm = $form[0];
     if (!nativeForm.checkValidity()) {
       nativeForm.reportValidity();
       return;
     }
 
     const payload = {
-      order_number: orderInput.val(),
-      agency_id: form.find("#agency").val(),
+      order_number: $orderInput.val(),
+      agency_id: $agency.val(),
       admin_id: 3,
-      code1: form.find("#code1").val(),
-      code2: form.find("#code2").val(),
-      client_id: orderInput.attr("data-client-id"),
-      user_order_id: orderInput.attr("data-user-order-id"),
+      code1: $form.find("#code1").val(),
+      code2: $form.find("#code2").val(),
+      client_id: $orderInput.attr("data-client-id") || null,
+      user_order_id: $orderInput.attr("data-user-order-id") || null,
       client: {
-        document: documentInput.val(),
-        name: nameInput.val(),
-        phone: phoneInput.val(),
+        document: $documentInput.val(),
+        name: $nameInput.val(),
+        phone: $phoneInput.val(),
       },
     };
 
-    const clientId = orderInput.attr("data-client-id");
-    if (clientId) {
-      payload.client_id = clientId;
-    }
+    console.log("Datos enviados:", payload);
 
     fetch("https://devintranet.krear3d.com/api/tracking/add", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          form[0].reset();
-          orderInput.removeAttr("data-client-id data-user-order-id");
+          // Resetear el formulario sin recargar la página
+          $form[0].reset();
+          $orderInput.removeAttr("data-client-id data-user-order-id");
+          $agency.trigger("change");
         }
       });
   });
 });
-
-
 
 
 
