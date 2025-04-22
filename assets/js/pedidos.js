@@ -1,37 +1,32 @@
 // Agencias en formulario
 $(document).ready(function () {
-  const placeholders = {
-    1: ["N° de Orden", "Código de Orden"],
-    2: ["N° de Tracking", ""],
-    3: ["V001", "0000001"],
+  const config = {
+    1: { ph: ["N° de Orden", "Código de Orden"], max: [15, 15], code2: false }, // Shalom
+    2: { ph: ["N° de Tracking", ""], max: [15, 15], code2: true }, // Olva
+    3: { ph: ["V001", "0000001"], max: [4, 7], code2: false }, // Marvisur
   };
 
   $("#registerTrackings .form #agency")
     .on("change", function () {
       const val = $(this).val();
-      const [ph1, ph2] = placeholders[val] || ["", ""];
+      const { ph, max, code2 } = config[val];
 
-      $("#registerTrackings .form .track #code1").attr("placeholder", ph1);
+      $("#registerTrackings .form .track #code1")
+        .attr("placeholder", ph[0])
+        .attr("maxlength", max[0]);
 
-      let code2Field;
-      if (val === "2") {
-        code2Field = `<select class="sp" id="code2" name="code2" required>
-                       <option value="25">25</option>
-                       <option value="24">24</option>
-                       <option value="23">23</option>
-                       <option value="22">22</option>
-                     </select>`;
-      } else {
-        code2Field = `<input type="text" id="code2" name="code2" placeholder="${ph2}" required>`;
-      }
+      $("#registerTrackings .form .track #code2")
+        .attr("placeholder", ph[1])
+        .attr("maxlength", max[1]);
 
-      if (val === "3") {
-        $("#registerTrackings .form .track #code1").attr("maxlength", "4");
-        $("#registerTrackings .form .track #code2").attr("maxlength", "7");
-      } else {
-        $("#registerTrackings .form .track #code1").attr("maxlength", "15");
-        $("#registerTrackings .form .track #code2").attr("maxlength", "15");
-      }
+      let code2Field = code2
+        ? `<select class="sp" id="code2" name="code2" required>
+         <option value="25">25</option>
+         <option value="24">24</option>
+         <option value="23">23</option>
+         <option value="22">22</option>
+       </select>`
+        : `<input type="text" id="code2" name="code2" placeholder="${ph[1]}" required>`;
 
       $("#registerTrackings .form .track #code2").replaceWith(code2Field);
     })
