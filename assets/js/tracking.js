@@ -3,7 +3,7 @@ $(document).ready(function () {
       e.preventDefault();
       const documento = $("#documento").val().trim();
   
-      fetch("/assets/js/data.json")
+      fetch("assets/js/data.json")
         .then((res) => res.json())
         .then((data) => {
           if (!data.success || !Array.isArray(data.data)) {
