@@ -76,12 +76,16 @@ $(document).ready(function () {
       .then(res => res.ok ? res.json() : Promise.reject())
       .then(data => {
         if (data.success && data.data) {
-          const { name, phone, id: clientId } = data.data;
+          const { name, phone, id } = data.data;
 
           nameInput.val(name);
           phoneInput.val(phone);
 
-          orderInput.attr("data-client-id", clientId);
+          if (id) {
+            orderInput.attr("data-client-id", id);
+          } else {
+            orderInput.removeAttr("data-client-id");
+          }
         }
       });
   });
@@ -95,14 +99,13 @@ $(document).ready(function () {
       return;
     }
 
-    const data = {
+    const payload = {
       order_number: orderInput.val(),
       agency_id: form.find("#agency").val(),
       admin_id: 3,
       code1: form.find("#code1").val(),
       code2: form.find("#code2").val(),
       user_order_id: orderInput.attr("data-user-order-id"),
-      client_id: orderInput.attr("data-client-id"),
       client: {
         document: documentInput.val(),
         name: nameInput.val(),
@@ -110,12 +113,17 @@ $(document).ready(function () {
       },
     };
 
+    const clientId = orderInput.attr("data-client-id");
+    if (clientId) {
+      payload.client_id = clientId;
+    }
+
     fetch("https://devintranet.krear3d.com/api/tracking/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
     })
       .then(res => res.json())
       .then(data => {
