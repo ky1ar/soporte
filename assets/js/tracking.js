@@ -3,18 +3,31 @@ $(document).ready(function () {
       e.preventDefault();
       const documento = $("#documento").val().trim();
   
+      // Verificar si el campo de documento está vacío o no es válido
+      if (!documento || documento.length < 8 || documento.length > 11) {
+        $("#formConsulta #error-message").text("Por favor, ingresa un DNI o RUC válido").fadeIn().delay(2000).fadeOut();
+        return; // Salir de la función si el dato no es válido
+      }
+  
       fetch("assets/js/data.json")
         .then((res) => res.json())
         .then((data) => {
           if (!data.success || !Array.isArray(data.data)) {
-            alert("Error en los datos recibidos");
+            $("#formConsulta #error-message").text("Error en los datos recibidos").fadeIn().delay(2000).fadeOut();
             return;
           }
   
           const orders = data.data;
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>');
+  
+          // Verificar si el template existe antes de usarlo
           const orderTemplate = document.getElementById("order-template");
+          if (!orderTemplate) {
+            console.error("Template no encontrado");
+            return; // Salir si no se encuentra el template
+          }
+  
           orders.forEach((order) => {
             const orderElement = orderTemplate.content.cloneNode(true);
             orderElement.querySelector(".order-number").textContent = order.order_number;
@@ -35,7 +48,7 @@ $(document).ready(function () {
         })
         .catch((err) => {
           console.error(err);
-          $("#error-message").text("Error al cargar los datos");
+          $("#formConsulta #error-message").text("Error al cargar los datos").fadeIn().delay(2000).fadeOut();
         });
     });
   });
