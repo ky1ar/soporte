@@ -32,8 +32,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#registerTrackings .form #document").on("blur", function () {
     const doc = $(this).val().trim();
-
-    if (doc) {
+    if (doc.length === 8 || doc.length === 11) {
       fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`, {
         method: "GET",
         headers: {
@@ -42,7 +41,7 @@ $(document).ready(function () {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error();
           }
           return response.json();
         })
@@ -54,17 +53,9 @@ $(document).ready(function () {
             if (data.data.phone) {
               $("#registerTrackings .form #phone").val(data.data.phone);
             }
-          } else {
-            console.log(
-              "No se encontró el nombre o el teléfono, o hubo un error en la respuesta."
-            );
           }
         })
-        .catch((error) => {
-          console.error("Error al consultar los datos del usuario:", error);
-        });
-    } else {
-      console.log("No se proporcionó un valor para el documento.");
+        .catch(() => {});
     }
   });
 });
