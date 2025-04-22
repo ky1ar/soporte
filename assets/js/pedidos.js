@@ -13,15 +13,17 @@ $(document).ready(function () {
 
       $("#registerTrackings .form .track #code1").attr("placeholder", ph1);
 
-      const code2Field =
-        val === "2"
-          ? `<select class="sp" id="code2" name="code2" required>
-               <option value="25">25</option>
-               <option value="24">24</option>
-               <option value="23">23</option>
-               <option value="22">22</option>
-             </select>`
-          : `<input type="text" id="code2" name="code2" placeholder="${ph2}" maxlength="15" required>`;
+      let code2Field;
+      if (val === "2") {
+        code2Field = `<select class="sp" id="code2" name="code2" required>
+                       <option value="25">25</option>
+                       <option value="24">24</option>
+                       <option value="23">23</option>
+                       <option value="22">22</option>
+                     </select>`;
+      } else {
+        code2Field = `<input type="text" id="code2" name="code2" placeholder="${ph2}" required>`;
+      }
 
       if (val === "3") {
         $("#registerTrackings .form .track #code1").attr("maxlength", "4");
@@ -35,7 +37,6 @@ $(document).ready(function () {
     })
     .trigger("change");
 });
-
 
 // endpoint de documento
 $(document).ready(function () {
