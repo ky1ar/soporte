@@ -33,32 +33,7 @@ require_once 'includes/common/header.php';
             </div>
             <div id="listOrdersShipping">
                 <h1 class="title">Mis Pedidos</h1>
-                <!-- El template se coloca aquí dentro del contenedor -->
-                <template id="order-template">
-                    <div class="order">
-                        <div class="head">
-                            <p class="orderNum">Orden: <span class="order-number"></span></p>
-                            <p class="track">Tracking: <span class="tracking-codes"></span></p>
-                            <div class="agencia">
-                                <img class="agency-image" src="" alt="">
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="info">
-                                <p class="fecha"></p>
-                                <p class="status"></p>
-                                <p class="name">Nombre: <span>—</span></p>
-                                <p class="doc">Documento: <span class="documento"></span></p>
-                            </div>
-                            <div class="actions">
-                                <button class="btn op">Rastrear</button>
-                                <a class="btn help-link" target="_blank">Obtener Ayuda</a>
-                            </div>
-                        </div>
-                    </div>
-                </template>
             </div>
-
         </div>
         <div id="orderInfo">
             <div class="content">
