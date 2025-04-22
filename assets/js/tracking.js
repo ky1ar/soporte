@@ -131,15 +131,28 @@ $(document).ready(function () {
           $("#registerTrackings #agency").trigger("change");
           $errorContainer.empty(); // limpiar mensaje si antes hubo un error
         } else {
-          $errorContainer.html(
-            `<p>${data.data?.message || "Error al registrar el tracking."}</p>`
-          );
+          const $p = $("<p>")
+            .text(data.data?.message || "Error al registrar el tracking.")
+            .hide()
+            .appendTo($errorContainer)
+            .fadeIn(300)
+            .delay(1500)
+            .fadeOut(300, function () {
+              $(this).remove();
+            });
         }
       })
       .catch(() => {
-        $("#registerTrackings #error-register").html(
-          `<p>Error inesperado. Intente nuevamente.</p>`
-        );
+        const $errorContainer = $("#registerTrackings #error-register");
+        const $p = $("<p>")
+          .text("Error inesperado. Intente nuevamente.")
+          .hide()
+          .appendTo($errorContainer)
+          .fadeIn(300)
+          .delay(1500)
+          .fadeOut(300, function () {
+            $(this).remove();
+          });
       });
   });
 });
