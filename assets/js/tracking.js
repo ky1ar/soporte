@@ -5,6 +5,12 @@ $(document).ready(function () {
 
         if (documento !== '70986545') {
             $("#error-message").html('<p>Documento incorrecto. Por favor ingrese el DNI correcto.</p>').fadeIn(1000);
+            
+            // Después de 1 segundo, hacer fadeOut del mensaje
+            setTimeout(function() {
+                $("#error-message").fadeOut(1000);
+            }, 1000);  // El mensaje desaparece 1 segundo después de ser mostrado
+
             return;
         }
 
