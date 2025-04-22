@@ -3432,7 +3432,7 @@ section.i3d .cont-cards .card div:last-child a {
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.1rem solid var(--newgray);
-  background-color: #d5d5d557;
+  background-color: #d5d5d536;
 }
 #listOrdersShipping .order .head .orderNum,
 #listOrdersShipping .order .head .track {
