@@ -1,49 +1,27 @@
 // Agencias en formulario
 $(document).ready(function () {
   const config = {
-    1: {
-      code1: { placeholder: "N° de Orden", maxlength: 15 },
-      code2: { placeholder: "Código de Orden", maxlength: 15, type: "text" },
-    },
-    2: {
-      code1: { placeholder: "N° de Tracking", maxlength: 15 },
-      code2: {
-        placeholder: "",
-        maxlength: 15,
-        type: "select",
-        options: ["25", "24", "23", "22"],
-      },
-    },
-    3: {
-      code1: { placeholder: "V001", maxlength: 4 },
-      code2: { placeholder: "0000001", maxlength: 7, type: "text" },
-    },
+    1: { p1: "N° de Orden", m1: 15, type2: "text", p2: "Código de Orden", m2: 15 },
+    2: { p1: "N° de Tracking", m1: 15, type2: "select", options: ["25", "24", "23", "22"] },
+    3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 }
   };
 
-  $("#registerTrackings .form #agency")
-    .on("change", function () {
-      const val = $(this).val();
-      const agencyConfig = config[val];
-      $("#registerTrackings .form .track #code1")
-        .attr("placeholder", agencyConfig.code1.placeholder)
-        .attr("maxlength", agencyConfig.code1.maxlength);
-      let code2Field;
-      if (agencyConfig.code2.type === "select") {
-        code2Field = `<select class="sp" id="code2" name="code2" required>
-                      ${agencyConfig.code2.options
-                        .map(
-                          (option) =>
-                            `<option value="${option}">${option}</option>`
-                        )
-                        .join("")}
-                    </select>`;
-      } else {
-        code2Field = `<input type="text" id="code2" name="code2" placeholder="${agencyConfig.code2.placeholder}" maxlength="${agencyConfig.code2.maxlength}" required>`;
-      }
-      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
-    })
-    .trigger("change");
+  $("#registerTrackings .form #agency").on("change", function () {
+    const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
+
+    $("#registerTrackings .form .track #code1")
+      .attr({ placeholder: p1, maxlength: m1 });
+
+    const code2Field = type2 === "select"
+      ? `<select class="sp" id="code2" name="code2" required>
+          ${options.map(o => `<option value="${o}">${o}</option>`).join("")}
+        </select>`
+      : `<input type="text" id="code2" name="code2" placeholder="${p2 || ""}" maxlength="${m2 || 15}" required>`;
+
+    $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+  }).trigger("change");
 });
+
 
 // endpoint de documento
 $(document).ready(function () {
