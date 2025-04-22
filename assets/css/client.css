@@ -3503,10 +3503,10 @@ section.i3d .cont-cards .card div:last-child a {
   font-weight: 500;
 }
 #listOrdersShipping .order .cont .actions .btn:nth-child(1) {
-  background-color: #00b7d1;
+  background-color: #ef8229;
 }
 #listOrdersShipping .order .cont .actions .btn:nth-child(2) {
-  background-color: #919191;
+  background-color: #b7b7b7;
 }
 #orderInfo {
   position: fixed;
