@@ -1,42 +1,24 @@
 // Agencias en formulario
 $(document).ready(function () {
   const config = {
-    1: {
-      p1: "N° de Orden",
-      m1: 8,
-      type2: "text",
-      p2: "Código de Orden",
-      m2: 4,
-    },
-    2: {
-      p1: "N° de Tracking",
-      m1: 7,
-      type2: "select",
-      options: ["25", "24", "23", "22"],
-    },
-    3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 },
+    1: { p1: "N° de Orden", m1: 8, type2: "text", p2: "Código de Orden", m2: 4 },
+    2: { p1: "N° de Tracking", m1: 7, type2: "select", options: ["25", "24", "23", "22"] },
+    3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 }
   };
 
-  $("#registerTrackings .form #agency")
-    .on("change", function () {
-      const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
+  $("#registerTrackings .form #agency").on("change", function () {
+    const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
+    const $code1 = $("#registerTrackings .form .track #code1");
+    $code1.attr({ placeholder: p1, maxlength: m1 }).val("");
 
-      const $code1 = $("#registerTrackings .form .track #code1");
-      $code1.attr({ placeholder: p1, maxlength: m1 }).val(""); // limpia code1
+    const code2Field = type2 === "select"
+      ? `<select class="sp" id="code2" name="code2" required>${options.map(o => `<option value="${o}">${o}</option>`).join("")}</select>`
+      : `<input type="text" id="code2" name="code2" placeholder="${p2 || ""}" maxlength="${m2 || 15}" required>`;
 
-      const code2Field =
-        type2 === "select"
-          ? `<select class="sp" id="code2" name="code2" required>
-          ${options.map((o) => `<option value="${o}">${o}</option>`).join("")}
-        </select>`
-          : `<input type="text" id="code2" name="code2" placeholder="${
-              p2 || ""
-            }" maxlength="${m2 || 15}" required>`;
-
-      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
-    })
-    .trigger("change");
+    $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+  }).trigger("change");
 });
+
 
 // endpoint de documento
 $(document).ready(function () {
@@ -51,25 +33,9 @@ $(document).ready(function () {
     if (!orderNumber) return;
 
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-      .then((res) => {
-        if (!res.ok) {
-          // Si la respuesta no es ok (400), no hacer nada
-          return Promise.reject("Error en la respuesta");
-        }
-        return res.json();
-      })
+      .then((res) => res.ok ? res.json() : Promise.reject('Error en la respuesta'))
       .then((data) => {
-        if (!data || !data.success) {
-          // Si la respuesta es exitosa pero no se encuentra la orden, limpiar los campos
-          documentInput.val("");
-          nameInput.val("");
-          phoneInput.val("");
-          orderInput.removeAttr("data-client-id data-user-order-id");
-          return;
-        }
-
-        // Si la orden está encontrada, llenar los campos con la información de la orden
-        if (data.data && data.data.client) {
+        if (data && data.success && data.data.client) {
           const { document, name, phone, id: clientId } = data.data.client;
           const userOrderId = data.data.user_order_id;
 
@@ -83,15 +49,13 @@ $(document).ready(function () {
         }
       })
       .catch((err) => {
-        // Manejar el error (por ejemplo, si la orden no se encuentra o hay un error en la petición)
-        console.warn(
-          "No se pudo obtener la orden o la respuesta no fue válida:",
-          err
-        );
-        documentInput.val("");
-        nameInput.val("");
-        phoneInput.val("");
-        orderInput.removeAttr("data-client-id data-user-order-id");
+        // Si hay un error 400 o cualquier otro, no hacer nada
+        if (err === 'Error en la respuesta') {
+          // Aquí no hacemos nada si no se encuentra la orden
+          // No limpiamos ni actualizamos los campos
+        } else {
+          console.warn("Error al obtener los datos de la orden:", err);
+        }
       });
   });
 
@@ -161,6 +125,7 @@ $(document).ready(function () {
       });
   });
 });
+
 
 // Lista de Pedidos
 $(document).ready(function () {
