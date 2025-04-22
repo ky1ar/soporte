@@ -36,6 +36,7 @@ $(document).ready(function () {
     .trigger("change");
 });
 
+
 // endpoint de documento
 $(document).ready(function () {
   $("#registerTrackings .form #document").on("blur", function () {
