@@ -1,7 +1,7 @@
 // Agencias en formulario
 $(document).ready(function () {
   const config = {
-    1: { p1: "N° de Orden", m1: 15, type2: "text", p2: "Código de Orden", m2: 15 },
+    1: { p1: "N° de Orden", m1: 8, type2: "text", p2: "Código de Orden", m2: 4 },
     2: { p1: "N° de Tracking", m1: 15, type2: "select", options: ["25", "24", "23", "22"] },
     3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 }
   };
