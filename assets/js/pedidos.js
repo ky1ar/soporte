@@ -21,7 +21,7 @@ $(document).ready(function () {
                  <option value="23">23</option>
                  <option value="22">22</option>
              </select>`
-          : `<input type="text" id="code2" name="code2" placeholder="${ph2}" required>`;
+          : `<input type="text" id="code2" name="code2" placeholder="${ph2}" maxlength="15" required>`;
 
       $("#registerTrackings .form .track #code2").replaceWith(code2Field);
     })
