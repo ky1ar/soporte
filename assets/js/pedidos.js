@@ -9,8 +9,8 @@ $(document).ready(function () {
   $("#registerTrackings .form #agency").on("change", function () {
     const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
 
-    $("#registerTrackings .form .track #code1")
-      .attr({ placeholder: p1, maxlength: m1 });
+    const $code1 = $("#registerTrackings .form .track #code1");
+    $code1.attr({ placeholder: p1, maxlength: m1 }).val(""); // limpia code1
 
     const code2Field = type2 === "select"
       ? `<select class="sp" id="code2" name="code2" required>
@@ -21,6 +21,7 @@ $(document).ready(function () {
     $("#registerTrackings .form .track #code2").replaceWith(code2Field);
   }).trigger("change");
 });
+
 
 
 // endpoint de documento
