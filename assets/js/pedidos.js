@@ -1,32 +1,51 @@
-// Agencias en formulario
 $(document).ready(function () {
   const config = {
-    1: { ph: ["N° de Orden", "Código de Orden"], max: [15, 15], code2: false }, // Shalom
-    2: { ph: ["N° de Tracking", ""], max: [15, 15], code2: true }, // Olva
-    3: { ph: ["V001", "0000001"], max: [4, 7], code2: false }, // Marvisur
+    1: {
+      // Shalom
+      code1: { placeholder: "N° de Orden", maxlength: 15 },
+      code2: { placeholder: "Código de Orden", maxlength: 15, type: "text" },
+    },
+    2: {
+      // Olva
+      code1: { placeholder: "N° de Tracking", maxlength: 15 },
+      code2: {
+        placeholder: "",
+        maxlength: 15,
+        type: "select",
+        options: ["25", "24", "23", "22"],
+      },
+    },
+    3: {
+      // Marvisur
+      code1: { placeholder: "V001", maxlength: 4 },
+      code2: { placeholder: "0000001", maxlength: 7, type: "text" },
+    },
   };
 
   $("#registerTrackings .form #agency")
     .on("change", function () {
       const val = $(this).val();
-      const { ph, max, code2 } = config[val];
+      const agencyConfig = config[val];
 
+      // Configuración para code1
       $("#registerTrackings .form .track #code1")
-        .attr("placeholder", ph[0])
-        .attr("maxlength", max[0]);
+        .attr("placeholder", agencyConfig.code1.placeholder)
+        .attr("maxlength", agencyConfig.code1.maxlength);
 
-      $("#registerTrackings .form .track #code2")
-        .attr("placeholder", ph[1])
-        .attr("maxlength", max[1]);
-
-      let code2Field = code2
-        ? `<select class="sp" id="code2" name="code2" required>
-         <option value="25">25</option>
-         <option value="24">24</option>
-         <option value="23">23</option>
-         <option value="22">22</option>
-       </select>`
-        : `<input type="text" id="code2" name="code2" placeholder="${ph[1]}" required>`;
+      // Configuración para code2
+      let code2Field;
+      if (agencyConfig.code2.type === "select") {
+        code2Field = `<select id="code2" name="code2" required>
+                      ${agencyConfig.code2.options
+                        .map(
+                          (option) =>
+                            `<option value="${option}">${option}</option>`
+                        )
+                        .join("")}
+                    </select>`;
+      } else {
+        code2Field = `<input type="text" id="code2" name="code2" placeholder="${agencyConfig.code2.placeholder}" maxlength="${agencyConfig.code2.maxlength}" required>`;
+      }
 
       $("#registerTrackings .form .track #code2").replaceWith(code2Field);
     })
