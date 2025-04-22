@@ -101,7 +101,7 @@ $(document).ready(function () {
       client: {
         document: $("#registerTrackings .form #document").val(),
         name: $("#registerTrackings .form #name").val(),
-        phone: $("#registerTrackings .form #phone").val().replace(/^51/, ""), // 👈 Formateo para envío
+        phone: $("#registerTrackings .form #phone").val(),
       },
     };
     
