@@ -1,14 +1,25 @@
 $(document).ready(function () {
+    let isProcessing = false;  // Bandera para evitar múltiples clics
+
     $("#formConsulta").on("submit", function (e) {
         e.preventDefault();
+
+        if (isProcessing) return;  // Si ya está en proceso, no hacer nada
+
+        isProcessing = true;  // Establecer la bandera a verdadero
+
         const documento = $("#documento").val().trim();
 
         if (documento !== '70986545') {
-            $("#error-message").html('<p>Documento no encontrado</p>').fadeIn().delay(1500).fadeOut();
+            $("#error-message").html('<p>Documento no encontrado</p>').fadeIn().delay(1500).fadeOut(function() {
+                isProcessing = false;  // Restablecer la bandera después de que el efecto termine
+            });
             return;
         }
 
-        $("#error-message").fadeOut();
+        $("#error-message").fadeOut(function() {
+            isProcessing = false;  // Restablecer la bandera después de que el efecto termine
+        });
 
         fetch("assets/js/data.json")
             .then((res) => res.json())
