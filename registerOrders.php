@@ -17,16 +17,16 @@ require_once 'includes/common/header.php';
                 <h1 class="title">Registro de Tracking</h1>
 
                 <div class="order">
-                    <input type="text" id="order_number" name="order_number" placeholder="N° Orden" min="2" max="6" required>
+                    <input type="text" id="order_number" name="order_number" placeholder="N° Orden" maxlength="6" required>
                 </div>
                 <div class="doc">
-                    <input type="text" id="document" name="document" placeholder="DNI o RUC" min="8" max="11" required>
+                    <input type="text" id="document" name="document" placeholder="DNI o RUC" maxlength="11" required>
                 </div>
                 <div class="name">
-                    <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" required>
+                    <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" maxlength="30" required>
                 </div>
                 <div class="phone">
-                    <input type="text" id="phone" name="phone" placeholder="Celular" min="9" max="9" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Celular" maxlength="9" required>
                 </div>
                 <div class="agen-tit">
                     <p>Agencia</p>
@@ -39,8 +39,8 @@ require_once 'includes/common/header.php';
                     </select>
                 </div>
                 <div class="track">
-                    <input type="text" id="code1" name="code1" max="15" required>
-                    <input type="text" id="code2" name="code2" max="15" required>
+                    <input type="text" id="code1" name="code1" maxlength="15" required>
+                    <input type="text" id="code2" name="code2" maxlength="15" required>
                 </div>
                 <button class="ins">Agregar Registro</button>
             </form>
