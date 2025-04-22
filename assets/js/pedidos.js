@@ -34,15 +34,7 @@ $(document).ready(function () {
 
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
       .then((res) => {
-        // Si la respuesta es 404, no hacer nada, solo devolver un rechazo controlado
-        if (res.status === 404) {
-          console.log('Orden no encontrada');
-          return Promise.reject('Orden no encontrada');
-        }
-        // Si la respuesta no es OK (400, 500, etc.), rechazamos la promesa
-        if (!res.ok) {
-          return Promise.reject('Error en la respuesta');
-        }
+        if (!res.ok) return Promise.reject('Error en la respuesta');
         return res.json();
       })
       .then((data) => {
@@ -60,17 +52,7 @@ $(document).ready(function () {
         }
       })
       .catch((err) => {
-        // Si no se encuentra la orden (error 404), solo mostramos el mensaje en consola sin hacer nada más
-        if (err === 'Orden no encontrada') {
-          // Esto se controla para evitar la propagación del error en la consola
-          return;
-        }
-        // Para otros errores, mostramos una advertencia en la consola
         console.warn("No se pudo obtener la orden o la respuesta no fue válida:", err);
-        documentInput.val("");
-        nameInput.val("");
-        phoneInput.val("");
-        orderInput.removeAttr("data-client-id data-user-order-id");
       });
   });
 
@@ -140,6 +122,7 @@ $(document).ready(function () {
       });
   });
 });
+
 
 
 
