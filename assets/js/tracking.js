@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     // Verificar si el campo de documento está vacío o no es válido
     if (!documento || documento.length < 8 || documento.length > 11) {
-      $("#formConsulta #error-message").text("Por favor, ingresa un DNI o RUC válido").fadeIn().delay(2000).fadeOut();
+      $("#formConsulta #error-message").text("Por favor, ingresa un DNI o RUC válido").fadeIn().delay(1000).fadeOut();
       return; // Salir de la función si el dato no es válido
     }
 
@@ -13,7 +13,7 @@ $(document).ready(function () {
       .then((res) => res.json())
       .then((data) => {
         if (!data.success || !Array.isArray(data.data)) {
-          $("#formConsulta #error-message").text("Error en los datos recibidos").fadeIn().delay(2000).fadeOut();
+          $("#formConsulta #error-message").text("Error en los datos recibidos").fadeIn().delay(1000).fadeOut();
           return;
         }
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
       })
       .catch((err) => {
         console.error(err);
-        $("#formConsulta #error-message").text("Error al cargar los datos").fadeIn().delay(2000).fadeOut();
+        $("#formConsulta #error-message").text("Error al cargar los datos").fadeIn().delay(1000).fadeOut();
       });
   });
 });
