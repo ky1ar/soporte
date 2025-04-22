@@ -96,15 +96,15 @@ $(document).ready(function () {
       admin_id: 3,
       code1: $("#registerTrackings .form #code1").val(),
       code2: $("#registerTrackings .form #code2").val(),
-      user_order_id: $("#registerTrackings .form #user_order_id").val(),
-      client_id: $("#registerTrackings .form #client_id").val(),
+      user_order_id: $("#registerTrackings .form #order_number").attr("data-user-order-id"),
+      client_id: $("#registerTrackings .form #order_number").attr("data-client-id"),
       client: {
         document: $("#registerTrackings .form #document").val(),
         name: $("#registerTrackings .form #name").val(),
-        phone: $("#registerTrackings .form #phone").val().replace(/^51/, ""), // 👈 Aquí se formatea solo al enviar
+        phone: $("#registerTrackings .form #phone").val().replace(/^51/, ""), // 👈 Formateo para envío
       },
     };
-
+    
     console.log("Datos enviados:", JSON.stringify(data, null, 2));
 
     fetch("https://devintranet.krear3d.com/api/tracking/add", {
