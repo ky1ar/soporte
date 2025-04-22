@@ -93,6 +93,7 @@ $(document).ready(function () {
       admin_id: 3,
       code1: form.find("#code1").val(),
       code2: form.find("#code2").val(),
+      client_id: orderInput.attr("data-client-id"),
       user_order_id: orderInput.attr("data-user-order-id"),
       client: {
         document: documentInput.val(),
