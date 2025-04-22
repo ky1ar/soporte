@@ -19,8 +19,8 @@ $(document).ready(function () {
           const orders = data.data;
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>');
-          
-          const orderTemplate = document.getElementById("order-template");
+  
+          const orderTemplate = document.querySelector("#order-template");
           if (!orderTemplate) {
             console.error("Template no encontrado");
             return;
