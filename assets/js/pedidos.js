@@ -51,20 +51,26 @@ $(document).ready(function () {
     if (!orderNumber) return;
 
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-      .then(res => res.ok ? res.json() : Promise.reject())
-      .then(data => {
-        if (data.success && data.data.client) {
-          const { document, name, phone, id: clientId } = data.data.client;
-          const userOrderId = data.data.user_order_id;
+      .then((res) => {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then((data) => {
+        if (!data || !data.success || !data.data.client) return;
 
-          documentInput.val(document);
-          nameInput.val(name);
-          phoneInput.val(phone);
+        const { document, name, phone, id: clientId } = data.data.client;
+        const userOrderId = data.data.user_order_id;
 
-          orderInput
-            .attr("data-client-id", clientId)
-            .attr("data-user-order-id", userOrderId);
-        }
+        documentInput.val(document);
+        nameInput.val(name);
+        phoneInput.val(phone);
+
+        orderInput
+          .attr("data-client-id", clientId)
+          .attr("data-user-order-id", userOrderId);
+      })
+      .catch(() => {
+        // Silenciar cualquier error para no mostrarlo en consola
       });
   });
 
@@ -73,8 +79,8 @@ $(document).ready(function () {
     if (!doc) return;
 
     fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`)
-      .then(res => res.ok ? res.json() : Promise.reject())
-      .then(data => {
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => {
         if (data.success && data.data) {
           const { name, phone, id } = data.data;
 
@@ -125,8 +131,8 @@ $(document).ready(function () {
       },
       body: JSON.stringify(payload),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.success) {
           form[0].reset();
           orderInput.removeAttr("data-client-id data-user-order-id");
@@ -134,7 +140,6 @@ $(document).ready(function () {
       });
   });
 });
-
 
 // Lista de Pedidos
 $(document).ready(function () {
