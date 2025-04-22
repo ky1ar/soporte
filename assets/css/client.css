@@ -3364,6 +3364,12 @@ section.i3d .cont-cards .card div:last-child a {
   flex-direction: column;
   text-align: left;
 }
+#formPedidos form #error-message p {
+  margin-top: 1rem;
+  color: red;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 #formPedidos h1,
 #formPedidos p {
   margin: 0;
