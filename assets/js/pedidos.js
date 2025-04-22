@@ -45,20 +45,30 @@ $(document).ready(function () {
 
     if (orderNumber) {
       fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-        .then(response => {
+        .then((response) => {
           if (!response.ok) return Promise.reject();
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           if (data.success && data.data.client) {
             const { document, name, phone, id: clientId } = data.data.client;
             const userOrderId = data.data.user_order_id;
-            $("#registerTrackings .form #document").val(document).prop("disabled", true);
-            $("#registerTrackings .form #name").val(name).prop("disabled", true);
-            $("#registerTrackings .form #phone").val(phone).prop("disabled", true);
+
+            // Rellenar campos visibles
+            $("#registerTrackings .form #document")
+              .val(document)
+              .prop("disabled", true);
+            $("#registerTrackings .form #name")
+              .val(name)
+              .prop("disabled", true);
+            $("#registerTrackings .form #phone")
+              .val(phone)
+              .prop("disabled", true);
+
+            // Establecer los data-* como atributos HTML visibles
             $("#registerTrackings .form #order_number")
-              .data("client-id", clientId)
-              .data("user-order-id", userOrderId);
+              .attr("data-client-id", clientId)
+              .attr("data-user-order-id", userOrderId);
           }
         })
         .catch(() => {
@@ -67,9 +77,6 @@ $(document).ready(function () {
     }
   });
 });
-
-
-
 
 // registro en JSON
 $(document).ready(function () {
@@ -121,8 +128,6 @@ $(document).ready(function () {
       });
   });
 });
-
-
 
 // Lista de Pedidos
 $(document).ready(function () {
