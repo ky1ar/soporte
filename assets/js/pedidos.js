@@ -56,21 +56,36 @@ $(document).ready(function () {
         return res.json();
       })
       .then((data) => {
-        if (!data || !data.success || !data.data.client) return;
+        // Verificar si la respuesta es válida y si existe un cliente
+        if (!data || !data.success) {
+          // Si la orden no se encuentra, limpiar los campos
+          documentInput.val("");
+          nameInput.val("");
+          phoneInput.val("");
+          orderInput.removeAttr("data-client-id data-user-order-id");
+          return;
+        }
 
-        const { document, name, phone, id: clientId } = data.data.client;
-        const userOrderId = data.data.user_order_id;
+        // Si la orden está encontrada, proceder a llenar los campos
+        if (data.data && data.data.client) {
+          const { document, name, phone, id: clientId } = data.data.client;
+          const userOrderId = data.data.user_order_id;
 
-        documentInput.val(document);
-        nameInput.val(name);
-        phoneInput.val(phone);
+          documentInput.val(document);
+          nameInput.val(name);
+          phoneInput.val(phone);
 
-        orderInput
-          .attr("data-client-id", clientId)
-          .attr("data-user-order-id", userOrderId);
+          orderInput
+            .attr("data-client-id", clientId)
+            .attr("data-user-order-id", userOrderId);
+        }
       })
       .catch(() => {
         // Silenciar cualquier error para no mostrarlo en consola
+        documentInput.val("");
+        nameInput.val("");
+        phoneInput.val("");
+        orderInput.removeAttr("data-client-id data-user-order-id");
       });
   });
 
