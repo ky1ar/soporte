@@ -31,8 +31,32 @@ require_once 'includes/common/header.php';
                     <button>Consultar</button>
                 </form>
             </div>
-            <div id="listOrdersShipping">
+            <div id="listOrdersShipping" class="orders-container">
+                <h1 class="title">Mis Pedidos</h1>
+
+                <div class="order" id="orderTemplate" style="display:none;">
+                    <div class="head">
+                        <p class="orderNum">Orden: <span class="order-number"></span></p>
+                        <p class="track">Tracking: <span class="tracking"></span></p>
+                        <div class="agencia">
+                            <img class="agency-image" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <div class="info">
+                            <p class="fecha"></p>
+                            <p class="status"></p>
+                            <p class="name">Nombre: <span>—</span></p>
+                            <p class="doc">Documento: <span class="documento"></span></p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn op">Rastrear</button>
+                            <a class="btn" href="" target="_blank">Obtener Ayuda</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
         <div id="orderInfo">
             <div class="content">
