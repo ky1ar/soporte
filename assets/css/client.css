@@ -3392,6 +3392,7 @@ section.i3d .cont-cards .card div:last-child a {
   outline: none;
 }
 #formPedidos form button {
+  margin-top: 1rem;
   border: none;
   padding: 0.5rem;
   background-color: var(--primary);
