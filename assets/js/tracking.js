@@ -13,17 +13,10 @@ $(document).ready(function () {
   
           const orders = data.data;
           const container = $("#listOrdersShipping");
-          container.html('<h1 class="title">Mis Pedidos</h1>'); // Aseguramos que el contenedor está vacío
-  
-          // Accedemos al template
+          container.html('<h1 class="title">Mis Pedidos</h1>');
           const orderTemplate = document.getElementById("order-template");
-  
-          // Iteramos sobre los pedidos y los agregamos
           orders.forEach((order) => {
-            // Clonamos el template
             const orderElement = orderTemplate.content.cloneNode(true);
-  
-            // Rellenamos los datos en el template
             orderElement.querySelector(".order-number").textContent = order.order_number;
             orderElement.querySelector(".tracking-codes").textContent = `${order.code1} / ${order.code2}`;
             orderElement.querySelector(".agency-image").src = order.agency_image;
@@ -35,8 +28,6 @@ $(document).ready(function () {
             });
             orderElement.querySelector(".status").textContent = order.status;
             orderElement.querySelector(".documento").textContent = documento;
-  
-            // Agregamos el pedido al contenedor
             container.append(orderElement);
           });
   
@@ -44,7 +35,7 @@ $(document).ready(function () {
         })
         .catch((err) => {
           console.error(err);
-          alert("Error al cargar los datos");
+          $("#error-message").text("Error al cargar los datos");
         });
     });
   });
