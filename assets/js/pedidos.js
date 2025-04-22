@@ -42,33 +42,32 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#registerTrackings .form #order_number").on("blur", function () {
     const orderNumber = $(this).val().trim();
+
     if (orderNumber) {
       fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
         .then(response => {
-          if (!response.ok) return Promise.reject();  // Si la respuesta no es ok, rechazamos
+          if (!response.ok) return Promise.reject();
           return response.json();
         })
         .then(data => {
           if (data.success && data.data.client) {
-            const { document, name, phone } = data.data.client;
-            const userOrderId = data.data.user_order_id;  // Guardamos user_order_id
-            const clientId = data.data.client.id;  // Guardamos id del cliente
-
-            // Rellenamos los campos visibles
+            const { document, name, phone, id: clientId } = data.data.client;
+            const userOrderId = data.data.user_order_id;
             $("#registerTrackings .form #document").val(document).prop("disabled", true);
             $("#registerTrackings .form #name").val(name).prop("disabled", true);
             $("#registerTrackings .form #phone").val(phone).prop("disabled", true);
-
-            // Guardamos los valores en los campos invisibles
-            $("#registerTrackings .form #client_id").val(clientId);  // Campo oculto para client_id
-            $("#registerTrackings .form #user_order_id").val(userOrderId);  // Campo oculto para user_order_id
+            $("#registerTrackings .form #order_number")
+              .data("client-id", clientId)
+              .data("user-order-id", userOrderId);
           }
         })
         .catch(() => {
+          console.warn("No se pudo obtener datos del pedido.");
         });
     }
   });
 });
+
 
 
 
