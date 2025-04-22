@@ -52,13 +52,15 @@ $(document).ready(function () {
 
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
       .then((res) => {
-        if (!res.ok) return null;
+        if (!res.ok) {
+          // Si la respuesta no es ok (400), no hacer nada
+          return Promise.reject("Error en la respuesta");
+        }
         return res.json();
       })
       .then((data) => {
-        // Verificar si la respuesta es válida y si existe un cliente
         if (!data || !data.success) {
-          // Si la orden no se encuentra, limpiar los campos
+          // Si la respuesta es exitosa pero no se encuentra la orden, limpiar los campos
           documentInput.val("");
           nameInput.val("");
           phoneInput.val("");
@@ -66,7 +68,7 @@ $(document).ready(function () {
           return;
         }
 
-        // Si la orden está encontrada, proceder a llenar los campos
+        // Si la orden está encontrada, llenar los campos con la información de la orden
         if (data.data && data.data.client) {
           const { document, name, phone, id: clientId } = data.data.client;
           const userOrderId = data.data.user_order_id;
@@ -80,8 +82,12 @@ $(document).ready(function () {
             .attr("data-user-order-id", userOrderId);
         }
       })
-      .catch(() => {
-        // Silenciar cualquier error para no mostrarlo en consola
+      .catch((err) => {
+        // Manejar el error (por ejemplo, si la orden no se encuentra o hay un error en la petición)
+        console.warn(
+          "No se pudo obtener la orden o la respuesta no fue válida:",
+          err
+        );
         documentInput.val("");
         nameInput.val("");
         phoneInput.val("");
