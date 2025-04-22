@@ -3365,10 +3365,11 @@ section.i3d .cont-cards .card div:last-child a {
   text-align: left;
 }
 #formPedidos form #error-message p {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   color: red;
   font-size: 0.9rem;
   font-weight: 600;
+  margin-bottom: -0.5rem;
 }
 #formPedidos h1,
 #formPedidos p {
