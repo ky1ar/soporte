@@ -13,36 +13,31 @@ $(document).ready(function () {
   
           const orders = data.data;
           const container = $("#listOrdersShipping");
-          container.html('<h1 class="title">Mis Pedidos</h1>');
+          container.html('<h1 class="title">Mis Pedidos</h1>'); // Aseguramos que el contenedor está vacío
   
+          // Accedemos al template
+          const orderTemplate = document.getElementById("order-template");
+  
+          // Iteramos sobre los pedidos y los agregamos
           orders.forEach((order) => {
-            container.append(`
-              <div class="order">
-                <div class="head">
-                  <p class="orderNum">Orden: <span>${order.order_number}</span></p>
-                  <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
-                  <div class="agencia">
-                    <img class="a${order.agency_id}" src="${order.agency_image}" alt="${order.agency}">
-                  </div>
-                </div>
-                <div class="cont">
-                  <div class="info">
-                    <p class="fecha">${new Date(order.register_at).toLocaleDateString('es-PE', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}</p>
-                    <p class="status">${order.status}</p>
-                    <p class="name">Nombre: <span>—</span></p>
-                    <p class="doc">Documento: <span>${documento}</span></p>
-                  </div>
-                  <div class="actions">
-                    <button class="btn op" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.agency_id}">Rastrear</button>
-                    <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}" target="_blank">Obtener Ayuda</a>
-                  </div>
-                </div>
-              </div>
-            `);
+            // Clonamos el template
+            const orderElement = orderTemplate.content.cloneNode(true);
+  
+            // Rellenamos los datos en el template
+            orderElement.querySelector(".order-number").textContent = order.order_number;
+            orderElement.querySelector(".tracking-codes").textContent = `${order.code1} / ${order.code2}`;
+            orderElement.querySelector(".agency-image").src = order.agency_image;
+            orderElement.querySelector(".agency-image").alt = order.agency;
+            orderElement.querySelector(".fecha").textContent = new Date(order.register_at).toLocaleDateString('es-PE', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+            orderElement.querySelector(".status").textContent = order.status;
+            orderElement.querySelector(".documento").textContent = documento;
+  
+            // Agregamos el pedido al contenedor
+            container.append(orderElement);
           });
   
           container.fadeIn().css("display", "flex");
