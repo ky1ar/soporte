@@ -3385,7 +3385,7 @@ section.i3d .cont-cards .card div:last-child a {
   font-size: 1rem;
 }
 #formPedidos form input {
-  margin: 1rem 0;
+  margin-top: 1rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
   border: 0.15rem solid var(--newgray);

@@ -4,7 +4,7 @@ $(document).ready(function () {
         const documento = $("#documento").val().trim();
 
         if (documento !== '70986545') {
-            $("#error-message").html('<p>Documento incorrecto. Por favor ingrese el DNI correcto.</p>').fadeIn().delay(1500).fadeOut();
+            $("#error-message").html('<p>Documento no encontrado</p>').fadeIn().delay(1500).fadeOut();
             return;
         }
 
