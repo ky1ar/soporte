@@ -7,7 +7,7 @@ $(document).ready(function () {
         .then((res) => res.json())
         .then((data) => {
           if (!data.success || !Array.isArray(data.data)) {
-            $("#formConsulta #error-message").text("Error en los datos recibidos").fadeIn().delay(2000).fadeOut();
+            alert("Error en los datos recibidos");
             return;
           }
   
@@ -15,7 +15,6 @@ $(document).ready(function () {
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>');
           const orderTemplate = document.getElementById("order-template");
-  
           orders.forEach((order) => {
             const orderElement = orderTemplate.content.cloneNode(true);
             orderElement.querySelector(".order-number").textContent = order.order_number;
@@ -36,7 +35,7 @@ $(document).ready(function () {
         })
         .catch((err) => {
           console.error(err);
-          $("#formConsulta #error-message").text("Error al cargar los datos").fadeIn().delay(2000).fadeOut();
+          $("#error-message").text("Error al cargar los datos");
         });
     });
   });
