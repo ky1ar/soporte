@@ -4,24 +4,16 @@ $(document).ready(function () {
         const documento = $("#documento").val().trim();
 
         if (documento !== '70986545') {
-            $("#error-message").html('<p>Documento incorrecto. Por favor ingrese el DNI correcto.</p>').fadeIn(1000);
-            
-            // Después de 1 segundo, hacer fadeOut del mensaje
-            setTimeout(function() {
-                $("#error-message").fadeOut(1000);
-            }, 1000);  // El mensaje desaparece 1 segundo después de ser mostrado
-
+            $("#error-message").html('<p>Documento incorrecto. Por favor ingrese el DNI correcto.</p>').fadeIn().delay(1000).fadeOut();
             return;
         }
 
-        $("#error-message").html('').fadeOut(1000);
+        $("#error-message").fadeOut();
 
         fetch("assets/js/data.json")
             .then((res) => res.json())
             .then((data) => {
-                if (!data.success || !Array.isArray(data.data)) {
-                    return;
-                }
+                if (!data.success || !Array.isArray(data.data)) return;
 
                 const orders = data.data;
                 const container = $("#listOrdersShipping");
