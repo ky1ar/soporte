@@ -1,28 +1,42 @@
 // Agencias en formulario
 $(document).ready(function () {
   const config = {
-    1: { p1: "N° de Orden", m1: 8, type2: "text", p2: "Código de Orden", m2: 4 },
-    2: { p1: "N° de Tracking", m1: 7, type2: "select", options: ["25", "24", "23", "22"] },
-    3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 }
+    1: {
+      p1: "N° de Orden",
+      m1: 8,
+      type2: "text",
+      p2: "Código de Orden",
+      m2: 4,
+    },
+    2: {
+      p1: "N° de Tracking",
+      m1: 7,
+      type2: "select",
+      options: ["25", "24", "23", "22"],
+    },
+    3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 },
   };
 
-  $("#registerTrackings .form #agency").on("change", function () {
-    const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
+  $("#registerTrackings .form #agency")
+    .on("change", function () {
+      const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
 
-    const $code1 = $("#registerTrackings .form .track #code1");
-    $code1.attr({ placeholder: p1, maxlength: m1 }).val(""); // limpia code1
+      const $code1 = $("#registerTrackings .form .track #code1");
+      $code1.attr({ placeholder: p1, maxlength: m1 }).val(""); // limpia code1
 
-    const code2Field = type2 === "select"
-      ? `<select class="sp" id="code2" name="code2" required>
-          ${options.map(o => `<option value="${o}">${o}</option>`).join("")}
+      const code2Field =
+        type2 === "select"
+          ? `<select class="sp" id="code2" name="code2" required>
+          ${options.map((o) => `<option value="${o}">${o}</option>`).join("")}
         </select>`
-      : `<input type="text" id="code2" name="code2" placeholder="${p2 || ""}" maxlength="${m2 || 15}" required>`;
+          : `<input type="text" id="code2" name="code2" placeholder="${
+              p2 || ""
+            }" maxlength="${m2 || 15}" required>`;
 
-    $("#registerTrackings .form .track #code2").replaceWith(code2Field);
-  }).trigger("change");
+      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+    })
+    .trigger("change");
 });
-
-
 
 // endpoint de documento
 $(document).ready(function () {
@@ -71,7 +85,8 @@ $(document).ready(function () {
 
     const data = {
       order_number: $("#registerTrackings .form #order_number").val(),
-      agency: $("#registerTrackings .form #agency").val(),
+      agency_id: $("#registerTrackings .form #agency").val(),
+      admin_id: 3,
       code1: $("#registerTrackings .form #code1").val(),
       code2: $("#registerTrackings .form #code2").val(),
       client: {
@@ -81,7 +96,27 @@ $(document).ready(function () {
       },
     };
 
-    console.log(JSON.stringify(data, null, 2));
+    console.log("Datos enviados:", JSON.stringify(data, null, 2));
+
+    fetch("https://devintranet.krear3d.com/api/tracking/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          console.log("Tracking registrado con éxito:", data);
+          $("#registerTrackings .form")[0].reset();
+        } else {
+          console.error("Error al registrar el tracking:", data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error en la solicitud:", error);
+      });
   });
 });
 
