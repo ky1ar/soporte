@@ -3,11 +3,11 @@ $(document).ready(function () {
 
     $("#formConsulta").on("submit", function (e) {
         e.preventDefault();
-        if (isProcessing) return;
-
+        if (isProcessing) return; // Evitar múltiples envíos al mismo tiempo
         isProcessing = true;
-        const documento = $("#documento").val().trim();
 
+        const documento = $("#documento").val().trim();
+        
         if (documento !== '70986545') {
             $("#error-message").html('<p>Documento no encontrado</p>').fadeIn().delay(1500).fadeOut(() => isProcessing = false);
             return;
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 // Llenar con las órdenes
                 orders.forEach(order => {
                     // Clonamos la plantilla de la orden
-                    const orderElement = $("#orderTemplate").clone().removeAttr("id").show();
+                    const orderElement = $("#orderTemplate").clone().removeAttr("id").show();  // Eliminar el ID y mostrarlo
 
                     // Actualizamos los valores
                     orderElement.find(".order-number").text(order.order_number);
@@ -43,6 +43,7 @@ $(document).ready(function () {
                     container.append(orderElement);
                 });
 
+                // Asegurarnos de que el contenedor es visible
                 container.fadeIn().css("display", "flex");
             })
             .catch(err => {
