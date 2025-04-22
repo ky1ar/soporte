@@ -3678,7 +3678,7 @@ section.i3d .cont-cards .card div:last-child a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 2rem 0 4rem 0;
+  margin: 4rem 0 6rem 0;
   gap: 1rem;
 }
 
