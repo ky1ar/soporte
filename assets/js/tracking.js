@@ -3,22 +3,17 @@ $(document).ready(function () {
         e.preventDefault();
         const documento = $("#documento").val().trim();
 
-        // Verificar si el documento es diferente de '70986545'
         if (documento !== '70986545') {
-            // Mostrar mensaje de error dentro de #error-message
-            $("#error-message").html('<p style="color: red;">Documento incorrecto. Por favor ingrese el DNI correcto.</p>');
-            return; // Detener la ejecución del código para evitar la consulta
+            $("#error-message").html('<p>Documento incorrecto. Por favor ingrese el DNI correcto.</p>').fadeIn(1000);
+            return;
         }
 
-        // Limpiar mensaje de error si el documento es correcto
-        $("#error-message").html('');
+        $("#error-message").html('').fadeOut(1000);
 
-        // Realizar la consulta si el documento es correcto
         fetch("assets/js/data.json")
             .then((res) => res.json())
             .then((data) => {
                 if (!data.success || !Array.isArray(data.data)) {
-                    alert("Error en los datos recibidos");
                     return;
                 }
 
@@ -60,7 +55,6 @@ $(document).ready(function () {
             })
             .catch((err) => {
                 console.error(err);
-                alert("Error al cargar los datos");
             });
     });
 });
