@@ -43,8 +43,9 @@ $(document).ready(function () {
   const form = $("#registerTrackings .form");
   const orderInput = form.find("#order_number");
   const documentInput = form.find("#document");
+  const nameInput = form.find("#name");
+  const phoneInput = form.find("#phone");
 
-  // Al perder el foco en order_number
   orderInput.on("blur", function () {
     const orderNumber = $(this).val().trim();
     if (!orderNumber) return;
@@ -56,28 +57,17 @@ $(document).ready(function () {
           const { document, name, phone, id: clientId } = data.data.client;
           const userOrderId = data.data.user_order_id;
 
-          documentInput.val(document).prop("disabled", true);
-          form.find("#name").val(name).prop("disabled", true);
-          form.find("#phone").val(phone).prop("disabled", true);
+          documentInput.val(document);
+          nameInput.val(name);
+          phoneInput.val(phone);
 
           orderInput
             .attr("data-client-id", clientId)
             .attr("data-user-order-id", userOrderId);
-        } else {
-          documentInput.val("").prop("disabled", false);
-          form.find("#name, #phone").val("").prop("disabled", false);
-          orderInput.removeAttr("data-client-id data-user-order-id");
         }
-      })
-      .catch(() => {
-        documentInput.val("").prop("disabled", false);
-        form.find("#name, #phone").val("").prop("disabled", false);
-        orderInput.removeAttr("data-client-id data-user-order-id");
-        console.warn("No se pudo obtener datos del pedido.");
       });
   });
 
-  // Al perder el foco en document
   documentInput.on("blur", function () {
     const doc = $(this).val().trim();
     if (!doc) return;
@@ -88,48 +78,37 @@ $(document).ready(function () {
         if (data.success && data.data) {
           const { name, phone, id: clientId } = data.data;
 
-          form.find("#name").val(name).prop("disabled", true);
-          form.find("#phone").val(phone).prop("disabled", true);
+          nameInput.val(name);
+          phoneInput.val(phone);
 
-          // Solo se guarda client_id como data-attribute si viene desde aquí
           orderInput.attr("data-client-id", clientId);
         }
-      })
-      .catch(() => {
-        console.warn("No se pudo obtener datos del cliente desde documento.");
       });
   });
-});
 
-
-// registro en JSON
-$(document).ready(function () {
-  $("#registerTrackings .form .ins").on("click", function (e) {
+  form.find(".ins").on("click", function (e) {
     e.preventDefault();
 
-    const form = $("#registerTrackings .form")[0];
-    if (!form.checkValidity()) {
-      console.log("Faltan datos requeridos");
-      form.reportValidity();
+    const nativeForm = form[0];
+    if (!nativeForm.checkValidity()) {
+      nativeForm.reportValidity();
       return;
     }
 
     const data = {
-      order_number: $("#registerTrackings .form #order_number").val(),
-      agency_id: $("#registerTrackings .form #agency").val(),
+      order_number: orderInput.val(),
+      agency_id: form.find("#agency").val(),
       admin_id: 3,
-      code1: $("#registerTrackings .form #code1").val(),
-      code2: $("#registerTrackings .form #code2").val(),
-      user_order_id: $("#registerTrackings .form #order_number").attr("data-user-order-id"),
-      client_id: $("#registerTrackings .form #order_number").attr("data-client-id"),
+      code1: form.find("#code1").val(),
+      code2: form.find("#code2").val(),
+      user_order_id: orderInput.attr("data-user-order-id"),
+      client_id: orderInput.attr("data-client-id"),
       client: {
-        document: $("#registerTrackings .form #document").val(),
-        name: $("#registerTrackings .form #name").val(),
-        phone: $("#registerTrackings .form #phone").val(),
+        document: documentInput.val(),
+        name: nameInput.val(),
+        phone: phoneInput.val(),
       },
     };
-    
-    console.log("Datos enviados:", JSON.stringify(data, null, 2));
 
     fetch("https://devintranet.krear3d.com/api/tracking/add", {
       method: "POST",
@@ -138,20 +117,16 @@ $(document).ready(function () {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.success) {
-          console.log("Tracking registrado con éxito:", data);
-          $("#registerTrackings .form")[0].reset();
-        } else {
-          console.error("Error al registrar el tracking:", data);
+          form[0].reset();
+          orderInput.removeAttr("data-client-id data-user-order-id");
         }
-      })
-      .catch((error) => {
-        console.error("Error en la solicitud:", error);
       });
   });
 });
+
 
 // Lista de Pedidos
 $(document).ready(function () {
