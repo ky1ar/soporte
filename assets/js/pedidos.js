@@ -40,43 +40,64 @@ $(document).ready(function () {
 
 // endpoint de documento
 $(document).ready(function () {
-  $("#registerTrackings .form #order_number").on("blur", function () {
+  const form = $("#registerTrackings .form");
+
+  // Al perder el foco en order_number
+  form.find("#order_number").on("blur", function () {
     const orderNumber = $(this).val().trim();
+    if (!orderNumber) return;
 
-    if (orderNumber) {
-      fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-        .then((response) => {
-          if (!response.ok) return Promise.reject();
-          return response.json();
-        })
-        .then((data) => {
-          if (data.success && data.data.client) {
-            const { document, name, phone, id: clientId } = data.data.client;
-            const userOrderId = data.data.user_order_id;
+    fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
+      .then(res => res.ok ? res.json() : Promise.reject())
+      .then(data => {
+        if (data.success && data.data.client) {
+          const { document, name, phone, id: clientId } = data.data.client;
+          const userOrderId = data.data.user_order_id;
 
-            // Rellenar campos visibles
-            $("#registerTrackings .form #document")
-              .val(document)
-              .prop("disabled", true);
-            $("#registerTrackings .form #name")
-              .val(name)
-              .prop("disabled", true);
-            $("#registerTrackings .form #phone")
-              .val(phone)
-              .prop("disabled", true);
+          form.find("#document").val(document).prop("disabled", true);
+          form.find("#name").val(name).prop("disabled", true);
+          form.find("#phone").val(phone).prop("disabled", true);
 
-            // Establecer los data-* como atributos HTML visibles
-            $("#registerTrackings .form #order_number")
-              .attr("data-client-id", clientId)
-              .attr("data-user-order-id", userOrderId);
-          }
-        })
-        .catch(() => {
-          console.warn("No se pudo obtener datos del pedido.");
-        });
-    }
+          // Solo si hay datos del cliente
+          $(this)
+            .attr("data-client-id", clientId)
+            .attr("data-user-order-id", userOrderId);
+        } else {
+          // Si no hay datos del pedido, limpiar y habilitar campos
+          form.find("#document, #name, #phone").val("").prop("disabled", false);
+          $(this)
+            .removeAttr("data-client-id")
+            .removeAttr("data-user-order-id");
+        }
+      })
+      .catch(() => {
+        form.find("#document, #name, #phone").val("").prop("disabled", false);
+        $(this)
+          .removeAttr("data-client-id")
+          .removeAttr("data-user-order-id");
+        console.warn("No se pudo obtener datos del pedido.");
+      });
+  });
+
+  // Al perder el foco en document
+  form.find("#document").on("blur", function () {
+    const doc = $(this).val().trim();
+    if (!doc) return;
+
+    fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`)
+      .then(res => res.ok ? res.json() : Promise.reject())
+      .then(data => {
+        if (data.success && data.data?.name) {
+          form.find("#name").val(data.data.name).prop("disabled", true);
+          // No se setean data-* ya que no vienen esos valores
+        }
+      })
+      .catch(() => {
+        console.warn("No se pudo obtener nombre por documento.");
+      });
   });
 });
+
 
 // registro en JSON
 $(document).ready(function () {
