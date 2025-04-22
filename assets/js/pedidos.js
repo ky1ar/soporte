@@ -69,7 +69,7 @@ $(document).ready(function () {
   });
 });
 
-// envio en JSON
+// registro en JSON
 $(document).ready(function () {
   $("#registerTrackings .form .ins").on("click", function (e) {
     e.preventDefault();
@@ -194,7 +194,7 @@ function actualizarFases() {
   }
 }
 
-/// Scrap Shalom
+// Endpoint Shalom
 $(document).on(
   "click",
   '#listOrdersShipping .order .cont .actions .btn[data-agency="1"]',
@@ -202,8 +202,6 @@ $(document).on(
     const code1 = $(this).data("code1");
     const code2 = $(this).data("code2");
     const $orderInfo = $("#orderInfo");
-
-    // Mostrar el loader
     $orderInfo.find(".content .loaders").css("display", "flex");
 
     $.ajax({
@@ -264,13 +262,13 @@ $(document).on(
         alert("Error al consultar la guía. Intenta nuevamente.");
       },
       complete: function () {
-        // Ocultar el loader cuando la petición se haya completado
         $orderInfo.find(".loaders").css("display", "none");
       },
     });
   }
 );
 
+// Endpoint Olva
 $(document).on(
   "click",
   '#listOrdersShipping .order .cont .actions .btn[data-agency="2"]',
@@ -345,6 +343,7 @@ $(document).on(
   }
 );
 
+// Endpoint Marvisur
 $(document).on(
   "click",
   '#listOrdersShipping .order .cont .actions .btn[data-agency="3"]',
@@ -378,16 +377,13 @@ $(document).on(
             }
           };
 
-          // Inicializamos variables para guardar los comentarios encontrados
           let estadoActualComentario = null;
-
           detallesData.forEach((estado) => {
             if (estado.COMENTARIO === "ENTREGADO") {
               actualizarEstado(".line .fas.entregado", estado.FECEVENTO);
               estadoActualComentario = "ENTREGADO";
             } else if (estado.COMENTARIO === "EN RUTA") {
               actualizarEstado(".line .fas.ruta", estado.FECEVENTO);
-              // Solo actualizamos si no se encontró un estado de mayor prioridad antes
               if (estadoActualComentario !== "ENTREGADO") {
                 estadoActualComentario = "EN RUTA";
               }
@@ -407,8 +403,6 @@ $(document).on(
           $orderInfo.find(".info .dat1 .ori span").text(origen);
           $orderInfo.find(".info .dat1 .des span").text(destino);
           actualizarFases();
-
-          // Mostramos el estado actual según lo encontrado
           if (estadoActualComentario) {
             $orderInfo
               .find(".content .head .estado-actual")
