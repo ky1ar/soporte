@@ -10,7 +10,9 @@ $(document).ready(function () {
     .on("change", function () {
       const val = $(this).val();
       const [ph1, ph2] = placeholders[val] || ["", ""];
+
       $("#registerTrackings .form .track #code1").attr("placeholder", ph1);
+
       const code2Field =
         val === "2"
           ? `<select class="sp" id="code2" name="code2" required>
@@ -20,12 +22,16 @@ $(document).ready(function () {
                <option value="22">22</option>
              </select>`
           : `<input type="text" id="code2" name="code2" placeholder="${ph2}" maxlength="15" required>`;
-      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+
       if (val === "3") {
         $("#registerTrackings .form .track #code1").attr("maxlength", "4");
+        $("#registerTrackings .form .track #code2").attr("maxlength", "7");
       } else {
         $("#registerTrackings .form .track #code1").attr("maxlength", "15");
+        $("#registerTrackings .form .track #code2").attr("maxlength", "15");
       }
+
+      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
     })
     .trigger("change");
 });
