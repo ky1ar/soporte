@@ -42,6 +42,9 @@ require_once 'includes/common/header.php';
                     <input type="text" id="code1" name="code1" required>
                     <input type="text" id="code2" name="code2" required>
                 </div>
+                <div id="error-register">
+
+                </div>
                 <button class="ins">Agregar Registro</button>
             </form>
 

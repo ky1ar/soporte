@@ -1,4 +1,3 @@
-// Agencias en formulario
 $(document).ready(function () {
   const config = {
     1: {
@@ -35,8 +34,7 @@ $(document).ready(function () {
       $("#registerTrackings .form .track #code2").replaceWith(code2Field);
     })
     .trigger("change");
-});
-$(document).ready(function () {
+
   const form = $("#registerTrackings .form");
   const orderInput = form.find("#order_number");
   const documentInput = form.find("#document");
@@ -126,10 +124,22 @@ $(document).ready(function () {
     })
       .then((res) => res.json())
       .then((data) => {
+        const $errorContainer = $("#registerTrackings #error-register");
         if (data.success) {
           form[0].reset();
           orderInput.removeAttr("data-client-id data-user-order-id");
+          $("#registerTrackings #agency").trigger("change");
+          $errorContainer.empty(); // limpiar mensaje si antes hubo un error
+        } else {
+          $errorContainer.html(
+            `<p>${data.data?.message || "Error al registrar el tracking."}</p>`
+          );
         }
+      })
+      .catch(() => {
+        $("#registerTrackings #error-register").html(
+          `<p>Error inesperado. Intente nuevamente.</p>`
+        );
       });
   });
 });
