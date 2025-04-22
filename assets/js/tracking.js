@@ -1,54 +1,42 @@
 $(document).ready(function () {
-  $("#formConsulta").on("submit", function (e) {
-    e.preventDefault();
-    const documento = $("#documento").val().trim();
-
-    // Verificar si el campo de documento está vacío o no es válido
-    if (!documento || documento.length < 8 || documento.length > 11) {
-      $("#formConsulta #error-message").text("Por favor, ingresa un DNI o RUC válido").fadeIn().delay(1000).fadeOut();
-      return; // Salir de la función si el dato no es válido
-    }
-
-    fetch("assets/js/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.success || !Array.isArray(data.data)) {
-          $("#formConsulta #error-message").text("Error en los datos recibidos").fadeIn().delay(1000).fadeOut();
-          return;
-        }
-
-        const orders = data.data;
-        const container = $("#listOrdersShipping");
-        container.html('<h1 class="title">Mis Pedidos</h1>');
-
-        // Verificar si el template existe antes de usarlo
-        const orderTemplate = document.getElementById("order-template");
-        if (!orderTemplate) {
-          console.error("Template no encontrado");
-          return; // Salir si no se encuentra el template
-        }
-
-        orders.forEach((order) => {
-          const orderElement = orderTemplate.content.cloneNode(true);
-          orderElement.querySelector(".order-number").textContent = order.order_number;
-          orderElement.querySelector(".tracking-codes").textContent = `${order.code1} / ${order.code2}`;
-          orderElement.querySelector(".agency-image").src = order.agency_image;
-          orderElement.querySelector(".agency-image").alt = order.agency;
-          orderElement.querySelector(".fecha").textContent = new Date(order.register_at).toLocaleDateString('es-PE', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+    $("#formConsulta").on("submit", function (e) {
+      e.preventDefault();
+      const documento = $("#documento").val().trim();
+  
+      fetch("assets/js/data.json")
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.success || !Array.isArray(data.data)) {
+            alert("Error en los datos recibidos");
+            return;
+          }
+  
+          const orders = data.data;
+          const container = $("#listOrdersShipping");
+          container.html('<h1 class="title">Mis Pedidos</h1>');
+          const orderTemplate = document.getElementById("order-template");
+          orders.forEach((order) => {
+            const orderElement = orderTemplate.content.cloneNode(true);
+            orderElement.querySelector(".order-number").textContent = order.order_number;
+            orderElement.querySelector(".tracking-codes").textContent = `${order.code1} / ${order.code2}`;
+            orderElement.querySelector(".agency-image").src = order.agency_image;
+            orderElement.querySelector(".agency-image").alt = order.agency;
+            orderElement.querySelector(".fecha").textContent = new Date(order.register_at).toLocaleDateString('es-PE', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+            orderElement.querySelector(".status").textContent = order.status;
+            orderElement.querySelector(".documento").textContent = documento;
+            container.append(orderElement);
           });
-          orderElement.querySelector(".status").textContent = order.status;
-          orderElement.querySelector(".documento").textContent = documento;
-          container.append(orderElement);
+  
+          container.fadeIn().css("display", "flex");
+        })
+        .catch((err) => {
+          console.error(err);
+          $("#error-message").text("Error al cargar los datos");
         });
-
-        container.fadeIn().css("display", "flex");
-      })
-      .catch((err) => {
-        console.error(err);
-        $("#formConsulta #error-message").text("Error al cargar los datos").fadeIn().delay(1000).fadeOut();
-      });
+    });
   });
-});
+  
