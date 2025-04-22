@@ -23,7 +23,7 @@ require_once 'includes/common/header.php';
                     <input type="text" id="document" name="document" placeholder="DNI o RUC" maxlength="11" required>
                 </div>
                 <div class="name">
-                    <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" maxlength="30" required>
+                    <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" maxlength="40" required>
                 </div>
                 <div class="phone">
                     <input type="tel" id="phone" name="phone" placeholder="Celular" maxlength="9" required>
