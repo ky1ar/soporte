@@ -45,22 +45,24 @@ $(document).ready(function () {
     if (orderNumber) {
       fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
         .then(response => {
-          if (!response.ok) return Promise.reject();
+          if (!response.ok) return Promise.reject();  // Si la respuesta no es ok, rechazamos
           return response.json();
         })
         .then(data => {
           if (data.success && data.data.client) {
             const { document, name, phone } = data.data.client;
-            $("#registerTrackings .form #document").val(document);
-            $("#registerTrackings .form #name").val(name);
-            $("#registerTrackings .form #phone").val(phone);
+            $("#registerTrackings .form #document").val(document).prop("disabled", true);
+            $("#registerTrackings .form #name").val(name).prop("disabled", true);
+            $("#registerTrackings .form #phone").val(phone).prop("disabled", true);
           }
         })
         .catch(() => {
+          // Si la solicitud falla (por ejemplo, error 400), no se hace nada
         });
     }
   });
 });
+
 
 
 // registro en JSON
