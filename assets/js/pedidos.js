@@ -44,7 +44,10 @@ $(document).ready(function () {
     const orderNumber = $(this).val().trim();
     if (orderNumber) {
       fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) return Promise.reject();
+          return response.json();
+        })
         .then(data => {
           if (data.success && data.data.client) {
             const { document, name, phone } = data.data.client;
@@ -53,7 +56,8 @@ $(document).ready(function () {
             $("#registerTrackings .form #phone").val(phone);
           }
         })
-        .catch(() => {});
+        .catch(() => {
+        });
     }
   });
 });
