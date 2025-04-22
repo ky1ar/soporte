@@ -1,12 +1,11 @@
+// Agencias en formulario
 $(document).ready(function () {
   const config = {
     1: {
-      // Shalom
       code1: { placeholder: "N° de Orden", maxlength: 15 },
       code2: { placeholder: "Código de Orden", maxlength: 15, type: "text" },
     },
     2: {
-      // Olva
       code1: { placeholder: "N° de Tracking", maxlength: 15 },
       code2: {
         placeholder: "",
@@ -16,7 +15,6 @@ $(document).ready(function () {
       },
     },
     3: {
-      // Marvisur
       code1: { placeholder: "V001", maxlength: 4 },
       code2: { placeholder: "0000001", maxlength: 7, type: "text" },
     },
@@ -26,16 +24,12 @@ $(document).ready(function () {
     .on("change", function () {
       const val = $(this).val();
       const agencyConfig = config[val];
-
-      // Configuración para code1
       $("#registerTrackings .form .track #code1")
         .attr("placeholder", agencyConfig.code1.placeholder)
         .attr("maxlength", agencyConfig.code1.maxlength);
-
-      // Configuración para code2
       let code2Field;
       if (agencyConfig.code2.type === "select") {
-        code2Field = `<select id="code2" name="code2" required>
+        code2Field = `<select class="sp" id="code2" name="code2" required>
                       ${agencyConfig.code2.options
                         .map(
                           (option) =>
@@ -46,7 +40,6 @@ $(document).ready(function () {
       } else {
         code2Field = `<input type="text" id="code2" name="code2" placeholder="${agencyConfig.code2.placeholder}" maxlength="${agencyConfig.code2.maxlength}" required>`;
       }
-
       $("#registerTrackings .form .track #code2").replaceWith(code2Field);
     })
     .trigger("change");
