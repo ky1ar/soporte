@@ -41,9 +41,11 @@ $(document).ready(function () {
 // endpoint de documento
 $(document).ready(function () {
   const form = $("#registerTrackings .form");
+  const orderInput = form.find("#order_number");
+  const documentInput = form.find("#document");
 
   // Al perder el foco en order_number
-  form.find("#order_number").on("blur", function () {
+  orderInput.on("blur", function () {
     const orderNumber = $(this).val().trim();
     if (!orderNumber) return;
 
@@ -54,46 +56,47 @@ $(document).ready(function () {
           const { document, name, phone, id: clientId } = data.data.client;
           const userOrderId = data.data.user_order_id;
 
-          form.find("#document").val(document).prop("disabled", true);
+          documentInput.val(document).prop("disabled", true);
           form.find("#name").val(name).prop("disabled", true);
           form.find("#phone").val(phone).prop("disabled", true);
 
-          // Solo si hay datos del cliente
-          $(this)
+          orderInput
             .attr("data-client-id", clientId)
             .attr("data-user-order-id", userOrderId);
         } else {
-          // Si no hay datos del pedido, limpiar y habilitar campos
-          form.find("#document, #name, #phone").val("").prop("disabled", false);
-          $(this)
-            .removeAttr("data-client-id")
-            .removeAttr("data-user-order-id");
+          documentInput.val("").prop("disabled", false);
+          form.find("#name, #phone").val("").prop("disabled", false);
+          orderInput.removeAttr("data-client-id data-user-order-id");
         }
       })
       .catch(() => {
-        form.find("#document, #name, #phone").val("").prop("disabled", false);
-        $(this)
-          .removeAttr("data-client-id")
-          .removeAttr("data-user-order-id");
+        documentInput.val("").prop("disabled", false);
+        form.find("#name, #phone").val("").prop("disabled", false);
+        orderInput.removeAttr("data-client-id data-user-order-id");
         console.warn("No se pudo obtener datos del pedido.");
       });
   });
 
   // Al perder el foco en document
-  form.find("#document").on("blur", function () {
+  documentInput.on("blur", function () {
     const doc = $(this).val().trim();
     if (!doc) return;
 
-    fetch(`https://devintranet.krear3d.com/api/user/name/${doc}`)
+    fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`)
       .then(res => res.ok ? res.json() : Promise.reject())
       .then(data => {
-        if (data.success && data.data?.name) {
-          form.find("#name").val(data.data.name).prop("disabled", true);
-          // No se setean data-* ya que no vienen esos valores
+        if (data.success && data.data) {
+          const { name, phone, id: clientId } = data.data;
+
+          form.find("#name").val(name).prop("disabled", true);
+          form.find("#phone").val(phone).prop("disabled", true);
+
+          // Solo se guarda client_id como data-attribute si viene desde aquí
+          orderInput.attr("data-client-id", clientId);
         }
       })
       .catch(() => {
-        console.warn("No se pudo obtener nombre por documento.");
+        console.warn("No se pudo obtener datos del cliente desde documento.");
       });
   });
 });
