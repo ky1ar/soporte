@@ -40,35 +40,24 @@ $(document).ready(function () {
 
 // endpoint de documento
 $(document).ready(function () {
-  $("#registerTrackings .form #document").on("blur", function () {
-    const doc = $(this).val().trim();
-    if (doc.length === 8 || doc.length === 11) {
-      fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error();
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (data.success && data.data) {
-            if (data.data.name) {
-              $("#registerTrackings .form #name").val(data.data.name);
-            }
-            if (data.data.phone) {
-              $("#registerTrackings .form #phone").val(data.data.phone);
-            }
+  $("#registerTrackings .form #order_number").on("blur", function () {
+    const orderNumber = $(this).val().trim();
+    if (orderNumber) {
+      fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success && data.data.client) {
+            const { document, name, phone } = data.data.client;
+            $("#registerTrackings .form #document").val(document);
+            $("#registerTrackings .form #name").val(name);
+            $("#registerTrackings .form #phone").val(phone);
           }
         })
         .catch(() => {});
     }
   });
 });
+
 
 // registro en JSON
 $(document).ready(function () {
