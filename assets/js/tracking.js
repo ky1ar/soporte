@@ -1,4 +1,3 @@
-// Lista de Pedidos con fetch desde data.json
 $(document).ready(function () {
     $("#formConsulta").on("submit", function (e) {
       e.preventDefault();
@@ -11,9 +10,11 @@ $(document).ready(function () {
             alert("Error en los datos recibidos");
             return;
           }
+  
           const orders = data.data;
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>');
+  
           orders.forEach((order) => {
             container.append(`
               <div class="order">
@@ -21,17 +22,18 @@ $(document).ready(function () {
                   <p class="orderNum">Orden: <span>${order.order_number}</span></p>
                   <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
                   <div class="agencia">
-                    <img src="${order.agency_image}" alt="${order.agency}" class="a${order.agency_id}">
+                    <img class="a${order.agency_id}" src="${order.agency_image}" alt="${order.agency}">
                   </div>
                 </div>
                 <div class="cont">
                   <div class="info">
                     <p class="fecha">${new Date(order.register_at).toLocaleDateString('es-PE', {
-                      day: 'numeric',
-                      month: 'long'
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
                     })}</p>
                     <p class="status">${order.status}</p>
-                    <p class="name">Nombre: <span>-</span></p>
+                    <p class="name">Nombre: <span>—</span></p>
                     <p class="doc">Documento: <span>${documento}</span></p>
                   </div>
                   <div class="actions">
@@ -45,9 +47,9 @@ $(document).ready(function () {
   
           container.fadeIn().css("display", "flex");
         })
-        .catch((error) => {
-          console.error("Error al obtener los datos:", error);
-          alert("Hubo un error al obtener los datos");
+        .catch((err) => {
+          console.error(err);
+          alert("Error al cargar los datos");
         });
     });
   });
