@@ -91,6 +91,8 @@ $(document).ready(function () {
       admin_id: 3,
       code1: $("#registerTrackings .form #code1").val(),
       code2: $("#registerTrackings .form #code2").val(),
+      client_id: $("#registerTrackings .form #client_id").val(), // Agregar client_id
+      user_order_id: $("#registerTrackings .form #user_order_id").val(), // Agregar user_order_id
       client: {
         document: $("#registerTrackings .form #document").val(),
         name: $("#registerTrackings .form #name").val(),
@@ -121,6 +123,7 @@ $(document).ready(function () {
       });
   });
 });
+
 
 // Lista de Pedidos
 $(document).ready(function () {
