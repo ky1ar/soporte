@@ -3,18 +3,29 @@ $(document).ready(function () {
       e.preventDefault();
       const documento = $("#documento").val().trim();
   
+      if (documento !== "70986545") {
+        $("#error-message").text("Documento no válido").fadeIn().delay(2000).fadeOut();
+        return;
+      }
+  
       fetch("assets/js/data.json")
         .then((res) => res.json())
         .then((data) => {
           if (!data.success || !Array.isArray(data.data)) {
-            alert("Error en los datos recibidos");
+            $("#error-message").text("Error en los datos recibidos").fadeIn().delay(2000).fadeOut();
             return;
           }
   
           const orders = data.data;
           const container = $("#listOrdersShipping");
           container.html('<h1 class="title">Mis Pedidos</h1>');
+          
           const orderTemplate = document.getElementById("order-template");
+          if (!orderTemplate) {
+            console.error("Template no encontrado");
+            return;
+          }
+  
           orders.forEach((order) => {
             const orderElement = orderTemplate.content.cloneNode(true);
             orderElement.querySelector(".order-number").textContent = order.order_number;
@@ -35,7 +46,7 @@ $(document).ready(function () {
         })
         .catch((err) => {
           console.error(err);
-          $("#error-message").text("Error al cargar los datos");
+          $("#error-message").text("Error al cargar los datos").fadeIn().delay(2000).fadeOut();
         });
     });
   });
