@@ -26,7 +26,7 @@ require_once 'includes/common/header.php';
                     <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" maxlength="40" required>
                 </div>
                 <div class="phone">
-                    <input type="tel" id="phone" name="phone" placeholder="Celular" maxlength="11" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Celular" maxlength="9" required>
                 </div>
                 <div class="agen-tit">
                     <p>Agencia</p>
