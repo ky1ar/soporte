@@ -83,7 +83,7 @@ require_once 'includes/common/header.php';
         </div>
     </div>
     <?php require_once 'includes/common/footer.php'; ?>
-    <script src="/assets/js/pedidos.js"></script>
+    <script src="/assets/js/tracking.js"></script>
 </body>
 
 </html>

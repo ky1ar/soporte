@@ -1,0 +1,93 @@
+{
+    "data": [
+        {
+            "agency": "Shalom",
+            "agency_id": 1,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png",
+            "code1": "44448247",
+            "code2": "7TCP",
+            "id": 18,
+            "order_number": "S34444",
+            "register_at": "2025-04-22T15:57:13",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Shalom",
+            "agency_id": 1,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-shalom.png",
+            "code1": "21312312",
+            "code2": "2323",
+            "id": 20,
+            "order_number": "S89900",
+            "register_at": "2025-04-22T16:00:32",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Marvisur",
+            "agency_id": 3,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png",
+            "code1": "V129",
+            "code2": "0066298",
+            "id": 21,
+            "order_number": "S21313",
+            "register_at": "2025-04-22T16:06:06",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Marvisur",
+            "agency_id": 3,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png",
+            "code1": "V129",
+            "code2": "0066298",
+            "id": 22,
+            "order_number": "S99999",
+            "register_at": "2025-04-22T16:08:12",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Marvisur",
+            "agency_id": 3,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-marvisur.png",
+            "code1": "V129",
+            "code2": "0066298",
+            "id": 23,
+            "order_number": "S94955",
+            "register_at": "2025-04-22T16:13:36",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Olva",
+            "agency_id": 2,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png",
+            "code1": "1206464",
+            "code2": "25",
+            "id": 24,
+            "order_number": "YU2343",
+            "register_at": "2025-04-22T16:17:34",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Olva",
+            "agency_id": 2,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png",
+            "code1": "1206464",
+            "code2": "25",
+            "id": 25,
+            "order_number": "S99923",
+            "register_at": "2025-04-22T16:23:57",
+            "status": "Agencia"
+        },
+        {
+            "agency": "Olva",
+            "agency_id": 2,
+            "agency_image": "https://www.tiendakrear3d.com/wp-content/uploads/2025/04/logo-olva.png",
+            "code1": "787217 ",
+            "code2": "25",
+            "id": 26,
+            "order_number": "g21313",
+            "register_at": "2025-04-22T16:27:11",
+            "status": "Agencia"
+        }
+    ],
+    "success": true
+}
