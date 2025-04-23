@@ -81,7 +81,7 @@ $(document).ready(function () {
     const payload = {
       order_number: orderInput.val(),
       agency_id: form.find("#agency").val(),
-      admin_id: null,
+      // admin_id: null,
       code1: form.find("#code1").val(),
       code2: form.find("#code2").val(),
       client_id: orderInput.attr("data-client-id") || null,
