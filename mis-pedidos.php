@@ -26,7 +26,7 @@ require_once 'includes/common/header.php';
                     <label for="documento">Documento:</label>
                     <input type="text" name="documento" id="documento" placeholder="Ingrese DNI o RUC" maxlength="15">
                     <div id="error-message"></div>
-                    <button>Consultarss</button>
+                    <button>Consultar</button>
                 </form>
             </div>
             <div id="listOrdersShipping">
