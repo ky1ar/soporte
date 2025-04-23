@@ -116,23 +116,31 @@ $(document).ready(function () {
         if (data.success) {
           form[0].reset();
           orderInput.removeAttr("data-client-id data-user-order-id");
-
-          // 🔧 Rehabilitar los campos deshabilitados
           documentInput.prop("disabled", false);
           nameInput.prop("disabled", false);
           phoneInput.prop("disabled", false);
-
-          // ⚠️ Disparar el evento blur si se vuelve a escribir (por si se rellena de nuevo después del reset)
+        
+          // ⏱ Volver a ejecutar blur si quedan valores en los campos
           setTimeout(() => {
             if (orderInput.val().trim()) orderInput.trigger("blur");
             if (documentInput.val().trim()) documentInput.trigger("blur");
           }, 10);
-
-          // Volver a activar select y limpiar errores
+        
           $("#registerTrackings #agency").trigger("change");
-          $errorContainer.empty();
-
-          // ✅ Rehabilitar el botón de nuevo
+        
+          // ✅ Mensaje de éxito
+          const $success = $("<p class='true'>")
+            .addClass("success-register") // Clase CSS distintiva
+            .text("Registro Exitoso")
+            .hide()
+            .appendTo($errorContainer.empty()) // Limpia errores antes
+            .fadeIn(300)
+            .delay(1500)
+            .fadeOut(300, function () {
+              $(this).remove();
+            });
+        
+          // 🔓 Rehabilitar botón de nuevo
           form.find(".ins").prop("disabled", false);
         } else {
           if (!isErrorDisplaying) {

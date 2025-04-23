@@ -3737,6 +3737,9 @@ section.i3d .cont-cards .card div:last-child a {
   margin: 1rem auto -1rem auto;
   line-height: 1;
 }
+#registerTrackings .form #error-register p.true{
+  color: rgb(11, 199, 73);
+}
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
 #registerTrackings .form .name input,
