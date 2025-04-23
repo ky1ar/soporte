@@ -170,7 +170,7 @@ $(document).ready(function () {
     }
     $("#error-message").fadeOut(() => { isProcessing = false; });
 
-    fetch("assets/js/data.json")
+    fetch("assets/js/datos.json")
       .then(res => res.json())
       .then(data => {
         if (!data.success || !Array.isArray(data.data)) return;
