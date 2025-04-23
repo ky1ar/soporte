@@ -20,7 +20,7 @@ require_once 'includes/common/header.php';
                     <input type="text" id="order_number" name="order_number" placeholder="N° Orden" maxlength="6" required>
                 </div>
                 <div class="doc">
-                    <input type="text" id="document" name="document" placeholder="DNI o RUC" maxlength="11" required>
+                    <input type="text" id="document" name="document" placeholder="DNI o RUC" maxlength="15" required>
                 </div>
                 <div class="name">
                     <input type="text" id="name" name="name" placeholder="Nombre o Razón Social" maxlength="40" required>
