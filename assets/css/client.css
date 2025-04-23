@@ -3734,7 +3734,7 @@ section.i3d .cont-cards .card div:last-child a {
   color: red;
   font-size: .9rem;
   font-weight: 600;
-  margin: 0 auto;
+  margin: 1rem auto -1rem auto;
   line-height: 1;
 }
 #registerTrackings .form .order input,
