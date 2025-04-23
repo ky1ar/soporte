@@ -22,7 +22,6 @@ require_once 'includes/common/header.php';
                 <h1 class="t">Consultar Pedidos</h1>
                 <img src="/assets/img/icon-cons-14.webp" alt="">
                 <p class="par">Consulta el estado de tus pedidos ingresando tu número de documento (DNI o RUC) en el siguiente formulario.</p>
-
                 <form method="POST" id="formConsulta">
                     <label for="documento">Documento:</label>
                     <input type="text" name="documento" id="documento" placeholder="Ingrese DNI o RUC" maxlength="15">
