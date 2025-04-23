@@ -1,39 +1,21 @@
 $(document).ready(function () {
   const config = {
-    1: {
-      p1: "N° de Orden",
-      m1: 8,
-      type2: "text",
-      p2: "Código de Orden",
-      m2: 4,
-    },
-    2: {
-      p1: "N° de Tracking",
-      m1: 7,
-      type2: "select",
-      options: ["25", "24", "23", "22"],
-    },
+    1: { p1: "N° de Orden", m1: 8, type2: "text", p2: "Código de Orden", m2: 4 },
+    2: { p1: "N° de Tracking", m1: 7, type2: "select", options: ["25", "24", "23", "22"] },
     3: { p1: "V001", m1: 4, type2: "text", p2: "0000001", m2: 7 },
   };
-
-  $("#registerTrackings .form #agency")
-    .on("change", function () {
-      const { p1, m1, type2, p2, m2, options } = config[$(this).val()];
-      const $code1 = $("#registerTrackings .form .track #code1");
-      $code1.attr({ placeholder: p1, maxlength: m1 }).val("");
-
-      const code2Field =
-        type2 === "select"
-          ? `<select class="sp" id="code2" name="code2" required>${options
-              .map((o) => `<option value="${o}">${o}</option>`)
-              .join("")}</select>`
-          : `<input type="text" id="code2" name="code2" placeholder="${
-              p2 || ""
-            }" maxlength="${m2 || 15}" required>`;
-
-      $("#registerTrackings .form .track #code2").replaceWith(code2Field);
-    })
-    .trigger("change");
+  $("#registerTrackings .form #agency").on("change", function () {
+    const agencyConfig = config[$(this).val()];
+    if (!agencyConfig) return;
+    const { p1, m1, type2, p2, m2, options } = agencyConfig;
+    const $code1 = $("#registerTrackings .form .track #code1");
+    $code1.attr({ placeholder: p1, maxlength: m1 }).val("");
+    const code2Field = type2 === "select"
+      ? `<select class="sp" id="code2" name="code2" required>${options.map(o => `<option value="${o}">${o}</option>`).join("")}</select>`
+      : `<input type="text" id="code2" name="code2" placeholder="${p2 || ""}" maxlength="${m2 || 15}" required>`;
+  
+    $("#registerTrackings .form .track #code2").replaceWith(code2Field);
+  }).trigger("change");
 
   const form = $("#registerTrackings .form");
   const orderInput = form.find("#order_number");
@@ -44,27 +26,36 @@ $(document).ready(function () {
   orderInput.on("blur", function () {
     const orderNumber = $(this).val().trim();
     if (!orderNumber) return;
-
+  
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
       .then((res) => (res.ok ? res.json() : Promise.reject()))
       .then((data) => {
-        if (data && data.success && data.data.client) {
+        const disableInputs = (state) => {
+          documentInput.prop("disabled", state);
+          nameInput.prop("disabled", state);
+          phoneInput.prop("disabled", state);
+        };
+  
+        if (data?.success && data.data.client) {
           const { document, name, phone, id: clientId } = data.data.client;
           const userOrderId = data.data.user_order_id;
-
+  
           documentInput.val(document);
           nameInput.val(name);
           phoneInput.val(phone);
-
+          disableInputs(true);
+  
           orderInput
             .attr("data-client-id", clientId || "")
             .attr("data-user-order-id", userOrderId || "");
         } else {
-          orderInput.attr("data-client-id", "").attr("data-user-order-id", "");
+          orderInput.removeAttr("data-client-id data-user-order-id");
+          disableInputs(false);
         }
       })
       .catch(() => {
-        orderInput.attr("data-client-id", "").attr("data-user-order-id", "");
+        orderInput.removeAttr("data-client-id data-user-order-id");
+        documentInput.add(nameInput).add(phoneInput).prop("disabled", false);
       });
   });
 
@@ -156,6 +147,8 @@ $(document).ready(function () {
       });
   });
 });
+
+
 
 // Listado de Tracking
 $(document).ready(function () {
