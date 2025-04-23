@@ -157,6 +157,7 @@ $(document).ready(function () {
   });
 });
 
+// Listado de Tracking
 $(document).ready(function () {
   let isProcessing = false;
   $("#formConsulta").on("submit", function (e) {
@@ -208,3 +209,16 @@ $(document).ready(function () {
   });
 });
 
+// Modal de Tracking
+$(document).ready(function () {
+  $("#listOrdersShipping").on("click", ".actions .btn.op", function () {
+    $("#orderInfo").css("display", "flex").hide().fadeIn();
+  });
+  $("#orderInfo").on("click", function (e) {
+    if (!$(e.target).closest(".content").length) {
+      $("#orderInfo").fadeOut(function () {
+        $(this).css("display", "none");
+      });
+    }
+  });
+});
