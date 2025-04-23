@@ -164,21 +164,19 @@ $(document).ready(function () {
     e.preventDefault();
     if (isProcessing) return;
     isProcessing = true;
-
     const documento = $("#documento").val().trim();
-
     if (documento !== "70986545") {
       $("#error-message")
         .html("<p>Documento no encontrado</p>")
         .fadeIn()
         .delay(1500)
-        .fadeOut(() => {
+        .fadeOut(function () {
           isProcessing = false;
         });
       return;
     }
 
-    $("#error-message").fadeOut(() => {
+    $("#error-message").fadeOut(function () {
       isProcessing = false;
     });
 
@@ -188,45 +186,57 @@ $(document).ready(function () {
         if (!data.success || !Array.isArray(data.data)) return;
 
         const orders = data.data;
-        const container = $("#ordersContainer");
-        const template = document.querySelector("#orderTemplate");
-
-        container.empty();
+        const container = $("#listOrdersShipping");
+        container.html('<h1 class="title">Mis Pedidos</h1>');
 
         orders.forEach((order) => {
-          const clone = template.content.cloneNode(true);
-
-          $(clone).find(".order-number").text(order.order_number);
-          $(clone).find(".tracking-codes").text(`${order.code1} / ${order.code2}`);
-          $(clone).find(".agency-img")
-            .attr("src", order.agency_image)
-            .attr("alt", order.agency)
-            .addClass(`a${order.agency_id}`);
-          $(clone).find(".fecha").text(
-            new Date(order.register_at).toLocaleDateString("es-PE", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          );
-          $(clone).find(".status").text(order.status);
-          $(clone).find(".doc-num").text(documento);
-          $(clone).find(".op").data({
-            code1: order.code1,
-            code2: order.code2,
-            agency: order.agency_id
-          });
-          $(clone).find(".ayuda-link").attr(
-            "href",
-            `https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}`
-          );
-
-          container.append(clone);
+          container.append(`
+                        <div class="order">
+                            <div class="head">
+                                <p class="orderNum">Orden: <span>${
+                                  order.order_number
+                                }</span></p>
+                                <p class="track">Tracking: <span>${
+                                  order.code1
+                                } / ${order.code2}</span></p>
+                                <div class="agencia">
+                                    <img class="a${order.agency_id}" src="${
+            order.agency_image
+          }" alt="${order.agency}">
+                                </div>
+                            </div>
+                            <div class="cont">
+                                <div class="info">
+                                    <p class="fecha">${new Date(
+                                      order.register_at
+                                    ).toLocaleDateString("es-PE", {
+                                      year: "numeric",
+                                      month: "long",
+                                      day: "numeric",
+                                    })}</p>
+                                    <p class="status">${order.status}</p>
+                                    <p class="name">Nombre: <span>—</span></p>
+                                    <p class="doc">Documento: <span>${documento}</span></p>
+                                </div>
+                                <div class="actions">
+                                    <button class="btn op" data-code1="${
+                                      order.code1
+                                    }" data-code2="${
+            order.code2
+          }" data-agency="${order.agency_id}">Rastrear</button>
+                                    <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${
+                                      order.order_number
+                                    }" target="_blank">Obtener Ayuda</a>
+                                </div>
+                            </div>
+                        </div>
+                    `);
         });
 
-        $("#listOrdersShipping").fadeIn().css("display", "flex");
+        container.fadeIn().css("display", "flex");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      });
   });
 });
-

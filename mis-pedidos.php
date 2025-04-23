@@ -26,40 +26,14 @@ require_once 'includes/common/header.php';
                 <form action="" method="POST" id="formConsulta">
                     <label for="name">Documento:</label>
                     <input type="text" name="name" id="documento" placeholder="Ingrese DNI o RUC" maxlength="20">
-                    <div id="error-message"></div>
+                    <div id="error-message">
+                    </div>
                     <button>Consultar</button>
                 </form>
             </div>
-
             <div id="listOrdersShipping">
-                <h1 class="title">Mis Pedidos</h1>
-                <div id="ordersContainer"></div>
-                <template id="orderTemplate">
-                    <div class="order">
-                        <div class="head">
-                            <p class="orderNum">Orden: <span class="order-number"></span></p>
-                            <p class="track">Tracking: <span class="tracking-codes"></span></p>
-                            <div class="agencia">
-                                <img class="agency-img" src="" alt="">
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="info">
-                                <p class="fecha"></p>
-                                <p class="status"></p>
-                                <p class="name">Nombre: <span>—</span></p>
-                                <p class="doc">Documento: <span class="doc-num"></span></p>
-                            </div>
-                            <div class="actions">
-                                <button class="btn op">Rastrear</button>
-                                <a class="btn ayuda-link" href="#" target="_blank">Obtener Ayuda</a>
-                            </div>
-                        </div>
-                    </div>
-                </template>
             </div>
         </div>
-
         <div id="orderInfo">
             <div class="content">
                 <span class="loaders"></span>
