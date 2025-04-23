@@ -3726,8 +3726,14 @@ section.i3d .cont-cards .card div:last-child a {
   width: 70%;
   justify-content: space-between;
 }
+#registerTrackings .form #error-register{
+  width: 100%;
+}
 #registerTrackings .form #error-register p{
   text-align: center;
+  color: red;
+  font-size: .9rem;
+  font-weight: 600;
 }
 #registerTrackings .form .order input,
 #registerTrackings .form .doc input,
