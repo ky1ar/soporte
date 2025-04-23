@@ -69,11 +69,14 @@ $(document).ready(function () {
 
   form.find(".ins").on("click", function (e) {
     e.preventDefault();
+
     const nativeForm = form[0];
     if (!nativeForm.checkValidity()) {
       nativeForm.reportValidity();
       return;
     }
+    if (isErrorDisplaying) return;
+    $(this).prop("disabled", true);
 
     const payload = {
       order_number: orderInput.val(),
@@ -117,6 +120,7 @@ $(document).ready(function () {
               .fadeOut(300, function () {
                 $(this).remove();
                 isErrorDisplaying = false;
+                $(form.find(".ins")).prop("disabled", false); // Habilitar el botón después de la animación
               });
           }
         }
@@ -134,11 +138,11 @@ $(document).ready(function () {
             .fadeOut(300, function () {
               $(this).remove();
               isErrorDisplaying = false;
+              $(form.find(".ins")).prop("disabled", false); // Habilitar el botón después de la animación
             });
         }
       });
   });
-
 });
 
 
