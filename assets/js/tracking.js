@@ -39,6 +39,20 @@ $(document).ready(function () {
         orderInput
           .attr("data-client-id", client?.id || "")
           .attr("data-user-order-id", user_order_id || "");
+          console.log("✅ Datos después de fetch de orden:", {
+            order_number: orderInput.val(),
+            agency_id: form.find("#agency").val(),
+            admin_id: 3,
+            code1: form.find("#code1").val(),
+            code2: form.find("#code2").val(),
+            client_id: client?.id || null,
+            user_order_id: user_order_id || null,
+            client: {
+              document: client?.document || null,
+              name: client?.name || null,
+              phone: client?.phone || null,
+            }
+          });
       })
       .catch(() => {
         documentInput.add(nameInput).add(phoneInput).val("").prop("disabled", false);
@@ -56,6 +70,22 @@ $(document).ready(function () {
         const { name, phone, id } = data?.data || {};
         nameInput.val(name || "");
         phoneInput.val(phone || "");
+
+         // 🔍 Log para ver cómo va quedando el payload tras buscar el documento
+        console.log("✅ Datos después de fetch de documento:", {
+          order_number: orderInput.val(),
+          agency_id: form.find("#agency").val(),
+          admin_id: 3,
+          code1: form.find("#code1").val(),
+          code2: form.find("#code2").val(),
+          client_id: id || null,
+          user_order_id: orderInput.attr("data-user-order-id") || null,
+          client: {
+            document: documentInput.val(),
+            name: name || null,
+            phone: phone || null,
+          }
+        });
         return id || null;
       })
       .catch(() => null)
@@ -92,7 +122,7 @@ $(document).ready(function () {
         phone: phoneInput.val(),
       },
     };
-
+    console.log("📦 Enviando payload final:", payload);
     fetch("https://devintranet.krear3d.com/api/tracking/add", {
       method: "POST",
       headers: {
