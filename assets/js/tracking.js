@@ -54,8 +54,6 @@ $(document).ready(function () {
       .then((res) => res.ok ? res.json() : Promise.reject())
       .then((data) => {
         const { name, phone, id } = data?.data || {};
-  
-        // Si vino name/phone desde el servidor, colocarlos y deshabilitarlos
         if (name) {
           nameInput.val(name).prop("disabled", true);
         }
@@ -66,11 +64,16 @@ $(document).ready(function () {
   
         return id || null;
       })
-      .catch(() => null)
+      .catch(() => {
+        nameInput.val("").prop("disabled", false);
+        phoneInput.val("").prop("disabled", false);
+        return null;
+      })
       .then((clientId) => {
         orderInput.attr("data-client-id", clientId || "");
       });
   });
+  
   
 
   let isErrorDisplaying = false;
