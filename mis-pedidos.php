@@ -25,7 +25,7 @@ require_once 'includes/common/header.php';
 
                 <form action="" method="POST" id="formConsulta">
                     <label for="name">Documento:</label>
-                    <input type="text" name="name" id="documento" placeholder="Ingrese DNI o RUC" maxlength="20">
+                    <input type="text" name="name" id="documento" placeholder="Ingrese DNI o RUC" maxlength="15">
                     <div id="error-message">
                     </div>
                     <button>Consultar</button>
