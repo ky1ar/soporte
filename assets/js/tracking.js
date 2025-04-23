@@ -55,13 +55,14 @@ $(document).ready(function () {
       .then((data) => {
         const { name, phone, id } = data?.data || {};
   
-        // Establecer valores
-        nameInput.val(name || "");
-        phoneInput.val(phone || "");
+        // Si vino name/phone desde el servidor, colocarlos y deshabilitarlos
+        if (name) {
+          nameInput.val(name).prop("disabled", true);
+        }
   
-        // 🔧 Hacer que cada campo se desactive solo si tiene valor
-        nameInput.prop("disabled", !!name);
-        phoneInput.prop("disabled", !!phone);
+        if (phone) {
+          phoneInput.val(phone).prop("disabled", true);
+        }
   
         return id || null;
       })
