@@ -28,63 +28,47 @@ $(document).ready(function () {
     if (!orderNumber) return;
   
     fetch(`https://devintranet.krear3d.com/api/order/id/${orderNumber}`)
-      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((res) => res.ok ? res.json() : Promise.reject())
       .then((data) => {
-        const disableInputs = (state) => {
-          documentInput.prop("disabled", state);
-          nameInput.prop("disabled", state);
-          phoneInput.prop("disabled", state);
-        };
+        const { client, user_order_id } = data?.data || {};
+        const disableInputs = client ? true : false;
+        documentInput.val(client?.document || "").prop("disabled", disableInputs);
+        nameInput.val(client?.name || "").prop("disabled", disableInputs);
+        phoneInput.val(client?.phone || "").prop("disabled", disableInputs);
   
-        if (data?.success && data.data.client) {
-          const { document, name, phone, id: clientId } = data.data.client;
-          const userOrderId = data.data.user_order_id;
-  
-          documentInput.val(document);
-          nameInput.val(name);
-          phoneInput.val(phone);
-          disableInputs(true);
-  
-          orderInput
-            .attr("data-client-id", clientId || "")
-            .attr("data-user-order-id", userOrderId || "");
-        } else {
-          orderInput.removeAttr("data-client-id data-user-order-id");
-          disableInputs(false);
-        }
+        orderInput
+          .attr("data-client-id", client?.id || "")
+          .attr("data-user-order-id", user_order_id || "");
       })
       .catch(() => {
+        documentInput.add(nameInput).add(phoneInput).val("").prop("disabled", false);
         orderInput.removeAttr("data-client-id data-user-order-id");
-        documentInput.add(nameInput).add(phoneInput).prop("disabled", false);
       });
   });
 
   documentInput.on("blur", function () {
     const doc = $(this).val().trim();
     if (!doc) return;
-
+  
     fetch(`https://devintranet.krear3d.com/api/user/data/${doc}`)
-      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((res) => res.ok ? res.json() : Promise.reject())
       .then((data) => {
-        if (data.success && data.data) {
-          const { name, phone, id } = data.data;
-
-          nameInput.val(name);
-          phoneInput.val(phone);
-
-          if (id) {
-            orderInput.attr("data-client-id", id);
-          } else {
-            orderInput.removeAttr("data-client-id");
-          }
-        }
+        const { name, phone, id } = data?.data || {};
+        nameInput.val(name || "");
+        phoneInput.val(phone || "");
+        return id || null;
       })
-      .catch(() => {});
+      .catch(() => null)
+      .then((clientId) => {
+        orderInput.attr("data-client-id", clientId || "");
+      });
   });
+  
+
+  let isErrorDisplaying = false;
 
   form.find(".ins").on("click", function (e) {
     e.preventDefault();
-
     const nativeForm = form[0];
     if (!nativeForm.checkValidity()) {
       nativeForm.reportValidity();
@@ -120,32 +104,41 @@ $(document).ready(function () {
           form[0].reset();
           orderInput.removeAttr("data-client-id data-user-order-id");
           $("#registerTrackings #agency").trigger("change");
-          $errorContainer.empty(); // limpiar mensaje si antes hubo un error
+          $errorContainer.empty();
         } else {
+          if (!isErrorDisplaying) {
+            isErrorDisplaying = true;
+            const $p = $("<p>")
+              .text(data.data?.message || "Error al registrar el tracking.")
+              .hide()
+              .appendTo($errorContainer)
+              .fadeIn(300)
+              .delay(1500)
+              .fadeOut(300, function () {
+                $(this).remove();
+                isErrorDisplaying = false;
+              });
+          }
+        }
+      })
+      .catch(() => {
+        const $errorContainer = $("#registerTrackings #error-register");
+        if (!isErrorDisplaying) {
+          isErrorDisplaying = true;
           const $p = $("<p>")
-            .text(data.data?.message || "Error al registrar el tracking.")
+            .text("Error inesperado. Intente nuevamente.")
             .hide()
             .appendTo($errorContainer)
             .fadeIn(300)
             .delay(1500)
             .fadeOut(300, function () {
               $(this).remove();
+              isErrorDisplaying = false;
             });
         }
-      })
-      .catch(() => {
-        const $errorContainer = $("#registerTrackings #error-register");
-        const $p = $("<p>")
-          .text("Error inesperado. Intente nuevamente.")
-          .hide()
-          .appendTo($errorContainer)
-          .fadeIn(300)
-          .delay(1500)
-          .fadeOut(300, function () {
-            $(this).remove();
-          });
       });
   });
+
 });
 
 
