@@ -54,8 +54,15 @@ $(document).ready(function () {
       .then((res) => res.ok ? res.json() : Promise.reject())
       .then((data) => {
         const { name, phone, id } = data?.data || {};
+  
+        // Establecer valores
         nameInput.val(name || "");
         phoneInput.val(phone || "");
+  
+        // 🔧 Hacer que cada campo se desactive solo si tiene valor
+        nameInput.prop("disabled", !!name);
+        phoneInput.prop("disabled", !!phone);
+  
         return id || null;
       })
       .catch(() => null)
@@ -81,7 +88,6 @@ $(document).ready(function () {
     const payload = {
       order_number: orderInput.val(),
       agency_id: form.find("#agency").val(),
-      // admin_id: null,
       code1: form.find("#code1").val(),
       code2: form.find("#code2").val(),
       client_id: orderInput.attr("data-client-id") || null,
@@ -106,6 +112,12 @@ $(document).ready(function () {
         if (data.success) {
           form[0].reset();
           orderInput.removeAttr("data-client-id data-user-order-id");
+        
+          // 🔧 Rehabilitar los campos deshabilitados
+          documentInput.prop("disabled", false);
+          nameInput.prop("disabled", false);
+          phoneInput.prop("disabled", false);
+        
           $("#registerTrackings #agency").trigger("change");
           $errorContainer.empty();
         } else {
