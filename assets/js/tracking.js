@@ -225,7 +225,7 @@ $(document).ready(function () {
                 <p class="doc">Documento: <span>${order.client_document}</span></p>
               </div>
               <div class="actions">
-                <button class="btn op" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.agency_id}">Rastrear</button>
+                <button class="btn op" data-orderId="${order.id}">Rastrear</button>
                 <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}" target="_blank">Obtener Ayuda</a>
               </div>
             </div>
