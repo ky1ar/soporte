@@ -205,7 +205,12 @@ $(document).ready(function () {
         $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
         return;
       }
-
+      const fecha = new Date(order.register_at);
+      const fechaFormateada = fecha.toLocaleDateString("es-PE", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
       const container = $("#listOrdersShipping");
       container.html('<h1 class="title">Mis Pedidos</h1>');
       data.data.forEach(order => {
@@ -215,12 +220,12 @@ $(document).ready(function () {
               <p class="orderNum">Orden: <span>${order.order_number}</span></p>
               <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
               <div class="agencia">
-                <img class="a${order.agency_id}" src="${order.agency_image}" alt="${order.agency}">
+                <img src="${order.agency_image}" alt="logo-agencia">
               </div>
             </div>
             <div class="cont">
               <div class="info">
-                <p class="fecha">${new Date(order.register_at).toLocaleDateString("es-PE", { year: "numeric", month: "long", day: "numeric" })}</p>
+                <p class="fecha">${fechaFormateada}</p>
                 <p class="status">${order.status}</p>
                 <p class="name">Nombre: <span>${order.user_name}</span></p>
                 <p class="doc">Documento: <span>${documento}</span></p>
