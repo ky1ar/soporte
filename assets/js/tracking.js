@@ -240,17 +240,17 @@ $(document).ready(function () {
 //   });
 // });
 
-// nuevo2 
+// nuevo
 $(document).ready(function () {
   let isProcessing = false;
 
-  // Verificar si hay un documento guardado en cache
-  const cachedDocument = localStorage.getItem("tracking_document");
+  // Verificar si hay datos almacenados en cache
+  const trackingCache = localStorage.getItem("tracking_cache");
 
-  if (cachedDocument) {
-    // Si hay un documento guardado, hacemos el submit automáticamente
-    $("#documento").val(cachedDocument);  // Rellenar el formulario con el documento guardado
-    $("#formConsulta").submit();  // Realizar el submit automáticamente
+  if (trackingCache) {
+    // Si hay datos en el cache, los usamos para mostrar los pedidos
+    const cachedData = JSON.parse(trackingCache);
+    mostrarPedidos(cachedData);
   }
 
   $("#formConsulta").on("submit", function (e) {
@@ -264,10 +264,7 @@ $(document).ready(function () {
     }
     $("#error-message").fadeOut();
 
-    // Guardar solo el documento en el cache (localStorage)
-    localStorage.setItem("tracking_document", documento);
-
-    // Realizamos la consulta
+    // Realizamos la consulta y actualizamos el cache
     fetch("https://devintranet.krear3d.com/api/tracking/list", {
       method: "POST",
       headers: {
@@ -281,6 +278,9 @@ $(document).ready(function () {
         $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
         return;
       }
+
+      // Guardar la información en el cache (localStorage)
+      localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
 
       // Mostrar los pedidos
       mostrarPedidos(data);
@@ -325,7 +325,6 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
-
 
 
 
