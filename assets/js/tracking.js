@@ -219,7 +219,7 @@ $(document).ready(function () {
             </div>
             <div class="cont">
               <div class="info">
-                <p class="fecha">${new Date(order.register_at).toLocaleDateString("es-PE", { year: "numeric", month: "long", day: "numeric" })}</p>
+                <p class="fecha">${order.register_at}</p>
                 <p class="status">${order.status}</p>
                 <p class="name">Nombre: <span>${order.user_name}</span></p>
                 <p class="doc">Documento: <span>${documento}</span></p>
