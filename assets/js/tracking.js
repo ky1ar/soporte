@@ -219,7 +219,7 @@ $(document).ready(function () {
             </div>
             <div class="cont">
               <div class="info">
-                <p class="fecha">${order.register_at}</p>
+                <p class="fecha">--</p>
                 <p class="status">${order.status}</p>
                 <p class="name">Nombre: <span>${order.client_name}</span></p>
                 <p class="doc">Documento: <span>${order.client_document}</span></p>
@@ -286,13 +286,9 @@ $(document).on("click", '#listOrdersShipping .order .cont .actions .btn.op', fun
         }
         
         const history = data.status_history || [];
-        
-        // Primero, ocultamos todos los estados
         actualizarEstado(".line .fas.agencia", null);
         actualizarEstado(".line .fas.ruta", null);
         actualizarEstado(".line .fas.entregado", null);
-        
-        // Ahora activamos solo los que estén en el historial
         history.forEach((estado) => {
           const { status_name, register_at } = estado;
         
