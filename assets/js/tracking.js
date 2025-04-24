@@ -258,6 +258,23 @@ $(document).ready(function () {
   });
 });
 
+// Estados en barra
+function actualizarFases(lastStatusId) {
+  const $fases = $("#orderInfo .content .status .fases");
+  $fases.find(".st, .bar").removeClass("activo");
+  if (lastStatusId === 1) {
+    $fases.find(".st.one").addClass("activo");
+  }
+  if (lastStatusId === 2) {
+    $fases.find(".bar.one").addClass("activo");
+    $fases.find(".st.two").addClass("activo");
+  }
+  if (lastStatusId === 3) {
+    $fases.find(".bar.two").addClass("activo");
+    $fases.find(".st.tree").addClass("activo");
+  }
+}
+
 // Endpoint por ID desde botón
 $(document).on("click", '#listOrdersShipping .order .cont .actions .btn.op', function () {
   const trackingId = $(this).data("trackingid");
@@ -300,6 +317,7 @@ $(document).on("click", '#listOrdersShipping .order .cont .actions .btn.op', fun
             actualizarEstado(".line .fas.entregado", register_at);
           }
         });
+        actualizarFases(data.last_status_id);
       } else {
         alert("No se pudo obtener la información del envío.");
       }
