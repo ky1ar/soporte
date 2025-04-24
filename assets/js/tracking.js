@@ -326,22 +326,20 @@ $(document).ready(function () {
   const trackingCache = localStorage.getItem("tracking_cache");
   const trackingConsulta = JSON.parse(localStorage.getItem("tracking_consulta"));
 
-  // Si hay datos cacheados, los mostramos
   if (trackingCache) {
     const cachedData = JSON.parse(trackingCache);
     mostrarPedidos(cachedData);
   }
 
-  // Si existe tracking_consulta y ha pasado 1 hora, se hace una consulta automática
-  if (trackingConsulta && trackingConsulta.timestamp && trackingConsulta.documento) {
-    const lastTimestamp = new Date(trackingConsulta.timestamp).getTime();
-    const now = Date.now();
-    const oneHour = 60 * 60 * 1000;
+  // Verificar si ya pasó una hora al cargar
+  verificarConsultaAutomatica();
 
-    if (now - lastTimestamp >= oneHour) {
-      autoSubmit(trackingConsulta.documento);
+  // Verificar si el usuario vuelve a la pestaña
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      verificarConsultaAutomatica();
     }
-  }
+  });
 
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
@@ -356,6 +354,19 @@ $(document).ready(function () {
   function autoSubmit(documento) {
     $("#documento").val(documento);
     realizarConsulta(documento);
+  }
+
+  function verificarConsultaAutomatica() {
+    const trackingConsulta = JSON.parse(localStorage.getItem("tracking_consulta"));
+    if (trackingConsulta && trackingConsulta.timestamp && trackingConsulta.documento) {
+      const lastTimestamp = parseInt(trackingConsulta.timestamp, 10);
+      const now = Date.now();
+      const oneHour = 60 * 60 * 1000;
+
+      if (now - lastTimestamp >= oneHour) {
+        autoSubmit(trackingConsulta.documento);
+      }
+    }
   }
 
   function realizarConsulta(documento) {
@@ -380,10 +391,10 @@ $(document).ready(function () {
       // Guardar datos en cache
       localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
 
-      // Guardar la hora y documento de la última consulta
+      // Guardar la hora local (en milisegundos desde época) y documento
       localStorage.setItem("tracking_consulta", JSON.stringify({
         documento: documento,
-        timestamp: new Date().toISOString()
+        timestamp: Date.now() // hora local en milisegundos
       }));
 
       mostrarPedidos(data);
@@ -427,6 +438,7 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
+
 
 
 
