@@ -205,15 +205,15 @@ $(document).ready(function () {
         $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
         return;
       }
-      const fecha = new Date(order.register_at);
-      const fechaFormateada = fecha.toLocaleDateString("es-PE", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      });
       const container = $("#listOrdersShipping");
       container.html('<h1 class="title">Mis Pedidos</h1>');
       data.data.forEach(order => {
+        const fecha = new Date(order.register_at);
+        const fechaFormateada = fecha.toLocaleDateString("es-PE", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
         const orderHTML = `
           <div class="order">
             <div class="head">
