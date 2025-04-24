@@ -221,8 +221,8 @@ $(document).ready(function () {
               <div class="info">
                 <p class="fecha">${order.register_at}</p>
                 <p class="status">${order.status}</p>
-                <p class="name">Nombre: <span>${order.user_name}</span></p>
-                <p class="doc">Documento: <span>${documento}</span></p>
+                <p class="name">Nombre: <span>${order.client_name}</span></p>
+                <p class="doc">Documento: <span>${order.client_document}</span></p>
               </div>
               <div class="actions">
                 <button class="btn op" data-code1="${order.code1}" data-code2="${order.code2}" data-agency="${order.agency_id}">Rastrear</button>
