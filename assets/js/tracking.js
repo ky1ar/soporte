@@ -331,8 +331,6 @@ $(document).ready(function () {
     mostrarPedidos(cachedData);
   }
 
-  mostrarUltimaConsulta(); // Mostrar al cargar
-
   // Verificar si ya pasó una hora al cargar
   verificarConsultaAutomatica();
 
@@ -393,18 +391,17 @@ $(document).ready(function () {
       // Guardar datos en cache
       localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
 
-      // Guardar hora en milisegundos y versión legible local
+      // Guardar hora en milisegundos y versión legible local en el cache
       const now = new Date();
       const horaLocal = now.toLocaleString("es-PE", { timeZone: "America/Lima" });
 
       localStorage.setItem("tracking_consulta", JSON.stringify({
         documento: documento,
         timestamp: now.getTime(), // comparación
-        hora_legible: horaLocal   // visualización
+        hora_legible: horaLocal   // solo para cache
       }));
 
       mostrarPedidos(data);
-      mostrarUltimaConsulta();
       isProcessing = false;
     })
     .catch(error => {
@@ -444,19 +441,7 @@ $(document).ready(function () {
     });
     container.fadeIn().css("display", "flex");
   }
-
-  function mostrarUltimaConsulta() {
-    const trackingConsulta = JSON.parse(localStorage.getItem("tracking_consulta"));
-    if (trackingConsulta && trackingConsulta.hora_legible) {
-      if ($("#ultima-consulta").length === 0) {
-        $("#listOrdersShipping").before('<div id="ultima-consulta" style="margin-bottom: 10px; font-weight: bold;"></div>');
-      }
-      $("#ultima-consulta").html(`Última búsqueda automática: ${trackingConsulta.hora_legible}`);
-    }
-  }
 });
-
-
 
 
 
