@@ -244,42 +244,27 @@ $(document).ready(function () {
 $(document).ready(function () {
   let isProcessing = false;
 
-  const cacheKey = "tracking_cache";
-  const lastCheckKey = "tracking_last_check";
+  // Verificar si hay datos almacenados en cache
+  const trackingCache = localStorage.getItem("tracking_cache");
 
-  const cached = localStorage.getItem(cacheKey);
-  const lastCheck = localStorage.getItem(lastCheckKey);
-
-  if (cached) {
-    const cachedData = JSON.parse(cached);
+  if (trackingCache) {
+    // Si hay datos en el cache, los usamos para mostrar los pedidos
+    const cachedData = JSON.parse(trackingCache);
     mostrarPedidos(cachedData);
-
-    // Verificar si ha pasado una hora desde la última consulta
-    if (cachedData.documento && lastCheck && Date.now() - parseInt(lastCheck) >= 3600000) {
-      realizarConsultaAutomatica(cachedData.documento);
-    }
   }
 
-  // Formulario manual
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
     if (isProcessing) return;
     isProcessing = true;
-
     const documento = $("#documento").val().trim();
     if (!documento) {
-      mostrarError("Por favor, ingresa un documento válido");
-      isProcessing = false;
+      $("#error-message").html("<p>Por favor, ingresa un documento válido</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
       return;
     }
+    $("#error-message").fadeOut();
 
-    consultarDocumento(documento, () => {
-      localStorage.setItem(lastCheckKey, Date.now().toString());
-      isProcessing = false;
-    });
-  });
-
-  function consultarDocumento(documento, callback) {
+    // Realizamos la consulta y actualizamos el cache
     fetch("https://devintranet.krear3d.com/api/tracking/list", {
       method: "POST",
       headers: {
@@ -290,35 +275,24 @@ $(document).ready(function () {
     .then(res => res.json())
     .then(data => {
       if (!data.success || !Array.isArray(data.data) || data.data.length === 0) {
-        mostrarError("Documento no encontrado");
-        callback();
+        $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
         return;
       }
 
-      const cacheData = { documento: documento, data: data.data };
-      localStorage.setItem(cacheKey, JSON.stringify(cacheData));
-      localStorage.setItem(lastCheckKey, Date.now().toString());
-      mostrarPedidos(cacheData);
-      callback();
+      // Guardar la información en el cache (localStorage)
+      localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
+
+      // Mostrar los pedidos
+      mostrarPedidos(data);
+      isProcessing = false;
     })
     .catch(error => {
       console.error(error);
-      mostrarError("Error al consultar el documento");
-      callback();
+      $("#error-message").html("<p>Error al consultar el documento</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
     });
-  }
+  });
 
-  function mostrarError(msg) {
-    $("#error-message").html(`<p>${msg}</p>`).fadeIn().delay(1500).fadeOut();
-  }
-
-  function realizarConsultaAutomatica(documento) {
-    console.log("Consulta automática ejecutada...");
-    consultarDocumento(documento, () => {
-      console.log("Actualización automática completada.");
-    });
-  }
-
+  // Función para mostrar los pedidos en el DOM
   function mostrarPedidos(data) {
     const container = $("#listOrdersShipping");
     container.html('<h1 class="title">Mis Pedidos</h1>');
@@ -351,7 +325,6 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
-
 
 
 
