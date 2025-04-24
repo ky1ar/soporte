@@ -257,3 +257,59 @@ $(document).ready(function () {
     }
   });
 });
+
+// Endpoint por ID desde botón
+$(document).on("click", '#listOrdersShipping .order .cont .actions .btn.op', function () {
+  const trackingId = $(this).data("trackingid");
+  const $orderInfo = $("#orderInfo");
+  $orderInfo.find(".content .loaders").css("display", "flex");
+
+  fetch(`https://devintranet.krear3d.com/api/tracking/id/${trackingId}`)
+    .then((res) => res.json())
+    .then((response) => {
+      if (response.success && response.data) {
+        const data = response.data;
+
+        // Ejemplo de uso de data (ajustar según estructura real del endpoint)
+        const origen = data.origen || "—";
+        const destino = data.destino || "—";
+        const mensajeEstado = data.estado_actual || "Estado no disponible";
+
+        $orderInfo.find(".content .head .title span").text("Tracking");
+        $orderInfo.find(".info .cod span").text(`${data.code1} / ${data.code2}`);
+        $orderInfo.find(".info .dat1 .ori span").text(origen);
+        $orderInfo.find(".info .dat1 .des span").text(destino);
+        $orderInfo.find(".content .head .estado-actual").text(mensajeEstado);
+
+        // Fases (si aplica)
+        function actualizarEstado(selector, estado) {
+          const fecha = estado?.fecha;
+          const elemento = $orderInfo.find(selector);
+
+          if (fecha) {
+            const [datePart, timePart] = fecha.split(" ");
+            const [year, month, day] = datePart.split("-");
+            const formattedDate = `${day}-${month}-${year} ${timePart}`;
+            elemento.find(".date").text(formattedDate);
+            elemento.show();
+          } else {
+            elemento.hide();
+          }
+        }
+
+        actualizarEstado(".line .fas.entregado", data.estados?.entregado);
+        actualizarEstado(".line .fas.ruta", data.estados?.transito);
+        actualizarEstado(".line .fas.agencia", data.estados?.origen);
+
+        //actualizarFases?.(); // si tienes esta función declarada globalmente
+      } else {
+        alert("No se pudo obtener la información del envío.");
+      }
+    })
+    .catch(() => {
+      alert("Error al consultar la guía. Intenta nuevamente.");
+    })
+    .finally(() => {
+      $orderInfo.find(".loaders").css("display", "none");
+    });
+});
