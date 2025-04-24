@@ -176,80 +176,8 @@ $(document).ready(function () {
 
 
 // Listado de Tracking
-$(document).ready(function () {
-  let isProcessing = false;
-
-  $("#formConsulta").on("submit", function (e) {
-    e.preventDefault();
-    if (isProcessing) return;
-    isProcessing = true;
-    const documento = $("#documento").val().trim();
-    if (!documento) {
-      $("#error-message").html("<p>Por favor, ingresa un documento válido</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
-      return;
-    }
-    $("#error-message").fadeOut();
-    fetch("https://devintranet.krear3d.com/api/tracking/list", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ document: documento })
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (!data.success || !Array.isArray(data.data) || data.data.length === 0) {
-        $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
-        return;
-      }
-      const container = $("#listOrdersShipping");
-      container.html('<h1 class="title">Mis Pedidos</h1>');
-      data.data.forEach(order => {
-        const orderHTML = `
-          <div class="order">
-            <div class="head">
-              <p class="orderNum">Orden: <span>${order.order_number}</span></p>
-              <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
-              <div class="agencia">
-                <img src="${order.agency_image}" alt="logo-agencia">
-              </div>
-            </div>
-            <div class="cont">
-              <div class="info">
-                <p class="fecha">--</p>
-                <p class="status">${order.status}</p>
-                <p class="name">Nombre: <span>${order.client_name}</span></p>
-                <p class="doc">Documento: <span>${order.client_document}</span></p>
-              </div>
-              <div class="actions">
-                <button class="btn op" data-trackingId="${order.id}">Rastrear</button>
-                <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}" target="_blank">Obtener Ayuda</a>
-              </div>
-            </div>
-          </div>
-        `;
-        container.append(orderHTML);
-      });
-      container.fadeIn().css("display", "flex");
-      isProcessing = false;
-    })
-    .catch(error => {
-      console.error(error);
-      $("#error-message").html("<p>Error al consultar el documento</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
-    });
-  });
-});
-
-// nuevo 2
 // $(document).ready(function () {
 //   let isProcessing = false;
-
-//   const trackingCache = localStorage.getItem("tracking_cache");
-
-//   if (trackingCache) {
-//     const cachedData = JSON.parse(trackingCache);
-//     mostrarPedidos(cachedData);
-//   }
 
 //   $("#formConsulta").on("submit", function (e) {
 //     e.preventDefault();
@@ -261,7 +189,6 @@ $(document).ready(function () {
 //       return;
 //     }
 //     $("#error-message").fadeOut();
-
 //     fetch("https://devintranet.krear3d.com/api/tracking/list", {
 //       method: "POST",
 //       headers: {
@@ -275,9 +202,35 @@ $(document).ready(function () {
 //         $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
 //         return;
 //       }
-
-//       localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
-//       mostrarPedidos(data);
+//       const container = $("#listOrdersShipping");
+//       container.html('<h1 class="title">Mis Pedidos</h1>');
+//       data.data.forEach(order => {
+//         const orderHTML = `
+//           <div class="order">
+//             <div class="head">
+//               <p class="orderNum">Orden: <span>${order.order_number}</span></p>
+//               <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
+//               <div class="agencia">
+//                 <img src="${order.agency_image}" alt="logo-agencia">
+//               </div>
+//             </div>
+//             <div class="cont">
+//               <div class="info">
+//                 <p class="fecha">--</p>
+//                 <p class="status">${order.status}</p>
+//                 <p class="name">Nombre: <span>${order.client_name}</span></p>
+//                 <p class="doc">Documento: <span>${order.client_document}</span></p>
+//               </div>
+//               <div class="actions">
+//                 <button class="btn op" data-trackingId="${order.id}">Rastrear</button>
+//                 <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}" target="_blank">Obtener Ayuda</a>
+//               </div>
+//             </div>
+//           </div>
+//         `;
+//         container.append(orderHTML);
+//       });
+//       container.fadeIn().css("display", "flex");
 //       isProcessing = false;
 //     })
 //     .catch(error => {
@@ -285,39 +238,87 @@ $(document).ready(function () {
 //       $("#error-message").html("<p>Error al consultar el documento</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
 //     });
 //   });
-
-//   function mostrarPedidos(data) {
-//     const container = $("#listOrdersShipping");
-//     container.html('<h1 class="title">Mis Pedidos</h1>');
-//     data.data.forEach(order => {
-//       const orderHTML = `
-//         <div class="order">
-//           <div class="head">
-//             <p class="orderNum">Orden: <span>${order.order_number}</span></p>
-//             <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
-//             <div class="agencia">
-//               <img src="${order.agency_image}" alt="logo-agencia">
-//             </div>
-//           </div>
-//           <div class="cont">
-//             <div class="info">
-//               <p class="fecha">--</p>
-//               <p class="status">${order.status}</p>
-//               <p class="name">Nombre: <span>${order.client_name}</span></p>
-//               <p class="doc">Documento: <span>${order.client_document}</span></p>
-//             </div>
-//             <div class="actions">
-//               <button class="btn op" data-trackingId="${order.id}">Rastrear</button>
-//               <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}" target="_blank">Obtener Ayuda</a>
-//             </div>
-//           </div>
-//         </div>
-//       `;
-//       container.append(orderHTML);
-//     });
-//     container.fadeIn().css("display", "flex");
-//   }
 // });
+
+// nuevo 2
+$(document).ready(function () {
+  let isProcessing = false;
+
+  const trackingCache = localStorage.getItem("tracking_cache");
+
+  if (trackingCache) {
+    const cachedData = JSON.parse(trackingCache);
+    mostrarPedidos(cachedData);
+  }
+
+  $("#formConsulta").on("submit", function (e) {
+    e.preventDefault();
+    if (isProcessing) return;
+    isProcessing = true;
+    const documento = $("#documento").val().trim();
+    if (!documento) {
+      $("#error-message").html("<p>Por favor, ingresa un documento válido</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
+      return;
+    }
+    $("#error-message").fadeOut();
+
+    fetch("https://devintranet.krear3d.com/api/tracking/list", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ document: documento })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success || !Array.isArray(data.data) || data.data.length === 0) {
+        $("#error-message").html("<p>Documento no encontrado</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
+        return;
+      }
+
+      localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
+      mostrarPedidos(data);
+      isProcessing = false;
+    })
+    .catch(error => {
+      console.error(error);
+      $("#error-message").html("<p>Error al consultar el documento</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
+    });
+  });
+
+  function mostrarPedidos(data) {
+    const container = $("#listOrdersShipping");
+    container.html('<h1 class="title">Mis Pedidos</h1>');
+    data.data.forEach(order => {
+      const orderHTML = `
+        <div class="order">
+          <div class="head">
+            <p class="orderNum">Orden: <span>${order.order_number}</span></p>
+            <p class="track">Tracking: <span>${order.code1} / ${order.code2}</span></p>
+            <div class="agencia">
+              <img src="${order.agency_image}" alt="logo-agencia">
+            </div>
+          </div>
+          <div class="cont">
+            <div class="info">
+              <p class="fecha">--</p>
+              <p class="status">${order.status}</p>
+              <p class="name">Nombre: <span>${order.client_name}</span></p>
+              <p class="doc">Documento: <span>${order.client_document}</span></p>
+            </div>
+            <div class="actions">
+              <button class="btn op" data-trackingId="${order.id}">Rastrear</button>
+              <a class="btn" href="https://wa.me/51908944969?text=Hola,%20quisiera%20hacer%20una%20consulta%20sobre%20mi%20compra%20con%20número%20de%20orden%3A%20${order.order_number}" target="_blank">Obtener Ayuda</a>
+            </div>
+          </div>
+        </div>
+      `;
+      container.append(orderHTML);
+    });
+    container.fadeIn().css("display", "flex");
+  }
+});
+
 
 
 
