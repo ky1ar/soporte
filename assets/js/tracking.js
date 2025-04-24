@@ -358,12 +358,13 @@ $(document).ready(function () {
 
   function verificarConsultaAutomatica() {
     const trackingConsulta = JSON.parse(localStorage.getItem("tracking_consulta"));
-    if (trackingConsulta && trackingConsulta.timestamp && trackingConsulta.documento) {
-      const lastTimestamp = parseInt(trackingConsulta.timestamp, 10);
-      const now = Date.now();
-      const oneHour = 60 * 60 * 1000;
+    if (trackingConsulta && trackingConsulta.hora_legible) {
+      const lastHoraLegible = trackingConsulta.hora_legible;
+      const now = new Date();
+      const horaActual = now.toLocaleString("es-PE", { timeZone: "America/Lima" });
 
-      if (now - lastTimestamp >= oneHour) {
+      // Compara la hora local con la hora de la última consulta almacenada
+      if (lastHoraLegible !== horaActual) {
         autoSubmit(trackingConsulta.documento);
       }
     }
@@ -391,14 +392,13 @@ $(document).ready(function () {
       // Guardar datos en cache
       localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
 
-      // Guardar hora en milisegundos y versión legible local en el cache
+      // Guardar hora legible local en el cache (ya no es necesario el timestamp)
       const now = new Date();
       const horaLocal = now.toLocaleString("es-PE", { timeZone: "America/Lima" });
 
       localStorage.setItem("tracking_consulta", JSON.stringify({
         documento: documento,
-        timestamp: now.getTime(), // comparación
-        hora_legible: horaLocal   // solo para cache
+        hora_legible: horaLocal   // solo guardamos hora legible
       }));
 
       mostrarPedidos(data);
@@ -442,6 +442,7 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
+
 
 
 
