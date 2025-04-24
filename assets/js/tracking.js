@@ -341,6 +341,11 @@ $(document).ready(function () {
     }
   });
 
+  // Verificación automática cada hora
+  setInterval(function () {
+    verificarConsultaAutomatica();
+  }, 60 * 60 * 1000); // 1 hora en milisegundos
+
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
     const documento = $("#documento").val().trim();
@@ -442,6 +447,7 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
+
 
 
 
