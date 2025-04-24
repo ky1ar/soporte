@@ -244,11 +244,9 @@ $(document).ready(function () {
 $(document).ready(function () {
   let isProcessing = false;
 
-  // Verificar si hay datos almacenados en cache
   const trackingCache = localStorage.getItem("tracking_cache");
 
   if (trackingCache) {
-    // Si hay datos en el cache, los usamos para mostrar los pedidos
     const cachedData = JSON.parse(trackingCache);
     mostrarPedidos(cachedData);
   }
@@ -264,7 +262,6 @@ $(document).ready(function () {
     }
     $("#error-message").fadeOut();
 
-    // Realizamos la consulta y actualizamos el cache
     fetch("https://devintranet.krear3d.com/api/tracking/list", {
       method: "POST",
       headers: {
@@ -279,10 +276,7 @@ $(document).ready(function () {
         return;
       }
 
-      // Guardar la información en el cache (localStorage)
       localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
-
-      // Mostrar los pedidos
       mostrarPedidos(data);
       isProcessing = false;
     })
@@ -292,7 +286,6 @@ $(document).ready(function () {
     });
   });
 
-  // Función para mostrar los pedidos en el DOM
   function mostrarPedidos(data) {
     const container = $("#listOrdersShipping");
     container.html('<h1 class="title">Mis Pedidos</h1>');
@@ -325,6 +318,7 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
+
 
 
 
