@@ -262,14 +262,14 @@ $(document).ready(function () {
 function actualizarFases(lastStatusId) {
   const $fases = $("#orderInfo .content .status .fases");
   $fases.find(".st, .bar").removeClass("activo");
-  if (lastStatusId === 1) {
+  if (lastStatusId >= 1) {
     $fases.find(".st.one").addClass("activo");
   }
-  if (lastStatusId === 2) {
+  if (lastStatusId >= 2) {
     $fases.find(".bar.one").addClass("activo");
     $fases.find(".st.two").addClass("activo");
   }
-  if (lastStatusId === 3) {
+  if (lastStatusId >= 3) {
     $fases.find(".bar.two").addClass("activo");
     $fases.find(".st.tree").addClass("activo");
   }
