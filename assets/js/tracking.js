@@ -341,10 +341,11 @@ $(document).ready(function () {
     }
   });
 
-  // Verificación automática cada hora
+  // Verificación automática cada 20 segundos
   setInterval(function () {
     verificarConsultaAutomatica();
-  }, 60 * 60 * 1000); // 1 hora en milisegundos
+  }, 20 * 1000); // 20 segundos en milisegundos
+
 
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
