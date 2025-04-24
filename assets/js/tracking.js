@@ -208,12 +208,6 @@ $(document).ready(function () {
       const container = $("#listOrdersShipping");
       container.html('<h1 class="title">Mis Pedidos</h1>');
       data.data.forEach(order => {
-        const fecha = new Date(order.register_at);
-        const fechaFormateada = fecha.toLocaleDateString("es-PE", {
-          year: "numeric",
-          month: "long",
-          day: "numeric"
-        });
         const orderHTML = `
           <div class="order">
             <div class="head">
@@ -225,7 +219,7 @@ $(document).ready(function () {
             </div>
             <div class="cont">
               <div class="info">
-                <p class="fecha">${fechaFormateada}</p>
+                <p class="fecha">${new Date(order.register_at).toLocaleDateString("es-PE", { year: "numeric", month: "long", day: "numeric" })}</p>
                 <p class="status">${order.status}</p>
                 <p class="name">Nombre: <span>${order.user_name}</span></p>
                 <p class="doc">Documento: <span>${documento}</span></p>
