@@ -192,7 +192,7 @@ $(document).ready(function () {
 
     $("#error-message").fadeOut();
 
-    fetch("https://devintranet.krear3d.com/api/tracking/list/", {
+    fetch("https://devintranet.krear3d.com/api/tracking/list", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
