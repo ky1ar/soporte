@@ -269,30 +269,41 @@ $(document).on("click", '#listOrdersShipping .order .cont .actions .btn.op', fun
     .then((response) => {
       if (response.success && response.data) {
         const data = response.data;
-
-        // Mostrar datos básicos
         $orderInfo.find(".content .head .title span").text(data.agency_name || "—");
         $orderInfo.find(".info .cod span").text(`${data.code1} / ${data.code2}`);
         $orderInfo.find(".info .dat1 .ori span").text(data.origin_agency || "—");
         $orderInfo.find(".info .dat1 .des span").text(data.destination_agency || "—");
         $orderInfo.find(".content .head .estado-actual").text(data.last_status_name || "—");
 
-        // Mostrar cada estado según nombre
-        function actualizarEstado(selector, nombre) {
+        function actualizarEstado(selector, texto) {
           const elemento = $orderInfo.find(selector);
-          if (nombre) {
-            elemento.find(".date").text(nombre);
+          if (texto) {
+            elemento.find(".date").text(texto);
             elemento.show();
           } else {
             elemento.hide();
           }
         }
-
-        // Buscar por nombre y mostrar
+        
         const history = data.status_history || [];
-        actualizarEstado(".line .fas.agencia", history.find(h => h.status_name === "Agencia")?.status_name);
-        actualizarEstado(".line .fas.ruta", history.find(h => h.status_name === "En ruta")?.status_name);
-        actualizarEstado(".line .fas.entregado", history.find(h => h.status_name === "Entregado")?.status_name);
+        
+        // Primero, ocultamos todos los estados
+        actualizarEstado(".line .fas.agencia", null);
+        actualizarEstado(".line .fas.ruta", null);
+        actualizarEstado(".line .fas.entregado", null);
+        
+        // Ahora activamos solo los que estén en el historial
+        history.forEach((estado) => {
+          const { status_name, register_at } = estado;
+        
+          if (status_name === "Agencia") {
+            actualizarEstado(".line .fas.agencia", register_at);
+          } else if (status_name === "En ruta") {
+            actualizarEstado(".line .fas.ruta", register_at);
+          } else if (status_name === "Entregado") {
+            actualizarEstado(".line .fas.entregado", register_at);
+          }
+        });
       } else {
         alert("No se pudo obtener la información del envío.");
       }
