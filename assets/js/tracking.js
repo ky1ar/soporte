@@ -244,17 +244,11 @@ $(document).ready(function () {
 $(document).ready(function () {
   let isProcessing = false;
 
-  const trackingCache = localStorage.getItem("tracking_cache");
-
-  if (trackingCache) {
-    const cachedData = JSON.parse(trackingCache);
-    mostrarPedidos(cachedData);
-  }
-
   $("#formConsulta").on("submit", function (e) {
     e.preventDefault();
     if (isProcessing) return;
     isProcessing = true;
+
     const documento = $("#documento").val().trim();
     if (!documento) {
       $("#error-message").html("<p>Por favor, ingresa un documento válido</p>").fadeIn().delay(1500).fadeOut(() => { isProcessing = false; });
@@ -276,7 +270,6 @@ $(document).ready(function () {
         return;
       }
 
-      localStorage.setItem("tracking_cache", JSON.stringify({ documento: documento, data: data.data }));
       mostrarPedidos(data);
       isProcessing = false;
     })
@@ -318,6 +311,7 @@ $(document).ready(function () {
     container.fadeIn().css("display", "flex");
   }
 });
+
 
 // Modal de Tracking
 $(document).ready(function () {
