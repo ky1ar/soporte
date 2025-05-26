@@ -16,56 +16,86 @@ require_once 'includes/bar/navigationBar.php';
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const data = JSON.parse(localStorage.getItem("orderData"));
-
         if (!data) {
           window.location.href = "index.php";
           return;
         }
 
         const sttImg = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
+        const currentStatusIndex = data.status_id - 1;
+        const history = data.history || [];
 
-        const historyHtml = data.history.map((step, index) => {
-          const isLast = index + 1 === data.history.length;
-          const statusIcon = isLast ? '<img src="assets/img/crr.svg" alt="">En Proceso' : '<img src="assets/img/chk.svg" alt="">Completado';
+        const machineSlug = data.machine
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")  // Remove accents
+          .replace(/[^a-z0-9]/g, '-')        // Replace spaces and symbols
+          .replace(/-+/g, '-')               // Collapse dashes
+          .replace(/^-|-$/g, '');            // Trim dashes
+
+        const timelineHTML = history.map((step, i) => `
+          <li class="tml-itm tml-act">
+            <i class="tmt-lne"></i>
+            <b class="tmt-dot">${i + 1}</b>
+            <img class="tml-img" src="assets/img/${sttImg[i] || 'one'}.svg" alt="">
+            <span>${step.status_name}</span>
+          </li>
+        `).join('');
+
+        const remainingHTML = Array.from({ length: 9 - history.length }, (_, i) => {
+          const index = history.length + i;
           return `
-            <li class="${isLast ? 'smy-crr':'smy-act'}">
-              <i>${index + 1}</i>
+            <li class="tml-itm">
+              <i class="tmt-lne"></i>
+              <b class="tmt-dot">${index + 1}</b>
+              <img class="tml-img" src="assets/img/${sttImg[index] || 'one'}.svg" alt="">
+              <span>Estado ${index + 1}</span>
+            </li>
+          `;
+        }).join('');
+
+        const statusLogHTML = history.map((step, i) => {
+          const isLast = i === history.length - 1;
+          let icon = '<img src="assets/img/chk.svg" alt="">Completado';
+          if (isLast) {
+            icon = data.status_id === 9
+              ? '<img src="assets/img/crr.svg" alt="">Finalizado'
+              : '<img src="assets/img/crr.svg" alt="">En Proceso';
+          }
+
+          return `
+            <li class="${isLast ? 'smy-crr' : 'smy-act'}">
+              <i>${i + 1}</i>
               <div class="hst-cnt">
                 <div class="hst-ttl">
-                  <h3>${step.status_id}</h3>
+                  <h3>${step.status_name}</h3>
                   <h4><img src="assets/img/cal.svg" alt="">${step.register_at}</h4>
                 </div>
               </div>
-              <div class="hst-dte">${statusIcon}</div>
-            </li>`;
-        }).join("");
+              <div class="hst-dte">${icon}</div>
+            </li>
+          `;
+        }).join('');
 
-        const futureHtml = Array.from({ length: 9 - data.history.length }, (_, i) => {
-          const id = data.history.length + i + 1;
+        const statusPendingHTML = Array.from({ length: 9 - history.length }, (_, i) => {
+          const index = history.length + i;
           return `
             <li>
-              <i>${id}</i>
+              <i>${index + 1}</i>
               <div class="hst-cnt">
                 <div class="hst-ttl">
-                  <h3>Estado ${id}</h3>
+                  <h3>Estado ${index + 1}</h3>
                 </div>
               </div>
-            </li>`;
-        }).join("");
-
-        const machineImage = data.machine.toLowerCase().replace(/\s/g, '-');
+            </li>
+          `;
+        }).join('');
 
         document.getElementById("order-content").innerHTML = `
           <div class="ord-tml">
             <ul class="tml-lst">
-              ${data.history.map((step, i) => `
-                <li class="tml-itm tml-act">
-                  <i class="tmt-lne"></i>
-                  <b class="tmt-dot">${i + 1}</b>
-                  <img class="tml-img" src="assets/img/${sttImg[step.status_id - 1]}.svg" alt="">
-                  <span>Estado ${step.status_id}</span>
-                </li>`).join("")}
-              ${futureHtml}
+              ${timelineHTML}
+              ${remainingHTML}
             </ul>
           </div>
 
@@ -73,7 +103,7 @@ require_once 'includes/bar/navigationBar.php';
             <div class="smy-lft">
               <div class="itm-hdr">
                 <div class="itm-lft">
-                  <h2>Orden <b>${data.order_number}</b></h2>
+                  <h2>Orden <b>00${data.order_number}</b></h2>
                   <h3><img src="assets/img/tec.svg" alt="">${data.technician_name}</h3>
                 </div>
                 <span>${data.passed_days}</span>
@@ -89,14 +119,16 @@ require_once 'includes/bar/navigationBar.php';
                     <h5>${data.origin_name}</h5>
                   </div>
                 </div>
-                <img class="itm-img" src="assets/mac/${machineImage}.webp" alt="">
+                <img class="itm-img" src="assets/mac/${machineSlug}.webp" alt="">
               </div>
 
               <span class="smy-stt">${data.status_text}</span>
               <div class="smy-tme">
                 <h2>Total de días desde el ingreso</h2>
                 <div class="tme-cnt">
-                  <div id="tme-pdy" class="tme-top" data-stt="${data.passed_days}"><b>${data.passed_days}</b></div>
+                  <div id="tme-pdy" class="tme-top" data-stt="${data.passed_days}">
+                    <b>${data.passed_days}</b>
+                  </div>
                   <div class="tme-bot"></div>
                   <b>0</b>
                   <b>20</b>
@@ -105,7 +137,10 @@ require_once 'includes/bar/navigationBar.php';
             </div>
 
             <div class="smy-rgt">
-              <ul>${historyHtml}${futureHtml}</ul>
+              <ul>
+                ${statusLogHTML}
+                ${statusPendingHTML}
+              </ul>
             </div>
           </div>
         `;
