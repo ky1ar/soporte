@@ -482,35 +482,41 @@ $(document).ready(function () {
   }
 
   searchOrder.submit(function (event) {
-  event.preventDefault();
-  searchOrderMessage.slideUp();
+    event.preventDefault();
+    searchOrderMessage.slideUp();
 
-  let orderNumber = $("#orderNumber").val();
-  let document = $("#document").val();
+    let orderNumber = $("#orderNumber").val();
+    let document = $("#document").val();
 
-  if (!validateorderNumber(orderNumber) || !validateDocument(document)) return;
+    if (!validateorderNumber(orderNumber) || !validateDocument(document)) return;
 
-  $.ajax({
-    type: "POST",
-    url: "https://api.krear3d.com/support/consult",
-    data: JSON.stringify({
-      order_number: orderNumber,
-      document: document,
-    }),
-    contentType: "application/json",
-    success: function (response) {
-      if (response.success) {
-        localStorage.setItem("orderData", JSON.stringify(response.data));
-        window.location.href = "order";
-      } else {
-        message(searchOrderMessage, "No se encontró la orden.");
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error("Error:", error);
-    },
+    $.ajax({
+      type: "POST",
+      url: "https://api.krear3d.com/support/consult",
+      data: JSON.stringify({
+        order_number: orderNumber,
+        document: document,
+      }),
+      contentType: "application/json",
+      success: function (response) {
+        if (response.success) {
+          localStorage.setItem("orderData", JSON.stringify(response.data));
+          window.location.href = "order";
+        } else {
+          message(searchOrderMessage, response.data?.message || "No se encontró la orden.");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+        try {
+          const response = JSON.parse(xhr.responseText);
+          message(searchOrderMessage, response.data?.message || "Error al procesar la solicitud.");
+        } catch {
+          message(searchOrderMessage, "Error de conexión con el servidor.");
+        }
+      },
+    });
   });
-});
 
   let currentDate = new Date();
   let today = new Date();
