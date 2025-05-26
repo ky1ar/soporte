@@ -112,7 +112,7 @@ require_once 'includes/bar/navigationBar.php';
                 <div class="smy-lft">
                 <div class="itm-hdr">
                     <div class="itm-lft">
-                    <h2>Orden <b>00${data.order_number}</b></h2>
+                    <h2>Orden <b>${data.order_number}</b></h2>
                     <h3><img src="assets/img/tec.svg" alt="">${data.technician_name}</h3>
                     </div>
                     <span>${data.passed_days}</span>
