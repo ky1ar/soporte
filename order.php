@@ -14,6 +14,19 @@ require_once 'includes/bar/navigationBar.php';
 <section id="ky1-ord">
   <div class="ky1-wrp" id="order-content">
     <script>
+        const statusNames = [
+            '', // índice 0 no se usa
+            'Registro',
+            'Ingreso',
+            'Revisión',
+            'Diagnóstico',
+            'Repuesto',
+            'Reparación',
+            'Pruebas',
+            'Listo para Recojo',
+            'Entregado'
+        ];
+
         document.addEventListener("DOMContentLoaded", function () {
             const data = JSON.parse(localStorage.getItem("orderData"));
             if (!data) {
@@ -24,24 +37,27 @@ require_once 'includes/bar/navigationBar.php';
             const sttImg = ['one', 'two', 'thr', 'for', 'fiv', 'six', 'sev', 'eig', 'nin'];
             const history = data.history || [];
 
-            const timelineHTML = history.map((step, i) => `
-            <li class="tml-itm tml-act">
-                <i class="tmt-lne"></i>
-                <b class="tmt-dot">${i + 1}</b>
-                <img class="tml-img" src="assets/img/${sttImg[i] || 'one'}.svg" alt="">
-                <span>${step.status_name}</span>
-            </li>
-            `).join('');
+            const timelineHTML = history.map((step, i) => {
+                const statusName = statusNames[i + 1] || step.status_name;
+                return `
+                    <li class="tml-itm tml-act">
+                    <i class="tmt-lne"></i>
+                    <b class="tmt-dot">${i + 1}</b>
+                    <img class="tml-img" src="assets/img/${sttImg[i] || 'one'}.svg" alt="">
+                    <span>${statusName}</span>
+                    </li>
+                `;
+            }).join('');
 
             const remainingHTML = Array.from({ length: 9 - history.length }, (_, i) => {
                 const index = history.length + i;
-                const stateName = (index + 1 === 9) ? 'Entregado' : `Estado ${index + 1}`;
+                const statusName = statusNames[index + 1] || `Estado ${index + 1}`;
                 return `
                     <li class="tml-itm">
                     <i class="tmt-lne"></i>
                     <b class="tmt-dot">${index + 1}</b>
                     <img class="tml-img" src="assets/img/${sttImg[index] || 'one'}.svg" alt="">
-                    <span>${stateName}</span>
+                    <span>${statusName}</span>
                     </li>
                 `;
             }).join('');
@@ -71,13 +87,13 @@ require_once 'includes/bar/navigationBar.php';
 
             const statusPendingHTML = Array.from({ length: 9 - history.length }, (_, i) => {
                 const index = history.length + i;
-                const stateName = (index + 1 === 9) ? 'Entregado' : `Estado ${index + 1}`;
+                const statusName = statusNames[index + 1] || `Estado ${index + 1}`;
                 return `
                     <li>
                     <i>${index + 1}</i>
                     <div class="hst-cnt">
                         <div class="hst-ttl">
-                        <h3>${stateName}</h3>
+                        <h3>${statusName}</h3>
                         </div>
                     </div>
                     </li>
