@@ -34,15 +34,16 @@ require_once 'includes/bar/navigationBar.php';
             `).join('');
 
             const remainingHTML = Array.from({ length: 9 - history.length }, (_, i) => {
-            const index = history.length + i;
-            return `
-                <li class="tml-itm">
-                <i class="tmt-lne"></i>
-                <b class="tmt-dot">${index + 1}</b>
-                <img class="tml-img" src="assets/img/${sttImg[index] || 'one'}.svg" alt="">
-                <span>Estado ${index + 1}</span>
-                </li>
-            `;
+                const index = history.length + i;
+                const stateName = (index + 1 === 9) ? 'Entregado' : `Estado ${index + 1}`;
+                return `
+                    <li class="tml-itm">
+                    <i class="tmt-lne"></i>
+                    <b class="tmt-dot">${index + 1}</b>
+                    <img class="tml-img" src="assets/img/${sttImg[index] || 'one'}.svg" alt="">
+                    <span>${stateName}</span>
+                    </li>
+                `;
             }).join('');
 
             const statusLogHTML = history.map((step, i) => {
@@ -82,7 +83,7 @@ require_once 'includes/bar/navigationBar.php';
                     </li>
                 `;
             }).join('');
-            
+
             document.getElementById("order-content").innerHTML = `
             <div class="ord-tml">
                 <ul class="tml-lst">
