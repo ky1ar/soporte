@@ -69,19 +69,20 @@ require_once 'includes/bar/navigationBar.php';
             }).join('');
 
             const statusPendingHTML = Array.from({ length: 9 - history.length }, (_, i) => {
-            const index = history.length + i;
-            return `
-                <li>
-                <i>${index + 1}</i>
-                <div class="hst-cnt">
-                    <div class="hst-ttl">
-                    <h3>Estado ${index + 1}</h3>
+                const index = history.length + i;
+                const stateName = (index + 1 === 9) ? 'Entregado' : `Estado ${index + 1}`;
+                return `
+                    <li>
+                    <i>${index + 1}</i>
+                    <div class="hst-cnt">
+                        <div class="hst-ttl">
+                        <h3>${stateName}</h3>
+                        </div>
                     </div>
-                </div>
-                </li>
-            `;
+                    </li>
+                `;
             }).join('');
-
+            
             document.getElementById("order-content").innerHTML = `
             <div class="ord-tml">
                 <ul class="tml-lst">
