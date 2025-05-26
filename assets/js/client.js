@@ -492,7 +492,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: "POST",
-    url: "https://devapi.krear3d.com/support/consult",
+    url: "https://api.krear3d.com/support/consult",
     data: JSON.stringify({
       order_number: orderNumber,
       document: document,
