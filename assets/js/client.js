@@ -494,7 +494,7 @@ $(document).ready(function () {
     type: "POST",
     url: "https://devapi.krear3d.com/support/consult",
     data: JSON.stringify({
-      orderNumber: orderNumber,
+      order_number: orderNumber,
       document: document,
     }),
     contentType: "application/json",
