@@ -482,36 +482,35 @@ $(document).ready(function () {
   }
 
   searchOrder.submit(function (event) {
-    event.preventDefault();
-    searchOrderMessage.slideUp();
+  event.preventDefault();
+  searchOrderMessage.slideUp();
 
-    let orderNumber = $("#orderNumber").val();
-    let document = $("#document").val();
+  let orderNumber = $("#orderNumber").val();
+  let document = $("#document").val();
 
-    if (!validateorderNumber(orderNumber) || !validateDocument(document)) {
-      return;
-    }
+  if (!validateorderNumber(orderNumber) || !validateDocument(document)) return;
 
-    $.ajax({
-      type: "POST",
-      url: "routes/searchOrder",
-      data: {
-        orderNumber: orderNumber,
-        document: document,
-      },
-      success: function (response) {
-        let jsonData = JSON.parse(response);
-        if (jsonData.success) {
-          window.location.href = "order?number=" + orderNumber;
-        } else {
-          message(searchOrderMessage, jsonData.message);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error("Error:", error);
-      },
-    });
+  $.ajax({
+    type: "POST",
+    url: "https://devapi.krear3d.com/support/consult",
+    data: JSON.stringify({
+      orderNumber: orderNumber,
+      document: document,
+    }),
+    contentType: "application/json",
+    success: function (response) {
+      if (response.success) {
+        localStorage.setItem("orderData", JSON.stringify(response.data));
+        window.location.href = "order";
+      } else {
+        message(searchOrderMessage, "No se encontró la orden.");
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
+    },
   });
+});
 
   let currentDate = new Date();
   let today = new Date();
