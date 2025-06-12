@@ -125,9 +125,9 @@ $(document).ready(function () {
 
     $.ajax({
       url: "routes/getSTL.php",
-      type: "GET",
+      type: "POST", // Cambiado a POST
       dataType: "json",
-      data: { page: page, itemsPerPage: itemsPerPage },
+      data: { page: page, itemsPerPage: itemsPerPage }, // Los datos se envían en el cuerpo
       success: function (response) {
         if (response.success) {
           const stlsData = response.data;
@@ -138,17 +138,17 @@ $(document).ready(function () {
 
           stlsData.forEach((stl) => {
             const cardHtml = `
-            <div class="card-stl">
+              <div class="card-stl">
                 <img src="assets/img/${stl.img_stl}" alt="${stl.name}">
                 <div>
-                    <h1>${stl.name}</h1>
-                    <p>${stl.info}</p>
+                  <h1>${stl.name}</h1>
+                  <p>${stl.info}</p>
                 </div>
                 <a href="archivos-stl/${stl.archivo_stl}" download>
-                    <img src="/assets/img/flecha-abajo-icon.webp" alt="">
+                  <img src="/assets/img/flecha-abajo-icon.webp" alt="">
                 </a>
-            </div>
-          `;
+              </div>
+            `;
             stlsContainer.append(cardHtml);
           });
 
@@ -164,23 +164,28 @@ $(document).ready(function () {
     });
   }
 
-  // Escuchar cambios de tamaño y recargar la primera página
-  window.addEventListener("resize", function () {
-    cargarSTLs(1);
-  });
+  $(document).ready(function () {
+    // Verificar si estamos en la página /stl
+    if (window.location.pathname === "/stl") {
+      // Escuchar cambios de tamaño y recargar la primera página
+      window.addEventListener("resize", function () {
+        cargarSTLs(1);
+      });
 
-  // Botones de paginación
-  $("#prevPage").on("click", function () {
-    if (currentPage > 1) {
-      currentPage--;
-      cargarSTLs(currentPage);
-    }
-  });
+      // Botones de paginación
+      $("#prevPage").on("click", function () {
+        if (currentPage > 1) {
+          currentPage--;
+          cargarSTLs(currentPage);
+        }
+      });
 
-  $("#nextPage").on("click", function () {
-    if (currentPage < totalPages) {
-      currentPage++;
-      cargarSTLs(currentPage);
+      $("#nextPage").on("click", function () {
+        if (currentPage < totalPages) {
+          currentPage++;
+          cargarSTLs(currentPage);
+        }
+      });
     }
   });
 

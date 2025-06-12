@@ -25,6 +25,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
   --graydark: #e6e6e6;
   --graydarkest: #cccccc;
   --black: #0f2027;
+  --newgray: #c3c3c375;
 }
 *,
 *:before,
@@ -1057,6 +1058,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #ed6b22;
+  -webkit-user-select: none;
   user-select: none;
 }
 #trainingSection .right .button.text {
@@ -1363,7 +1365,7 @@ body {
   margin: 0.5rem 0;
   gap: 0.5rem;
 }
-#scheduleForm .tyc label a{
+#scheduleForm .tyc label a {
   color: var(--primary);
   font-weight: 500;
 }
@@ -2300,6 +2302,7 @@ section.contact-map iframe {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-user-select: none;
   user-select: none;
 }
 .page-stls button:nth-of-type(2) {
@@ -2556,6 +2559,7 @@ section.menu-wiki-movil ul li ul li:hover {
   height: 1rem;
   pad: 0.5rem;
   filter: invert(1);
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -3334,4 +3338,442 @@ section.i3d .cont-cards .card div:last-child a {
   .categorias-stl-mid .swiffy-slider .slider-container li .categ p {
     margin: 0.5rem 0 0 0;
   }
+}
+
+.containerShip {
+  display: flex;
+  margin: 2rem 0 5rem 0;
+  align-items: start;
+}
+.containerShip p,
+.containerShip h1 {
+  margin: 0;
+}
+/* PEDIDOS */
+#formPedidos {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 23rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem #dddddd;
+  position: sticky;
+  top: 1rem;
+}
+#formPedidos form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+#formPedidos form #error-message p {
+  margin-top: 0.5rem;
+  color: red;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: -0.5rem;
+}
+#formPedidos h1,
+#formPedidos p {
+  margin: 0;
+  text-align: center;
+}
+#formPedidos img {
+  width: 6rem;
+  margin: 3rem auto;
+}
+#formPedidos .t {
+  font-size: 1.5rem;
+}
+#formPedidos .par {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+#formPedidos form label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+#formPedidos form input {
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 0.15rem solid var(--newgray);
+  outline: none;
+}
+#formPedidos form button {
+  margin-top: 1rem;
+  border: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  outline: none;
+}
+
+#formPedidos form button:hover {
+  filter: brightness(0.9);
+}
+
+#listOrdersShipping {
+  width: calc(100% - 23rem);
+  border-radius: 1rem;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 4rem;
+  display: none;
+}
+#listOrdersShipping .title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+#listOrdersShipping .order {
+  border: 0.1rem solid var(--newgray);
+  border-radius: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+#listOrdersShipping .order .head {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid var(--newgray);
+  background-color: #d5d5d536;
+}
+#listOrdersShipping .order .head .orderNum,
+#listOrdersShipping .order .head .track {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--black);
+}
+#listOrdersShipping .order .head .orderNum span,
+#listOrdersShipping .order .head .track span {
+  font-weight: 600;
+}
+#listOrdersShipping .order .head .agencia {
+  display: flex;
+}
+#listOrdersShipping .order .head .agencia img {
+  width: 9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+#listOrdersShipping .order .cont {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--white);
+  gap: 2rem;
+}
+#listOrdersShipping .order .cont .info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+}
+#listOrdersShipping .order .cont .info .fecha {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+#listOrdersShipping .order .cont .info .status {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+#listOrdersShipping .order .cont .info .name,
+#listOrdersShipping .order .cont .info .doc {
+  font-size: 0.9rem;
+}
+#listOrdersShipping .order .cont .info .name span,
+#listOrdersShipping .order .cont .info .doc span {
+  font-weight: 600;
+}
+#listOrdersShipping .order .cont .actions {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  gap: 1rem;
+  justify-content: center;
+}
+#listOrdersShipping .order .cont .actions .btn {
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+#listOrdersShipping .order .cont .actions .btn:nth-child(1) {
+  background-color: #ef8229;
+}
+#listOrdersShipping .order .cont .actions .btn:nth-child(2) {
+  background-color: #869ba7;
+}
+#orderInfo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 2;
+}
+
+#orderInfo .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35rem;
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding: 2rem;
+  transform: translate(-50%, -50%);
+}
+#orderInfo .content .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#orderInfo .content .head .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+#orderInfo .content .head .title span {
+  font-weight: 600;
+}
+#orderInfo .content .head .estado-actual {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--primary);
+  border-radius: 2rem;
+  color: var(--white);
+  padding: 0.5rem 1rem;
+}
+#orderInfo .content .status {
+  display: flex;
+  flex-direction: column;
+}
+#orderInfo .content .status .fases {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 1rem 0;
+}
+#orderInfo .content .status .fases .st {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #e3e3e3;
+  border-radius: 1rem;
+  z-index: 1;
+}
+#orderInfo .content .status .fases .bar {
+  height: 0.5rem;
+  width: 50%;
+  background-color: #e3e3e3;
+  margin: 0 -0.5rem;
+}
+#orderInfo .content .status .fases .st.activo,
+#orderInfo .content .status .fases .bar.activo {
+  background-color: #50d366;
+}
+
+#orderInfo .content .status .names {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+#orderInfo .content .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+#orderInfo .content .info p,
+#orderInfo .content .info h1 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+#orderInfo .content .info .cod span,
+#orderInfo .content .info .dat1 p span,
+#orderInfo .content .info .line .fas .date {
+  font-weight: 600;
+}
+#orderInfo .content .info .dat1 {
+  display: flex;
+  gap: 1rem;
+}
+#orderInfo .content .info .dat1 .ori,
+#orderInfo .content .info .dat1 .des {
+  width: 50%;
+}
+#orderInfo .content .info .line {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+#orderInfo .content .info .line .fas {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
+#orderInfo .content .info .line .fas .status {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+#orderInfo .content .info .line .fas .status img {
+  width: 2.5rem;
+}
+#orderInfo .content .info .line .fas .dash {
+  width: 6rem;
+  border-top: 0.1rem dashed;
+  border: 0.01rem dashed #a1a1a1;
+}
+#orderInfo .content .loaders {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 2;
+  display: none;
+}
+#orderInfo .content .loaders::before {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  border-top: 8px solid #ed6b22;
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Comienza en 0 grados */
+  }
+  100% {
+    transform: rotate(360deg); /* Rota 360 grados */
+  }
+}
+
+#registerTrackings {
+  display: flex;
+  font-size: 0.9rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4rem 0 6rem 0;
+  gap: 1rem;
+}
+
+#registerTrackings .form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35rem;
+  background-color: var(--white);
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem #dddddd;
+  padding: 2rem;
+  border-radius: 1rem;
+  justify-content: space-between;
+}
+#registerTrackings .form div {
+  display: flex;
+}
+#registerTrackings .form .title {
+  font-size: 1.4rem;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+#registerTrackings .form .order,
+#registerTrackings .form .phone {
+  width: 40%;
+  margin-bottom: 1rem;
+}
+#registerTrackings .form .doc,
+#registerTrackings .form .name {
+  width: 58%;
+  margin-bottom: 1rem;
+}
+#registerTrackings .form .agen {
+  width: 28%;
+}
+#registerTrackings .form .track {
+  width: 70%;
+  justify-content: space-between;
+}
+#registerTrackings .form #error-register{
+  width: 100%;
+}
+#registerTrackings .form #error-register p{
+  text-align: center;
+  color: red;
+  font-size: .9rem;
+  font-weight: 600;
+  margin: 1rem auto -1rem auto;
+  line-height: 1;
+}
+#registerTrackings .form #error-register p.true{
+  color: rgb(11, 199, 73);
+}
+#registerTrackings .form .order input,
+#registerTrackings .form .doc input,
+#registerTrackings .form .name input,
+#registerTrackings .form .phone input,
+#registerTrackings .form .agen select,
+#registerTrackings .form .track .sp,
+#registerTrackings .form .track input {
+  border: 0.1rem solid var(--newgray);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+}
+#registerTrackings .form .track input,
+#registerTrackings .form .track .sp {
+  width: 49%;
+}
+#registerTrackings .form .agen-tit {
+  font-size: 1rem;
+  font-weight: 1rem;
+  width: 100%;
+  margin: 0;
+  font-weight: 500;
+}
+#registerTrackings .form .ins {
+  width: 100%;
+  margin: 2rem 0 0 0;
+  border: 0;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
 }

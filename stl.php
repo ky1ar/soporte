@@ -25,7 +25,7 @@ require_once 'includes/common/header.php';
                         <input type="email" maxlength="35" placeholder="Correo Electrónico (@gmail.com)*" name="correo" required>
                         <input type="tel" maxlength="11" placeholder="DNI/RUC" name="documento" required>
                         <input type="tel" maxlength="9" placeholder="N° Celular" name="celular" required>
-                        <input type="text" maxlength="11" placeholder="N° de Boleta o Factura (B002-012345)*" name="comprobante" required>
+                        <input type="text" maxlength="15" placeholder="N° de Boleta o Factura (B002-012345)*" name="comprobante" required>
                         <div id="mensajeregistroFormStls"></div>
                     </div>
                     <input type="submit" value="Regístrate">
