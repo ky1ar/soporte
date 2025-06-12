@@ -493,27 +493,32 @@ $(document).ready(function () {
     let orderNumber = $("#orderNumber").val();
     let document = $("#document").val();
 
-    if (!validateorderNumber(orderNumber) || !validateDocument(document)) {
-      return;
-    }
+    if (!validateorderNumber(orderNumber) || !validateDocument(document)) return;
 
     $.ajax({
       type: "POST",
-      url: "routes/searchOrder",
-      data: {
-        orderNumber: orderNumber,
+      url: "https://api.krear3d.com/support/consult",
+      data: JSON.stringify({
+        order_number: orderNumber,
         document: document,
-      },
+      }),
+      contentType: "application/json",
       success: function (response) {
-        let jsonData = JSON.parse(response);
-        if (jsonData.success) {
-          window.location.href = "order?number=" + orderNumber;
+        if (response.success) {
+          localStorage.setItem("orderData", JSON.stringify(response.data));
+          window.location.href = "order";
         } else {
-          message(searchOrderMessage, jsonData.message);
+          message(searchOrderMessage, response.data?.message || "No se encontró la orden.");
         }
       },
       error: function (xhr, status, error) {
         console.error("Error:", error);
+        try {
+          const response = JSON.parse(xhr.responseText);
+          message(searchOrderMessage, response.data?.message || "Error al procesar la solicitud.");
+        } catch {
+          message(searchOrderMessage, "Error de conexión con el servidor.");
+        }
       },
     });
   });
