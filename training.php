@@ -165,7 +165,7 @@ if (isset($_SESSION['user_id'])) {
                                 <?php $sql = "SELECT id, name 
                                                 FROM Users 
                                                 WHERE (levels = 2 OR levels = 3) 
-                                                AND id IN (1, 2, 324, 638, 792) 
+                                                AND id IN (1, 855, 324, 638, 792) 
                                                 ORDER BY name";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()): ?>
