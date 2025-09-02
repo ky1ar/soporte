@@ -16,8 +16,8 @@
         <a href="mailto:soporte@krear3d.com" target="_blank" rel="nofollow">
             <img src="assets/img/eml.svg" width="16" height="16" alt="ico">soporte@krear3d.com
         </a>
-        <a href="https://maps.app.goo.gl/G7kBz2KCt965EPPF8" target="_blank" rel="nofollow">
+        <!-- <a href="https://maps.app.goo.gl/G7kBz2KCt965EPPF8" target="_blank" rel="nofollow">
             <img src="assets/img/map.svg" width="16" height="16" alt="ico">Calle Tutumo 116 - Surco
-        </a>
+        </a> -->
     </div>
 </div>
